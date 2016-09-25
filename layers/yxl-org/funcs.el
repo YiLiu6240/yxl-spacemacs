@@ -5,7 +5,7 @@
   (interactive)
   (org-agenda nil "0"))
 
-(defun yxl-org/config-general ()
+(defun yxl-org/setup-general ()
   (setq org-directory 'yxl/org-directory)
   ;; disable middle split
   (setq org-M-RET-may-split-line nil)
@@ -27,7 +27,7 @@
   ;; (setq org-fast-tag-selection-single-key t)
   (setq org-insert-heading-respect-content t))
 
-(defun yxl-org/config-capture ()
+(defun yxl-org/setup-capture ()
   (setq org-capture-templates
         '(("i" "life-inbox" entry
            (file+headline yxl/org-file-master "Inbox")
@@ -50,7 +50,7 @@
            (file+datetree yxl/org-log-file)
            "* %?\n  -- %U\n  %i\n"))))
 
-(defun yxl-org/config-keywords ()
+(defun yxl-org/setup-keywords ()
   (setq org-todo-keywords
         '((sequence
            "INBOX(i)"                   ;; ideas, undecided
@@ -102,7 +102,7 @@
           ("URGENT" . ?u) ("KEY" . ?k) ("HARD" . ?a) ("BONUS" . ?b)
           (:endgrouptag))))
 
-(defun yxl-org/config-agenda ()
+(defun yxl-org/setup-agenda ()
   ;; agenda file
   (setq org-agenda-files yxl/org-agenda-files)
   ;; agenda view: 1 month

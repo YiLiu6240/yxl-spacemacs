@@ -11,7 +11,7 @@
 
   ;; inject my own configs
   (with-eval-after-load 'org
-    (yxl-org/config-general)
-    (yxl-org/config-capture)
-    (yxl-org/config-keywords)
-    (yxl-org/config-agenda)))
+    (yxl-org/setup-general)
+    (yxl-org/setup-capture)
+    (yxl-org/setup-keywords)
+    (yxl-org/setup-agenda)))
