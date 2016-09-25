@@ -167,6 +167,7 @@
   (add-to-list 'custom-theme-load-path "~/.spacemacs.d/theme/yxl-theme/")
 
   (load-file (concat dotspacemacs-directory "config/hack.el"))
+  (load-file (concat dotspacemacs-directory "config/init-config.el"))
 
 )
 
