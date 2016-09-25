@@ -6,7 +6,8 @@
                           magic-latex-buffer
                           markdown-mode
                           writeroom-mode
-                          writegood-mode))
+                          writegood-mode
+                          bing-dict))
 
 (defun yxl-text/post-init-auctex ()
   (with-eval-after-load 'latex
@@ -150,6 +151,9 @@
     :config
     (progn
       (setq gscholar-bibtex-default-source "Google Scholar")
+      (gscholar-bibtex-source-on-off :off "IEEE Xplore")
+      (gscholar-bibtex-source-on-off :off "ACM Digital Library")
+      (gscholar-bibtex-source-on-off :off "DBLP")
       (setq gscholar-bibtex-database-file yxl/file-bib))))
 
 (defun yxl-text/post-init-markdown-mode ()
@@ -187,3 +191,9 @@
 (defun yxl-text/init-writegood-mode ()
   (use-package writegood-mode
     :defer t))
+
+(defun yxl-text/init-bing-dict ()
+  (use-package bing-dict
+    :defer t
+    :init
+    (spacemacs/set-leader-keys "ocd" 'bing-dict-brief)))
