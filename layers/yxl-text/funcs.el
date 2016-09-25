@@ -14,6 +14,7 @@ in the project root directory. "
     (yxl-text/find-TeX-master)))
 
 (defun yxl-text/evil-surround-pairs ()
+  "press viw then press the trigger key"
   (push '(?m . ("\\\(" . "\\\)")) evil-surround-pairs-alist)
   (push '(?M . ("\\\( " . " \\\)")) evil-surround-pairs-alist)
   (push '(?n . ("\\[" . "\\]")) evil-surround-pairs-alist)
@@ -21,3 +22,54 @@ in the project root directory. "
   (push '(?s . ("[" . "]")) evil-surround-pairs-alist)
   (push '(?q . ("\"" . "\"")) evil-surround-pairs-alist)
   (push '(?w . ("'" . "'")) evil-surround-pairs-alist))
+
+(defun yxl-text/setup-latex-general ()
+  "my general latex settings"
+  ;; extra line padding
+  (add-hook 'LaTeX-mode-hook (lambda ()
+                             (setq line-spacing 4)))
+  (setq-default font-latex-fontify-script nil)
+  (setq-default TeX-newline-function 'reindent-then-newline-and-indent)
+  (setq LaTeX-fill-excluded-macros '("hide" "comment"))
+  ;; latex section hierachy:
+  ;; 0 - part; 1 - chapter; 2 - section; 3 - subsection; 4 - subsubsection;
+  ;; 5 - paragraph; 6 - subparagraph
+  (setq TeX-outline-extra '(("^%% " 2)
+                            ("^%%% " 3)
+                            ("^%%%% " 4))))
+
+(defun yxl-text/setup-latex-custom ()
+  "custom auctex settings"
+  (defface yxl-latex-font-hide
+    '((t (:foreground "#4b798a" :slant italic)))
+    "should be visibly lighter than comments")
+  (defface yxl-latex-font-comment
+    '((t (:foreground "#54a070" :slant italic)))
+    "should be visibly lighter than comments")
+  (setq font-latex-user-keyword-classes
+        '(("citet" (("citet" "{")) 'yxl-latex-font-hide 'declaration)
+          ("citep" (("citep" "{")) 'yxl-latex-font-hide 'declaration)
+          ("shadow-comment" (("comment" "{")) 'yxl-latex-font-comment 'declaration)
+          ("shadow-hidden" (("hide" "{")) 'yxl-latex-font-hide 'declaration))))
+
+(defun yxl-text/setup-latex-pairs ()
+  "smartparens and evil-surround"
+  (add-hook 'LaTeX-mode-hook
+            (lambda ()
+              (push '(?z . ("``" . "''")) evil-surround-pairs-alist)
+              (push '(?\" . ("``" . "''")) evil-surround-pairs-alist)))
+
+  (with-eval-after-load 'smartparens
+    ;; REVIEW: why latex-mode work, but not LaTeX-mode ?
+    (sp-local-pair 'latex-mode "\\(" "\\)" :trigger "\\m ")
+    (sp-local-pair 'latex-mode "\\[" "\\]" :trigger "\\n ")
+    (sp-local-pair 'latex-mode "\\( " " \\)" :trigger "\\M ")
+    (sp-local-pair 'latex-mode "\\[ " " \\]" :trigger "\\N ")))
+
+(defun yxl-text/setup-latex-reftex ()
+  ;; set master file using directory variables
+  (setq-default TeX-master t)
+  (setq-default reftex-toc-split-windows-horizontally nil)
+  (setq-default reftex-toc-include-labels t)
+  (setq-default reftex-idle-time 0)
+  (setq-default reftex-ref-macro-prompt nil))

@@ -11,73 +11,22 @@
 
 (defun yxl-text/post-init-auctex ()
   (with-eval-after-load 'latex
-
-    ;; auctex settings
-    (setq-default font-latex-fontify-script nil)
-    (setq-default TeX-newline-function 'reindent-then-newline-and-indent)
-    (setq LaTeX-fill-excluded-macros '("hide" "comment"))
-    ;; latex section hierachy:
-    ;; 0 - part; 1 - chapter; 2 - section; 3 - subsection; 4 - subsubsection;
-    ;; 5 - paragraph; 6 - subparagraph
-    (setq TeX-outline-extra '(("^%% " 2)
-                              ("^%%% " 3)
-                              ("^%%%% " 4)))
-    ;; reftex settings
-    (setq-default TeX-master t) ;; set master file using directory variables
-    (setq-default reftex-toc-split-windows-horizontally nil)
-    (setq-default reftex-toc-include-labels t)
-    (setq-default reftex-idle-time 0)
-    (setq-default reftex-ref-macro-prompt nil)
-
-    ;; ---- custom faces ----
-    (defface yxl-latex-font-hide
-      '((t (:foreground "#4b798a" :slant italic)))
-      "should be visibly lighter than comments")
-    (defface yxl-latex-font-comment
-      '((t (:foreground "#54a070" :slant italic)))
-      "should be visibly lighter than comments")
-    (setq font-latex-user-keyword-classes
-          '(("citet" (("citet" "{")) 'yxl-latex-font-hide 'declaration)
-            ("citep" (("citep" "{")) 'yxl-latex-font-hide 'declaration)
-            ("shadow-comment" (("comment" "{")) 'yxl-latex-font-comment 'declaration)
-            ("shadow-hidden" (("hide" "{")) 'yxl-latex-font-hide 'declaration)))
-    ;; ----
-
-    ;; (evil-set-initial-state 'reftex-toc-mode 'evilified)
-    ;; (remove-hook 'TeX-mode-hook 'auto-fill-mode)
-    ;; NOTE: replaced by latex-extra
-    ;; (add-hook 'TeX-mode-hook 'outline-minor-mode)
-    (add-hook 'latex-mode-hook #'visual-line-mode)
-
-    ;; pairs -- smartparens and evil-surround
-    (add-hook 'tex-mode-hook
-              (lambda ()
-                (push '(?z . ("``" . "''")) evil-surround-pairs-alist)
-                (push '(?\" . ("``" . "''")) evil-surround-pairs-alist)))
-
-    (with-eval-after-load 'smartparens
-     (sp-local-pair 'latex-mode "\\(" "\\)" :trigger "\\m ")
-     (sp-local-pair 'latex-mode "\\[" "\\]" :trigger "\\n ")
-     (sp-local-pair 'latex-mode "\\( " " \\)" :trigger "\\M ")
-     (sp-local-pair 'latex-mode "\\[ " " \\]" :trigger "\\N "))
-    ;; ----
+    (yxl-text/setup-latex-general)
+    (yxl-text/setup-latex-custom)
+    (yxl-text/setup-latex-pairs)
+    (yxl-text/setup-latex-reftex)
 
     (spacemacs/declare-prefix-for-mode 'latex-mode "f" "fill")
     (spacemacs/set-leader-keys-for-major-mode 'latex-mode
       "ff" #'LaTeX-fill-region
-      "fb" #'LaTeX-fill-buffer)
-
-    (add-hook 'TeX-mode-hook (lambda ()
-                               (setq line-spacing 2)))))
+      "fb" #'LaTeX-fill-buffer)))
 
 (defun yxl-text/init-latex-extra ()
   (use-package latex-extra
     :defer t
     :init
     (progn
-      (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
-      ;; (remove-hook 'latex-extra-mode-hook #'latex/setup-auto-fill)
-      )
+      (add-hook 'LaTeX-mode-hook #'latex-extra-mode))
     :config
     (progn
       (define-key latex-extra-mode-map (kbd "C-<tab>") #'latex/hide-show))))
