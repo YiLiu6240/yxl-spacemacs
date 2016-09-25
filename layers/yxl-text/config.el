@@ -1,5 +1,8 @@
-(defvar yxl-text-outline-file nil
+(defvar yxl-text-outline-file yxl/org-file-work
   "outline file for a tex directory, default is nil")
+
+(defvar yxl-text-note-file yxl/file-note-master
+  "note file of a project, if not set, revert to master note file")
 
 (with-eval-after-load 'text-mode
   (add-hook 'text-mode-hook 'visual-line-mode)

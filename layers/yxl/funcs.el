@@ -223,9 +223,18 @@ when C-u, visit work org; when C-u 1, visit both in a dual pane. "
   (interactive)
   (find-file yxl/org-file-work))
 
+;; TODO: change to org version as in capture template
 (defun yxl/find-file-diary ()
   (interactive)
   (find-file diary-file))
+
+(defun yxl/find-file-note ()
+  (interactive)
+  (find-file yxl-text-note-file))
+
+(defun yxl/find-file-note-master ()
+  (interactive)
+  (find-file yxl/file-note-master))
 
 (defun yxl/change-window-width (width)
   (interactive "nwindow width: ")

@@ -35,17 +35,25 @@
   ;; org capture
   (with-eval-after-load 'org
     (setq org-capture-templates
-          '(("i" "life-inbox" entry (file+headline yxl/org-file-master "Inbox")
+          '(("i" "life-inbox" entry
+             (file+headline yxl/org-file-master "Inbox")
              "* INBOX %?\n  %i\n")
-            ("t" "life-todo" entry (file+headline yxl/org-file-master "Inbox")
+            ("t" "life-todo" entry
+             (file+headline yxl/org-file-master "Inbox")
              "* TODO %?\n  %i\n")
-            ("c" "config" entry (file+headline yxl/org-file-master "Config")
+            ("c" "config" entry
+             (file+headline yxl/org-file-master "Config")
              "* INBOX %?\n  %i\n")
-            ("I" "work-inbox" entry (file+headline yxl/org-file-work "Inbox")
+            ("n" "quick note" item
+             (file+headline yxl/file-note-master "Quick Notes"))
+            ("I" "work-inbox" entry
+             (file+headline yxl/org-file-work "Inbox")
              "* INBOX %?\n  %i\n")
-            ("T" "work-todo" entry (file+headline yxl/org-file-work "Inbox")
+            ("T" "work-todo" entry
+             (file+headline yxl/org-file-work "Inbox")
              "* TODO %?\n  %i\n")
-            ("l" "logs" entry (file+datetree yxl/org-log-file)
+            ("l" "logs" entry
+             (file+datetree yxl/org-log-file)
              "* %?\n  -- %U\n  %i\n"))))
 
   ;; org keywords

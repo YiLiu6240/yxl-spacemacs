@@ -23,6 +23,8 @@
   "ofO" #'yxl/find-file-org-work
   "ofd" #'yxl/find-file-diary
   "ofs" #'spacemacs/find-dotfile
+  "ofn" #'yxl/find-file-note
+  "ofN" #'yxl/find-file-note-master
   "ofm" #'yxl-text/find-TeX-master
   "ofu" #'yxl-text/find-outline-file
 
