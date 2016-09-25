@@ -161,10 +161,12 @@
    ))
 
 (defun dotspacemacs/user-init ()
-  (add-to-list 'load-path "~/.spacemacs.d/hack")
+  (add-to-list 'load-path "~/.spacemacs.d/config")
   (add-to-list 'load-path "~/.spacemacs.d/theme/yxl-theme/")
+
   (add-to-list 'custom-theme-load-path "~/.spacemacs.d/theme/yxl-theme/")
-  (load-file (concat dotspacemacs-directory "hack/hack.el"))
+
+  (load-file (concat dotspacemacs-directory "config/hack.el"))
 
 )
 
@@ -172,7 +174,7 @@
   ;; --------
   ;; general
   ;; --------
-  (load-file (concat dotspacemacs-directory "hack/yxl-keys.el"))
+  (load-file (concat dotspacemacs-directory "config/yxl-keys.el"))
   ;; emacs general
    ;; osx
   (setq-default mac-option-modifier 'super
