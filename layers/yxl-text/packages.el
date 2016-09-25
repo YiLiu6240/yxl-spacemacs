@@ -47,19 +47,19 @@
     ;; (remove-hook 'TeX-mode-hook 'auto-fill-mode)
     ;; NOTE: replaced by latex-extra
     ;; (add-hook 'TeX-mode-hook 'outline-minor-mode)
-    (add-hook 'LaTeX-mode-hook #'visual-line-mode)
+    (add-hook 'latex-mode-hook #'visual-line-mode)
 
     ;; pairs -- smartparens and evil-surround
-    (add-hook 'TeX-mode-hook
+    (add-hook 'tex-mode-hook
               (lambda ()
                 (push '(?z . ("``" . "''")) evil-surround-pairs-alist)
                 (push '(?\" . ("``" . "''")) evil-surround-pairs-alist)))
 
     (with-eval-after-load 'smartparens
-     (sp-local-pair 'LaTeX-mode "\\(" "\\)" :trigger "\\m ")
-     (sp-local-pair 'LaTeX-mode "\\[" "\\]" :trigger "\\n ")
-     (sp-local-pair 'LaTeX-mode "\\( " " \\)" :trigger "\\M ")
-     (sp-local-pair 'LaTeX-mode "\\[ " " \\]" :trigger "\\N "))
+     (sp-local-pair 'latex-mode "\\(" "\\)" :trigger "\\m ")
+     (sp-local-pair 'latex-mode "\\[" "\\]" :trigger "\\n ")
+     (sp-local-pair 'latex-mode "\\( " " \\)" :trigger "\\M ")
+     (sp-local-pair 'latex-mode "\\[ " " \\]" :trigger "\\N "))
     ;; ----
 
     (spacemacs/declare-prefix-for-mode 'latex-mode "f" "fill")
