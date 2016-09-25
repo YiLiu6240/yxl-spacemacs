@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: disp-math
+# key: d
+# --
+\\[$1\\]

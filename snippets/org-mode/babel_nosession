@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: babel_nosession
+# key: bbn
+# --
+#+begin_src $1 :exports both :results output code
+$0
+#+end_src
