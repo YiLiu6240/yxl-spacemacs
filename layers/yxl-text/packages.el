@@ -8,7 +8,8 @@
                           markdown-mode
                           writeroom-mode
                           writegood-mode
-                          bing-dict))
+                          bing-dict
+                          synonyms))
 
 (defun yxl-text/init-text-mode ()
   (use-package text-mode
@@ -160,3 +161,11 @@
     :defer t
     :init
     (spacemacs/set-leader-keys "ocd" 'bing-dict-brief)))
+
+(defun yxl-text/init-synonyms ()
+  (use-package synonyms
+    :defer t
+    :init
+    (progn
+      (setq synonyms-file "~/Dropbox/dict/mthesaur.txt")
+      (setq synonyms-cache-file "~/Dropbox/dict/mthesaur.txt.cache"))))
