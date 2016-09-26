@@ -41,3 +41,9 @@
   (interactive)
   (helm :sources '(yxl-helm-quick-sources)
         :buffer "*helm yxl quick*"))
+
+(defun yxl/helm-pdf-occur ()
+  (interactive)
+  (helm :sources '(yxl-helm-pdf-occur-sources-preset
+                   yxl-helm-pdf-occur-sources-all)
+        :buffer "*helm yxl pdf occur"))

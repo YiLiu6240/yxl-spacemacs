@@ -65,12 +65,6 @@ The colors are determined by the variable
   (interactive)
   (pdf-occur yxl-pdf-occur-preset-all t))
 
-(defun yxl/helm-pdf-occur ()
-  (interactive)
-  (helm :sources '(yxl-helm-pdf-occur-sources-preset
-                   yxl-helm-pdf-occur-sources-all)
-        :buffer "*helm yxl pdf occur"))
-
 (defun zilong/elfeed-mark-all-as-read ()
   (interactive)
   (mark-whole-buffer)

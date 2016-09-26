@@ -30,3 +30,15 @@
                        ("code" . yxl/workspace-code)
                        ("paper" . yxl/workspace-paper)))
         (action . (("open" . (lambda (x) (call-interactively x)))))))
+
+(setq yxl-helm-pdf-occur-sources-preset
+      '((name . "pdf preset keywords")
+        (candidates . yxl-pdf-occur-preset)
+        (action . (("Search" . (lambda (x)
+                                 (interactive)
+                                 (pdf-occur x t)))))))
+
+(setq yxl-helm-pdf-occur-sources-all
+      `((name . "all keywords")
+        (candidates . (("all" . yxl/pdf-occur-search-preset)))
+        (action . (("open" . (lambda (x) (call-interactively x)))))))
