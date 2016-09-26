@@ -55,6 +55,8 @@
       "_" #'projectile-dired
       "gg" #'yxl/pdf-view-goto-first-page
       "G" #'yxl/pdf-view-goto-page
+      "e" #'pdf-view-scroll-down-or-previous-page
+      "d" #'pdf-view-scroll-up-or-next-page
       "j"  #'pdf-view-next-line-or-next-page
       "k"  #'pdf-view-previous-line-or-previous-page
       "l"  #'image-forward-hscroll
@@ -70,6 +72,8 @@
       "-" #'pdf-view-shrink
       "gg" #'yxl/pdf-view-goto-first-page
       "G" #'yxl/pdf-view-goto-page
+      "os" #'yxl/helm-pdf-occur
+      "oS" #'yxl/pdf-occur-search-preset
       "n" #'pdf-view-midnight-minor-mode
       "N" #'pdf-view-darknight-minor-mode
       "d" #'pdf-view-midday-minor-mode)))
