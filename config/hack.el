@@ -81,6 +81,13 @@
   (insert "                  ")
   (insert " ")
   (widget-create 'push-button
+                 :tag (propertize "yxl/frame-setup" 'face 'font-lock-comment-face)
+                 :action (lambda (&rest ignore) (yxl/frame-setup))
+                 :mouse-face 'highlight)
+  (insert "\n\n")
+  (insert "                  ")
+  (insert " ")
+  (widget-create 'push-button
                  :tag (propertize "Agenda: work" 'face 'font-lock-type-face)
                  :action (lambda (&rest ignore) (yxl/org-agenda-work))
                  :mouse-face 'highlight)

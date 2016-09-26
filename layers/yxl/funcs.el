@@ -5,38 +5,57 @@
   (delete-other-windows))
 
 ;; frame functions
+
 (defun set-frameGroup-Code ()
   (interactive)
   (set-frame-name "Code")
   (message "Frame set to %s" "Code"))
+
 (defun set-frameGroup-REPL ()
   (interactive)
   (set-frame-name "REPL")
   (message "Frame set to %s" "REPL"))
+
 (defun set-frameGroup-Meta ()
   (interactive)
   (set-frame-name "Meta")
   (message "Frame set to %s" "Meta"))
+
 (defun set-frameGroup-Config ()
   (interactive)
   (set-frame-name "Config")
   (message "Frame set to %s" "Config"))
+
 (defun select-frameGroup-Code ()
   (interactive)
   (select-frame-by-name "Code")
   (message "select Frame %s" "Code"))
+
 (defun select-frameGroup-REPL ()
   (interactive)
   (select-frame-by-name "REPL")
   (message "select Frame %s" "REPL"))
+
 (defun select-frameGroup-Meta ()
   (interactive)
   (select-frame-by-name "Meta")
   (message "select Frame %s" "Meta"))
+
 (defun select-frameGroup-Config ()
   (interactive)
   (select-frame-by-name "Config")
   (message "select Frame %s" "Config"))
+
+(defun yxl/frame-setup ()
+  (interactive)
+  ;; (spacemacs/toggle-fullscreen-frame-on)
+  (set-frameGroup-Code)
+  (make-frame)
+  (set-frameGroup-Meta)
+  (make-frame)
+  (set-frameGroup-REPL)
+  (make-frame)
+  (set-frameGroup-Config))
 
 ;; custom layouts
 (defun yxl/custom-layout-1 ()
