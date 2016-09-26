@@ -61,6 +61,25 @@ The colors are determined by the variable
       (pdf-view-goto-page (prefix-numeric-value current-prefix-arg))
     (pdf-view-first-page)))
 
+(defun yxl/pdf-occur-search-preset0 ()
+  (interactive)
+  (let* ((curr-preset (concat yxl-pdf-occur-preset1 "\|"
+                              yxl-pdf-occur-preset2 "\|"
+                              yxl-pdf-occur-preset3)))
+    (pdf-occur curr-preset t)))
+
+(defun yxl/pdf-occur-search-preset1 ()
+  (interactive)
+  (pdf-occur yxl-pdf-occur-preset1 t))
+
+(defun yxl/pdf-occur-search-preset2 ()
+  (interactive)
+  (pdf-occur yxl-pdf-occur-preset2 t))
+
+(defun yxl/pdf-occur-search-preset3 ()
+  (interactive)
+  (pdf-occur yxl-pdf-occur-preset3 t))
+
 (defun zilong/elfeed-mark-all-as-read ()
   (interactive)
   (mark-whole-buffer)
