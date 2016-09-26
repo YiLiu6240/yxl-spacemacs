@@ -51,6 +51,7 @@
      eyebrowse
      ;; semantic
      pandoc
+     gnus
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -163,6 +164,7 @@
 (defun dotspacemacs/user-init ()
   (add-to-list 'load-path "~/.spacemacs.d/config")
   (add-to-list 'load-path "~/.spacemacs.d/theme/yxl-theme/")
+  (add-to-list 'load-path "~/.spacemacs.d/site-lisp/")
 
   (add-to-list 'custom-theme-load-path "~/.spacemacs.d/theme/yxl-theme/")
 
@@ -303,6 +305,12 @@
   (define-key emacs-lisp-mode-map (kbd "C-<tab>") 'sp-indent-adjust-sexp)
   (define-key emacs-lisp-mode-map (kbd "C-S-<tab>") 'sp-dedent-adjust-sexp)
 
+  (require 'nnreddit "~/.spacemacs.d/site-lisp/nnreddit.el")
+  (with-eval-after-load 'gnus
+    (add-to-list 'gnus-secondary-select-methods
+                 '(nnreddit "")))
+  ;; (with-eval-after-load 'gnus
+  ;;  (gnus-group-unsubscribe-group "nnreddit:emacs"))
   ;; --------
   ;; misc configs
   ;; --------
