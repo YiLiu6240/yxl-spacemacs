@@ -61,14 +61,15 @@ The colors are determined by the variable
       (pdf-view-goto-page (prefix-numeric-value current-prefix-arg))
     (pdf-view-first-page)))
 
-(defun yxl/helm-pdf-occur ()
-  (interactive)
-  (helm :sources 'yxl-helm-pdf-occur-sources-preset
-        :buffer "*helm yxl pdf occur"))
-
 (defun yxl/pdf-occur-search-preset ()
   (interactive)
   (pdf-occur yxl-pdf-occur-preset-all t))
+
+(defun yxl/helm-pdf-occur ()
+  (interactive)
+  (helm :sources '(yxl-helm-pdf-occur-sources-preset
+                   yxl-helm-pdf-occur-sources-all)
+        :buffer "*helm yxl pdf occur"))
 
 (defun zilong/elfeed-mark-all-as-read ()
   (interactive)

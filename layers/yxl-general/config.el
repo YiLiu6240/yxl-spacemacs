@@ -17,10 +17,7 @@
                                  (interactive)
                                  (pdf-occur x t)))))))
 
-;; FIXME
-;; (setq yxl-helm-pdf-occur-sources-all
-;;       `((name . "pdf all keywords")
-;;         (candidates . yxl-pdf-occur-preset-all)
-;;         (action. (("Search" . (lambda (x)
-;;                                 (interactive)
-;;                                 (pdf-occur x t)))))))
+(setq yxl-helm-pdf-occur-sources-all
+      `((name . "all keywords")
+        (candidates . (("all" . yxl/pdf-occur-search-preset)))
+        (action . (("open" . (lambda (x) (call-interactively x)))))))
