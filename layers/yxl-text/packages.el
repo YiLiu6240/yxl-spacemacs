@@ -9,7 +9,8 @@
                           writeroom-mode
                           writegood-mode
                           bing-dict
-                          synonyms))
+                          synonyms
+                          helm-dictionary))
 
 (defun yxl-text/init-text-mode ()
   (use-package text-mode
@@ -83,10 +84,7 @@
       (setq bibtex-completion-notes-path "~/Dropbox/bib/bib_notes.org")
       (setq biblio-download-directory "~/Dropbox/bib/general")
       (setq bibtex-completion-library-path '("~/Dropbox/bib/general"
-                                             "~/Dropbox/bib/topic_tmp"))
-
-      (spacemacs/declare-prefix "oc" "cite")
-      (spacemacs/set-leader-keys "occ" #'helm-bibtex))
+                                             "~/Dropbox/bib/topic_tmp")))
     :config
     (progn
       (setq helm-bibtex-full-frame nil)
@@ -110,9 +108,6 @@
 (defun yxl-text/init-gscholar-bibtex ()
   (use-package gscholar-bibtex
     :defer t
-    :init
-    (progn
-      (spacemacs/set-leader-keys "ocg" #'gscholar-bibtex))
     :config
     (progn
       (setq gscholar-bibtex-default-source "Google Scholar")
@@ -159,9 +154,7 @@
 
 (defun yxl-text/init-bing-dict ()
   (use-package bing-dict
-    :defer t
-    :init
-    (spacemacs/set-leader-keys "ocd" 'bing-dict-brief)))
+    :defer t))
 
 (defun yxl-text/init-synonyms ()
   ;; REVIEW: why command "synonyms" not present?
@@ -171,3 +164,13 @@
     (progn
       (setq synonyms-file "~/Dropbox/dict/mthesaur.txt")
       (setq synonyms-cache-file "~/Dropbox/dict/mthesaur.txt.cache"))))
+
+(defun yxl-text/init-helm-dictionary ()
+  (use-package helm-dictionary
+    :defer t
+    ;; TODO: needs an offline dictionary
+    ;; TODO: configure online dictionaries for own preference
+    :config
+    (progn
+      (setq helm-dictionary-database "~/Dropbox/dict/english-chinese.xdxf"))
+    ))

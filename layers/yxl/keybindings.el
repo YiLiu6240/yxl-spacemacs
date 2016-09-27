@@ -9,6 +9,15 @@
   "oh" #'select-frameGroup-Meta
   "ol" #'select-frameGroup-Config
 
+  ;; cite
+  "occ" #'helm-bibtex
+  "ocg" #'gscholar-bibtex
+
+  ;; dictionary
+  "odd" #'helm-dictionary
+  "odb" #'bing-dict-brief
+  "ods" #'synonyms
+
   ;; frames
   "obb" #'ibuffer
   "obc" #'clone-indirect-buffer-other-window
@@ -94,12 +103,14 @@
   "oww" #'yxl/change-window-width)
 
 (spacemacs/declare-prefix "o" "user-customized")
-(spacemacs/declare-prefix "oi" "insert")
 (spacemacs/declare-prefix "ob" "buffer")
-(spacemacs/declare-prefix "of" "quick-files")
-(spacemacs/declare-prefix "oF" "Frames")
+(spacemacs/declare-prefix "oc" "cite")
 (spacemacs/declare-prefix "oC" "cheatsheet")
+(spacemacs/declare-prefix "od" "dictionary")
+(spacemacs/declare-prefix "oF" "Frames")
 (spacemacs/declare-prefix "oe" "ess")
+(spacemacs/declare-prefix "of" "quick-files")
+(spacemacs/declare-prefix "oi" "insert")
 (spacemacs/declare-prefix "om" "modes")
 (spacemacs/declare-prefix "oo" "org-mode")
 (spacemacs/declare-prefix "op" "quick-projects")
