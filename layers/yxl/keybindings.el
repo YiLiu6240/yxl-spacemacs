@@ -14,6 +14,7 @@
   "ocg" #'gscholar-bibtex
 
   ;; dictionary
+  "odd" #'helm-dictionary
   "odb" #'bing-dict-brief
   "ods" #'synonyms
 

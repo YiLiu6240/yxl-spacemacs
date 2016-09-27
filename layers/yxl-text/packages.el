@@ -9,7 +9,8 @@
                           writeroom-mode
                           writegood-mode
                           bing-dict
-                          synonyms))
+                          synonyms
+                          helm-dictionary))
 
 (defun yxl-text/init-text-mode ()
   (use-package text-mode
@@ -161,3 +162,13 @@
     (progn
       (setq synonyms-file "~/Dropbox/dict/mthesaur.txt")
       (setq synonyms-cache-file "~/Dropbox/dict/mthesaur.txt.cache"))))
+
+(defun yxl-text/init-helm-dictionary ()
+  (use-package helm-dictionary
+    :defer t
+    ;; TODO: needs an offline dictionary
+    ;; TODO: configure online dictionaries for own preference
+    :config
+    (progn
+      (setq helm-dictionary-database "~/Dropbox/dict/english-chinese.xdxf"))
+    ))
