@@ -89,6 +89,7 @@
       (spacemacs/set-leader-keys "occ" #'helm-bibtex))
     :config
     (progn
+      (setq helm-bibtex-full-frame nil)
       ;; rearrange helm-bibtex actions
       (helm-delete-action-from-source "Insert citation" helm-source-bibtex)
       (helm-delete-action-from-source "Insert BibTeX key" helm-source-bibtex)
@@ -163,6 +164,7 @@
     (spacemacs/set-leader-keys "ocd" 'bing-dict-brief)))
 
 (defun yxl-text/init-synonyms ()
+  ;; REVIEW: why command "synonyms" not present?
   (use-package synonyms
     :defer t
     :init
