@@ -83,10 +83,7 @@
       (setq bibtex-completion-notes-path "~/Dropbox/bib/bib_notes.org")
       (setq biblio-download-directory "~/Dropbox/bib/general")
       (setq bibtex-completion-library-path '("~/Dropbox/bib/general"
-                                             "~/Dropbox/bib/topic_tmp"))
-
-      (spacemacs/declare-prefix "oc" "cite")
-      (spacemacs/set-leader-keys "occ" #'helm-bibtex))
+                                             "~/Dropbox/bib/topic_tmp")))
     :config
     (progn
       ;; rearrange helm-bibtex actions
@@ -109,9 +106,6 @@
 (defun yxl-text/init-gscholar-bibtex ()
   (use-package gscholar-bibtex
     :defer t
-    :init
-    (progn
-      (spacemacs/set-leader-keys "ocg" #'gscholar-bibtex))
     :config
     (progn
       (setq gscholar-bibtex-default-source "Google Scholar")
@@ -158,9 +152,7 @@
 
 (defun yxl-text/init-bing-dict ()
   (use-package bing-dict
-    :defer t
-    :init
-    (spacemacs/set-leader-keys "ocd" 'bing-dict-brief)))
+    :defer t))
 
 (defun yxl-text/init-synonyms ()
   (use-package synonyms
