@@ -36,7 +36,8 @@ in the project root directory. "
   ;; 5 - paragraph; 6 - subparagraph
   (setq TeX-outline-extra '(("^%% " 2)
                             ("^%%% " 3)
-                            ("^%%%% " 4))))
+                            ("^%%%% " 4)
+                            ("^%%%%% " 5))))
 
 (defun yxl-text/setup-latex-custom ()
   "custom auctex settings"

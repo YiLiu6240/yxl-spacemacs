@@ -319,8 +319,7 @@
 
   ;; custom.el
   (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
-  (when (file-exists-p custom-file)
-    (load custom-file))
+  (load custom-file)
 
 
   ;; ---- end of dotspacemacs/user-config ----
