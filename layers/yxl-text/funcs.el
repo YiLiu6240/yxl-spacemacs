@@ -1,3 +1,4 @@
+;; TODO: move the find related functions to yxl, or to new layer yxl-proj
 (defun yxl-text/find-TeX-master ()
   "in order to set TeX-master, create a `.dir-locals.el' which contains
 in the project root directory. "
@@ -7,11 +8,21 @@ in the project root directory. "
       (find-file TeX-master)
     (message "TeX-master not set")))
 
-(defun yxl-text/find-outline-file ()
+(defun yxl-text/find-project-outline ()
   (interactive)
   (if (not (eq nil yxl-text-outline-file))
       (find-file yxl-text-outline-file)
     (yxl-text/find-TeX-master)))
+
+(defun yxl-text/find-project-root ()
+  "goto these location in order:
+master-dir, projectile-project-root, ~/Downloads"
+  (interactive)
+  (if (not (eq nil master-dir))
+      (find-file master-dir)
+    (if (not (eq nil (projectile-project-root)))
+        (find-file (projectile-project-root))
+      (find-file yxl/Downloads))))
 
 (defun yxl-text/evil-surround-pairs ()
   "press viw then press the trigger key"

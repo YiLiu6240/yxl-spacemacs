@@ -35,7 +35,8 @@
   "ofn" #'yxl/find-file-note
   "ofN" #'yxl/find-file-note-master
   "ofm" #'yxl-text/find-TeX-master
-  "ofu" #'yxl-text/find-outline-file
+  "ofM" #'yxl-text/find-project-root
+  "ofu" #'yxl-text/find-project-outline
 
   ;; Frame
   "oFM" #'make-frame
