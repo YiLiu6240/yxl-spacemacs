@@ -55,7 +55,19 @@
   (make-frame)
   (set-frameGroup-REPL)
   (make-frame)
-  (set-frameGroup-Config))
+  (set-frameGroup-Config)
+
+  (select-frameGroup-Meta)
+  (toggle-frame-fullscreen)
+  (sleep-for 0.5)
+  (select-frameGroup-REPL)
+  (toggle-frame-fullscreen)
+  (sleep-for 0.5)
+  (select-frameGroup-Code)
+  (toggle-frame-fullscreen)
+  (sleep-for 0.5)
+  (select-frameGroup-Config)
+  (toggle-frame-fullscreen))
 
 ;; custom layouts
 (defun yxl/custom-layout-1 ()
