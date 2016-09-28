@@ -203,7 +203,7 @@
   (setq-default evil-escape-excluded-major-modes '(magit-mode))
 
    ;; yas
-   (setq yas-snippet-dirs "~/dotfiles/.spacemacs.d/snippets")
+   (setq yas-snippet-dirs (expand-file-name "snippets" dotspacemacs-directory))
 
    ;; ---- indent ----
    (setq evil-shift-width 4
