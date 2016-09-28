@@ -76,7 +76,7 @@ enabled."
       (spaceline-define-segment yxl-simple-todo-task3-segment
         (when (not (eq yxl-simple-todo-task3 nil))
           (let* ((str yxl-simple-todo-task3))
-            (propertize str 'face 'font-lock-comment-face))))
+            (propertize str 'face 'font-lock-doc-face))))
 
       (spaceline-define-segment yxl-alarm-countdown-segment
         (when (not (eq alarm-countdown-remaining nil))
