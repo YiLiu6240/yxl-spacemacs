@@ -42,3 +42,6 @@
 (setq yxl/org-agenda-files
       (append yxl/org-agenda-files-life
               yxl/org-agenda-files-work))
+
+;; project stuff
+(defvar-local master-dir nil)
