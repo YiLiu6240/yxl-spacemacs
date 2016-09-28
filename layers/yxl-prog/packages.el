@@ -4,7 +4,9 @@
                           org
                           ob-ipython
                           company
-                          graphviz-dot-mode))
+                          graphviz-dot-mode
+                          imenu-anywhere
+                          ))
 
 (defun yxl-prog/init-prog-mode ()
   (use-package prog-mode
@@ -87,3 +89,15 @@
     (org-babel-do-load-languages
      'org-babel-load-languages
      '((ipython . t)))))
+
+(defun yxl-prog/init-imenu-anywhere ()
+  (use-package imenu-anywhere
+    :defer t
+    :init
+    (progn
+      (spacemacs/set-leader-keys "sJ" #'imenu-anywhere))
+    :config
+    (progn
+      ;; remove same-project-p, too confusing
+      (setq imenu-anywhere-buffer-filter-functions '(imenu-anywhere-same-mode-p
+                                                     imenu-anywhere-friendly-mode-p)))))
