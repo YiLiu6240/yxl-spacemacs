@@ -45,7 +45,13 @@
       (add-hook 'LaTeX-mode-hook #'latex-extra-mode))
     :config
     (progn
-      (define-key latex-extra-mode-map (kbd "C-<tab>") #'latex/hide-show))))
+      (setq latex/view-after-compile nil)
+      ;; REVIEW
+      (setq latex/no-fill-environments '("equation" "equation*" "align"
+                                         "align*" "tabular" "tikzpicture"))
+      (define-key latex-extra-mode-map (kbd "C-<tab>") #'latex/hide-show)
+      (define-key latex-extra-mode-map (kbd "C-S-<tab>") #'latex/hide-show-all)
+      (define-key latex-extra-mode-map (kbd "S-<tab>") nil))))
 
 (defun yxl-text/init-bibtex ()
   (use-package bibtex

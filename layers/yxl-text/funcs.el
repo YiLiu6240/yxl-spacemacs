@@ -42,6 +42,8 @@ master-dir, projectile-project-root, ~/Downloads"
   (setq-default font-latex-fontify-script nil)
   (setq-default TeX-newline-function 'reindent-then-newline-and-indent)
   (setq LaTeX-fill-excluded-macros '("hide" "comment"))
+  (setq latex-noindent-environments '("document" "equation" "equation*"
+                                      "align" "align*"))
   ;; latex section hierachy:
   ;; 0 - part; 1 - chapter; 2 - section; 3 - subsection; 4 - subsubsection;
   ;; 5 - paragraph; 6 - subparagraph
