@@ -321,6 +321,7 @@
   (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (load custom-file)
 
-
   ;; ---- end of dotspacemacs/user-config ----
   )
+
+;; (package-initialize)
