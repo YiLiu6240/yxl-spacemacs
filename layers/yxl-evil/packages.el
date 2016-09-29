@@ -10,7 +10,6 @@
   (with-eval-after-load 'evil
 
     ;; the evil way is to use "fd"
-    (setq-default evil-escape-key-sequence "fd")
     (define-key evil-insert-state-map (kbd "C-h") #'backward-delete-char-untabify)
     (define-key evil-insert-state-map (kbd "C-d") #'delete-forward-char)
     (define-key evil-insert-state-map (kbd "C-a") #'beginning-of-line-text)
@@ -31,10 +30,9 @@
     ;; mark: repalce with evil-middle-of-visual-line
     (define-key evil-motion-state-map "gm" #'evil-goto-mark)
     (define-key evil-motion-state-map "gt" #'eyebrowse-next-window-config)
-    (define-key evil-motion-state-map "gr" #'eyebrowse-prev-window-config)
-    ;; NOTE: needs to think about these
-    (define-key evil-motion-state-map "gq" #'evil-quit)
-    (define-key evil-motion-state-map "gw" #'evil-write)
+    (define-key evil-motion-state-map "gT" #'eyebrowse-prev-window-config)
+    (define-key evil-motion-state-map "gH" #'evil-first-non-blank)
+    (define-key evil-motion-state-map "gL" #'evil-end-of-line)
     ;; --------
     ;; "tab" navigation
     (define-key evil-motion-state-map "H" #'eyebrowse-prev-window-config)

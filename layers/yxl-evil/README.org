@@ -1,0 +1,24 @@
+* Bindings
+
+** general bindings
+- Do not bind ~j/k~ to navigate visual lines. It sacrifize navigation speed.
+- bind ~C-h/j/k/l~ to window movement.
+- ~H/L~ to tab/eyebrowse navigation
+- ~g~:
+  - ~gm~ to go to mark
+  - ~gH/L~ as ~^/$~
+- ~q~:
+  - disable default ~q~ behaviour, replaced by ~qM~
+  - record macro ~@~ bound to ~qm~ (I am using UK keyboards)
+  - ~qq~ as ~:q~
+  - ~qQ~ as ~:qwa~
+  - ~qw~ as ~:w~
+  - ~qW~ as ~:wa~
+
+** insert state bindings
+- As long as compatiblity with vim allows, remap insert state bindings to emacs style bindings, like ~C-n/p/f/b/a/e~ for navigations and ~C-h~ for backspace.
+
+** other bindings
+- ~<SPC> i <SPC>~ inserts lines above and below the current line
+- ~<SPC> i i~ inserts one space before current cursor
+- ~<SPC> i a~ inserts one space after current cursor
