@@ -119,7 +119,7 @@
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font `("Input Mono Narrow"
                                ;; :size 12
-                               :size ,(if (eq system-type 'darwin) 12 13)
+                               :size ,(if (eq system-type 'darwin) 12 12)
                                ;; :size ,(if (spacemacs/system-is-mswindows) 16 13)
                                :weight normal
                                :width normal
