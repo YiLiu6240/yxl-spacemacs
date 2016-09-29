@@ -58,7 +58,6 @@
                      spell-checking-enable-by-default nil)
      (syntax-checking :variables
                       syntax-checking-enable-by-default nil)
-
      ;; vim/evil mode --------
      unimpaired
      vinegar
@@ -230,6 +229,7 @@
                                 ("DONT" . "#2aa198")
                                 ("IDEA" . "#2aa198")
                                 ("FAIL" . "#dc322f")
+                                ("DOC" . "#dc322f")
                                 ("DONE" . "#586e75")
                                 ("NOTE" . "#859900")
                                 ("REVIEW" . "#859900")
