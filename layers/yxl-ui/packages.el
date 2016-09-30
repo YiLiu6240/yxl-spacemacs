@@ -7,8 +7,9 @@
 
       (setq dotspacemacs-mode-line-unicode-symbols nil
             spaceline-window-numbers-unicode nil
-            spaceline-workspace-numbers-unicode nil
-            powerline-default-separator 'arrow)
+            spaceline-workspace-numbers-unicode nil)
+      ;; (setq powerline-default-separator 'arrow)
+      (setq powerline-default-separator nil)
 
       (spaceline-define-segment workspace-number
         "The current workspace name or number. Requires `eyebrowse-mode' to be
@@ -81,7 +82,7 @@ enabled."
       (spaceline-define-segment yxl-alarm-countdown-segment
         (when (not (eq alarm-countdown-remaining nil))
           (let* ((str alarm-countdown-remaining))
-              (propertize str 'face 'font-lock-meta-face))))
+            (propertize str 'face 'font-lock-meta-face))))
 
       (spaceline-define-segment yxl-window-dedication-segment
         (let* ((dedicated (window-dedicated-p (selected-window)))
@@ -98,10 +99,9 @@ enabled."
       (spaceline-compile
        'yxl
        ;; Left side of the mode line (all the important stuff)
-       '((((workspace-number :when active) window-number)
-          :separator "|"
-          :face highlight-face)
-         (buffer-modified buffer-size buffer-id yxl-window-dedication-segment)
+       '(((window-number) :face highlight-face)
+         (workspace-number :when active)
+         (buffer-modified buffer-size buffer-id yxl-window-dedication-segment :tight)
          anzu
          ((yxl-simple-todo-task1-segment :when active)
           (yxl-simple-todo-task2-segment :when active)
