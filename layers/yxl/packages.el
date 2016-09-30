@@ -1,6 +1,7 @@
 (setq yxl-packages '((alarm :location local)
                      (simple-todo :location local)
-                     (scratch-pop)))
+                     scratch-pop
+                     bm))
 
 (defun yxl/init-alarm ()
   (use-package alarm
@@ -20,7 +21,13 @@
 
 (defun yxl/init-scratch-pop ()
   (use-package scratch-pop
+    :defer t))
+
+(defun yxl/init-bm ()
+  (use-package bm
     :defer t
-    :init
+    :config
     (progn
-      (spacemacs/set-leader-keys ".s" #'scratch-pop))))
+      (setq bm-repository-file
+            (expand-file-name "~/Dropbox/inbox/.bm-repository"))
+      (setq bm-cycle-all-buffers t))))

@@ -199,6 +199,12 @@
      `(avy-lead-face-1 ((,class (:background ,blue-bg :foreground ,magenta))))
      `(avy-lead-face-2 ((,class (:background ,blue-bg :foreground ,blue))))
 
+;;;;; bm
+     `(bm-face ((,class (:background "#245361" :foreground ,base))))
+     `(bm-fringe-face ((,class (:background "#245361" :foreground ,base))))
+     `(bm-persistent-face ((,class (:background "#d26937" :foreground "#0732642"))))
+     `(bm-fringe-persistent-face ((,class (:background "#d26937" :foreground "#073642"))))
+
 ;;;;; cider
      `(cider-enlightened ((,class (:background nil :box (:color ,yellow :line-width -1 :style nil) :foreground ,yellow))))
      `(cider-enlightened-local ((,class (:foreground ,yellow))))
@@ -500,6 +506,7 @@
      `(font-latex-sectioning-6-face ((,class (:foreground ,head4))))
      `(font-latex-string-face ((,class (:foreground ,str))))
      `(font-latex-sedate-face ((,class (:foreground ,comment))))
+     `(font-latex-warning-face ((,class (:foreground ,red))))
 
 ;;;;; linum-mode
      `(linum ((,class (:foreground ,lnum :background ,bg2))))

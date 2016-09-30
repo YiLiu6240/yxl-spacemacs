@@ -1,4 +1,14 @@
 (spacemacs/set-leader-keys
+  ".s" #'scratch-pop
+  ".mm" #'bm-toggle
+  ".mM" #'bm-toggle-buffer-persistence
+  ".mk" #'bm-previous
+  ".mj" #'bm-next
+  ".mK" #'bm-previous
+  ".mJ" #'bm-next
+  ".ms" #'bm-show
+  ".mS" #'bm-show-all
+
   ;; top-level quick actions
   "o1" #'select-frameGroup-Code
   "o2" #'select-frameGroup-REPL
@@ -35,7 +45,7 @@
   "ofn" #'yxl/find-file-note
   "ofN" #'yxl/find-file-note-master
   "ofm" #'yxl-text/find-TeX-master
-  "ofM" #'yxl-text/find-project-root
+  "ofr" #'yxl-text/find-project-root
   "ofu" #'yxl-text/find-project-outline
 
   ;; Frame
