@@ -1,5 +1,6 @@
 ;; -*- mode: emacs-lisp -*-
 
+;; (package-initialize)
 (defun dotspacemacs/layers ()
   (setq-default
    dotspacemacs-distribution 'spacemacs
@@ -323,5 +324,3 @@
 
   ;; ---- end of dotspacemacs/user-config ----
   )
-
-;; (package-initialize)
