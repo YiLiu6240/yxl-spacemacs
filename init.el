@@ -31,6 +31,7 @@
             latex-enable-auto-fill nil
             latex-enable-folding t)
      javascript
+     html
 
      ;; minor langs --------
      ipython-notebook
