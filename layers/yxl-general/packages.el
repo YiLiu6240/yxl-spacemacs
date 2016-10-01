@@ -12,8 +12,7 @@
                              projectile
                              magit
                              ibuffer
-                             neotree
-                             elfeed))
+                             neotree))
 
 (defun yxl-general/post-init-dired ()
   (with-eval-after-load 'dired
@@ -248,68 +247,3 @@
 (defun yxl-general/post-init-neotree ()
   (with-eval-after-load 'neotree
     (define-key neotree-mode-map "o" #'spacemacs/neotree-expand-or-open)))
-
-(defun yxl-general/post-init-elfeed ()
-  (with-eval-after-load 'elfeed
-
-    ;; disable images fetching by default
-    (add-hook 'elfeed-search-mode-hook (lambda ()
-                                         (setq shr-inhibit-images t)))
-    (add-hook 'elfeed-show-mode-hook (lambda ()
-                                         (setq shr-inhibit-images t)))
-
-    (unbind-key "b" elfeed-search-mode-map)
-    (unbind-key "b" elfeed-show-mode-map)
-
-    (evilified-state-evilify-map elfeed-search-mode-map
-      :mode elfeed-search-mode
-      :eval-after-load elfeed-search
-      :bindings
-      ",c"  #'elfeed-db-compact
-      ",gr" #'elfeed-update
-      ",gR" #'elfeed-search-update--force
-      ",gu" #'elfeed-unjam
-      "c" nil
-      "gr" nil
-      "gR" nil
-      "gu" nil
-      "o" #'elfeed-search-show-entry
-      "O" #'elfeed-search-browse-url
-      ",R" #'zilong/elfeed-mark-all-as-read
-      "m" #'yxl/elfeed-mark-as-read
-      "M" #'yxl/elfeed-mark-as-unread
-      ",tm" #'elfeed-toggle-shr-inhibit-images
-      "q"  #'quit-window
-      (kbd "C-h") #'windmove-left
-      (kbd "C-j") #'windmove-down
-      (kbd "C-k") #'windmove-up
-      (kbd "C-l") #'windmove-right
-      "H" #'eyebrowse-prev-window-config
-      "L" #'eyebrowse-next-window-config
-      "w"  nil
-      "W"  nil)
-    (evilified-state-evilify-map elfeed-show-mode-map
-      :mode elfeed-show-mode
-      :eval-after-load elfeed-show
-      :bindings
-      "q" #'quit-window
-      ",tm" #'elfeed-toggle-shr-inhibit-images
-      ",O" #'elfeed-search-browse-url
-      (kbd "C-h") #'windmove-left
-      (kbd "C-j") #'windmove-down
-      (kbd "C-k") #'windmove-up
-      (kbd "C-l") #'windmove-right
-      "H" #'eyebrowse-prev-window-config
-      "L" #'eyebrowse-next-window-config
-      (kbd "C-n") #'elfeed-show-next
-      (kbd "C-p") #'elfeed-show-prev)
-
-    ;; this is for test purposes
-    (spacemacs/set-leader-keys-for-major-mode 'elfeed-search-mode
-      "q" #'quit-window)
-
-    (defadvice elfeed-show-yank (after elfeed-show-yank-to-kill-ring activate compile)
-      "Insert the yanked text from x-selection to kill ring"
-      (kill-new (x-get-selection)))
-
-    (ad-activate 'elfeed-show-yank)))

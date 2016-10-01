@@ -11,7 +11,8 @@
 (setq yxl-web-packages
       '(w3m
         helm-w3m
-        sx))
+        sx
+        elfeed))
 
 (defun yxl-web/init-helm-w3m ()
   "Initializes helm-w3m and adds keybindings for its exposed functionalities."
@@ -125,3 +126,22 @@
                ("u" . sx-tab-unanswered-my-tags)
                ("a" . sx-ask)
                ("s" . sx-search))))
+
+(defun yxl-web/post-init-elfeed ()
+  (with-eval-after-load 'elfeed
+    ;; disable images fetching by default
+    (add-hook 'elfeed-search-mode-hook (lambda ()
+                                         (setq shr-inhibit-images t)))
+    (add-hook 'elfeed-show-mode-hook (lambda ()
+                                         (setq shr-inhibit-images t)))
+    (defalias 'elfeed-toggle-star
+      (elfeed-expose #'elfeed-search-toggle-all 'star))
+
+    (yxl-web/elfeed-bindings)
+    (yxl-web/elfeed-hydra-setup)
+
+    (defadvice elfeed-show-yank (after elfeed-show-yank-to-kill-ring activate compile)
+      "Insert the yanked text from x-selection to kill ring"
+      (kill-new (x-get-selection)))
+
+    (ad-activate 'elfeed-show-yank)))
