@@ -31,7 +31,7 @@
     (yxl-text/setup-latex-custom)
     (yxl-text/setup-latex-pairs)
     (yxl-text/setup-latex-reftex)
-
+    (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
     (spacemacs/declare-prefix-for-mode 'latex-mode "f" "fill")
     (spacemacs/set-leader-keys-for-major-mode 'latex-mode
       "ff" #'LaTeX-fill-region
@@ -40,12 +40,12 @@
 (defun yxl-text/init-latex-extra ()
   (use-package latex-extra
     :defer t
-    :init
-    (progn
-      (add-hook 'LaTeX-mode-hook #'latex-extra-mode))
     :config
     (progn
       (setq latex/view-after-compile nil)
+      ;; disable auto fill effect
+      (add-hook 'latex-extra-mode-hook (lambda ()
+                                         (setq auto-fill-function nil)))
       ;; REVIEW
       (setq latex/no-fill-environments '("equation" "equation*" "align"
                                          "align*" "tabular" "tikzpicture"))
@@ -140,13 +140,7 @@
     :defer t
     :init
     (progn
-      (spacemacs/set-leader-keys "axW" 'writeroom-mode)
-      (add-hook 'text-mode-hook
-                (lambda ()
-                  (setq writeroom-width 100)))
-      (add-hook 'latex-mode-hook
-                (lambda ()
-                  (setq writeroom-width 100)))
+      (spacemacs/set-leader-keys "axw" 'writeroom-mode)
       (setq-default writeroom-mode-line t)
       (setq-default writeroom-maximize-window nil))
     :config

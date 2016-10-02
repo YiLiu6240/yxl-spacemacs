@@ -39,8 +39,9 @@ master-dir, projectile-project-root, ~/Downloads"
   ;; extra line padding
   (add-hook 'LaTeX-mode-hook (lambda ()
                              (setq line-spacing 4)))
+  (remove-hook 'TeX-mode-hook #'auto-fill-mode)
   (setq-default font-latex-fontify-script nil)
-  (setq-default TeX-newline-function 'reindent-then-newline-and-indent)
+  ;; (setq-default TeX-newline-function 'reindent-then-newline-and-indent)
   (setq LaTeX-fill-excluded-macros '("hide" "comment"))
   (setq latex-noindent-environments '("document" "equation" "equation*"
                                       "align" "align*"))
