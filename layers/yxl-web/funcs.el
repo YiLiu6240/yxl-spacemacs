@@ -38,6 +38,7 @@
     "q" #'quit-window
     ;; ",tm" #'elfeed-toggle-shr-inhibit-images
     ;; ",O" #'elfeed-search-browse-url
+    "O"     #'elfeed-show-visit
     "J"     #'elfeed-show-next
     "K"     #'elfeed-show-prev
     (kbd "C-h") #'windmove-left
