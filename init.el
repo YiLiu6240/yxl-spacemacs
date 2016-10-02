@@ -6,9 +6,7 @@
    dotspacemacs-distribution 'spacemacs
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
-   '(
-     ;; general --------
-     better-defaults
+   '(better-defaults
 
      ;; major langs --------
      (c-c++ :variables
@@ -90,8 +88,7 @@
      helm-dash
      ;; window-purpose
 
-     yxl
-     )
+     yxl)
    dotspacemacs-additional-packages '(ereader)
    dotspacemacs-excluded-packages '(org-repo-todo
                                     org-bullets
