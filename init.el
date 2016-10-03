@@ -178,7 +178,7 @@
    ;; osx
   (setq-default mac-option-modifier 'super
                 mac-command-modifier 'meta)
-  (setq-default ns-use-srgb-colorspace nil)
+  (setq-default ns-use-srgb-colorspace t)
 
   ;; ui
   (setq neo-theme 'ascii

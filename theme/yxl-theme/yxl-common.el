@@ -44,10 +44,12 @@
         (act2          (if (eq variant 'dark) (if (true-color-p) "#073642" "#444444") (if (true-color-p) "#d3d3e7" "#afafd7")))
         ;; basic foreground color
         (base          (if (eq variant 'dark) (if (true-color-p) "#839496" "#b2b2b2") (if (true-color-p) "#655370" "#5f5f87")))
+        ;; (base          (if (eq variant 'dark) (if (true-color-p) "#74878c" "#b2b2b2") (if (true-color-p) "#655370" "#5f5f87")))
         ;; dimmed version of foreground color
         (base-dim      (if (eq variant 'dark) (if (true-color-p) "#545557" "#585858") (if (true-color-p) "#cdc5c8" "#afafd7")))
         ;; normal background color
-        (bg1           (if (eq variant 'dark) (if (true-color-p) "#132126" "#262626") (if (true-color-p) "#fbf8ef" "#ffffff")))
+        ;; (bg1           (if (eq variant 'dark) (if (true-color-p) "#132126" "#262626") (if (true-color-p) "#fbf8ef" "#ffffff")))
+        (bg1           (if (eq variant 'dark) (if (true-color-p) "#15262c" "#262626") (if (true-color-p) "#fbf8ef" "#ffffff")))
         ;; current line highlight
         (bg2           (if (eq variant 'dark) (if (true-color-p) "#132b34" "#1c1c1c") (if (true-color-p) "#efeae9" "#e4e4e4")))
         ;; darker shade of bg1
@@ -67,19 +69,19 @@
         ;; cursor/point ???
         (cursor        (if (eq variant 'dark) (if (true-color-p) "#e3dedd" "#d0d0d0") (if (true-color-p) "#100a14" "#121212")))
         ;; constant
-        (const         (if (eq variant 'dark) (if (true-color-p) "#268bd2" "#d75fd7") (if (true-color-p) "#4e3163" "#8700af")))
+        (const         (if (eq variant 'dark) (if (true-color-p) "#33859e" "#d75fd7") (if (true-color-p) "#4e3163" "#8700af")))
         ;; comment
         (comment       (if (eq variant 'dark) (if (true-color-p) "#586e75" "#008787") (if (true-color-p) "#2aa1ae" "#008787")))
         ;; comment bg
-        (comment-bg    (if (eq variant 'dark) (if (true-color-p) "#132126" "#262626") (if (true-color-p) "#ecf3ec" "#ffffff")))
+        (comment-bg    (if (eq variant 'dark) (if (true-color-p) "#15262c" "#262626") (if (true-color-p) "#ecf3ec" "#ffffff")))
         ;; complementary
         (comp          (if (eq variant 'dark) (if (true-color-p) "#b58900" "#d75fd7") (if (true-color-p) "#6c4173" "#8700af")))
         ;; errors
-        (err           (if (eq variant 'dark) (if (true-color-p) "#e0211d" "#e0211d") (if (true-color-p) "#e0211d" "#e0211d")))
+        (err           (if (eq variant 'dark) (if (true-color-p) "#dc322f" "#e0211d") (if (true-color-p) "#e0211d" "#e0211d")))
         ;; functions
-        (func          (if (eq variant 'dark) (if (true-color-p) "#268bd2" "#d75fd7") (if (true-color-p) "#6c3163" "#8700af")))
+        (func          (if (eq variant 'dark) (if (true-color-p) "#33859e" "#d75fd7") (if (true-color-p) "#6c3163" "#8700af")))
         ;; org lv1 heading
-        (head1         (if (eq variant 'dark) (if (true-color-p) "#b58900" "#875f00") (if (true-color-p) "#3a81c3" "#268bd2")))
+        (head1         (if (eq variant 'dark) (if (true-color-p) "#b58900" "#875f00") (if (true-color-p) "#3a81c3" "#33859e")))
         (head1-bg      (if (eq variant 'dark) (if (true-color-p) "#132b34" "#262626") (if (true-color-p) "#edf1ed" "#ffffff")))
         ;; org lv2 heading
         (head2         (if (eq variant 'dark) (if (true-color-p) "#2aa889" "#2aa198") (if (true-color-p) "#2d9574" "#2aa198")))
@@ -88,12 +90,12 @@
         (head3         (if (eq variant 'dark) (if (true-color-p) "#33859e" "#67b11d") (if (true-color-p) "#67b11d" "#5faf00")))
         (head3-bg      (if (eq variant 'dark) (if (true-color-p) "#293235" "#262626") (if (true-color-p) "#edf2e9" "#ffffff")))
         ;; org lv4 heading
-        (head4         (if (eq variant 'dark) (if (true-color-p) "#99d1ce" "#268bd2") (if (true-color-p) "#b1951d" "#875f00")))
+        (head4         (if (eq variant 'dark) (if (true-color-p) "#99d1ce" "#33859e") (if (true-color-p) "#b1951d" "#875f00")))
         (head4-bg      (if (eq variant 'dark) (if (true-color-p) "#32322c" "#262626") (if (true-color-p) "#f6f1e1" "#ffffff")))
         ;; highlighted area ???
         (highlight     (if (eq variant 'dark) (if (true-color-p) "#1d4250" "#444444") (if (true-color-p) "#d3d3e7" "#d7d7ff")))
         ;; keyword
-        (keyword       (if (eq variant 'dark) (if (true-color-p) "#859900" "#268bd2") (if (true-color-p) "#3a81c3" "#268bd2")))
+        (keyword       (if (eq variant 'dark) (if (true-color-p) "#859900" "#33859e") (if (true-color-p) "#3a81c3" "#33859e")))
         ;; line numbers
         (lnum          (if (eq variant 'dark) (if (true-color-p) "#44505c" "#444444") (if (true-color-p) "#a8a8bf" "#af87af")))
         ;; matched, matching parens, brackets, tags
@@ -113,7 +115,7 @@
         ;; type
         (type          (if (eq variant 'dark) (if (true-color-p) "#b58900" "#df005f") (if (true-color-p) "#ba2f59" "#af005f")))
         ;; variable
-        (var           (if (eq variant 'dark) (if (true-color-p) "#268bd2" "#8787d7") (if (true-color-p) "#715ab1" "#af5fd7")))
+        (var           (if (eq variant 'dark) (if (true-color-p) "#33859e" "#8787d7") (if (true-color-p) "#715ab1" "#af5fd7")))
         ;; warning
         (war           (if (eq variant 'dark) (if (true-color-p) "#dc752f" "#dc752f") (if (true-color-p) "#dc752f" "#dc752f")))
 
@@ -128,7 +130,7 @@
         (red           (if (eq variant 'dark) (if (true-color-p) "#dc322f" "#d70000") (if (true-color-p) "#f2241f" "#d70008")))
         (red-bg        (if (eq variant 'dark) (if (true-color-p) "#3c2a2c" "#262626") (if (true-color-p) "#faede4" "#ffffff")))
         (red-bg-s      (if (eq variant 'dark) (if (true-color-p) "#512e31" "#262626") (if (true-color-p) "#eed9d2" "#ffffff")))
-        (blue          (if (eq variant 'dark) (if (true-color-p) "#4f97d7" "#268bd2") (if (true-color-p) "#3a81c3" "#268bd2")))
+        (blue          (if (eq variant 'dark) (if (true-color-p) "#4f97d7" "#33859e") (if (true-color-p) "#3a81c3" "#33859e")))
         (blue-bg       (if (eq variant 'dark) (if (true-color-p) "#293239" "#262626") (if (true-color-p) "#edf1ed" "#d7d7ff")))
         ;; TODO: add violet
         (magenta       (if (eq variant 'dark) (if (true-color-p) "#a31db1" "#af00df") (if (true-color-p) "#a31db1" "#800080")))
@@ -506,7 +508,7 @@
      `(font-latex-sectioning-6-face ((,class (:foreground ,head4))))
      `(font-latex-string-face ((,class (:foreground ,str))))
      `(font-latex-sedate-face ((,class (:foreground ,comment))))
-     `(font-latex-warning-face ((,class (:foreground ,red))))
+     `(font-latex-warning-face ((,class (:foreground ,orange))))
 
 ;;;;; linum-mode
      `(linum ((,class (:foreground ,lnum :background ,bg2))))
@@ -742,7 +744,7 @@
      `(whitespace-trailing ((,class (:background ,err :foreground ,war))))
 
 ;;;;; whitespace-mode
-     '(w3m-anchor ((t (:foreground "#268bd2"))))
+     '(w3m-anchor ((t (:foreground "#33859e"))))
      '(w3m-arrived-anchor ((t (:foreground "#097aca"))))
      '(w3m-session-select ((t (:foreground "#839496"))))
      '(w3m-session-selected ((t (:foreground "#93a1a1" :bold t :underline t))))
