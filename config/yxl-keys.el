@@ -12,14 +12,4 @@
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
-  "wV" #'split-window-right
-  ;; TODO: change these after new version
-  "jb" #'avy-pop-mark
-  "jj" #'evil-avy-goto-char-2
-  "jJ" #'evil-avy-goto-char
-  "jl" #'evil-avy-goto-line
-  "ju" #'spacemacs/avy-goto-url
-  "jw" #'evil-avy-goto-word-or-subword-1
-  "js" #'sp-split-sexp
-  "jn" #'sp-newline
-  "xo" #'spacemacs/avy-open-url)
+  "wV" #'split-window-right)

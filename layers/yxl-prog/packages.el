@@ -5,8 +5,7 @@
                           ob-ipython
                           company
                           graphviz-dot-mode
-                          imenu-anywhere
-                          evil-ediff))
+                          imenu-anywhere))
 
 (defun yxl-prog/init-prog-mode ()
   (use-package prog-mode
@@ -101,6 +100,3 @@
       ;; remove same-project-p, too confusing
       (setq imenu-anywhere-buffer-filter-functions '(imenu-anywhere-same-mode-p
                                                      imenu-anywhere-friendly-mode-p)))))
-(defun yxl-prog/init-evil-ediff ()
-  (use-package evil-ediff
-    :defer t))
