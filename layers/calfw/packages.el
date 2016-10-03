@@ -23,8 +23,7 @@ which require an initialization must be listed explicitly in the list.")
        (cfw:open-calendar-buffer
         :contents-sources
         (list
-         (cfw:org-create-source "#268bd2")
-         (cfw:cal-create-source "#859900"))))
+         (cfw:org-create-source "#268bd2"))))
 
      (calendar-set-date-style 'iso)
 
