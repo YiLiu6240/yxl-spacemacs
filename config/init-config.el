@@ -32,16 +32,14 @@
       (concat yxl/org-directory "logs/" "log.org"))
 
 ;; org agenda
-(setq yxl/org-agenda-files-life
-      (list yxl/org-file-master
-            yxl/org-dotfile-repo-todo-file))
+(setq yxl/org-agenda-files-life (list yxl/org-file-master
+                                      yxl/org-dotfile-repo-todo-file))
 (setq yxl/org-agenda-files-work
       (list yxl/org-file-work
             (concat yxl/org-directory "tasks/" "proj_ctw.org")
             (concat yxl/org-directory "tasks/" "proj_bham.org")))
-(setq yxl/org-agenda-files
-      (append yxl/org-agenda-files-life
-              yxl/org-agenda-files-work))
+(setq yxl/org-agenda-files (append yxl/org-agenda-files-life
+                                   yxl/org-agenda-files-work))
 
 ;; project stuff
 (defvar-local master-dir nil)
