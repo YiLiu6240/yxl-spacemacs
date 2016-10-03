@@ -6,7 +6,7 @@
                           gscholar-bibtex
                           magic-latex-buffer
                           markdown-mode
-                          writeroom-mode
+                          ;; writeroom-mode
                           writegood-mode
                           bing-dict
                           synonyms
