@@ -1,5 +1,5 @@
 (spacemacs/set-leader-keys
-  ".s" #'scratch-pop
+  ".s"  #'scratch-pop
   ".mm" #'bm-toggle
   ".mM" #'bm-toggle-buffer-persistence
   ".mk" #'bm-previous
@@ -8,6 +8,10 @@
   ".mJ" #'bm-next
   ".ms" #'bm-show
   ".mS" #'bm-show-all
+  ".ww" #'window-configuration-to-register
+  ".wj" #'jump-to-register
+  ".Ss" #'session-save
+  ".Sl" #'session-load
 
   ;; top-level quick actions
   "o1" #'select-frameGroup-Code

@@ -12,4 +12,5 @@
                                       yxl-ess
                                       yxl-org
                                       yxl-web
-                                      yxl-helm))
+                                      yxl-helm
+                                      yxl-workspace))
