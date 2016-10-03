@@ -20,7 +20,7 @@
     :commands (helm-w3m-bookmarks)
     :init
     (progn
-      (evil-leader/set-key
+      (spacemacs/set-leader-keys
         "awb" 'helm-w3m-bookmarks))))
 
 (defun v/w3m-open-site (site)
@@ -57,7 +57,8 @@
                w3m-search-new-session)
     :init
     (progn
-      (evil-leader/set-key
+      (spacemacs/declare-prefix "aw" "w3m")
+      (spacemacs/set-leader-keys
         "awo" 'v/w3m-open-site
         "awg" 'w3m-goto-url
         "awG" 'w3m-goto-url-new-session
