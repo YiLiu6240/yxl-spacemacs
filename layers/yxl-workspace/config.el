@@ -4,6 +4,7 @@
 (setq yxl-desktop-dirname "~/Dropbox/inbox/")
 (setq desktop-base-file-name "yxl-emacs-desktop")
 (setq desktop-file-name-format 'tilde)
+(setq history-length 100)
 (with-eval-after-load 'desktop
  (add-to-list 'desktop-modes-not-to-save 'image-mode)
  (add-to-list 'desktop-modes-not-to-save 'pdf-view-mode)

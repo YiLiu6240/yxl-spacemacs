@@ -115,9 +115,15 @@
   "owS" #'split-window-above-small
   "owv" #'split-window-right-small
   "owV" #'split-window-left-small
+  "owc" #'yxl/center-window-margins
   "oww" #'yxl/change-window-width)
 
-(spacemacs/declare-prefix "o" "user-customized")
+(spacemacs/declare-prefix "." "user-quick")
+(spacemacs/declare-prefix ".S" "session")
+(spacemacs/declare-prefix ".m" "bm")
+(spacemacs/declare-prefix ".w" "window-register")
+
+(spacemacs/declare-prefix "o" "user-own")
 (spacemacs/declare-prefix "ob" "buffer")
 (spacemacs/declare-prefix "oc" "cite")
 (spacemacs/declare-prefix "oC" "cheatsheet")
