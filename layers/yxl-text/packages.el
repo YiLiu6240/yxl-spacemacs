@@ -135,18 +135,18 @@
               (lambda ()
                 (setq markdown-command "pandoc")))))
 
-(defun yxl-text/init-writeroom-mode ()
-  (use-package writeroom-mode
-    :defer t
-    :init
-    (progn
-      (spacemacs/set-leader-keys "axw" 'writeroom-mode)
-      (setq-default writeroom-mode-line t)
-      (setq-default writeroom-maximize-window nil))
-    :config
-    (progn
-      (setq writeroom-global-effects
-            (delq 'writeroom-set-fullscreen writeroom-global-effects)))))
+;; (defun yxl-text/init-writeroom-mode ()
+;;   (use-package writeroom-mode
+;;     :defer t
+;;     :init
+;;     (progn
+;;       (spacemacs/set-leader-keys "axw" 'writeroom-mode)
+;;       (setq-default writeroom-mode-line t)
+;;       (setq-default writeroom-maximize-window nil))
+;;     :config
+;;     (progn
+;;       (setq writeroom-global-effects
+;;             (delq 'writeroom-set-fullscreen writeroom-global-effects)))))
 
 (defun yxl-text/init-writegood-mode ()
   (use-package writegood-mode

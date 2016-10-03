@@ -1,10 +1,10 @@
 (setq yxl-evil-packages '(evil
                           evil-indent-plus
                           evil-textobj-column
-                          evil-visual-mark-mode
                           (evil-little-word :location local)
                           evil-mc
-                          evil-cleverparens))
+                          ;; evil-cleverparens
+                          ))
 
 (defun yxl-evil/post-init-evil ()
   (with-eval-after-load 'evil
@@ -17,15 +17,6 @@
     (define-key evil-insert-state-map (kbd "C-p") #'previous-line)
     (define-key evil-insert-state-map (kbd "C-n") #'next-line)
 
-    ;; (define-key evil-motion-state-map "j" #'evil-next-visual-line)
-    ;; (define-key evil-motion-state-map "k" #'evil-previous-visual-line)
-    (define-key evil-motion-state-map "j" #'evil-next-line)
-    (define-key evil-motion-state-map "k" #'evil-previous-line)
-    ;; Also in visual mode
-    ;; (define-key evil-visual-state-map "j" #'evil-next-visual-line)
-    ;; (define-key evil-visual-state-map "k" #'evil-previous-visual-line)
-    ;; force evil-jump-forward
-    (define-key evil-motion-state-map (kbd "C-i") #'evil-jump-forward)
     ;; "g" related commands --------
     ;; mark: repalce with evil-middle-of-visual-line
     (define-key evil-motion-state-map "gm" #'evil-goto-mark)
@@ -34,7 +25,7 @@
     (define-key evil-motion-state-map "gH" #'evil-first-non-blank)
     (define-key evil-motion-state-map "gL" #'evil-end-of-line)
     ;; --------
-    ;; "tab" navigation
+    ;; tab and window navigation
     (define-key evil-motion-state-map "H" #'eyebrowse-prev-window-config)
     (define-key evil-motion-state-map "L" #'eyebrowse-next-window-config)
     (define-key evil-motion-state-map (kbd "C-h") #'windmove-left)
@@ -105,17 +96,6 @@ skipping empty lines."
     (define-key evil-inner-text-objects-map "k" #'evil-textobj-column-word)
     (define-key evil-inner-text-objects-map "K" #'evil-textobj-column-WORD)))
 
-(defun yxl-evil/init-evil-visual-mark-mode ()
-  (use-package evil-visual-mark-mode
-    :defer t
-    :init
-    (spacemacs|add-toggle evil-visual-mark-mode
-      :status evil-visual-mark-mode
-      :on (evil-visual-mark-mode)
-      :off (evil-visual-mark-mode -1)
-      :documentation "Enable evil visual marks mode."
-      :evil-leader "t`")))
-
 (defun yxl-evil/init-evil-little-word ()
   "from theBB's github"
   (use-package evil-little-word
@@ -143,15 +123,15 @@ skipping empty lines."
               (interactive)
               (setq anzu--state nil))))
 
-(defun yxl-evil/init-evil-cleverparens ()
-  (use-package evil-cleverparens
-    :defer t
-    :diminish evil-cleverparens-mode
-    :init
-    (progn
-      (setq evil-cleverparens-use-regular-insert t)
-      (spacemacs|add-toggle evil-cleverparens
-        :status evil-cleverparens-mode
-        :on  (evil-cleverparens-mode)
-        :off (evil-cleverparens-mode -1)
-        :documentation "Enable evil-cleverparens."))))
+;; (defun yxl-evil/init-evil-cleverparens ()
+;;   (use-package evil-cleverparens
+;;     :defer t
+;;     :diminish evil-cleverparens-mode
+;;     :init
+;;     (progn
+;;       (setq evil-cleverparens-use-regular-insert t)
+;;       (spacemacs|add-toggle evil-cleverparens
+;;         :status evil-cleverparens-mode
+;;         :on  (evil-cleverparens-mode)
+;;         :off (evil-cleverparens-mode -1)
+;;         :documentation "Enable evil-cleverparens."))))
