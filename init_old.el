@@ -1,17 +1,10 @@
 ;; -*- mode: emacs-lisp -*-
-;; This file is loaded by Spacemacs at startup.
-;; It must be stored in your home directory.
 
+;; (package-initialize)
 (defun dotspacemacs/layers ()
-  "Configuration Layers declaration.
-You should not put any user code in this function besides modifying the variable
-values."
   (setq-default
    dotspacemacs-distribution 'spacemacs
-   dotspacemacs-enable-lazy-installation 'unused
-   dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
-   ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(better-defaults
 
@@ -96,46 +89,24 @@ values."
      ;; window-purpose
 
      yxl)
-   ;; List of additional packages that will be installed without being
-   ;; wrapped in a layer. If you need some configuration for these
-   ;; packages, then consider creating a layer. You can also put the
-   ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(ereader)
-   ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '()
-   ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(org-bullets
+   dotspacemacs-excluded-packages '(org-repo-todo
+                                    org-bullets
                                     ido
+                                    ;; persp-mode
                                     vi-tilde-fringe)
-   ;; Defines the behaviour of Spacemacs when installing packages.
-   ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
-   ;; `used-only' installs only explicitly used packages and uninstall any
-   ;; unused packages as well as their unused dependencies.
-   ;; `used-but-keep-unused' installs only the used packages but won't uninstall
-   ;; them if they become unused. `all' installs *all* packages supported by
-   ;; Spacemacs and never uninstall them. (default is `used-only')
-   dotspacemacs-install-packages 'used-only))
+   dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/init ()
-  "Initialization function.
-This function is called at the very startup of Spacemacs initialization
-before layers configuration.
-You should not put any user code in there besides modifying the variable
-values."
-  ;; This setq-default sexp is an exhaustive list of all the supported
-  ;; spacemacs settings.
   (setq-default
    dotspacemacs-elpa-https t
    dotspacemacs-elpa-timeout 5
    dotspacemacs-check-for-update nil
-   dotspacemacs-elpa-subdirectory nil
    dotspacemacs-editing-style 'vim
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner nil
-   dotspacemacs-startup-lists '((recents . 5)
-                                bookmarks
-                                (projects . 7))
-   dotspacemacs-startup-buffer-responsive t
+   dotspacemacs-startup-lists '(recents bookmarks projects)
+   dotspacemacs-startup-recent-list-size 5
    dotspacemacs-scratch-mode 'text-mode
    dotspacemacs-themes '(yxl-dark
                          spacemacs-dark
@@ -144,8 +115,10 @@ values."
                          spacemacs-light
                          solarized-light)
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '("Input Mono Narrow"
+   dotspacemacs-default-font `("Input Mono Narrow"
+                               ;; :size 12
                                :size ,(if (eq system-type 'darwin) 12 12)
+                               ;; :size ,(if (spacemacs/system-is-mswindows) 16 13)
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
@@ -153,24 +126,19 @@ values."
    dotspacemacs-emacs-leader-key "M-m"
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
-   dotspacemacs-emacs-command-key ":"
    dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-command-key ":"
    dotspacemacs-remap-Y-to-y$ t
-   dotspacemacs-retain-visual-state-on-shift t
-   dotspacemacs-visual-line-move-text nil
-   dotspacemacs-ex-substitute-global nil
    dotspacemacs-default-layout-name "Default"
    dotspacemacs-display-default-layout nil
    dotspacemacs-auto-resume-layouts nil
-   ;; TODO: check
-   dotspacemacs-large-file-size 1
    dotspacemacs-auto-save-file-location 'cache
    dotspacemacs-max-rollback-slots 5
+   dotspacemacs-use-ido nil
    dotspacemacs-helm-resize nil
    dotspacemacs-helm-no-header nil
    dotspacemacs-helm-position 'bottom
-   dotspacemacs-helm-use-fuzzy 'always
-   dotspacemacs-enable-paste-transient-state nil
+   dotspacemacs-enable-paste-micro-state nil
    dotspacemacs-which-key-delay 0.4
    dotspacemacs-which-key-position 'bottom
    dotspacemacs-loading-progress-bar t
@@ -179,20 +147,10 @@ values."
    dotspacemacs-maximized-at-startup nil
    dotspacemacs-active-transparency 90
    dotspacemacs-inactive-transparency 90
-   dotspacemacs-show-transient-state-title t
-   dotspacemacs-show-transient-state-color-guide t
    dotspacemacs-mode-line-unicode-symbols t
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil
    dotspacemacs-line-numbers nil
-   ;; Code folding method. Possible values are `evil' and `origami'.
-   ;; (default 'evil)
-   ;; TODO: check
-   dotspacemacs-folding-method 'evil
-   ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
-   ;; (default nil)
-   ;; TODO: have-a-look
    dotspacemacs-smartparens-strict-mode nil
-   dotspacemacs-smart-closing-parenthesis nil
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
@@ -206,9 +164,10 @@ values."
 
   (add-to-list 'custom-theme-load-path "~/.spacemacs.d/theme/yxl-theme/")
 
-  ;; (load-file (concat dotspacemacs-directory "config/hack.el"))
+  (load-file (concat dotspacemacs-directory "config/hack.el"))
   (load-file (concat dotspacemacs-directory "config/init-config.el"))
-  )
+
+)
 
 (defun dotspacemacs/user-config ()
   ;; --------
@@ -216,7 +175,7 @@ values."
   ;; --------
   (load-file (concat dotspacemacs-directory "config/yxl-keys.el"))
   ;; emacs general
-  ;; osx
+   ;; osx
   (setq-default mac-option-modifier 'super
                 mac-command-modifier 'meta)
   (setq-default ns-use-srgb-colorspace t)
@@ -241,13 +200,13 @@ values."
   (setq-default evil-escape-delay 1)
   (setq-default evil-escape-excluded-major-modes '(magit-mode))
 
-  ;; yas
-  (setq yas-snippet-dirs (expand-file-name "snippets" dotspacemacs-directory))
+   ;; yas
+   (setq yas-snippet-dirs (expand-file-name "snippets" dotspacemacs-directory))
 
-  ;; ---- indent ----
-  (setq evil-shift-width 4
-        c-basic-offset 4
-        lua-indent-level 4)
+   ;; ---- indent ----
+   (setq evil-shift-width 4
+         c-basic-offset 4
+         lua-indent-level 4)
 
   ;; mode list
   (setq auto-mode-alist (cons '("\\.inbox$" . gfm-mode) auto-mode-alist))
@@ -281,6 +240,12 @@ values."
                                 ("XXXX" . "#cb4b16")
                                 ("???" . "#dc322f")))
 
+  (with-eval-after-load 'desktop-save-mode
+   (add-to-list 'desktop-modes-not-to-save 'image-mode)
+   (add-to-list 'desktop-modes-not-to-save 'elfeed-search-mode)
+   (add-to-list 'desktop-modes-not-to-save 'elfeed-show-mode)
+   (add-to-list 'desktop-modes-not-to-save 'pdf-view-mode))
+
   ;; --------
   ;; pdf-tools
   ;; --------
@@ -308,7 +273,6 @@ values."
   ;; ;; deft
   ;; (setq deft-extensions '("md" "txt" "org"))
   ;; (setq deft-directory "~/Dropbox/notes")
-
   ;; spacemacs buffer
   (add-hook
    'spacemacs-buffer-mode-hook
@@ -320,15 +284,15 @@ values."
   ;; --------
   (with-eval-after-load 'flycheck
     (flycheck-define-checker proselint
-                             "A linter for prose."
-                             :command ("proselint" source-inplace)
-                             :error-patterns
-                             ((warning line-start (file-name) ":" line ":" column ": "
-                                       (id (one-or-more (not (any " "))))
-                                       (message (one-or-more not-newline)
-                                                (zero-or-more "\n" (any " ") (one-or-more not-newline)))
-                                       line-end))
-                             :modes (text-mode markdown-mode gfm-mode LaTeX-mode))
+      "A linter for prose."
+      :command ("proselint" source-inplace)
+      :error-patterns
+      ((warning line-start (file-name) ":" line ":" column ": "
+                (id (one-or-more (not (any " "))))
+                (message (one-or-more not-newline)
+                         (zero-or-more "\n" (any " ") (one-or-more not-newline)))
+                line-end))
+      :modes (text-mode markdown-mode gfm-mode LaTeX-mode))
     (add-to-list 'flycheck-checkers 'proselint))
 
   ;; --------
@@ -355,7 +319,6 @@ values."
   ;; custom.el
   (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (load custom-file)
-  )
 
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
+  ;; ---- end of dotspacemacs/user-config ----
+  )
