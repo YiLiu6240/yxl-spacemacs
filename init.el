@@ -209,6 +209,7 @@ values."
   (add-to-list 'custom-theme-load-path "~/.spacemacs.d/theme/yxl-theme/")
 
   (load-file (concat dotspacemacs-directory "config/spacemacs_home.el"))
+  (load-file (concat dotspacemacs-directory "config/hack.el"))
   (load-file (concat dotspacemacs-directory "config/init-config.el"))
   )
 
@@ -217,6 +218,7 @@ values."
   ;; general
   ;; --------
   (load-file (concat dotspacemacs-directory "config/yxl-keys.el"))
+  (load-file (concat dotspacemacs-directory "config/post-init-config.el"))
   ;; emacs general
   ;; osx
   (setq-default mac-option-modifier 'super
