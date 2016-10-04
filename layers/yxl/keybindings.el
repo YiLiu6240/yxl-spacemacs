@@ -12,6 +12,8 @@
   ".wj" #'jump-to-register
   ".Ss" #'session-save
   ".Sl" #'session-load
+  ".vp" #'ivy-push-view
+  ".vP" #'ivy-pop-view
 
   ;; top-level quick actions
   "o1" #'select-frameGroup-Code
