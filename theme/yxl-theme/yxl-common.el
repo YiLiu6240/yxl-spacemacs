@@ -96,7 +96,8 @@
         ;; highlighted area ???
         (highlight     (if (eq variant 'dark) (if (true-color-p) "#1d4250" "#444444") (if (true-color-p) "#d3d3e7" "#d7d7ff")))
         ;; keyword
-        (keyword       (if (eq variant 'dark) (if (true-color-p) "#859900" "#33859e") (if (true-color-p) "#3a81c3" "#33859e")))
+        ;; (keyword       (if (eq variant 'dark) (if (true-color-p) "#859900" "#33859e") (if (true-color-p) "#3a81c3" "#33859e")))
+        (keyword       (if (eq variant 'dark) (if (true-color-p) "#679a01" "#33859e") (if (true-color-p) "#3a81c3" "#33859e")))
         ;; line numbers
         (lnum          (if (eq variant 'dark) (if (true-color-p) "#44505c" "#444444") (if (true-color-p) "#a8a8bf" "#af87af")))
         ;; matched, matching parens, brackets, tags
