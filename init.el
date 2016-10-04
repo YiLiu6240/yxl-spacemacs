@@ -180,7 +180,7 @@ values."
    dotspacemacs-maximized-at-startup nil
    dotspacemacs-active-transparency 90
    dotspacemacs-inactive-transparency 90
-   dotspacemacs-show-transient-state-title t
+   dotspacemacs-show-transient-state-title nil
    dotspacemacs-show-transient-state-color-guide nil
    dotspacemacs-mode-line-unicode-symbols t
    dotspacemacs-smooth-scrolling t
