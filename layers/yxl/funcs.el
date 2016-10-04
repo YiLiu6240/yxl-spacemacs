@@ -48,7 +48,6 @@
 
 (defun yxl/frame-setup ()
   (interactive)
-  ;; (spacemacs/toggle-fullscreen-frame-on)
   (set-frameGroup-Code)
   (make-frame)
   (set-frameGroup-Meta)
@@ -56,18 +55,7 @@
   (set-frameGroup-REPL)
   (make-frame)
   (set-frameGroup-Config)
-
-  (select-frameGroup-Meta)
-  (toggle-frame-fullscreen)
-  (sleep-for 0.5)
-  (select-frameGroup-REPL)
-  (toggle-frame-fullscreen)
-  (sleep-for 0.5)
-  (select-frameGroup-Code)
-  (toggle-frame-fullscreen)
-  (sleep-for 0.5)
-  (select-frameGroup-Config)
-  (toggle-frame-fullscreen))
+  (select-frameGroup-Code))
 
 ;; custom layouts
 (defun yxl/custom-layout-1 ()
