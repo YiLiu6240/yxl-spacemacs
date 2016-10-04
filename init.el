@@ -47,6 +47,7 @@ values."
      ;; windows-scripts
 
      ;; major features --------
+     ivy
      (auto-completion :variables
                       ;; use tab to complete
                       ;; return key enters new line

@@ -33,7 +33,8 @@
     (define-key evil-motion-state-map (kbd "C-k") #'windmove-up)
     (define-key evil-motion-state-map (kbd "C-l") #'windmove-right)
     ;; misc
-    (define-key evil-motion-state-map (kbd "C-S-p") #'helm-M-x)
+    ;; (define-key evil-motion-state-map (kbd "C-S-p") #'helm-M-x)
+    (define-key evil-motion-state-map (kbd "C-S-p") #'counsel-M-x)
     (define-key evil-normal-state-map (kbd "_") #'projectile-dired)
     (define-key evil-normal-state-map "q" nil)
     (define-key evil-normal-state-map "qm" #'evil-execute-macro)
