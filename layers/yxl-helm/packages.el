@@ -1,4 +1,5 @@
-(setq yxl-helm-packages '(helm))
+(setq yxl-helm-packages '(helm
+                          counsel))
 
 (defun yxl-helm/post-init-helm ()
   (with-eval-after-load 'helm
@@ -19,3 +20,7 @@
     (define-key helm-find-files-map (kbd "C-h") 'backward-delete-char)
     (define-key helm-read-file-map (kbd "C-h") 'backward-delete-char)
     (define-key helm-map (kbd "C-z") nil)))
+
+(defun yxl-helm/post-init-counsel ()
+  (with-eval-after-load 'counsel
+    (define-key counsel-find-file-map (kbd "C-h") 'backward-delete-char)))

@@ -19,10 +19,6 @@
       "o"  #'dired-find-file
       "O"  #'dired-find-file-other-window
       "q"  #'evil-quit
-      ;; "u"  #'dired-up-directory
-      ;; "M"  #'dired-unmark
-      ;; PATCH: vinegar:
-      ;; fix issue causing all window housing the same dired buffer to jump
       "-"  #'dired-up-directory
       "gg" #'evil-goto-first-line
       "G"  #'evil-goto-line
@@ -33,7 +29,21 @@
       "H" #'eyebrowse-prev-window-config
       "L" #'eyebrowse-next-window-config
       "gT" #'eyebrowse-prev-window-config
-      "gt" #'eyebrowse-next-window-config)))
+      "gt" #'eyebrowse-next-window-config
+      ;; from vinegar layer
+      "0"         'dired-back-to-start-of-files
+      "="         'vinegar/dired-diff
+      "I"         'vinegar/dotfiles-toggle
+      (kbd "~")   '(lambda ()(interactive) (find-alternate-file "~/"))
+      "T"         'dired-tree-down
+      "f"         (if (configuration-layer/layer-usedp 'ivy)
+                      'counsel-find-file
+                    'helm-find-files)
+      "J"         'dired-goto-file
+      (kbd "C-f") 'find-name-dired
+      "K"         'dired-do-kill-lines
+      "r"         'revert-buffer
+      (kbd "C-r") 'dired-do-redisplay)))
 
 (defun yxl-general/post-init-pdf-tools ()
   (with-eval-after-load 'pdf-tools
