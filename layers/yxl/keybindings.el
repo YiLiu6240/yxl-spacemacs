@@ -37,7 +37,6 @@
   "obc" #'clone-indirect-buffer-other-window
   "obd" #'delete-other-windows
   "o <SPC>" #'delete-other-windows
-  "obn" #'spacemacs/new-empty-buffer
   "obr" #'revert-buffer
 
   ;; file

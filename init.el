@@ -68,7 +68,7 @@ values."
                       syntax-checking-enable-by-default nil)
      ;; vim/evil mode --------
      unimpaired
-     vinegar
+     (vinegar :packages (not dired))
      (evil-snipe :variables
                  ;; f/t not bound to current line
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
@@ -188,7 +188,8 @@ values."
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    ;; TODO: check
-   dotspacemacs-folding-method 'evil
+   ;; dotspacemacs-folding-method 'evil
+   dotspacemacs-folding-method 'origami
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    ;; TODO: have-a-look

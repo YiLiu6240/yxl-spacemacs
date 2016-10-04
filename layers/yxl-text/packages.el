@@ -31,11 +31,7 @@
     (yxl-text/setup-latex-custom)
     (yxl-text/setup-latex-pairs)
     (yxl-text/setup-latex-reftex)
-    (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
-    (spacemacs/declare-prefix-for-mode 'latex-mode "f" "fill")
-    (spacemacs/set-leader-keys-for-major-mode 'latex-mode
-      "ff" #'LaTeX-fill-region
-      "fb" #'LaTeX-fill-buffer)))
+    (add-hook 'LaTeX-mode-hook #'latex-extra-mode)))
 
 (defun yxl-text/init-latex-extra ()
   (use-package latex-extra
