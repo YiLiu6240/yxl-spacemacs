@@ -483,7 +483,7 @@
      `(ivy-remote ((,class (:foreground ,cyan))))
 
 ;;;;; latex
-     `(font-latex-math-face ((,class (:foreground "#599cab"))))
+     `(font-latex-math-face ((,class (:foreground ,type))))
      `(font-latex-verbatim-face ((,class (:inherit font-lock-string-face))))
      `(font-latex-bold-face ((,class (:foreground ,comp))))
      `(font-latex-italic-face ((,class (:foreground ,keyword :italic t))))
