@@ -22,7 +22,7 @@ enabled."
                         (when num (concat "s" (int-to-string num))))))
             (or (when spaceline-workspace-numbers-unicode
                   (spaceline--unicode-number str))
-                (propertize str 'face 'bold)))))
+                (propertize str 'face '((t (:weight bold))))))))
 
       (spaceline-define-segment window-number
         "The current window number. Requires `window-numbering-mode' to be enabled."
@@ -31,7 +31,7 @@ enabled."
                  (str (when num (concat (int-to-string num)))))
             (if spaceline-window-numbers-unicode
                 (spaceline--unicode-number str)
-              (propertize str 'face 'bold)))))
+              (propertize str 'face '((t (:weight bold))))))))
 
       (spaceline-define-segment which-function
         (when (and active

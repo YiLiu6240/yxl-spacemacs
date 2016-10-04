@@ -52,6 +52,7 @@
         (bg1           (if (eq variant 'dark) (if (true-color-p) "#15262c" "#262626") (if (true-color-p) "#fbf8ef" "#ffffff")))
         ;; current line highlight
         (bg2           (if (eq variant 'dark) (if (true-color-p) "#132b34" "#1c1c1c") (if (true-color-p) "#efeae9" "#e4e4e4")))
+        (bg2-hl        (if (eq variant 'dark) (if (true-color-p) "#1b343d" "#1c1c1c") (if (true-color-p) "#efeae9" "#e4e4e4")))
         ;; darker shade of bg1
         (bg3           (if (eq variant 'dark) (if (true-color-p) "#073642" "#121212") (if (true-color-p) "#e3dedd" "#d0d0d0")))
         ;; darkeest of bg
@@ -167,7 +168,7 @@
      `(fringe ((,class (:background ,bg1 :foreground ,base))))
      `(header-line ((,class :background ,bg4)))
      `(highlight ((,class (:foreground ,base :background ,highlight))))
-     `(hl-line ((,class (:background ,bg2))))
+     `(hl-line ((,class (:background ,bg2-hl))))
      `(isearch ((,class (:foreground ,bg1 :background ,mat))))
      `(lazy-highlight ((,class (:background ,blue-bg :weight normal))))
      `(link ((,class (:foreground ,comment :underline t))))
