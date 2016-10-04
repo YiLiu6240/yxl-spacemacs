@@ -164,7 +164,7 @@ values."
    dotspacemacs-display-default-layout nil
    dotspacemacs-auto-resume-layouts nil
    ;; TODO: check
-   dotspacemacs-large-file-size 1
+   dotspacemacs-large-file-size 10
    dotspacemacs-auto-save-file-location 'cache
    dotspacemacs-max-rollback-slots 5
    dotspacemacs-helm-resize nil
@@ -181,7 +181,7 @@ values."
    dotspacemacs-active-transparency 90
    dotspacemacs-inactive-transparency 90
    dotspacemacs-show-transient-state-title t
-   dotspacemacs-show-transient-state-color-guide t
+   dotspacemacs-show-transient-state-color-guide nil
    dotspacemacs-mode-line-unicode-symbols t
    dotspacemacs-smooth-scrolling t
    dotspacemacs-line-numbers nil

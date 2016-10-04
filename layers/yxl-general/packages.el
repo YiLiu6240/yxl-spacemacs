@@ -49,7 +49,7 @@
   (with-eval-after-load 'pdf-tools
 
     (setq-default pdf-view-midnight-colors '("#839496" . "#15262c"))
-    (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
+    ;; (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
 
     ;; bug workaround wrt eyebrowse
     ;; https://github.com/politza/pdf-tools/issues/225

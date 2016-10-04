@@ -18,8 +18,8 @@ enabled."
           (let* ((num (eyebrowse--get 'current-slot))
                  (tag (when num (nth 2 (assoc num (eyebrowse--get 'window-configs)))))
                  (str (if (and tag (< 0 (length tag)))
-                          (concat (int-to-string num) ":" tag)
-                        (when num (int-to-string num)))))
+                          (concat "s" (int-to-string num) ":" tag)
+                        (when num (concat "s" (int-to-string num))))))
             (or (when spaceline-workspace-numbers-unicode
                   (spaceline--unicode-number str))
                 (propertize str 'face 'bold)))))
@@ -100,11 +100,11 @@ enabled."
        'yxl
        ;; Left side of the mode line (all the important stuff)
        '(((window-number) :face highlight-face)
-         (workspace-number)
          (buffer-modified
           buffer-size
           buffer-id
           yxl-window-dedication-segment :tight)
+         (workspace-number)
          anzu
          ((yxl-simple-todo-task1-segment :when active)
           (yxl-simple-todo-task2-segment :when active)
@@ -124,8 +124,7 @@ enabled."
          ((buffer-encoding-abbrev point-position line-column)
           :separator "|")
          ,@additional-segments
-         buffer-position
-         ))
+         buffer-position))
 
       (setq-default mode-line-format '("%e" (:eval (spaceline-ml-yxl))))
 
