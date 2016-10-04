@@ -106,6 +106,8 @@
   "ovt" #'yxl/view-today-sidebar
   "ovg" #'yxl/view-todo-panel
 
+  "oy" #'copy-file-name-to-clipboard
+
   ;; window
   "ow1" #'yxl/custom-layout-1
   "ow2" #'yxl/custom-layout-2
