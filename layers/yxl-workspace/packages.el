@@ -16,6 +16,7 @@
          (concat "  (["
                  (propertize "?" 'face 'hydra-face-red)
                  "] help)"))))
+    (evil-ex-define-cmd "tabn[ew]" #'eyebrowse-create-window-config)
     (spacemacs|transient-state-format-hint workspaces-mod
       spacemacs--workspaces-mod-ts-full-hint
       "\n\n
@@ -23,8 +24,8 @@
  ─────^^^^^^───────────────────────  ───────^^──────────────────────
  [_0_,_9_]^^     nth/new workspace   [_d_] close current workspace
  [_C-0_,_C-9_]^^ nth/new workspace   [_R_] rename current workspace
- [_<tab>_]^^^^   last workspace      [_?_] toggle help
- [_w_] select window config          [_C-c_] create window config
+ [_<tab>_]^^^^   last workspace      [_c_] create window config
+ [_w_] select window config          [_?_] toggle help
  [_n_/_C-l_]^^   next workspace
  [_N_/_p_/_C-h_] prev workspace\n")
     (spacemacs|define-transient-state workspaces-mod
@@ -57,7 +58,7 @@
       ("C-h" eyebrowse-prev-window-config)
       ("C-i" eyebrowse-last-window-config)
       ("C-l" eyebrowse-next-window-config)
-      ("C-c" eyebrowse-create-window-config)
+      ("c" eyebrowse-create-window-config)
       ("d" eyebrowse-close-window-config)
       ("n" eyebrowse-next-window-config)
       ("N" eyebrowse-prev-window-config)
