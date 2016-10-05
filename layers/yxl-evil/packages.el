@@ -43,6 +43,9 @@
     (define-key evil-normal-state-map "qQ" #'evil-save-and-close)
     (define-key evil-normal-state-map "qw" #'evil-write)
     (define-key evil-normal-state-map "qW" #'evil-write-all)
+    ;; avoid pressing by mistake
+    (define-key evil-motion-state-map "\\" nil)
+    (define-key evil-motion-state-map "\\\\" "zz")
     ;; TODO: ex commands for tabe and tabnew -- write functions for eyebrowse
     ;; ---- disabled ----
     ;; vim-surround, use "S"
