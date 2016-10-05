@@ -510,7 +510,7 @@
      `(font-latex-sectioning-6-face ((,class (:foreground ,head4))))
      `(font-latex-string-face ((,class (:foreground ,str))))
      `(font-latex-sedate-face ((,class (:foreground ,comment))))
-     `(font-latex-warning-face ((,class (:foreground ,orange))))
+     `(font-latex-warning-face ((,class (:foreground ,meta))))
 
 ;;;;; linum-mode
      `(linum ((,class (:foreground ,lnum :background ,bg2))))
