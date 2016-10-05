@@ -130,11 +130,8 @@
 
 (defun yxl-web/post-init-elfeed ()
   (with-eval-after-load 'elfeed
-    ;; disable images fetching by default
-    (add-hook 'elfeed-search-mode-hook (lambda ()
-                                         (setq shr-inhibit-images t)))
-    (add-hook 'elfeed-show-mode-hook (lambda ()
-                                         (setq shr-inhibit-images t)))
+    (add-hook 'elfeed-search-mode-hook #'yxl-web/elfeed-search-mode-config)
+    (add-hook 'elfeed-show-mode-hook #'yxl-web/elfeed-show-mode-config)
     (defalias 'elfeed-toggle-star
       (elfeed-expose #'elfeed-search-toggle-all 'star))
 

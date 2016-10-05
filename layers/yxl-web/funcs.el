@@ -1,3 +1,11 @@
+(defun yxl-web/elfeed-search-mode-config ()
+  (setq shr-inhibit-images t)
+  (setq line-spacing 4))
+
+(defun yxl-web/elfeed-show-mode-config ()
+  (setq shr-inhibit-images t)
+  (setq line-spacing 4))
+
 (defun yxl-web/elfeed-bindings ()
   (unbind-key "b" elfeed-search-mode-map)
   (unbind-key "b" elfeed-show-mode-map)
