@@ -99,17 +99,16 @@ enabled."
       (spaceline-compile
        'yxl
        ;; Left side of the mode line (all the important stuff)
-       '(((window-number) :face highlight-face)
+       '((window-number :face highlight-face)
          (buffer-modified
           buffer-size
           buffer-id
           yxl-window-dedication-segment :tight)
          (workspace-number)
          anzu
-         ((yxl-simple-todo-task1-segment :when active)
-          (yxl-simple-todo-task2-segment :when active)
-          (yxl-simple-todo-task3-segment :when active)
-          (yxl-alarm-countdown-segment :when active))
+         (yxl-simple-todo-task1-segment
+          yxl-simple-todo-task2-segment
+          yxl-simple-todo-task3-segment :when active)
          (which-function :when active)
          (process :when active)
          (flycheck-error flycheck-warning flycheck-info))
