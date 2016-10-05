@@ -306,8 +306,10 @@
      `(eldoc-highlight-function-argument ((,class (:foreground ,mat :inherit bold))))
 
 ;;;;; elfeed
-     '(elfeed-search-title-face ((t (:foreground "#586e75"))))
-     '(elfeed-search-unread-title-face ((t (:foreground "#839496"))))
+     `(elfeed-search-title-face ((t (:foreground ,comment))))
+     `(elfeed-search-unread-title-face ((t (:foreground ,base))))
+     `(elfeed-search-feed-face ((t (:foreground ,type))))
+     `(elfeed-search-tag-face ((t (:foreground ,keyword))))
 
 ;;;;; enh-ruby
      `(enh-ruby-string-delimiter-face ((,class (:foreground ,str))))
