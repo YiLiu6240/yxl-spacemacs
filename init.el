@@ -7,15 +7,13 @@
 You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
-   dotspacemacs-distribution 'spacemacs-base
+   dotspacemacs-distribution 'spacemacs
    dotspacemacs-enable-lazy-installation 'unused
    dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(spacemacs-yxl
-     eyebrowse
-     better-defaults
+   '(better-defaults
 
      ;; major langs --------
      (c-c++ :variables
@@ -365,17 +363,3 @@ values."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag flyspell-correct-helm ace-jump-helm-line persp-mode yapfify yaml-mode xterm-color ws-butler writegood-mode wolfram-mode window-numbering which-key wgrep web-mode web-beautify volatile-highlights vimrc-mode uuidgen use-package toc-org thrift tagedit synonyms sx stan-mode sql-indent spacemacs-theme spaceline smex smeargle slim-mode shell-pop scss-mode scratch-pop scad-mode sass-mode restart-emacs rainbow-mode rainbow-identifiers rainbow-delimiters quelpa qml-mode pyvenv pytest pyenv-mode py-isort pip-requirements peep-dired pdf-tools pcre2el paradox pandoc-mode palette ox-pandoc origami orgit org-projectile org-present org-pomodoro org-plus-contrib org-download open-junk-file ob-ipython neotree mwim multi-term move-text mmm-mode matlab-mode markdown-toc magit-gitflow magic-latex-buffer macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode latex-extra json-mode js2-refactor js-doc jade-mode ivy-hydra info+ indent-guide imenu-list imenu-anywhere image+ ido-vertical-mode ibuffer-projectile hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-w3m helm-make helm-dictionary helm-dash helm-bibtex gscholar-bibtex graphviz-dot-mode google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-ivy flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-column evil-surround evil-snipe evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu ess-smart-equals ess-R-object-popup ess-R-data-view eshell-z eshell-prompt-extras esh-help ereader ensime engine-mode emmet-mode elisp-slime-nav elfeed-web elfeed-org elfeed-goodies ein dumb-jump disaster deft define-word dactyl-mode cython-mode csv-mode counsel-projectile company-web company-tern company-statistics company-c-headers company-auctex company-anaconda column-enforce-mode color-identifiers-mode coffee-mode cmake-mode clean-aindent-mode clang-format calfw bm bing-dict auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile arduino-mode ahk-mode aggressive-indent adaptive-wrap ace-window ace-link ac-ispell))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
