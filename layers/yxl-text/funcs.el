@@ -37,8 +37,8 @@ master-dir, projectile-project-root, ~/Downloads"
 (defun yxl-text/setup-latex-general ()
   "my general latex settings"
   ;; extra line padding
-  (add-hook 'LaTeX-mode-hook (lambda ()
-                             (setq line-spacing 4)))
+  (add-hook 'LaTeX-mode-hook (lambda () (setq line-spacing 4)))
+  (add-hook 'LaTeX-mode-hook (lambda () (setq yxl-line-width 100)))
   (remove-hook 'TeX-mode-hook #'auto-fill-mode)
   (setq-default font-latex-fontify-script nil)
   ;; (setq-default TeX-newline-function 'reindent-then-newline-and-indent)

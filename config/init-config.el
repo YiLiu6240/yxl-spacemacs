@@ -48,3 +48,6 @@
 (push '(height . 60) initial-frame-alist)
 (push '(width . 84) default-frame-alist)
 (push '(height . 60) default-frame-alist)
+
+(defvar-local yxl-line-width 80
+  "preferred line width for a window, useful when setting window centering")

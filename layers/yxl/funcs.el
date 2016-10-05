@@ -262,10 +262,7 @@ when C-u, visit work org; when C-u 1, visit both in a dual pane. "
 (defun yxl/center-window-margins ()
   "center current window"
   (interactive)
-  (let* ((text-width (if current-prefix-arg
-                         (prefix-numeric-value current-prefix-arg)
-                       80))
-         (margin (max 0 (/ (- (window-width) text-width) 2))))
+  (let* ((margin (max 0 (/ (- (window-width) yxl-line-width) 2))))
     (set-window-margins nil margin margin)))
 
 ;; --------
