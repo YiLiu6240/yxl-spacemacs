@@ -60,7 +60,8 @@
     (evil-set-initial-state 'pdf-view-mode 'evilified)
     (evilified-state-evilify pdf-tools pdf-view-mode-map
       "-" #'dired-jump
-      "_" #'projectile-dired
+      "_" #'pdf-view-shrink
+      "+" #'pdf-view-enlarge
       "gg" #'yxl/pdf-view-goto-first-page
       "G" #'yxl/pdf-view-goto-page
       "e" #'pdf-view-scroll-down-or-previous-page
