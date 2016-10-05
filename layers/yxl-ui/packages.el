@@ -1,7 +1,21 @@
 (setq yxl-ui-packages '(spaceline))
 
-(defun yxl-ui/post-init-spaceline ()
+(defun yxl-ui/init-spaceline ()
   (use-package spaceline-config
+    :init
+    (progn
+      (add-hook 'spacemacs-post-user-config-hook 'spaceline-compile)
+      (add-hook 'spacemacs-post-theme-change-hook
+                'spacemacs/customize-powerline-faces)
+      (add-hook 'spacemacs-post-theme-change-hook 'powerline-reset)
+      (setq-default powerline-default-separator 'utf-8)
+      (spacemacs|do-after-display-system-init
+       (when (and (eq 'utf-8 powerline-default-separator))
+         (setq-default powerline-default-separator 'wave))
+       ;; seems to be needed to avoid weird graphical artefacts with the
+       ;; first graphical client
+       (require 'spaceline)
+       (spaceline-compile)))
     :config
     (progn
 
@@ -10,6 +24,8 @@
             spaceline-workspace-numbers-unicode nil)
       ;; (setq powerline-default-separator 'arrow)
       (setq powerline-default-separator nil)
+
+      (spaceline-define-segment persp-name nil)
 
       (spaceline-define-segment workspace-number
         "The current workspace name or number. Requires `eyebrowse-mode' to be
@@ -99,7 +115,7 @@ enabled."
       (spaceline-compile
        'yxl
        ;; Left side of the mode line (all the important stuff)
-       '(((window-number) :face highlight-face)
+       '((window-number :face highlight-face)
          (buffer-modified
           buffer-size
           buffer-id
