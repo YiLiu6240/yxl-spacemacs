@@ -8,6 +8,19 @@
 
 (defun yxl-evil/post-init-evil ()
   (with-eval-after-load 'evil
+    (evil-define-motion evil-sentence-comma-forward (count)
+      "Move to next comma"
+      :jump t
+      :type exclusive
+      ;; (evil-find-char (or count 1) ?,)
+      (evil-forward-chars "," (or count 1))
+      (evil-forward-char 1 t))
+
+    (evil-define-motion evil-sentence-comma-backward (count)
+      "Move to next comma"
+      :jump t
+      :type exclusive
+      (evil-forward-chars "," (- (or count 1))))
 
     ;; the evil way is to use "fd"
     (define-key evil-insert-state-map (kbd "C-h") #'backward-delete-char-untabify)
