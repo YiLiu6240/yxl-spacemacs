@@ -56,7 +56,6 @@ values."
                       auto-completion-enable-sort-by-usage t
                       ;; completion tool tip, nil, buggy in evil
                       auto-completion-enable-help-tooltip nil)
-     eyebrowse
      ;; semantic
      pandoc
      (shell :variables
@@ -67,7 +66,6 @@ values."
      (syntax-checking :variables
                       syntax-checking-enable-by-default nil)
      ;; vim/evil mode --------
-     unimpaired
      (vinegar :packages (not dired))
      (evil-snipe :variables
                  ;; f/t not bound to current line
@@ -185,11 +183,7 @@ values."
    dotspacemacs-mode-line-unicode-symbols t
    dotspacemacs-smooth-scrolling t
    dotspacemacs-line-numbers nil
-   ;; Code folding method. Possible values are `evil' and `origami'.
-   ;; (default 'evil)
-   ;; TODO: check
-   ;; dotspacemacs-folding-method 'evil
-   dotspacemacs-folding-method 'origami
+   dotspacemacs-folding-method 'evil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    ;; TODO: have-a-look

@@ -58,7 +58,7 @@
       ("C-h" eyebrowse-prev-window-config)
       ("C-i" eyebrowse-last-window-config)
       ("C-l" eyebrowse-next-window-config)
-      ("c" eyebrowse-create-window-config)
+      ("c" eyebrowse-create-window-config :exit t)
       ("d" eyebrowse-close-window-config)
       ("n" eyebrowse-next-window-config)
       ("N" eyebrowse-prev-window-config)
