@@ -27,6 +27,9 @@
   ;; (setq org-fast-tag-selection-single-key t)
   (setq org-insert-heading-respect-content t))
 
+(defun yxl-org/org-mode-hook ()
+  (setq line-spacing 4))
+
 (defun yxl-org/setup-capture ()
   (setq org-capture-templates
         '(("i" "life-inbox" entry
