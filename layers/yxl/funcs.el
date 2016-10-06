@@ -49,31 +49,29 @@
 (defun yxl/frame-setup-1 ()
   "will not work on linux"
   (interactive)
-  (set-frame-code)
-  (make-frame)
-  (set-frame-meta)
-  (make-frame)
-  (set-frame-REPL)
-  (make-frame)
   (set-frame-config)
+  (make-frame) (set-frame-meta)
+  (make-frame) (set-frame-REPL)
+  (make-frame) (set-frame-code)
   (select-frame-code))
 
 (defun yxl/frame-setup-2 ()
   "test"
   (interactive)
-  (set-frame-code)
-  (make-frame)
-  (set-frame-REPL)
-  (make-frame)
+  ;; set the first frame to be "config",
+  ;; there is something wrong with the initial frame
+  ;; so set initial frame as a normal frame, not a fullscreen one
   (set-frame-config)
-  (select-frame-REPL)
-  (toggle-frame-fullscreen)
-  (sleep-for 0.5)
-  (select-frame-code)
-  (toggle-frame-fullscreen)
-  (sleep-for 0.5)
-  (select-frame-config)
-  (toggle-frame-fullscreen))
+  (make-frame) (set-frame-REPL)
+  (make-frame) (set-frame-code)
+  (make-frame) (set-frame-meta)
+
+  (select-frame-meta) (sleep-for 0.1)
+  (toggle-frame-fullscreen) (sleep-for 0.5)
+  (select-frame-REPL) (sleep-for 0.1)
+  (toggle-frame-fullscreen) (sleep-for 0.5)
+  (select-frame-code) (sleep-for 0.1)
+  (toggle-frame-fullscreen) (sleep-for 0.5))
 
 ;; custom layouts
 (defun yxl/custom-layout-1 ()
