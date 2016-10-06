@@ -21,7 +21,10 @@
 
 (defun yxl/init-scratch-pop ()
   (use-package scratch-pop
-    :defer t))
+    :defer t
+    :config
+    (progn
+      (add-hook 'popwin:after-popup-hook #'gfm-mode))))
 
 (defun yxl/init-bm ()
   (use-package bm
