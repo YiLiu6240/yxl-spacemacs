@@ -261,7 +261,8 @@
 
 (defun yxl-general/post-init-magit ()
   (with-eval-after-load 'magit
-
+    ;; stop magit from generating diffs when doing commits, slow
+    (remove-hook 'server-switch-hook 'magit-commit-diff)
     (define-key magit-status-mode-map (kbd "C-M-1") #'magit-jump-to-unstaged)
     (define-key magit-status-mode-map (kbd "C-M-2") #'magit-jump-to-untracked)
     (define-key magit-status-mode-map (kbd "C-M-3") #'magit-jump-to-staged)
