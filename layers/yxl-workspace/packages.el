@@ -26,13 +26,14 @@
  [_C-0_,_C-9_]^^ nth/new workspace   [_R_] rename current workspace
  [_<tab>_]^^^^   last workspace      [_c_] create window config
  [_w_] select window config          [_?_] toggle help
- [_n_/_C-l_]^^   next workspace
+ [_n_/_C-l_]^^   next workspace      [_q_] quit
  [_N_/_p_/_C-h_] prev workspace\n")
     (spacemacs|define-transient-state workspaces-mod
       :title "Workspaces Transient State"
       :hint-is-doc t
       :dynamic-hint (spacemacs//workspaces-mod-ts-hint)
       :bindings
+      ("q" nil)
       ("?" spacemacs//workspaces-ts-toggle-hint)
       ("0" eyebrowse-switch-to-window-config-0 :exit t)
       ("1" eyebrowse-switch-to-window-config-1 :exit t)
