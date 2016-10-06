@@ -55,7 +55,10 @@ values."
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-enable-sort-by-usage t
                       ;; completion tool tip, nil, buggy in evil
-                      auto-completion-enable-help-tooltip nil)
+                      auto-completion-enable-help-tooltip nil
+                      :disabled-for ; layer name
+                      org
+                      markdown)
      ;; semantic
      pandoc
      (shell :variables
@@ -135,7 +138,7 @@ values."
                                 bookmarks
                                 (projects . 7))
    dotspacemacs-startup-buffer-responsive t
-   dotspacemacs-scratch-mode 'text-mode
+   dotspacemacs-scratch-mode 'gfm-mode
    dotspacemacs-themes '(yxl-dark
                          spacemacs-dark
                          solarized-dark
