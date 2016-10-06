@@ -106,9 +106,9 @@ enabled."
           yxl-window-dedication-segment :tight)
          (workspace-number)
          anzu
-         (yxl-simple-todo-task1-segment
-          yxl-simple-todo-task2-segment
-          yxl-simple-todo-task3-segment :when active)
+         ((yxl-simple-todo-task1-segment :when active)
+          (yxl-simple-todo-task2-segment :when active)
+          (yxl-simple-todo-task3-segment :when active))
          (which-function :when active)
          (process :when active)
          (flycheck-error flycheck-warning flycheck-info))
