@@ -68,6 +68,8 @@
       "d" #'pdf-view-scroll-up-or-next-page
       "j"  #'pdf-view-next-line-or-next-page
       "k"  #'pdf-view-previous-line-or-previous-page
+      "n" #'pdf-view-next-page
+      "p" #'pdf-view-previous-page
       "J" #'pdf-view-next-page
       "K" #'pdf-view-previous-page
       "l"  #'image-forward-hscroll
@@ -263,6 +265,7 @@
   (with-eval-after-load 'magit
     ;; stop magit from generating diffs when doing commits, slow
     (remove-hook 'server-switch-hook 'magit-commit-diff)
+    (setq vc-handled-backends nil)
     (define-key magit-status-mode-map (kbd "C-M-1") #'magit-jump-to-unstaged)
     (define-key magit-status-mode-map (kbd "C-M-2") #'magit-jump-to-untracked)
     (define-key magit-status-mode-map (kbd "C-M-3") #'magit-jump-to-staged)
