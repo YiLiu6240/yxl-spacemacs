@@ -16,14 +16,14 @@
   ".vP" #'ivy-pop-view
 
   ;; top-level quick actions
-  "o1" #'select-frameGroup-Code
-  "o2" #'select-frameGroup-REPL
-  "o3" #'select-frameGroup-Meta
-  "o4" #'select-frameGroup-Config
-  "ok" #'select-frameGroup-Code
-  "oj" #'select-frameGroup-REPL
-  "oh" #'select-frameGroup-Meta
-  "ol" #'select-frameGroup-Config
+  "o1" #'select-frame-code
+  "o2" #'select-frame-REPL
+  "o3" #'select-frame-meta
+  "o4" #'select-frame-config
+  "ok" #'select-frame-code
+  "oj" #'select-frame-REPL
+  "oh" #'select-frame-meta
+  "ol" #'select-frame-config
 
   ;; cite
   "occ" #'helm-bibtex
@@ -57,15 +57,15 @@
   "oFM" #'make-frame
   "oFN" #'set-frame-name
   "oFn" #'select-frame-by-name
-  "oFs1" #'set-frameGroup-Code
-  "oFs2" #'set-frameGroup-REPL
-  "oFs3" #'set-frameGroup-Meta
-  "oFs4" #'set-frameGroup-Config
+  "oFs1" #'set-frame-code
+  "oFs2" #'set-frame-REPL
+  "oFs3" #'set-frame-meta
+  "oFs4" #'set-frame-config
 
-  "oFsh" #'set-frameGroup-Meta
-  "oFsj" #'set-frameGroup-REPL
-  "oFsk" #'set-frameGroup-Code
-  "oFsl" #'set-frameGroup-Config
+  "oFsh" #'set-frame-meta
+  "oFsj" #'set-frame-REPL
+  "oFsk" #'set-frame-code
+  "oFsl" #'set-frame-config
 
   ;; ess
   "oe2" #'yxl/ess-repl-2cols
