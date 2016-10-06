@@ -99,12 +99,12 @@ enabled."
       (spaceline-compile
        'yxl
        ;; Left side of the mode line (all the important stuff)
-       '((window-number :face highlight-face)
+       '((workspace-number)
          (buffer-modified
           buffer-size
           buffer-id
           yxl-window-dedication-segment :tight)
-         (workspace-number)
+         (window-number :face highlight-face)
          anzu
          ((yxl-simple-todo-task1-segment :when active)
           (yxl-simple-todo-task2-segment :when active)
@@ -134,4 +134,5 @@ enabled."
       (spaceline-toggle-persp-name-off)
       (spaceline-toggle-version-control-off)
       (spaceline-toggle-buffer-size-off)
+      (spaceline-toggle-buffer-encoding-abbrev-off)
       )))
