@@ -100,8 +100,15 @@
   (spacemacs-buffer//center-line)
   (insert "\n\n")
   (widget-create 'push-button
-                 :tag (propertize "yxl/frame-setup" 'face 'font-lock-comment-face)
-                 :action (lambda (&rest ignore) (yxl/frame-setup))
+                 :tag (propertize "yxl/frame-setup-1"
+                                  'face 'font-lock-comment-face)
+                 :action (lambda (&rest ignore) (yxl/frame-setup-1))
+                 :mouse-face 'highlight)
+  (insert " ")
+  (widget-create 'push-button
+                 :tag (propertize "yxl/frame-setup-2"
+                                  'face 'font-lock-comment-face)
+                 :action (lambda (&rest ignore) (yxl/frame-setup-2))
                  :mouse-face 'highlight)
   (spacemacs-buffer//center-line)
   (insert "\n")

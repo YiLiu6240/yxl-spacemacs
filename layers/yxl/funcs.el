@@ -46,7 +46,8 @@
   (select-frame-by-name "Config")
   (message "select Frame %s" "Config"))
 
-(defun yxl/frame-setup ()
+(defun yxl/frame-setup-1 ()
+  "will not work on linux"
   (interactive)
   (set-frameGroup-Code)
   (make-frame)
@@ -56,6 +57,28 @@
   (make-frame)
   (set-frameGroup-Config)
   (select-frameGroup-Code))
+
+(defun yxl/frame-setup-2 ()
+  "test"
+  (interactive)
+  (set-frameGroup-Code)
+  (make-frame)
+  (set-frameGroup-Meta)
+  (make-frame)
+  (set-frameGroup-REPL)
+  (make-frame)
+  (set-frameGroup-Config)
+  (select-frameGroup-Meta)
+  (toggle-frame-fullscreen)
+  (sleep-for 0.5)
+  (select-frameGroup-REPL)
+  (toggle-frame-fullscreen)
+  (sleep-for 0.5)
+  (select-frameGroup-Code)
+  (toggle-frame-fullscreen)
+  (sleep-for 0.5)
+  (select-frameGroup-Config)
+  (toggle-frame-fullscreen))
 
 ;; custom layouts
 (defun yxl/custom-layout-1 ()
