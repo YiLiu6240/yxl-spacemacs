@@ -32,6 +32,10 @@
     (define-key evil-motion-state-map (kbd "C-j") #'windmove-down)
     (define-key evil-motion-state-map (kbd "C-k") #'windmove-up)
     (define-key evil-motion-state-map (kbd "C-l") #'windmove-right)
+    ;; --------
+    ;; find comma in sentence
+    (define-key evil-motion-state-map (kbd "C-)") 'evil-sentence-comma-forward)
+    (define-key evil-motion-state-map (kbd "C-(") 'evil-sentence-comma-backward)
     ;; misc
     ;; (define-key evil-motion-state-map (kbd "C-S-p") #'helm-M-x)
     (define-key evil-motion-state-map (kbd "C-S-p") #'counsel-M-x)
