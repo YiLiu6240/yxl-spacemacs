@@ -18,7 +18,7 @@
     (evilified-state-evilify dired-mode dired-mode-map
       "o"  #'dired-find-file
       "O"  #'dired-find-file-other-window
-      "q"  #'evil-quit
+      "q"  #'yxl/dired-delete-window
       "-"  #'dired-up-directory
       "gg" #'evil-goto-first-line
       "G"  #'evil-goto-line

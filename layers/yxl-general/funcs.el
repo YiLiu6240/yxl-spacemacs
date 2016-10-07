@@ -84,3 +84,10 @@ The colors are determined by the variable
       (setq shr-inhibit-images nil)
     (setq shr-inhibit-images t))
   (message "shr-inhibit-images: %s" shr-inhibit-images))
+
+(defun yxl/dired-delete-window ()
+  (interactive)
+  (condition-case nil
+      (delete-window)
+    (error
+     (spacemacs/home))))
