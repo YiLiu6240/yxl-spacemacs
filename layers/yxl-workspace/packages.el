@@ -20,14 +20,14 @@
     (spacemacs|transient-state-format-hint workspaces-mod
       spacemacs--workspaces-mod-ts-full-hint
       "\n\n
- Go to^^^^^^                         Actions^^
- ─────^^^^^^───────────────────────  ───────^^──────────────────────
- [_0_,_9_]^^     nth/new workspace   [_d_] close current workspace
- [_C-0_,_C-9_]^^ nth/new workspace   [_R_] rename current workspace
- [_<tab>_]^^^^   last workspace      [_c_] create window config
- [_w_] select window config          [_?_] toggle help
- [_n_/_C-l_]^^   next workspace      [_q_] quit
- [_N_/_p_/_C-h_] prev workspace\n")
+ Go to^^^^^^                             Actions^^
+ ─────^^^^^^───────────────────────      ───────^^──────────────────────
+ [_0_,_9_]^^     nth/new workspace       [_d_] close current workspace
+ [_C-0_,_C-9_]^^ nth/new workspace       [_R_] rename current workspace
+ [_<tab>_]^^^^   last workspace          [_c_] create window config
+                                         [_?_] toggle help
+ [_n_/_C-l_/_L_]^^   next workspace      [_q_] quit
+ [_N_/_p_/_C-h_/_H_] prev workspace\n")
     (spacemacs|define-transient-state workspaces-mod
       :title "Workspaces Transient State"
       :hint-is-doc t
@@ -56,16 +56,17 @@
       ("C-8" eyebrowse-switch-to-window-config-8)
       ("C-9" eyebrowse-switch-to-window-config-9)
       ("<tab>" eyebrowse-last-window-config)
-      ("C-h" eyebrowse-prev-window-config)
       ("C-i" eyebrowse-last-window-config)
+      ("C-h" eyebrowse-prev-window-config)
       ("C-l" eyebrowse-next-window-config)
+      ("H" eyebrowse-prev-window-config)
+      ("L" eyebrowse-next-window-config)
       ("c" eyebrowse-create-window-config :exit t)
       ("d" eyebrowse-close-window-config)
       ("n" eyebrowse-next-window-config)
       ("N" eyebrowse-prev-window-config)
       ("p" eyebrowse-prev-window-config)
-      ("R" spacemacs/workspaces-ts-rename :exit t)
-      ("w" eyebrowse-switch-to-window-config))
+      ("R" spacemacs/workspaces-ts-rename :exit t))
     ;; cut integration between persp and workspaces
     (remove-hook 'persp-before-switch-functions
                  #'spacemacs/update-eyebrowse-for-perspective)
