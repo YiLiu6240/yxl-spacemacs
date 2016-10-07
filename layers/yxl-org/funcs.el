@@ -11,6 +11,7 @@
   (setq org-M-RET-may-split-line nil)
   ;; org title bullets
   ;; (setq org-bullets-bullet-list '("*" "+" ">" "-"))
+  (setq org-bullets-bullet-list '("○"))
   ;; Make the org calendar start on monday
   (setq calendar-week-start-day 1)
   ;; disable org folding at launch
@@ -18,6 +19,7 @@
   ;; disable truncate-lines at launch
   (setq org-startup-truncated nil)
   (setq org-startup-indented t)
+  (setq org-odd-levels-only nil)
   ;; highlight code-block
   (setq org-src-fontify-natively t)
   ;; do not add timestamp when closing todos
@@ -25,7 +27,8 @@
   ;; start display tags after col 60
   (setq org-tags-column 0)
   ;; (setq org-fast-tag-selection-single-key t)
-  (setq org-insert-heading-respect-content t))
+  (setq org-insert-heading-respect-content t)
+  (setq org-hide-emphasis-markers t))
 
 (defun yxl-org/org-mode-hook ()
   (setq line-spacing 4))
@@ -72,16 +75,21 @@
            "|"
            "DONE(d) ABORT(A)")))
   (setq org-todo-keyword-faces
-        '(("INBOX" . (:foreground "#268bd2" :weight bold))
-          ("HAVE-A-LOOK" . (:foreground "#d33682" :weight bold ))
-          ("TODO" . (:foreground "#cb4b16" :weight bold ))
-          ("NEXT" . (:foreground "#6c71c4" :weight bold))
-          ("DOING" . (:foreground "#b58900" :weight bold))
-          ("00" . (:foreground "#deab0e" :weight bold))
-          ("25" . (:foreground "#b58900" :weight bold))
-          ("50" . (:foreground "#b58900" :weight bold))
-          ("75" . (:foreground "#926e00" :weight bold))
-          ("95" . (:foreground "#926e00" :weight bold))))
+        '(("INBOX" . (:foreground "#268bd2" :weight bold :height 0.75))
+          ("HAVE-A-LOOK" . (:foreground "#d33682" :weight bold :height 0.75))
+          ("TODO" . (:foreground "#cb4b16" :weight bold :height 0.75))
+          ("HOLD" . (:foreground "#268bd2" :weight bold :height 0.75))
+          ("NEXT" . (:foreground "#6c71c4" :weight bold :height 0.75))
+          ("QUICK" . (:foreground "#6c71c4" :weight bold :height 0.75))
+          ("SOMEDAY" . (:foreground "#6c71c4" :weight bold :height 0.75))
+          ("FOLLOW-UP" . (:foreground "#6c71c4" :weight bold :height 0.75))
+          ("DOING" . (:foreground "#b58900" :weight bold :height 0.75))
+          ("DONE" . (:foreground "#586e75" :weight bold :height 0.75))
+          ("00" . (:foreground "#deab0e" :weight bold :height 0.75))
+          ("25" . (:foreground "#b58900" :weight bold :height 0.75))
+          ("50" . (:foreground "#b58900" :weight bold :height 0.75))
+          ("75" . (:foreground "#926e00" :weight bold :height 0.75))
+          ("95" . (:foreground "#926e00" :weight bold :height 0.75))))
   (setq org-tag-faces
         '(("CAPTURE" . (:foreground "#268bd2" :slant italic))
           ("CTW" . (:foreground "#268bd2" :slant italic))
