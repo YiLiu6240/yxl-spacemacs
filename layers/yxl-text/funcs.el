@@ -46,11 +46,16 @@ master-dir, projectile-project-root, ~/Downloads"
 (defface yxl-latex-font-keyword
   '((t (:foreground "#859900")))
   "should be visibly lighter than comments")
+(defface yxl-latex-font-math-delim
+  '((t (:foreground "#586e75")))
+  "should be visibly lighter than comments")
 
 (defun yxl-text/latex-hi-lock ()
   (interactive)
   (highlight-regexp "foobar\\|lorem" 'yxl-latex-font-keyword)
-  (highlight-regexp "\\." 'yxl-latex-font-delim))
+  (highlight-regexp "\\." 'yxl-latex-font-delim)
+  (highlight-regexp "_" 'yxl-latex-font-delim)
+  (highlight-regexp "\\\\(\\|\\\\)" 'yxl-latex-font-math-delim))
 
 (defun yxl-text/setup-latex-general ()
   "my general latex settings"
