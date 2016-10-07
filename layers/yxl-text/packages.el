@@ -31,7 +31,8 @@
     (yxl-text/setup-latex-custom)
     (yxl-text/setup-latex-pairs)
     (yxl-text/setup-latex-reftex)
-    (add-hook 'LaTeX-mode-hook #'latex-extra-mode)))
+    (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
+    (add-hook 'LaTeX-mode-hook #'yxl-text/latex-hi-lock)))
 
 (defun yxl-text/init-latex-extra ()
   (use-package latex-extra

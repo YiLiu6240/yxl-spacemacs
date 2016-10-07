@@ -34,6 +34,24 @@ master-dir, projectile-project-root, ~/Downloads"
   (push '(?q . ("\"" . "\"")) evil-surround-pairs-alist)
   (push '(?w . ("'" . "'")) evil-surround-pairs-alist))
 
+(defface yxl-latex-font-hide
+  '((t (:foreground "#4b798a" :slant italic)))
+  "should be visibly lighter than comments")
+(defface yxl-latex-font-comment
+  '((t (:foreground "#54a070" :slant italic)))
+  "should be visibly lighter than comments")
+(defface yxl-latex-font-delim
+  '((t (:foreground "#b58900")))
+  "should be visibly lighter than comments")
+(defface yxl-latex-font-keyword
+  '((t (:foreground "#859900")))
+  "should be visibly lighter than comments")
+
+(defun yxl-text/latex-hi-lock ()
+  (interactive)
+  (highlight-regexp "foobar\\|lorem" 'yxl-latex-font-keyword)
+  (highlight-regexp "\\." 'yxl-latex-font-delim))
+
 (defun yxl-text/setup-latex-general ()
   "my general latex settings"
   ;; extra line padding
@@ -55,12 +73,6 @@ master-dir, projectile-project-root, ~/Downloads"
 
 (defun yxl-text/setup-latex-custom ()
   "custom auctex settings"
-  (defface yxl-latex-font-hide
-    '((t (:foreground "#4b798a" :slant italic)))
-    "should be visibly lighter than comments")
-  (defface yxl-latex-font-comment
-    '((t (:foreground "#54a070" :slant italic)))
-    "should be visibly lighter than comments")
   (setq font-latex-user-keyword-classes
         '(("citet" (("citet" "{")) 'yxl-latex-font-hide 'declaration)
           ("citep" (("citep" "{")) 'yxl-latex-font-hide 'declaration)
