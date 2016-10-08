@@ -89,6 +89,29 @@ enabled."
                (str (if dedicated "!" "")))
           (propertize str 'face 'font-lock-type-face)))
 
+      (defun zilongshanren/display-mode-indent-width ()
+        (let ((mode-indent-level
+               (catch 'break
+                 (dolist (test spacemacs--indent-variable-alist)
+                   (let ((mode (car test))
+                         (val (cdr test)))
+                     (when (or (and (symbolp mode) (derived-mode-p mode))
+                               (and (listp mode) (apply 'derived-mode-p mode))
+                               (eq 't mode))
+                       (when (not (listp val))
+                         (setq val (list val)))
+                       (dolist (v val)
+                         (cond
+                          ((integerp v) (throw 'break v))
+                          ((and (symbolp v) (boundp v))
+                           (throw 'break (symbol-value v))))))))
+                 (throw 'break (default-value 'evil-shift-width)))))
+          (concat "i: " (int-to-string (or mode-indent-level 0)))))
+
+      (spaceline-define-segment indent-width
+        (let ((indent-width (zilongshanren/display-mode-indent-width)))
+          (propertize indent-width 'face 'default)))
+
       ;; TODO: temporary measures
       (defun spaceline--pdfview-page-number ()
         (format "(%d/%d)"
@@ -120,7 +143,7 @@ enabled."
          input-method
          (version-control :when active)
          selection-info
-         ((buffer-encoding-abbrev point-position line-column)
+         ((buffer-encoding-abbrev point-position line-column indent-width)
           :separator "|")
          ,@additional-segments
          buffer-position))
