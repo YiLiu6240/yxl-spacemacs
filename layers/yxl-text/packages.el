@@ -41,8 +41,8 @@
     (progn
       (setq latex/view-after-compile nil)
       ;; disable auto fill effect
-      (add-hook 'latex-extra-mode-hook (lambda ()
-                                         (setq auto-fill-function nil)))
+      ;; (add-hook 'latex-extra-mode-hook (lambda ()
+      ;;                                    (setq auto-fill-function nil)))
       ;; REVIEW
       (setq latex/no-fill-environments '("equation" "equation*" "align"
                                          "align*" "tabular" "tikzpicture"))
