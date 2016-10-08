@@ -622,7 +622,7 @@
      ;; `(org-level-2 ((,class (:foreground "#33859e", :height 1.2))))
      ;; `(org-level-1 ((,class (:foreground ,type :weight bold :height 1.3))))
      ;; `(org-level-2 ((,class (:foreground ,func :height 1.1))))
-     `(org-level-1 ((,class (:foreground ,func :weight bold :height 1.2))))
+     `(org-level-1 ((,class (:foreground ,func :weight bold :height 1.75))))
      `(org-level-2 ((,class (:foreground ,base :height 1.2))))
      `(org-level-3 ((,class (:inherit org-level-2))))
      `(org-level-4 ((,class (:inherit org-level-8))))

@@ -58,7 +58,7 @@
     (advice-add 'window-state-put :after #'window-state-put-workaround)
 
     (evil-set-initial-state 'pdf-view-mode 'evilified)
-    (evilified-state-evilify pdf-tools pdf-view-mode-map
+    (evilified-state-evilify pdf-view-mode pdf-view-mode-map
       "-" #'dired-jump
       "_" #'pdf-view-shrink
       "+" #'pdf-view-enlarge
