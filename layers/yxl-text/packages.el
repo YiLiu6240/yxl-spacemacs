@@ -31,6 +31,8 @@
     (yxl-text/setup-latex-custom)
     (yxl-text/setup-latex-pairs)
     (yxl-text/setup-latex-reftex)
+    (spacemacs/set-leader-keys-for-major-mode 'latex-mode
+      "oa" #'yxl-text/latex-align-buffer)
     (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
     (add-hook 'LaTeX-mode-hook #'yxl-text/latex-hi-lock)))
 

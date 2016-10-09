@@ -24,6 +24,15 @@ master-dir, projectile-project-root, ~/Downloads"
         (find-file (projectile-project-root))
       (find-file yxl/Downloads))))
 
+(defun yxl-text/latex-align-buffer ()
+  "basically ggVG then align"
+  (interactive)
+  (evil-goto-first-line)
+  (evil-visual-line)
+  (evil-goto-line)
+  ;; cant use paranthesis
+  (call-interactively 'align))
+
 (defun yxl-text/evil-surround-pairs ()
   "press viw then press the trigger key"
   (push '(?m . ("\\\(" . "\\\)")) evil-surround-pairs-alist)
