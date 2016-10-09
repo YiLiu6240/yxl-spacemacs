@@ -2,15 +2,10 @@
 
 (defun yxl-ess/yxl-ess-settings ()
   "wrap my settings in a function"
-  (ess-set-style 'RRR 'quiet)
   ;; disable "<-" assignment when pressing "_" --------
   ;; TODO: make sure
   (setq ess-S-assign "_")
   ;; --------
-  (setq ess-indent-offset 4)
-  ;; no fancy comment
-  (setq ess-fancy-comments nil
-        comment-add 0)
   ;; no history file
   (setq ess-history-file nil)
   ;; no spaces around argument assignment
@@ -26,19 +21,24 @@
   (ess-toggle-S-assign nil))
 
 (defun yxl-ess/yxl-R-hook ()
-  (setq evil-shift-width 4))
+  (ess-set-style 'RStudio 'quiet)
+  ;; indent with 4 spaces
+  (setq evil-shift-width 4)
+  (setq ess-indent-offset 4)
+  ;; no fancy comment
+  (setq comment-add 0)
+  (setq ess-indent-with-fancy-comments nil))
 
 (defun yxl-ess/post-init-ess ()
   ;; personal preferences
   (with-eval-after-load 'ess-mode
-    (yxl-ess/yxl-ess-settings)
+    (add-hook 'R-mode-hook #'yxl-ess/yxl-R-hook)
     (add-hook 'ess-mode-hook #'yxl-ess/yxl-ess-hook)
     (add-hook 'ess-mode-hook 'smartparens-mode)
     (add-hook 'ess-mode-hook 'fci-mode)
     (add-hook 'ess-mode-hook 'hl-todo-mode)
     (add-hook 'ess-mode-hook 'which-function-mode)
-    ;; (add-hook 'ess-mode-hook 'evil-visual-mark-mode)
-    (add-hook 'R-mode-hook #'yxl-ess/yxl-R-hook))
+    (yxl-ess/yxl-ess-settings))
 
   (with-eval-after-load 'flycheck
    (setq flycheck-lintr-linters
