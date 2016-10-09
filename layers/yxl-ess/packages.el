@@ -23,29 +23,29 @@
   (setq ess-ask-for-ess-directory nil))
 
 (defun yxl-ess/yxl-ess-hook ()
-  (ess-toggle-S-assign nil)
+  (ess-toggle-S-assign nil))
+
+(defun yxl-ess/yxl-R-hook ()
   (setq evil-shift-width 4))
 
 (defun yxl-ess/post-init-ess ()
   ;; personal preferences
   (with-eval-after-load 'ess-mode
     (yxl-ess/yxl-ess-settings)
-    (add-hook 'ess-mode-hook #'yxl-ess/yxl-ess-hook))
+    (add-hook 'ess-mode-hook #'yxl-ess/yxl-ess-hook)
+    (add-hook 'ess-mode-hook 'smartparens-mode)
+    (add-hook 'ess-mode-hook 'fci-mode)
+    (add-hook 'ess-mode-hook 'hl-todo-mode)
+    (add-hook 'ess-mode-hook 'which-function-mode)
+    ;; (add-hook 'ess-mode-hook 'evil-visual-mark-mode)
+    (add-hook 'R-mode-hook #'yxl-ess/yxl-R-hook))
 
-  ;; ess main configs
-  ;; ess hooks
-  (add-hook 'ess-mode-hook 'smartparens-mode)
-  (add-hook 'ess-mode-hook 'fci-mode)
-  (add-hook 'ess-mode-hook 'hl-todo-mode)
-  (add-hook 'ess-mode-hook 'which-function-mode)
-  ;; (add-hook 'ess-mode-hook 'evil-visual-mark-mode)
-
-  ;; flycheck lintr
-  (setq flycheck-lintr-linters
+  (with-eval-after-load 'flycheck
+   (setq flycheck-lintr-linters
         (concat "with_defaults(assignment_linter=NULL, "
                 "camel_case_linter=NULL, "
                 "commented_code_linter=NULL, "
-                "infix_spaces_linter=NULL)"))
+                "infix_spaces_linter=NULL)")))
 
   ;; ess self functions
   (defun yxl/ess-lsos ()

@@ -105,8 +105,8 @@ enabled."
                           ((integerp v) (throw 'break v))
                           ((and (symbolp v) (boundp v))
                            (throw 'break (symbol-value v))))))))
-                 (throw 'break (default-value 'evil-shift-width)))))
-          (concat "i: " (int-to-string (or mode-indent-level 0)))))
+                 (throw 'break evil-shift-width))))
+          (concat "i:" (int-to-string (or mode-indent-level 0)))))
 
       (spaceline-define-segment indent-width
         (let ((indent-width (zilongshanren/display-mode-indent-width)))
