@@ -26,14 +26,16 @@
 (defun v/w3m-open-site (site)
   "Opens site in new w3m session with 'http://' appended"
   (interactive
-   (list (read-string "Enter website address (default: google.com):" nil nil "google.com" nil )))
+   (list (read-string "Enter website address (default: google.com):"
+                      nil nil "google.com" nil )))
   (w3m-goto-url
    (concat "http://" site)))
 
 (defun v/w3m-open-site-new-session (site)
   "Opens site in new w3m session with 'http://' appended"
   (interactive
-   (list (read-string "Enter website address (default: google.com):" nil nil "google.com" nil )))
+   (list (read-string "Enter website address (default: google.com):"
+                      nil nil "google.com" nil )))
   (w3m-goto-url-new-session
    (concat "http://" site)))
 
@@ -60,6 +62,7 @@
       (spacemacs/declare-prefix "aw" "w3m")
       (spacemacs/set-leader-keys
         "awo" 'v/w3m-open-site
+        "aww" 'w3m
         "awg" 'w3m-goto-url
         "awG" 'w3m-goto-url-new-session
         "aws" 'w3m-search
@@ -111,7 +114,7 @@
   (use-package w3m
     :init
     (progn
-      (setq-default browse-url-browser-function 'w3m-goto-url-new-session)
+      ;; (setq-default browse-url-browser-function 'w3m-goto-url-new-session)
       (setq-default w3m-user-agent "Mozilla/5.0 (Linux; U; Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533."))))
 
 (defun yxl-web/init-sx ()
@@ -132,6 +135,12 @@
   (with-eval-after-load 'elfeed
     (add-hook 'elfeed-search-mode-hook #'yxl-web/elfeed-search-mode-config)
     (add-hook 'elfeed-show-mode-hook #'yxl-web/elfeed-show-mode-config)
+    (add-hook 'elfeed-search-mode-hook
+              (lambda ()
+                (setq browse-url-browser-function #'w3m-goto-url-new-session)))
+    (add-hook 'elfeed-show-mode-hook
+              (lambda ()
+                (setq browse-url-browser-function #'w3m-goto-url-new-session)))
     (defalias 'elfeed-toggle-star
       (elfeed-expose #'elfeed-search-toggle-all 'star))
 
