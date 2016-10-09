@@ -1,6 +1,6 @@
 (setq yxl-packages '((alarm :location local)
                      (simple-todo :location local)
-                     scratch-pop
+                     (scratch-pop :location local)
                      bm))
 
 (defun yxl/init-alarm ()
@@ -21,10 +21,12 @@
 
 (defun yxl/init-scratch-pop ()
   (use-package scratch-pop
+    ;; need this for autoload
+    :commands (scratch-pop)
     :defer t
     :config
     (progn
-      (add-hook 'popwin:after-popup-hook #'gfm-mode))))
+      (setq scratch-pop-default-mode 'gfm-mode))))
 
 (defun yxl/init-bm ()
   (use-package bm
