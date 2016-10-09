@@ -354,6 +354,10 @@ values."
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
   ;; custom.el
+  ;; stop package-selected-packages to be written to init.el
+  ;; https://www.reddit.com/r/emacs/comments/53zpv9/how_do_i_get_emacs_to_stop_adding_custom_fields/
+  ;; REVIEW
+  (defun package--save-selected-packages (&rest opt) nil)
   (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (load custom-file)
   )
