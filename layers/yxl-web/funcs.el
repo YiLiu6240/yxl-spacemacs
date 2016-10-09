@@ -8,6 +8,18 @@
   (setq yxl-line-width 100)
   (visual-line-mode t))
 
+(defun yxl-web/elfeed-search-browse-url-w3m ()
+  "inject w3m to be the browser function"
+  (interactive)
+  (let* ((browse-url-browser-function #'w3m-goto-url-new-session))
+    (elfeed-search-browse-url)))
+
+(defun yxl-web/elfeed-show-visit-w3m ()
+  "inject w3m to be the browser function"
+  (interactive)
+  (let* ((browse-url-browser-function #'w3m-goto-url-new-session))
+    (elfeed-show-visit)))
+
 (defun yxl-web/elfeed-bindings ()
   (unbind-key "b" elfeed-search-mode-map)
   (unbind-key "b" elfeed-show-mode-map)
@@ -17,16 +29,14 @@
     :eval-after-load elfeed-search
     :bindings
     "*" #'elfeed-toggle-star
-    ;; ",c"  #'elfeed-db-compact
-    ;; ",gr" #'elfeed-update
-    ;; ",gR" #'elfeed-search-update--force
-    ;; ",gu" #'elfeed-unjam
     "c" nil
     "gr" nil
     "gR" nil
     "gu" nil
     "o" #'elfeed-search-show-entry
-    "O" #'elfeed-search-browse-url
+    ;; "O" #'elfeed-search-browse-url
+    "O" #'yxl-web/elfeed-search-browse-url-w3m
+    "u" #'elfeed-search-browse-url
     ;; ",R" #'zilong/elfeed-mark-all-as-read
     "m" #'yxl/elfeed-mark-as-read
     "M" #'yxl/elfeed-mark-as-unread
@@ -48,7 +58,8 @@
     "q" #'quit-window
     ;; ",tm" #'elfeed-toggle-shr-inhibit-images
     ;; ",O" #'elfeed-search-browse-url
-    "O"     #'elfeed-show-visit
+    "O"     #'yxl-web/elfeed-show-visit-w3m
+    "u"     #'elfeed-show-visit
     "J"     #'elfeed-show-next
     "K"     #'elfeed-show-prev
     (kbd "C-h") #'windmove-left
