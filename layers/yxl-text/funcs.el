@@ -64,6 +64,7 @@ master-dir, projectile-project-root, ~/Downloads"
   (highlight-regexp "foobar\\|lorem" 'yxl-latex-font-keyword)
   (highlight-regexp "\\." 'yxl-latex-font-delim)
   (highlight-regexp "_" 'yxl-latex-font-delim)
+  (highlight-regexp "\\\\_" 'font-lock-function-name-face)
   (highlight-regexp "\\\\(\\|\\\\)" 'yxl-latex-font-math-delim))
 
 (defun yxl-text/setup-latex-general ()
