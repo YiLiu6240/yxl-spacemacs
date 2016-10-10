@@ -238,25 +238,18 @@ Else create a window with lines parsed by prefix"
   (find-file yxl/file-bib))
 
 (defun yxl/find-file-org ()
-  "visit org file(s). when no prefix, visit master org file;
-when C-u, visit work org; when C-u 1, visit both in a dual pane. "
   (interactive)
-  (if current-prefix-arg
-      (cond
-       ((equal current-prefix-arg 1)
-        (list
-         (delete-other-windows)
-         (find-file yxl/org-file-master)
-         (split-window-right-and-focus)
-         (find-file yxl/org-file-work)))
-       (t
-        (list
-         (find-file yxl/org-file-work))))
-    (find-file yxl/org-file-master)))
+  (find-file yxl/org-file-master))
+(defun yxl/find-file-org-other-window ()
+  (interactive)
+  (find-file-other-window yxl/org-file-master))
 
 (defun yxl/find-file-org-work ()
   (interactive)
   (find-file yxl/org-file-work))
+(defun yxl/find-file-org-work-other-window ()
+  (interactive)
+  (find-file-other-window yxl/org-file-work))
 
 ;; TODO: change to org version as in capture template
 (defun yxl/find-file-diary ()
