@@ -5,6 +5,11 @@
     (add-to-list 'window-persistent-parameters '(window-side . writable))
     (add-to-list 'window-persistent-parameters '(window-slot . writable))
     (setq eyebrowse-new-workspace 'spacemacs/home)
+    (defun eyebrowse-create-window-config-clone ()
+      (interactive)
+      (let* ((eyebrowse-new-workspace nil))
+        (call-interactively 'eyebrowse-create-window-config)
+        (message "clone to new workspace")))
     (defun spacemacs//workspaces-mod-ts-hint ()
       "Return a one liner string containing all the workspaces names."
       (concat
@@ -24,7 +29,7 @@
  ─────^^^^^^───────────────────────      ───────^^──────────────────────
  [_0_,_9_]^^     nth/new workspace       [_d_] close current workspace
  [_C-0_,_C-9_]^^ nth/new workspace       [_R_] rename current workspace
- [_<tab>_]^^^^   last workspace          [_c_] create window config
+ [_<tab>_]^^^^   last workspace          [_c_/_C_] create window config
                                          [_?_] toggle help
  [_n_/_C-l_/_L_]^^   next workspace      [_q_] quit
  [_N_/_p_/_C-h_/_H_] prev workspace\n")
@@ -62,6 +67,7 @@
       ("H" eyebrowse-prev-window-config)
       ("L" eyebrowse-next-window-config)
       ("c" eyebrowse-create-window-config :exit t)
+      ("C" eyebrowse-create-window-config-clone :exit t)
       ("d" eyebrowse-close-window-config)
       ("n" eyebrowse-next-window-config)
       ("N" eyebrowse-prev-window-config)
