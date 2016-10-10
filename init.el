@@ -360,6 +360,9 @@ values."
   (defun package--save-selected-packages (&rest opt) nil)
   (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (load custom-file)
+
+  ;; final steps
+  (switch-to-buffer "*scratch*")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
