@@ -2,9 +2,8 @@
 
 (defun yxl-ess/yxl-ess-settings ()
   "wrap my settings in a function"
-  ;; disable "<-" assignment when pressing "_" --------
-  ;; TODO: make sure
-  (setq ess-S-assign "_")
+  ;; disable "<-" assignment when pressing "_"
+  (ess-toggle-underscore nil)
   ;; --------
   ;; no history file
   (setq ess-history-file nil)
@@ -17,9 +16,6 @@
   ;; Start R in the working directory by default
   (setq ess-ask-for-ess-directory nil))
 
-(defun yxl-ess/yxl-ess-hook ()
-  (ess-toggle-S-assign nil))
-
 (defun yxl-ess/yxl-R-hook ()
   (ess-set-style 'RStudio 'quiet)
   ;; indent with 4 spaces
@@ -27,11 +23,13 @@
   (setq ess-indent-offset 4)
   ;; no fancy comment
   (setq comment-add 0)
+  ;; nested ifelse
+  (setq ess-align-nested-calls '("ifelse"))
   (setq ess-indent-with-fancy-comments nil))
 
 (defun yxl-ess/post-init-ess ()
   ;; personal preferences
-  (with-eval-after-load 'ess-mode
+  (with-eval-after-load 'ess-site
     (add-hook 'R-mode-hook #'yxl-ess/yxl-R-hook)
     (add-hook 'ess-mode-hook #'yxl-ess/yxl-ess-hook)
     (add-hook 'ess-mode-hook 'smartparens-mode)
