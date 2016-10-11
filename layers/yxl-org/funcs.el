@@ -18,7 +18,7 @@
   (setq org-startup-folded nil)
   ;; disable truncate-lines at launch
   (setq org-startup-truncated nil)
-  (setq org-startup-indented t)
+  (setq org-startup-indented nil)
   (setq org-odd-levels-only nil)
   ;; highlight code-block
   (setq org-src-fontify-natively t)
