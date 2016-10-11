@@ -1,10 +1,7 @@
 (setq yxl-ess-packages '(ess))
 
-(defun yxl-ess/yxl-ess-settings ()
+(defun yxl-ess/ess-setup ()
   "wrap my settings in a function"
-  ;; disable "<-" assignment when pressing "_"
-  (ess-toggle-underscore nil)
-  ;; --------
   ;; no history file
   (setq ess-history-file nil)
   ;; no spaces around argument assignment
@@ -16,7 +13,7 @@
   ;; Start R in the working directory by default
   (setq ess-ask-for-ess-directory nil))
 
-(defun yxl-ess/yxl-R-hook ()
+(defun yxl-ess/R-hook ()
   (ess-set-style 'RStudio 'quiet)
   ;; indent with 4 spaces
   (setq evil-shift-width 4)
@@ -30,13 +27,14 @@
 (defun yxl-ess/post-init-ess ()
   ;; personal preferences
   (with-eval-after-load 'ess-site
-    (add-hook 'R-mode-hook #'yxl-ess/yxl-R-hook)
-    (add-hook 'ess-mode-hook #'yxl-ess/yxl-ess-hook)
+    (ess-toggle-underscore nil))
+  (with-eval-after-load 'ess
     (add-hook 'ess-mode-hook 'smartparens-mode)
     (add-hook 'ess-mode-hook 'fci-mode)
     (add-hook 'ess-mode-hook 'hl-todo-mode)
     (add-hook 'ess-mode-hook 'which-function-mode)
-    (yxl-ess/yxl-ess-settings))
+    (yxl-ess/ess-setup)
+    (add-hook 'R-mode-hook #'yxl-ess/R-hook))
 
   (with-eval-after-load 'flycheck
    (setq flycheck-lintr-linters
