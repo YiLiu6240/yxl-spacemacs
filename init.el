@@ -135,7 +135,6 @@ values."
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner nil
    dotspacemacs-startup-lists '((recents . 5)
-                                bookmarks
                                 (projects . 7))
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'gfm-mode
@@ -152,10 +151,11 @@ values."
                                :width normal
                                :powerline-scale 1.3)
    dotspacemacs-leader-key "SPC"
+   dotspacemacs-emacs-command-key ":"
+   dotspacemacs-ex-command-key ":"
    dotspacemacs-emacs-leader-key "M-m"
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
-   dotspacemacs-emacs-command-key ":"
    dotspacemacs-distinguish-gui-tab nil
    dotspacemacs-remap-Y-to-y$ t
    dotspacemacs-retain-visual-state-on-shift t

@@ -81,20 +81,20 @@
                                "record") company-keywords-alist)))
 
 ;; literate programming
-(defun yxl-prog/post-init-org ()
-  (with-eval-after-load 'org
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((dot . t)
-       (latex . t)
-       (octave . t)
-       (org . t)
-       (perl . t)
-       (python . t)
-       (R . t)
-       (ruby . t)
-       (sh . t)
-       (sqlite . t)))
+;; from builtin ess layer
+(defun yxl-prog/pre-init-org ()
+  (spacemacs|use-package-add-hook org
+    :post-config
+    (progn
+      (add-to-list 'org-babel-load-languages '((dot . t)
+                                               (latex . t)
+                                               (octave . t)
+                                               (org . t)
+                                               (perl . t)
+                                               (python . t)
+                                               (ruby . t)
+                                               (sh . t)
+                                               (sqlite . t))))
     (setq org-confirm-babel-evaluate nil)
     (setq org-src-preserve-indentation t)
     (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
