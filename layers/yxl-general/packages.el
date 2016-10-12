@@ -165,7 +165,7 @@
     ;; inherit from zilongshanren
     (evil-set-initial-state 'occur-mode 'evilified)
     (setq my-todo-occur-regex
-          "\\<\\(FIXME\\|TODO\\|BUG\\|ISSUE\\|DOING\\|NEXT\\):")
+          "\\<\\(FIXME\\|TODO\\|BUG\\|ISSUE\\|DOING\\|NEXT\\)")
     (defun my/todo-occur ()
       (interactive)
       (if (projectile-project-p)
