@@ -6,8 +6,7 @@
                           company
                           graphviz-dot-mode
                           imenu-anywhere
-                          smartparens
-                          lispy))
+                          smartparens))
 
 (defun yxl-prog/init-prog-mode ()
   (use-package prog-mode
@@ -126,25 +125,31 @@
   (spacemacs|use-package-add-hook smartparens
     :post-config
     (progn
-      (global-set-key (kbd "C-(") #'wrap-sexp-with-new-round-parens)
+      ;; https://www.reddit.com/r/emacs/comments/54agp2/from_an_evil_perspective_how_to_efficiently_edit/
+      (define-key sp-keymap (kbd "C-<tab>") 'sp-indent-adjust-sexp)
+      (define-key sp-keymap (kbd "C-S-<tab>") 'sp-dedent-adjust-sexp)
       (setq sp-highlight-pair-overlay nil)
       (setq sp-highlight-wrap-overlay nil)
-      (setq sp-highlight-wrap-tag-overlay nil)
-      (evil-define-key 'normal sp-keymap
-        (kbd ")>") 'sp-forward-slurp-sexp
-        (kbd ")<") 'sp-forward-barf-sexp
-        (kbd "(>") 'sp-backward-barf-sexp
-        (kbd "(<") 'sp-backward-slurp-sexp))))
+      (setq sp-highlight-wrap-tag-overlay nil))))
 
-(defun yxl-prog/init-lispy ()
-  (use-package lispy
-    :defer t
-    :init
-    (progn
-      (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1))))
-    :config
-    (progn
-      (define-key lispy-mode-map (kbd "s-m") 'lispy-mark-symbol)
-      (define-key lispy-mode-map (kbd "s-1") 'lispy-describe-inline)
-      (define-key lispy-mode-map (kbd "s-k") 'lispy-splice)
-      (define-key lispy-mode-map (kbd "s-2") 'lispy-arglist-inline))))
+;; (defun yxl-prog/init-lispy ()
+;;   (use-package lispy
+;;     :defer t
+;;     :init
+;;     (progn
+;;       (add-hook 'emacs-lisp-mode-hook #'lispy-mode)
+;;       (spacemacs|add-toggle lispy
+;;         :status lispy-mode
+;;         :on (lispy-mode 1)
+;;         :off (lispy-mode -1)
+;;         :documentation "toggle lispy"
+;;         :evil-leader "tol"))
+;;     :config
+;;     (progn
+;;       (define-key emacs-lisp-mode-map (kbd "C-<tab>") 'lispy-indent-adjust-parens)
+;;       (define-key emacs-lisp-mode-map (kbd "C-S-<tab>") 'lispy-dedent-adjust-parens)
+;;       (define-key lispy-mode-map (kbd "C-2") 'lispy-describe-inline)
+;;       (define-key lispy-mode-map (kbd "C-3") 'lispy-arglist-inline)
+;;       ;; (define-key lispy-mode-map (kbd "C-k") 'lispy-splice)
+;;       ;; (define-key lispy-mode-map (kbd "C-3") 'lispy-mark-symbol)
+;;       )))

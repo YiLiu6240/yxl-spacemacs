@@ -56,7 +56,7 @@ values."
                       auto-completion-enable-sort-by-usage t
                       ;; completion tool tip, nil, buggy in evil
                       auto-completion-enable-help-tooltip nil
-                      :disabled-for ; layer name
+                      :disabled-for     ; layer name
                       org
                       markdown)
      ;; semantic
@@ -73,6 +73,7 @@ values."
      (evil-snipe :variables
                  ;; f/t not bound to current line
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
+     evil-cleverparens
 
      ;; other layers --------
      ;; smex
@@ -190,7 +191,7 @@ values."
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    ;; TODO: have-a-look
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
    dotspacemacs-smart-closing-parenthesis nil
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-persistent-server nil
@@ -335,9 +336,7 @@ values."
   ;; --------
   ;; under experiment
   ;; --------
-  ;; https://www.reddit.com/r/emacs/comments/54agp2/from_an_evil_perspective_how_to_efficiently_edit/
-  (define-key emacs-lisp-mode-map (kbd "C-<tab>") 'sp-indent-adjust-sexp)
-  (define-key emacs-lisp-mode-map (kbd "C-S-<tab>") 'sp-dedent-adjust-sexp)
+  (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
 
   ;; --------
   ;; misc configs
