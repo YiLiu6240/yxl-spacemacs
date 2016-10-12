@@ -5,7 +5,9 @@
                           ob-ipython
                           company
                           graphviz-dot-mode
-                          imenu-anywhere))
+                          imenu-anywhere
+                          smartparens
+                          lispy))
 
 (defun yxl-prog/init-prog-mode ()
   (use-package prog-mode
@@ -119,3 +121,30 @@
       ;; remove same-project-p, too confusing
       (setq imenu-anywhere-buffer-filter-functions '(imenu-anywhere-same-mode-p
                                                      imenu-anywhere-friendly-mode-p)))))
+
+(defun yxl-prog/pre-init-smartparens ()
+  (spacemacs|use-package-add-hook smartparens
+    :post-config
+    (progn
+      (global-set-key (kbd "C-(") #'wrap-sexp-with-new-round-parens)
+      (setq sp-highlight-pair-overlay nil)
+      (setq sp-highlight-wrap-overlay nil)
+      (setq sp-highlight-wrap-tag-overlay nil)
+      (evil-define-key 'normal sp-keymap
+        (kbd ")>") 'sp-forward-slurp-sexp
+        (kbd ")<") 'sp-forward-barf-sexp
+        (kbd "(>") 'sp-backward-barf-sexp
+        (kbd "(<") 'sp-backward-slurp-sexp))))
+
+(defun yxl-prog/init-lispy ()
+  (use-package lispy
+    :defer t
+    :init
+    (progn
+      (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1))))
+    :config
+    (progn
+      (define-key lispy-mode-map (kbd "s-m") 'lispy-mark-symbol)
+      (define-key lispy-mode-map (kbd "s-1") 'lispy-describe-inline)
+      (define-key lispy-mode-map (kbd "s-k") 'lispy-splice)
+      (define-key lispy-mode-map (kbd "s-2") 'lispy-arglist-inline))))

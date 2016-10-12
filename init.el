@@ -345,9 +345,6 @@ values."
   (setq bookmark-default-file "~/Dropbox/inbox/helm-bookmark")
 
   (setq lua-indent-level 4)
-  (setq sp-highlight-pair-overlay nil)
-  (setq sp-highlight-wrap-overlay nil)
-  (setq sp-highlight-wrap-tag-overlay nil)
 
   ;; tramp bug, from zilongshanren
   (setq tramp-ssh-controlmaster-options
