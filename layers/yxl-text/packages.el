@@ -21,9 +21,7 @@
       (add-hook 'text-mode-hook 'hl-todo-mode)
       (add-hook 'text-mode-hook (lambda ()
                                   (setq indent-tabs-mode nil
-                                        tab-width 2)))
-      (with-eval-after-load 'evil-surround
-        (add-hook 'text-mode-hook 'yxl-text/evil-surround-pairs)))))
+                                        tab-width 2))))))
 
 (defun yxl-text/post-init-auctex ()
   (with-eval-after-load 'latex

@@ -5,8 +5,7 @@
                           ob-ipython
                           company
                           graphviz-dot-mode
-                          imenu-anywhere
-                          smartparens))
+                          imenu-anywhere))
 
 (defun yxl-prog/init-prog-mode ()
   (use-package prog-mode
@@ -17,12 +16,7 @@
       (add-hook 'prog-mode-hook 'hl-todo-mode)
       (add-hook 'prog-mode-hook (lambda ()
                                   (setq indent-tabs-mode nil)
-                                  (setq tab-width 4)))
-      (with-eval-after-load 'evil-surround
-        (add-hook 'prog-mode-hook (lambda ()
-                                    (push '(?s . ("[" . "]")) evil-surround-pairs-alist)
-                                    (push '(?q . ("\"" . "\"")) evil-surround-pairs-alist)
-                                    (push '(?w . ("'" . "'")) evil-surround-pairs-alist)))))))
+                                  (setq tab-width 4))))))
 
 (defun yxl-prog/post-init-python ()
   (with-eval-after-load 'python
@@ -120,36 +114,3 @@
       ;; remove same-project-p, too confusing
       (setq imenu-anywhere-buffer-filter-functions '(imenu-anywhere-same-mode-p
                                                      imenu-anywhere-friendly-mode-p)))))
-
-(defun yxl-prog/pre-init-smartparens ()
-  (spacemacs|use-package-add-hook smartparens
-    :post-config
-    (progn
-      ;; https://www.reddit.com/r/emacs/comments/54agp2/from_an_evil_perspective_how_to_efficiently_edit/
-      (define-key sp-keymap (kbd "C-<tab>") 'sp-indent-adjust-sexp)
-      (define-key sp-keymap (kbd "C-S-<tab>") 'sp-dedent-adjust-sexp)
-      (setq sp-highlight-pair-overlay nil)
-      (setq sp-highlight-wrap-overlay nil)
-      (setq sp-highlight-wrap-tag-overlay nil))))
-
-;; (defun yxl-prog/init-lispy ()
-;;   (use-package lispy
-;;     :defer t
-;;     :init
-;;     (progn
-;;       (add-hook 'emacs-lisp-mode-hook #'lispy-mode)
-;;       (spacemacs|add-toggle lispy
-;;         :status lispy-mode
-;;         :on (lispy-mode 1)
-;;         :off (lispy-mode -1)
-;;         :documentation "toggle lispy"
-;;         :evil-leader "tol"))
-;;     :config
-;;     (progn
-;;       (define-key emacs-lisp-mode-map (kbd "C-<tab>") 'lispy-indent-adjust-parens)
-;;       (define-key emacs-lisp-mode-map (kbd "C-S-<tab>") 'lispy-dedent-adjust-parens)
-;;       (define-key lispy-mode-map (kbd "C-2") 'lispy-describe-inline)
-;;       (define-key lispy-mode-map (kbd "C-3") 'lispy-arglist-inline)
-;;       ;; (define-key lispy-mode-map (kbd "C-k") 'lispy-splice)
-;;       ;; (define-key lispy-mode-map (kbd "C-3") 'lispy-mark-symbol)
-;;       )))

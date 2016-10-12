@@ -1,4 +1,5 @@
 (setq yxl-evil-packages '(evil
+                          evil-surround
                           evil-indent-plus
                           evil-textobj-column
                           (evil-little-word :location local)
@@ -63,6 +64,11 @@
     ;; avoid pressing by mistake
     (define-key evil-motion-state-map "\\" nil)
     (define-key evil-motion-state-map "\\\\" "zz")
+    ;; text objects
+    (define-key evil-outer-text-objects-map "g" 'evil-a-curly)
+    (define-key evil-outer-text-objects-map "h" 'evil-a-bracket)
+    (define-key evil-inner-text-objects-map "g" 'evil-inner-curly)
+    (define-key evil-inner-text-objects-map "h" 'evil-inner-bracket)
     ;; TODO: ex commands for tabe and tabnew -- write functions for eyebrowse
     ;; ---- disabled ----
     ;; vim-surround, use "S"
@@ -85,6 +91,21 @@
       (kbd "C-k") #'windmove-up
       (kbd "C-p") #'comint-previous-input
       (kbd "C-n") #'comint-next-input)))
+
+(defun yxl-evil/evil-surround-pairs-text-mode ()
+  "press viw then press the trigger key"
+  (push '(?m . ("\\\(" . "\\\)")) evil-surround-pairs-alist)
+  (push '(?M . ("\\\( " . " \\\)")) evil-surround-pairs-alist)
+  (push '(?n . ("\\[" . "\\]")) evil-surround-pairs-alist)
+  (push '(?N . ("\\[ " . " \\]")) evil-surround-pairs-alist))
+
+(defun yxl-evil/post-init-evil-surround ()
+  (with-eval-after-load 'evil-surround
+    (push '(?g . ("{" . "}")) evil-surround-pairs-alist)
+    (push '(?h . ("[" . "]")) evil-surround-pairs-alist)
+    (push '(?q . ("\"" . "\"")) evil-surround-pairs-alist)
+    (push '(?w . ("'" . "'")) evil-surround-pairs-alist)
+    (add-hook 'text-mode-hook #'yxl-evil/evil-surround-pairs-text-mode)))
 
 (defun yxl-evil/post-init-evil-indent-plus ()
   (with-eval-after-load 'evil-indent-plus

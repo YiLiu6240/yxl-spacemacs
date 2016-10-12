@@ -33,16 +33,6 @@ master-dir, projectile-project-root, ~/Downloads"
   ;; cant use paranthesis
   (call-interactively 'align))
 
-(defun yxl-text/evil-surround-pairs ()
-  "press viw then press the trigger key"
-  (push '(?m . ("\\\(" . "\\\)")) evil-surround-pairs-alist)
-  (push '(?M . ("\\\( " . " \\\)")) evil-surround-pairs-alist)
-  (push '(?n . ("\\[" . "\\]")) evil-surround-pairs-alist)
-  (push '(?N . ("\\[ " . " \\]")) evil-surround-pairs-alist)
-  (push '(?s . ("[" . "]")) evil-surround-pairs-alist)
-  (push '(?q . ("\"" . "\"")) evil-surround-pairs-alist)
-  (push '(?w . ("'" . "'")) evil-surround-pairs-alist))
-
 (defface yxl-latex-font-hide
   '((t (:foreground "#4b798a" :slant italic)))
   "should be visibly lighter than comments")
