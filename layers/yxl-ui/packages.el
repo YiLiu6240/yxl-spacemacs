@@ -157,5 +157,5 @@ enabled."
       (spaceline-toggle-persp-name-off)
       (spaceline-toggle-version-control-off)
       (spaceline-toggle-buffer-size-off)
-      (spaceline-toggle-buffer-encoding-abbrev-off)
+      ;; (spaceline-toggle-buffer-encoding-abbrev-off)
       )))
