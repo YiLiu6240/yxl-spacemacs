@@ -167,7 +167,7 @@ create new scratch buffers `*scratch2*', `*scratch3*', ... ."
         (repeat-key (vector last-input-event)))
     (setq scratch-pop--next-scratch-id 1
           scratch-pop--visible-buffers (mapcar 'window-buffer (window-list)))
-    (popwin:popup-buffer (scratch-pop--get-next-scratch))
+    (popwin:popup-buffer (scratch-pop--get-next-scratch) :position 'top)
     (when str
       (goto-char (point-max))
       (insert (concat "\n" str "\n")))
