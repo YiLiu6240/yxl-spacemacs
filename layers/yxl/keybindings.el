@@ -15,6 +15,8 @@
   ".Sl" #'session-load
   ".vp" #'ivy-push-view
   ".vP" #'ivy-pop-view
+  ".po" #'yxl/find-file-org-popup
+  ".pw" #'yxl/find-file-org-work-popup
 
   ;; top-level quick actions
   "o1" #'select-frame-code

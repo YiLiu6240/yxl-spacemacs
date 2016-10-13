@@ -243,6 +243,10 @@ Else create a window with lines parsed by prefix"
 (defun yxl/find-file-org-other-window ()
   (interactive)
   (find-file-other-window yxl/org-file-master))
+(defun yxl/find-file-org-popup ()
+  (interactive)
+  (popwin:popup-buffer (find-file-noselect yxl/org-file-master)
+                       :width 60 :position 'left))
 
 (defun yxl/find-file-org-work ()
   (interactive)
@@ -250,6 +254,10 @@ Else create a window with lines parsed by prefix"
 (defun yxl/find-file-org-work-other-window ()
   (interactive)
   (find-file-other-window yxl/org-file-work))
+(defun yxl/find-file-org-work-popup ()
+  (interactive)
+  (popwin:popup-buffer (find-file-noselect yxl/org-file-work)
+                       :width 60 :position 'left))
 
 ;; TODO: change to org version as in capture template
 (defun yxl/find-file-diary ()
