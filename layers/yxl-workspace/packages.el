@@ -4,7 +4,7 @@
   (with-eval-after-load 'eyebrowse
     (add-to-list 'window-persistent-parameters '(window-side . writable))
     (add-to-list 'window-persistent-parameters '(window-slot . writable))
-    (setq eyebrowse-new-workspace 'spacemacs/home)
+    (setq eyebrowse-new-workspace 'dired-jump)
     (defun eyebrowse-create-window-config-clone ()
       (interactive)
       (let* ((eyebrowse-new-workspace nil))
