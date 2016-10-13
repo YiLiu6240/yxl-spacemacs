@@ -1,4 +1,4 @@
-(defvar yxl-simple-todo-task1 "task: null")
+(defvar yxl-simple-todo-task1 "task")
 
 (defvar yxl-simple-todo-task2 nil)
 
