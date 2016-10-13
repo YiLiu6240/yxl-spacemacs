@@ -316,3 +316,13 @@ Else create a window with lines parsed by prefix"
     (when filename
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
+
+(defun yxl/append-to-scratch (text)
+  "receive input text and append this text to scratch"
+  (interactive "stext: ")
+  (let* ((scratch-buf (get-buffer-create "*scratch*"))
+         (text-with-newline (concat text "\n")))
+    (save-excursion
+      (with-current-buffer scratch-buf
+        (end-of-buffer)
+        (insert text-with-newline)))))

@@ -1,4 +1,5 @@
 (spacemacs/set-leader-keys
+  ".."  #'yxl/append-to-scratch
   ".s"  #'scratch-pop
   ".mm" #'bm-toggle
   ".mM" #'bm-toggle-buffer-persistence
