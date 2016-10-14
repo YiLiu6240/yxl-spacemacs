@@ -94,6 +94,8 @@
 
 (defun yxl-evil/evil-surround-pairs-text-mode ()
   "press viw then press the trigger key"
+  (push '(?g . ("{" . "}")) evil-surround-pairs-alist)
+  (push '(?h . ("[" . "]")) evil-surround-pairs-alist)
   (push '(?m . ("\\\(" . "\\\)")) evil-surround-pairs-alist)
   (push '(?M . ("\\\( " . " \\\)")) evil-surround-pairs-alist)
   (push '(?n . ("\\[" . "\\]")) evil-surround-pairs-alist)
