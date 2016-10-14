@@ -110,7 +110,7 @@ enabled."
 
       (spaceline-define-segment indent-width
         (let ((indent-width (zilongshanren/display-mode-indent-width)))
-          (propertize indent-width 'face 'default)))
+          (format "%s" indent-width)))
 
       ;; TODO: temporary measures
       (defun spaceline--pdfview-page-number ()
