@@ -15,16 +15,12 @@
   ".Sl" #'session-load
   ".vp" #'ivy-push-view
   ".vP" #'ivy-pop-view
-  ".po" #'yxl/find-file-org-popup
-  ".pw" #'yxl/find-file-org-work-popup
   ".="  #'spacemacs/scale-up-font
   ".-"  #'spacemacs/scale-down-font
 
   ;; top-level quick actions
-  "o1" #'select-frame-code
-  "o2" #'select-frame-REPL
-  "o3" #'select-frame-meta
-  "o4" #'select-frame-config
+  "o1" #'yxl/find-file-org-popup
+  "o2" #'yxl/find-file-org-work-popup
   "ok" #'select-frame-code
   "oj" #'select-frame-REPL
   "oh" #'select-frame-meta
