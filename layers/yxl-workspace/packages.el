@@ -28,7 +28,7 @@
  Go to^^^^^^                             Actions^^
  ─────^^^^^^───────────────────────      ───────^^──────────────────────
  [_0_,_9_]^^     nth/new workspace       [_d_] close current workspace
- [_C-0_,_C-9_]^^ nth/new workspace       [_R_] rename current workspace
+ [_C-0_,_C-9_]^^ nth/new workspace       [_R_/_,_] rename current workspace
  [_<tab>_]^^^^   last workspace          [_c_/_C_] create window config
                                          [_?_] toggle help
  [_n_/_C-l_/_L_]^^   next workspace      [_q_] quit
@@ -72,7 +72,8 @@
       ("n" eyebrowse-next-window-config)
       ("N" eyebrowse-prev-window-config)
       ("p" eyebrowse-prev-window-config)
-      ("R" spacemacs/workspaces-ts-rename :exit t))
+      ("R" spacemacs/workspaces-ts-rename :exit t)
+      ("," spacemacs/workspaces-ts-rename :exit t))
     ;; cut integration between persp and workspaces
     (remove-hook 'persp-before-switch-functions
                  #'spacemacs/update-eyebrowse-for-perspective)
