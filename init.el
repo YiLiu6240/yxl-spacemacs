@@ -19,7 +19,7 @@ values."
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode)
      emacs-lisp
-     ess
+     (ess :packages (not org))
      (git :variables
           git-magit-status-fullscreen t)
      lua
