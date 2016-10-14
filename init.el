@@ -337,6 +337,8 @@ values."
   ;; under experiment
   ;; --------
   (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+  (evil-define-key 'normal evil-cleverparens-mode-map (kbd "H") nil)
+  (evil-define-key 'normal evil-cleverparens-mode-map (kbd "L") nil)
 
   ;; --------
   ;; misc configs
