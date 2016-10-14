@@ -191,7 +191,7 @@ values."
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    ;; TODO: have-a-look
-   dotspacemacs-smartparens-strict-mode t
+   dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis nil
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-persistent-server nil
@@ -334,11 +334,14 @@ values."
     (add-to-list 'flycheck-checkers 'proselint))
 
   ;; --------
-  ;; under experiment
+  ;; under REVIEW
   ;; --------
   (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
   (evil-define-key 'normal evil-cleverparens-mode-map (kbd "H") nil)
   (evil-define-key 'normal evil-cleverparens-mode-map (kbd "L") nil)
+  ;; evil-cp overwrites y, cannot use reguster 0
+  (evil-define-key 'normal evil-cleverparens-mode-map (kbd "y") nil)
+  (evil-define-key 'visual evil-cleverparens-mode-map (kbd "y") nil)
 
   ;; --------
   ;; misc configs
