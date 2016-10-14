@@ -17,6 +17,8 @@
   ".vP" #'ivy-pop-view
   ".po" #'yxl/find-file-org-popup
   ".pw" #'yxl/find-file-org-work-popup
+  ".="  #'spacemacs/scale-up-font
+  ".-"  #'spacemacs/scale-down-font
 
   ;; top-level quick actions
   "o1" #'select-frame-code
