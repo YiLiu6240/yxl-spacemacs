@@ -119,7 +119,6 @@ If `point' is supplied and non-nil it will return the begin and end of the block
         (let ((base (current-indentation))
               (begin (point))
               (end (point)))
-          ;; (setq begin (evil-indent-plus--seek begin -1 t nil #'evil-indent-plus--geq-or-empty-p))
           (setq begin (point-at-bol))
           (setq end (evil-indent-plus--seek end 1 t t #'evil-indent-plus--g-or-empty-p))
           (message "begin (%s) end (%s)" begin end)
@@ -131,6 +130,14 @@ skipping empty lines."
       :type line
       (evil-indent-plus--linify (evil-indent-plus--higher-indent-range)))
 
+    (defun yxl-evil/go-up-indent ()
+      (interactive)
+      (let ((base (current-indentation))
+            (begin (point)))
+        (setq begin (evil-indent-plus--seek begin -1 nil t #'evil-indent-plus--geq-or-empty-p))
+        (goto-char begin)))
+
+    (define-key evil-motion-state-map "gh" #'yxl-evil/go-up-indent)
     (define-key evil-inner-text-objects-map "q" #'evil-indent-plus-c-indent)))
 
 (defun yxl-evil/init-evil-textobj-column ()
