@@ -92,10 +92,12 @@
       (kbd "C-p") #'comint-previous-input
       (kbd "C-n") #'comint-next-input)))
 
-(defun yxl-evil/evil-surround-pairs-text-mode ()
+(defun yxl-evil/evil-surround-pairs ()
   "press viw then press the trigger key"
   (push '(?g . ("{" . "}")) evil-surround-pairs-alist)
   (push '(?h . ("[" . "]")) evil-surround-pairs-alist)
+  (push '(?q . ("\"" . "\"")) evil-surround-pairs-alist)
+  (push '(?w . ("'" . "'")) evil-surround-pairs-alist)
   (push '(?m . ("\\\(" . "\\\)")) evil-surround-pairs-alist)
   (push '(?M . ("\\\( " . " \\\)")) evil-surround-pairs-alist)
   (push '(?n . ("\\[" . "\\]")) evil-surround-pairs-alist)
@@ -103,11 +105,8 @@
 
 (defun yxl-evil/post-init-evil-surround ()
   (with-eval-after-load 'evil-surround
-    (push '(?g . ("{" . "}")) evil-surround-pairs-alist)
-    (push '(?h . ("[" . "]")) evil-surround-pairs-alist)
-    (push '(?q . ("\"" . "\"")) evil-surround-pairs-alist)
-    (push '(?w . ("'" . "'")) evil-surround-pairs-alist)
-    (add-hook 'text-mode-hook #'yxl-evil/evil-surround-pairs-text-mode)))
+    (add-hook 'prog-mode-hook #'yxl-evil/evil-surround-pairs)
+    (add-hook 'text-mode-hook #'yxl-evil/evil-surround-pairs)))
 
 (defun yxl-evil/post-init-evil-indent-plus ()
   (with-eval-after-load 'evil-indent-plus
