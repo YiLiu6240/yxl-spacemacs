@@ -342,6 +342,11 @@ values."
   ;; evil-cp overwrites y, cannot use reguster 0
   (evil-define-key 'normal evil-cleverparens-mode-map (kbd "y") nil)
   (evil-define-key 'visual evil-cleverparens-mode-map (kbd "y") nil)
+  ;; dont overwrite evil unimpared
+  (evil-define-key 'normal evil-cleverparens-mode-map (kbd "[") nil)
+  (evil-define-key 'visual evil-cleverparens-mode-map (kbd "[") nil)
+  (evil-define-key 'normal evil-cleverparens-mode-map (kbd "]") nil)
+  (evil-define-key 'visual evil-cleverparens-mode-map (kbd "]") nil)
 
   ;; --------
   ;; misc configs
