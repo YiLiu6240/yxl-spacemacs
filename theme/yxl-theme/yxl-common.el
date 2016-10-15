@@ -81,16 +81,16 @@
         ;; functions
         (func          (if (eq variant 'dark) (if (true-color-p) "#33859e" "#d75fd7") (if (true-color-p) "#33859e" "#8700af")))
         ;; org lv1 heading
-        (head1         (if (eq variant 'dark) (if (true-color-p) "#b58900" "#875f00") (if (true-color-p) "#b58900" "#33859e")))
+        (head1         (if (eq variant 'dark) (if (true-color-p) "#33859e" "#875f00") (if (true-color-p) "#b58900" "#33859e")))
         (head1-bg      (if (eq variant 'dark) (if (true-color-p) "#132b34" "#262626") (if (true-color-p) "#edf1ed" "#ffffff")))
         ;; org lv2 heading
-        (head2         (if (eq variant 'dark) (if (true-color-p) "#2aa889" "#2aa198") (if (true-color-p) "#2aa889" "#2aa198")))
+        (head2         (if (eq variant 'dark) (if (true-color-p) "#d33682" "#2aa198") (if (true-color-p) "#2aa889" "#2aa198")))
         (head2-bg      (if (eq variant 'dark) (if (true-color-p) "#293235" "#262626") (if (true-color-p) "#edf2e9" "#ffffff")))
         ;; org lv3 heading
-        (head3         (if (eq variant 'dark) (if (true-color-p) "#33859e" "#67b11d") (if (true-color-p) "#33859e" "#5faf00")))
+        (head3         (if (eq variant 'dark) (if (true-color-p) "#b58900" "#67b11d") (if (true-color-p) "#33859e" "#5faf00")))
         (head3-bg      (if (eq variant 'dark) (if (true-color-p) "#293235" "#262626") (if (true-color-p) "#edf2e9" "#ffffff")))
         ;; org lv4 heading
-        (head4         (if (eq variant 'dark) (if (true-color-p) "#99d1ce" "#33859e") (if (true-color-p) "#99d1ce" "#875f00")))
+        (head4         (if (eq variant 'dark) (if (true-color-p) "#2aa889" "#33859e") (if (true-color-p) "#99d1ce" "#875f00")))
         (head4-bg      (if (eq variant 'dark) (if (true-color-p) "#32322c" "#262626") (if (true-color-p) "#f6f1e1" "#ffffff")))
         ;; highlighted area ???
         (highlight     (if (eq variant 'dark) (if (true-color-p) "#1d4250" "#444444") (if (true-color-p) "#1d4250" "#d7d7ff")))
@@ -134,7 +134,7 @@
         (blue          (if (eq variant 'dark) (if (true-color-p) "#4f97d7" "#33859e") (if (true-color-p) "#4f97d7" "#33859e")))
         (blue-bg       (if (eq variant 'dark) (if (true-color-p) "#293239" "#262626") (if (true-color-p) "#edf1ed" "#d7d7ff")))
         ;; TODO: add violet
-        (magenta       (if (eq variant 'dark) (if (true-color-p) "#a31db1" "#af00df") (if (true-color-p) "#a31db1" "#800080")))
+        (magenta       (if (eq variant 'dark) (if (true-color-p) "#d33682" "#af00df") (if (true-color-p) "#a31db1" "#800080")))
         (yellow        (if (eq variant 'dark) (if (true-color-p) "#b58900" "#875f00") (if (true-color-p) "#b58900" "#875f00")))
         (yellow-bg     (if (eq variant 'dark) (if (true-color-p) "#32322c" "#262626") (if (true-color-p) "#f6f1e1" "#ffffff")))
         )
@@ -499,15 +499,15 @@
      ;; `(font-latex-sectioning-4-face ((,class (:bold nil :foreground ,head3 :height ,(if yxl-theme-org-height 1.1 1.0) :background ,(when yxl-theme-org-highlight head3-bg)))))
      ;; `(font-latex-sectioning-5-face ((,class (:bold nil :foreground ,head4 :background ,(when yxl-theme-org-highlight head4-bg)))))
      ;; part
-     `(font-latex-sectioning-0-face ((,class (:inherit font-latex-sectioning-2-face))))
+     `(font-latex-sectioning-0-face ((,class (:inherit font-latex-sectioning-1-face))))
      ;; chapter
-     `(font-latex-sectioning-1-face ((,class (:inherit font-latex-sectioning-2-face))))
+     `(font-latex-sectioning-1-face ((,class (:inherit font-latex-sectioning-1-face))))
      ;; section
-     `(font-latex-sectioning-2-face ((,class (:foreground ,head1, :weight bold))))
+     `(font-latex-sectioning-2-face ((,class (:foreground ,head2, :weight bold))))
      ;; subsection
-     `(font-latex-sectioning-3-face ((,class (:foreground ,head2 :weight bold))))
+     `(font-latex-sectioning-3-face ((,class (:foreground ,head3 :weight bold))))
      ;; subsubsection
-     `(font-latex-sectioning-4-face ((,class (:foreground ,head3 :weight bold))))
+     `(font-latex-sectioning-4-face ((,class (:foreground ,head4 :weight bold))))
      ;; paragraph
      `(font-latex-sectioning-5-face ((,class (:inherit font-latex-sectioning-6-face :weight bold))))
      `(font-latex-sectioning-6-face ((,class (:foreground ,head4))))
