@@ -1,7 +1,8 @@
 (defconst yxl-dired-packages
   '(dired
     peep-dired
-    image+))
+    image+
+    dired-quick-sort))
 
 (defun yxl-dired/post-init-dired ()
   (use-package dired
@@ -78,6 +79,8 @@ Version 2015-11-30"
       (spacemacs/declare-prefix-for-mode #'dired-mode "mt" "toggle")
       (spacemacs/declare-prefix-for-mode #'dired-mode "mp" "peep")
 
+      (yxl-dired/hydra-setup)
+
       (spacemacs/set-leader-keys
         "obo" #'yxl-dired/open-in-desktop))))
 
@@ -117,3 +120,10 @@ Version 2015-11-30"
 ;;   :bind (:map peep-dired-mode-map
 ;;               ("SPC" . nil)
 ;;               ("<backspace>" . nil)))
+
+(defun yxl-dired/init-dired-quick-sort ()
+  (use-package dired-quick-sort
+    :defer t
+    :init
+    (with-eval-after-load 'dired
+      (dired-quick-sort-setup))))
