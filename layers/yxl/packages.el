@@ -1,8 +1,9 @@
 (setq yxl-packages '((alarm :location local)
                      (simple-todo :location local)
-                     (scratch-pop :location (recipe :fetcher github
-                                                    :repo "YiLiu6240/scratch-pop"
-                                                    :branch "dev"))
+                     ;; (scratch-pop :location (recipe :fetcher github
+                     ;;                                :repo "YiLiu6240/scratch-pop"
+                     ;;                                :branch "dev"))
+                     (scratch-pop :location local)
                      bm))
 
 (defun yxl/init-alarm ()
@@ -24,11 +25,15 @@
 (defun yxl/init-scratch-pop ()
   (use-package scratch-pop
     ;; need this for autoload
-    :commands (scratch-pop)
+    :commands (scratch-pop scratch-pop-sticky)
     :defer t
     :config
     (progn
-      (setq scratch-pop-default-mode 'gfm-mode))))
+      (setq scratch-pop-default-mode 'gfm-mode)
+      (defun yxl/scratch-pop-top ()
+        (interactive)
+        (let ((scratch-pop-position 'top))
+          (scratch-pop))))))
 
 (defun yxl/init-bm ()
   (use-package bm

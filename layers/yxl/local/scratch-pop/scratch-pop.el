@@ -1,8 +1,6 @@
 ;;; scratch-pop.el --- Generate, popup (& optionally backup) scratch buffer(s).
 
 ;; Copyright (C) 2012-2015 zk_phi
-;; Copyright (C) 2016 yxl
-;; custom changes: add option to switch to specified mode
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -19,7 +17,6 @@
 ;; Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
 ;; Version: 2.1.1
-;; Package-Version: 20150820.139
 ;; Author: zk_phi
 ;; URL: http://hins11.yu-yake.com/
 ;; Package-Requires: ((popwin "0.7.0alpha"))
@@ -87,6 +84,13 @@ region, the region is yanked to the scratch buffer."
 (defcustom scratch-pop-default-mode nil
   "When non-nil, scratch-pop will spawn with the specified mode"
   :group 'scratch-pop)
+
+(defcustom scratch-pop-position 'bottom
+  "position to spawn scratch pop: top, bottom, left, right"
+  :type '(choice (const :tag "top" top)
+                 (const :tag "bottom" bottom)
+                 (const :tag "left" left)
+                 (const :tag "right" right)))
 
 ;; + backup
 
@@ -167,7 +171,38 @@ create new scratch buffers `*scratch2*', `*scratch3*', ... ."
         (repeat-key (vector last-input-event)))
     (setq scratch-pop--next-scratch-id 1
           scratch-pop--visible-buffers (mapcar 'window-buffer (window-list)))
-    (popwin:popup-buffer (scratch-pop--get-next-scratch) :position 'top)
+    (popwin:popup-buffer (scratch-pop--get-next-scratch)
+                         :position scratch-pop-position)
+    (when str
+      (goto-char (point-max))
+      (insert (concat "\n" str "\n")))
+    (message "(Type %s to repeat)" (edmacro-format-keys repeat-key))
+    (set-temporary-overlay-map
+     (let ((km (make-sparse-keymap))
+           (cycle-fn (lambda ()
+                       (interactive)
+                       (with-selected-window popwin:popup-window
+                         (switch-to-buffer (scratch-pop--get-next-scratch))))))
+       (define-key km repeat-key cycle-fn)
+       km) t))
+  ;; switch to a predefined mode
+  (when (fboundp scratch-pop-default-mode)
+    (funcall scratch-pop-default-mode)))
+
+;; TODO: no need to call major mode, but why initial-major-mode not working?
+;;;###autoload
+(defun scratch-pop-sticky ()
+  "Sticky version of scratch pop"
+  (interactive)
+  (let ((str (when (and scratch-pop-enable-auto-yank (use-region-p))
+               (prog1 (buffer-substring (region-beginning) (region-end))
+                 (delete-region (region-beginning) (region-end))
+                 (deactivate-mark))))
+        (repeat-key (vector last-input-event)))
+    (setq scratch-pop--next-scratch-id 1
+          scratch-pop--visible-buffers (mapcar 'window-buffer (window-list)))
+    (popwin:popup-buffer (scratch-pop--get-next-scratch)
+                         :position scratch-pop-position :stick t)
     (when str
       (goto-char (point-max))
       (insert (concat "\n" str "\n")))

@@ -1,6 +1,5 @@
 (spacemacs/set-leader-keys
   ".."  #'yxl/append-to-scratch
-  ".s"  #'scratch-pop
   ".mm" #'bm-toggle
   ".mM" #'bm-toggle-buffer-persistence
   ".mk" #'bm-previous
@@ -17,6 +16,10 @@
   ".vP" #'ivy-pop-view
   ".="  #'spacemacs/scale-up-font
   ".-"  #'spacemacs/scale-down-font
+
+  ",,"  #'scratch-pop
+  ",."  #'scratch-pop-sticky
+  ",t"  #'yxl/scratch-pop-top
 
   ;; top-level quick actions
   "o1" #'yxl/find-file-org-popup
