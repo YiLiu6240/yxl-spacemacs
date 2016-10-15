@@ -5,6 +5,7 @@
     (add-to-list 'window-persistent-parameters '(window-side . writable))
     (add-to-list 'window-persistent-parameters '(window-slot . writable))
     (setq eyebrowse-new-workspace 'dired-jump)
+    (setq eyebrowse-mode-line-style 'always)
     (defun eyebrowse-create-window-config-clone ()
       (interactive)
       (let* ((eyebrowse-new-workspace nil))
@@ -72,8 +73,8 @@
       ("n" eyebrowse-next-window-config)
       ("N" eyebrowse-prev-window-config)
       ("p" eyebrowse-prev-window-config)
-      ("R" spacemacs/workspaces-ts-rename :exit t)
-      ("," spacemacs/workspaces-ts-rename :exit t))
+      ("R" spacemacs/workspaces-ts-rename)
+      ("," spacemacs/workspaces-ts-rename))
     ;; cut integration between persp and workspaces
     (remove-hook 'persp-before-switch-functions
                  #'spacemacs/update-eyebrowse-for-perspective)

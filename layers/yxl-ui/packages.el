@@ -119,19 +119,19 @@ enabled."
                 (eval (pdf-view-current-page))
                 (pdf-cache-number-of-pages)))
 
+      (spaceline-define-segment eyebrowse
+        (powerline-raw (s-trim (eyebrowse-mode-line-indicator))))
+
       (spaceline-compile
        'yxl
        ;; Left side of the mode line (all the important stuff)
-       '((workspace-number)
+       '((window-number :face highlight-face)
          (buffer-modified
           buffer-size
           buffer-id
           yxl-window-dedication-segment :tight)
-         (window-number :face highlight-face)
          anzu
-         ((yxl-simple-todo-task1-segment :when active)
-          (yxl-simple-todo-task2-segment :when active)
-          (yxl-simple-todo-task3-segment :when active))
+         (eyebrowse :when active)
          (which-function :when active)
          (process :when active)
          (flycheck-error flycheck-warning flycheck-info))

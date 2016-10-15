@@ -342,6 +342,12 @@
      `(evil-ex-substitute-matches ((,class (:background ,red-bg :foreground ,red))))
      `(evil-ex-substitute-replacement ((,class (:background ,green-bg :foreground ,green))))
 
+;;;;; eyebrowse
+     `(eyebrowse-mode-line-active ((,class (:inherit 'font-lock-keyword-face))))
+     `(eyebrowse-mode-line-inactive ((,class (:inherit 'font-lock-doc-face))))
+     `(eyebrowse-mode-line-separator ((,class (:inherit 'font-lock-doc-face))))
+     `(eyebrowse-mode-line-delimiters ((,class (:inherit 'font-lock-doc-face))))
+
 ;;;;; flycheck
      `(flycheck-error
        ((,(append '((supports :underline (:style line))) class)
