@@ -1,8 +1,8 @@
-(defvar yxl-simple-todo-task1 "task")
+(defvar yxl-simple-todo-task1 "")
 
-(defvar yxl-simple-todo-task2 nil)
+(defvar yxl-simple-todo-task2 "")
 
-(defvar yxl-simple-todo-task3 nil)
+(defvar yxl-simple-todo-task3 "")
 
 (defun yxl/set-simple-todo-task1 (input)
   (interactive "sSet simple todo task1: ")
