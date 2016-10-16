@@ -1,5 +1,7 @@
 (spacemacs/set-leader-keys
-  ".."  #'yxl/append-to-scratch
+  ".."  #'spacemacs/scale-font-transient-state/body
+  "./"  #'spacemacs/zoom-frm-transient-state/body
+  ".s"  #'yxl/append-to-scratch
   ".mm" #'bm-toggle
   ".mM" #'bm-toggle-buffer-persistence
   ".mk" #'bm-previous
@@ -14,8 +16,6 @@
   ".Sl" #'session-load
   ".vp" #'ivy-push-view
   ".vP" #'ivy-pop-view
-  ".="  #'spacemacs/scale-up-font
-  ".-"  #'spacemacs/scale-down-font
 
   ",,"  #'scratch-pop
   ",."  #'scratch-pop-sticky
