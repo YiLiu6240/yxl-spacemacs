@@ -22,9 +22,9 @@
     ("%" dired-mark-files-regexp))
 
   (defhydra hydra-dired-main
-    (:hint nil :color red :inherit (hydra-dired-common/heads))
+    (:hint nil :color pink :inherit (hydra-dired-common/heads))
     "
-    [_q_] quit      [___] ../    [_h_/_j_/_k_/_l_] navigation
+    [_q_] quit
     [_s_] sort+     [_T_] toggle+ [_*_] mark+
     [_m_] mark      [_u_] unmark  [_U_] unmark all
     [_w_] copy name
@@ -33,11 +33,6 @@
     [_Z_] compress
     "
     ("q" nil :color blue)
-    ("h" evil-backward-char)
-    ("j" evil-next-visual-line)
-    ("k" evil-previous-visual-line)
-    ("l" evil-forward-char)
-    ("_" dired-up-directory)
     ("s" hydra-dired-quick-sort/body :color blue)
     ("T" hydra-dired-toggle/body :color blue)
     ("*" hydra-dired-mark/body :color blue)
