@@ -191,9 +191,14 @@
 
 (defun yxl-general/post-init-magit ()
   (with-eval-after-load 'magit
+    ;; speedup:
     ;; stop magit from generating diffs when doing commits, slow
     (remove-hook 'server-switch-hook 'magit-commit-diff)
     (setq vc-handled-backends nil)
+    (setq magit-log-arguments '("-n15" "--graph" "--decorate"))
+    ;; prefer two way ediff
+    (setq magit-ediff-dwim-show-on-hunks t)
+    ;; bindings
     (evil-define-key 'normal magit-mode-map (kbd "C-S-j") #'magit-section-forward)
     (evil-define-key 'normal magit-mode-map (kbd "C-S-k") #'magit-section-backward)
     (evil-define-key 'normal magit-mode-map (kbd "C-h") #'windmove-left)
@@ -205,10 +210,7 @@
     (define-key magit-status-mode-map (kbd "C-M-1") #'magit-jump-to-unstaged)
     (define-key magit-status-mode-map (kbd "C-M-2") #'magit-jump-to-untracked)
     (define-key magit-status-mode-map (kbd "C-M-3") #'magit-jump-to-staged)
-    (define-key magit-status-mode-map (kbd "C-M-4") #'magit-jump-to-stashes))
-
-  ;; prefer two way ediff
-  (setq magit-ediff-dwim-show-on-hunks t))
+    (define-key magit-status-mode-map (kbd "C-M-4") #'magit-jump-to-stashes)))
 
 (defun yxl-general/post-init-ibuffer ()
   (with-eval-after-load 'ibuffer
