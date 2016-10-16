@@ -49,7 +49,22 @@
   (with-eval-after-load 'pdf-tools
 
     (setq-default pdf-view-midnight-colors '("#839496" . "#15262c"))
-    (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
+    (if (eq frame-background-mode 'light)
+        (add-hook 'pdf-view-mode-hook #'pdf-view-midday-minor-mode)
+      (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode))
+
+    (defun yxl/pdf-tools-reset-config ()
+      (interactive)
+      (if (eq frame-background-mode 'light)
+          (list
+           (remove-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
+           (add-hook 'pdf-view-mode-hook #'pdf-view-midday-minor-mode))
+        (list
+         (remove-hook 'pdf-view-mode-hook #'pdf-view-midday-minor-mode)
+         (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)))
+      (yxl/pdf-view-bindings))
+
+    (add-hook 'yxl-switch-theme-hook #'yxl/pdf-tools-reset-config)
 
     ;; bug workaround wrt eyebrowse
     ;; https://github.com/politza/pdf-tools/issues/225

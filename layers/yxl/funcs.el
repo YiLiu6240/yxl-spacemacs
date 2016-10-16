@@ -334,3 +334,15 @@ Else create a window with lines parsed by prefix"
       (with-current-buffer scratch-buf
         (end-of-buffer)
         (insert text-with-newline)))))
+
+(defun yxl/switch-theme-light ()
+  (interactive)
+  (load-theme 'yxl-light t)
+  (setq frame-background-mode 'light)
+  (run-hooks 'yxl-switch-theme-hook))
+
+(defun yxl/switch-theme-dark ()
+  (interactive)
+  (load-theme 'yxl-dark t)
+  (setq frame-background-mode 'dark)
+  (run-hooks 'yxl-switch-theme-hook))

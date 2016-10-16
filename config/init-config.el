@@ -51,3 +51,6 @@
 
 (defvar-local yxl-line-width 80
   "preferred line width for a window, useful when setting window centering")
+
+(defvar yxl-switch-theme-hook nil
+  "hook when yxl/switch-theme-light and yxl/swith-theme-dark invokes")

@@ -32,8 +32,8 @@ The colors are determined by the variable
   (pdf-util-assert-pdf-buffer)
   (let ((enable (lambda ()
                   (pdf-info-setoptions
-                   :render/foreground "#657b83"
-                   :render/background "#fdf6e3"
+                   :render/foreground "#52676f"
+                   :render/background "#fcf4dc"
                    :render/usecolors t))))
     (cond
      (pdf-view-midday-minor-mode
