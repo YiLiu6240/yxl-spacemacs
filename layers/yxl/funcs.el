@@ -325,6 +325,15 @@ Else create a window with lines parsed by prefix"
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 
+(defun yxl/new-buffer-inherit ()
+  ;; TODO: defvar an blacklist where those modes should not be called
+  ;;       like iess mode, if that is the case, call a system default mode
+  ;; TODO: unpack the spacemacs/new-empty-buffer function, generalize it
+  (interactive)
+  (let* ((curr-mode major-mode))
+    (spacemacs/new-empty-buffer)
+    (funcall curr-mode)))
+
 (defun yxl/append-to-scratch (text)
   "receive input text and append this text to scratch"
   (interactive "stext: ")
