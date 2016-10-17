@@ -96,9 +96,9 @@
       (helm-delete-action-from-source "Insert BibTeX key" helm-source-bibtex)
       (helm-delete-action-from-source "Insert reference" helm-source-bibtex)
       (helm-add-action-to-source
-       "Insert citation" 'bibtex-completion-insert-citation helm-source-bibtex 0)
+       "Insert BibTeX key" 'bibtex-completion-insert-key helm-source-bibtex 0)
       (helm-add-action-to-source
-       "Insert BibTeX key" 'bibtex-completion-insert-key helm-source-bibtex 1)
+       "Insert citation" 'bibtex-completion-insert-citation helm-source-bibtex 1)
       (helm-add-action-to-source
        "Insert reference" 'bibtex-completion-insert-reference helm-source-bibtex 2)
       (setq bibtex-completion-format-citation-functions

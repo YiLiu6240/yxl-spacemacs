@@ -28,7 +28,7 @@
   (setq org-tags-column 0)
   ;; (setq org-fast-tag-selection-single-key t)
   (setq org-insert-heading-respect-content t)
-  (setq org-hide-emphasis-markers t))
+  (setq org-hide-emphasis-markers nil))
 
 (defun yxl-org/org-mode-hook ()
   (setq line-spacing 4))
