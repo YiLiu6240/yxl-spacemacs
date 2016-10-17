@@ -209,7 +209,9 @@ values."
   (load-file (concat dotspacemacs-directory "config/spacemacs_home.el"))
   (load-file (concat dotspacemacs-directory "config/hack.el"))
   (load-file (concat dotspacemacs-directory "config/init-config.el"))
-  )
+
+  (setq-default custom-file (expand-file-name "custom.el" dotspacemacs-directory))
+  (load custom-file))
 
 (defun dotspacemacs/user-config ()
   ;; --------
