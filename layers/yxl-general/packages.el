@@ -34,7 +34,8 @@
       "0"         'dired-back-to-start-of-files
       "="         'vinegar/dired-diff
       "I"         'vinegar/dotfiles-toggle
-      (kbd "~")   '(lambda ()(interactive) (find-alternate-file "~/"))
+      ;; do not kill previous buffer, useful in splits
+      (kbd "~")   '(lambda ()(interactive) (find-file "~/"))
       "T"         'dired-tree-down
       "f"         (if (configuration-layer/layer-usedp 'ivy)
                       'counsel-find-file
