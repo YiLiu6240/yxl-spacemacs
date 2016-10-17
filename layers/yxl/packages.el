@@ -1,10 +1,18 @@
-(setq yxl-packages '((alarm :location local)
+(setq yxl-packages '((yxl :location local)
+                     (goodies :location local)
+                     (alarm :location local)
                      (simple-todo :location local)
                      ;; (scratch-pop :location (recipe :fetcher github
                      ;;                                :repo "YiLiu6240/scratch-pop"
                      ;;                                :branch "dev"))
                      (scratch-pop :location local)
                      bm))
+
+(defun yxl/init-yxl ()
+  (use-package yxl))
+
+(defun yxl/init-goodies ()
+  (use-package goodies))
 
 (defun yxl/init-alarm ()
   (use-package alarm

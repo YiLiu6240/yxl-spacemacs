@@ -64,15 +64,15 @@
   "oFM" #'make-frame
   "oFN" #'set-frame-name
   "oFn" #'select-frame-by-name
-  "oFs1" #'set-frame-code
-  "oFs2" #'set-frame-REPL
-  "oFs3" #'set-frame-meta
-  "oFs4" #'set-frame-config
+  "oFs1" #'yxl/set-frame-code
+  "oFs2" #'yxl/set-frame-REPL
+  "oFs3" #'yxl/set-frame-meta
+  "oFs4" #'yxl/set-frame-config
 
-  "oFsh" #'set-frame-meta
-  "oFsj" #'set-frame-REPL
-  "oFsk" #'set-frame-code
-  "oFsl" #'set-frame-config
+  "oFsh" #'yxl/set-frame-meta
+  "oFsj" #'yxl/set-frame-REPL
+  "oFsk" #'yxl/set-frame-code
+  "oFsl" #'yxl/set-frame-config
 
   ;; ess
   "oe2" #'yxl/ess-repl-2cols

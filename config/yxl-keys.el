@@ -6,7 +6,7 @@
 (define-key isearch-mode-map "\C-h" #'isearch-delete-char)
 
 
-;; behaviour changes to stock bindings
+;; overwrite stock bindings
 (spacemacs/set-leader-keys
   "<SPC>" #'evil-avy-goto-char-2
   "l" #'spacemacs/workspaces-mod-transient-state/body

@@ -1,4 +1,5 @@
-(configuration-layer/declare-layers '(yxl-ui
+(configuration-layer/declare-layers '(yxl
+                                      yxl-ui
                                       yxl-general
                                       yxl-evil
                                       yxl-prog
