@@ -17,19 +17,10 @@
       '((name . "yxl quick")
         (candidates . (("simple-todo" . yxl/helm-set-simple-todo)
                        ("agenda" . yxl/helm-find-org-agenda)
-                       ("create-workspace" . yxl/helm-workspace)
                        ("calendar" . cfw-open-calendar)
                        ("calculator" . (lambda () (helm-calcul-expression)))
                        ("rss" . elfeed)))
         (action . (("open" . (lambda (x) (funcall x)))))))
-
-(setq yxl-helm-workspace-sources
-      '((name . "yxl workspace")
-        (candidates . (("general" . yxl/workspace-general)
-                       ("dotfile" . yxl/workspace-dotfile)
-                       ("code" . yxl/workspace-code)
-                       ("paper" . yxl/workspace-paper)))
-        (action . (("open" . (lambda (x) (call-interactively x)))))))
 
 (setq yxl-helm-pdf-occur-sources-preset
       '((name . "Preset Keywords")

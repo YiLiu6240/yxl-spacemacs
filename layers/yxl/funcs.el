@@ -282,39 +282,6 @@ Else create a window with lines parsed by prefix"
   (let* ((margin (max 0 (/ (- (window-width) yxl-line-width) 2))))
     (set-window-margins nil margin margin)))
 
-;; --------
-;; eyebrowse
-;; --------
-(defun yxl/workspace-general (tag)
-  (interactive "set workspace tag: ")
-  (eyebrowse-create-window-config)
-  (eyebrowse-rename-window-config (eyebrowse--get 'current-slot) tag)
-  (helm-projectile-switch-project))
-
-(defun yxl/workspace-dotfile ()
-  (interactive)
-  (let* ((tag "config"))
-    (eyebrowse-create-window-config)
-    (spacemacs/find-dotfile)
-    (yxl/custom-layout-1)
-    (eyebrowse-rename-window-config (eyebrowse--get 'current-slot) tag)))
-
-(defun yxl/workspace-code ()
-  (interactive)
-  (let* ((tag "code"))
-    (eyebrowse-create-window-config)
-    (yxl/find-pwd-code)
-    (yxl/custom-layout-1)
-    (eyebrowse-rename-window-config (eyebrowse--get 'current-slot) tag)))
-
-(defun yxl/workspace-paper ()
-  (interactive)
-  (let* ((tag "paper"))
-    (eyebrowse-create-window-config)
-    (yxl/find-pwd-paper)
-    (yxl/custom-layout-1)
-    (eyebrowse-rename-window-config (eyebrowse--get 'current-slot) tag)))
-
 (defun copy-file-name-to-clipboard ()
   "Copy the current buffer file name to the clipboard."
   (interactive)

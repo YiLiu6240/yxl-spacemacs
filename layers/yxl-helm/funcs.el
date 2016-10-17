@@ -32,11 +32,6 @@
   (helm :sources '(yxl-helm-simple-todo-sources)
         :buffer "*helm yxl simple-todo*"))
 
-(defun yxl/helm-workspace ()
-  (interactive)
-  (helm :sources '(yxl-helm-workspace-sources)
-        :buffer "*helm yxl workspace*"))
-
 (defun yxl/helm-quick ()
   (interactive)
   (helm :sources '(yxl-helm-quick-sources)
