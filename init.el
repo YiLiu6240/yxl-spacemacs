@@ -218,7 +218,7 @@ values."
   (setq-default mac-option-modifier 'super
                 mac-command-modifier 'meta)
   (setq-default ns-use-srgb-colorspace t)
-
+  (setq-default initial-major-mode 'gfm-mode)
   ;; ui
   (setq neo-theme 'ascii
         fci-rule-color "#073642")

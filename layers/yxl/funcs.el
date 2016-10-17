@@ -330,9 +330,12 @@ Else create a window with lines parsed by prefix"
   ;;       like iess mode, if that is the case, call a system default mode
   ;; TODO: unpack the spacemacs/new-empty-buffer function, generalize it
   (interactive)
-  (let* ((curr-mode major-mode))
-    (spacemacs/new-empty-buffer)
-    (funcall curr-mode)))
+  (let* ((curr-mode major-mode)
+         (newbuf (generate-new-buffer-name "untitled")))
+    (switch-to-buffer newbuf)
+    (if (member curr-mode yxl/new-buffer-inherit-white-list)
+        (funcall curr-mode)
+      (funcall initial-major-mode))))
 
 (defun yxl/append-to-scratch (text)
   "receive input text and append this text to scratch"
