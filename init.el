@@ -103,12 +103,11 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(ereader)
+   dotspacemacs-additional-packages '()
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(org-bullets
-                                    persp-mode
+   dotspacemacs-excluded-packages '(persp-mode
                                     ido)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -165,7 +164,6 @@ values."
    dotspacemacs-default-layout-name "Default"
    dotspacemacs-display-default-layout nil
    dotspacemacs-auto-resume-layouts nil
-   ;; TODO: check
    dotspacemacs-large-file-size 10
    dotspacemacs-auto-save-file-location 'cache
    dotspacemacs-max-rollback-slots 5
@@ -185,20 +183,16 @@ values."
    dotspacemacs-show-transient-state-title nil
    dotspacemacs-show-transient-state-color-guide nil
    dotspacemacs-mode-line-unicode-symbols t
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil
    dotspacemacs-line-numbers nil
    dotspacemacs-folding-method 'evil
-   ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
-   ;; (default nil)
-   ;; TODO: have-a-look
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis nil
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    dotspacemacs-default-package-repository nil
-   dotspacemacs-whitespace-cleanup `all
-   ))
+   dotspacemacs-whitespace-cleanup `all))
 
 (defun dotspacemacs/user-init ()
   (add-to-list 'load-path "~/.spacemacs.d/config")
@@ -259,9 +253,6 @@ values."
   ;; -----------
   ;; ==== general packages below ====
   ;; -----------
-  ;; TODO: write a function to search these keywords in
-  ;; opened buffers / directory / project
-  ;; TODO: put them in different category, then combine them together
   (setq hl-todo-keyword-faces '(("HOLD" . "#268bd2")
                                 ("TODO" . "#cb4b16")
                                 ("NEXT" . "#859900")
@@ -361,18 +352,5 @@ values."
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
-  ;; custom.el
-  ;; stop package-selected-packages to be written to init.el
-  ;; https://www.reddit.com/r/emacs/comments/53zpv9/how_do_i_get_emacs_to_stop_adding_custom_fields/
-  ;; REVIEW
-  (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
-  (load custom-file)
-
   ;; final steps
-  (switch-to-buffer "*scratch*")
-
-  (setq package-selected-packages nil)
-  )
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
+  (switch-to-buffer "*scratch*"))
