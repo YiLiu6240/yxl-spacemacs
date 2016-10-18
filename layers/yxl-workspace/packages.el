@@ -23,6 +23,8 @@
                  (propertize "?" 'face 'hydra-face-red)
                  "] help)"))))
     (evil-ex-define-cmd "tabn[ew]" #'eyebrowse-create-window-config)
+    (evil-ex-define-cmd "tabe[dit]" #'eyebrowse-create-window-config)
+    (evil-ex-define-cmd "tabc[lone]" #'eyebrowse-create-window-config-clone)
     (spacemacs|transient-state-format-hint workspaces-mod
       spacemacs--workspaces-mod-ts-full-hint
       "\n\n

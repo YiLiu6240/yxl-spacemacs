@@ -108,6 +108,7 @@ values."
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(persp-mode
+                                    smooth-scrolling
                                     ido)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -249,6 +250,9 @@ values."
 
   ;; mode list
   (setq auto-mode-alist (cons '("\\.inbox$" . gfm-mode) auto-mode-alist))
+
+  ;; misc stuff
+  (setq-default require-final-newline t)
 
   ;; -----------
   ;; ==== general packages below ====

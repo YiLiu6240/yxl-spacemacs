@@ -62,7 +62,6 @@ master-dir, projectile-project-root, ~/Downloads"
   ;; extra line padding
   (add-hook 'LaTeX-mode-hook (lambda () (setq line-spacing 4)))
   (add-hook 'LaTeX-mode-hook (lambda () (setq yxl-line-width 100)))
-  (remove-hook 'TeX-mode-hook #'auto-fill-mode)
   (setq-default font-latex-fontify-script nil)
   (setq-default TeX-newline-function 'reindent-then-newline-and-indent)
   (setq LaTeX-fill-excluded-macros '("hide" "comment"))
@@ -81,8 +80,9 @@ master-dir, projectile-project-root, ~/Downloads"
   (setq font-latex-user-keyword-classes
         '(("citet" (("citet" "{")) 'yxl-latex-font-hide 'declaration)
           ("citep" (("citep" "{")) 'yxl-latex-font-hide 'declaration)
-          ("shadow-comment" (("comment" "{")) 'yxl-latex-font-comment 'declaration)
-          ("shadow-hidden" (("hide" "{")) 'yxl-latex-font-hide 'declaration))))
+          ;; ("shadow-comment" (("comment" "{")) 'yxl-latex-font-comment 'declaration)
+          ;; ("shadow-hidden" (("hide" "{")) 'yxl-latex-font-hide 'declaration)
+          )))
 
 (defun yxl-text/setup-latex-pairs ()
   "smartparens and evil-surround"

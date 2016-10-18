@@ -2,7 +2,7 @@
 (require 'yxl-window)
 (require 'yxl-find)
 
-(defvar yxl/new-buffer-inherit-white-list '(LaTeX-mode
+(defvar yxl/new-buffer-inherit-white-list '(latex-mode
                                             gfm-mode
                                             org-mode
                                             R-mode

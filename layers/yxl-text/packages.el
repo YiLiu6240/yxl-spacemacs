@@ -32,7 +32,8 @@
     (spacemacs/set-leader-keys-for-major-mode 'latex-mode
       "oa" #'yxl-text/latex-align-buffer)
     (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
-    (add-hook 'LaTeX-mode-hook #'yxl-text/latex-hi-lock)))
+    ;; (add-hook 'LaTeX-mode-hook #'yxl-text/latex-hi-lock)
+    ))
 
 (defun yxl-text/init-latex-extra ()
   (use-package latex-extra

@@ -126,28 +126,31 @@ enabled."
        'yxl
        ;; Left side of the mode line (all the important stuff)
        '((window-number :face highlight-face)
-         (eyebrowse)
+         (eyebrowse :tight)
          (buffer-modified
           buffer-size
+          line-column
           buffer-id
-          yxl-window-dedication-segment)
+          yxl-window-dedication-segment :tight)
          ((yxl-simple-todo-task1-segment :when active)
-          (yxl-simple-todo-task2-segment :when active)
-          (yxl-simple-todo-task3-segment :when active))
+          (yxl-simple-todo-task2-segment :when
+                                         (and active (> (window-width) 100)))
+          (yxl-simple-todo-task3-segment :when
+                                         (and active (> (window-width) 100))))
          anzu
          (which-function :when active)
          (process :when active)
          (flycheck-error flycheck-warning flycheck-info))
        ;; Right segment (the unimportant stuff)
        '(major-mode
-         (minor-modes  :when active)
+         (minor-modes :when active)
          (python-pyvenv :fallback python-pyenv)
          (battery :when active)
-         input-method
-         (version-control :when active)
+         (input-method :when active)
+         (version-control :when (> (window-width) 120))
          selection-info
-         ((buffer-encoding-abbrev point-position line-column indent-width)
-          :separator "|")
+         ((buffer-encoding-abbrev point-position indent-width)
+          :separator "|" :tight)
          ,@additional-segments
          buffer-position))
 
