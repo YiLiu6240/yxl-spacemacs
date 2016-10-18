@@ -12,5 +12,4 @@
 ;; ivy views
 (with-eval-after-load 'ivy
   (setq ivy-use-virtual-buffers nil)
-  (load (concat dotspacemacs-directory "config/yxl-ivy-views.el"))
-  )
+  (load (concat dotspacemacs-directory "config/yxl-ivy-views.el")))

@@ -70,9 +70,9 @@ values."
                       syntax-checking-enable-by-default nil)
      ;; vim/evil mode --------
      (vinegar :packages (not dired))
-     (evil-snipe :variables
-                 ;; f/t not bound to current line
-                 evil-snipe-enable-alternate-f-and-t-behaviors t)
+     ;; (evil-snipe :variables
+     ;;             ;; f/t not bound to current line
+     ;;             evil-snipe-enable-alternate-f-and-t-behaviors t)
      evil-cleverparens
 
      ;; other layers --------
@@ -151,8 +151,8 @@ values."
                                :width normal
                                :powerline-scale 1.3)
    dotspacemacs-leader-key "SPC"
-   dotspacemacs-emacs-command-key ":"
-   dotspacemacs-ex-command-key ":"
+   dotspacemacs-emacs-command-key ";"
+   dotspacemacs-ex-command-key ";"
    dotspacemacs-emacs-leader-key "M-m"
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"

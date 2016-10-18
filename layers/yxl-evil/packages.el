@@ -4,6 +4,7 @@
                           evil-textobj-column
                           (evil-little-word :location local)
                           evil-mc
+                          evil-evilified-state
                           ;; evil-cleverparens
                           ))
 
@@ -42,10 +43,10 @@
     ;; tab and window navigation
     (define-key evil-motion-state-map "H" #'eyebrowse-prev-window-config)
     (define-key evil-motion-state-map "L" #'eyebrowse-next-window-config)
-    (define-key evil-motion-state-map (kbd "C-h") #'windmove-left)
-    (define-key evil-motion-state-map (kbd "C-j") #'windmove-down)
-    (define-key evil-motion-state-map (kbd "C-k") #'windmove-up)
-    (define-key evil-motion-state-map (kbd "C-l") #'windmove-right)
+    (define-key evil-motion-state-map (kbd "C-h") #'evil-window-left)
+    (define-key evil-motion-state-map (kbd "C-j") #'evil-window-down)
+    (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
+    (define-key evil-motion-state-map (kbd "C-l") #'evil-window-right)
     ;; --------
     ;; find comma in sentence
     (define-key evil-motion-state-map (kbd "C-)") 'evil-sentence-comma-forward)
@@ -69,7 +70,11 @@
     (define-key evil-outer-text-objects-map "h" 'evil-a-bracket)
     (define-key evil-inner-text-objects-map "g" 'evil-inner-curly)
     (define-key evil-inner-text-objects-map "h" 'evil-inner-bracket)
-    ;; TODO: ex commands for tabe and tabnew -- write functions for eyebrowse
+    ;; ex swap ":" and ";"
+    (define-key evil-motion-state-map (kbd dotspacemacs-ex-command-key) 'evil-ex)
+    (if (equal dotspacemacs-ex-command-key ";")
+        (progn
+           (define-key evil-motion-state-map (kbd ":") 'evil-repeat-find-char)))
     ;; ---- disabled ----
     ;; vim-surround, use "S"
     ;; (define-key 'visual evil-surround-mode-map "s" #'evil-substitute)
@@ -91,6 +96,25 @@
       (kbd "C-k") #'windmove-up
       (kbd "C-p") #'comint-previous-input
       (kbd "C-n") #'comint-next-input)))
+
+(defun yxl-evil/post-init-evil-evilified-state ()
+  (with-eval-after-load 'evil-evilified-state
+    ;; TODO: generalize this and remove customized settings
+    (when (boundp 'evil-evilified-state-map-original)
+      (define-key evil-evilified-state-map-original "gg" #'evil-goto-first-line)
+      (define-key evil-evilified-state-map-original "G"  #'evil-goto-line)
+      (define-key evil-evilified-state-map-original "gT" #'eyebrowse-prev-window-config)
+      (define-key evil-evilified-state-map-original "gt" #'eyebrowse-next-window-config)
+      (define-key evil-evilified-state-map-original
+        (kbd "H") #'eyebrowse-prev-window-config)
+      (define-key evil-evilified-state-map-original
+        (kbd "L") #'eyebrowse-prev-window-config)
+      (define-key evil-evilified-state-map-original (kbd "C-h") #'evil-window-left)
+      (define-key evil-evilified-state-map-original (kbd "C-j") #'evil-window-down)
+      (define-key evil-evilified-state-map-original (kbd "C-k") #'evil-window-up)
+      (define-key evil-evilified-state-map-original (kbd "C-l") #'evil-window-right)
+      (define-key evil-evilified-state-map-original
+        (kbd dotspacemacs-ex-command-key) #'evil-ex))))
 
 (defun yxl-evil/evil-surround-pairs ()
   "press viw then press the trigger key"

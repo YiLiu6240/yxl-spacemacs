@@ -20,16 +20,6 @@
       "O"  #'dired-find-file-other-window
       "q"  #'yxl/dired-delete-window
       "-"  #'dired-up-directory
-      "gg" #'evil-goto-first-line
-      "G"  #'evil-goto-line
-      (kbd "C-h") #'windmove-left
-      (kbd "C-j") #'windmove-down
-      (kbd "C-k") #'windmove-up
-      (kbd "C-l") #'windmove-right
-      "H" #'eyebrowse-prev-window-config
-      "L" #'eyebrowse-next-window-config
-      "gT" #'eyebrowse-prev-window-config
-      "gt" #'eyebrowse-next-window-config
       ;; from vinegar layer
       "0"         'dired-back-to-start-of-files
       "="         'vinegar/dired-diff
@@ -75,18 +65,6 @@
 
     (yxl/pdf-view-bindings)))
 
-(defun yxl-general/post-init-calfw ()
-  (with-eval-after-load 'calfw
-    (evilified-state-evilify-map cfw:calendar-mode-map
-      :mode cfw:calendar-mode
-      :bindings
-      (kbd "C-h") #'windmove-left
-      (kbd "C-j") #'windmove-down
-      (kbd "C-k") #'windmove-up
-      (kbd "C-l") #'windmove-right
-      "H" #'eyebrowse-prev-window-config
-      "L" #'eyebrowse-next-window-config)))
-
 (defun yxl-general/post-init-ess ()
   (with-eval-after-load 'ess-mode
     (evil-define-key 'insert comint-mode-map
@@ -100,25 +78,9 @@
       (kbd "C-p") #'comint-previous-input
       (kbd "C-n") #'comint-next-input)
     (with-eval-after-load 'ess-mode
-      (evil-set-initial-state 'ess-rdired-mode 'evilified)
-      (evil-define-key 'evilified ess-rdired-mode-map
-        (kbd "C-h") #'windmove-left
-        (kbd "C-j") #'windmove-down
-        (kbd "C-k") #'windmove-up
-        (kbd "C-l") #'windmove-right
-        "H" #'eyebrowse-prev-window-config
-        "L" #'eyebrowse-next-window-config))
+      (evil-set-initial-state 'ess-rdired-mode 'evilified))
     (with-eval-after-load 'ess-help
-      (evil-set-initial-state 'ess-help-mode 'evilified)
-      (evilified-state-evilify-map ess-help-mode-map
-        :mode ess-help-mode
-        :bindings
-        (kbd "C-h") #'windmove-left
-        (kbd "C-j") #'windmove-down
-        (kbd "C-k") #'windmove-up
-        (kbd "C-l") #'windmove-right
-        "H" #'eyebrowse-prev-window-config
-        "L" #'eyebrowse-next-window-config))))
+      (evil-set-initial-state 'ess-help-mode 'evilified))))
 
 (defun yxl-general/post-init-python ()
   (with-eval-after-load 'python
@@ -156,14 +118,7 @@
               nil)
           (imenu-list-minor-mode))
       (select-window (get-buffer-window imenu-list-buffer-name)))
-    (spacemacs/set-leader-keys "bI" #'imenu-list-select-window)
-    (evilified-state-evilify imenu-list imenu-list-major-mode-map
-      (kbd "C-h") #'windmove-left
-      (kbd "C-j") #'windmove-down
-      (kbd "C-k") #'windmove-up
-      (kbd "C-l") #'windmove-right
-      "H" #'eyebrowse-prev-window-config
-      "L" #'eyebrowse-next-window-config)))
+    (spacemacs/set-leader-keys "bI" #'imenu-list-select-window)))
 
 (defun yxl-general/post-init-company ()
   (with-eval-after-load 'company
