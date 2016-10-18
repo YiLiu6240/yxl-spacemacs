@@ -136,7 +136,16 @@ The colors are determined by the variable
     ("t" pdf-annot-attachment-dired :exit t)
     ("n" pdf-view-midnight-minor-mode)
     ;; Other
-    ("q" nil :exit t)))
+    ("q" nil :exit t))
+  (evilified-state-evilify-map pdf-occur-buffer-mode-map
+    :mode pdf-occur-buffer-mode
+    :bindings
+    (kbd "C-h") #'windmove-left
+    (kbd "C-j") #'windmove-down
+    (kbd "C-k") #'windmove-up
+    (kbd "C-l") #'windmove-right
+    "H" #'eyebrowse-prev-window-config
+    "L" #'eyebrowse-next-window-config))
 
 (defun yxl/pdf-view-goto-page ()
   "vim-style wrapper for pdf-view-goto-page. accepts G or 5G."
