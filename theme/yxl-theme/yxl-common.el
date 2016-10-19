@@ -343,10 +343,10 @@
             `(evil-ex-substitute-replacement ((,class (:background ,green-bg :foreground ,green))))
 
 ;;;;; eyebrowse
-            `(eyebrowse-mode-line-active ((,class (:inherit 'font-lock-function-name-face))))
-            `(eyebrowse-mode-line-inactive ((,class (:inherit 'font-lock-doc-face))))
-            `(eyebrowse-mode-line-separator ((,class (:inherit 'font-lock-doc-face))))
-            `(eyebrowse-mode-line-delimiters ((,class (:inherit 'font-lock-doc-face))))
+            `(eyebrowse-mode-line-active ((,class (:foreground ,mat :weight bold))))
+            `(eyebrowse-mode-line-inactive ((,class (:foreground ,base))))
+            `(eyebrowse-mode-line-separator ((,class (:foreground ,base))))
+            `(eyebrowse-mode-line-delimiters ((,class (:foreground ,base))))
 
 ;;;;; flycheck
             `(flycheck-error
@@ -574,8 +574,10 @@
             `(markdown-header-face-6 ((,class (:foreground ,head4))))
 
 ;;;;; mode-line
-            `(mode-line           ((,class (:foreground ,base :background ,act1 :box (:color ,border :line-width 1)))))
-            `(mode-line-inactive  ((,class (:foreground ,base :background ,bg1  :box (:color ,border :line-width 1)))))
+            ;; `(mode-line           ((,class (:foreground ,base :background ,act1 :box (:color ,border :line-width 1)))))
+            ;; `(mode-line-inactive  ((,class (:foreground ,base :background ,bg1  :box (:color ,border :line-width 1)))))
+            `(mode-line           ((,class (:foreground ,base :background "#303030" :box (:color ,border :line-width 1)))))
+            `(mode-line-inactive  ((,class (:foreground ,base :background "#121212"  :box (:color ,border :line-width 1)))))
             `(mode-line-buffer-id ((,class (:inherit bold :foreground ,func))))
 
 ;;;;; mu4e
@@ -656,10 +658,15 @@
             `(popup-scroll-bar-background-face ((,class (:background ,bg2))))
 
 ;;;;; powerline
-            `(powerline-active1 ((,class (:background ,act2 :foreground ,base))))
-            `(powerline-active2 ((,class (:background ,act2 :foreground ,base))))
-            `(powerline-inactive1 ((,class (:background ,bg2 :foreground ,base))))
-            `(powerline-inactive2 ((,class (:background ,bg2 :foreground ,base))))
+            ;; `(powerline-active1 ((,class (:background ,act2 :foreground ,base))))
+            ;; `(powerline-active2 ((,class (:background ,act2 :foreground ,base))))
+            ;; `(powerline-inactive1 ((,class (:background ,bg2 :foreground ,base))))
+            ;; `(powerline-inactive2 ((,class (:background ,bg2 :foreground ,base))))
+            ;; vim-powerline version
+            `(powerline-active1 ((,class (:background "#585858" :foreground "#ffffff"))))
+            `(powerline-active2 ((,class (:background "#585858" :foreground "#ffffff"))))
+            `(powerline-inactive1 ((,class (:background "#262626" :foreground "#8a8a8a"))))
+            `(powerline-inactive2 ((,class (:background "#262626" :foreground "#8a8a8a"))))
 
 ;;;;; rainbow-delimiters
             `(rainbow-delimiters-depth-1-face ((,class :foreground ,keyword)))

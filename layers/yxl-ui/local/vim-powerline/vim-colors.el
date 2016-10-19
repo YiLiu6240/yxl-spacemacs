@@ -111,12 +111,12 @@
 
            (("branch" "currenttag" "fullcurrenttag" "fileformat" "fileencoding"
              "pwd" "filetype" "rvm.string" "rvm.statusline"
-             "virtualenv.statusline" "charcode" "currhigroup")
+             "virtualenv.statusline" "charcode" "currhigroup" "workspace")
             (normal      ,gray8           ,gray2)
             (inactive    ,gray3           ,gray0)
             (insert      ,mediumcyan      ,darkestblue))
 
-           (("lineinfo" "workspace")
+           (("lineinfo")
             (normal      ,gray2           ,gray10       t)
             (inactive    ,gray7           ,gray1        t)
             (insert      ,darkestcyan     ,mediumcyan   t))

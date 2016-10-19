@@ -25,7 +25,8 @@
   "Powerline face 3."
   :group 'powerline)
 
-(defface powerline-inactive3 '((t (:foreground "grey90" :background "grey30" :inherit mode-line)))
+(defface powerline-inactive3
+  '((t (:foreground "grey90" :background "grey30" :inherit mode-line)))
   "Powerline face 3."
   :group 'powerline)
 
@@ -102,10 +103,19 @@ and if not, try to get the corresponding
                              (format-mode-line "%b")
                              "\n\ mouse-1: Previous buffer\n\ mouse-3: Next buffer")
                  'local-map (let ((map (make-sparse-keymap)))
-                              (define-key map [mode-line mouse-1] 'mode-line-previous-buffer)
-                              (define-key map [mode-line mouse-3] 'mode-line-next-buffer)
+                              (define-key map [mode-line mouse-1]
+                                'mode-line-previous-buffer)
+                              (define-key map [mode-line mouse-3]
+                                'mode-line-next-buffer)
                               map))))
    face pad))
+
+(defun spaceline--pdfview-page-number ()
+  (format "(%d/%d)"
+          ;; `pdf-view-current-page' is a macro in an optional dependency
+          ;; any better solutions?
+          (eval `(pdf-view-current-page))
+          (pdf-cache-number-of-pages)))
 
 (require 'vim-colors)
 (defun powerline-vimish-theme ()
@@ -168,8 +178,17 @@ and if not, try to get the corresponding
                                 (powerline-narrow fileinfo-face 'l)
                                 ;; workspace
                                 (funcall harddiv-left fileinfo-face workspace-face)
+                                (when (and (powerline-selected-window-active)
+                                           (bound-and-true-p anzu--state))
+                                   (powerline-raw (anzu--update-mode-line) workspace-face 'lr))
                                 (when (powerline-selected-window-active)
-                                  (powerline-raw (eyebrowse-mode-line-indicator) workspace-face 'lr))
+                                  (powerline-raw (eyebrowse-mode-line-indicator)
+                                                 workspace-face 'lr))
+                                (when (and (powerline-selected-window-active)
+                                           (eq 'pdf-view-mode major-mode))
+                                  (powerline-raw (spaceline--pdfview-page-number)
+                                                 workspace-face 'lr))
+                                ;; lhs ends here
                                 (funcall harddiv-left workspace-face split-face)))
 
                           ;; Right Hand Side
