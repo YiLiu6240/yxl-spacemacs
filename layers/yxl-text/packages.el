@@ -96,18 +96,15 @@
       (helm-delete-action-from-source "Insert citation" helm-source-bibtex)
       (helm-delete-action-from-source "Insert BibTeX key" helm-source-bibtex)
       (helm-delete-action-from-source "Insert reference" helm-source-bibtex)
-      (helm-add-action-to-source
-       "Insert BibTeX key" 'bibtex-completion-insert-key helm-source-bibtex 0)
-      (helm-add-action-to-source
-       "Insert citation" 'bibtex-completion-insert-citation helm-source-bibtex 1)
-      (helm-add-action-to-source
-       "Insert reference" 'bibtex-completion-insert-reference helm-source-bibtex 2)
-      (setq bibtex-completion-format-citation-functions
-            '((org-mode      . bibtex-completion-format-citation-org-link-to-PDF)
-              (latex-mode    . bibtex-completion-format-citation-cite)
-              (TeX-mode    . bibtex-completion-format-citation-cite)
-              (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
-              (default       . bibtex-completion-format-citation-default))))))
+      (helm-add-action-to-source "Insert BibTeX key" 'helm-bibtex-insert-key helm-source-bibtex 0)
+      (helm-add-action-to-source "Insert citation" 'helm-bibtex-insert-citation helm-source-bibtex 1)
+      (helm-add-action-to-source "Insert reference" 'helm-bibtex-insert-reference helm-source-bibtex 2)
+      ;; (setq bibtex-completion-format-citation-functions
+      ;;       '((org-mode      . bibtex-completion-format-citation-org-link-to-PDF)
+      ;;         (latex-mode    . bibtex-completion-format-citation-cite)
+      ;;         (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
+      ;;         (default       . bibtex-completion-format-citation-default)))
+      )))
 
 (defun yxl-text/init-gscholar-bibtex ()
   (use-package gscholar-bibtex

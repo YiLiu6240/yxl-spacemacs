@@ -13,6 +13,7 @@
     :init
     (progn
       (setq eyebrowse-wrap-around t)
+      (setq eyebrowse-keymap-prefix (kbd "C-c w"))
       (eyebrowse-mode)
 
       (defun eyebrowse-create-window-config-clone ()
