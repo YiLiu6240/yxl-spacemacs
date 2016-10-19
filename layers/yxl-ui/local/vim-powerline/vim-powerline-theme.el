@@ -81,6 +81,32 @@ and if not, try to get the corresponding
 (defmacro pl/vim-face (name state)
   `(pl/get-vim-face (format "powerline-%s-%s" ,name ,state)))
 
+(defun buffer-id-short ()
+  (let* ((buf-name-full (format-mode-line "%b"))
+         (buf-name-length (length buf-name-full))
+         (buf-name-new (if (> buf-name-length 33)
+                           (concat (substring buf-name-full 0 20)
+                                   "..."
+                                   (substring buf-name-full -10 nil))
+                         buf-name-full)))
+    buf-name-new))
+
+(defun powerline-buffer-id-short (&optional face pad)
+  (powerline-raw
+   (format-mode-line
+    (concat " " (propertize
+                 (buffer-id-short)
+                 'face face
+                 'mouse-face 'mode-line-highlight
+                 'help-echo (concat
+                             (format-mode-line "%b")
+                             "\n\ mouse-1: Previous buffer\n\ mouse-3: Next buffer")
+                 'local-map (let ((map (make-sparse-keymap)))
+                              (define-key map [mode-line mouse-1] 'mode-line-previous-buffer)
+                              (define-key map [mode-line mouse-3] 'mode-line-next-buffer)
+                              map))))
+   face pad))
+
 (require 'vim-colors)
 (defun powerline-vimish-theme ()
   "Setup the default mode-line."
@@ -125,6 +151,7 @@ and if not, try to get the corresponding
 
                           (scrollpercent-face   (pl/vim-face "scrollpercent" editor-state))
                           (lineinfo-face        (pl/vim-face "lineinfo" editor-state))
+                          (workspace-face        (pl/vim-face "workspace" editor-state))
 
                           (input (split-string (symbol-name buffer-file-coding-system) "-"))
                           (platform (check-in-list input '("mac" "unix" "dos")))
@@ -132,13 +159,14 @@ and if not, try to get the corresponding
 
                           ;; Left hand side
                           (lhs (list
+                                ;; evil state
                                 (powerline-raw (format " %s " (upcase editor-state)) state-indicator-face)
-                                (funcall harddiv-left state-indicator-face vc-face)
-                                (when (and (buffer-file-name (current-buffer)) vc-mode)
-                                  (concat
-                                   (powerline-raw (downcase (format-mode-line '(vc-mode vc-mode))) vc-face 'r)
-                                   (powerline-raw softdiv-left vc-face)))
-                                (powerline-buffer-id fileinfo-face 'l)
+                                ;; workspace
+                                (funcall harddiv-left state-indicator-face workspace-face)
+                                (powerline-raw (eyebrowse-mode-line-indicator) workspace-face 'lr)
+                                ;; buffer id
+                                (powerline-buffer-id-short fileinfo-face 'l)
+                                ;; modified status
                                 (powerline-raw "%*" fileinfo-face 'lr)
                                 (powerline-narrow fileinfo-face 'l)
                                 (funcall harddiv-left fileinfo-face split-face)))
@@ -146,17 +174,33 @@ and if not, try to get the corresponding
                           ;; Right Hand Side
                           (rhs (list
                                 (powerline-raw global-mode-string split-face 'r)
-                                (funcall harddiv-right split-face fileformat-face)
-                                (concat
-                                 (when (not (null platform))
-                                   (concat (powerline-raw platform fileformat-face 'r)
-                                           (powerline-raw softdiv-right fileformat-face)))
-                                 (powerline-raw encoding fileencoding-face 'lr)
-                                 (powerline-raw softdiv-right fileencoding-face))
+                                (funcall harddiv-right split-face vc-face)
+                                ;; version control
+                                (when
+                                    (and (> (window-width) 100)
+                                         (buffer-file-name (current-buffer))
+                                         vc-mode)
+                                  (concat
+                                   (powerline-raw (downcase (format-mode-line '(vc-mode vc-mode))) vc-face 'r)
+                                   (powerline-raw softdiv-right vc-face)))
+                                (funcall harddiv-right vc-face fileformat-face)
+                                ;; line ending and encoding
+                                (when (> (window-width) 100)
+                                  (concat
+                                   (when
+                                       (not (null platform))
+                                     (concat (powerline-raw platform fileformat-face 'r)
+                                             (powerline-raw softdiv-right fileformat-face)))
+                                   (powerline-raw encoding fileencoding-face 'lr)
+                                   (powerline-raw softdiv-right fileencoding-face)))
+                                ;; major mode
+
                                 (powerline-major-mode filetype-face 'lr)
                                 (funcall harddiv-right filetype-face scrollpercent-face)
+                                ;; percentage
                                 (powerline-raw "%p" scrollpercent-face 'lr)
                                 (funcall harddiv-right scrollpercent-face lineinfo-face)
+                                ;; row and column number
                                 (powerline-raw "%l" lineinfo-face 'l)
                                 (powerline-raw ":" lineinfo-face 'lr)
                                 (powerline-raw "%c" lineinfo-face 'r))))
