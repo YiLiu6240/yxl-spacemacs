@@ -1,4 +1,4 @@
-(setq yxl-workspace-packages '(eyebrowse
+(setq yxl-workspace-packages '((eyebrowse :location local)
                                markdown-mode))
 
 (defun yxl-workspace/pre-init-markdown-mode ()
@@ -7,48 +7,34 @@
     (progn
       (remove-hook 'markdown-mode-hook 'orgtbl-mode))))
 
-(defun yxl-workspace/pre-init-eyebrowse ()
-  (spacemacs|use-package-add-hook eyebrowse
-    :post-init
+(defun yxl-workspace/init-eyebrowse ()
+  (use-package eyebrowse
+    :commands (eyebrowse-mode)
+    :init
     (progn
-      ;; make slot 1 name as "default"
-      (defun eyebrowse-init (&optional frame)
-        "Initialize Eyebrowse for the current frame."
-        (unless (eyebrowse--get 'window-configs frame)
-          (eyebrowse--set 'last-slot 1 frame)
-          (eyebrowse--set 'current-slot 1 frame)
-          (eyebrowse--insert-in-window-config-list
-           (eyebrowse--current-window-config 1 "default") frame))))))
+      (setq eyebrowse-wrap-around t)
+      (eyebrowse-mode)
 
-(defun yxl-workspace/post-init-eyebrowse ()
-  (with-eval-after-load 'eyebrowse
-    (add-to-list 'window-persistent-parameters '(window-side . writable))
-    (add-to-list 'window-persistent-parameters '(window-slot . writable))
-
-    (setq eyebrowse-new-workspace 'dired-jump)
-    (setq eyebrowse-mode-line-style 'always)
-    (defun eyebrowse-create-window-config-clone ()
-      (interactive)
-      (let* ((eyebrowse-new-workspace nil))
-        (call-interactively 'eyebrowse-create-window-config)
-        (message "clone to new workspace")))
-    (defun spacemacs//workspaces-mod-ts-hint ()
-      "Return a one liner string containing all the workspaces names."
-      (concat
-       " "
-       (mapconcat 'spacemacs//workspace-format-name
-                  (eyebrowse--get 'window-configs) " | ")
-       (if (equal 1 spacemacs--ts-full-hint-toggle)
-           spacemacs--workspaces-mod-ts-full-hint
-         (concat "  (["
-                 (propertize "?" 'face 'hydra-face-red)
-                 "] help)"))))
-    (evil-ex-define-cmd "tabn[ew]" #'eyebrowse-create-window-config)
-    (evil-ex-define-cmd "tabe[dit]" #'eyebrowse-create-window-config)
-    (evil-ex-define-cmd "tabc[lone]" #'eyebrowse-create-window-config-clone)
-    (spacemacs|transient-state-format-hint workspaces-mod
-      spacemacs--workspaces-mod-ts-full-hint
-      "\n\n
+      (defun eyebrowse-create-window-config-clone ()
+        (interactive)
+        (let* ((eyebrowse-new-workspace nil))
+          (call-interactively 'eyebrowse-create-window-config)
+          (message "clone to new workspace")))
+      ;; transient state
+      (defun spacemacs//workspaces-ts-hint ()
+        "Return a one liner string containing all the workspaces names."
+        (concat
+         " "
+         (mapconcat 'spacemacs//workspace-format-name
+                    (eyebrowse--get 'window-configs) " | ")
+         (if (equal 1 spacemacs--ts-full-hint-toggle)
+             spacemacs--workspaces-mod-ts-full-hint
+           (concat "  (["
+                   (propertize "?" 'face 'hydra-face-red)
+                   "] help)"))))
+      (spacemacs|transient-state-format-hint workspaces
+        spacemacs--workspaces-ts-full-hint
+        "\n\n
  Go to^^^^^^                             Actions^^
  ─────^^^^^^───────────────────────      ───────^^──────────────────────
  [_0_,_9_]^^     nth/new workspace       [_d_] close current workspace
@@ -57,7 +43,8 @@
                                          [_?_] toggle help
  [_n_/_C-l_/_L_]^^   next workspace      [_q_] quit
  [_N_/_p_/_C-h_/_H_] prev workspace\n")
-    (spacemacs|define-transient-state workspaces-mod
+
+      (spacemacs|define-transient-state workspaces
       :title "Workspaces Transient State"
       :hint-is-doc t
       :dynamic-hint (spacemacs//workspaces-mod-ts-hint)
@@ -98,14 +85,14 @@
       ("p" eyebrowse-prev-window-config)
       ("R" spacemacs/workspaces-ts-rename :exit t)
       ("," spacemacs/workspaces-ts-rename :exit t))
-    ;; cut integration between persp and workspaces
-    (remove-hook 'persp-before-switch-functions
-                 #'spacemacs/update-eyebrowse-for-perspective)
-    (remove-hook 'eyebrowse-post-window-switch-hook
-                 #'spacemacs/save-eyebrowse-for-perspective)
-    (remove-hook 'persp-activated-functions
-                 #'spacemacs/load-eyebrowse-for-perspective)
-    (remove-hook 'persp-before-save-state-to-file-functions
-                 #'spacemacs/update-eyebrowse-for-perspective)
-    (remove-hook 'persp-after-load-state-functions
-                 #'spacemacs/load-eyebrowse-after-loading-layout)))
+      ;; note: we don't need to declare the `SPC l w' binding, it is
+      ;; declare in the layout transient state
+      ;; vim-style tab switching
+      (define-key evil-motion-state-map "gt" 'eyebrowse-next-window-config)
+      (define-key evil-motion-state-map "gT" 'eyebrowse-prev-window-config))
+    :config
+    (progn
+      (add-to-list 'window-persistent-parameters '(window-side . writable))
+      (add-to-list 'window-persistent-parameters '(window-slot . writable))
+      (setq eyebrowse-new-workspace 'dired-jump)
+      (setq eyebrowse-mode-line-style 'always))))

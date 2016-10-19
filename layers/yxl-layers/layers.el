@@ -1,5 +1,5 @@
 (configuration-layer/declare-layers '(yxl
-                                      yxl-ui
+                                      yxl-workspace
                                       yxl-general
                                       yxl-evil
                                       yxl-prog
@@ -9,4 +9,4 @@
                                       yxl-org
                                       yxl-web
                                       yxl-helm
-                                      yxl-workspace))
+                                      yxl-ui))
