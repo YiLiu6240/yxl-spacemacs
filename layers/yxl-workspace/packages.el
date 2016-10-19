@@ -1,9 +1,30 @@
-(setq yxl-workspace-packages '(eyebrowse))
+(setq yxl-workspace-packages '(eyebrowse
+                               markdown-mode))
+
+(defun yxl-workspace/pre-init-markdown-mode ()
+  (spacemacs|use-package-add-hook markdown-mode
+    :post-config
+    (progn
+      (remove-hook 'markdown-mode-hook 'orgtbl-mode))))
+
+(defun yxl-workspace/pre-init-eyebrowse ()
+  (spacemacs|use-package-add-hook eyebrowse
+    :post-init
+    (progn
+      ;; make slot 1 name as "default"
+      (defun eyebrowse-init (&optional frame)
+        "Initialize Eyebrowse for the current frame."
+        (unless (eyebrowse--get 'window-configs frame)
+          (eyebrowse--set 'last-slot 1 frame)
+          (eyebrowse--set 'current-slot 1 frame)
+          (eyebrowse--insert-in-window-config-list
+           (eyebrowse--current-window-config 1 "default") frame))))))
 
 (defun yxl-workspace/post-init-eyebrowse ()
   (with-eval-after-load 'eyebrowse
     (add-to-list 'window-persistent-parameters '(window-side . writable))
     (add-to-list 'window-persistent-parameters '(window-slot . writable))
+
     (setq eyebrowse-new-workspace 'dired-jump)
     (setq eyebrowse-mode-line-style 'always)
     (defun eyebrowse-create-window-config-clone ()
@@ -75,8 +96,8 @@
       ("n" eyebrowse-next-window-config)
       ("N" eyebrowse-prev-window-config)
       ("p" eyebrowse-prev-window-config)
-      ("R" spacemacs/workspaces-ts-rename)
-      ("," spacemacs/workspaces-ts-rename))
+      ("R" spacemacs/workspaces-ts-rename :exit t)
+      ("," spacemacs/workspaces-ts-rename :exit t))
     ;; cut integration between persp and workspaces
     (remove-hook 'persp-before-switch-functions
                  #'spacemacs/update-eyebrowse-for-perspective)
