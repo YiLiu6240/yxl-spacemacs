@@ -104,14 +104,11 @@ in pdf-view mode (enabled by the `pdf-tools' package)."
                "]"
 
                ;; modified state
-               '(:eval
-                 (if buffer-read-only
-                     (propertize " % "
-                                 'help-echo "Buffer is read-only")
-                   (if (buffer-modified-p)
-                       (propertize " * " 'face 'font-lock-warning-face
-                                   'help-echo "Buffer has been modified")
-                     " - ")))
+               '(:eval (cond (buffer-read-only " R ")
+                             ((buffer-modified-p)
+                              (propertize " M " 'face 'font-lock-warning-face
+                                          'help-echo "Buffer has been modified"))
+                             (t " - ")))
 
                ;; the buffer name; the file name as a tool tip
                '(:eval (propertize "%b " 'face 'font-lock-keyword-face
