@@ -161,15 +161,16 @@ and if not, try to get the corresponding
                           (lhs (list
                                 ;; evil state
                                 (powerline-raw (format " %s " (upcase editor-state)) state-indicator-face)
-                                ;; workspace
-                                (funcall harddiv-left state-indicator-face workspace-face)
-                                (powerline-raw (eyebrowse-mode-line-indicator) workspace-face 'lr)
                                 ;; buffer id
                                 (powerline-buffer-id-short fileinfo-face 'l)
                                 ;; modified status
                                 (powerline-raw "%*" fileinfo-face 'lr)
                                 (powerline-narrow fileinfo-face 'l)
-                                (funcall harddiv-left fileinfo-face split-face)))
+                                ;; workspace
+                                (funcall harddiv-left fileinfo-face workspace-face)
+                                (when (powerline-selected-window-active)
+                                  (powerline-raw (eyebrowse-mode-line-indicator) workspace-face 'lr))
+                                (funcall harddiv-left workspace-face split-face)))
 
                           ;; Right Hand Side
                           (rhs (list
@@ -178,7 +179,7 @@ and if not, try to get the corresponding
                                 ;; version control
                                 (when
                                     (and (> (window-width) 100)
-                                         (buffer-file-name (current-buffer))
+                                         (powerline-selected-window-active)
                                          vc-mode)
                                   (concat
                                    (powerline-raw (downcase (format-mode-line '(vc-mode vc-mode))) vc-face 'r)
