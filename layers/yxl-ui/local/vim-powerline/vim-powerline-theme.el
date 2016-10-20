@@ -18,6 +18,7 @@
 ;;; Code:
 
 (require 'cl-lib)
+(require 'powerline-funcs)
 
 (defface powerline-active3 '((t (:background "#afd700"
                                              :foreground "#008700"
@@ -39,9 +40,8 @@
 ;; Get a face for the current input mode and
 ;; desired feature. Defaults to "powerline-FEATURE-normal"
 (defun pl/get-vim-face (face)
-  "Find whether or not FACE is a valid face,
-and if not, try to get the corresponding
-'-normal' face "
+  "Find whether or not FACE is a valid face.
+And if not, try to get the corresponding '-normal' face"
   (let* ((face (replace-regexp-in-string "iedit-insert" "iedit" face))
          (split-face-name nil) (concat-face-name nil) ; some variables we'll use later on
          (report-wrong-prefix ; Our error reporter. Because we don't want to return nil.
@@ -81,41 +81,6 @@ and if not, try to get the corresponding
 
 (defmacro pl/vim-face (name state)
   `(pl/get-vim-face (format "powerline-%s-%s" ,name ,state)))
-
-(defun buffer-id-short ()
-  (let* ((buf-name-full (format-mode-line "%b"))
-         (buf-name-length (length buf-name-full))
-         (buf-name-new (if (> buf-name-length 33)
-                           (concat (substring buf-name-full 0 20)
-                                   "..."
-                                   (substring buf-name-full -10 nil))
-                         buf-name-full)))
-    buf-name-new))
-
-(defun powerline-buffer-id-short (&optional face pad)
-  (powerline-raw
-   (format-mode-line
-    (concat " " (propertize
-                 (buffer-id-short)
-                 'face face
-                 'mouse-face 'mode-line-highlight
-                 'help-echo (concat
-                             (format-mode-line "%b")
-                             "\n\ mouse-1: Previous buffer\n\ mouse-3: Next buffer")
-                 'local-map (let ((map (make-sparse-keymap)))
-                              (define-key map [mode-line mouse-1]
-                                'mode-line-previous-buffer)
-                              (define-key map [mode-line mouse-3]
-                                'mode-line-next-buffer)
-                              map))))
-   face pad))
-
-(defun spaceline--pdfview-page-number ()
-  (format "(%d/%d)"
-          ;; `pdf-view-current-page' is a macro in an optional dependency
-          ;; any better solutions?
-          (eval `(pdf-view-current-page))
-          (pdf-cache-number-of-pages)))
 
 (require 'vim-colors)
 (defun powerline-vimish-theme ()
@@ -188,6 +153,8 @@ and if not, try to get the corresponding
                                            (eq 'pdf-view-mode major-mode))
                                   (powerline-raw (spaceline--pdfview-page-number)
                                                  workspace-face 'lr))
+                                (when (powerline-selected-window-active)
+                                  (powerline-raw (my-flycheck) workspace-face 'lr))
                                 ;; lhs ends here
                                 (funcall harddiv-left workspace-face split-face)))
 
@@ -214,8 +181,10 @@ and if not, try to get the corresponding
                                    (powerline-raw encoding fileencoding-face 'lr)
                                    (powerline-raw softdiv-right fileencoding-face)))
                                 ;; major mode
-
                                 (powerline-major-mode filetype-face 'lr)
+                                (powerline-raw softdiv-right filetype-face)
+                                ;; indent
+                                (powerline-raw (zilongshanren/display-mode-indent-width) filetype-face 'lr)
                                 (funcall harddiv-right filetype-face scrollpercent-face)
                                 ;; percentage
                                 (powerline-raw "%p" scrollpercent-face 'lr)
@@ -236,5 +205,4 @@ and if not, try to get the corresponding
                              (powerline-render rhs)))))))
 
 (provide 'vim-powerline-theme)
-
-;;; powerline-themes.el ends here
+;;; vim-powerline-theme.el ends here
