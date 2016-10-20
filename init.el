@@ -112,6 +112,8 @@ values."
                                     smooth-scrolling
                                     spaceline
                                     window-numbering
+                                    ido
+                                    tern
                                     ido)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -256,7 +258,7 @@ values."
 
   ;; misc stuff
   (setq-default require-final-newline t)
-
+  (setq-default auto-revert-interval 60)
   ;; -----------
   ;; ==== general packages below ====
   ;; -----------
@@ -267,6 +269,7 @@ values."
                                 ("PROG" . "#cb4b16")
                                 ("ISSUE" . "#cb4b16")
                                 ("DOING" . "#b58900")
+                                ("WIP" . "#b58900")
                                 ("OKAY" . "#859900")
                                 ("DONT" . "#2aa198")
                                 ("IDEA" . "#2aa198")
