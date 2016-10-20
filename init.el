@@ -284,6 +284,12 @@ values."
                                 ("???" . "#dc322f")))
 
   ;; --------
+  ;; display-buffer-alist
+  ;; --------
+  ;; shell: display in current window
+  (add-to-list 'display-buffer-alist '("\\`\\*e?shell" display-buffer-same-window))
+
+  ;; --------
   ;; pdf-tools
   ;; --------
   (when (configuration-layer/layer-usedp 'pdf-tools)
