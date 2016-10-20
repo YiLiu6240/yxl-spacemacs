@@ -51,10 +51,9 @@ master-dir, projectile-project-root, ~/Downloads"
 
 (defun yxl-text/latex-hi-lock ()
   (interactive)
-  (highlight-regexp "foobar\\|lorem" 'yxl-latex-font-keyword)
   (highlight-regexp "\\." 'yxl-latex-font-delim)
-  (highlight-regexp "_" 'yxl-latex-font-delim)
-  (highlight-regexp "\\\\_" 'font-lock-function-name-face)
+  ;; (highlight-regexp "_" 'yxl-latex-font-delim)
+  ;; (highlight-regexp "\\\\_" 'font-lock-function-name-face)
   (highlight-regexp "\\\\(\\|\\\\)" 'yxl-latex-font-math-delim))
 
 (defun yxl-text/setup-latex-general ()
@@ -62,8 +61,10 @@ master-dir, projectile-project-root, ~/Downloads"
   ;; extra line padding
   (add-hook 'LaTeX-mode-hook (lambda () (setq line-spacing 4)))
   (add-hook 'LaTeX-mode-hook (lambda () (setq yxl-line-width 100)))
+  (add-hook 'LaTeX-mode-hook (lambda () (auto-fill-mode -1)) t)
   (setq-default font-latex-fontify-script nil)
-  (setq-default TeX-newline-function 'reindent-then-newline-and-indent)
+  ;; (setq-default TeX-newline-function 'reindent-then-newline-and-indent)
+  (setq TeX-newline-function 'newline)
   (setq LaTeX-fill-excluded-macros '("hide" "comment"))
   (setq latex-noindent-environments '("document" "equation" "equation*"
                                       "align" "align*"))

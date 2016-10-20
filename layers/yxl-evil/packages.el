@@ -4,9 +4,8 @@
                           evil-textobj-column
                           (evil-little-word :location local)
                           evil-mc
-                          evil-evilified-state
-                          ;; evil-cleverparens
-                          ))
+                          evil-evilified-state))
+;; evil-cleverparens
 
 (defun yxl-evil/post-init-evil ()
   (with-eval-after-load 'evil
@@ -24,7 +23,9 @@
       :type exclusive
       (evil-forward-chars "," (- (or count 1))))
 
-    ;; the evil way is to use "fd"
+    (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+    (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
     (define-key evil-insert-state-map (kbd "C-h") #'backward-delete-char-untabify)
     (define-key evil-insert-state-map (kbd "C-d") #'delete-forward-char)
     (define-key evil-insert-state-map (kbd "C-a") #'beginning-of-line-text)

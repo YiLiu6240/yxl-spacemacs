@@ -25,14 +25,14 @@
 
 (defun yxl-text/post-init-auctex ()
   (with-eval-after-load 'latex
+    (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
     (yxl-text/setup-latex-general)
     (yxl-text/setup-latex-custom)
     (yxl-text/setup-latex-pairs)
     (yxl-text/setup-latex-reftex)
     (spacemacs/set-leader-keys-for-major-mode 'latex-mode
       "oa" #'yxl-text/latex-align-buffer)
-    (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
-    ;; (add-hook 'LaTeX-mode-hook #'yxl-text/latex-hi-lock)
+    (add-hook 'LaTeX-mode-hook #'yxl-text/latex-hi-lock)
     ))
 
 (defun yxl-text/init-latex-extra ()
@@ -43,7 +43,7 @@
       (setq latex/view-after-compile nil)
       ;; disable auto fill effect
       ;; (add-hook 'latex-extra-mode-hook (lambda ()
-      ;;                                    (setq auto-fill-function nil)))
+      ;;                                    (setq auto-fill-function nil)) t)
       ;; REVIEW
       (setq latex/no-fill-environments '("equation" "equation*" "align"
                                          "align*" "tabular" "tikzpicture"))
