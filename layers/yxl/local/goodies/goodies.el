@@ -23,5 +23,10 @@ Useful when creating new window layout/config."
         (switch-to-buffer cur-buf)
       (dired-jump))))
 
+(defun dired-popup ()
+  (interactive)
+  (popwin:popup-buffer (find-file-noselect default-directory)
+                       :width 40 :position 'left :stick t))
+
 
 (provide 'goodies)

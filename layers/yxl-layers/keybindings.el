@@ -24,6 +24,8 @@
   ;; top-level quick actions
   "o1" #'yxl/find-file-org-popup
   "o2" #'yxl/find-file-org-work-popup
+  "o3" #'yxl/find-file-org-dotfile-popup
+  "o4" #'dired-popup
   "ok" #'select-frame-code
   "oj" #'select-frame-REPL
   "oh" #'select-frame-meta
