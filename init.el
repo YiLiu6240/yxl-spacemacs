@@ -22,7 +22,7 @@ values."
      emacs-lisp
      (ess :packages (not org))
      (git :variables
-          git-magit-status-fullscreen t)
+          git-magit-status-fullscreen nil)
      lua
      markdown
      org
