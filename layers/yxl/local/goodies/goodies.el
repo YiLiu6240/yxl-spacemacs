@@ -14,5 +14,14 @@
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 
+(defun dired-stay-or-jump ()
+  "Jump to dired if current buffer is not a dired buffer.
+Useful when creating new window layout/config."
+  (interactive)
+  (let ((cur-buf (buffer-name (current-buffer))))
+    (if (eq major-mode 'dired-mode)
+        (switch-to-buffer cur-buf)
+      (dired-jump))))
+
 
 (provide 'goodies)
