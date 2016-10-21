@@ -19,6 +19,7 @@
     (progn
       (setq eyebrowse-mode-line-style 'always)  ;; display all configs
       (yxl-workspace/setup-eyebrowse)
+      (eyebrowse-setup-opinionated-keys)
       ;; vim-style tab switching
       (define-key evil-motion-state-map "gt" 'eyebrowse-next-window-config)
       (define-key evil-motion-state-map "gT" 'eyebrowse-prev-window-config)
