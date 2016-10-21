@@ -90,6 +90,7 @@
   "omo" #'org-mode
   "omp" #'python-mode
   "omr" #'R-mode
+  "ome" #'emacs-lisp-mode
 
   ;; orgmode
   "ooo" #'org-agenda

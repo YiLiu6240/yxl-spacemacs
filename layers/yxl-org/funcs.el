@@ -64,8 +64,9 @@
            "HAVE-A-LOOK(h)"
            "TODO(t)"                        ;; needs to be done
            "NEXT(n)"                        ;; next in line
-           "DOING(I)"                       ;; in-progress
+           "WIP(I)"                         ;; in-progress
            "HOLD(H)"                        ;; put on hold for various reasons
+           "PLAN(P)"                        ;; still under planning
            "FOLLOW-UP(f)"                   ;; follow-up results
            "SOMEDAY(s)"                     ;; not now
            "|"
