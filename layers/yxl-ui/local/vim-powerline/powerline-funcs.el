@@ -70,4 +70,27 @@
            (throw 'break evil-shift-width))))
     (concat "i:" (int-to-string (or mode-indent-level 0)))))
 
+(defun spaceline--column-number-at-pos (pos)
+  "Column number at POS.  Analog to `line-number-at-pos'."
+  (save-excursion (goto-char pos) (current-column)))
+
+(defun selection-info ()
+  "Information about the size of the current selection, when applicable.
+Supports both Emacs and Evil cursor conventions."
+  (when (or mark-active
+            (and (bound-and-true-p evil-local-mode)
+                 (eq 'visual evil-state)))
+    (let* ((lines (count-lines (region-beginning) (min (1+ (region-end)) (point-max))))
+           (chars (- (1+ (region-end)) (region-beginning)))
+           (cols (1+ (abs (- (spaceline--column-number-at-pos (region-end))
+                             (spaceline--column-number-at-pos (region-beginning))))))
+           (evil (and (bound-and-true-p evil-state) (eq 'visual evil-state)))
+           (rect (or (bound-and-true-p rectangle-mark-mode)
+                     (and evil (eq 'block evil-visual-selection))))
+           (multi-line (or (> lines 1) (and evil (eq 'line evil-visual-selection)))))
+      (cond
+       (rect (format "%d×%d block" lines (if evil cols (1- cols))))
+       (multi-line (format "%d lines" lines))
+       (t (format "%d chars" (if evil chars (1- chars))))))))
+
 (provide 'powerline-funcs)

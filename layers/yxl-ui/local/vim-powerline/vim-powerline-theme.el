@@ -141,20 +141,25 @@ And if not, try to get the corresponding '-normal' face"
                                 ;; modified status
                                 (powerline-raw "%*" fileinfo-face 'lr)
                                 (powerline-narrow fileinfo-face 'l)
-                                ;; workspace
                                 (funcall harddiv-left fileinfo-face workspace-face)
+                                ;; anzu
                                 (when (and (powerline-selected-window-active)
                                            (bound-and-true-p anzu--state))
                                    (powerline-raw (anzu--update-mode-line) workspace-face 'lr))
-                                (when (powerline-selected-window-active)
-                                  (powerline-raw (eyebrowse-mode-line-indicator)
-                                                 workspace-face 'lr))
+                                ;; pdf pages
                                 (when (and (powerline-selected-window-active)
                                            (eq 'pdf-view-mode major-mode))
                                   (powerline-raw (spaceline--pdfview-page-number)
                                                  workspace-face 'lr))
+                                ;; flycheck
                                 (when (powerline-selected-window-active)
                                   (powerline-raw (my-flycheck) workspace-face 'lr))
+                                (powerline-raw (selection-info)
+                                               workspace-face 'lr)
+                                ;; workspace
+                                (when (powerline-selected-window-active)
+                                  (powerline-raw (eyebrowse-mode-line-indicator)
+                                                 workspace-face 'lr))
                                 ;; lhs ends here
                                 (funcall harddiv-left workspace-face split-face)))
 
