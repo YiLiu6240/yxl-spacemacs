@@ -8,6 +8,7 @@
 
 ## Goodies
 - hydra integration in dired
+- `ess` goodies, some collected elsewhere and some wrote by me.
 
 ## Difference from stock Spacemacs
 - ui:
