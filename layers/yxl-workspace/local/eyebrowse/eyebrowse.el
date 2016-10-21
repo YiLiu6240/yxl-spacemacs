@@ -168,6 +168,11 @@ If t, ask for confirmation."
   :type 'boolean
   :group 'eyebrowse)
 
+(defcustom eyebrowse-default-tag-name "default"
+  "Default name of the first tag."
+  :type 'string
+  :group 'eyebrowse)
+
 (defvar eyebrowse-mode-map
   (let ((map (make-sparse-keymap)))
     (let ((prefix-map (make-sparse-keymap)))
@@ -227,7 +232,7 @@ If FRAME is nil, use current frame.  TYPE can be any of
     (eyebrowse--set 'last-slot 1 frame)
     (eyebrowse--set 'current-slot 1 frame)
     (eyebrowse--insert-in-window-config-list
-     (eyebrowse--current-window-config 1 "default") frame)))
+     (eyebrowse--current-window-config 1 eyebrowse-default-tag-name) frame)))
 
 (defun eyebrowse--update-window-config-element (new-element)
   "Replace the old element with NEW-ELEMENT in the window config list.
