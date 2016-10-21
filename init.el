@@ -295,6 +295,7 @@ values."
   (add-to-list 'display-buffer-alist '("\\*R" display-buffer-same-window))
   ;; FIXME: not working
   (add-to-list 'display-buffer-alist '("\\*Python\\*" display-buffer-same-window))
+  (add-to-list 'display-buffer-alist '("\\*magit:" display-buffer-same-window))
 
   ;; --------
   ;; pdf-tools

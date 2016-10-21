@@ -166,15 +166,16 @@ And if not, try to get the corresponding '-normal' face"
                           ;; Right Hand Side
                           (rhs (list
                                 (powerline-raw global-mode-string split-face 'r)
-                                (funcall harddiv-right split-face vc-face)
-                                ;; version control
-                                (when
-                                    (and (> (window-width) 100)
-                                         (powerline-selected-window-active)
-                                         vc-mode)
-                                  (concat
-                                   (powerline-raw (downcase (format-mode-line '(vc-mode vc-mode))) vc-face 'r)
-                                   (powerline-raw softdiv-right vc-face)))
+                                ;; remove vc mode, magit is not using it
+                                ;; (funcall harddiv-right split-face vc-face)
+                                ;; ;; version control
+                                ;; (when
+                                ;;     (and (> (window-width) 100)
+                                ;;          (powerline-selected-window-active)
+                                ;;          vc-mode)
+                                ;;   (concat
+                                ;;    (powerline-raw (downcase (format-mode-line '(vc-mode vc-mode))) vc-face 'r)
+                                ;;    (powerline-raw softdiv-right vc-face)))
                                 (funcall harddiv-right vc-face fileformat-face)
                                 ;; line ending and encoding
                                 (when (> (window-width) 100)

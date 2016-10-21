@@ -109,7 +109,7 @@
       (define-key evil-evilified-state-map-original
         (kbd "H") #'eyebrowse-prev-window-config)
       (define-key evil-evilified-state-map-original
-        (kbd "L") #'eyebrowse-prev-window-config)
+        (kbd "L") #'eyebrowse-next-window-config)
       (define-key evil-evilified-state-map-original (kbd "C-h") #'evil-window-left)
       (define-key evil-evilified-state-map-original (kbd "C-j") #'evil-window-down)
       (define-key evil-evilified-state-map-original (kbd "C-k") #'evil-window-up)

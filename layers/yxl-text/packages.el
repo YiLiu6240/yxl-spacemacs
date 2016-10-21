@@ -26,14 +26,14 @@
 (defun yxl-text/post-init-auctex ()
   (with-eval-after-load 'latex
     (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
+    (evil-set-initial-state 'reftex-toc-mode 'evilified)
     (yxl-text/setup-latex-general)
     (yxl-text/setup-latex-custom)
     (yxl-text/setup-latex-pairs)
     (yxl-text/setup-latex-reftex)
     (spacemacs/set-leader-keys-for-major-mode 'latex-mode
       "oa" #'yxl-text/latex-align-buffer)
-    (add-hook 'LaTeX-mode-hook #'yxl-text/latex-hi-lock)
-    ))
+    (add-hook 'LaTeX-mode-hook #'yxl-text/latex-hi-lock)))
 
 (defun yxl-text/init-latex-extra ()
   (use-package latex-extra

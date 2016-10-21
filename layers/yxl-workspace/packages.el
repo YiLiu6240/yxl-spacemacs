@@ -23,6 +23,8 @@
       ;; vim-style tab switching
       (define-key evil-motion-state-map "gt" 'eyebrowse-next-window-config)
       (define-key evil-motion-state-map "gT" 'eyebrowse-prev-window-config)
+      ;; overwrite gc
+      (define-key evil-motion-state-map "gc" 'evilnc-comment-operator)
       (add-to-list 'window-persistent-parameters '(window-side . writable))
       (add-to-list 'window-persistent-parameters '(window-slot . writable))
       (define-key eyebrowse-mode-map (kbd "C-c w d")
