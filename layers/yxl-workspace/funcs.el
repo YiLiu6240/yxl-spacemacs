@@ -1,3 +1,69 @@
+(spacemacs|define-transient-state window-manipulation
+  :title "Window Manipulation Transient State"
+  :doc (concat "
+ Select^^^^              Move^^^^              Split^^                Resize^^                     Other^^
+ ──────^^^^───────────── ────^^^^───────────── ─────^^─────────────── ──────^^──────────────────── ─────^^──────────────────────────────
+ [_j_/_k_] down/up       [_J_/_K_] down/up     [_s_] vertical         [_[_] shrink horizontally    [_q_] quit
+ [_h_/_l_] left/right    [_H_/_L_] left/right  [_S_] vert & follow    [_]_] enlarge horizontally   [_u_] restore prev layout
+ [_0_-_9_] window N      [_r_]^^   rotate fwd  [_v_] horizontal       [_{_] shrink vertically      [_U_] restore next layout
+ [_w_]^^   other window  [_R_]^^   rotate bwd  [_V_] horiz & follow   [_}_] enlarge vertically     [_d_] close current
+ [_o_]^^   other frame   ^^^^                  ^^                     ^^                           [_D_] close other
+ [_M-j_/_M-k_] move window down/up
+ [_M-h_/_M-l_] move left/right"
+               (if (configuration-layer/package-usedp 'golden-ratio)
+                   "\n ^^^^                    ^^^^                  ^^                     ^^                           [_g_] golden-ratio %`golden-ratio-mode"
+                 ""))
+  :bindings
+  ("q" nil :exit t)
+  ("0" select-window-0)
+  ("1" select-window-1)
+  ("2" select-window-2)
+  ("3" select-window-3)
+  ("4" select-window-4)
+  ("5" select-window-5)
+  ("6" select-window-6)
+  ("7" select-window-7)
+  ("8" select-window-8)
+  ("9" select-window-9)
+  ("-" split-window-below-and-focus)
+  ("/" split-window-right-and-focus)
+  ("[" spacemacs/shrink-window-horizontally)
+  ("]" spacemacs/enlarge-window-horizontally)
+  ("{" spacemacs/shrink-window)
+  ("}" spacemacs/enlarge-window)
+  ("d" delete-window)
+  ("D" delete-other-windows)
+  ("h" evil-window-left)
+  ("<left>" evil-window-left)
+  ("j" evil-window-down)
+  ("<down>" evil-window-down)
+  ("k" evil-window-up)
+  ("<up>" evil-window-up)
+  ("l" evil-window-right)
+  ("<right>" evil-window-right)
+  ("H" evil-window-move-far-left)
+  ("<S-left>" evil-window-move-far-left)
+  ("J" evil-window-move-very-bottom)
+  ("<S-down>" evil-window-move-very-bottom)
+  ("K" evil-window-move-very-top)
+  ("<S-up>" evil-window-move-very-top)
+  ("L" evil-window-move-far-right)
+  ("<S-right>" evil-window-move-far-right)
+  ("M-h" buf-move-left)
+  ("M-j" buf-move-down)
+  ("M-k" buf-move-up)
+  ("M-l" buf-move-right)
+  ("o" other-frame)
+  ("r" spacemacs/rotate-windows)
+  ("R" spacemacs/rotate-windows-backward)
+  ("s" split-window-below)
+  ("S" split-window-below-and-focus)
+  ("u" winner-undo)
+  ("U" winner-redo)
+  ("v" split-window-right)
+  ("V" split-window-right-and-focus)
+  ("w" other-window))
+
 (defun yxl-workspace/setup-eyebrowse ()
 
   (defun spacemacs//workspaces-ts-hint ()

@@ -1,11 +1,9 @@
 (setq yxl-workspace-packages '((eyebrowse :location local)
-                               markdown-mode))
+                               buffer-move))
 
-;; (defun yxl-workspace/pre-init-markdown-mode ()
-;;   (spacemacs|use-package-add-hook markdown-mode
-;;     :post-config
-;;     (progn
-;;       (remove-hook 'markdown-mode-hook 'orgtbl-mode))))
+(defun yxl-workspace/init-buffer-move ()
+  (use-package buffer-move
+    :defer t))
 
 (defun yxl-workspace/init-eyebrowse ()
   (use-package eyebrowse
