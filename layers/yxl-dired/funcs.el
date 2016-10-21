@@ -54,15 +54,19 @@
     (:hint none :color red)
     "
     [_q_] ../   [_T_] ../   [_._] quit
-    [_h_] hide detail
-    [_r_] read only (restore with C-x C-q)
-    [_d_] ?d? dwim-target"
+    [_h_] ?h? hide detail   [_o_] ?o? omit [_d_] ?d? dwim-target
+    [_r_] read only (restore with C-x C-q)"
     ("." nil)
     ("q" hydra-dired-main/body :color blue)
     ("T" hydra-dired-main/body :color blue)
-    ("h" dired-hide-details-mode)
+    ("h" dired-hide-details-mode
+     (if (bound-and-true-p dired-hide-details-mode)
+         "[X]" "[ ]"))
+    ("o" dired-omit-mode
+     (if (bound-and-true-p dired-omit-mode)
+         "[X]" "[ ]"))
     ("d" yxl-dired/toggle-dwim-target
-     (if (eq dired-dwim-target t)
+     (if dired-dwim-target
          "[X]" "[ ]"))
     ("r" dired-toggle-read-only :color blue))
 
