@@ -1,7 +1,7 @@
 * Bindings
 
 ** general bindings
-- Do not bind ~j/k~ to navigate visual lines. It sacrifize navigation speed.
+- ~j/k~ to navigate visual lines.
 - bind ~C-h/j/k/l~ to window movement.
 - ~H/L~ to tab/eyebrowse navigation
 - ~g~:
@@ -14,6 +14,7 @@
   - ~qQ~ as ~:qwa~
   - ~qw~ as ~:w~
   - ~qW~ as ~:wa~
+- ~M-1...0~ as eyebrowse tab creation/navigation
 
 ** insert state bindings
 - As long as compatiblity with vim allows, remap insert state bindings to emacs style bindings, like ~C-n/p/f/b/a/e~ for navigations and ~C-h~ for backspace.
