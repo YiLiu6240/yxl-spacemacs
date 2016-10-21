@@ -201,7 +201,8 @@ values."
    dotspacemacs-whitespace-cleanup `all))
 
 (defun dotspacemacs/user-init ()
-  (add-to-list 'load-path "~/.spacemacs.d/config")
+  (add-to-list 'load-path "~/.spacemacs.d/config/")
+  (add-to-list 'load-path "~/.spacemacs.d/lisp/")
   (add-to-list 'load-path "~/.spacemacs.d/theme/yxl-theme/")
 
   (add-to-list 'custom-theme-load-path "~/.spacemacs.d/theme/yxl-theme/")
@@ -291,6 +292,9 @@ values."
   ;; --------
   ;; shell: display in current window
   (add-to-list 'display-buffer-alist '("\\`\\*e?shell" display-buffer-same-window))
+  (add-to-list 'display-buffer-alist '("\\*R" display-buffer-same-window))
+  ;; FIXME: not working
+  (add-to-list 'display-buffer-alist '("\\*Python\\*" display-buffer-same-window))
 
   ;; --------
   ;; pdf-tools
