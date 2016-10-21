@@ -89,15 +89,15 @@ values."
      ;; os-dependent --------
      ;; osx
 
-     ;; private --------
+     ;; tools --------
      csv
      calfw
      graphviz
      pdf-tools
      imenu-list
-     palette
+
+     ;; private --------
      helm-dash
-     ;; window-purpose
 
      yxl-layers)
    ;; List of additional packages that will be installed without being
@@ -321,10 +321,9 @@ values."
   ;; (setq deft-directory "~/Dropbox/notes")
 
   ;; spacemacs buffer
-  (add-hook
-   'spacemacs-buffer-mode-hook
-   (lambda ()
-     (define-key spacemacs-buffer-mode-map "o" 'widget-button-press)))
+  (add-hook 'spacemacs-buffer-mode-hook
+            (lambda () (define-key spacemacs-buffer-mode-map
+                         "o" 'widget-button-press)))
 
   ;; --------
   ;; proselint

@@ -1,7 +1,8 @@
-(setq yxl-ui-packages '(spaceline
-                        (yxl-spaceline :toggle (bound-and-true-p spaceline))
-                        (yxl-mode-line :location local
-                                       :toggle (not (bound-and-true-p spaceline)))
+(setq yxl-ui-packages '(
+                        ;; spaceline
+                        ;; (yxl-spaceline :toggle (bound-and-true-p spaceline))
+                        ;; (yxl-mode-line :location local
+                        ;;                :toggle (not (bound-and-true-p spaceline)))
                         powerline
                         (vim-powerline :location local)))
 

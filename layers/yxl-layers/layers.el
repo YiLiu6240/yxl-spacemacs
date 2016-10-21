@@ -1,6 +1,6 @@
 (configuration-layer/declare-layers '(yxl
                                       yxl-workspace
-                                      yxl-general
+                                      yxl-config
                                       yxl-evil
                                       yxl-prog
                                       yxl-text

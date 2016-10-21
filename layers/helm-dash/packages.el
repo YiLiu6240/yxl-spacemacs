@@ -16,5 +16,4 @@
       (setq helm-dash-common-docsets (helm-dash-installed-docsets))
       (message (format "activated %d docsets from: %s"
                        (length helm-dash-common-docsets) path)))
-    (helm-dash/activate-package-docsets helm-dash-docsets-path)
-    ))
+    (helm-dash/activate-package-docsets helm-dash-docsets-path)))

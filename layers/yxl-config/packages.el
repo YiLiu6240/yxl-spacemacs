@@ -1,19 +1,17 @@
-(setq yxl-general-packages '(dired
-                             pdf-tools
-                             calfw
-                             ess
-                             python
-                             comint
-                             ibuffer
-                             imenu-list
-                             company
-                             hippie-exp
-                             projectile
-                             magit
-                             ibuffer
-                             neotree))
+(setq yxl-config-packages '(dired
+                            pdf-tools
+                            ess
+                            python
+                            ibuffer
+                            imenu-list
+                            company
+                            hippie-exp
+                            projectile
+                            magit
+                            ibuffer
+                            neotree))
 
-(defun yxl-general/post-init-dired ()
+(defun yxl-config/post-init-dired ()
   (with-eval-after-load 'dired
     (evilified-state-evilify dired-mode dired-mode-map
       "o"  #'dired-find-file
@@ -36,7 +34,7 @@
       "r"         'revert-buffer
       (kbd "C-r") 'dired-do-redisplay)))
 
-(defun yxl-general/post-init-pdf-tools ()
+(defun yxl-config/post-init-pdf-tools ()
   (with-eval-after-load 'pdf-tools
 
     (setq-default pdf-view-midnight-colors '("#839496" . "#15262c"))
@@ -65,7 +63,7 @@
 
     (yxl/pdf-view-bindings)))
 
-(defun yxl-general/post-init-ess ()
+(defun yxl-config/post-init-ess ()
   (with-eval-after-load 'ess-mode
     (evil-define-key 'insert comint-mode-map
       (kbd "C-j") #'windmove-down
@@ -82,7 +80,7 @@
     (with-eval-after-load 'ess-help
       (evil-set-initial-state 'ess-help-mode 'evilified))))
 
-(defun yxl-general/post-init-python ()
+(defun yxl-config/post-init-python ()
   (with-eval-after-load 'python
     (evil-define-key 'insert comint-mode-map
       (kbd "C-j") #'windmove-down
@@ -102,13 +100,13 @@
       (kbd "C-p") #'comint-previous-input
       (kbd "C-n") #'comint-next-input)))
 
-(defun yxl-general/post-init-ibuffer ()
+(defun yxl-config/post-init-ibuffer ()
   (progn
     (evilified-state-evilify ibuffer-mode ibuffer-mode-map
       "o" #'ibuffer-visit-buffer
       "O" #'ibuffer-visit-buffer-other-window)))
 
-(defun yxl-general/post-init-imenu-list ()
+(defun yxl-config/post-init-imenu-list ()
   (progn
     (setq imenu-list-auto-resize nil)
     (setq imenu-list-size 0.15)
@@ -120,7 +118,7 @@
       (select-window (get-buffer-window imenu-list-buffer-name)))
     (spacemacs/set-leader-keys "bI" #'imenu-list-select-window)))
 
-(defun yxl-general/post-init-company ()
+(defun yxl-config/post-init-company ()
   (with-eval-after-load 'company
     ;; (define-key company-active-map (kbd "<ESC>") #'company-cancel)
     (define-key company-active-map (kbd "C-h") nil)
@@ -128,10 +126,10 @@
     (define-key company-active-map (kbd "C-k") #'company-select-previous)
     (define-key company-active-map (kbd "C-l") nil)))
 
-(defun yxl-general/post-init-hippie-exp ()
+(defun yxl-config/post-init-hippie-exp ()
   (define-key evil-insert-state-map (kbd "C-p") #'previous-line))
 
-(defun yxl-general/post-init-projectile ()
+(defun yxl-config/post-init-projectile ()
   (with-eval-after-load 'projectile
     ;; inherit from zilongshanren
     (evil-set-initial-state 'occur-mode 'evilified)
@@ -145,7 +143,7 @@
     (spacemacs/declare-prefix "p/" "TODO-occur")
     (spacemacs/set-leader-keys "p/t" #'my/todo-occur)))
 
-(defun yxl-general/post-init-magit ()
+(defun yxl-config/post-init-magit ()
   (with-eval-after-load 'magit
     ;; speedup:
     ;; stop magit from generating diffs when doing commits, slow
@@ -169,7 +167,7 @@
     (define-key magit-status-mode-map (kbd "C-M-3") #'magit-jump-to-staged)
     (define-key magit-status-mode-map (kbd "C-M-4") #'magit-jump-to-stashes)))
 
-(defun yxl-general/post-init-ibuffer ()
+(defun yxl-config/post-init-ibuffer ()
   (with-eval-after-load 'ibuffer
     (setq ibuffer-formats
           '((mark modified read-only " "
@@ -178,6 +176,6 @@
                   (mode 16 16 :left :elide) " " filename-and-process)
             (mark " " (name 16 -1) " " filename)))))
 
-(defun yxl-general/post-init-neotree ()
+(defun yxl-config/post-init-neotree ()
   (with-eval-after-load 'neotree
     (define-key neotree-mode-map "o" #'spacemacs/neotree-expand-or-open)))

@@ -12,7 +12,7 @@ which require an initialization must be listed explicitly in the list.")
     :commands (cfw-open-calendar)
     :init
     :config
-    (with-eval-after-load 'calfw
+    (progn
      (push 'cfw:calendar-mode evil-emacs-state-modes)
      (require 'calfw-cal)
      (require 'calfw-ical)
@@ -28,5 +28,4 @@ which require an initialization must be listed explicitly in the list.")
      (calendar-set-date-style 'iso)
 
      (spacemacs/set-leader-keys
-       "ac" 'cfw-open-calendar)
-     )))
+       "ac" 'cfw-open-calendar))))
