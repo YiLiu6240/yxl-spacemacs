@@ -1,40 +1,40 @@
 (defvar yxl-popwin-width-big 60)
 (defvar yxl-popwin-width-small 40)
 
-(defun yxl/find-dir-dotfiles ()
+(defun yxl-find/-dir-dotfiles ()
   (interactive)
   (find-file yxl-path-dotfiles))
-(defun yxl/find-dir-Downloads ()
+(defun yxl-find/-dir-Downloads ()
   (interactive)
   (find-file yxl-path-local))
-(defun yxl/find-dir-Dropbox ()
+(defun yxl-find/-dir-Dropbox ()
   (interactive)
   (find-file yxl-path-sync))
-(defun yxl/find-dir-org ()
+(defun yxl-find/-dir-org ()
   (interactive)
   (find-file yxl-path-org))
-(defun yxl/find-pwd-code ()
+(defun yxl-find/-pwd-code ()
   (interactive)
   (find-file yxl-path-code-pwd))
-(defun yxl/find-pwd-paper ()
+(defun yxl-find/-pwd-paper ()
   (interactive)
   (find-file yxl-path-paper-pwd))
-(defun yxl/find-pwd-journal ()
+(defun yxl-find/-pwd-journal ()
   (interactive)
   (find-file yxl-path-journal-pwd))
 
 ;; find file functions
-(defun yxl/find-file-bib ()
+(defun yxl-find/-file-bib ()
   (interactive)
   (find-file yxl-file-bib))
 
-(defun yxl/find-file-org ()
+(defun yxl-find/-file-org ()
   (interactive)
   (find-file yxl-file-org-main))
-(defun yxl/find-file-org-other-window ()
+(defun yxl-find/-file-org-other-window ()
   (interactive)
   (find-file-other-window yxl-file-org-main))
-(defun yxl/find-file-org-popup ()
+(defun yxl-find/-file-org-popup ()
   (interactive
    (cond
     ((equal current-prefix-arg nil)
@@ -48,13 +48,13 @@
 
 
 
-(defun yxl/find-file-org-work ()
+(defun yxl-find/-file-org-work ()
   (interactive)
   (find-file yxl-file-org-work))
-(defun yxl/find-file-org-work-other-window ()
+(defun yxl-find/-file-org-work-other-window ()
   (interactive)
   (find-file-other-window yxl-file-org-work))
-(defun yxl/find-file-org-work-popup ()
+(defun yxl-find/-file-org-work-popup ()
   (interactive
    (cond
     ((equal current-prefix-arg nil)
@@ -66,7 +66,7 @@
                           :width yxl-popwin-width-small
                           :position 'left :stick t)))))
 
-(defun yxl/find-file-org-dotfile-popup ()
+(defun yxl-find/-file-org-dotfile-popup ()
   (interactive
    (cond
     ((equal current-prefix-arg nil)
@@ -77,15 +77,15 @@
                           :width yxl-popwin-width-small :position 'left :stick t)))))
 
 ;; TODO: change to org version as in capture template
-(defun yxl/find-file-diary ()
+(defun yxl-find/file-diary ()
   (interactive)
   (find-file diary-file))
 
-(defun yxl/find-file-note ()
+(defun yxl-find/-file-note ()
   (interactive)
   (find-file yxl-text-note-file))
 
-(defun yxl/find-file-note-master ()
+(defun yxl-find/-file-note-master ()
   (interactive)
   (find-file yxl-file-note-master))
 

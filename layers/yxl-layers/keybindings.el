@@ -22,9 +22,9 @@
   ",t"  #'yxl/scratch-pop-top
 
   ;; top-level quick actions
-  "o1" #'yxl/find-file-org-popup
-  "o2" #'yxl/find-file-org-work-popup
-  "o3" #'yxl/find-file-org-dotfile-popup
+  "o1" #'yxl-find/-file-org-popup
+  "o2" #'yxl-find/-file-org-work-popup
+  "o3" #'yxl-find/-file-org-dotfile-popup
   "o4" #'dired-popup
   "ok" #'select-frame-code
   "oj" #'select-frame-REPL
@@ -49,15 +49,15 @@
   "obr" #'revert-buffer
 
   ;; file
-  "ofb" #'yxl/find-file-bib
-  "ofo" #'yxl/find-file-org-other-window
-  "ofO" #'yxl/find-file-org
-  "ofw" #'yxl/find-file-org-work-other-window
-  "ofW" #'yxl/find-file-org-work
+  "ofb" #'yxl-find/-file-bib
+  "ofo" #'yxl-find/-file-org-other-window
+  "ofO" #'yxl-find/-file-org
+  "ofw" #'yxl-find/-file-org-work-other-window
+  "ofW" #'yxl-find/-file-org-work
   "ofd" #'yxl-find/file-diary
   "ofs" #'spacemacs/find-dotfile
-  "ofn" #'yxl/find-file-note
-  "ofN" #'yxl/find-file-note-master
+  "ofn" #'yxl-find/-file-note
+  "ofN" #'yxl-find/-file-note-master
   "ofm" #'yxl-text/find-TeX-master
   "ofr" #'yxl-text/find-project-root
   "ofu" #'yxl-text/find-project-outline
@@ -99,13 +99,13 @@
   "oo0" #'yxl/org-agenda-life
 
   ;; project
-  "opg" #'yxl/find-dir-Downloads
-  "oph" #'yxl/find-dir-Dropbox
-  "opc" #'yxl/find-pwd-code
-  "opd" #'yxl/find-dir-dotfiles
-  "opj" #'yxl/find-pwd-journal
-  "opo" #'yxl/find-dir-org
-  "opp" #'yxl/find-pwd-paper
+  "opg" #'yxl-find/-dir-Downloads
+  "oph" #'yxl-find/-dir-Dropbox
+  "opc" #'yxl-find/-pwd-code
+  "opd" #'yxl-find/-dir-dotfiles
+  "opj" #'yxl-find/-pwd-journal
+  "opo" #'yxl-find/-dir-org
+  "opp" #'yxl-find/-pwd-paper
 
   ;; quick
   "og" #'yxl/helm-quick

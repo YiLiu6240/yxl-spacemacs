@@ -125,12 +125,12 @@
   (insert "\n")
   (widget-create 'push-button
                  :tag (propertize "Org: work" 'face 'font-lock-type-face)
-                 :action (lambda (&rest ignore) (yxl/find-file-org-work))
+                 :action (lambda (&rest ignore) (yxl-find/-file-org-work))
                  :mouse-face 'highlight)
   (insert " ")
   (widget-create 'push-button
                  :tag (propertize "Org: life" 'face 'font-lock-string-face)
-                 :action (lambda (&rest ignore) (yxl/find-file-org))
+                 :action (lambda (&rest ignore) (yxl-find/-file-org))
                  :mouse-face 'highlight)
   (spacemacs-buffer//center-line)
   (insert "\n\n"))
