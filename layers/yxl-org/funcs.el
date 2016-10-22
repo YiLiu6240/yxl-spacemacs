@@ -10,8 +10,7 @@
   ;; disable middle split
   (setq org-M-RET-may-split-line nil)
   ;; org title bullets
-  ;; (setq org-bullets-bullet-list '("*" "+" ">" "-"))
-  (setq org-bullets-bullet-list '("○"))
+  ;; (setq org-bullets-bullet-list '("○"))
   ;; Make the org calendar start on monday
   (setq calendar-week-start-day 1)
   ;; disable org folding at launch

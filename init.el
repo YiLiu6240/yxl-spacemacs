@@ -112,7 +112,7 @@ values."
                                     smooth-scrolling
                                     spaceline
                                     window-numbering
-                                    ido
+                                    org-bullets
                                     tern
                                     ido)
    ;; Defines the behaviour of Spacemacs when installing packages.
