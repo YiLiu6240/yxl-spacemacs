@@ -1,7 +1,7 @@
-(defun yxl/org-agenda-work ()
+(defun yxl-org/agenda-work ()
   (interactive)
   (org-agenda nil "1"))
-(defun yxl/org-agenda-life ()
+(defun yxl-org/agenda-life ()
   (interactive)
   (org-agenda nil "0"))
 

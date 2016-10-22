@@ -1,3 +1,7 @@
+(defvar-local yxl-line-width 80
+  "preferred line width for a window, useful when setting window centering")
+
+
 (defun yxl/custom-layout-1 ()
   "window layout 1 | 2/3"
   (interactive)
@@ -138,9 +142,6 @@ Else create a window with lines parsed by prefix"
      (windmove-right))))
 
 
-(defvar-local yxl-line-width 80
-  "preferred line width for a window, useful when setting window centering")
-
 (defun yxl/change-window-width (width)
   (interactive "nwindow width: ")
   (evil-resize-window width t))

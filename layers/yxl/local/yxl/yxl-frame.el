@@ -18,36 +18,36 @@
   (set-frame-name "Config")
   (message "Frame set to %s" "Config"))
 
-(defun select-frame-code ()
+(defun yxl/select-frame-code ()
   (interactive)
-  (select-frame-by-name "Code")
+  (yxl/select-frame-by-name "Code")
   (message "select Frame %s" "Code"))
 
-(defun select-frame-REPL ()
+(defun yxl/select-frame-REPL ()
   (interactive)
-  (select-frame-by-name "REPL")
+  (yxl/select-frame-by-name "REPL")
   (message "select Frame %s" "REPL"))
 
-(defun select-frame-meta ()
+(defun yxl/select-frame-meta ()
   (interactive)
-  (select-frame-by-name "Meta")
+  (yxl/select-frame-by-name "Meta")
   (message "select Frame %s" "Meta"))
 
-(defun select-frame-config ()
+(defun yxl/select-frame-config ()
   (interactive)
-  (select-frame-by-name "Config")
+  (yxl/select-frame-by-name "Config")
   (message "select Frame %s" "Config"))
 
-(defun yxl/frame-setup-1 ()
+(defun yxl/frame-setup-gen ()
   "will not work on linux"
   (interactive)
   (yxl/set-frame-config)
   (make-frame) (yxl/set-frame-meta)
   (make-frame) (yxl/set-frame-REPL)
   (make-frame) (yxl/set-frame-code)
-  (select-frame-code))
+  (yxl/select-frame-code))
 
-(defun yxl/frame-setup-2 ()
+(defun yxl/frame-setup-mac ()
   "test"
   (interactive)
   ;; set the first frame to be "config",
@@ -58,11 +58,11 @@
   (make-frame) (yxl/set-frame-code)
   (make-frame) (yxl/set-frame-meta)
 
-  (select-frame-meta) (sleep-for 0.1)
+  (yxl/select-frame-meta) (sleep-for 0.1)
   (toggle-frame-fullscreen) (sleep-for 0.5)
-  (select-frame-REPL) (sleep-for 0.1)
+  (yxl/select-frame-REPL) (sleep-for 0.1)
   (toggle-frame-fullscreen) (sleep-for 0.5)
-  (select-frame-code) (sleep-for 0.1)
+  (yxl/select-frame-code) (sleep-for 0.1)
   (toggle-frame-fullscreen) (sleep-for 0.5))
 
 (provide 'yxl-frame)

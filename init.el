@@ -207,9 +207,10 @@ values."
 
   (add-to-list 'custom-theme-load-path "~/.spacemacs.d/theme/yxl-theme/")
 
-  (load-file (concat dotspacemacs-directory "config/spacemacs_home.el"))
-  (load-file (concat dotspacemacs-directory "config/hack.el"))
+  (load-file (concat dotspacemacs-directory "config/yxl-init-def.el"))
   (load-file (concat dotspacemacs-directory "config/init-config.el"))
+  (load-file (concat dotspacemacs-directory "config/hack.el"))
+  (load-file (concat dotspacemacs-directory "config/yxl-spacemacs-home.el"))
 
   (setq-default custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (load custom-file 'no-error 'no-message))

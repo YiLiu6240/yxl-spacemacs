@@ -100,26 +100,26 @@
   (spacemacs-buffer//center-line)
   (insert "\n\n")
   (widget-create 'push-button
-                 :tag (propertize "yxl/frame-setup-1"
+                 :tag (propertize "yxl/frame-setup-gen"
                                   'face 'font-lock-comment-face)
-                 :action (lambda (&rest ignore) (yxl/frame-setup-1))
+                 :action (lambda (&rest ignore) (yxl/frame-setup-gen))
                  :mouse-face 'highlight)
   (insert " ")
   (widget-create 'push-button
-                 :tag (propertize "yxl/frame-setup-2"
+                 :tag (propertize "yxl/frame-setup-mac"
                                   'face 'font-lock-comment-face)
-                 :action (lambda (&rest ignore) (yxl/frame-setup-2))
+                 :action (lambda (&rest ignore) (yxl/frame-setup-mac))
                  :mouse-face 'highlight)
   (spacemacs-buffer//center-line)
   (insert "\n")
   (widget-create 'push-button
                  :tag (propertize "Agenda: work" 'face 'font-lock-type-face)
-                 :action (lambda (&rest ignore) (yxl/org-agenda-work))
+                 :action (lambda (&rest ignore) (yxl-org/agenda-work))
                  :mouse-face 'highlight)
   (insert " ")
   (widget-create 'push-button
                  :tag (propertize "Agenda: life" 'face 'font-lock-string-face)
-                 :action (lambda (&rest ignore) (yxl/org-agenda-life))
+                 :action (lambda (&rest ignore) (yxl-org/agenda-life))
                  :mouse-face 'highlight)
   (spacemacs-buffer//center-line)
   (insert "\n")

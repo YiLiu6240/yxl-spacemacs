@@ -26,10 +26,10 @@
   "o2" #'yxl-find/-file-org-work-popup
   "o3" #'yxl-find/-file-org-dotfile-popup
   "o4" #'dired-popup
-  "ok" #'select-frame-code
-  "oj" #'select-frame-REPL
-  "oh" #'select-frame-meta
-  "ol" #'select-frame-config
+  "ok" #'yxl/select-frame-code
+  "oj" #'yxl/select-frame-REPL
+  "oh" #'yxl/select-frame-meta
+  "ol" #'yxl/select-frame-config
 
   ;; cite
   "occ" #'helm-bibtex
@@ -65,7 +65,7 @@
   ;; Frame
   "oFM" #'make-frame
   "oFN" #'set-frame-name
-  "oFn" #'select-frame-by-name
+  "oFn" #'yxl/select-frame-by-name
   "oFs1" #'yxl/set-frame-code
   "oFs2" #'yxl/set-frame-REPL
   "oFs3" #'yxl/set-frame-meta
@@ -95,8 +95,8 @@
   ;; orgmode
   "ooo" #'org-agenda
   "ooa" #'yxl/helm-find-org-agenda
-  "oo1" #'yxl/org-agenda-work
-  "oo0" #'yxl/org-agenda-life
+  "oo1" #'yxl-org/agenda-work
+  "oo0" #'yxl-org/agenda-life
 
   ;; project
   "opg" #'yxl-find/-dir-Downloads
