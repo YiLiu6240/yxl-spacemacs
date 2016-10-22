@@ -1,3 +1,6 @@
+(defvar yxl-popwin-width-big 60)
+(defvar yxl-popwin-width-small 40)
+
 (defun yxl/find-dir-dotfiles ()
   (interactive)
   (find-file yxl/dotfiles))
@@ -32,9 +35,18 @@
   (interactive)
   (find-file-other-window yxl/org-file-master))
 (defun yxl/find-file-org-popup ()
-  (interactive)
-  (popwin:popup-buffer (find-file-noselect yxl/org-file-master)
-                       :width 60 :position 'left :stick t))
+  (interactive
+   (cond
+    ((equal current-prefix-arg nil)
+     (popwin:popup-buffer (find-file-noselect yxl/org-file-master)
+                          :width yxl-popwin-width-big
+                          :position 'left :stick t))
+    (t
+     (popwin:popup-buffer (find-file-noselect yxl/org-file-master)
+                          :width yxl-popwin-width-small
+                          :position 'left :stick t)))))
+
+
 
 (defun yxl/find-file-org-work ()
   (interactive)
@@ -43,14 +55,27 @@
   (interactive)
   (find-file-other-window yxl/org-file-work))
 (defun yxl/find-file-org-work-popup ()
-  (interactive)
-  (popwin:popup-buffer (find-file-noselect yxl/org-file-work)
-                       :width 60 :position 'left :stick t))
+  (interactive
+   (cond
+    ((equal current-prefix-arg nil)
+     (popwin:popup-buffer (find-file-noselect yxl/org-file-work)
+                          :width yxl-popwin-width-big
+                          :position 'left :stick t))
+    (t
+     (popwin:popup-buffer (find-file-noselect yxl/org-file-work)
+                          :width yxl-popwin-width-small
+                          :position 'left :stick t)))))
 
 (defun yxl/find-file-org-dotfile-popup ()
-  (interactive)
-  (popwin:popup-buffer (find-file-noselect "~/dotfiles/TODOs.org")
-                       :width 60 :position 'left :stick t))
+  (interactive
+   (let ((dotfile-todo "~/dotfiles/TODOs.org"))
+     (cond
+      ((equal current-prefix-arg nil)
+       (popwin:popup-buffer (find-file-noselect dotfile-todo)
+                             :width yxl-popwin-width-big :position 'left :stick t))
+      (t
+       (popwin:popup-buffer (find-file-noselect dotfile-todo)
+                            :width yxl-popwin-width-small :position 'left :stick t))))))
 
 ;; TODO: change to org version as in capture template
 (defun yxl/find-file-diary ()
