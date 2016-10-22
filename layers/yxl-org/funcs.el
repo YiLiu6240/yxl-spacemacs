@@ -6,7 +6,7 @@
   (org-agenda nil "0"))
 
 (defun yxl-org/setup-general ()
-  (setq org-directory 'yxl/org-directory)
+  (setq org-directory 'yxl-path-org)
   ;; disable middle split
   (setq org-M-RET-may-split-line nil)
   ;; org title bullets
@@ -35,24 +35,24 @@
 (defun yxl-org/setup-capture ()
   (setq org-capture-templates
         '(("i" "life-inbox" entry
-           (file+headline yxl/org-file-master "Inbox")
+           (file+headline yxl-file-org-main "Inbox")
            "* INBOX %?\n  %i\n")
           ("t" "life-todo" entry
-           (file+headline yxl/org-file-master "Inbox")
+           (file+headline yxl-file-org-main "Inbox")
            "* TODO %?\n  %i\n")
           ("c" "config" entry
-           (file+headline yxl/org-file-master "Config")
+           (file+headline yxl-file-org-main "Config")
            "* INBOX %?\n  %i\n")
           ("n" "quick note" item
-           (file+headline yxl/file-note-master "Quick Notes"))
+           (file+headline yxl-file-note-master "Quick Notes"))
           ("I" "work-inbox" entry
-           (file+headline yxl/org-file-work "Inbox")
+           (file+headline yxl-file-org-work "Inbox")
            "* INBOX %?\n  %i\n")
           ("T" "work-todo" entry
-           (file+headline yxl/org-file-work "Inbox")
+           (file+headline yxl-file-org-work "Inbox")
            "* TODO %?\n  %i\n")
           ("l" "logs" entry
-           (file+datetree yxl/org-log-file)
+           (file+datetree yxl-file-org-log)
            "* %?\n  -- %U\n  %i\n"))))
 
 (defun yxl-org/setup-keywords ()
@@ -115,7 +115,7 @@
 
 (defun yxl-org/setup-agenda ()
   ;; agenda file
-  (setq org-agenda-files yxl/org-agenda-files)
+  (setq org-agenda-files yxl-org-agenda-files)
   ;; agenda view: 1 month
   (setq org-agenda-span 'month)
   ;; org agenda time grid
@@ -126,54 +126,54 @@
   (add-to-list 'org-agenda-custom-commands
                '("0" "Life -- Weekly"
                  ((agenda "Agenda" ((org-agenda-ndays 7)
-                                    (org-agenda-files yxl/org-agenda-files-life)
+                                    (org-agenda-files yxl-org-agenda-files-life)
                                     (org-agenda-repeating-timestamp-show-all t)))
-                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl/org-agenda-files-life)))
-                  (todo "TODO|NEXT" ((org-agenda-files yxl/org-agenda-files-life)))
-                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl/org-agenda-files-life)))
-                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl/org-agenda-files-life)))))
+                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-life)))
+                  (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-life)))
+                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-life)))
+                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl-org-agenda-files-life)))))
                t)
   (add-to-list 'org-agenda-custom-commands
                '("9" "Life -- Bi-Weekly"
                  ((agenda "Agenda" ((org-agenda-ndays 14)
                                     (org-agenda-start-day "-7d")
-                                    (org-agenda-files yxl/org-agenda-files-life)
+                                    (org-agenda-files yxl-org-agenda-files-life)
                                     (org-agenda-repeating-timestamp-show-all t)))
-                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl/org-agenda-files-life)))
-                  (todo "TODO|NEXT" ((org-agenda-files yxl/org-agenda-files-life)))
-                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl/org-agenda-files-life)))
-                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl/org-agenda-files-life)))))
+                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-life)))
+                  (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-life)))
+                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-life)))
+                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl-org-agenda-files-life)))))
                t)
 
   (add-to-list 'org-agenda-custom-commands
                '("1" "Work -- 7 Days"
                  ((agenda "Agenda" ((org-agenda-ndays 7)
-                                    (org-agenda-files yxl/org-agenda-files-work)
+                                    (org-agenda-files yxl-org-agenda-files-work)
                                     (org-agenda-repeating-timestamp-show-all t)))
-                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl/org-agenda-files-work)))
-                  (todo "TODO|NEXT" ((org-agenda-files yxl/org-agenda-files-work)))
-                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl/org-agenda-files-work)))
-                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl/org-agenda-files-work)))))
+                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-work)))
+                  (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-work)))
+                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-work)))
+                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl-org-agenda-files-work)))))
                t)
   (add-to-list 'org-agenda-custom-commands
                '("2" "Work -- 14 Days"
                  ((agenda "Agenda" ((org-agenda-ndays 14)
                                     (org-agenda-start-day "-7d")
-                                    (org-agenda-files yxl/org-agenda-files-work)
+                                    (org-agenda-files yxl-org-agenda-files-work)
                                     (org-agenda-repeating-timestamp-show-all t)))
-                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl/org-agenda-files-work)))
-                  (todo "TODO|NEXT" ((org-agenda-files yxl/org-agenda-files-work)))
-                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl/org-agenda-files-work)))
-                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl/org-agenda-files-work)))))
+                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-work)))
+                  (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-work)))
+                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-work)))
+                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl-org-agenda-files-work)))))
                t)
   (add-to-list 'org-agenda-custom-commands
                '("3" "Work -- 30 Days"
                  ((agenda "Agenda" ((org-agenda-ndays 30)
                                     (org-agenda-start-day "-7d")
-                                    (org-agenda-files yxl/org-agenda-files-work)
+                                    (org-agenda-files yxl-org-agenda-files-work)
                                     (org-agenda-repeating-timestamp-show-all t)))
-                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl/org-agenda-files-work)))
-                  (todo "TODO|NEXT" ((org-agenda-files yxl/org-agenda-files-work)))
-                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl/org-agenda-files-work)))
-                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl/org-agenda-files-work)))))
+                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-work)))
+                  (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-work)))
+                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-work)))
+                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl-org-agenda-files-work)))))
                t))

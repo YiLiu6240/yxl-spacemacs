@@ -34,13 +34,13 @@
   "show today task window, as a sidebar"
   (interactive)
   (split-window-right)
-  (find-file yxl/org-file-master)
+  (find-file yxl-file-org-main)
   (evil-window-set-width 30))
 (defun yxl/view-todo-panel ()
   "open task windows: today, monthly, projects"
   (interactive)
   (yxl/custom-layout-1)
-  (find-file yxl/org-file-master)
+  (find-file yxl-file-org-main)
   (windmove-right)
   (cfw-open-calendar))
 

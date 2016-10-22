@@ -22,7 +22,7 @@ master-dir, projectile-project-root, ~/Downloads"
       (find-file master-dir)
     (if (not (eq nil (projectile-project-root)))
         (find-file (projectile-project-root))
-      (find-file yxl/Downloads))))
+      (find-file yxl-path-local))))
 
 (defun yxl-text/latex-align-buffer ()
   "basically ggVG then align"

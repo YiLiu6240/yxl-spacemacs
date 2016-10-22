@@ -54,7 +54,7 @@
   "ofO" #'yxl/find-file-org
   "ofw" #'yxl/find-file-org-work-other-window
   "ofW" #'yxl/find-file-org-work
-  "ofd" #'yxl/find-file-diary
+  "ofd" #'yxl-find/file-diary
   "ofs" #'spacemacs/find-dotfile
   "ofn" #'yxl/find-file-note
   "ofN" #'yxl/find-file-note-master

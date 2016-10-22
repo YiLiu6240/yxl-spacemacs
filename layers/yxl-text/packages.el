@@ -82,7 +82,7 @@
     :defer t
     :init
     (progn
-      (setq bibtex-completion-bibliography yxl/file-bib)
+      (setq bibtex-completion-bibliography yxl-file-bib)
       (setq bibtex-completion-cite-prompt-for-optional-arguments nil)
       (setq bibtex-completion-cite-default-command "citet")
       (setq bibtex-completion-cite-default-as-initial-input nil)
@@ -116,7 +116,7 @@
       (gscholar-bibtex-source-on-off :off "IEEE Xplore")
       (gscholar-bibtex-source-on-off :off "ACM Digital Library")
       (gscholar-bibtex-source-on-off :off "DBLP")
-      (setq gscholar-bibtex-database-file yxl/file-bib))))
+      (setq gscholar-bibtex-database-file yxl-file-bib))))
 
 (defun yxl-text/post-init-markdown-mode ()
   (when (configuration-layer/layer-usedp 'markdown)

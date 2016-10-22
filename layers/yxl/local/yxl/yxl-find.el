@@ -3,46 +3,46 @@
 
 (defun yxl/find-dir-dotfiles ()
   (interactive)
-  (find-file yxl/dotfiles))
+  (find-file yxl-path-dotfiles))
 (defun yxl/find-dir-Downloads ()
   (interactive)
-  (find-file yxl/Downloads))
+  (find-file yxl-path-local))
 (defun yxl/find-dir-Dropbox ()
   (interactive)
-  (find-file yxl/Dropbox))
+  (find-file yxl-path-sync))
 (defun yxl/find-dir-org ()
   (interactive)
-  (find-file yxl/org-directory))
+  (find-file yxl-path-org))
 (defun yxl/find-pwd-code ()
   (interactive)
-  (find-file yxl/code-pwd))
+  (find-file yxl-path-code-pwd))
 (defun yxl/find-pwd-paper ()
   (interactive)
-  (find-file yxl/paper-pwd))
+  (find-file yxl-path-paper-pwd))
 (defun yxl/find-pwd-journal ()
   (interactive)
-  (find-file yxl/journal-pwd))
+  (find-file yxl-path-journal-pwd))
 
 ;; find file functions
 (defun yxl/find-file-bib ()
   (interactive)
-  (find-file yxl/file-bib))
+  (find-file yxl-file-bib))
 
 (defun yxl/find-file-org ()
   (interactive)
-  (find-file yxl/org-file-master))
+  (find-file yxl-file-org-main))
 (defun yxl/find-file-org-other-window ()
   (interactive)
-  (find-file-other-window yxl/org-file-master))
+  (find-file-other-window yxl-file-org-main))
 (defun yxl/find-file-org-popup ()
   (interactive
    (cond
     ((equal current-prefix-arg nil)
-     (popwin:popup-buffer (find-file-noselect yxl/org-file-master)
+     (popwin:popup-buffer (find-file-noselect yxl-file-org-main)
                           :width yxl-popwin-width-big
                           :position 'left :stick t))
     (t
-     (popwin:popup-buffer (find-file-noselect yxl/org-file-master)
+     (popwin:popup-buffer (find-file-noselect yxl-file-org-main)
                           :width yxl-popwin-width-small
                           :position 'left :stick t)))))
 
@@ -50,32 +50,31 @@
 
 (defun yxl/find-file-org-work ()
   (interactive)
-  (find-file yxl/org-file-work))
+  (find-file yxl-file-org-work))
 (defun yxl/find-file-org-work-other-window ()
   (interactive)
-  (find-file-other-window yxl/org-file-work))
+  (find-file-other-window yxl-file-org-work))
 (defun yxl/find-file-org-work-popup ()
   (interactive
    (cond
     ((equal current-prefix-arg nil)
-     (popwin:popup-buffer (find-file-noselect yxl/org-file-work)
+     (popwin:popup-buffer (find-file-noselect yxl-file-org-work)
                           :width yxl-popwin-width-big
                           :position 'left :stick t))
     (t
-     (popwin:popup-buffer (find-file-noselect yxl/org-file-work)
+     (popwin:popup-buffer (find-file-noselect yxl-file-org-work)
                           :width yxl-popwin-width-small
                           :position 'left :stick t)))))
 
 (defun yxl/find-file-org-dotfile-popup ()
   (interactive
-   (let ((dotfile-todo "~/dotfiles/TODOs.org"))
-     (cond
-      ((equal current-prefix-arg nil)
-       (popwin:popup-buffer (find-file-noselect dotfile-todo)
-                             :width yxl-popwin-width-big :position 'left :stick t))
-      (t
-       (popwin:popup-buffer (find-file-noselect dotfile-todo)
-                            :width yxl-popwin-width-small :position 'left :stick t))))))
+   (cond
+    ((equal current-prefix-arg nil)
+     (popwin:popup-buffer (find-file-noselect yxl-file-dotfiles-todo)
+                          :width yxl-popwin-width-big :position 'left :stick t))
+    (t
+     (popwin:popup-buffer (find-file-noselect yxl-file-dotfiles-todo)
+                          :width yxl-popwin-width-small :position 'left :stick t)))))
 
 ;; TODO: change to org version as in capture template
 (defun yxl/find-file-diary ()
@@ -88,6 +87,6 @@
 
 (defun yxl/find-file-note-master ()
   (interactive)
-  (find-file yxl/file-note-master))
+  (find-file yxl-file-note-master))
 
 (provide 'yxl-find)
