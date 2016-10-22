@@ -27,6 +27,7 @@
   (with-eval-after-load 'latex
     (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
     (evil-set-initial-state 'reftex-toc-mode 'evilified)
+    (evil-set-initial-state 'reftex-select-label-mode 'evilified)
     (yxl-text/setup-latex-general)
     (yxl-text/setup-latex-custom)
     (yxl-text/setup-latex-pairs)
