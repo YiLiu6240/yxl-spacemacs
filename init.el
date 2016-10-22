@@ -212,7 +212,7 @@ values."
   (load-file (concat dotspacemacs-directory "config/init-config.el"))
 
   (setq-default custom-file (expand-file-name "custom.el" dotspacemacs-directory))
-  (load custom-file))
+  (load custom-file 'no-error 'no-message))
 
 (defun dotspacemacs/user-config ()
   ;; --------
