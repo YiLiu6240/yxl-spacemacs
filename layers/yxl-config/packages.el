@@ -54,13 +54,11 @@
       (yxl/pdf-view-bindings))
 
     (add-hook 'yxl-switch-theme-hook #'yxl/pdf-tools-reset-config)
-
     ;; bug workaround wrt eyebrowse
     ;; https://github.com/politza/pdf-tools/issues/225
     (defun window-state-put-workaround (&rest _args)
       (run-with-idle-timer 0 nil #'run-window-configuration-change-hook))
     (advice-add 'window-state-put :after #'window-state-put-workaround)
-
     (yxl/pdf-view-bindings)))
 
 (defun yxl-config/post-init-ess ()
