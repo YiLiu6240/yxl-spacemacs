@@ -63,8 +63,9 @@ master-dir, projectile-project-root, ~/Downloads"
   (add-hook 'LaTeX-mode-hook (lambda () (setq yxl-line-width 100)))
   (add-hook 'LaTeX-mode-hook (lambda () (auto-fill-mode -1)) t)
   (setq-default font-latex-fontify-script nil)
-  ;; S-RET new line no indent, useful when doing outline
-  (define-key LaTeX-mode-map (kbd "S-RET") 'evil-open-below)
+  ;; RET to newline no indent; S-RET to newline post indent
+  (define-key LaTeX-mode-map (kbd "RET") 'electric-indent-just-newline)
+  (define-key LaTeX-mode-map (kbd "S-RET") 'newline)
   ;; (setq-default TeX-newline-function 'reindent-then-newline-and-indent)
   (setq TeX-newline-function 'newline)
   (setq LaTeX-fill-excluded-macros '("hide" "comment"))
