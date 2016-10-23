@@ -256,7 +256,8 @@ values."
         lua-indent-level 4)
 
   ;; mode list
-  (setq auto-mode-alist (cons '("\\.inbox$" . gfm-mode) auto-mode-alist))
+  (add-to-list 'auto-mode-alist '("\\.inbox$" . gfm-mode))
+  (add-to-list 'auto-mode-alist '("\\.tex$" . latex-mode))
 
   ;; misc stuff
   (setq-default require-final-newline t)
