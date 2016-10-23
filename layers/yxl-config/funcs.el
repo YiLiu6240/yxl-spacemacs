@@ -73,6 +73,22 @@ The colors are determined by the variable
     ;; "H" #'eyebrowse-prev-window-config
     ;; "L" #'eyebrowse-next-window-config
     )
+  (evilified-state-evilify doc-view-mode doc-view-mode-map
+    "/"  'spacemacs/doc-view-search-new-query
+    "?"  'spacemacs/doc-view-search-new-query-backward
+    "gg" 'doc-view-first-page
+    "G"  'spacemacs/doc-view-goto-page
+    "gt" 'doc-view-goto-page
+    "h"  'doc-view-previous-page
+    "j"  'doc-view-next-line-or-next-page
+    "k"  'doc-view-previous-line-or-previous-page
+    "K"  'doc-view-kill-proc-and-buffer
+    "l"  'doc-view-next-page
+    "n"  'doc-view-search
+    "N"  'doc-view-search-backward
+    (kbd "C-d") 'doc-view-scroll-up-or-next-page
+    (kbd "C-k") 'evil-window-up
+    (kbd "C-u") 'doc-view-scroll-down-or-previous-page)
   (spacemacs/set-leader-keys-for-major-mode #'pdf-view-mode
     "=" #'pdf-view-enlarge
     "-" #'pdf-view-shrink
