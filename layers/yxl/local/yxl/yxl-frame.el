@@ -20,22 +20,22 @@
 
 (defun yxl/select-frame-code ()
   (interactive)
-  (yxl/select-frame-by-name "Code")
+  (select-frame-by-name "Code")
   (message "select Frame %s" "Code"))
 
 (defun yxl/select-frame-REPL ()
   (interactive)
-  (yxl/select-frame-by-name "REPL")
+  (select-frame-by-name "REPL")
   (message "select Frame %s" "REPL"))
 
 (defun yxl/select-frame-meta ()
   (interactive)
-  (yxl/select-frame-by-name "Meta")
+  (select-frame-by-name "Meta")
   (message "select Frame %s" "Meta"))
 
 (defun yxl/select-frame-config ()
   (interactive)
-  (yxl/select-frame-by-name "Config")
+  (select-frame-by-name "Config")
   (message "select Frame %s" "Config"))
 
 (defun yxl/frame-setup-gen ()
