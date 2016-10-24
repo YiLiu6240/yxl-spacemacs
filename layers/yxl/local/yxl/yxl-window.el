@@ -1,7 +1,7 @@
 (defvar-local yxl-line-width 80
   "preferred line width for a window, useful when setting window centering")
 
-(defun yxl/popwin-width ()
+(defun yxl-window/popwin-width ()
   "calculate the size of the popwin window, base on current frame width"
   (interactive)
   (let ((auto-width (round (* (frame-width) 0.20))))
@@ -11,7 +11,7 @@
            20))))
 
 
-(defun yxl/custom-layout-1 ()
+(defun yxl-window/custom-layout1 ()
   "window layout 1 | 2/3"
   (interactive)
   (delete-other-windows)
@@ -20,7 +20,7 @@
   (split-window-below)
   (windmove-left))
 
-(defun yxl/custom-layout-2 ()
+(defun yxl-window/custom-layout2 ()
   "window layout 1/2 | 3/4"
   (interactive)
   (delete-other-windows)
@@ -30,7 +30,7 @@
   (windmove-left)
   (split-window-below))
 
-(defun yxl/custom-layout-3 ()
+(defun yxl-window/custom-layout3 ()
   "window layout 1/2 | 3/4/5"
   (interactive)
   (delete-other-windows)
@@ -43,23 +43,7 @@
 
 
 
-(defun yxl/view-today-sidebar ()
-  "show today task window, as a sidebar"
-  (interactive)
-  (split-window-right)
-  (find-file yxl-file-org-main)
-  (evil-window-set-width 30))
-(defun yxl/view-todo-panel ()
-  "open task windows: today, monthly, projects"
-  (interactive)
-  (yxl/custom-layout-1)
-  (find-file yxl-file-org-main)
-  (windmove-right)
-  (cfw-open-calendar))
-
-
-
-(defun yxl/split-window-below (&optional size)
+(defun yxl-window/split-below (&optional size)
   "split window with customized prefixes.
 If C-u, create a window with 20 lines.
 If C-u C-u, create a window with 15 lines.
@@ -74,7 +58,7 @@ Else create a window with lines parsed by prefix"
     (split-window-below -15))
    (t (split-window-below size))))
 
-(defun yxl/split-window-right (&optional size)
+(defun yxl-window/split-right (&optional size)
   "split window with customized prefixes.
 If C-u, create a window with 20 lines.
 If C-u C-u, create a window with 15 lines.
@@ -89,16 +73,16 @@ Else create a window with lines parsed by prefix"
     (split-window-right -15))
    (t (split-window-right size))))
 
-(defun yxl/split-window-below-and-focus (&optional size)
+(defun yxl-window/split-below-and-focus (&optional size)
   "Split the window vertically and focus the new window."
   (interactive "P")
-  (yxl/split-window-below size)
+  (yxl-window/split-below size)
   (windmove-down))
 
-(defun yxl/split-window-right-and-focus (&optional size)
+(defun yxl-window/split-right-and-focus (&optional size)
   "Split the window vertically and focus the new window."
   (interactive "P")
-  (yxl/split-window-right size)
+  (yxl-window/split-right size)
   (windmove-right))
 
 (defun split-window-below-small ()
@@ -108,11 +92,11 @@ Else create a window with lines parsed by prefix"
   (interactive)
   (if current-prefix-arg
       (list
-       (yxl/split-window-below -20)
+       (yxl-window/split-below -20)
        (windmove-down)
        (spacemacs/new-empty-buffer))
     (list
-     (yxl/split-window-below -20)
+     (yxl-window/split-below -20)
      (windmove-down))))
 
 (defun split-window-right-small ()
@@ -122,40 +106,40 @@ Else create a window with lines parsed by prefix"
   (interactive)
   (if current-prefix-arg
       (list
-        (yxl/split-window-right -35)
+        (yxl-window/split-right -35)
         (windmove-right)
         (spacemacs/new-empty-buffer))
     (list
-     (yxl/split-window-right -35))))
+     (yxl-window/split-right -35))))
 
 (defun split-window-above-small ()
   "split into a smaller window above, and move to focus"
   (interactive)
   (if current-prefix-arg
       (list
-       (yxl/split-window-below 20)
+       (yxl-window/split-below 20)
        (spacemacs/new-empty-buffer))
     (list
-     (yxl/split-window-below 20))))
+     (yxl-window/split-below 20))))
 
 (defun split-window-left-small ()
   "split into a smaller window above, and move to focus"
   (interactive)
   (if current-prefix-arg
       (list
-       (yxl/split-window-right 35)
+       (yxl-window/split-right 35)
        (windmove-right)
        (spacemacs/new-empty-buffer))
     (list
-     (yxl/split-window-right 35)
+     (yxl-window/split-right 35)
      (windmove-right))))
 
 
-(defun yxl/change-window-width (width)
+(defun yxl-window/change-width (width)
   (interactive "nwindow width: ")
   (evil-resize-window width t))
 
-(defun yxl/center-window-margins ()
+(defun yxl-window/center-margins ()
   "center current window"
   (interactive)
   (let* ((margin (max 0 (/ (- (window-width) yxl-line-width) 2))))

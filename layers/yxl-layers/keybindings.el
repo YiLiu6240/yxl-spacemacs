@@ -26,10 +26,10 @@
   "o2" #'yxl-find/file-org-work-popup
   "o3" #'yxl-find/file-org-dotfile-popup
   "o4" #'dired-popup
-  "ok" #'yxl/select-frame-code
-  "oj" #'yxl/select-frame-REPL
-  "oh" #'yxl/select-frame-meta
-  "ol" #'yxl/select-frame-config
+  "ok" #'yxl-frame/select-code
+  "oj" #'yxl-frame/select-repl
+  "oh" #'yxl-frame/select-meta
+  "ol" #'yxl-frame/select-config
 
   ;; cite
   "occ" #'helm-bibtex
@@ -65,16 +65,16 @@
   ;; Frame
   "oFM" #'make-frame
   "oFN" #'set-frame-name
-  "oFn" #'yxl/select-frame-by-name
-  "oFs1" #'yxl/set-frame-code
-  "oFs2" #'yxl/set-frame-REPL
-  "oFs3" #'yxl/set-frame-meta
-  "oFs4" #'yxl/set-frame-config
+  "oFn" #'yxl-frame/select-by-name
+  "oFs1" #'yxl-frame/set-code
+  "oFs2" #'yxl-frame/set-repl
+  "oFs3" #'yxl-frame/set-meta
+  "oFs4" #'yxl-frame/set-config
 
-  "oFsh" #'yxl/set-frame-meta
-  "oFsj" #'yxl/set-frame-REPL
-  "oFsk" #'yxl/set-frame-code
-  "oFsl" #'yxl/set-frame-config
+  "oFsh" #'yxl-frame/set-meta
+  "oFsj" #'yxl-frame/set-repl
+  "oFsk" #'yxl-frame/set-code
+  "oFsl" #'yxl-frame/set-config
 
   ;; ess
   "oe2" #'yxl/ess-repl-2cols
@@ -115,21 +115,19 @@
 
   ;; visual/view
   "ovm" #'evil-show-marks
-  "ovt" #'yxl/view-today-sidebar
-  "ovg" #'yxl/view-todo-panel
 
   "oy" #'copy-file-name-to-clipboard
 
   ;; window
-  "ow1" #'yxl/custom-layout-1
-  "ow2" #'yxl/custom-layout-2
-  "ow3" #'yxl/custom-layout-3
+  "ow1" #'yxl-window/custom-layout1
+  "ow2" #'yxl-window/custom-layout2
+  "ow3" #'yxl-window/custom-layout3
   "ows" #'split-window-below-small
   "owS" #'split-window-above-small
   "owv" #'split-window-right-small
   "owV" #'split-window-left-small
-  "owc" #'yxl/center-window-margins
-  "oww" #'yxl/change-window-width)
+  "owc" #'yxl-window/center-margins
+  "oww" #'yxl-window/change-width)
 
 (spacemacs/declare-prefix "." "user-quick")
 (spacemacs/declare-prefix ".S" "session")

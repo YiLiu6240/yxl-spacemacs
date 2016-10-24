@@ -36,7 +36,7 @@
   (find-file-other-window yxl-file-org-main))
 (defun yxl-find/file-org-popup ()
   (interactive)
-  (let ((pop-width (yxl/popwin-width)))
+  (let ((pop-width (yxl-window/popwin-width)))
     (popwin:popup-buffer (find-file-noselect yxl-file-org-main)
                          :width pop-width :position 'left :stick t)))
 
@@ -50,13 +50,13 @@
   (find-file-other-window yxl-file-org-work))
 (defun yxl-find/file-org-work-popup ()
   (interactive)
-  (let ((pop-width (yxl/popwin-width)))
+  (let ((pop-width (yxl-window/popwin-width)))
     (popwin:popup-buffer (find-file-noselect yxl-file-org-work)
                          :width pop-width :position 'left :stick t)))
 
 (defun yxl-find/file-org-dotfile-popup ()
   (interactive)
-  (let ((pop-width (yxl/popwin-width)))
+  (let ((pop-width (yxl-window/popwin-width)))
     (popwin:popup-buffer (find-file-noselect yxl-file-dotfiles-todo)
                          :width pop-width :position 'left :stick t)))
 
