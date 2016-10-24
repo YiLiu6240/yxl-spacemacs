@@ -298,6 +298,7 @@ values."
   ;; FIXME: not working
   (add-to-list 'display-buffer-alist '("\\*Python\\*" display-buffer-same-window))
   (add-to-list 'display-buffer-alist '("\\*magit:" display-buffer-same-window))
+  (add-to-list 'display-buffer-alist '("\\*PDF" display-buffer-at-bottom))
 
   ;; --------
   ;; pdf-tools
