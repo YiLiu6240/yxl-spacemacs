@@ -84,7 +84,7 @@ The colors are determined by the variable
     "k"  'doc-view-previous-line-or-previous-page
     "K"  'doc-view-kill-proc-and-buffer
     "l"  'doc-view-next-page
-    "n"  'doc-view-search
+    "n"  'pdf-view-next-page
     "N"  'doc-view-search-backward
     (kbd "C-d") 'doc-view-scroll-up-or-next-page
     (kbd "C-k") 'evil-window-up
