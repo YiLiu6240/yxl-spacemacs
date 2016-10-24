@@ -4,7 +4,7 @@
                                       spacemacs-evil
                                       spacemacs-language
                                       spacemacs-misc
-                                      spacemacs-ui
+                                      (spacemacs-ui :packages (not doc-view))
                                       spacemacs-ui-visual
                                       spacemacs-org))
 
