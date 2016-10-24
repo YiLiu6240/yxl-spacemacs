@@ -1,6 +1,15 @@
 (defvar-local yxl-line-width 80
   "preferred line width for a window, useful when setting window centering")
 
+(defun yxl/popwin-width ()
+  "calculate the size of the popwin window, base on current frame width"
+  (interactive)
+  (let ((auto-width (round (* (frame-width) 0.20))))
+    (cond ((> (frame-width) 100)
+           auto-width)
+          (t
+           20))))
+
 
 (defun yxl/custom-layout-1 ()
   "window layout 1 | 2/3"

@@ -35,16 +35,10 @@
   (interactive)
   (find-file-other-window yxl-file-org-main))
 (defun yxl-find/file-org-popup ()
-  (interactive
-   (cond
-    ((equal current-prefix-arg nil)
-     (popwin:popup-buffer (find-file-noselect yxl-file-org-main)
-                          :width yxl-popwin-width-big
-                          :position 'left :stick t))
-    (t
-     (popwin:popup-buffer (find-file-noselect yxl-file-org-main)
-                          :width yxl-popwin-width-small
-                          :position 'left :stick t)))))
+  (interactive)
+  (let ((pop-width (yxl/popwin-width)))
+    (popwin:popup-buffer (find-file-noselect yxl-file-org-main)
+                         :width pop-width :position 'left :stick t)))
 
 
 
@@ -55,26 +49,16 @@
   (interactive)
   (find-file-other-window yxl-file-org-work))
 (defun yxl-find/file-org-work-popup ()
-  (interactive
-   (cond
-    ((equal current-prefix-arg nil)
-     (popwin:popup-buffer (find-file-noselect yxl-file-org-work)
-                          :width yxl-popwin-width-big
-                          :position 'left :stick t))
-    (t
-     (popwin:popup-buffer (find-file-noselect yxl-file-org-work)
-                          :width yxl-popwin-width-small
-                          :position 'left :stick t)))))
+  (interactive)
+  (let ((pop-width (yxl/popwin-width)))
+    (popwin:popup-buffer (find-file-noselect yxl-file-org-work)
+                         :width pop-width :position 'left :stick t)))
 
 (defun yxl-find/file-org-dotfile-popup ()
-  (interactive
-   (cond
-    ((equal current-prefix-arg nil)
-     (popwin:popup-buffer (find-file-noselect yxl-file-dotfiles-todo)
-                          :width yxl-popwin-width-big :position 'left :stick t))
-    (t
-     (popwin:popup-buffer (find-file-noselect yxl-file-dotfiles-todo)
-                          :width yxl-popwin-width-small :position 'left :stick t)))))
+  (interactive)
+  (let ((pop-width (yxl/popwin-width)))
+    (popwin:popup-buffer (find-file-noselect yxl-file-dotfiles-todo)
+                         :width pop-width :position 'left :stick t)))
 
 ;; TODO: change to org version as in capture template
 (defun yxl-find/file-diary ()
