@@ -3,12 +3,25 @@
 
 (defun yxl-window/popwin-width ()
   "calculate the size of the popwin window, base on current frame width"
-  (interactive)
   (let ((auto-width (round (* (frame-width) 0.20))))
     (cond ((> (frame-width) 100)
            auto-width)
           (t
            20))))
+
+(defun yxl-window/golden-ratio-width ()
+  "get the width size of a window that should be expanded to gold ratio"
+  (interactive)
+  (let* ((golden-ratio 0.618)
+         (main-width (round (* golden-ratio (frame-width)))))
+    (evil-resize-window main-width t)))
+
+(defun yxl-window/golden-ratio-height ()
+  "get the height size of a window that should be expanded to gold ratio"
+  (interactive)
+  (let* ((golden-ratio 0.618)
+         (main-height (round (* golden-ratio (frame-height)))))
+    (evil-resize-window main-height nil)))
 
 
 (defun yxl-window/custom-layout1 ()
@@ -144,5 +157,11 @@ Else create a window with lines parsed by prefix"
   (interactive)
   (let* ((margin (max 0 (/ (- (window-width) yxl-line-width) 2))))
     (set-window-margins nil margin margin)))
+
+
+(defun yxl-window/get-buffer-previous-window ()
+  "open in the current window the buffer in previous window."
+  (interactive)
+  (set-window-buffer (selected-window) (window-buffer (previous-window))))
 
 (provide 'yxl-window)
