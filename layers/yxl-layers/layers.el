@@ -8,5 +8,5 @@
                                       yxl-ess
                                       yxl-org
                                       yxl-web
-                                      yxl-helm
+                                      yxl-completion
                                       yxl-ui))

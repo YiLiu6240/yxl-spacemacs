@@ -1,7 +1,8 @@
-(setq yxl-helm-packages '(helm
-                          counsel))
+(setq yxl-completion-packages '(helm
+                                ivy
+                                counsel))
 
-(defun yxl-helm/post-init-helm ()
+(defun yxl-completion/post-init-helm ()
   (with-eval-after-load 'helm
     (add-to-list 'helm-type-buffer-actions
                  '("Display buffer(s) in new window(s) `M-v'" .
@@ -12,6 +13,12 @@
     (define-key helm-buffer-map (kbd "M-v") #'helm-buffer-switch-new-window-v)
     (define-key helm-buffer-map (kbd "M-s") #'helm-buffer-switch-new-window-h)))
 
-(defun yxl-helm/post-init-counsel ()
+(defun yxl-completion/post-init-ivy ()
+  ;; remove the "^" element in search
+  (delete '(counsel-M-x . "^") ivy-initial-inputs-alist)
+  (delete '(counsel-describe-function . "^") ivy-initial-inputs-alist)
+  (delete '(counsel-describe-variable . "^") ivy-initial-inputs-alist))
+
+(defun yxl-completion/post-init-counsel ()
   (with-eval-after-load 'counsel
     (define-key counsel-find-file-map (kbd "C-h") 'backward-delete-char)))
