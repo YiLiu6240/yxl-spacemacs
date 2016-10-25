@@ -9,7 +9,6 @@
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
   "<SPC>" #'evil-avy-goto-char-2
-  "l" #'spacemacs/workspaces-mod-transient-state/body
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
