@@ -1,15 +1,14 @@
-(defconst yxl-dired-packages
-  '(dired
-    peep-dired
-    image+
-    dired-quick-sort))
+(setq yxl-dired-packages '(dired
+                           peep-dired
+                           image+
+                           dired-quick-sort))
 
 (defun yxl-dired/post-init-dired ()
   (use-package dired
     :defer t
     :config
     (progn
-
+      (require 'dired-goodies)
       ;; use homebrew coreutils in darwin
       ;; http://qiita.com/maangie/items/5a80ae50c13d14368a72
       (if (eq system-type 'darwin)
