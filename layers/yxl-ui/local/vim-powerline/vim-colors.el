@@ -74,7 +74,8 @@
 
            (("state_indicator")
             (normal       ,darkestgreen    ,brightgreen  t)
-            ;;(inactive    ,gray6           ,gray2      t)
+            (evilified    ,gray2           "LightGoldenrod3"  t)
+            (inactive     ,gray6           ,gray2      t)
             (insert       ,darkestcyan     ,white        t)
             (visual       ,darkred         ,brightorange t)
             (replace      ,white           ,brightred    t)
