@@ -12,7 +12,8 @@
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
-  "wV" #'split-window-right)
+  "wV" #'split-window-right
+  "w <SPC>" #'ace-window)
 
 ;; addition to stock bindings
 (spacemacs/set-leader-keys

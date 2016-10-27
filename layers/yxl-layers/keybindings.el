@@ -17,10 +17,6 @@
   ".vp" #'ivy-push-view
   ".vP" #'ivy-pop-view
 
-  ",,"  #'scratch-pop
-  ",."  #'scratch-pop-sticky
-  ",t"  #'yxl/scratch-pop-top
-
   ;; top-level quick actions
   "o1" #'yxl-find/file-org-popup
   "o2" #'yxl-find/file-org-work-popup

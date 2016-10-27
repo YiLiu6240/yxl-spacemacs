@@ -9,124 +9,13 @@
 
 (defun yxl-evil/post-init-evil ()
   (with-eval-after-load 'evil
-    (evil-define-motion evil-sentence-comma-forward (count)
-      "Move to next comma"
-      :jump t
-      :type exclusive
-      ;; (evil-find-char (or count 1) ?,)
-      (evil-forward-chars "," (or count 1))
-      (evil-forward-char 1 t))
-
-    (evil-define-motion evil-sentence-comma-backward (count)
-      "Move to next comma"
-      :jump t
-      :type exclusive
-      (evil-forward-chars "," (- (or count 1))))
-
-    (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-    (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-
-    (define-key evil-insert-state-map (kbd "C-h") #'backward-delete-char-untabify)
-    (define-key evil-insert-state-map (kbd "C-d") #'delete-forward-char)
-    (define-key evil-insert-state-map (kbd "C-a") #'beginning-of-line-text)
-    (define-key evil-insert-state-map (kbd "C-e") #'end-of-line)
-    (define-key evil-insert-state-map (kbd "C-p") #'previous-line)
-    (define-key evil-insert-state-map (kbd "C-n") #'next-line)
-
-    ;; "g" related commands --------
-    ;; mark: repalce with evil-middle-of-visual-line
-    (define-key evil-motion-state-map "gm" #'evil-goto-mark)
-    (define-key evil-motion-state-map "gt" #'eyebrowse-next-window-config)
-    (define-key evil-motion-state-map "gT" #'eyebrowse-prev-window-config)
-    (define-key evil-motion-state-map "gH" #'evil-first-non-blank)
-    (define-key evil-motion-state-map "gL" #'evil-end-of-line)
-    ;; --------
-    ;; tab and window navigation
-    (define-key evil-motion-state-map "H" #'eyebrowse-prev-window-config)
-    (define-key evil-motion-state-map "L" #'eyebrowse-next-window-config)
-    (define-key evil-motion-state-map (kbd "C-h") #'evil-window-left)
-    (define-key evil-motion-state-map (kbd "C-j") #'evil-window-down)
-    (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
-    (define-key evil-motion-state-map (kbd "C-l") #'evil-window-right)
-    ;; --------
-    ;; find comma in sentence
-    (define-key evil-motion-state-map (kbd "C-)") 'evil-sentence-comma-forward)
-    (define-key evil-motion-state-map (kbd "C-(") 'evil-sentence-comma-backward)
-    ;; misc
-    ;; (define-key evil-motion-state-map (kbd "C-S-p") #'helm-M-x)
-    (define-key evil-motion-state-map (kbd "C-S-p") #'counsel-M-x)
-    (define-key evil-normal-state-map (kbd "_") #'projectile-dired)
-    (define-key evil-normal-state-map "q" nil)
-    (define-key evil-normal-state-map "qm" #'evil-execute-macro)
-    (define-key evil-normal-state-map "qM" #'evil-record-macro)
-    (define-key evil-normal-state-map "qq" #'evil-quit)
-    (define-key evil-normal-state-map "qQ" #'evil-save-and-close)
-    (define-key evil-normal-state-map "qw" #'evil-write)
-    (define-key evil-normal-state-map "qW" #'evil-write-all)
-    ;; avoid pressing by mistake
-    (define-key evil-motion-state-map "\\" nil)
-    (define-key evil-motion-state-map "\\\\" "zz")
-    ;; text objects
-    (define-key evil-outer-text-objects-map "g" 'evil-a-curly)
-    (define-key evil-outer-text-objects-map "h" 'evil-a-bracket)
-    (define-key evil-inner-text-objects-map "g" 'evil-inner-curly)
-    (define-key evil-inner-text-objects-map "h" 'evil-inner-bracket)
-    ;; ex swap ":" and ";"
-    (define-key evil-motion-state-map (kbd dotspacemacs-ex-command-key) 'evil-ex)
-    (if (equal dotspacemacs-ex-command-key ";")
-        (progn
-           (define-key evil-motion-state-map (kbd ":") 'evil-repeat-find-char)))
-    ;; ---- disabled ----
-    ;; vim-surround, use "S"
-    ;; (define-key 'visual evil-surround-mode-map "s" #'evil-substitute)
-    ;; (define-key 'visual evil-surround-mode-map "S" #'evil-surround-region)
-    ;; ;; swap colon and semi colon
-    ;; (define-key evil-normal-state-map "g:" #'goto-last-change)
-    ;; ;; (define-key evil-motion-state-map ":" #'evil-repeat-find-char)
-    )
-
-  ;; Define history commands for comint
-  (with-eval-after-load 'evil
-    (evil-define-key 'insert comint-mode-map
-      (kbd "C-j") #'windmove-down
-      (kbd "C-k") #'windmove-up
-      (kbd "C-p") #'comint-previous-input
-      (kbd "C-n") #'comint-next-input)
-    (evil-define-key 'normal comint-mode-map
-      (kbd "C-j") #'windmove-down
-      (kbd "C-k") #'windmove-up
-      (kbd "C-p") #'comint-previous-input
-      (kbd "C-n") #'comint-next-input)))
+    (require 'evil-goodies)
+    (yxl-evil/setup-evil)
+    (yxl-evil/setup-evil-misc)))
 
 (defun yxl-evil/post-init-evil-evilified-state ()
   (with-eval-after-load 'evil-evilified-state
-    ;; TODO: generalize this and remove customized settings
-    (when (boundp 'evil-evilified-state-map-original)
-      (define-key evil-evilified-state-map-original "gg" #'evil-goto-first-line)
-      (define-key evil-evilified-state-map-original "G"  #'evil-goto-line)
-      (define-key evil-evilified-state-map-original "gT" #'eyebrowse-prev-window-config)
-      (define-key evil-evilified-state-map-original "gt" #'eyebrowse-next-window-config)
-      (define-key evil-evilified-state-map-original
-        (kbd "H") #'eyebrowse-prev-window-config)
-      (define-key evil-evilified-state-map-original
-        (kbd "L") #'eyebrowse-next-window-config)
-      (define-key evil-evilified-state-map-original (kbd "C-h") #'evil-window-left)
-      (define-key evil-evilified-state-map-original (kbd "C-j") #'evil-window-down)
-      (define-key evil-evilified-state-map-original (kbd "C-k") #'evil-window-up)
-      (define-key evil-evilified-state-map-original (kbd "C-l") #'evil-window-right)
-      (define-key evil-evilified-state-map-original
-        (kbd dotspacemacs-ex-command-key) #'evil-ex))))
-
-(defun yxl-evil/evil-surround-pairs ()
-  "press viw then press the trigger key"
-  (push '(?g . ("{" . "}")) evil-surround-pairs-alist)
-  (push '(?h . ("[" . "]")) evil-surround-pairs-alist)
-  (push '(?q . ("\"" . "\"")) evil-surround-pairs-alist)
-  (push '(?w . ("'" . "'")) evil-surround-pairs-alist)
-  (push '(?m . ("\\\(" . "\\\)")) evil-surround-pairs-alist)
-  (push '(?M . ("\\\( " . " \\\)")) evil-surround-pairs-alist)
-  (push '(?n . ("\\[" . "\\]")) evil-surround-pairs-alist)
-  (push '(?N . ("\\[ " . " \\]")) evil-surround-pairs-alist))
+    (yxl-evil/setup-evilified)))
 
 (defun yxl-evil/post-init-evil-surround ()
   (with-eval-after-load 'evil-surround

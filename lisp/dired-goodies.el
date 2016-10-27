@@ -1,3 +1,5 @@
+(require 'dired)
+
 (defun dired-zip-files (zip-file)
   "Create an archive containing the marked files.
 Alternatively, run \"! zip foo.zip * <RET>\" for marked files in dired.
