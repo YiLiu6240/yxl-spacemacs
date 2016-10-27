@@ -94,6 +94,10 @@
 (defun yxl-evil/setup-evilified ()
   (when (boundp 'evil-evilified-state-map-original)
     (progn
+      (define-key evil-evilified-state-map-original "w" #'evil-forward-word-begin)
+      (define-key evil-evilified-state-map-original "e" #'evil-forward-word-end)
+      (define-key evil-evilified-state-map-original "b" #'evil-backward-word-begin)
+
       (define-key evil-evilified-state-map-original "gg" #'evil-goto-first-line)
       (define-key evil-evilified-state-map-original "G"  #'evil-goto-line)
       (define-key evil-evilified-state-map-original "gT" #'eyebrowse-prev-window-config)
@@ -102,9 +106,11 @@
         (kbd "H") #'eyebrowse-prev-window-config)
       (define-key evil-evilified-state-map-original
         (kbd "L") #'eyebrowse-next-window-config)
+
       (define-key evil-evilified-state-map-original (kbd "C-h") #'evil-window-left)
       (define-key evil-evilified-state-map-original (kbd "C-j") #'evil-window-down)
       (define-key evil-evilified-state-map-original (kbd "C-k") #'evil-window-up)
       (define-key evil-evilified-state-map-original (kbd "C-l") #'evil-window-right)
+
       (define-key evil-evilified-state-map-original
         (kbd dotspacemacs-ex-command-key) #'evil-ex))))

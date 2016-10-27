@@ -1,3 +1,8 @@
+;; TODO: refactor
+;; create a list for as a todo stack
+;; popup a special buffer where each line is one todo task
+;; visible the first two todo tasks on modeline
+
 (defvar yxl-simple-todo-task1 "")
 
 (defvar yxl-simple-todo-task2 "")
