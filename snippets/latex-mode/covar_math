@@ -1,4 +1,4 @@
 # name: CoVaR in math mode
 # key: covar-math
 # --
-\\( CoVaR_{q}^{j|i} \\)
+\\(CoVaR_{q}^{j|i}\\)

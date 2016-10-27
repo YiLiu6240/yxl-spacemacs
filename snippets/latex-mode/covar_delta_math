@@ -1,4 +1,4 @@
 # name: Delta CoVaR in math mode
 # key: dcovar-math
 # --
-\\( \\Delta CoVaR_{q}^{j|i} \\)
+\\(\\Delta CoVaR_{q}^{j|i}\\)

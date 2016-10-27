@@ -33,4 +33,4 @@
                        ("bbn" "#+begin_src $1 :exports both :results output code\n$0\n#+end_src\n" "babel_nosession" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/org-mode/babel_nosession" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Sep 28 16:04:44 2016
+;;; Do not edit! File generated at Thu Oct 27 12:22:53 2016

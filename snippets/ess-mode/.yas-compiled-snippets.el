@@ -7,4 +7,4 @@
                        (">" "%>%\n" "pipe %>%" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/ess-mode/pipe0" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Sep 28 16:04:44 2016
+;;; Do not edit! File generated at Thu Oct 27 12:22:53 2016
