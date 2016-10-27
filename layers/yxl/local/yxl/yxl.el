@@ -13,6 +13,8 @@
 (defvar yxl-switch-theme-hook nil
   "hook when yxl/switch-theme-light and yxl/swith-theme-dark invokes")
 
+
+
 (defun yxl/new-buffer-inherit ()
   (interactive)
   (let* ((curr-mode major-mode)
@@ -31,6 +33,18 @@
       (with-current-buffer scratch-buf
         (end-of-buffer)
         (insert text-with-newline)))))
+
+(defun yxl/show-and-copy-buffer-filename-in-projectile ()
+  "TODO: document"
+  (interactive)
+  (let* ((file-name (or (buffer-file-name) list-buffers-directory))
+         (proj-root (projectile-project-root))
+         (relative-file-name (string-remove-prefix proj-root file-name)))
+    (if relative-file-name
+        (message (kill-new relative-file-name))
+      (error "Buffer not visiting a file"))))
+
+
 
 (defun yxl/switch-theme-light ()
   (interactive)
