@@ -10,7 +10,8 @@
 
 (defun yxl-evil/post-init-evil ()
   (with-eval-after-load 'evil
-    (yxl-evil/setup-evil)
+    (yxl-evil/setup-evil-main)
+    (yxl-evil/setup-evil-personal)
     (yxl-evil/setup-evil-misc)))
 
 (defun yxl-evil/init-evil-goodies ()

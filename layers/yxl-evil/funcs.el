@@ -1,4 +1,4 @@
-(defun yxl-evil/setup-evil ()
+(defun yxl-evil/setup-evil-main ()
   (progn
    ;; insert state:
    (define-key evil-insert-state-map (kbd "C-h") #'backward-delete-char-untabify)
@@ -67,6 +67,19 @@
    ;; (define-key evil-normal-state-map "g:" #'goto-last-change)
    ;; ;; (define-key evil-motion-state-map ":" #'evil-repeat-find-char)
    ))
+
+(defun yxl-evil/setup-evil-personal ()
+  "personal bindings, rely on external yxl functions"
+  (progn
+    ;; tmux style bindings for my personal 4 frame setup
+    (define-key evil-normal-state-map (kbd "C-a h") #'yxl-frame/select-meta)
+    (define-key evil-normal-state-map (kbd "C-a j") #'yxl-frame/select-repl)
+    (define-key evil-normal-state-map (kbd "C-a k") #'yxl-frame/select-code)
+    (define-key evil-normal-state-map (kbd "C-a l") #'yxl-frame/select-config)
+    (define-key evil-evilified-state-map (kbd "C-a h") #'yxl-frame/select-meta)
+    (define-key evil-evilified-state-map (kbd "C-a j") #'yxl-frame/select-repl)
+    (define-key evil-evilified-state-map (kbd "C-a k") #'yxl-frame/select-code)
+    (define-key evil-evilified-state-map (kbd "C-a l") #'yxl-frame/select-config)))
 
 (defun yxl-evil/setup-evil-misc ()
   (evil-define-key 'insert comint-mode-map
