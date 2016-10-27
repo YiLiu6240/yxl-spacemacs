@@ -1,8 +1,8 @@
-(setq yxl-ess-packages '(ess))
+(setq yxl-ess-packages '(ess
+                         (ess-goodies :location local)))
 
 (defun yxl-ess/post-init-ess ()
   (with-eval-after-load 'ess-site
-    (require 'ess-goodies)
     (ess--unset-smart-S-assign-key)
     (add-hook 'ess-mode-hook 'smartparens-mode)
     (add-hook 'ess-mode-hook 'fci-mode)
@@ -36,3 +36,7 @@
                 "camel_case_linter=NULL, "
                 "commented_code_linter=NULL, "
                 "infix_spaces_linter=NULL)"))))
+
+(defun yxl-ess/init-ess-goodies ()
+  (use-package ess-goodies
+    :after ess-site))

@@ -1,4 +1,5 @@
 (setq yxl-dired-packages '(dired
+                           (dired-goodies :location local)
                            peep-dired
                            image+
                            dired-quick-sort))
@@ -8,7 +9,6 @@
     :defer t
     :config
     (progn
-      (require 'dired-goodies)
       ;; use homebrew coreutils in darwin
       ;; http://qiita.com/maangie/items/5a80ae50c13d14368a72
       (if (eq system-type 'darwin)
@@ -82,6 +82,10 @@ Version 2015-11-30"
 
       (spacemacs/set-leader-keys
         "obo" #'yxl-dired/open-in-desktop))))
+
+(defun yxl-dired/init-dired-goodies ()
+  (use-package dired-goodies
+    :after dired))
 
 (defun yxl-dired/init-image+ ()
   (use-package image+

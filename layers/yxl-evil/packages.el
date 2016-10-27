@@ -1,4 +1,5 @@
 (setq yxl-evil-packages '(evil
+                          (evil-goodies :location local)
                           evil-surround
                           evil-indent-plus
                           evil-textobj-column
@@ -9,9 +10,12 @@
 
 (defun yxl-evil/post-init-evil ()
   (with-eval-after-load 'evil
-    (require 'evil-goodies)
     (yxl-evil/setup-evil)
     (yxl-evil/setup-evil-misc)))
+
+(defun yxl-evil/init-evil-goodies ()
+  (use-package evil-goodies
+    :after evil))
 
 (defun yxl-evil/post-init-evil-evilified-state ()
   (with-eval-after-load 'evil-evilified-state
