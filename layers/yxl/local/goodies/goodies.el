@@ -28,5 +28,16 @@ Useful when creating new window layout/config."
   (popwin:popup-buffer (find-file-noselect default-directory)
                        :width 40 :position 'left :stick t))
 
+(defun round-nb-in-region ()
+  "http://stackoverflow.com/questions/23636226/how-to-round-all-the-numbers-in-a-region"
+  (interactive)
+  (let ((round-format (read-string "enter format (%0.4f): ")))
+    (save-restriction
+      (narrow-to-region (region-beginning) (region-end))
+      (goto-char 1)
+      (let ((case-fold-search nil))
+        (while (search-forward-regexp "\\([0-9]+\\.[0-9]+\\)" nil t)
+          (replace-match (format round-format
+                                 (string-to-number (match-string 1)))))))))
 
 (provide 'goodies)
