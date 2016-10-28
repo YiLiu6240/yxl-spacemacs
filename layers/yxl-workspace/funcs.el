@@ -90,7 +90,7 @@
   "remove existing configs and
 pre-populate/re-populate fake configs with names."
   (interactive)
-  (mapcar 'eyebrowse--delete-window-config '(number-sequence 0 9))
+  (mapcar 'eyebrowse--delete-window-config (number-sequence 0 9))
   (eyebrowse--insert-in-window-config-list
    (eyebrowse--current-window-config 0 "build"))
   (eyebrowse--insert-in-window-config-list
