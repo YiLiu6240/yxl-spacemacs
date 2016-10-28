@@ -123,6 +123,7 @@ values."
    ;; them if they become unused. `all' installs *all* packages supported by
    ;; Spacemacs and never uninstall them. (default is `used-only')
    dotspacemacs-install-packages 'used-only))
+     calfw
 
 (defun dotspacemacs/init ()
   "Initialization function.

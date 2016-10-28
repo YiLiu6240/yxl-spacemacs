@@ -11,9 +11,12 @@ which require an initialization must be listed explicitly in the list.")
     :defer t
     :commands (cfw-open-calendar)
     :init
+    (progn
+      (spacemacs/set-leader-keys
+        "aK" 'cfw-open-calendar)
+      (evil-set-initial-state 'cfw:calendar-mode 'evilified))
     :config
     (progn
-     (push 'cfw:calendar-mode evil-emacs-state-modes)
      (require 'calfw-cal)
      (require 'calfw-ical)
      (require 'calfw-org)
@@ -25,7 +28,4 @@ which require an initialization must be listed explicitly in the list.")
         (list
          (cfw:org-create-source "#268bd2"))))
 
-     (calendar-set-date-style 'iso)
-
-     (spacemacs/set-leader-keys
-       "ac" 'cfw-open-calendar))))
+     (calendar-set-date-style 'iso))))
