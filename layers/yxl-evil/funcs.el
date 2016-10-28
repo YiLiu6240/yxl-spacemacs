@@ -113,6 +113,10 @@
       (define-key evil-evilified-state-map-original "e" #'evil-forward-word-end)
       (define-key evil-evilified-state-map-original "b" #'evil-backward-word-begin)
 
+      (define-key evil-evilified-state-map-original "W" #'evil-forward-WORD-begin)
+      (define-key evil-evilified-state-map-original "E" #'evil-forward-WORD-end)
+      (define-key evil-evilified-state-map-original "B" #'evil-backward-WORD-begin)
+
       (define-key evil-evilified-state-map-original "gg" #'evil-goto-first-line)
       (define-key evil-evilified-state-map-original "G"  #'evil-goto-line)
       (define-key evil-evilified-state-map-original "gT" #'eyebrowse-prev-window-config)
