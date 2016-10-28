@@ -85,3 +85,19 @@
   (let* ((eyebrowse-new-workspace 'delete-other-windows))
     (call-interactively 'eyebrowse-create-window-config)
     (message "maximize window")))
+
+(defun yxl-workspace/eyebrowse-populate-set1 ()
+  "remove existing configs and
+pre-populate/re-populate fake configs with names."
+  (interactive)
+  (mapcar 'eyebrowse--delete-window-config '(0 1 2 3 4 5 6 7 8 9))
+  (eyebrowse--insert-in-window-config-list
+   (eyebrowse--current-window-config 0 "build"))
+  (eyebrowse--insert-in-window-config-list
+   (eyebrowse--current-window-config 1 "main"))
+  (eyebrowse--insert-in-window-config-list
+   (eyebrowse--current-window-config 2 "focus"))
+  (eyebrowse--insert-in-window-config-list
+   (eyebrowse--current-window-config 3 "floats"))
+  (eyebrowse--insert-in-window-config-list
+   (eyebrowse--current-window-config 9 "git")))
