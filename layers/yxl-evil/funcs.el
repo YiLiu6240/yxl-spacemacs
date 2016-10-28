@@ -72,10 +72,10 @@
   "personal bindings, rely on external yxl functions"
   (progn
     ;; tmux style bindings for my personal 4 frame setup
-    (define-key evil-normal-state-map (kbd "C-a h") #'yxl-frame/select-meta)
-    (define-key evil-normal-state-map (kbd "C-a j") #'yxl-frame/select-repl)
-    (define-key evil-normal-state-map (kbd "C-a k") #'yxl-frame/select-code)
-    (define-key evil-normal-state-map (kbd "C-a l") #'yxl-frame/select-config)
+    (define-key evil-motion-state-map (kbd "C-a h") #'yxl-frame/select-meta)
+    (define-key evil-motion-state-map (kbd "C-a j") #'yxl-frame/select-repl)
+    (define-key evil-motion-state-map (kbd "C-a k") #'yxl-frame/select-code)
+    (define-key evil-motion-state-map (kbd "C-a l") #'yxl-frame/select-config)
     (define-key evil-evilified-state-map (kbd "C-a h") #'yxl-frame/select-meta)
     (define-key evil-evilified-state-map (kbd "C-a j") #'yxl-frame/select-repl)
     (define-key evil-evilified-state-map (kbd "C-a k") #'yxl-frame/select-code)
