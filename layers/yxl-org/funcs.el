@@ -1,9 +1,18 @@
 (defun yxl-org/agenda-work ()
   (interactive)
   (org-agenda nil "1"))
+
 (defun yxl-org/agenda-life ()
   (interactive)
   (org-agenda nil "0"))
+
+(defun yxl-org/agenda-view ()
+  (interactive)
+  (delete-other-windows)
+  (split-window-sensibly)
+  (cfw-open-calendar)
+  (call-interactively 'other-window)
+  (org-todo-list))
 
 (defun yxl-org/setup-general ()
   (setq org-directory 'yxl-path-org)
@@ -27,7 +36,8 @@
   (setq org-tags-column 0)
   ;; (setq org-fast-tag-selection-single-key t)
   (setq org-insert-heading-respect-content t)
-  (setq org-hide-emphasis-markers nil))
+  (setq org-hide-emphasis-markers nil)
+  (setq org-agenda-window-setup 'current-window))
 
 (defun yxl-org/org-mode-hook ()
   (setq line-spacing 4))

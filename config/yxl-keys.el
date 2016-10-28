@@ -9,6 +9,7 @@
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
   "<SPC>" #'evil-avy-goto-char-2
+  "av" #'yxl-org/agenda-view
   "fY" #'yxl/show-and-copy-buffer-filename-in-projectile
   "bY" #'yxl-buffer/store-name
   "bP" #'yxl-buffer/visit-stored-buffer

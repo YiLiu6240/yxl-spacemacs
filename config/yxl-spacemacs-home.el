@@ -133,6 +133,12 @@
                  :action (lambda (&rest ignore) (yxl-find/file-org))
                  :mouse-face 'highlight)
   (spacemacs-buffer//center-line)
+  (insert "\n")
+  (widget-create 'push-button
+                 :tag (propertize "agenda-view" 'face 'font-lock-warning-face)
+                 :action (lambda (&rest ignore) (yxl-org/agenda-view))
+                 :mouse-face 'highlight)
+  (spacemacs-buffer//center-line)
   (insert "\n\n"))
 
 (defun spacemacs-buffer//insert-footer ())
