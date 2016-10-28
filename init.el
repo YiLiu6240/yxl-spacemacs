@@ -1,17 +1,21 @@
 ;; -*- mode: emacs-lisp -*-
-;; This file is loaded by Spacemacs at startup.
-;; It must be stored in your home directory.
 
 (defun dotspacemacs/layers ()
-  "Configuration Layers declaration.
-You should not put any user code in this function besides modifying the variable
-values."
   (setq-default
    dotspacemacs-distribution 'spacemacs-base
    dotspacemacs-enable-lazy-installation 'unused
    dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
-   ;; List of configuration layers to load.
+   dotspacemacs-additional-packages '()
+   dotspacemacs-frozen-packages '()
+   dotspacemacs-excluded-packages '(persp-mode
+                                    smooth-scrolling
+                                    spaceline
+                                    window-numbering
+                                    org-bullets
+                                    tern
+                                    ido)
+   dotspacemacs-install-packages 'used-only
    dotspacemacs-configuration-layers
    '(yxl-spacemacs
      better-defaults
@@ -98,41 +102,10 @@ values."
 
      ;; private --------
      helm-dash
-
-     yxl-layers)
-   ;; List of additional packages that will be installed without being
-   ;; wrapped in a layer. If you need some configuration for these
-   ;; packages, then consider creating a layer. You can also put the
-   ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
-   ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '()
-   ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(persp-mode
-                                    smooth-scrolling
-                                    spaceline
-                                    window-numbering
-                                    org-bullets
-                                    tern
-                                    ido)
-   ;; Defines the behaviour of Spacemacs when installing packages.
-   ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
-   ;; `used-only' installs only explicitly used packages and uninstall any
-   ;; unused packages as well as their unused dependencies.
-   ;; `used-but-keep-unused' installs only the used packages but won't uninstall
-   ;; them if they become unused. `all' installs *all* packages supported by
-   ;; Spacemacs and never uninstall them. (default is `used-only')
-   dotspacemacs-install-packages 'used-only))
      calfw
+     yxl-layers)))
 
 (defun dotspacemacs/init ()
-  "Initialization function.
-This function is called at the very startup of Spacemacs initialization
-before layers configuration.
-You should not put any user code in there besides modifying the variable
-values."
-  ;; This setq-default sexp is an exhaustive list of all the supported
-  ;; spacemacs settings.
   (setq-default
    dotspacemacs-elpa-https t
    dotspacemacs-elpa-timeout 5
@@ -141,8 +114,7 @@ values."
    dotspacemacs-editing-style 'vim
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner nil
-   dotspacemacs-startup-lists '((recents . 5)
-                                (projects . 7))
+   dotspacemacs-startup-lists nil
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'gfm-mode
    dotspacemacs-themes '(yxl-dark
