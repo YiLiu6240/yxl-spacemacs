@@ -628,7 +628,7 @@
             `(org-level-7 ((,class (:inherit org-level-8))))
             `(org-level-8 ((,class (:foreground ,base))))
             `(org-link ((,class (:foreground ,comment))))
-            `(org-meta-line ((,class (:foreground ,meta))))
+            `(org-meta-line ((,class (:foreground ,comment))))
             `(org-mode-line-clock-overrun ((,class (:foreground ,err))))
             `(org-priority ((,class (:foreground ,war :inherit bold))))
             `(org-quote ((,class (:inherit org-block :slant italic))))
