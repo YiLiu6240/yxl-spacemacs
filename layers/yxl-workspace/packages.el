@@ -12,6 +12,7 @@
     (progn
       (setq eyebrowse-wrap-around t)
       (setq eyebrowse-keymap-prefix (kbd "C-c w"))
+      (setq eyebrowse-default-tag-name "main")
       (eyebrowse-mode))
     :config
     (progn

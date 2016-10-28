@@ -168,7 +168,7 @@ If t, ask for confirmation."
   :type 'boolean
   :group 'eyebrowse)
 
-(defcustom eyebrowse-default-tag-name "default"
+(defcustom eyebrowse-default-tag-name ""
   "Default name of the first tag."
   :type 'string
   :group 'eyebrowse)
