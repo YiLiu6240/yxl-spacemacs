@@ -1,7 +1,7 @@
 (defvar-local yxl-line-width 80
   "preferred line width for a window, useful when setting window centering")
 
-(defvar yxl-window-stored-buffer-name nil)
+(defvar yxl-buffer-stored-name nil)
 
 
 
@@ -123,9 +123,9 @@ Else create a window with lines parsed by prefix"
   (interactive)
   (if current-prefix-arg
       (list
-        (yxl-window/split-right -35)
-        (windmove-right)
-        (spacemacs/new-empty-buffer))
+       (yxl-window/split-right -35)
+       (windmove-right)
+       (spacemacs/new-empty-buffer))
     (list
      (yxl-window/split-right -35))))
 
@@ -167,13 +167,5 @@ Else create a window with lines parsed by prefix"
   "open in the current window the buffer in previous window."
   (interactive)
   (set-window-buffer (selected-window) (window-buffer (previous-window))))
-
-(defun yxl-window/store-buffer-name ()
-  (interactive)
-  (setq yxl-window-stored-buffer-name (buffer-name)))
-
-(defun yxl-window/visit-stored-buffer ()
-  (interactive)
-  (set-window-buffer (selected-window) yxl-window-stored-buffer-name))
 
 (provide 'yxl-window)

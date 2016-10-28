@@ -1,5 +1,6 @@
 (require 'yxl-frame)
 (require 'yxl-window)
+(require 'yxl-buffer)
 (require 'yxl-find)
 
 (defvar yxl/new-buffer-inherit-white-list '(latex-mode
