@@ -16,7 +16,7 @@
                           (current-column)
                           0))
                         nil nil "/Users/lysender61/.spacemacs.d/snippets/org-mode/startup" nil nil)
-                       ("src" "#+begin_src $1\n$2\n#+end_src" "source" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/org-mode/source" nil nil)
+                       ("src" "#+begin_src $1\n$2\n#+end_src" "source" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/org-mode/src" nil nil)
                        ("block" "#+BEGIN_$1 $2\n  $0\n#+END_$1" "#+begin_...#+end_"
                         (or
                          (=
@@ -33,4 +33,4 @@
                        ("bbn" "#+begin_src $1 :exports both :results output code\n$0\n#+end_src\n" "babel_nosession" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/org-mode/babel_nosession" nil nil)))
 
 
-;;; Do not edit! File generated at Thu Oct 27 12:22:53 2016
+;;; Do not edit! File generated at Sat Oct 29 14:44:27 2016
