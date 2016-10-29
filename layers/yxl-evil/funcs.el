@@ -75,13 +75,7 @@
     (define-key evil-motion-state-map (kbd "C-a h") #'yxl-frame/select-meta)
     (define-key evil-motion-state-map (kbd "C-a j") #'yxl-frame/select-repl)
     (define-key evil-motion-state-map (kbd "C-a k") #'yxl-frame/select-code)
-    (define-key evil-motion-state-map (kbd "C-a l") #'yxl-frame/select-config)
-    (when (boundp 'evil-evilified-state-map-original)
-      (progn
-        (define-key evil-evilified-state-map-original (kbd "C-a h") #'yxl-frame/select-meta)
-        (define-key evil-evilified-state-map-original (kbd "C-a j") #'yxl-frame/select-repl)
-        (define-key evil-evilified-state-map-original (kbd "C-a k") #'yxl-frame/select-code)
-        (define-key evil-evilified-state-map-original (kbd "C-a l") #'yxl-frame/select-config)))))
+    (define-key evil-motion-state-map (kbd "C-a l") #'yxl-frame/select-config)))
 
 (defun yxl-evil/setup-evil-misc ()
   (evil-define-key 'insert comint-mode-map
@@ -133,3 +127,11 @@
 
       (define-key evil-evilified-state-map-original
         (kbd dotspacemacs-ex-command-key) #'evil-ex))))
+
+(defun yxl-evil/setup-evilified-personal ()
+  (when (boundp 'evil-evilified-state-map-original)
+    (progn
+      (define-key evil-evilified-state-map-original (kbd "C-a h") #'yxl-frame/select-meta)
+      (define-key evil-evilified-state-map-original (kbd "C-a j") #'yxl-frame/select-repl)
+      (define-key evil-evilified-state-map-original (kbd "C-a k") #'yxl-frame/select-code)
+      (define-key evil-evilified-state-map-original (kbd "C-a l") #'yxl-frame/select-config))))

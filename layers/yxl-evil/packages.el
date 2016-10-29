@@ -20,7 +20,8 @@
 
 (defun yxl-evil/post-init-evil-evilified-state ()
   (with-eval-after-load 'evil-evilified-state
-    (yxl-evil/setup-evilified)))
+    (yxl-evil/setup-evilified)
+    (yxl-evil/setup-evilified-personal)))
 
 (defun yxl-evil/post-init-evil-surround ()
   (with-eval-after-load 'evil-surround
