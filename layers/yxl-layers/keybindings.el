@@ -122,8 +122,8 @@
   "owS" #'split-window-above-small
   "owv" #'split-window-right-small
   "owV" #'split-window-left-small
-  "owg" #'yxl-window/golden-ratio-width
-  "owh" #'yxl-window/golden-ratio-height
+  "owg" #'yxl-window/adjust-width-ratio
+  "owh" #'yxl-window/adjust-height-ratio
   "owp" #'yxl-window/get-buffer-previous-window
   "owc" #'yxl-window/center-margins
   "oww" #'yxl-window/change-width)

@@ -13,18 +13,27 @@
           (t
            20))))
 
-(defun yxl-window/golden-ratio-width ()
+(defun yxl-window/get-ratio ()
+  (let* ((golden-ratio 0.618))
+    (cond
+     ((equal current-prefix-arg nil)
+      golden-ratio)
+     ((equal current-prefix-arg  '(4))
+      0.8)
+     (t (cond
+         ((< current-prefix-arg 10)(/ current-prefix-arg 10.0))
+         (t (/ current-prefix-arg 100.0)))))))
+
+(defun yxl-window/adjust-width-ratio ()
   "get the width size of a window that should be expanded to gold ratio"
   (interactive)
-  (let* ((golden-ratio 0.618)
-         (main-width (round (* golden-ratio (frame-width)))))
+  (let* ((main-width (round (* (yxl-window/get-ratio) (frame-width)))))
     (evil-resize-window main-width t)))
 
-(defun yxl-window/golden-ratio-height ()
+(defun yxl-window/adjust-height-ratio ()
   "get the height size of a window that should be expanded to gold ratio"
   (interactive)
-  (let* ((golden-ratio 0.618)
-         (main-height (round (* golden-ratio (frame-height)))))
+  (let* ((main-height (round (* (yxl-window/get-ratio) (frame-height)))))
     (evil-resize-window main-height nil)))
 
 
