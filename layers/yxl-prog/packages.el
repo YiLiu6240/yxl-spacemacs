@@ -6,7 +6,8 @@
                           ;; company
                           graphviz-dot-mode
                           imenu-anywhere
-                          smartparens))
+                          smartparens
+                          narrow-indirect))
 
 (defun yxl-prog/init-prog-mode ()
   (use-package prog-mode
@@ -129,3 +130,7 @@
 ;;       ;; (define-key lispy-mode-map (kbd "C-k") 'lispy-splice)
 ;;       ;; (define-key lispy-mode-map (kbd "C-3") 'lispy-mark-symbol)
 ;;       )))
+
+(defun yxl-prog/init-narrow-indirect ()
+  (use-package narrow-indirect
+    :defer t))

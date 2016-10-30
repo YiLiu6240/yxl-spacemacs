@@ -168,5 +168,4 @@
     ;; TODO: configure online dictionaries for own preference
     :config
     (progn
-      (setq helm-dictionary-database "~/Dropbox/dict/english-chinese.xdxf"))
-    ))
+      (setq helm-dictionary-database "~/Dropbox/dict/english-chinese.xdxf"))))
