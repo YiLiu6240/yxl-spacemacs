@@ -17,8 +17,14 @@
 
 
 (defun yxl/new-buffer-inherit ()
+  "Create a new buffer \"untitled\" which inherits the major-mode
+of the previous buffer, if the major-mode is listed in
+`yxl/new-buffer-inherit-white-list'; otherwise use `initial-major-mode'."
   (interactive)
-  (let* ((curr-mode major-mode)
+  ;; REVIEW: generalize the specialised case(s)
+  (let* ((curr-mode (if (equal major-mode 'ess-mode)
+                        'R-mode
+                      major-mode))
          (newbuf (generate-new-buffer-name "untitled")))
     (switch-to-buffer newbuf)
     (if (member curr-mode yxl/new-buffer-inherit-white-list)
