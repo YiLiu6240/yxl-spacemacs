@@ -40,7 +40,7 @@
   "obb" #'ibuffer
   "obc" #'clone-indirect-buffer-other-window
   "obd" #'delete-other-windows
-  "obn" #'yxl/new-buffer-inherit
+  "obn" #'yxl-buffer/inherit
   "o <SPC>" #'delete-other-windows
   "obr" #'revert-buffer
 
