@@ -93,4 +93,52 @@ Supports both Emacs and Evil cursor conventions."
        (multi-line (format "%d lines" lines))
        (t (format "%d chars" (if evil chars (1- chars))))))))
 
+(defun get-frame-name ()
+  (format "%s" (frame-parameter (selected-frame) 'name)))
+
+(defun powerline-get-current-eyebrowse-tag ()
+  (when (and (bound-and-true-p eyebrowse-mode))
+    (let* ((left-delimiter (propertize eyebrowse-mode-line-left-delimiter
+                                       'face 'eyebrowse-mode-line-delimiters))
+           (right-delimiter (propertize eyebrowse-mode-line-right-delimiter
+                                        'face 'eyebrowse-mode-line-delimiters))
+           (window-configs (eyebrowse--get 'window-configs))
+           (config-len (length window-configs))
+           ;; curr
+           (curr-id (eyebrowse--get 'current-slot))
+           (curr-pos (cl-position (assoc curr-id window-configs) window-configs))
+           (curr-tag (when curr-id (nth 2 (assoc curr-id window-configs))))
+           (curr-str (if (and curr-tag (< 0 (length curr-tag)))
+                         (concat (int-to-string curr-id) ":" curr-tag)
+                       (when curr-id (int-to-string curr-id))))
+           ;; prev
+           (prev-pos (- curr-pos 1))
+           (prev-id (nth 0 (nth prev-pos window-configs)))
+           (prev-str (concat (int-to-string prev-id)
+                             ":"
+                             (nth 2 (nth prev-pos window-configs))
+                             ","))
+           ;; next
+           (next-pos (+ curr-pos 1))
+           (next-id (nth 0 (nth next-pos window-configs)))
+           ;; NOTE:
+           ;; when next-pos >= config-len, (nth next-pos window-configs)
+           ;; will return nil, and (nth 2 nil) will break
+           (next-str (when (< next-pos config-len)
+                       (concat ","
+                               (int-to-string next-id)
+                               ":"
+                               (nth 2 (nth next-pos window-configs))))))
+      (concat left-delimiter
+              (when (and (> config-len 3) (> curr-pos 1))
+                (propertize "…" 'face 'eyebrowse-mode-line-inactive))
+              (when (and (> config-len 1) (> curr-pos 0))
+                (propertize prev-str 'face 'eyebrowse-mode-line-inactive))
+              (propertize curr-str 'face 'eyebrowse-mode-line-active)
+              (when (and (> config-len 1) (< curr-pos (- config-len 1)))
+                (propertize next-str 'face 'eyebrowse-mode-line-inactive))
+              (when (and (> config-len 3) (< curr-pos (- config-len 2)))
+                (propertize "…" 'face 'eyebrowse-mode-line-inactive))
+              right-delimiter))))
+
 (provide 'powerline-funcs)

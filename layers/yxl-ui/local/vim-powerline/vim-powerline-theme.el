@@ -96,21 +96,21 @@ And if not, try to get the corresponding '-normal' face"
                   (:eval
                    (let* ((active (powerline-selected-window-active))
                           (harddiv-left (intern (format "powerline-%s-%s"
-                                                          (powerline-current-separator)
-                                                          (car powerline-default-separator-dir))))
+                                                        (powerline-current-separator)
+                                                        (car powerline-default-separator-dir))))
                           (harddiv-right (intern (format "powerline-%s-%s"
-                                                           (powerline-current-separator)
-                                                           (cdr powerline-default-separator-dir))))
+                                                         (powerline-current-separator)
+                                                         (cdr powerline-default-separator-dir))))
                           (softdiv-left (cl-case powerline-default-separator
                                           ((utf-8 arrow) "")
                                           ((bar nil) "|")
                                           (brace "}")
                                           (t ">")))
                           (softdiv-right (cl-case powerline-default-separator
-                                          ((utf-8 arrow) "")
-                                          ((bar nil) "|")
-                                          (brace "{")
-                                          (t "<")))
+                                           ((utf-8 arrow) "")
+                                           ((bar nil) "|")
+                                           (brace "{")
+                                           (t "<")))
                           (editor-state (cond ((and active (boundp 'evil-mode) evil-mode)
                                                (symbol-name evil-state))
                                               (active "active")
@@ -145,7 +145,7 @@ And if not, try to get the corresponding '-normal' face"
                                 ;; anzu
                                 (when (and (powerline-selected-window-active)
                                            (bound-and-true-p anzu--state))
-                                   (powerline-raw (anzu--update-mode-line) workspace-face 'lr))
+                                  (powerline-raw (anzu--update-mode-line) workspace-face 'lr))
                                 ;; pdf pages
                                 (when (and (powerline-selected-window-active)
                                            (eq 'pdf-view-mode major-mode))
@@ -156,16 +156,24 @@ And if not, try to get the corresponding '-normal' face"
                                   (powerline-raw (my-flycheck) workspace-face 'lr))
                                 (powerline-raw (selection-info)
                                                workspace-face 'lr)
-                                ;; workspace
+                                ;; eyebrowse
                                 (when (powerline-selected-window-active)
-                                  (powerline-raw (eyebrowse-mode-line-indicator)
-                                                 workspace-face 'lr))
+                                  (if (> (window-width) 100)
+                                      (powerline-raw (eyebrowse-mode-line-indicator)
+                                                     workspace-face 'lr)
+                                    (powerline-raw (powerline-get-current-eyebrowse-tag)
+                                                   workspace-face 'lr)))
                                 ;; lhs ends here
                                 (funcall harddiv-left workspace-face split-face)))
 
                           ;; Right Hand Side
                           (rhs (list
                                 (powerline-raw global-mode-string split-face 'r)
+                                ;; frame-name
+                                (when (> (window-width) 100)
+                                  (concat
+                                   (powerline-raw (get-frame-name) fileencoding-face 'lr)
+                                   (powerline-raw softdiv-right fileencoding-face)))
                                 ;; remove vc mode, magit is not using it
                                 ;; (funcall harddiv-right split-face vc-face)
                                 ;; ;; version control
