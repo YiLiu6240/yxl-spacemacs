@@ -27,11 +27,13 @@ master-dir, projectile-project-root, ~/Downloads"
 (defun yxl-text/latex-align-buffer ()
   "basically ggVG then align"
   (interactive)
+  (evil-set-marker ?z)
   (evil-goto-first-line)
   (evil-visual-line)
   (evil-goto-line)
   ;; cant use paranthesis
-  (call-interactively 'align))
+  (call-interactively 'align)
+  (evil-goto-mark ?z))
 
 (defface yxl-latex-font-hide
   '((t (:foreground "#4b798a" :slant italic)))
