@@ -1,4 +1,11 @@
 (add-to-list 'ivy-views
+             '("{} 1_ctw sec_6_panel.tex sec_6_panel_new.tex"
+               (horz
+                (file "/home/yiliu/Downloads/yxl105_ctw/yxl105_tex/phd_thesis/c1_spillovers/sections/sec_6_panel.tex" 879)
+                (file "/home/yiliu/Downloads/yxl105_ctw/yxl105_tex/phd_thesis/c1_spillovers/sections/sec_6_panel_new.tex" 1340)
+                (file "~/Dropbox/lit_1_yxl105/1_thesis/1_ctw/" 665)))
+             t)
+(add-to-list 'ivy-views
              '("{} init.el dotfiles"
                (horz
                 (file "~/dotfiles/spacemacs.d/init.el" 7993)
