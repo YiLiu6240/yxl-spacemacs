@@ -93,7 +93,7 @@ Supports both Emacs and Evil cursor conventions."
        (multi-line (format "%d lines" lines))
        (t (format "%d chars" (if evil chars (1- chars))))))))
 
-(defun get-frame-name ()
+(defun powerline-get-frame-name ()
   (let* ((name (frame-parameter (selected-frame) 'name))
          (name-str (if (powerline-selected-window-active)
                        (cond

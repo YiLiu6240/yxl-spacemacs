@@ -172,7 +172,7 @@ And if not, try to get the corresponding '-normal' face"
                                 ;; frame-name
                                 (when (> (window-width) 80)
                                   (concat
-                                   (powerline-raw (get-frame-name) fileencoding-face 'lr)
+                                   (powerline-raw (powerline-get-frame-name) fileencoding-face 'lr)
                                    (powerline-raw softdiv-right fileencoding-face)))
                                 ;; remove vc mode, magit is not using it
                                 ;; (funcall harddiv-right split-face vc-face)
