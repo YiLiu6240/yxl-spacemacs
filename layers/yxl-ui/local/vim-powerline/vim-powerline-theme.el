@@ -170,7 +170,7 @@ And if not, try to get the corresponding '-normal' face"
                           (rhs (list
                                 (powerline-raw global-mode-string split-face 'r)
                                 ;; frame-name
-                                (when (> (window-width) 100)
+                                (when (> (window-width) 80)
                                   (concat
                                    (powerline-raw (get-frame-name) fileencoding-face 'lr)
                                    (powerline-raw softdiv-right fileencoding-face)))
@@ -190,7 +190,7 @@ And if not, try to get the corresponding '-normal' face"
                                   (concat
                                    (when
                                        (not (null platform))
-                                     (concat (powerline-raw platform fileformat-face 'r)
+                                     (concat (powerline-raw platform fileformat-face 'lr)
                                              (powerline-raw softdiv-right fileformat-face)))
                                    (powerline-raw encoding fileencoding-face 'lr)
                                    (powerline-raw softdiv-right fileencoding-face)))
