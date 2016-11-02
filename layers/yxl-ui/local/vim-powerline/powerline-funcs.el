@@ -94,7 +94,21 @@ Supports both Emacs and Evil cursor conventions."
        (t (format "%d chars" (if evil chars (1- chars))))))))
 
 (defun get-frame-name ()
-  (format "%s" (frame-parameter (selected-frame) 'name)))
+  (let* ((name (frame-parameter (selected-frame) 'name))
+         (name-str (if (powerline-selected-window-active)
+                       (cond
+                        ((equal name "Code")
+                         (propertize name 'face 'font-lock-function-name-face))
+                        ((equal name "Meta")
+                         (propertize name 'face 'font-lock-type-face))
+                        ((equal name "REPL")
+                         (propertize name 'face 'font-lock-keyword-face))
+                        ((equal name "Config")
+                         (propertize name 'face 'font-lock-doc-face))
+                        (t
+                         name))
+                     name)))
+    name-str))
 
 (defun powerline-get-current-eyebrowse-tag ()
   (when (and (bound-and-true-p eyebrowse-mode))
