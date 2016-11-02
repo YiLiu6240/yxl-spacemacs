@@ -9,14 +9,14 @@
    (define-key evil-insert-state-map (kbd "C-n") #'next-line)
 
    ;; text objects:
-   (define-key evil-outer-text-objects-map "g" 'evil-a-curly)
-   (define-key evil-outer-text-objects-map "h" 'evil-a-bracket)
-   (define-key evil-inner-text-objects-map "g" 'evil-inner-curly)
-   (define-key evil-inner-text-objects-map "h" 'evil-inner-bracket)
+   (define-key evil-outer-text-objects-map "g" #'evil-a-curly)
+   (define-key evil-outer-text-objects-map "h" #'evil-a-bracket)
+   (define-key evil-inner-text-objects-map "g" #'evil-inner-curly)
+   (define-key evil-inner-text-objects-map "h" #'evil-inner-bracket)
 
    ;; normal and motion state:
-   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+   (define-key evil-normal-state-map (kbd "j") #'evil-next-visual-line)
+   (define-key evil-normal-state-map (kbd "k") #'evil-previous-visual-line)
    ;; "g" related commands
    ;; mark: repalce with evil-middle-of-visual-line
    (define-key evil-motion-state-map "gm" #'evil-goto-mark)
@@ -35,8 +35,9 @@
    (define-key evil-normal-state-map "q" nil)
    (define-key evil-normal-state-map "qm" #'evil-execute-macro)
    (define-key evil-normal-state-map "qM" #'evil-record-macro)
-   (define-key evil-normal-state-map "qq" #'evil-quit)
-   (define-key evil-normal-state-map "qQ" #'evil-save-and-close)
+   (define-key evil-normal-state-map "qq" nil)
+   (define-key evil-normal-state-map "qQ" #'evil-quit)
+   ;; (define-key evil-normal-state-map "qQ" #'evil-save-and-close)
    (define-key evil-normal-state-map "qw" #'evil-write)
    (define-key evil-normal-state-map "qW" #'evil-write-all)
    ;; "\" as another leader
