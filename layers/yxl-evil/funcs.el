@@ -35,7 +35,7 @@
    (define-key evil-normal-state-map "q" nil)
    (define-key evil-normal-state-map "qm" #'evil-execute-macro)
    (define-key evil-normal-state-map "qM" #'evil-record-macro)
-   (define-key evil-normal-state-map "qq" #'yxl-evil/evil-quit)
+   (define-key evil-normal-state-map "qq" #'yxl/evil-quit)
    ;; (define-key evil-normal-state-map "qQ" #'evil-save-and-close)
    (define-key evil-normal-state-map "qw" #'evil-write)
    (define-key evil-normal-state-map "qW" #'evil-write-all)
@@ -146,28 +146,3 @@
       (define-key evil-evilified-state-map-original (kbd "C-a j") #'yxl-frame/select-repl)
       (define-key evil-evilified-state-map-original (kbd "C-a k") #'yxl-frame/select-code)
       (define-key evil-evilified-state-map-original (kbd "C-a l") #'yxl-frame/select-config))))
-
-(evil-define-command yxl-evil/evil-quit (&optional force)
-  "Closes the current window, current frame, Emacs.
-If the current frame belongs to some client the client connection
-is closed.
-Changes: asking for confirmation when deleteing frames."
-  :repeat nil
-  (interactive "<!>")
-  (condition-case nil
-      (delete-window)
-    (error
-     (if (and (boundp 'server-buffer-clients)
-              (fboundp 'server-edit)
-              (fboundp 'server-buffer-done)
-              server-buffer-clients)
-         (if force
-             (server-buffer-done (current-buffer))
-           (server-edit))
-       (condition-case nil
-           (let ((delete-p (yes-or-no-p "Delete frame?")))
-             (when delete-p (delete-frame)))
-         (error
-          (if force
-              (kill-emacs)
-            (save-buffers-kill-emacs))))))))
