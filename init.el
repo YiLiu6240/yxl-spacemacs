@@ -119,6 +119,7 @@
    dotspacemacs-scratch-mode 'gfm-mode
    dotspacemacs-themes '(yxl-dark
                          spacegray
+                         sanityinc-tomorrow-night
                          spacemacs-dark
                          solarized-dark
                          monokai
