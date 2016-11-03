@@ -120,6 +120,7 @@
    dotspacemacs-themes '(yxl-dark
                          spacegray
                          sanityinc-tomorrow-night
+                         gruvbox
                          spacemacs-dark
                          solarized-dark
                          monokai
