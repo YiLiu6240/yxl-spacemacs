@@ -104,7 +104,7 @@ Supports both Emacs and Evil cursor conventions."
                         ((equal name "REPL")
                          (propertize name 'face 'font-lock-keyword-face))
                         ((equal name "Config")
-                         (propertize name 'face 'font-lock-doc-face))
+                         (propertize name 'face 'font-lock-warning-face))
                         (t
                          name))
                      name)))
