@@ -118,6 +118,7 @@
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'gfm-mode
    dotspacemacs-themes '(yxl-dark
+                         spacegray
                          spacemacs-dark
                          solarized-dark
                          monokai
