@@ -7,8 +7,8 @@
                           graphviz-dot-mode
                           imenu-anywhere
                           smartparens
-                          narrow-indirect))
-
+                          narrow-indirect
+                          bash-completion))
 (defun yxl-prog/init-prog-mode ()
   (use-package prog-mode
     :defer t
@@ -134,3 +134,10 @@
 (defun yxl-prog/init-narrow-indirect ()
   (use-package narrow-indirect
     :defer t))
+
+(defun yxl-prog/init-bash-completion ()
+  (use-package bash-completion
+    :defer t
+    :init
+    (progn
+      (bash-completion-setup))))
