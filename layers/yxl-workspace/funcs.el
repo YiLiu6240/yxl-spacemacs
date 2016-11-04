@@ -96,8 +96,18 @@ pre-populate/re-populate fake configs with names."
   (eyebrowse--insert-in-window-config-list
    (eyebrowse--current-window-config 1 "main"))
   (eyebrowse--insert-in-window-config-list
-   (eyebrowse--current-window-config 2 "focus"))
+   (eyebrowse--current-window-config 2 "main2"))
   (eyebrowse--insert-in-window-config-list
-   (eyebrowse--current-window-config 3 "floats"))
+   (eyebrowse--current-window-config 3 "items"))
+  (eyebrowse--insert-in-window-config-list
+   (eyebrowse--current-window-config 4 "items2"))
+  (eyebrowse--insert-in-window-config-list
+   (eyebrowse--current-window-config 5 "support"))
+  (eyebrowse--insert-in-window-config-list
+   (eyebrowse--current-window-config 6 "support2"))
+  (eyebrowse--insert-in-window-config-list
+   (eyebrowse--current-window-config 7 "doc"))
+  (eyebrowse--insert-in-window-config-list
+   (eyebrowse--current-window-config 8 "doc2"))
   (eyebrowse--insert-in-window-config-list
    (eyebrowse--current-window-config 9 "git")))
