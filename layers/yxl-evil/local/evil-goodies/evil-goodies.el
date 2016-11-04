@@ -1,29 +1,14 @@
 (require 'evil)
 
 (evil-define-command yxl/evil-quit (&optional force)
-  "Closes the current window, current frame, Emacs.
-If the current frame belongs to some client the client connection
-is closed.
-Changes: asking for confirmation when deleteing frames."
+  "Only delete window when there is multiple window open,
+otherwise prompt message to confirm to delete frame."
   :repeat nil
   (interactive "<!>")
-  (condition-case nil
-      (delete-window)
-    (error
-     (if (and (boundp 'server-buffer-clients)
-              (fboundp 'server-edit)
-              (fboundp 'server-buffer-done)
-              server-buffer-clients)
-         (if force
-             (server-buffer-done (current-buffer))
-           (server-edit))
-       (condition-case nil
-           (let ((delete-p (yes-or-no-p "Delete frame?")))
-             (when delete-p (delete-frame)))
-         (error
-          (if force
-              (kill-emacs)
-            (save-buffers-kill-emacs))))))))
+  (if (one-window-p)
+      (let ((delete-p (yes-or-no-p "Delete frame?")))
+        (when delete-p (delete-frame)))
+    (delete-window)))
 
 (defun evil-insert-newline-around ()
   (interactive)

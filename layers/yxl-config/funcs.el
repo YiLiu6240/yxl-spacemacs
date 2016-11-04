@@ -171,8 +171,9 @@ The colors are determined by the variable
   (message "shr-inhibit-images: %s" shr-inhibit-images))
 
 (defun yxl/dired-delete-window ()
+  "delete the current dired window, if it is the only window, return to
+spacemacs home buffer"
   (interactive)
-  (condition-case nil
-      (delete-window)
-    (error
-     (spacemacs/home))))
+  (if (one-window-p)
+      (spacemacs/home)
+    (delete-window)))
