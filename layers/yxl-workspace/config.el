@@ -7,7 +7,7 @@
 (setq history-length 100)
 (with-eval-after-load 'desktop
  (add-to-list 'desktop-modes-not-to-save 'image-mode)
- (add-to-list 'desktop-modes-not-to-save 'pdf-view-mode)
+ ;; (add-to-list 'desktop-modes-not-to-save 'pdf-view-mode)
  (add-to-list 'desktop-modes-not-to-save 'csv-mode)
  (add-to-list 'desktop-modes-not-to-save 'cfw:calendar-mode)
  (add-to-list 'desktop-modes-not-to-save 'elfeed-search-mode)
