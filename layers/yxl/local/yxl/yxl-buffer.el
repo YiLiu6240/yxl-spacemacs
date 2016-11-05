@@ -10,6 +10,8 @@
 (defvar yxl-buffer/inherit-special-list '((ess-mode . R-mode)
                                                (inferior-ess-mode . R-mode)))
 
+(defvar yxl-buffer-stored-name nil)
+
 
 
 (defun yxl-buffer//translate-major-mode ()

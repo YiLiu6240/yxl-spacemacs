@@ -17,6 +17,8 @@
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
   "wV" #'split-window-right
+  "wY" #'yxl-window/record-layout
+  "wP" #'yxl-window/load-laytout
   "w <SPC>" #'ace-window)
 
 ;; addition to stock bindings

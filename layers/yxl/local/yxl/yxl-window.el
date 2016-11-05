@@ -1,8 +1,7 @@
 (defvar-local yxl-line-width 80
   "preferred line width for a window, useful when setting window centering")
 
-(defvar yxl-buffer-stored-name nil)
-
+(defvar yxl-window-stored-layout nil)
 
 
 (defun yxl-window/popwin-width ()
@@ -176,5 +175,17 @@ Else create a window with lines parsed by prefix"
   "open in the current window the buffer in previous window."
   (interactive)
   (set-window-buffer (selected-window) (window-buffer (previous-window))))
+
+(defun yxl-window/record-layout ()
+  (interactive)
+  (progn
+    (setq yxl-window-stored-layout (window-state-get nil t))
+    (message "stored window layout.")))
+
+(defun yxl-window/load-laytout ()
+  (interactive)
+  (progn
+    (window-state-put yxl-window-stored-layout (frame-root-window))
+    (message "load stored window layout.")))
 
 (provide 'yxl-window)
