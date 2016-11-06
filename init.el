@@ -242,6 +242,7 @@
   ;; ==== general packages below ====
   ;; -----------
   (setq hl-todo-keyword-faces '(("HOLD" . "#268bd2")
+                                ("TODAY" . "#dc322f")
                                 ("TODO" . "#cb4b16")
                                 ("NEXT" . "#859900")
                                 ("THEM" . "#859900")

@@ -71,6 +71,7 @@
            "INBOX(i)"                   ;; ideas, undecided
            "QUICK(q)"                   ;; quick
            "HAVE-A-LOOK(h)"
+           "TODAY(T)"                       ;; needs to be done today
            "TODO(t)"                        ;; needs to be done
            "NEXT(n)"                        ;; next in line
            "WIP(I)"                         ;; in-progress
@@ -87,6 +88,7 @@
   (setq org-todo-keyword-faces
         '(("INBOX" . (:foreground "#268bd2"))
           ("HAVE-A-LOOK" . (:foreground "#d33682"))
+          ("TODAY" . (:foreground "#dc322f"))
           ("TODO" . (:foreground "#cb4b16"))
           ("HOLD" . (:foreground "#268bd2"))
           ("NEXT" . (:foreground "#6c71c4"))
@@ -136,7 +138,8 @@
 
   (add-to-list 'org-agenda-custom-commands
                '("0" "Life -- todo list"
-                 ((todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-life)))
+                 ((todo "TODAY" ((org-agenda-files yxl-org-agenda-files-life)))
+                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-life)))
                   (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-life)))
                   (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-life)))
                   (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl-org-agenda-files-life)))))
@@ -147,6 +150,7 @@
                                     (org-agenda-start-day "-7d")
                                     (org-agenda-files yxl-org-agenda-files-life)
                                     (org-agenda-repeating-timestamp-show-all t)))
+                  (todo "TODAY" ((org-agenda-files yxl-org-agenda-files-life)))
                   (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-life)))
                   (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-life)))
                   (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-life)))
@@ -154,7 +158,8 @@
                nil)
   (add-to-list 'org-agenda-custom-commands
                '("1" "Work -- todo list"
-                 ((todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-work)))
+                 ((todo "TODAY" ((org-agenda-files yxl-org-agenda-files-work)))
+                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-work)))
                   (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-work)))
                   (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-work)))
                   (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl-org-agenda-files-work)))))
@@ -165,6 +170,7 @@
                                     (org-agenda-start-day "-7d")
                                     (org-agenda-files yxl-org-agenda-files-work)
                                     (org-agenda-repeating-timestamp-show-all t)))
+                  (todo "TODAY" ((org-agenda-files yxl-org-agenda-files-work)))
                   (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-work)))
                   (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-work)))
                   (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-work)))
@@ -176,6 +182,7 @@
                                     (org-agenda-start-day "-7d")
                                     (org-agenda-files yxl-org-agenda-files-work)
                                     (org-agenda-repeating-timestamp-show-all t)))
+                  (todo "TODAY" ((org-agenda-files yxl-org-agenda-files-work)))
                   (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-work)))
                   (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-work)))
                   (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-work)))
