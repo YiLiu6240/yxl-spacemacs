@@ -2,6 +2,8 @@
 (global-set-key (kbd "s-3") (lambda () (interactive) (insert "#")))
 ;; (global-set-key (kbd "C-S-p") #'helm-M-x)
 (global-set-key (kbd "C-S-p") #'counsel-M-x)
+(global-set-key (kbd "C-S-o") #'company-yasnippet)
+(global-set-key (kbd "C-S-y") #'yas-insert-snippet)
 (global-set-key (kbd "C-h") #'delete-backward-char)
 (define-key isearch-mode-map "\C-h" #'isearch-delete-char)
 

@@ -1,6 +1,7 @@
+# -*- mode: snippet -*-
 # name: \begin{environment} ... \end{environment}
 # key: begin
 # --
 \begin{${1:environment}}
-  `yas/selected-text`$0
+  $0
 \end{$1}

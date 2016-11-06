@@ -2,14 +2,16 @@
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'latex-mode
-                     '(("tcap" "\\caption[${1:title}]{%\n  \\textbf{$1} \\\\\n  \\footnotesize{\n    ${0:descption}\n  }}\n" "table caption" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/table-caption" nil nil)
-                       ("m" "\\\\($1\\\\)\n" "math" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/math" nil nil)
-                       ("begin" "\\begin{${1:environment}}\n  `yas/selected-text`$0\n\\end{$1}" "\\begin{environment} ... \\end{environment}" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/env" nil nil)
-                       ("d" "\\\\[$1\\\\]\n" "disp-math" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/disp-math" nil nil)
-                       ("covar-math" "\\\\(CoVaR_{q}^{j|i}\\\\)\n" "CoVaR in math mode" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/covar_math" nil nil)
-                       ("dcovar-math" "\\\\(\\\\Delta CoVaR_{q}^{j|i}\\\\)\n" "Delta CoVaR in math mode" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/covar_delta_math" nil nil)
-                       ("dcovar" "\\\\Delta CoVaR_{q}^{j|i}" "Delta CoVaR" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/covar_delta" nil nil)
-                       ("covar" "CoVaR_{q}^{j|i}" "CoVaR" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/covar" nil nil)))
+                     '(("tcap" "\\caption[${1:title}]{%\n  \\textbf{$1} \\\\\n  \\footnotesize{\n    ${2:descption}\n  }}\n" "table caption" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/table_caption" nil nil)
+                       ("s" "_{$1}^{$2}\n" "subscript and superscript" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/math_suffix_sub-super" nil nil)
+                       ("mm" "\\\\($0\\\\)\n" "math" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/math_plain" nil nil)
+                       ("md" "\\\\[$1\\\\]\n" "disp-math" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/math_display" nil nil)
+                       ("covar-math" "\\\\(CoVaR_{q}^{j|i}\\\\)\n" "CoVaR in math mode" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/exp_covar_math" nil nil)
+                       ("dcovar-math" "\\\\(\\\\Delta CoVaR_{q}^{j|i}\\\\)\n" "Delta CoVaR in math mode" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/exp_covar_delta_math" nil nil)
+                       ("dcovar" "\\\\Delta CoVaR_{q}^{j|i}" "Delta CoVaR" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/exp_covar_delta" nil nil)
+                       ("covar" "CoVaR_{q}^{j|i}" "CoVaR" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/exp_covar" nil nil)
+                       ("begin" "\\begin{${1:environment}}\n  $0\n\\end{$1}\n" "\\begin{environment} ... \\end{environment}" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/env_general" nil nil)
+                       ("align" "\\begin{align}\n  $0\n\\end{align}\n" "\\begin{align} ... \\end{align}" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/latex-mode/env_align" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Oct 29 14:44:27 2016
+;;; Do not edit! File generated at Sun Nov  6 12:17:13 2016

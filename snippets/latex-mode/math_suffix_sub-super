@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: subscript and superscript
+# key: s
+# --
+_{$1}^{$2}
