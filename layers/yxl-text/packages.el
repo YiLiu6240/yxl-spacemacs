@@ -1,6 +1,6 @@
 (setq yxl-text-packages '((text-mode :location built-in)
                           auctex
-                          latex-extra
+                          ;; latex-extra
                           (bibtex :location built-in)
                           helm-bibtex
                           gscholar-bibtex
@@ -25,7 +25,7 @@
 
 (defun yxl-text/post-init-auctex ()
   (with-eval-after-load 'latex
-    (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
+    ;; (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
     (evil-set-initial-state 'reftex-toc-mode 'evilified)
     (evil-set-initial-state 'reftex-select-label-mode 'evilified)
     (yxl-text/setup-latex-general)
@@ -36,21 +36,21 @@
       "oa" #'yxl-text/latex-align-buffer)
     (add-hook 'LaTeX-mode-hook #'yxl-text/latex-hi-lock)))
 
-(defun yxl-text/init-latex-extra ()
-  (use-package latex-extra
-    :defer t
-    :config
-    (progn
-      (setq latex/view-after-compile nil)
-      ;; disable auto fill effect
-      ;; (add-hook 'latex-extra-mode-hook (lambda ()
-      ;;                                    (setq auto-fill-function nil)) t)
-      ;; REVIEW
-      (setq latex/no-fill-environments '("equation" "equation*" "align"
-                                         "align*" "tabular" "tikzpicture"))
-      (define-key latex-extra-mode-map (kbd "C-<tab>") #'latex/hide-show)
-      (define-key latex-extra-mode-map (kbd "C-S-<tab>") #'latex/hide-show-all)
-      (define-key latex-extra-mode-map (kbd "S-<tab>") nil))))
+;; (defun yxl-text/init-latex-extra ()
+;;   (use-package latex-extra
+;;     :defer t
+;;     :config
+;;     (progn
+;;       (setq latex/view-after-compile nil)
+;;       ;; disable auto fill effect
+;;       ;; (add-hook 'latex-extra-mode-hook (lambda ()
+;;       ;;                                    (setq auto-fill-function nil)) t)
+;;       ;; REVIEW
+;;       (setq latex/no-fill-environments '("equation" "equation*" "align"
+;;                                          "align*" "tabular" "tikzpicture"))
+;;       (define-key latex-extra-mode-map (kbd "C-<tab>") #'latex/hide-show)
+;;       (define-key latex-extra-mode-map (kbd "C-S-<tab>") #'latex/hide-show-all)
+;;       (define-key latex-extra-mode-map (kbd "S-<tab>") nil))))
 
 (defun yxl-text/init-bibtex ()
   (use-package bibtex
