@@ -2,9 +2,9 @@
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'ess-mode
-                     '(("%" "%$0%\n" "pipe" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/ess-mode/pipe3" nil nil)
-                       ("$" "%$%\n" "pipe %$%" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/ess-mode/pipe1" nil nil)
-                       (">" "%>%\n" "pipe %>%" nil nil nil "/Users/lysender61/.spacemacs.d/snippets/ess-mode/pipe0" nil nil)))
+                     '(("%" "%$0%\n" "pipe" nil nil nil "/home/yiliu/.spacemacs.d/snippets/ess-mode/pipe3" nil nil)
+                       ("$" "%$%\n" "pipe %$%" nil nil nil "/home/yiliu/.spacemacs.d/snippets/ess-mode/pipe1" nil nil)
+                       (">" "%>%\n" "pipe %>%" nil nil nil "/home/yiliu/.spacemacs.d/snippets/ess-mode/pipe0" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Nov  6 12:17:13 2016
+;;; Do not edit! File generated at Sun Nov  6 20:40:31 2016
