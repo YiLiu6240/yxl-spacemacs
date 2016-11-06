@@ -12,8 +12,10 @@
   ".mS" #'bm-show-all
   ".ww" #'window-configuration-to-register
   ".wj" #'jump-to-register
-  ".Ss" #'session-save
-  ".Sl" #'session-load
+  ".Ss1" #'yxl-session-save-1
+  ".Sl1" #'yxl-session-load-1
+  ".Ss2" #'yxl-session-save-2
+  ".Sl2" #'yxl-session-load-2
   ".vp" #'ivy-push-view
   ".vP" #'ivy-pop-view
 

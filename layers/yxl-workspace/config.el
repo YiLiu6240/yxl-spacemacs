@@ -21,24 +21,42 @@
 ;;          (desktop-remove)
 ;;          (setq desktop-dirname desktop-dirname-tmp)))
 
-(defun saved-session-p ()
+(defun yxl-saved-session-p ()
   (file-exists-p (concat yxl-desktop-dirname "/"
                          desktop-base-file-name)))
 
-;; use session-load to restore the desktop manually
-(defun session-load ()
+(defun yxl-session-load-1 ()
   "Restore a saved emacs session."
   (interactive)
-  (if (saved-session-p)
-      (desktop-read yxl-desktop-dirname)
-    (message "No desktop found.")))
+  (let ((desktop-base-file-name "yxl-emacs-desktop-1"))
+    (if (yxl-saved-session-p)
+        (desktop-read yxl-desktop-dirname)
+      (message "No desktop found."))))
 
-;; use session-save to save the desktop manually
-(defun session-save ()
+(defun yxl-session-load-2 ()
+  "Restore a saved emacs session."
+  (interactive)
+  (let ((desktop-base-file-name "yxl-emacs-desktop-2"))
+    (if (yxl-saved-session-p)
+        (desktop-read yxl-desktop-dirname)
+      (message "No desktop found."))))
+
+(defun yxl-session-save-1 ()
   "Save an emacs session."
   (interactive)
-  (if (saved-session-p)
-      (if (y-or-n-p "Overwrite existing desktop? ")
-          (desktop-save yxl-desktop-dirname)
-        (message "Session not saved."))
-    (desktop-save yxl-desktop-dirname)))
+  (let ((desktop-base-file-name "yxl-emacs-desktop-1"))
+    (if (yxl-saved-session-p)
+        (if (y-or-n-p "Overwrite existing desktop? ")
+            (desktop-save yxl-desktop-dirname)
+          (message "Session not saved."))
+      (desktop-save yxl-desktop-dirname))))
+
+(defun yxl-session-save-2 ()
+  "Save an emacs session."
+  (interactive)
+  (let ((desktop-base-file-name "yxl-emacs-desktop-2"))
+    (if (yxl-saved-session-p)
+        (if (y-or-n-p "Overwrite existing desktop? ")
+            (desktop-save yxl-desktop-dirname)
+          (message "Session not saved."))
+      (desktop-save yxl-desktop-dirname))))
