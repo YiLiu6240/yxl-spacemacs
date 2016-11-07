@@ -1,3 +1,5 @@
+(defvar yxl-workspace-stored-config nil)
+
 (spacemacs|define-transient-state window-manipulation
   :title "Window Manipulation Transient State"
   :doc (concat "
@@ -111,3 +113,24 @@ pre-populate/re-populate fake configs with names."
    (eyebrowse--current-window-config 8 "doc2"))
   (eyebrowse--insert-in-window-config-list
    (eyebrowse--current-window-config 9 "git")))
+
+(defun yxl-workspace/record-config ()
+  (interactive)
+  (let ((window-configs (eyebrowse--get 'window-configs))
+        (current-slot (eyebrowse--get 'current-slot))
+        (last-slot (eyebrowse--get 'last-slot)))
+    (setq yxl-workspace-stored-config `(,window-configs
+                                        ,current-slot
+                                        ,last-slot))))
+
+(defun yxl-workspace/load-config ()
+  (interactive)
+  (let ((window-configs (nth 0 yxl-workspace-stored-config))
+        (current-slot (nth 1 yxl-workspace-stored-config))
+        (last-slot (nth 2 yxl-workspace-stored-config)))
+    (if window-configs
+        (progn
+          (eyebrowse--set 'window-configs window-configs)
+          (eyebrowse--set 'current-slot current-slot)
+          (eyebrowse--set 'last-slot last-slot)
+          (eyebrowse--load-window-config current-slot)))))

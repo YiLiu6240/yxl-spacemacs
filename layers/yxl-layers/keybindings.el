@@ -136,7 +136,9 @@
             (yxl-window/adjust-height-ratio)))
   "owp" #'yxl-window/get-buffer-previous-window
   "owc" #'yxl-window/center-margins
-  "oww" #'yxl-window/change-width)
+  "oww" #'yxl-window/change-width
+  "oWY" #'yxl-workspace/record-config
+  "oWP" #'yxl-workspace/load-config)
 
 (spacemacs/declare-prefix "." "user-quick")
 (spacemacs/declare-prefix ".S" "session")
