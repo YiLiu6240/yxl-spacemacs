@@ -74,17 +74,16 @@
            "TODAY(T)"                       ;; needs to be done today
            "TODO(t)"                        ;; needs to be done
            "NEXT(n)"                        ;; next in line
-           "WIP(I)"                         ;; in-progress
            "HOLD(H)"                        ;; put on hold for various reasons
            "PLAN(P)"                        ;; still under planning
            "FOLLOW-UP(f)"                   ;; follow-up results
            "SOMEDAY(s)"                     ;; not now
-           "|"
-           "DONE(d)" "CANCELED(C)" "FAILED(F)")
+           "THINK(k)"                       ;; think about it
+           "|" "DONE(d)" "CANCELED(C)" "FAILED(F)")
           (sequence
+           "WIP(I)"
            "00(0)" "25(1)" "50(2)" "75(3)" "95(4)"
-           "|"
-           "DONE(d) ABORT(A)")))
+           "|" "DONE(d) ABORT(A)")))
   (setq org-todo-keyword-faces
         '(("INBOX" . (:foreground "#268bd2"))
           ("HAVE-A-LOOK" . (:foreground "#d33682"))
@@ -103,15 +102,15 @@
           ("50" . (:foreground "#b58900"))
           ("75" . (:foreground "#926e00"))
           ("95" . (:foreground "#926e00"))))
-  (setq org-tag-faces
-        '(("CAPTURE" . (:foreground "#268bd2" :slant italic))
-          ("CTW" . (:foreground "#268bd2" :slant italic))
-          ("WORK" . (:foreground "#268bd2" :slant italic))
-          ("HOME" . (:foreground "#859900" :slant italic))
-          ("CONFIG" . (:foreground "#859900" :slant italic))
-          ("MAJOR" . (:foreground "#cb4b16" :slant italic))
-          ("MID" . (:foreground "#b58900" :slant italic))
-          ("MINOR" . (:foreground "#859900" :slant italic))))
+  ;; (setq org-tag-faces
+  ;;       '(("CAPTURE" . (:foreground "#268bd2" :slant italic))
+  ;;         ("CTW" . (:foreground "#268bd2" :slant italic))
+  ;;         ("WORK" . (:foreground "#268bd2" :slant italic))
+  ;;         ("HOME" . (:foreground "#859900" :slant italic))
+  ;;         ("CONFIG" . (:foreground "#859900" :slant italic))
+  ;;         ("MAJOR" . (:foreground "#cb4b16" :slant italic))
+  ;;         ("MID" . (:foreground "#b58900" :slant italic))
+  ;;         ("MINOR" . (:foreground "#859900" :slant italic))))
   (setq org-tag-persistent-alist
         '((:startgrouptag) ;; task group
           ("CTW" . ?t) ("WORK" . ?w) ("HOME" . ?h) ("CONFIG" . ?c)
