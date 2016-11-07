@@ -6,7 +6,8 @@
                      ;;                                :repo "YiLiu6240/scratch-pop"
                      ;;                                :branch "dev"))
                      (scratch-pop :location local)
-                     bm))
+                     bm
+                     key-chord))
 
 (defun yxl/init-yxl ()
   (use-package yxl))
@@ -51,3 +52,13 @@
       (setq bm-repository-file
             (expand-file-name "~/Dropbox/inbox/.bm-repository"))
       (setq bm-cycle-all-buffers t))))
+
+(defun yxl/init-key-chord ()
+  (use-package key-chord
+    :init
+    (progn (key-chord-mode 1))
+    :config
+    (progn
+      ;; (setq key-chord-two-keys-delay 0.015)
+      ;; (setq key-chord-one-key-delay 0.020)
+      )))

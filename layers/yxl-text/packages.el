@@ -34,7 +34,11 @@
     (yxl-text/setup-latex-reftex)
     (spacemacs/set-leader-keys-for-major-mode 'latex-mode
       "oa" #'yxl-text/latex-align-buffer)
-    (add-hook 'LaTeX-mode-hook #'yxl-text/latex-hi-lock)))
+    (add-hook 'LaTeX-mode-hook #'yxl-text/latex-hi-lock)
+    (key-chord-define LaTeX-mode-map "__"
+                      (lambda ()
+                        (interactive)
+                        (yas-expand-snippet "_{$1}^{$2}")))))
 
 ;; (defun yxl-text/init-latex-extra ()
 ;;   (use-package latex-extra
