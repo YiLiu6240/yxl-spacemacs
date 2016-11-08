@@ -13,6 +13,13 @@
            20))))
 
 (defun yxl-window/get-ratio ()
+  "Return the a window width/height corresponding to a ratio to current frame:
+- golden ratio by default;
+- 0.8 with C-u uni prefix;
+- 0.X with uni prefix being single digit;
+- X% otherwise."
+  "By default return a golden ratio column width; if has uni prefix, return 0.8;
+if uni prefix is a one digit number, treat it as 0.X; else treat it as X%."
   (let* ((golden-ratio 0.618))
     (cond
      ((equal current-prefix-arg nil)

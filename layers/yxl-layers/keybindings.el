@@ -125,15 +125,7 @@
   "owv" #'split-window-right-small
   "owV" #'split-window-left-small
   "owg" #'yxl-window/adjust-width-ratio
-  "owG" (lambda ()
-          (interactive)
-          (let ((current-prefix-arg 80))
-            (yxl-window/adjust-width-ratio)))
   "owh" #'yxl-window/adjust-height-ratio
-  "owH" (lambda ()
-          (interactive)
-          (let ((current-prefix-arg 80))
-            (yxl-window/adjust-height-ratio)))
   "owp" #'yxl-window/get-buffer-previous-window
   "owc" #'yxl-window/center-margins
   "oww" #'yxl-window/change-width
