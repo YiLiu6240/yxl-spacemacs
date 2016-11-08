@@ -8,11 +8,11 @@
 ;;
 ;;; License: GPLv3
 
-(setq yxl-web-packages
-      '(w3m
-        helm-w3m
-        sx
-        elfeed))
+(setq yxl-web-packages '(w3m
+                         helm-w3m
+                         sx
+                         elfeed
+                         atomic-chrome))
 
 (defun yxl-web/init-helm-w3m ()
   "Initializes helm-w3m and adds keybindings for its exposed functionalities."
@@ -147,3 +147,7 @@
       (kill-new (x-get-selection)))
 
     (ad-activate 'elfeed-show-yank)))
+
+(defun yxl-web/init-atomic-chrome ()
+  (use-package atomic-chrome
+    :defer t))
