@@ -189,7 +189,17 @@
   (load-file (concat dotspacemacs-directory "config/yxl-spacemacs-home.el"))
 
   (setq-default custom-file (expand-file-name "custom.el" dotspacemacs-directory))
-  (load custom-file 'no-error 'no-message))
+  (load custom-file 'no-error 'no-message)
+
+  ;; --------
+  ;; pdf-tools
+  ;; --------
+
+  (if (eq system-type 'darwin)
+      ;; osx setup of pdf-tools
+      ;; http://emacs.stackexchange.com/questions/13314/install-pdf-tools-on-emacs-macosx
+      (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo"))
+  )
 
 (defun dotspacemacs/user-config ()
   ;; --------
@@ -277,14 +287,6 @@
   (add-to-list 'display-buffer-alist '("\\*magit:" display-buffer-same-window))
   (add-to-list 'display-buffer-alist '("\\*PDF" display-buffer-at-bottom))
 
-  ;; --------
-  ;; pdf-tools
-  ;; --------
-  (when (configuration-layer/layer-usedp 'pdf-tools)
-    (if (eq system-type 'darwin)
-        ;; osx setup of pdf-tools
-        ;; http://emacs.stackexchange.com/questions/13314/install-pdf-tools-on-emacs-macosx
-        (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")))
 
   ;; --------
   ;; yas
@@ -351,6 +353,4 @@
   ;; tramp bug, from zilongshanren
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-
-  ;; final steps
-  (switch-to-buffer "*scratch*"))
+  )
