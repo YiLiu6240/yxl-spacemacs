@@ -9,7 +9,8 @@
                             projectile
                             magit
                             ibuffer
-                            neotree))
+                            neotree
+                            graphviz))
 
 (defun yxl-config/post-init-dired ()
   (with-eval-after-load 'dired
@@ -177,3 +178,7 @@
 (defun yxl-config/post-init-neotree ()
   (with-eval-after-load 'neotree
     (define-key neotree-mode-map "o" #'spacemacs/neotree-expand-or-open)))
+
+(defun yxl-config/post-init-graphviz ()
+  (with-eval-after-load 'graphviz-dot-mode
+    (define-key graphviz-dot-mode-map ";" nil)))
