@@ -115,6 +115,7 @@ And if not, try to get the corresponding '-normal' face"
                                                (symbol-name evil-state))
                                               (active "active")
                                               (t "inactive")))
+                          (editor-symbol (powerline-get-state-symbol editor-state))
                           (state-indicator-face (pl/vim-face "state_indicator" editor-state))
                           (vc-face              (pl/vim-face "branch" editor-state))
                           (fileinfo-face        (pl/vim-face "fileinfo" editor-state))
@@ -135,7 +136,7 @@ And if not, try to get the corresponding '-normal' face"
                           ;; Left hand side
                           (lhs (list
                                 ;; evil state
-                                (powerline-raw (format " %s " (upcase editor-state)) state-indicator-face)
+                                (powerline-raw (format " %s " editor-symbol) state-indicator-face)
                                 ;; buffer id
                                 (powerline-buffer-id-short fileinfo-face 'l)
                                 ;; modified status
@@ -169,11 +170,11 @@ And if not, try to get the corresponding '-normal' face"
                           ;; Right Hand Side
                           (rhs (list
                                 (powerline-raw global-mode-string split-face 'r)
-                                ;; frame-name
-                                (when (> (window-width) 80)
-                                  (concat
-                                   (powerline-raw (powerline-get-frame-name) fileencoding-face 'lr)
-                                   (powerline-raw softdiv-right fileencoding-face)))
+                                ;; ;; frame-name
+                                ;; (when (> (window-width) 80)
+                                ;;   (concat
+                                ;;    (powerline-raw (powerline-get-frame-name) fileencoding-face 'lr)
+                                ;;    (powerline-raw softdiv-right fileencoding-face)))
                                 ;; remove vc mode, magit is not using it
                                 ;; (funcall harddiv-right split-face vc-face)
                                 ;; ;; version control

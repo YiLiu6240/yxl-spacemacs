@@ -155,4 +155,18 @@ Supports both Emacs and Evil cursor conventions."
                 (propertize "…" 'face 'eyebrowse-mode-line-inactive))
               right-delimiter))))
 
+(defun powerline-get-state-symbol (state)
+  (let ((evil-symbol-alist '(("normal" . "N")
+                             ("insert" . "I")
+                             ("visual" . "V")
+                             ("select" . "S")
+                             ("replace" . "R")
+                             ("motion" . "M")
+                             ("emacs" . "Em")
+                             ("evilified" . "E")
+                             ("iedit" . "Ie")
+                             ("lisp" . "L")
+                             ("inactive" . "N"))))
+    (cdr (assoc state evil-symbol-alist))))
+
 (provide 'powerline-funcs)
