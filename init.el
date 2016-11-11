@@ -205,7 +205,7 @@
   ;; --------
   ;; general
   ;; --------
-  (load-file (concat dotspacemacs-directory "config/yxl-keys.el"))
+  (load-file (concat dotspacemacs-directory "config/yxl-bindings.el"))
   (load-file (concat dotspacemacs-directory "config/post-init-config.el"))
   ;; emacs general
   ;; osx

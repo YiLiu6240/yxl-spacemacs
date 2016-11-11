@@ -1,3 +1,32 @@
+;; mac: use super+3 as "#"
+(global-set-key (kbd "s-3") (lambda () (interactive) (insert "#")))
+;; (global-set-key (kbd "C-S-p") #'helm-M-x)
+(global-set-key (kbd "C-S-p") #'counsel-M-x)
+(global-set-key (kbd "C-S-o") #'company-yasnippet)
+(global-set-key (kbd "C-S-y") #'yas-insert-snippet)
+(global-set-key (kbd "C-h") #'delete-backward-char)
+(define-key isearch-mode-map "\C-h" #'isearch-delete-char)
+
+;; overwrite stock bindings
+(spacemacs/set-leader-keys
+  "<SPC>" #'evil-avy-goto-char-2
+  "av" #'yxl-org/agenda-view
+  "fY" #'yxl/show-and-copy-buffer-filename-in-projectile
+  "bY" #'yxl-buffer-store-name
+  "bP" #'yxl-buffer-visit-stored-buffer
+  "ws" #'split-window-below-and-focus
+  "wS" #'split-window-below
+  "wv" #'split-window-right-and-focus
+  "wV" #'split-window-right
+  "wY" #'yxl-window/record-layout
+  "wP" #'yxl-window/load-laytout
+  "w <SPC>" #'ace-window)
+
+;; addition to stock bindings
+(spacemacs/set-leader-keys
+  "hdF" #'describe-face)
+
+;; leader keys
 (spacemacs/set-leader-keys
   ".."  #'spacemacs/scale-font-transient-state/body
   "./"  #'spacemacs/zoom-frm-transient-state/body
@@ -42,7 +71,7 @@
   "obb" #'ibuffer
   "obc" #'clone-indirect-buffer-other-window
   "obd" #'delete-other-windows
-  "obn" #'yxl-buffer/inherit
+  "obn" #'yxl-buffer-inherit
   "o <SPC>" #'delete-other-windows
   "obr" #'revert-buffer
 
@@ -132,6 +161,7 @@
   "oWY" #'yxl-workspace/record-config
   "oWP" #'yxl-workspace/load-config)
 
+;; prefixes
 (spacemacs/declare-prefix "." "user-quick")
 (spacemacs/declare-prefix ".S" "session")
 (spacemacs/declare-prefix ".m" "bm")
