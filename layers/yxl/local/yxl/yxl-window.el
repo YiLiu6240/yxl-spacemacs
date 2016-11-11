@@ -4,7 +4,7 @@
 (defvar yxl-window-stored-layout nil)
 
 
-(defun yxl-window/popwin-width ()
+(defun yxl-window-popwin-width ()
   "calculate the size of the popwin window, base on current frame width"
   (let ((auto-width (round (* (frame-width) 0.20))))
     (cond ((> (frame-width) 100)
@@ -12,7 +12,7 @@
           (t
            20))))
 
-(defun yxl-window/get-ratio ()
+(defun yxl-window-get-ratio ()
   "Return the a window width/height corresponding to a ratio to current frame:
 - golden ratio by default;
 - 0.8 with C-u uni prefix;
@@ -30,20 +30,20 @@ if uni prefix is a one digit number, treat it as 0.X; else treat it as X%."
          ((< current-prefix-arg 10)(/ current-prefix-arg 10.0))
          (t (/ current-prefix-arg 100.0)))))))
 
-(defun yxl-window/adjust-width-ratio ()
+(defun yxl-window-adjust-width-ratio ()
   "get the width size of a window that should be expanded to gold ratio"
   (interactive)
-  (let* ((main-width (round (* (yxl-window/get-ratio) (frame-width)))))
+  (let* ((main-width (round (* (yxl-window-get-ratio) (frame-width)))))
     (evil-resize-window main-width t)))
 
-(defun yxl-window/adjust-height-ratio ()
+(defun yxl-window-adjust-height-ratio ()
   "get the height size of a window that should be expanded to gold ratio"
   (interactive)
-  (let* ((main-height (round (* (yxl-window/get-ratio) (frame-height)))))
+  (let* ((main-height (round (* (yxl-window-get-ratio) (frame-height)))))
     (evil-resize-window main-height nil)))
 
 
-(defun yxl-window/custom-layout1 ()
+(defun yxl-window-custom-layout1 ()
   "window layout 1 | 2/3"
   (interactive)
   (delete-other-windows)
@@ -52,7 +52,7 @@ if uni prefix is a one digit number, treat it as 0.X; else treat it as X%."
   (split-window-below)
   (windmove-left))
 
-(defun yxl-window/custom-layout2 ()
+(defun yxl-window-custom-layout2 ()
   "window layout 1/2 | 3/4"
   (interactive)
   (delete-other-windows)
@@ -62,7 +62,7 @@ if uni prefix is a one digit number, treat it as 0.X; else treat it as X%."
   (windmove-left)
   (split-window-below))
 
-(defun yxl-window/custom-layout3 ()
+(defun yxl-window-custom-layout3 ()
   "window layout 1/2 | 3/4/5"
   (interactive)
   (delete-other-windows)
@@ -75,7 +75,7 @@ if uni prefix is a one digit number, treat it as 0.X; else treat it as X%."
 
 
 
-(defun yxl-window/split-below (&optional size)
+(defun yxl-window-split-below (&optional size)
   "split window with customized prefixes.
 If C-u, create a window with 20 lines.
 If C-u C-u, create a window with 15 lines.
@@ -90,7 +90,7 @@ Else create a window with lines parsed by prefix"
     (split-window-below -15))
    (t (split-window-below size))))
 
-(defun yxl-window/split-right (&optional size)
+(defun yxl-window-split-right (&optional size)
   "split window with customized prefixes.
 If C-u, create a window with 20 lines.
 If C-u C-u, create a window with 15 lines.
@@ -105,16 +105,16 @@ Else create a window with lines parsed by prefix"
     (split-window-right -15))
    (t (split-window-right size))))
 
-(defun yxl-window/split-below-and-focus (&optional size)
+(defun yxl-window-split-below-and-focus (&optional size)
   "Split the window vertically and focus the new window."
   (interactive "P")
-  (yxl-window/split-below size)
+  (yxl-window-split-below size)
   (windmove-down))
 
-(defun yxl-window/split-right-and-focus (&optional size)
+(defun yxl-window-split-right-and-focus (&optional size)
   "Split the window vertically and focus the new window."
   (interactive "P")
-  (yxl-window/split-right size)
+  (yxl-window-split-right size)
   (windmove-right))
 
 (defun split-window-below-small ()
@@ -124,11 +124,11 @@ Else create a window with lines parsed by prefix"
   (interactive)
   (if current-prefix-arg
       (list
-       (yxl-window/split-below -20)
+       (yxl-window-split-below -20)
        (windmove-down)
        (spacemacs/new-empty-buffer))
     (list
-     (yxl-window/split-below -20)
+     (yxl-window-split-below -20)
      (windmove-down))))
 
 (defun split-window-right-small ()
@@ -138,58 +138,58 @@ Else create a window with lines parsed by prefix"
   (interactive)
   (if current-prefix-arg
       (list
-       (yxl-window/split-right -35)
+       (yxl-window-split-right -35)
        (windmove-right)
        (spacemacs/new-empty-buffer))
     (list
-     (yxl-window/split-right -35))))
+     (yxl-window-split-right -35))))
 
 (defun split-window-above-small ()
   "split into a smaller window above, and move to focus"
   (interactive)
   (if current-prefix-arg
       (list
-       (yxl-window/split-below 20)
+       (yxl-window-split-below 20)
        (spacemacs/new-empty-buffer))
     (list
-     (yxl-window/split-below 20))))
+     (yxl-window-split-below 20))))
 
 (defun split-window-left-small ()
   "split into a smaller window above, and move to focus"
   (interactive)
   (if current-prefix-arg
       (list
-       (yxl-window/split-right 35)
+       (yxl-window-split-right 35)
        (windmove-right)
        (spacemacs/new-empty-buffer))
     (list
-     (yxl-window/split-right 35)
+     (yxl-window-split-right 35)
      (windmove-right))))
 
 
-(defun yxl-window/change-width (width)
+(defun yxl-window-change-width (width)
   (interactive "nwindow width: ")
   (evil-resize-window width t))
 
-(defun yxl-window/center-margins ()
+(defun yxl-window-center-margins ()
   "center current window"
   (interactive)
   (let* ((margin (max 0 (/ (- (window-width) yxl-line-width) 2))))
     (set-window-margins nil margin margin)))
 
 
-(defun yxl-window/get-buffer-previous-window ()
+(defun yxl-window-get-buffer-previous-window ()
   "open in the current window the buffer in previous window."
   (interactive)
   (set-window-buffer (selected-window) (window-buffer (previous-window))))
 
-(defun yxl-window/record-layout ()
+(defun yxl-window-record-layout ()
   (interactive)
   (progn
     (setq yxl-window-stored-layout (window-state-get nil t))
     (message "stored window layout.")))
 
-(defun yxl-window/load-laytout ()
+(defun yxl-window-load-laytout ()
   (interactive)
   (progn
     (window-state-put yxl-window-stored-layout (frame-root-window))

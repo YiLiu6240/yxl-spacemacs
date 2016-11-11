@@ -22,22 +22,22 @@
   (with-helm-alive-p
     (helm-quit-and-execute-action 'helm-buffer-switch-to-new-window-h)))
 
-(defun yxl/helm-find-org-agenda ()
+(defun yxl-helm-find-org-agenda ()
   (interactive)
   (helm :sources '(yxl-helm-org-agenda-sources)
         :buffer "*helm org agenda*"))
 
-(defun yxl/helm-set-simple-todo ()
+(defun yxl-helm-set-simple-todo ()
   (interactive)
   (helm :sources '(yxl-helm-simple-todo-sources)
         :buffer "*helm yxl simple-todo*"))
 
-(defun yxl/helm-quick ()
+(defun yxl-helm-quick ()
   (interactive)
   (helm :sources '(yxl-helm-quick-sources)
         :buffer "*helm yxl quick*"))
 
-(defun yxl/helm-pdf-occur ()
+(defun yxl-helm-pdf-occur ()
   (interactive)
   (helm :sources '(yxl-helm-pdf-occur-sources-preset
                    yxl-helm-pdf-occur-sources-all

@@ -1,6 +1,6 @@
 (require 'evil)
 
-(evil-define-command yxl/evil-quit (&optional force)
+(evil-define-command yxl-evil-quit (&optional force)
   "Only delete window when there is multiple window open,
 otherwise prompt message to confirm to delete frame."
   :repeat nil

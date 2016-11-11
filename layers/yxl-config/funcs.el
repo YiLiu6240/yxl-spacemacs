@@ -47,15 +47,15 @@ The colors are determined by the variable
   (pdf-cache-clear-images)
   (pdf-view-redisplay t))
 
-(defun yxl/pdf-view-bindings ()
+(defun yxl-pdf-view-bindings ()
   (interactive)  ; needs to call interactively due to bugs in pdf mode
   (evil-set-initial-state 'pdf-view-mode 'evilified)
   (evilified-state-evilify pdf-view-mode pdf-view-mode-map
     "-" #'dired-jump
     "_" #'pdf-view-shrink
     "+" #'pdf-view-enlarge
-    "gg" #'yxl/pdf-view-goto-first-page
-    "G" #'yxl/pdf-view-goto-page
+    "gg" #'yxl-pdf-view-goto-first-page
+    "G" #'yxl-pdf-view-goto-page
     "e" #'pdf-view-scroll-down-or-previous-page
     "d" #'pdf-view-scroll-up-or-next-page
     "j"  #'pdf-view-next-line-or-next-page
@@ -69,10 +69,10 @@ The colors are determined by the variable
   (spacemacs/set-leader-keys-for-major-mode #'pdf-view-mode
     "=" #'pdf-view-enlarge
     "-" #'pdf-view-shrink
-    "gg" #'yxl/pdf-view-goto-first-page
-    "G" #'yxl/pdf-view-goto-page
-    "os" #'yxl/helm-pdf-occur
-    "oS" #'yxl/pdf-occur-search-preset
+    "gg" #'yxl-pdf-view-goto-first-page
+    "G" #'yxl-pdf-view-goto-page
+    "os" #'yxl-helm-pdf-occur
+    "oS" #'yxl-pdf-occur-search-preset
     "n" #'pdf-view-midnight-minor-mode
     "N" #'pdf-view-darknight-minor-mode
     "d" #'pdf-view-midday-minor-mode)
@@ -132,21 +132,21 @@ The colors are determined by the variable
     ;; Other
     ("q" nil :exit t)))
 
-(defun yxl/pdf-view-goto-page ()
+(defun yxl-pdf-view-goto-page ()
   "vim-style wrapper for pdf-view-goto-page. accepts G or 5G."
   (interactive)
   (if current-prefix-arg
       (pdf-view-goto-page (prefix-numeric-value current-prefix-arg))
     (pdf-view-last-page)))
 
-(defun yxl/pdf-view-goto-first-page ()
+(defun yxl-pdf-view-goto-first-page ()
   "vim-style wrapper for pdf-view-goto-page. accepts gg or 5gg."
   (interactive)
   (if current-prefix-arg
       (pdf-view-goto-page (prefix-numeric-value current-prefix-arg))
     (pdf-view-first-page)))
 
-(defun yxl/pdf-occur-search-preset ()
+(defun yxl-pdf-occur-search-preset ()
   (interactive)
   (pdf-occur yxl-pdf-occur-preset-all t))
 
@@ -155,10 +155,10 @@ The colors are determined by the variable
   (mark-whole-buffer)
   (elfeed-search-untag-all-unread))
 
-(defun yxl/elfeed-mark-as-read ()
+(defun yxl-elfeed-mark-as-read ()
   (interactive)
   (elfeed-search-untag-all 'unread))
-(defun yxl/elfeed-mark-as-unread ()
+(defun yxl-elfeed-mark-as-unread ()
   (interactive)
   (elfeed-search-tag-all 'unread))
 
@@ -170,7 +170,7 @@ The colors are determined by the variable
     (setq shr-inhibit-images t))
   (message "shr-inhibit-images: %s" shr-inhibit-images))
 
-(defun yxl/dired-delete-window ()
+(defun yxl-dired-delete-window ()
   "delete the current dired window, if it is the only window, return to
 spacemacs home buffer"
   (interactive)

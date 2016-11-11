@@ -38,8 +38,8 @@
     "O" #'yxl-web/elfeed-search-browse-url-w3m
     "u" #'elfeed-search-browse-url
     ;; ",R" #'zilong/elfeed-mark-all-as-read
-    "m" #'yxl/elfeed-mark-as-read
-    "M" #'yxl/elfeed-mark-as-unread
+    "m" #'yxl-elfeed-mark-as-read
+    "M" #'yxl-elfeed-mark-as-unread
     ;; ",tm" #'elfeed-toggle-shr-inhibit-images
     "q"  #'quit-window
     (kbd "C-h") #'windmove-left

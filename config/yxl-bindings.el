@@ -11,15 +11,15 @@
 (spacemacs/set-leader-keys
   "<SPC>" #'evil-avy-goto-char-2
   "av" #'yxl-org/agenda-view
-  "fY" #'yxl/show-and-copy-buffer-filename-in-projectile
+  "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
   "wV" #'split-window-right
-  "wY" #'yxl-window/record-layout
-  "wP" #'yxl-window/load-laytout
+  "wY" #'yxl-window-record-layout
+  "wP" #'yxl-window-load-laytout
   "w <SPC>" #'ace-window)
 
 ;; addition to stock bindings
@@ -30,7 +30,7 @@
 (spacemacs/set-leader-keys
   ".."  #'spacemacs/scale-font-transient-state/body
   "./"  #'spacemacs/zoom-frm-transient-state/body
-  ".s"  #'yxl/append-to-scratch
+  ".s"  #'yxl-append-to-scratch
   ".mm" #'bm-toggle
   ".mM" #'bm-toggle-buffer-persistence
   ".mk" #'bm-previous
@@ -49,14 +49,14 @@
   ".vP" #'ivy-pop-view
 
   ;; top-level quick actions
-  "o1" #'yxl-find/file-org-popup
-  "o2" #'yxl-find/file-org-work-popup
-  "o3" #'yxl-find/file-org-dotfile-popup
+  "o1" #'yxl-find-file-org-popup
+  "o2" #'yxl-find-file-org-work-popup
+  "o3" #'yxl-find-file-org-dotfile-popup
   "o4" #'dired-popup
-  "ok" #'yxl-frame/select-code
-  "oj" #'yxl-frame/select-repl
-  "oh" #'yxl-frame/select-meta
-  "ol" #'yxl-frame/select-config
+  "ok" #'yxl-frame-select-code
+  "oj" #'yxl-frame-select-repl
+  "oh" #'yxl-frame-select-meta
+  "ol" #'yxl-frame-select-config
 
   ;; cite
   "occ" #'helm-bibtex
@@ -76,15 +76,15 @@
   "obr" #'revert-buffer
 
   ;; file
-  "ofb" #'yxl-find/file-bib
-  "ofo" #'yxl-find/file-org-other-window
-  "ofO" #'yxl-find/file-org
-  "ofw" #'yxl-find/file-org-work-other-window
-  "ofW" #'yxl-find/file-org-work
-  "ofd" #'yxl-find/file-diary
+  "ofb" #'yxl-find-file-bib
+  "ofo" #'yxl-find-file-org-other-window
+  "ofO" #'yxl-find-file-org
+  "ofw" #'yxl-find-file-org-work-other-window
+  "ofW" #'yxl-find-file-org-work
+  "ofd" #'yxl-find-file-diary
   "ofs" #'spacemacs/find-dotfile
-  "ofn" #'yxl-find/file-note
-  "ofN" #'yxl-find/file-note-master
+  "ofn" #'yxl-find-file-note
+  "ofN" #'yxl-find-file-note-master
   "ofm" #'yxl-text/find-TeX-master
   "ofr" #'yxl-text/find-project-root
   "ofu" #'yxl-text/find-project-outline
@@ -92,20 +92,20 @@
   ;; Frame
   "oFM" #'make-frame
   "oFN" #'set-frame-name
-  "oFn" #'yxl-frame/select-by-name
-  "oFs1" #'yxl-frame/set-code
-  "oFs2" #'yxl-frame/set-repl
-  "oFs3" #'yxl-frame/set-meta
-  "oFs4" #'yxl-frame/set-config
+  "oFn" #'yxl-frame-select-by-name
+  "oFs1" #'yxl-frame-set-code
+  "oFs2" #'yxl-frame-set-repl
+  "oFs3" #'yxl-frame-set-meta
+  "oFs4" #'yxl-frame-set-config
 
-  "oFsh" #'yxl-frame/set-meta
-  "oFsj" #'yxl-frame/set-repl
-  "oFsk" #'yxl-frame/set-code
-  "oFsl" #'yxl-frame/set-config
+  "oFsh" #'yxl-frame-set-meta
+  "oFsj" #'yxl-frame-set-repl
+  "oFsk" #'yxl-frame-set-code
+  "oFsl" #'yxl-frame-set-config
 
   ;; ess
-  "oe2" #'yxl/ess-repl-2cols
-  "oe3" #'yxl/ess-repl-3cols
+  "oe2" #'yxl-ess-repl-2cols
+  "oe3" #'yxl-ess-repl-3cols
 
   ;; insert
   "ois" 'yas-insert-snippet
@@ -121,21 +121,21 @@
 
   ;; orgmode
   "ooo" #'org-agenda
-  "ooa" #'yxl/helm-find-org-agenda
+  "ooa" #'yxl-helm-find-org-agenda
   "oo1" #'yxl-org/agenda-work
   "oo0" #'yxl-org/agenda-life
 
   ;; project
-  "opg" #'yxl-find/dir-Downloads
-  "oph" #'yxl-find/dir-Dropbox
-  "opc" #'yxl-find/pwd-code
-  "opd" #'yxl-find/dir-dotfiles
-  "opj" #'yxl-find/pwd-journal
-  "opo" #'yxl-find/dir-org
-  "opp" #'yxl-find/pwd-paper
+  "opg" #'yxl-find-dir-Downloads
+  "oph" #'yxl-find-dir-Dropbox
+  "opc" #'yxl-find-pwd-code
+  "opd" #'yxl-find-dir-dotfiles
+  "opj" #'yxl-find-pwd-journal
+  "opo" #'yxl-find-dir-org
+  "opp" #'yxl-find-pwd-paper
 
   ;; quick
-  "og" #'yxl/helm-quick
+  "og" #'yxl-helm-quick
 
   ;; search
   "osg" #'helm-google-suggest
@@ -146,18 +146,18 @@
   "oy" #'copy-file-name-to-clipboard
 
   ;; window
-  "ow1" #'yxl-window/custom-layout1
-  "ow2" #'yxl-window/custom-layout2
-  "ow3" #'yxl-window/custom-layout3
+  "ow1" #'yxl-window-custom-layout1
+  "ow2" #'yxl-window-custom-layout2
+  "ow3" #'yxl-window-custom-layout3
   "ows" #'split-window-below-small
   "owS" #'split-window-above-small
   "owv" #'split-window-right-small
   "owV" #'split-window-left-small
-  "owg" #'yxl-window/adjust-width-ratio
-  "owh" #'yxl-window/adjust-height-ratio
-  "owp" #'yxl-window/get-buffer-previous-window
-  "owc" #'yxl-window/center-margins
-  "oww" #'yxl-window/change-width
+  "owg" #'yxl-window-adjust-width-ratio
+  "owh" #'yxl-window-adjust-height-ratio
+  "owp" #'yxl-window-get-buffer-previous-window
+  "owc" #'yxl-window-center-margins
+  "oww" #'yxl-window-change-width
   "oWY" #'yxl-workspace/record-config
   "oWP" #'yxl-workspace/load-config)
 

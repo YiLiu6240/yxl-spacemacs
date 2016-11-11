@@ -35,7 +35,7 @@
    (define-key evil-normal-state-map "q" nil)
    (define-key evil-normal-state-map "qm" #'evil-execute-macro)
    (define-key evil-normal-state-map "qM" #'evil-record-macro)
-   (define-key evil-normal-state-map "qq" #'yxl/evil-quit)
+   (define-key evil-normal-state-map "qq" #'yxl-evil-quit)
    ;; (define-key evil-normal-state-map "qQ" #'evil-save-and-close)
    (define-key evil-normal-state-map "qw" #'evil-write)
    (define-key evil-normal-state-map "qW" #'evil-write-all)
@@ -72,21 +72,21 @@
   "personal bindings, rely on external yxl functions"
   (progn
     ;; tmux style bindings for my personal 4 frame setup
-    (define-key evil-motion-state-map (kbd "C-a h") #'yxl-frame/select-meta)
-    (define-key evil-motion-state-map (kbd "C-a j") #'yxl-frame/select-repl)
-    (define-key evil-motion-state-map (kbd "C-a k") #'yxl-frame/select-code)
-    (define-key evil-motion-state-map (kbd "C-a l") #'yxl-frame/select-config)
+    (define-key evil-motion-state-map (kbd "C-a h") #'yxl-frame-select-meta)
+    (define-key evil-motion-state-map (kbd "C-a j") #'yxl-frame-select-repl)
+    (define-key evil-motion-state-map (kbd "C-a k") #'yxl-frame-select-code)
+    (define-key evil-motion-state-map (kbd "C-a l") #'yxl-frame-select-config)
     ;; TODO: check if we need to bind in comint-mode-map
     (evil-define-key 'normal comint-mode-map
-      (kbd "C-a h") #'yxl-frame/select-meta
-      (kbd "C-a j") #'yxl-frame/select-repl
-      (kbd "C-a k") #'yxl-frame/select-code
-      (kbd "C-a l") #'yxl-frame/select-config)
+      (kbd "C-a h") #'yxl-frame-select-meta
+      (kbd "C-a j") #'yxl-frame-select-repl
+      (kbd "C-a k") #'yxl-frame-select-code
+      (kbd "C-a l") #'yxl-frame-select-config)
     (evil-define-key 'normal inferior-ess-mode-map
-      (kbd "C-a h") #'yxl-frame/select-meta
-      (kbd "C-a j") #'yxl-frame/select-repl
-      (kbd "C-a k") #'yxl-frame/select-code
-      (kbd "C-a l") #'yxl-frame/select-config)))
+      (kbd "C-a h") #'yxl-frame-select-meta
+      (kbd "C-a j") #'yxl-frame-select-repl
+      (kbd "C-a k") #'yxl-frame-select-code
+      (kbd "C-a l") #'yxl-frame-select-config)))
 
 (defun yxl-evil/setup-evil-misc ()
   (evil-define-key 'insert comint-mode-map
@@ -142,7 +142,7 @@
 (defun yxl-evil/setup-evilified-personal ()
   (when (boundp 'evil-evilified-state-map-original)
     (progn
-      (define-key evil-evilified-state-map-original (kbd "C-a h") #'yxl-frame/select-meta)
-      (define-key evil-evilified-state-map-original (kbd "C-a j") #'yxl-frame/select-repl)
-      (define-key evil-evilified-state-map-original (kbd "C-a k") #'yxl-frame/select-code)
-      (define-key evil-evilified-state-map-original (kbd "C-a l") #'yxl-frame/select-config))))
+      (define-key evil-evilified-state-map-original (kbd "C-a h") #'yxl-frame-select-meta)
+      (define-key evil-evilified-state-map-original (kbd "C-a j") #'yxl-frame-select-repl)
+      (define-key evil-evilified-state-map-original (kbd "C-a k") #'yxl-frame-select-code)
+      (define-key evil-evilified-state-map-original (kbd "C-a l") #'yxl-frame-select-config))))

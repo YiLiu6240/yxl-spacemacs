@@ -17,7 +17,7 @@
     (evilified-state-evilify dired-mode dired-mode-map
       "o"  #'dired-find-file
       "O"  #'dired-find-file-other-window
-      "q"  #'yxl/dired-delete-window
+      "q"  #'yxl-dired-delete-window
       "-"  #'dired-up-directory
       ;; from vinegar layer
       "0"         'dired-back-to-start-of-files
@@ -43,7 +43,7 @@
         (add-hook 'pdf-view-mode-hook #'pdf-view-midday-minor-mode)
       (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode))
 
-    (defun yxl/pdf-tools-reset-config ()
+    (defun yxl-pdf-tools-reset-config ()
       (interactive)
       (if (eq frame-background-mode 'light)
           (list
@@ -52,15 +52,15 @@
         (list
          (remove-hook 'pdf-view-mode-hook #'pdf-view-midday-minor-mode)
          (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)))
-      (yxl/pdf-view-bindings))
+      (yxl-pdf-view-bindings))
 
-    (add-hook 'yxl-switch-theme-hook #'yxl/pdf-tools-reset-config)
+    (add-hook 'yxl-switch-theme-hook #'yxl-pdf-tools-reset-config)
     ;; bug workaround wrt eyebrowse
     ;; https://github.com/politza/pdf-tools/issues/225
     (defun window-state-put-workaround (&rest _args)
       (run-with-idle-timer 0 nil #'run-window-configuration-change-hook))
     (advice-add 'window-state-put :after #'window-state-put-workaround)
-    (yxl/pdf-view-bindings)))
+    (yxl-pdf-view-bindings)))
 
 (defun yxl-config/post-init-ess ()
   (with-eval-after-load 'ess-mode

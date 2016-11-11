@@ -30,21 +30,21 @@
   ;; python imenu hack ----
   ;; http://stackoverflow.com/questions/21644876/imenu-does-not-work-for-python-mode-or-c-mode
   (with-eval-after-load 'python
-    (defvar yxl/python-imenu-expression
+    (defvar yxl-python-imenu-expression
       '(("Class" "^class \\(.+\\):$" 1)
         ("Function" "^def \\(.+\\)\(" 1)
         ("Outline" "^\\(## .+\\)$" 1)
         ("Outline" "^\\(### .+\\)$" 1)))
 
-    (defun yxl/python-imenu ()
+    (defun yxl-python-imenu ()
       "set python imenu items to customized item list"
       (interactive)
-      (imenu--generic-function yxl/python-imenu-expression))
+      (imenu--generic-function yxl-python-imenu-expression))
 
     (add-hook
      'python-mode-hook
      (lambda ()
-       (setq imenu-create-index-function 'yxl/python-imenu)))))
+       (setq imenu-create-index-function 'yxl-python-imenu)))))
 
 (defun yxl-prog/post-init-cc-mode ()
   (with-eval-after-load 'cc-mode

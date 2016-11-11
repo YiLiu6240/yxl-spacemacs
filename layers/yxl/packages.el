@@ -27,9 +27,9 @@
   (use-package simple-todo
     :init
     (progn
-      (spacemacs/set-leader-keys "ot1" #'yxl/set-simple-todo-task1)
-      (spacemacs/set-leader-keys "ot2" #'yxl/set-simple-todo-task2)
-      (spacemacs/set-leader-keys "ot3" #'yxl/set-simple-todo-task3))))
+      (spacemacs/set-leader-keys "ot1" #'yxl-set-simple-todo-task1)
+      (spacemacs/set-leader-keys "ot2" #'yxl-set-simple-todo-task2)
+      (spacemacs/set-leader-keys "ot3" #'yxl-set-simple-todo-task3))))
 
 (defun yxl/init-scratch-pop ()
   (use-package scratch-pop
@@ -39,7 +39,7 @@
     :config
     (progn
       (setq scratch-pop-default-mode 'gfm-mode)
-      (defun yxl/scratch-pop-top ()
+      (defun yxl-scratch-pop-top ()
         (interactive)
         (let ((scratch-pop-position 'top))
           (scratch-pop))))))
