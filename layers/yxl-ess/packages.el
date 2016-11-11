@@ -11,7 +11,7 @@
     (yxl-ess/ess-setup)
     (yxl-ess/ess-setup-imenu)
     (add-hook 'R-mode-hook #'yxl-ess/R-hook)
-
+    (key-chord-define ess-mode-map ">>" "%>%")
     ;; ess mode leader key bindings
     (spacemacs/set-leader-keys-for-major-mode 'ess-mode
       "sr" #'ess-eval-region-and-newline)
