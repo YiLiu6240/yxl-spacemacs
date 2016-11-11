@@ -2,7 +2,6 @@
                             pdf-tools
                             ess
                             python
-                            ibuffer
                             imenu-list
                             company
                             hippie-exp
@@ -99,12 +98,6 @@
       (kbd "C-p") #'comint-previous-input
       (kbd "C-n") #'comint-next-input)))
 
-(defun yxl-config/post-init-ibuffer ()
-  (progn
-    (evilified-state-evilify ibuffer-mode ibuffer-mode-map
-      "o" #'ibuffer-visit-buffer
-      "O" #'ibuffer-visit-buffer-other-window)))
-
 (defun yxl-config/post-init-imenu-list ()
   (progn
     (setq imenu-list-auto-resize nil)
@@ -168,6 +161,9 @@
 
 (defun yxl-config/post-init-ibuffer ()
   (with-eval-after-load 'ibuffer
+    (evilified-state-evilify ibuffer-mode ibuffer-mode-map
+      "o" #'ibuffer-visit-buffer
+      "O" #'ibuffer-visit-buffer-other-window)
     (setq ibuffer-formats
           '((mark modified read-only " "
                   (name 30 30 :left :elide) " "

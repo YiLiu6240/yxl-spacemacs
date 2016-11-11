@@ -84,7 +84,8 @@
      ;; smex
      colors
      (ibuffer :variables
-              ibuffer-group-buffers-by 'projects)
+              ;; dont set to projects, really freaking slow
+              ibuffer-group-buffers-by 'modes)
      search-engine
      deft
      (elfeed :variables
