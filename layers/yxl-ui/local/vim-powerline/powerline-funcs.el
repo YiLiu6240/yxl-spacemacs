@@ -162,7 +162,7 @@ Supports both Emacs and Evil cursor conventions."
                              ("select" . "S")
                              ("replace" . "R")
                              ("motion" . "M")
-                             ("emacs" . "Em")
+                             ("emacs" . "e")
                              ("evilified" . "E")
                              ("iedit" . "Ie")
                              ("lisp" . "L")
