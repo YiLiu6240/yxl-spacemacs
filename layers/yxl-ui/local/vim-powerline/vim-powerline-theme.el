@@ -170,13 +170,6 @@ And if not, try to get the corresponding '-normal' face"
                           ;; Right Hand Side
                           (rhs (list
                                 (powerline-raw global-mode-string split-face 'r)
-                                ;; ;; frame-name
-                                ;; (when (> (window-width) 80)
-                                ;;   (concat
-                                ;;    (powerline-raw (powerline-get-frame-name) fileencoding-face 'lr)
-                                ;;    (powerline-raw softdiv-right fileencoding-face)))
-                                ;; remove vc mode, magit is not using it
-                                ;; (funcall harddiv-right split-face vc-face)
                                 ;; ;; version control
                                 ;; (when
                                 ;;     (and (> (window-width) 100)
