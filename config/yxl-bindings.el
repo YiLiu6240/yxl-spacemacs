@@ -78,10 +78,10 @@
 
   ;; file
   "ofb" #'yxl-find-file-bib
-  "ofo" #'yxl-find-file-org-other-window
-  "ofO" #'yxl-find-file-org
-  "ofw" #'yxl-find-file-org-work-other-window
-  "ofW" #'yxl-find-file-org-work
+  "ofo" #'yxl-find-file-org
+  "ofO" #'yxl-find-file-org-other-window
+  "ofw" #'yxl-find-file-org-work
+  "ofW" #'yxl-find-file-org-work-other-window
   "ofd" #'yxl-find-file-diary
   "ofs" #'spacemacs/find-dotfile
   "ofn" #'yxl-find-file-note
