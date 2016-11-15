@@ -21,7 +21,9 @@
   "wV" #'split-window-right
   "wY" #'yxl-window-record-layout
   "wP" #'yxl-window-load-laytout
-  "w <SPC>" #'ace-window)
+  "w <SPC>" #'ace-window
+  "WY" #'yxl-workspace/record-config
+  "WP" #'yxl-workspace/load-config)
 
 ;; addition to stock bindings
 (spacemacs/set-leader-keys
@@ -158,9 +160,7 @@
   "owh" #'yxl-window-adjust-height-ratio
   "owp" #'yxl-window-get-buffer-previous-window
   "owc" #'yxl-window-center-margins
-  "oww" #'yxl-window-change-width
-  "oWY" #'yxl-workspace/record-config
-  "oWP" #'yxl-workspace/load-config)
+  "oww" #'yxl-window-change-width)
 
 ;; prefixes
 (spacemacs/declare-prefix "." "user-quick")
