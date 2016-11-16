@@ -40,8 +40,6 @@
     (popwin:popup-buffer (find-file-noselect yxl-file-org-main)
                          :width pop-width :position 'left :stick t)))
 
-
-
 (defun yxl-find-file-org-work ()
   (interactive)
   (find-file yxl-file-org-work))
@@ -59,6 +57,12 @@
   (let ((pop-width (yxl-window-popwin-width)))
     (popwin:popup-buffer (find-file-noselect yxl-file-dotfiles-todo)
                          :width pop-width :position 'left :stick t)))
+
+
+(defun yxl-find-file-org-scratch ()
+  "Switch to `scratch.org'"
+  (interactive)
+  (find-file yxl-file-org-scratch))
 
 ;; TODO: change to org version as in capture template
 (defun yxl-find-file-diary ()
