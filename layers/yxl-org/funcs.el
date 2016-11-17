@@ -40,7 +40,8 @@
   (setq org-agenda-window-setup 'current-window))
 
 (defun yxl-org/org-mode-hook ()
-  (setq line-spacing 4))
+  (setq line-spacing 4)
+  (yxl-org-format-task-files))
 
 (defun yxl-org/setup-capture ()
   (setq org-capture-templates

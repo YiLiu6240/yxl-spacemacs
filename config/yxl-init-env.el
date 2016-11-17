@@ -17,3 +17,8 @@
 (defvar yxl-file-dotfiles-todo "~/dotfiles/TODOs.org")
 (defvar yxl-file-org-log (concat yxl-path-org "logs/" "log.org"))
 (defvar yxl-file-org-scratch (concat yxl-path-org "scratch.org"))
+
+(defvar yxl-org-task-files (list yxl-file-org-scratch
+                                 yxl-file-org-main
+                                 yxl-file-org-work
+                                 yxl-file-dotfiles-todo))
