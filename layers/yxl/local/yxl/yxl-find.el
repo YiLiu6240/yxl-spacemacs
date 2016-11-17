@@ -31,9 +31,11 @@
 (defun yxl-find-file-org ()
   (interactive)
   (find-file yxl-file-org-main))
+
 (defun yxl-find-file-org-other-window ()
   (interactive)
   (find-file-other-window yxl-file-org-main))
+
 (defun yxl-find-file-org-popup ()
   (interactive)
   (let ((pop-width (yxl-window-popwin-width)))
@@ -43,9 +45,11 @@
 (defun yxl-find-file-org-work ()
   (interactive)
   (find-file yxl-file-org-work))
+
 (defun yxl-find-file-org-work-other-window ()
   (interactive)
   (find-file-other-window yxl-file-org-work))
+
 (defun yxl-find-file-org-work-popup ()
   (interactive)
   (let ((pop-width (yxl-window-popwin-width)))
@@ -63,6 +67,12 @@
   "Switch to `scratch.org'"
   (interactive)
   (find-file yxl-file-org-scratch))
+
+(defun yxl-find-file-org-scratch-popup ()
+  (interactive)
+  (let ((pop-width (yxl-window-popwin-width)))
+    (popwin:popup-buffer (find-file-noselect yxl-file-org-scratch)
+                         :width pop-width :position 'left :stick t)))
 
 ;; TODO: change to org version as in capture template
 (defun yxl-find-file-diary ()

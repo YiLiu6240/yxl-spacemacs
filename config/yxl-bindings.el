@@ -56,7 +56,8 @@
   "o1" #'yxl-find-file-org-popup
   "o2" #'yxl-find-file-org-work-popup
   "o3" #'yxl-find-file-org-dotfile-popup
-  "o4" #'dired-popup
+  "o4" #'yxl-find-file-org-scratch-popup
+  "o-" #'dired-popup
   "ok" #'yxl-frame-select-code
   "oj" #'yxl-frame-select-repl
   "oh" #'yxl-frame-select-meta
@@ -85,8 +86,8 @@
   "ofO" #'yxl-find-file-org-other-window
   "ofw" #'yxl-find-file-org-work
   "ofW" #'yxl-find-file-org-work-other-window
-  "ofd" #'yxl-find-file-diary
-  "ofs" #'spacemacs/find-dotfile
+  "ofd" #'spacemacs/find-dotfile
+  "ofs" #'yxl-find-file-org-scratch
   "ofn" #'yxl-find-file-note
   "ofN" #'yxl-find-file-note-master
   "ofm" #'yxl-text/find-TeX-master
