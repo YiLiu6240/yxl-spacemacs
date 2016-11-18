@@ -98,7 +98,7 @@
             ;; (keyword       (if (eq variant 'dark) (if (true-color-p) "#859900" "#33859e") (if (true-color-p) "#859900" "#33859e")))
             (keyword       (if (eq variant 'dark) (if (true-color-p) "#679a01" "#33859e") (if (true-color-p) "#679a01" "#33859e")))
             ;; line numbers
-            (lnum          (if (eq variant 'dark) (if (true-color-p) "#44505c" "#444444") (if (true-color-p) "#44505c" "#af87af")))
+            (lnum          (if (eq variant 'dark) (if (true-color-p) "#586e75" "#444444") (if (true-color-p) "#44505c" "#af87af")))
             ;; matched, matching parens, brackets, tags
             (mat           (if (eq variant 'dark) (if (true-color-p) "#86dc2f" "#86dc2f") (if (true-color-p) "#86dc2f" "#af005f")))
             ;; meta, org's meta line
@@ -516,7 +516,7 @@
             `(font-latex-warning-face ((,class (:foreground ,str))))
 
 ;;;;; linum-mode
-            `(linum ((,class (:foreground ,lnum :background ,bg2))))
+            `(linum ((,class (:foreground ,lnum :background ,bg1))))
 
 ;;;;; linum-relative
             `(linum-relative-current-face ((,class (:foreground ,comp))))
