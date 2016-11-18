@@ -614,7 +614,7 @@
             `(org-date ((,class (:underline t :foreground ,comment :slant italic :height 0.8))))
             `(org-date-selected ((,class (:background ,func :foreground ,bg1))))
             `(org-document-info-keyword ((,class (:foreground ,meta))))
-            `(org-document-title ((,class (:foreground ,func :inherit bold :height ,(if yxl-theme-org-height 1.4 1.0) :underline t))))
+            `(org-document-title ((,class (:foreground ,func :inherit bold :height ,(if yxl-theme-org-height 1.4 1.0) :underline nil))))
             `(org-done ((,class (:foreground ,comment :inherit bold))))
             `(org-ellipsis ((,class (:foreground ,keyword))))
             `(org-footnote  ((,class (:underline t :foreground ,base))))
