@@ -37,7 +37,8 @@
   ;; (setq org-fast-tag-selection-single-key t)
   (setq org-insert-heading-respect-content t)
   (setq org-hide-emphasis-markers nil)
-  (setq org-agenda-window-setup 'current-window))
+  (setq org-agenda-window-setup 'current-window)
+  (setq org-highlight-latex-and-related '(latex script entities)))
 
 (defun yxl-org/org-mode-hook ()
   (setq line-spacing 4)
