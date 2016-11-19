@@ -9,4 +9,5 @@
                                       yxl-org
                                       yxl-web
                                       yxl-completion
-                                      yxl-ui))
+                                      yxl-ui
+                                      yxl-misc))
