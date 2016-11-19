@@ -13,8 +13,7 @@
                                     spaceline
                                     window-numbering
                                     org-bullets
-                                    tern
-                                    ido)
+                                    tern)
    dotspacemacs-install-packages 'used-only
    dotspacemacs-configuration-layers
    '(yxl-spacemacs
@@ -191,10 +190,6 @@
 
   (setq-default custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (load custom-file 'no-error 'no-message)
-
-  ;; --------
-  ;; pdf-tools
-  ;; --------
 
   (if (eq system-type 'darwin)
       ;; osx setup of pdf-tools
