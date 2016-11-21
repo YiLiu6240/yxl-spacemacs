@@ -16,6 +16,9 @@
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
   "bS" #'yxl-find-file-org-scratch
+  "i <SPC>" #'evil-insert-newline-around
+  "ii" #'evil-insert-space
+  "ia" #'evil-apend-space
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
