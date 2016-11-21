@@ -45,4 +45,13 @@
 
 
 
+(define-minor-mode yxl-big-text-mode
+  "Bigger text."
+  :lighter ""
+  (if yxl-big-text-mode
+      (let ((scale 1.5))
+        (text-scale-increase scale))
+    (text-scale-set 0)))
+
+
 (provide 'yxl)

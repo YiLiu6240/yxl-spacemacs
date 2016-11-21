@@ -19,6 +19,7 @@
   "i <SPC>" #'evil-insert-newline-around
   "ii" #'evil-insert-space
   "ia" #'evil-apend-space
+  "tob" #'yxl-big-text-mode
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
