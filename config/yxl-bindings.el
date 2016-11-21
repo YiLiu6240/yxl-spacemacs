@@ -20,6 +20,7 @@
   "ii" #'evil-insert-space
   "ia" #'evil-apend-space
   "tob" #'yxl-big-text-mode
+  "tom" #'evil-show-marks
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
@@ -148,9 +149,6 @@
 
   ;; search
   "osg" #'helm-google-suggest
-
-  ;; visual/view
-  "ovm" #'evil-show-marks
 
   "oy" #'copy-file-name-to-clipboard
 
