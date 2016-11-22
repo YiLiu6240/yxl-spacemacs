@@ -25,7 +25,7 @@ if uni prefix is a one digit number, treat it as 0.X; else treat it as X%."
      ((equal current-prefix-arg nil)
       golden-ratio)
      ((equal current-prefix-arg  '(4))
-      0.8)
+      0.75)
      (t (cond
          ((< current-prefix-arg 10)(/ current-prefix-arg 10.0))
          (t (/ current-prefix-arg 100.0)))))))
