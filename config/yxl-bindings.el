@@ -19,6 +19,7 @@
   "i <SPC>" #'evil-insert-newline-around
   "ii" #'evil-insert-space
   "ia" #'evil-apend-space
+  "p G" #'projectile-regenerate-tags
   "tob" #'yxl-big-text-mode
   "tom" #'evil-show-marks
   "ws" #'split-window-below-and-focus
