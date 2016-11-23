@@ -89,6 +89,7 @@
      deft
      (elfeed :variables
              rmh-elfeed-org-files (list "~/dotfiles/rss/feeds.org"))
+     github
 
      ;; os-dependent --------
      ;; osx
