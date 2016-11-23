@@ -8,8 +8,7 @@
 (defvar yxl-path-code-pwd (concat yxl-path-local "c3_pwd/code/"))
 (defvar yxl-path-paper-pwd (concat yxl-path-local "yxl105_ctw/yxl105_tex/"))
 (defvar yxl-path-journal-pwd (concat yxl-path-sync "lit_1_yxl105/1_thesis/"))
-(defvar yxl-file-bib (concat yxl-path-paper-pwd
-                             "yxl105_bib/yxl105_bib_master.bib"))
+(defvar yxl-file-bib (concat yxl-path-sync "bib/yxl_bib_master.bib"))
 
 (defvar yxl-file-note-master "~/Dropbox/org/note.org")
 (defvar yxl-file-org-main (concat yxl-path-org "tasks/" "tasks_main.org"))
