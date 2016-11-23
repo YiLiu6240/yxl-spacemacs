@@ -3,7 +3,8 @@
   :lighter ""
   (if yxl-org-task-mode
       (let ((scale 0.5))
-        (text-scale-decrease scale))
+        (text-scale-decrease scale)
+        (org-indent-mode 1))
     (text-scale-set 0)))
 
 (defun yxl-org-task-file-p (&optional file)
