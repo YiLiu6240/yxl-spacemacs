@@ -15,7 +15,6 @@
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
-  "bS" #'yxl-find-file-org-scratch
   "i <SPC>" #'evil-insert-newline-around
   "ii" #'evil-insert-space
   "ia" #'evil-apend-space
@@ -88,12 +87,6 @@
 
   ;; file
   "ofb" #'yxl-find-file-bib
-  "ofo" #'yxl-find-file-org
-  "ofO" #'yxl-find-file-org-other-window
-  "ofw" #'yxl-find-file-org-work
-  "ofW" #'yxl-find-file-org-work-other-window
-  "ofd" #'spacemacs/find-dotfile
-  "ofs" #'yxl-find-file-org-scratch
   "ofn" #'yxl-find-file-note
   "ofN" #'yxl-find-file-note-master
   "ofm" #'yxl-text/find-TeX-master
