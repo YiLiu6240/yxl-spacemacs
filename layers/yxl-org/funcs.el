@@ -114,18 +114,14 @@
   ;;         ("MID" . (:foreground "#b58900" :slant italic))
   ;;         ("MINOR" . (:foreground "#859900" :slant italic))))
   (setq org-tag-persistent-alist
-        '((:startgrouptag) ;; task group
-          ("CTW" . ?t) ("WORK" . ?w) ("HOME" . ?h) ("CONFIG" . ?c)
-          (:endgrouptag)
-          (:startgrouptag) ;; effort required
+        '(;; task group
+          ("CTW" . ?T) ("WORK" . ?W) ("HOME" . ?H) ("CONFIG" . ?C)
+          ;; effort required
           ("MAJOR" . ?1) ("MID" . ?2) ("MINOR" . ?3)
-          (:endgrouptag)
-          (:startgrouptag) ;; actions to take
-          ("ISSUES") ("HAVE_A_LOOK") ("THINK") ("REFACTOR")
-          (:endgrouptag)
-          (:startgrouptag) ;; task propertiy
-          ("URGENT" . ?u) ("KEY" . ?k) ("HARD" . ?a) ("BONUS" . ?b)
-          (:endgrouptag))))
+          ;; actions to take
+          ("ISSUES" . ?i) ("HAVE_A_LOOK" . ?h) ("THINK" . ?t) ("REFACTOR" . ?r)
+          ;; task propertiy
+          ("URGENT" . ?u) ("KEY" . ?k) ("HARD" . ?a) ("BONUS" . ?b))))
 
 (defun yxl-org/setup-agenda ()
   ;; agenda file
