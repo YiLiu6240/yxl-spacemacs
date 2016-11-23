@@ -12,13 +12,15 @@
   ";" #'counsel-M-x  ; prevent overwritten by nerd-commenter
   "<SPC>" #'evil-avy-goto-char-2
   "av" #'yxl-org/agenda-view
+  "oak" #'calendar
+  "oac" #'cfw-open-calendar
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
   "i <SPC>" #'evil-insert-newline-around
   "ii" #'evil-insert-space
   "ia" #'evil-apend-space
-  "p G" #'projectile-regenerate-tags
+  "pG" #'projectile-regenerate-tags
   "tob" #'yxl-big-text-mode
   "tom" #'evil-show-marks
   "ws" #'split-window-below-and-focus
