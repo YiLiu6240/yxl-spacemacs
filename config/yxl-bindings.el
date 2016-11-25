@@ -62,8 +62,9 @@
   ;; top-level quick actions
   "o1" #'yxl-find-file-org-popup
   "o2" #'yxl-find-file-org-work-popup
-  "o3" #'yxl-find-file-org-dotfile-popup
-  "o4" #'yxl-find-file-org-scratch-popup
+  "o3" #'yxl-find-file-org-config-popup
+  "o4" #'yxl-find-file-org-proj-popup
+  "o0" #'yxl-find-file-org-scratch-popup
   "o-" #'dired-popup
   "ok" #'yxl-frame-select-code
   "oj" #'yxl-frame-select-repl

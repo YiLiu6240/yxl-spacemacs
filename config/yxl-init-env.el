@@ -11,13 +11,15 @@
 (defvar yxl-file-bib (concat yxl-path-sync "bib/yxl_bib_master.bib"))
 
 (defvar yxl-file-note-master "~/Dropbox/org/note.org")
-(defvar yxl-file-org-main (concat yxl-path-org "tasks/" "tasks_main.org"))
-(defvar yxl-file-org-work (concat yxl-path-org "tasks/" "tasks_work.org"))
-(defvar yxl-file-org-config (concat yxl-path-org "tasks/" "tasks_config.org"))
+(defvar yxl-file-org-main (concat yxl-path-org "tasks/" "tasks_1_main.org"))
+(defvar yxl-file-org-work (concat yxl-path-org "tasks/" "tasks_2_work.org"))
+(defvar yxl-file-org-config (concat yxl-path-org "tasks/" "tasks_3_config.org"))
+(defvar yxl-file-org-proj (concat yxl-path-org "tasks/" "tasks_4_proj.org"))
 (defvar yxl-file-org-log (concat yxl-path-org "logs/" "log.org"))
 (defvar yxl-file-org-scratch (concat yxl-path-org "scratch.org"))
 
 (defvar yxl-org-task-files (list yxl-file-org-scratch
                                  yxl-file-org-main
                                  yxl-file-org-work
-                                 yxl-file-org-config))
+                                 yxl-file-org-config
+                                 yxl-file-org-proj))

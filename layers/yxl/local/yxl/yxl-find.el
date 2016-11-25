@@ -54,7 +54,7 @@
       (popwin:popup-buffer (find-file-noselect my-file)
                            :width pop-width :position 'left :stick t)))))
 
-(defun yxl-find-file-org-dotfile-popup ()
+(defun yxl-find-file-org-config-popup ()
   (interactive)
   (let ((pop-width (yxl-window-popwin-width))
         (my-file yxl-file-org-config))
@@ -67,6 +67,18 @@
       (popwin:popup-buffer (find-file-noselect my-file)
                            :width pop-width :position 'left :stick t)))))
 
+(defun yxl-find-file-org-proj-popup ()
+  (interactive)
+  (let ((pop-width (yxl-window-popwin-width))
+        (my-file yxl-file-org-proj))
+    (cond
+     ((equal current-prefix-arg '(4))
+      (find-file my-file))
+     ((equal current-prefix-arg 2)
+      (find-file-other-window my-file))
+     (t
+      (popwin:popup-buffer (find-file-noselect my-file)
+                           :width pop-width :position 'left :stick t)))))
 
 (defun yxl-find-file-org-scratch-popup ()
   (interactive)

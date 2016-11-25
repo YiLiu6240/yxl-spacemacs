@@ -53,7 +53,7 @@
            (file+headline yxl-file-org-main "Inbox")
            "* TODO %?\n  %i\n")
           ("c" "config" entry
-           (file+headline yxl-file-org-main "Config")
+           (file+headline yxl-file-org-config "Config")
            "* INBOX %?\n  %i\n")
           ("n" "quick note" item
            (file+headline yxl-file-note-master "Quick Notes"))
