@@ -72,23 +72,18 @@
         '((sequence
            "INBOX(i)"                   ;; ideas, undecided
            "QUICK(q)"                   ;; quick
-           "HAVE-A-LOOK(h)"
            "TODAY(T)"                       ;; needs to be done today
            "TODO(t)"                        ;; needs to be done
            "NEXT(n)"                        ;; next in line
            "HOLD(H)"                        ;; put on hold for various reasons
+           "WIP(I)"
+           "PROJ(p)"
            "PLAN(P)"                        ;; still under planning
            "FOLLOW-UP(f)"                   ;; follow-up results
            "SOMEDAY(s)"                     ;; not now
-           "THINK(k)"                       ;; think about it
-           "|" "DONE(d)" "CANCELED(C)" "FAILED(F)")
-          (sequence
-           "WIP(I)"
-           "00(0)" "25(1)" "50(2)" "75(3)" "95(4)"
-           "|" "DONE(d) ABORT(A)")))
+           "|" "DONE(d)" "CANCELED(C)" "ABORT(A)" "FAILED(F)")))
   (setq org-todo-keyword-faces
         '(("INBOX" . (:foreground "#268bd2"))
-          ("HAVE-A-LOOK" . (:foreground "#d33682"))
           ("TODAY" . (:foreground "#dc322f"))
           ("TODO" . (:foreground "#cb4b16"))
           ("HOLD" . (:foreground "#268bd2"))
@@ -96,37 +91,37 @@
           ("QUICK" . (:foreground "#6c71c4"))
           ("SOMEDAY" . (:foreground "#6c71c4"))
           ("FOLLOW-UP" . (:foreground "#6c71c4"))
-          ("DOING" . (:foreground "#b58900"))
+          ("PROJ" . (:foreground "#b58900"))
           ("WIP" . (:foreground "#b58900"))
-          ("DONE" . (:foreground "#586e75"))
+          ("DONE" . (:foreground "#586e75"))))
+  (setq org-tag-faces
+        '(("CTW" . (:foreground "#268bd2" :slant italic))
+          ("WORK" . (:foreground "#268bd2" :slant italic))
+          ("HOME" . (:foreground "#859900" :slant italic))
+          ("CONFIG" . (:foreground "#859900" :slant italic))
+          ("HAVE_A_LOOK" . (:foreground "#d33682"))
+          ("MAJOR" . (:foreground "#cb4b16" :slant italic))
+          ("MID" . (:foreground "#b58900" :slant italic))
+          ("MINOR" . (:foreground "#859900" :slant italic))
           ("00" . (:foreground "#deab0e"))
           ("25" . (:foreground "#b58900"))
           ("50" . (:foreground "#b58900"))
           ("75" . (:foreground "#926e00"))
           ("95" . (:foreground "#926e00"))))
-  ;; (setq org-tag-faces
-  ;;       '(("CAPTURE" . (:foreground "#268bd2" :slant italic))
-  ;;         ("CTW" . (:foreground "#268bd2" :slant italic))
-  ;;         ("WORK" . (:foreground "#268bd2" :slant italic))
-  ;;         ("HOME" . (:foreground "#859900" :slant italic))
-  ;;         ("CONFIG" . (:foreground "#859900" :slant italic))
-  ;;         ("MAJOR" . (:foreground "#cb4b16" :slant italic))
-  ;;         ("MID" . (:foreground "#b58900" :slant italic))
-  ;;         ("MINOR" . (:foreground "#859900" :slant italic))))
   (setq org-tag-persistent-alist
-        '(;; task group
-          (:startgroup . "main-group")
-          ("CTW" . ?T)
-          ("WORK" . ?W)
-          ("HOME" . ?H)
-          ("CONFIG" . ?C)
+        '((:startgroup . "task-group")
+          ("CTW" . ?T) ("WORK" . ?W)
+          ("HOME" . ?H) ("CONFIG" . ?C)
           (:endgroup . nil)
-          ;; effort required
-          ("MAJOR" . ?1) ("MID" . ?2) ("MINOR" . ?3)
-          ;; actions to take
+          (:startgroup . "effort")
+          ("MAJOR" . ?a) ("MID" . ?b) ("MINOR" . ?c)
+          (:endgroup . nil)
+          (:startgroup . "progress")
+          ("00" . ?0) ("25" . ?2) ("50" . ?5) ("75" . ?7) ("95" . ?9)
+          (:endgroup . nil)
+          (:startgroup . "actions")
           ("ISSUES" . ?i) ("HAVE_A_LOOK" . ?h) ("THINK" . ?t) ("REFACTOR" . ?r)
-          ;; task propertiy
-          ("URGENT" . ?u) ("KEY" . ?k) ("HARD" . ?a) ("BONUS" . ?b))))
+          (:endgroup . nil))))
 
 (defun yxl-org/setup-agenda ()
   ;; agenda file
