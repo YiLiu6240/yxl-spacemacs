@@ -115,7 +115,12 @@
   ;;         ("MINOR" . (:foreground "#859900" :slant italic))))
   (setq org-tag-persistent-alist
         '(;; task group
-          ("CTW" . ?T) ("WORK" . ?W) ("HOME" . ?H) ("CONFIG" . ?C)
+          (:startgroup . "main-group")
+          ("CTW" . ?T)
+          ("WORK" . ?W)
+          ("HOME" . ?H)
+          ("CONFIG" . ?C)
+          (:endgroup . nil)
           ;; effort required
           ("MAJOR" . ?1) ("MID" . ?2) ("MINOR" . ?3)
           ;; actions to take
