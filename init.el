@@ -192,6 +192,12 @@
   (setq-default custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (load custom-file 'no-error 'no-message)
 
+  (if (eq system-type 'windows-nt)
+      (progn
+        ;; use external ls
+        ;; use `where' as equivalent of `which'
+        (setq ls-lisp-use-insert-directory-program t)
+             (setq insert-directory-program "c:/Yi_Liu_Apps/Git/bin/ls")))
   (if (eq system-type 'darwin)
       ;; osx setup of pdf-tools
       ;; http://emacs.stackexchange.com/questions/13314/install-pdf-tools-on-emacs-macosx
