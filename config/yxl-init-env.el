@@ -13,11 +13,11 @@
 (defvar yxl-file-note-master "~/Dropbox/org/note.org")
 (defvar yxl-file-org-main (concat yxl-path-org "tasks/" "tasks_main.org"))
 (defvar yxl-file-org-work (concat yxl-path-org "tasks/" "tasks_work.org"))
-(defvar yxl-file-dotfiles-todo "~/dotfiles/TODOs.org")
+(defvar yxl-file-org-config (concat yxl-path-org "tasks/" "tasks_config.org"))
 (defvar yxl-file-org-log (concat yxl-path-org "logs/" "log.org"))
 (defvar yxl-file-org-scratch (concat yxl-path-org "scratch.org"))
 
 (defvar yxl-org-task-files (list yxl-file-org-scratch
                                  yxl-file-org-main
                                  yxl-file-org-work
-                                 yxl-file-dotfiles-todo))
+                                 yxl-file-org-config))

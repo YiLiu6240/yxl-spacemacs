@@ -1,5 +1,5 @@
 (defvar yxl-org-agenda-files-life (list yxl-file-org-main
-                                        yxl-file-dotfiles-todo))
+                                        yxl-file-org-config))
 (defvar yxl-org-agenda-files-work
   (list yxl-file-org-scratch
         yxl-file-org-work

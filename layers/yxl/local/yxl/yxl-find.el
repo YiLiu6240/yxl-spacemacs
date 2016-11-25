@@ -57,7 +57,7 @@
 (defun yxl-find-file-org-dotfile-popup ()
   (interactive)
   (let ((pop-width (yxl-window-popwin-width))
-        (my-file yxl-file-dotfiles-todo))
+        (my-file yxl-file-org-config))
     (cond
      ((equal current-prefix-arg '(4))
       (find-file my-file))
