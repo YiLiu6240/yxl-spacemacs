@@ -75,96 +75,51 @@ if uni prefix is a one digit number, treat it as 0.X; else treat it as X%."
 
 
 
-(defun yxl-window-split-below (&optional size)
-  "split window with customized prefixes.
-If C-u, create a window with 20 lines.
-If C-u C-u, create a window with 15 lines.
-Else create a window with lines parsed by prefix"
-  (interactive "P")
+(defun yxl-window-split-horizontal-focus ()
+  (interactive)
   (cond
-   ((equal size nil)
-    (split-window-below))
-   ((equal size '(4)) ; C-u
-    (split-window-below -20))
-   ((equal size '(16)) ; C-u C-u
-    (split-window-below -15))
-   (t (split-window-below size))))
+   ((equal current-prefix-arg '(4))
+    (progn
+      (split-window-below 20)))
+   (t
+    (progn
+      (split-window-below -20)
+      (evil-window-down 1)))))
 
-(defun yxl-window-split-right (&optional size)
-  "split window with customized prefixes.
-If C-u, create a window with 20 lines.
-If C-u C-u, create a window with 15 lines.
-Else create a window with lines parsed by prefix"
-  (interactive "P")
+(defun yxl-window-split-horizontal-stay ()
+  (interactive)
   (cond
-   ((equal size nil)
-    (split-window-right))
-   ((equal size '(4)) ; C-u
-    (split-window-right -20))
-   ((equal size '(16)) ; C-u C-u
-    (split-window-right -15))
-   (t (split-window-right size))))
+   ((equal current-prefix-arg '(4))
+    (progn
+      (split-window-below 20)
+      (evil-window-down 1)))
+   (t
+    (progn
+      (split-window-below -20)))))
 
-(defun yxl-window-split-below-and-focus (&optional size)
-  "Split the window vertically and focus the new window."
-  (interactive "P")
-  (yxl-window-split-below size)
-  (windmove-down))
-
-(defun yxl-window-split-right-and-focus (&optional size)
-  "Split the window vertically and focus the new window."
-  (interactive "P")
-  (yxl-window-split-right size)
-  (windmove-right))
-
-(defun split-window-below-small ()
-  "split into a smaller window below, and move to focus"
-  ;; TODO: create a variable for the "-20",
-  ;; default to -20, if no numeric argument present
+(defun yxl-window-split-vertical-focus ()
   (interactive)
-  (if current-prefix-arg
-      (list
-       (yxl-window-split-below -20)
-       (windmove-down)
-       (spacemacs/new-empty-buffer))
-    (list
-     (yxl-window-split-below -20)
-     (windmove-down))))
+  (cond
+   ((equal current-prefix-arg '(4))
+    (progn
+      (split-window-right 20)
+      (evil-window-left 1)))
+   (t
+    (progn
+      (split-window-right -20)
+      (evil-window-right 1)))))
 
-(defun split-window-right-small ()
-  "split into a smaller window below, and move to focus"
-  ;; TODO: create a variable for the "-20",
-  ;; default to -20, if no numeric argument present
+(defun yxl-window-split-vertical-stay ()
   (interactive)
-  (if current-prefix-arg
-      (list
-       (yxl-window-split-right -35)
-       (windmove-right)
-       (spacemacs/new-empty-buffer))
-    (list
-     (yxl-window-split-right -35))))
-
-(defun split-window-above-small ()
-  "split into a smaller window above, and move to focus"
-  (interactive)
-  (if current-prefix-arg
-      (list
-       (yxl-window-split-below 20)
-       (spacemacs/new-empty-buffer))
-    (list
-     (yxl-window-split-below 20))))
-
-(defun split-window-left-small ()
-  "split into a smaller window above, and move to focus"
-  (interactive)
-  (if current-prefix-arg
-      (list
-       (yxl-window-split-right 35)
-       (windmove-right)
-       (spacemacs/new-empty-buffer))
-    (list
-     (yxl-window-split-right 35)
-     (windmove-right))))
+  (cond
+   ((equal current-prefix-arg '(4))
+    (progn
+      (split-window-right 20)
+      (evil-window-right 1)))
+   (t
+    (progn
+      (split-window-right -20)
+      (evil-window-left 1)))))
 
 
 (defun yxl-window-change-width (width)

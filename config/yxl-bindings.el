@@ -153,10 +153,11 @@
   "ow1" #'yxl-window-custom-layout1
   "ow2" #'yxl-window-custom-layout2
   "ow3" #'yxl-window-custom-layout3
-  "ows" #'split-window-below-small
-  "owS" #'split-window-above-small
-  "owv" #'split-window-right-small
-  "owV" #'split-window-left-small
+  ;; "ows" #'split-window-below-small
+  "ows" #'yxl-window-split-horizontal-focus
+  "owS" #'yxl-window-split-horizontal-stay
+  "owv" #'yxl-window-split-vertical-focus
+  "owV" #'yxl-window-split-vertical-stay
   "owg" #'yxl-window-adjust-width-ratio
   "owh" #'yxl-window-adjust-height-ratio
   "owp" #'yxl-window-get-buffer-previous-window
