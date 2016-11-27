@@ -27,7 +27,7 @@
     [_q_] quit
     [_s_] sort+     [_T_] toggle+ [_*_] mark+
     [_m_] mark      [_u_] unmark  [_U_] unmark all
-    [_w_] copy name
+    [_y_] copy name [_Y_] copy full name
     [_C_] cp        [_D_] rm      [_R_] mv         [_H_] ln    [_S_] ln-s
     [_M_] chmod     [_G_] chgrp   [_O_] chown
     [_Z_] compress
@@ -39,7 +39,8 @@
     ("m" dired-mark)
     ("u" dired-unmark)
     ("U" dired-unmark-all-marks)
-    ("w" dired-copy-filename-as-kill :color blue)
+    ("y" dired-copy-filename-as-kill :color blue)
+    ("Y" dired-copy-filename-as-kill-fullname :color blue)
     ("C" dired-do-copy)
     ("D" dired-do-delete)
     ("R" dired-do-rename)
@@ -79,3 +80,6 @@
 
 (with-eval-after-load 'dired
   (define-key dired-mode-map "z" 'dired-zip-files))
+(defun dired-copy-filename-as-kill-fullname ()
+  (interactive)
+  (dired-copy-filename-as-kill 0))
