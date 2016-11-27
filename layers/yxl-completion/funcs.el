@@ -22,9 +22,11 @@
   (with-helm-alive-p
     (helm-quit-and-execute-action 'helm-buffer-switch-to-new-window-h)))
 
-(defun yxl-helm-find-org-agenda ()
+
+
+(defun yxl-helm-find-org-files ()
   (interactive)
-  (helm :sources '(yxl-helm-org-agenda-sources)
+  (helm :sources '(yxl-helm-org-sources)
         :buffer "*helm org agenda*"))
 
 (defun yxl-helm-set-simple-todo ()

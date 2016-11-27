@@ -24,3 +24,12 @@
                                  yxl-file-org-work
                                  yxl-file-org-config
                                  yxl-file-org-proj))
+
+(defvar yxl-org-files (list yxl-file-org-scratch
+                            yxl-file-org-main
+                            yxl-file-org-work
+                            yxl-file-org-config
+                            yxl-file-org-proj
+                            (concat yxl-path-org-task "proj_ds.org")
+                            (concat yxl-path-org-task "proj_ctw.org")
+                            (concat yxl-path-org-task "proj_bham.org")))

@@ -1,8 +1,8 @@
 (setq helm-mini-default-sources '(helm-source-buffers-list))
 
-(setq yxl-helm-org-agenda-sources
+(setq yxl-helm-org-sources
       '((name . "org agenda")
-        (candidates . org-agenda-files)
+        (candidates . yxl-org-files)
         (action . (("open" . find-file)
                    ("open other window" . find-file-other-window)))))
 
@@ -16,7 +16,7 @@
 (setq yxl-helm-quick-sources
       '((name . "yxl quick")
         (candidates . (("simple-todo" . yxl-helm-set-simple-todo)
-                       ("agenda" . yxl-helm-find-org-agenda)
+                       ("org-files" . yxl-helm-find-org-files)
                        ("calendar" . cfw-open-calendar)
                        ("calculator" . (lambda () (helm-calcul-expression)))
                        ("rss" . elfeed)))
