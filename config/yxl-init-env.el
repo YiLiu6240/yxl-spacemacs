@@ -2,6 +2,7 @@
 (defvar yxl-path-sync "~/Dropbox/")
 (defvar yxl-path-local "~/Downloads/")
 (defvar yxl-path-org "~/Dropbox/org/")
+(defvar yxl-path-org-task "~/Dropbox/org/tasks/")
 
 (defvar yxl-path-code-repo (concat yxl-path-local "c3_pwd/"))
 (defvar yxl-path-phd-repo (concat yxl-path-local "yxl105_ctw/"))
@@ -11,10 +12,10 @@
 (defvar yxl-file-bib (concat yxl-path-sync "bib/yxl_bib_master.bib"))
 
 (defvar yxl-file-note-master "~/Dropbox/org/note.org")
-(defvar yxl-file-org-main (concat yxl-path-org "tasks/" "tasks_1_main.org"))
-(defvar yxl-file-org-work (concat yxl-path-org "tasks/" "tasks_2_work.org"))
-(defvar yxl-file-org-config (concat yxl-path-org "tasks/" "tasks_3_config.org"))
-(defvar yxl-file-org-proj (concat yxl-path-org "tasks/" "tasks_4_proj.org"))
+(defvar yxl-file-org-main (concat yxl-path-org-task "tasks_1_main.org"))
+(defvar yxl-file-org-work (concat yxl-path-org-task "tasks_2_work.org"))
+(defvar yxl-file-org-config (concat yxl-path-org-task "tasks_3_config.org"))
+(defvar yxl-file-org-proj (concat yxl-path-org-task "tasks_4_proj.org"))
 (defvar yxl-file-org-log (concat yxl-path-org "logs/" "log.org"))
 (defvar yxl-file-org-scratch (concat yxl-path-org "scratch.org"))
 
