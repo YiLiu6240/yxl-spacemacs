@@ -74,12 +74,6 @@
   (define-key dired-mode-map "." 'hydra-dired-main/body)
   (define-key dired-mode-map (kbd "C-c \.") 'hydra-dired-main/body))
 
-(with-eval-after-load 'dired-aux
-  (add-to-list 'dired-compress-file-suffixes
-                '("\\.zip\\'" ".zip" "unzip")))
-
-(with-eval-after-load 'dired
-  (define-key dired-mode-map "z" 'dired-zip-files))
 (defun dired-copy-filename-as-kill-fullname ()
   (interactive)
   (dired-copy-filename-as-kill 0))
