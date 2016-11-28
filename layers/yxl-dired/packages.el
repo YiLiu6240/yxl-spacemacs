@@ -33,31 +33,6 @@
         (setq -arg "-Al --si --time-style long-iso --group-directories-first")
         (dired-sort-other -arg))
 
-      (defun yxl-dired/open-in-desktop ()
-        "Show current file in desktop (OS's file manager).
-URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
-Version 2015-11-30"
-        (interactive)
-        (cond
-         ((string-equal system-type "windows-nt")
-          (w32-shell-execute "explore" (replace-regexp-in-string "/" "\\" default-directory t t)))
-         ((string-equal system-type "darwin") (shell-command "open ."))
-         ((string-equal system-type "gnu/linux")
-          (let (
-                (process-connection-type nil)
-                (openFileProgram (if (file-exists-p "/usr/bin/gvfs-open")
-                                     "/usr/bin/gvfs-open"
-                                   "/usr/bin/xdg-open")))
-            (start-process "" nil openFileProgram ".")))))
-
-      (defun yxl-dired/toggle-dwim-target ()
-        "toggle the value of dired-dwim-target."
-        (interactive)
-        (if (equal dired-dwim-target t)
-            (setq dired-dwim-target nil)
-          (setq dired-dwim-target t))
-        (message "dired-dwim-target: %s" dired-dwim-target))
-
       (setq dired-listing-switches "-l -a -h")
       (add-hook 'dired-mode-hook #'spacemacs/toggle-truncate-lines-on)
       (add-hook 'dired-mode-hook #'dired-hide-details-mode)
