@@ -38,10 +38,13 @@
   (setq org-insert-heading-respect-content t)
   (setq org-hide-emphasis-markers nil)
   (setq org-agenda-window-setup 'current-window)
-  (setq org-highlight-latex-and-related '(latex script entities)))
+  (setq org-highlight-latex-and-related '(latex script entities))
+  (setq org-refile-use-outline-path t)
+  (setq org-refile-targets '((nil :maxlevel . 1)
+                             (org-agenda-files :maxlevel . 1))))
 
 (defun yxl-org/org-mode-hook ()
-  (setq line-spacing 4)
+  ;; (setq line-spacing 4)
   (yxl-org-format-task-files))
 
 (defun yxl-org/setup-capture ()
@@ -125,7 +128,7 @@
 
 (defun yxl-org/setup-agenda ()
   ;; agenda file
-  (setq org-agenda-files yxl-org-agenda-files)
+  (setq org-agenda-files yxl-org-task-files)
   ;; agenda view: 1 month
   (setq org-agenda-span 'month)
   ;; org agenda time grid
