@@ -1,6 +1,7 @@
 (defvar yxl-path-dotfiles "~/dotfiles/")
-(defvar yxl-path-sync "~/Dropbox/")
-(defvar yxl-path-local "~/Downloads/")
+(defvar yxl-path-sync "~/Dropbox/")  ;; sync location for repos
+(defvar yxl-path-local "~/local-repo/")  ;; local location for repos
+(defvar yxl-path-downloads "~/Downloads/")
 (defvar yxl-path-org "~/Dropbox/org/")
 (defvar yxl-path-org-task "~/Dropbox/org/tasks/")
 
