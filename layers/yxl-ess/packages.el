@@ -22,7 +22,7 @@
       ",S" #'ess-at-point-generic
       ",fs" #'yxl-ess/lsos
       ",ff" #'yxl-ess/lsdf
-      ",h" #'ess-help
+      "hh" #'ess-help
       ",i" #'asb-ess-R-object-popup-str
       ",I" #'asb-ess-R-object-popup-interactive)
     (add-hook 'ess-rdired-mode-hook
