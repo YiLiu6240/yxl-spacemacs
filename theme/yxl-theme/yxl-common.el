@@ -490,6 +490,7 @@
             `(ivy-minibuffer-match-face-3 ((,class (:foreground ,head4 :underline t))))
             `(ivy-minibuffer-match-face-4 ((,class (:foreground ,head3 :underline t))))
             `(ivy-remote ((,class (:foreground ,cyan))))
+            `(ivy-virtual ((,class (:foreground ,comment))))
 
 ;;;;; latex
             `(font-latex-math-face ((,class (:foreground ,type))))
