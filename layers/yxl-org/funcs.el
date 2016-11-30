@@ -41,7 +41,7 @@
   (setq org-highlight-latex-and-related '(latex script entities))
   (setq org-refile-use-outline-path t)
   (setq org-refile-targets '((nil :maxlevel . 1)
-                             (org-agenda-files :maxlevel . 1))))
+                             (yxl-file-org-scratch :maxlevel . 1))))
 
 (defun yxl-org/org-mode-hook ()
   ;; (setq line-spacing 4)
