@@ -40,22 +40,6 @@
                         (interactive)
                         (yas-expand-snippet "_{$1}^{$2}")))))
 
-;; (defun yxl-text/init-latex-extra ()
-;;   (use-package latex-extra
-;;     :defer t
-;;     :config
-;;     (progn
-;;       (setq latex/view-after-compile nil)
-;;       ;; disable auto fill effect
-;;       ;; (add-hook 'latex-extra-mode-hook (lambda ()
-;;       ;;                                    (setq auto-fill-function nil)) t)
-;;       ;; REVIEW
-;;       (setq latex/no-fill-environments '("equation" "equation*" "align"
-;;                                          "align*" "tabular" "tikzpicture"))
-;;       (define-key latex-extra-mode-map (kbd "C-<tab>") #'latex/hide-show)
-;;       (define-key latex-extra-mode-map (kbd "C-S-<tab>") #'latex/hide-show-all)
-;;       (define-key latex-extra-mode-map (kbd "S-<tab>") nil))))
-
 (defun yxl-text/init-bibtex ()
   (use-package bibtex
     :defer t
@@ -103,13 +87,7 @@
       (helm-delete-action-from-source "Insert reference" helm-source-bibtex)
       (helm-add-action-to-source "Insert BibTeX key" 'helm-bibtex-insert-key helm-source-bibtex 0)
       (helm-add-action-to-source "Insert citation" 'helm-bibtex-insert-citation helm-source-bibtex 1)
-      (helm-add-action-to-source "Insert reference" 'helm-bibtex-insert-reference helm-source-bibtex 2)
-      ;; (setq bibtex-completion-format-citation-functions
-      ;;       '((org-mode      . bibtex-completion-format-citation-org-link-to-PDF)
-      ;;         (latex-mode    . bibtex-completion-format-citation-cite)
-      ;;         (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
-      ;;         (default       . bibtex-completion-format-citation-default)))
-      )))
+      (helm-add-action-to-source "Insert reference" 'helm-bibtex-insert-reference helm-source-bibtex 2))))
 
 (defun yxl-text/init-gscholar-bibtex ()
   (use-package gscholar-bibtex
@@ -134,19 +112,6 @@
     (add-hook 'markdown-mode-hook
               (lambda ()
                 (setq markdown-command "pandoc")))))
-
-;; (defun yxl-text/init-writeroom-mode ()
-;;   (use-package writeroom-mode
-;;     :defer t
-;;     :init
-;;     (progn
-;;       (spacemacs/set-leader-keys "axw" 'writeroom-mode)
-;;       (setq-default writeroom-mode-line t)
-;;       (setq-default writeroom-maximize-window nil))
-;;     :config
-;;     (progn
-;;       (setq writeroom-global-effects
-;;             (delq 'writeroom-set-fullscreen writeroom-global-effects)))))
 
 (defun yxl-text/init-writegood-mode ()
   (use-package writegood-mode
