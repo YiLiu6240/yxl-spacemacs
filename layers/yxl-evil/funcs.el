@@ -11,8 +11,12 @@
    ;; text objects:
    (define-key evil-outer-text-objects-map "g" #'evil-a-curly)
    (define-key evil-outer-text-objects-map "h" #'evil-a-bracket)
+   (define-key evil-outer-text-objects-map "t" #'evil-a-double-quote)
+   (define-key evil-outer-text-objects-map "y" #'evil-a-single-quote)
    (define-key evil-inner-text-objects-map "g" #'evil-inner-curly)
    (define-key evil-inner-text-objects-map "h" #'evil-inner-bracket)
+   (define-key evil-inner-text-objects-map "t" #'evil-inner-double-quote)
+   (define-key evil-inner-text-objects-map "y" #'evil-inner-single-quote)
 
    ;; normal and motion state:
    (define-key evil-normal-state-map (kbd "j") #'evil-next-visual-line)
@@ -104,8 +108,8 @@
   "press viw then press the trigger key"
   (push '(?g . ("{" . "}")) evil-surround-pairs-alist)
   (push '(?h . ("[" . "]")) evil-surround-pairs-alist)
-  (push '(?q . ("\"" . "\"")) evil-surround-pairs-alist)
-  (push '(?w . ("'" . "'")) evil-surround-pairs-alist)
+  (push '(?t . ("\"" . "\"")) evil-surround-pairs-alist)
+  (push '(?y . ("'" . "'")) evil-surround-pairs-alist)
   (push '(?m . ("\\\(" . "\\\)")) evil-surround-pairs-alist)
   (push '(?M . ("\\\( " . " \\\)")) evil-surround-pairs-alist)
   (push '(?n . ("\\[" . "\\]")) evil-surround-pairs-alist)
