@@ -168,7 +168,8 @@
    dotspacemacs-mode-line-unicode-symbols t
    dotspacemacs-smooth-scrolling nil
    dotspacemacs-line-numbers nil
-   dotspacemacs-folding-method 'evil
+   ;; dotspacemacs-folding-method 'evil
+   dotspacemacs-folding-method 'origami
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis nil
    dotspacemacs-highlight-delimiters 'all
@@ -346,6 +347,9 @@
   (evil-define-key 'normal evil-cleverparens-mode-map (kbd "]") nil)
   (evil-define-key 'visual evil-cleverparens-mode-map (kbd "]") nil)
 
+  (add-hook 'lua-mode-hook (lambda () (setq-local origami-fold-style 'triple-braces)))
+  (add-hook 'bibtex-mode-hook (lambda () (setq-local origami-fold-style 'triple-braces)))
+  (setq origami-show-fold-header t)
   ;; --------
   ;; misc configs
   ;; --------
