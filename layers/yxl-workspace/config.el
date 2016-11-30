@@ -13,14 +13,6 @@
  (add-to-list 'desktop-modes-not-to-save 'elfeed-search-mode)
  (add-to-list 'desktop-modes-not-to-save 'elfeed-show-mode))
 
-;; remove desktop after it's been read
-;; (add-hook 'desktop-after-read-hook
-;;       '(lambda ()
-;;          ;; desktop-remove clears desktop-dirname
-;;          (setq desktop-dirname-tmp desktop-dirname)
-;;          (desktop-remove)
-;;          (setq desktop-dirname desktop-dirname-tmp)))
-
 (defun yxl-saved-session-p ()
   (file-exists-p (concat yxl-desktop-dirname "/"
                          desktop-base-file-name)))
