@@ -92,7 +92,7 @@
           ("HOLD" . (:foreground "#268bd2"))
           ("NEXT" . (:foreground "#6c71c4"))
           ("QUICK" . (:foreground "#6c71c4"))
-          ("SOMEDAY" . (:foreground "#6c71c4"))
+          ;; ("SOMEDAY" . (:foreground "#6c71c4"))
           ("FOLLOW-UP" . (:foreground "#6c71c4"))
           ("PROJ" . (:foreground "#b58900"))
           ("WIP" . (:foreground "#b58900"))
