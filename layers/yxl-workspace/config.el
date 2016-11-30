@@ -13,6 +13,20 @@
  (add-to-list 'desktop-modes-not-to-save 'elfeed-search-mode)
  (add-to-list 'desktop-modes-not-to-save 'elfeed-show-mode))
 
+;; save shell-mode in desktop
+;; source: https://bmag.github.io/2015/12/26/desktop.html
+(defun sy-save-shell-buffer (desktop-dirname)
+  default-directory)
+(defun sy-create-shell-buffer (_file-name buffer-name misc)
+  "MISC is the value returned by `sy-save-shell-buffer'.
+_FILE-NAME is nil."
+  (let ((default-directory misc))
+    ;; create a shell buffer named BUFFER-NAME in directory MISC
+    (shell buffer-name)))
+(add-hook 'shell-mode-hook
+          (lambda () (setq-local desktop-save-buffer #'sy-save-shell-buffer)))
+(add-to-list 'desktop-buffer-mode-handlers '(shell-mode . sy-create-shell-buffer))
+
 (defun yxl-saved-session-p ()
   (file-exists-p (concat yxl-desktop-dirname "/"
                          desktop-base-file-name)))
