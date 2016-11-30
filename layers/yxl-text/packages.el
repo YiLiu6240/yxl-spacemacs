@@ -81,6 +81,13 @@
     :config
     (progn
       (setq helm-bibtex-full-frame nil)
+      (setq bibtex-completion-additional-search-fields '(keywords author title year journal chapter booktitle))
+      (setq bibtex-completion-display-formats
+            '((article . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  ${journal:25}")
+              (inbook . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  Chapter ${chapter:25}")
+              (incollection . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  ${booktitle:25}")
+              (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  ${booktitle:25}")
+              (t . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}")))
       ;; rearrange helm-bibtex actions
       (helm-delete-action-from-source "Insert citation" helm-source-bibtex)
       (helm-delete-action-from-source "Insert BibTeX key" helm-source-bibtex)
