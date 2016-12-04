@@ -248,6 +248,8 @@
   ;; mode list
   (add-to-list 'auto-mode-alist '("\\.inbox$" . gfm-mode))
   (add-to-list 'auto-mode-alist '("\\.tex$" . latex-mode))
+  (add-to-list 'auto-mode-alist '("\\.sublime-settings$" . json-mode))
+  (add-to-list 'auto-mode-alist '("\\.sublime-keymap$" . json-mode))
 
   ;; misc stuff
   (setq-default require-final-newline t)
