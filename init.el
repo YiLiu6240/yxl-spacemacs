@@ -27,7 +27,8 @@
      (git :variables
           git-magit-status-fullscreen nil)
      lua
-     markdown
+     ;; markdown: need vmd from npm: npm install -g vmd
+     (markdown :variables markdown-live-preview-engine 'vmd)
      org
      python
      sql
