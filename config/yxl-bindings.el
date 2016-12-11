@@ -15,6 +15,7 @@
   "oak" #'calendar
   "oac" #'cfw-open-calendar
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
+  "bB" #'find-file-in-current-directory-lv1
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
   "i <SPC>" #'evil-insert-newline-around

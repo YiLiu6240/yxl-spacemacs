@@ -1,4 +1,5 @@
 (setq yxl-prog-packages '((prog-mode :location built-in)
+                          find-file-in-project
                           python
                           cc-mode
                           ;; org
@@ -21,6 +22,17 @@
       (add-hook 'prog-mode-hook (lambda ()
                                   (setq indent-tabs-mode nil)
                                   (setq tab-width 4))))))
+
+(defun yxl-prog/init-find-file-in-project ()
+  (use-package find-file-in-project
+    :defer t
+    :init
+    (progn
+      (defun find-file-in-current-directory-lv1 (&optional open-another-window)
+        (interactive "P")
+        (let* ((ffip-find-options "-maxdepth 1"))
+          (find-file-in-current-directory open-another-window))))))
+
 
 (defun yxl-prog/post-init-python ()
   (with-eval-after-load 'python
