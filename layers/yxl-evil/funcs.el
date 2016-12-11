@@ -26,7 +26,7 @@
    (define-key evil-motion-state-map "gm" #'evil-goto-mark)
    (define-key evil-motion-state-map "gt" #'eyebrowse-next-window-config)
    (define-key evil-motion-state-map "gT" #'eyebrowse-prev-window-config)
-   (define-key evil-motion-state-map "gH" #'eyebrrowse-prev-window-config)
+   (define-key evil-motion-state-map "gH" #'eyebrowse-prev-window-config)
    (define-key evil-motion-state-map "gL" #'eyebrowse-next-window-config)
    ;; navigation
    (define-key evil-motion-state-map "H" #'evil-first-non-blank)
