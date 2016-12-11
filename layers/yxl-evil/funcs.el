@@ -70,7 +70,9 @@
    ;; ;; swap colon and semi colon
    ;; (define-key evil-normal-state-map "g:" #'goto-last-change)
    ;; ;; (define-key evil-motion-state-map ":" #'evil-repeat-find-char)
-   ))
+
+   ;; Ex commands
+   (evil-ex-define-cmd "tabn[ew]" 'eyebrowse-create-window-config-dired)))
 
 (defun yxl-evil/setup-evil-personal ()
   "personal bindings, rely on external yxl functions"
