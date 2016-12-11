@@ -9,6 +9,8 @@
                           smartparens
                           narrow-indirect
                           bash-completion))
+
+;; TODO: wrong spec, dont use use-package
 (defun yxl-prog/init-prog-mode ()
   (use-package prog-mode
     :defer t
