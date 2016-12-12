@@ -118,7 +118,7 @@
    dotspacemacs-startup-banner nil
    dotspacemacs-startup-lists nil
    dotspacemacs-startup-buffer-responsive t
-   dotspacemacs-scratch-mode 'gfm-mode
+   dotspacemacs-scratch-mode 'markdown-mode
    dotspacemacs-themes '(yxl-dark
                          spacegray
                          sanityinc-tomorrow-night
@@ -217,7 +217,7 @@
   (setq-default mac-option-modifier 'super
                 mac-command-modifier 'meta)
   (setq-default ns-use-srgb-colorspace t)
-  (setq-default initial-major-mode 'gfm-mode)
+  (setq-default initial-major-mode 'markdown-mode)
   ;; ui
   (setq neo-theme 'ascii
         fci-rule-color "#073642")
@@ -247,7 +247,7 @@
         lua-indent-level 4)
 
   ;; mode list
-  (add-to-list 'auto-mode-alist '("\\.inbox$" . gfm-mode))
+  (add-to-list 'auto-mode-alist '("\\.inbox$" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.tex$" . latex-mode))
   (add-to-list 'auto-mode-alist '("\\.sublime-settings$" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.sublime-keymap$" . json-mode))

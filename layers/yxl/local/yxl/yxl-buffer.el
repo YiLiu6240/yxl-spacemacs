@@ -1,7 +1,7 @@
 (defvar yxl-buffer-stored-name nil)
 
 (defvar yxl-buffer-inherit-whitelist '(latex-mode
-                                       gfm-mode
+                                       markdown-mode
                                        org-mode
                                        R-mode
                                        python-mode

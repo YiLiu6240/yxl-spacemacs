@@ -38,7 +38,7 @@
     :defer t
     :config
     (progn
-      (setq scratch-pop-default-mode 'gfm-mode)
+      (setq scratch-pop-default-mode 'markdown-mode)
       (defun yxl-scratch-pop-top ()
         (interactive)
         (let ((scratch-pop-position 'top))
