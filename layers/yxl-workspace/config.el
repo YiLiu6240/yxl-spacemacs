@@ -1,7 +1,7 @@
 ;; minimal dekstop setup, from emacswiki
 
 ;; use only one desktop
-(setq yxl-desktop-dirname "~/Dropbox/inbox/")
+(setq yxl-desktop-dirname "~/Dropbox/Inbox/")
 (setq desktop-base-file-name "yxl-emacs-desktop")
 (setq desktop-file-name-format 'tilde)
 (setq history-length 100)
