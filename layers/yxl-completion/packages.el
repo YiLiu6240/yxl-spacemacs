@@ -21,4 +21,4 @@
 
 (defun yxl-completion/post-init-counsel ()
   (with-eval-after-load 'counsel
-    (define-key counsel-find-file-map (kbd "C-h") 'backward-delete-char)))
+    (define-key counsel-find-file-map (kbd "C-h") (kbd "DEL"))))
