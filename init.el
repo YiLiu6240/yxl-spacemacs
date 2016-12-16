@@ -120,6 +120,7 @@
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'markdown-mode
    dotspacemacs-themes '(yxl-dark
+                         yxl-gruv
                          spacegray
                          sanityinc-tomorrow-night
                          gruvbox
