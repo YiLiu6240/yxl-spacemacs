@@ -1,3 +1,11 @@
+(defun pdf-view-refresh-midnight-colors ()
+  "get the current foreground color and background color, and set
+`pdf-view-midnight-colors' accordingly"
+  (interactive)
+  (let* ((fg (face-attribute 'default :foreground))
+         (bg (face-attribute 'default :background)))
+    (setq pdf-view-midnight-colors `(,fg . ,bg))))
+
 ;; TODO: refine these functions
 (define-minor-mode pdf-view-darknight-minor-mode
   "Apply a color-filter appropriate for past midnight reading.

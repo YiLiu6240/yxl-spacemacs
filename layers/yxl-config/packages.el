@@ -37,23 +37,10 @@
 (defun yxl-config/post-init-pdf-tools ()
   (with-eval-after-load 'pdf-tools
 
-    (setq-default pdf-view-midnight-colors '("#839496" . "#15262c"))
-    (if (eq frame-background-mode 'light)
-        (add-hook 'pdf-view-mode-hook #'pdf-view-midday-minor-mode)
-      (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode))
+    (pdf-view-refresh-midnight-colors)
 
-    (defun yxl-pdf-tools-reset-config ()
-      (interactive)
-      (if (eq frame-background-mode 'light)
-          (list
-           (remove-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
-           (add-hook 'pdf-view-mode-hook #'pdf-view-midday-minor-mode))
-        (list
-         (remove-hook 'pdf-view-mode-hook #'pdf-view-midday-minor-mode)
-         (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)))
-      (yxl-pdf-view-bindings))
-
-    (add-hook 'yxl-switch-theme-hook #'yxl-pdf-tools-reset-config)
+    (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
+    (add-hook 'yxl-switch-theme-hook #'pdf-view-refresh-midnight-colors)
     ;; bug workaround wrt eyebrowse
     ;; https://github.com/politza/pdf-tools/issues/225
     (defun window-state-put-workaround (&rest _args)
