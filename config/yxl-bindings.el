@@ -35,7 +35,7 @@
 
 ;; addition to stock bindings
 (spacemacs/set-leader-keys
-  "hdF" #'describe-face)
+  "hdF" #'counsel-faces)
 
 ;; leader keys
 (spacemacs/set-leader-keys
