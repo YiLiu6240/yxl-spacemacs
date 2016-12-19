@@ -268,7 +268,7 @@
             `(diff-hl-insert ((,class :background ,green-bg :foreground ,green)))
 
 ;;;;; dired
-            `(dired-directory ((,class (:foreground ,keyword :background ,bg1 :inherit bold))))
+            `(dired-directory ((,class (:foreground ,func :weight normal))))
             `(dired-flagged ((,class (:foreground ,red))))
             `(dired-header ((,class (:foreground ,comp :inherit bold))))
             `(dired-ignored ((,class (:inherit shadow))))
@@ -573,6 +573,7 @@
             `(markdown-header-face-4 ((,class (:bold nil :foreground ,head4 :background ,(when yxl-theme-org-highlight head4-bg)))))
             `(markdown-header-face-5 ((,class (:bold nil :foreground ,head1))))
             `(markdown-header-face-6 ((,class (:bold nil :foreground ,head2))))
+            `(markdown-link-face ((,class (:inherit link))))
 
 ;;;;; mode-line
             ;; `(mode-line           ((,class (:foreground ,base :background ,act1 :box (:color ,border :line-width 1)))))
