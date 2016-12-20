@@ -351,9 +351,9 @@
   (evil-define-key 'normal evil-cleverparens-mode-map (kbd "]") nil)
   (evil-define-key 'visual evil-cleverparens-mode-map (kbd "]") nil)
 
-  (add-hook 'lua-mode-hook (lambda () (setq-local origami-fold-style 'triple-braces)))
+  ;; (add-hook 'lua-mode-hook (lambda () (setq-local origami-fold-style 'triple-braces)))
   (add-hook 'bibtex-mode-hook (lambda () (setq-local origami-fold-style 'triple-braces)))
-  (setq origami-show-fold-header t)
+  (setq origami-show-fold-header nil)
   ;; --------
   ;; misc configs
   ;; --------
