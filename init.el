@@ -220,8 +220,8 @@
   (setq-default ns-use-srgb-colorspace t)
   (setq-default initial-major-mode 'markdown-mode)
   ;; ui
-  (setq neo-theme 'ascii
-        fci-rule-color "#073642")
+  (setq neo-theme 'ascii)
+  (setq fci-rule-color (face-attribute 'highlight :background))
 
   ;; evil escape
   (setq-default evil-escape-key-sequence "jk")
