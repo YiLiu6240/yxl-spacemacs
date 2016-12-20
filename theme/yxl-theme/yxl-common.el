@@ -96,7 +96,7 @@
             (highlight     (cond ((eq variant 'dark) (if (true-color-p) "#1d4250" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#3c3836" "#3c3836")) (t (if (true-color-p) "#1d4250" "#d7d7ff"))))
             ;; keyword
             ;; (keyword       (if (eq variant 'dark) (if (true-color-p) "#859900" "#33859e") (if (true-color-p) "#859900" "#33859e")))
-            (keyword       (cond ((eq variant 'dark) (if (true-color-p) "#679a01" "#cc241d")) ((eq variant 'gruv) (if (true-color-p) "#cc241d" "#cc241d")) (t (if (true-color-p) "#679a01" "#33859e"))))
+            (keyword       (cond ((eq variant 'dark) (if (true-color-p) "#679a01" "#a16946")) ((eq variant 'gruv) (if (true-color-p) "#a16946" "#a16946")) (t (if (true-color-p) "#679a01" "#33859e"))))
             ;; line numbers
             (lnum          (cond ((eq variant 'dark) (if (true-color-p) "#586e75" "#282828")) ((eq variant 'gruv) (if (true-color-p) "#282828" "#282828")) (t (if (true-color-p) "#44505c" "#af87af"))))
             ;; matched, matching parens, brackets, tags
