@@ -35,7 +35,8 @@
 
 ;; addition to stock bindings
 (spacemacs/set-leader-keys
-  "hdF" #'counsel-faces)
+  "hdF" #'counsel-faces
+  "dd" #'ivy-switch-dired-buffer)
 
 ;; leader keys
 (spacemacs/set-leader-keys
