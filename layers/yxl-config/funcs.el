@@ -79,6 +79,8 @@ The colors are determined by the variable
     "-" #'pdf-view-shrink
     "gg" #'yxl-pdf-view-goto-first-page
     "G" #'yxl-pdf-view-goto-page
+    "os" #'helm-pdf-occur
+    "oS" #'helm-pdf-occur-search-preset
     "n" #'pdf-view-midnight-minor-mode
     "N" #'pdf-view-darknight-minor-mode
     "d" #'pdf-view-midday-minor-mode)

@@ -1,6 +1,7 @@
 (setq yxl-completion-packages '(helm
                                 ivy
-                                counsel))
+                                counsel
+                                (helm-pdf-occur :location local)))
 
 (defun yxl-completion/post-init-helm ()
   (with-eval-after-load 'helm
@@ -22,3 +23,9 @@
 (defun yxl-completion/post-init-counsel ()
   (with-eval-after-load 'counsel
     (define-key counsel-find-file-map (kbd "C-h") (kbd "DEL"))))
+
+(defun yxl-completion/init-helm-pdf-occur ()
+  (use-package helm-pdf-occur
+    :after (helm pdf-tools)
+    :commands (helm-pdf-occur helm-pdf-occur-search-preset)
+    :defer t))
