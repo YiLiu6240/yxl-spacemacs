@@ -79,8 +79,6 @@ The colors are determined by the variable
     "-" #'pdf-view-shrink
     "gg" #'yxl-pdf-view-goto-first-page
     "G" #'yxl-pdf-view-goto-page
-    "os" #'yxl-helm-pdf-occur
-    "oS" #'yxl-pdf-occur-search-preset
     "n" #'pdf-view-midnight-minor-mode
     "N" #'pdf-view-darknight-minor-mode
     "d" #'pdf-view-midday-minor-mode)
@@ -153,10 +151,6 @@ The colors are determined by the variable
   (if current-prefix-arg
       (pdf-view-goto-page (prefix-numeric-value current-prefix-arg))
     (pdf-view-first-page)))
-
-(defun yxl-pdf-occur-search-preset ()
-  (interactive)
-  (pdf-occur yxl-pdf-occur-preset-all t))
 
 (defun zilong/elfeed-mark-all-as-read ()
   (interactive)

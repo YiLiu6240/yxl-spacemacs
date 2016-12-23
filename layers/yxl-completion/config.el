@@ -21,23 +21,3 @@
                        ("calculator" . (lambda () (helm-calcul-expression)))
                        ("rss" . elfeed)))
         (action . (("open" . (lambda (x) (funcall x)))))))
-
-(setq yxl-helm-pdf-occur-sources-preset
-      '((name . "Preset Keywords")
-        (candidates . yxl-pdf-occur-preset)
-        (action . (("Search" . (lambda (x)
-                                 (interactive)
-                                 (pdf-occur x t)))))))
-
-(setq yxl-helm-pdf-occur-sources-all
-      `((name . "All Keywords")
-        (candidates . (("Search all" . yxl-pdf-occur-search-preset)))
-        (action . (("open" . (lambda (x) (call-interactively x)))))))
-
-(with-eval-after-load 'helm
-  (setq yxl-helm-pdf-occur-sources-fallback
-        (helm-build-sync-source "Fallback"
-          :match (lambda (_candidate) t)
-          :candidates '("Search Pattern")
-          :action (lambda (cand)
-                    (pdf-occur helm-pattern t)))))
