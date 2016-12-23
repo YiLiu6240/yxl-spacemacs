@@ -1,4 +1,5 @@
 (setq yxl-packages '((yxl :location local)
+                     (yxl-helm-quick :location local)
                      (goodies :location local)
                      (alarm :location local)
                      (simple-todo :location local)
@@ -11,6 +12,12 @@
 
 (defun yxl/init-yxl ()
   (use-package yxl))
+
+(defun yxl/init-yxl-helm-quick ()
+  (use-package yxl-helm-quick
+    :after 'helm
+    :commands (yxl-helm-quick yxl-helm-find-org-files yxl-helm-set-simple-todo)
+    :defer t))
 
 (defun yxl/init-goodies ()
   (use-package goodies))
