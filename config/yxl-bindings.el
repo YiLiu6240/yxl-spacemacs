@@ -128,7 +128,7 @@
   "ome" #'emacs-lisp-mode
 
   ;; orgmode
-  "ooo" #'yxl-helm-find-org-files
+  "ooo" #'yxl-helm-org-files
   "oo1" #'yxl-org/agenda-work
   "oo0" #'yxl-org/agenda-life
 

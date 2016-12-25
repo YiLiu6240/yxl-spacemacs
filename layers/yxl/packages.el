@@ -16,7 +16,7 @@
 (defun yxl/init-yxl-helm-quick ()
   (use-package yxl-helm-quick
     :after 'helm
-    :commands (yxl-helm-quick yxl-helm-find-org-files yxl-helm-set-simple-todo)
+    :commands (yxl-helm-quick yxl-helm-org-files)
     :defer t))
 
 (defun yxl/init-goodies ()
