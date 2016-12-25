@@ -15,11 +15,14 @@
 
 (defun yxl-ui/init-vim-powerline ()
   (require 'powerline)
-  ;; (if (display-graphic-p)
-  ;;     (setq powerline-default-separator 'arrow)
-  ;;   (setq powerline-default-separator 'utf-8))
-  (setq powerline-default-separator nil)
 
+  ;; HACK: always use 'nil (a pipe) as separator
+  (setq powerline-default-separator nil)
+  (defun powerline-current-separator ()
+    "Get the current default separator. HACK: return 'nil in CLI."
+    (if window-system
+        powerline-default-separator
+      'nil))
   (defun powerline-raw (str &optional face pad)
   "Render STR as mode-line data using FACE and optionally
 PAD import on left (l) or right (r) or left-right (lr)."
@@ -31,7 +34,6 @@ PAD import on left (l) or right (r) or left-right (lr)."
                         (if (listp str) rendered-str str)
                         (when (and (> (length rendered-str) 0)
                                    (or (eq pad 'r) (eq pad 'lr))) " "))))
-
       (if face
           (pl/add-text-property padded-str 'face face)
         padded-str))))
