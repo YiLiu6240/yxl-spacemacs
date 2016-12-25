@@ -61,7 +61,7 @@
                       auto-completion-enable-sort-by-usage t
                       ;; completion tool tip, nil, buggy in evil
                       auto-completion-enable-help-tooltip nil
-                      :disabled-for     ; layer name
+                      :disabled-for  ; layer name
                       org
                       markdown)
      ;; semantic
@@ -75,9 +75,6 @@
                       syntax-checking-enable-by-default nil)
      ;; vim/evil mode --------
      (vinegar :packages (not dired))
-     ;; (evil-snipe :variables
-     ;;             ;; f/t not bound to current line
-     ;;             evil-snipe-enable-alternate-f-and-t-behaviors t)
      evil-cleverparens
 
      ;; other layers --------
@@ -170,7 +167,6 @@
    dotspacemacs-mode-line-unicode-symbols t
    dotspacemacs-smooth-scrolling nil
    dotspacemacs-line-numbers nil
-   ;; dotspacemacs-folding-method 'evil
    dotspacemacs-folding-method 'origami
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis nil
