@@ -1,7 +1,8 @@
 (setq yxl-completion-packages '(helm
                                 ivy
                                 counsel
-                                (helm-pdf-occur :location local)))
+                                (helm-pdf-occur :location local)
+                                helm-github-stars))
 
 (defun yxl-completion/post-init-helm ()
   (with-eval-after-load 'helm
@@ -29,3 +30,10 @@
     :after (helm pdf-tools)
     :commands (helm-pdf-occur helm-pdf-occur-search-preset)
     :defer t))
+
+(defun yxl-completion/init-helm-github-stars ()
+  (use-package helm-github-stars
+    :defer t
+    :config
+    (progn
+      (setq helm-github-stars-username "YiLiu6240"))))
