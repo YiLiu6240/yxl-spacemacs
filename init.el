@@ -67,8 +67,11 @@
      ;; semantic
      pandoc
      (shell :variables
+            shell-default-shell (if (eq window-system 'w32) 'eshell
+                                  'shell)
             shell-default-height 30
-            shell-default-position 'bottom)
+            shell-default-position 'bottom
+            shell-default-full-span nil)
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      (syntax-checking :variables
