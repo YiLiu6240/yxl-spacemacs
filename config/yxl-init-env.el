@@ -4,6 +4,7 @@
 (defvar yxl-path-downloads "~/Downloads/")
 (defvar yxl-path-org "~/Dropbox/org/")
 (defvar yxl-path-org-task "~/Dropbox/org/tasks/")
+(defvar yxl-path-projects (concat yxl-path-sync "yxl_projects"))
 
 (defvar yxl-path-code-repo (concat yxl-path-local "c3_pwd/"))
 (defvar yxl-path-phd-repo (concat yxl-path-local "yxl105_ctw/"))
@@ -35,14 +36,16 @@
 
 
 
-(defvar yxl-env-files-alist '(("wunderlist" . "https://www.wunderlist.com")
-                              ("github" . "https://www.github.com")
-                              ("bham-portable" . "http://my.bham.ac.uk")
-                              ("gmail" . "https://www.gmail.com")))
+(setq yxl-env-files-alist `(("dotfiles/" . "~/dotfiles/")
+                            ("emacs.d/" . "~/.emacs.d/")
+                            ("local-repos/" . ,yxl-path-local)
+                            ("dropbox" . ,yxl-path-sync)
+                            ("projects" . ,yxl-path-projects)
+                            ("org/" . ,yxl-path-org)
+                            ("journal-papers/" . ,yxl-path-journal-pwd)
+                            ("bib" . ,yxl-file-bib)))
 
-(defvar yxl-env-websites-alist `(("dotfiles/" . "~/dotfiles/")
-                                 ("emacs.d/" . "~/.emacs.d/")
-                                 ("local-repos/" . ,yxl-path-local)
-                                 ("org/" . ,yxl-path-org)
-                                 ("journal-papers/" . ,yxl-path-journal-pwd)
-                                 ("bib" . ,yxl-file-bib)))
+(setq yxl-env-websites-alist '(("wunderlist" . "https://www.wunderlist.com")
+                               ("github" . "https://www.github.com")
+                               ("bham-portable" . "http://my.bham.ac.uk")
+                               ("gmail" . "https://www.gmail.com")))

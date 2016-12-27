@@ -16,7 +16,10 @@
 (defun yxl/init-yxl-helm-quick ()
   (use-package yxl-helm-quick
     :after 'helm
-    :commands (yxl-helm-quick yxl-helm-org-files)
+    :commands (yxl-helm-quick
+               yxl-helm-org-files
+               yxl-helm-websites
+               yxl-helm-files)
     :defer t))
 
 (defun yxl/init-goodies ()

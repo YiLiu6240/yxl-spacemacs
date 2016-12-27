@@ -30,7 +30,7 @@
 (defun yxl-helm-websites ()
   (interactive)
   (helm :sources '(((name . "Websites")
-                   (candidates . yxl-env-files-alist)
+                   (candidates . yxl-env-websites-alist)
                    (action . (("open" . (lambda (x) (browse-url-generic x))))))
                    yxl-helm-websites--fallback)))
 
@@ -49,7 +49,7 @@
 (defun yxl-helm-files ()
   (interactive)
   (helm :sources '(((name . "Files and Directories")
-                   (candidates . yxl-env-websites-alist)
+                   (candidates . yxl-env-files-alist)
                    (action . (("open" . (lambda (x) (find-file x))))))
                    yxl-helm-quick--fallback)))
 

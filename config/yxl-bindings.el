@@ -130,7 +130,6 @@
   "ome" #'emacs-lisp-mode
 
   ;; orgmode
-  "ooo" #'yxl-helm-org-files
   "oo1" #'yxl-org/agenda-work
   "oo0" #'yxl-org/agenda-life
 
@@ -145,7 +144,10 @@
   "opp" #'yxl-find-pwd-paper
 
   ;; quick
-  "og" #'yxl-helm-quick
+  "ogg" #'yxl-helm-quick
+  "ogo" #'yxl-helm-org-files
+  "ogf" #'yxl-helm-files
+  "ogw" #'yxl-helm-websites
 
   ;; search
   "osg" #'helm-google-suggest
