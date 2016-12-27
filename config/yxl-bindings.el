@@ -137,6 +137,7 @@
   "opg" #'yxl-find-dir-downloads
   "opG" #'yxl-find-dir-local
   "oph" #'yxl-find-dir-dropbox
+  "opH" #'yxl-find-dir-projects
   "opc" #'yxl-find-pwd-code
   "opd" #'yxl-find-dir-dotfiles
   "opj" #'yxl-find-pwd-journal
