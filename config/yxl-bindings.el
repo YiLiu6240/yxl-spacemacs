@@ -12,6 +12,8 @@
   ";" #'counsel-M-x  ; prevent overwritten by nerd-commenter
   "<SPC>" #'evil-avy-goto-char-2
   "av" #'yxl-org/agenda-view
+  ;; TODO: rm this with next spacemacs update
+  "bm" #'view-echo-area-messages
   "oak" #'calendar
   "oac" #'cfw-open-calendar
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
