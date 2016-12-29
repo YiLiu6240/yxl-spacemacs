@@ -1,3 +1,21 @@
+(defun yxl-dired/leader-setup ()
+  (spacemacs/set-leader-keys-for-major-mode 'dired-mode
+    "pp" #'peep-dired
+    "pk" #'peep-dired-prev-file
+    "pj" #'peep-dired-next-file
+    "sn" #'yxl-dired/dired-sort-by-name
+    "sd" #'yxl-dired/dired-sort-by-date
+    "ss" #'yxl-dired/dired-sort-by-size
+    "sD" #'yxl-dired/dired-sort-by-dir
+    "td" #'yxl-dired/toggle-dwim-target
+    "o"  #'yxl-dired/open-in-desktop
+    "r"  #'revert-buffer
+    "h"  #'dired-hide-details-mode
+    "H"  #'dired-omit-mode)
+  (spacemacs/declare-prefix-for-mode #'dired-mode "ms" "sort")
+  (spacemacs/declare-prefix-for-mode #'dired-mode "mt" "toggle")
+  (spacemacs/declare-prefix-for-mode #'dired-mode "mp" "peep"))
+
 (defun yxl-dired/hydra-setup ()
   (defhydra hydra-dired-common (:color blue)
     ("." nil "quit"))
@@ -56,7 +74,7 @@
     (:hint none :color red)
     "
     [_q_] ../   [_T_] ../   [_._] quit
-    [_h_] ?h? hide detail   [_o_] ?o? omit [_d_] ?d? dwim-target
+    [_h_] ?h? hide detail   [_H_] ?o? omit [_d_] ?d? dwim-target
     [_r_] read only (restore with C-x C-q)"
     ("." nil)
     ("q" hydra-dired-main/body :color blue)
@@ -64,7 +82,7 @@
     ("h" dired-hide-details-mode
      (if (bound-and-true-p dired-hide-details-mode)
          "[X]" "[ ]"))
-    ("o" dired-omit-mode
+    ("H" dired-omit-mode
      (if (bound-and-true-p dired-omit-mode)
          "[X]" "[ ]"))
     ("d" yxl-dired/toggle-dwim-target

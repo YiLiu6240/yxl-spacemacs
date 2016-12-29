@@ -37,22 +37,7 @@
       (add-hook 'dired-mode-hook #'spacemacs/toggle-truncate-lines-on)
       (add-hook 'dired-mode-hook #'dired-hide-details-mode)
 
-      (spacemacs/set-leader-keys-for-major-mode 'dired-mode
-        "pp" #'peep-dired
-        "pk" #'peep-dired-prev-file
-        "pj" #'peep-dired-next-file
-        "sn" #'yxl-dired/dired-sort-by-name
-        "sd" #'yxl-dired/dired-sort-by-date
-        "ss" #'yxl-dired/dired-sort-by-size
-        "sD" #'yxl-dired/dired-sort-by-dir
-        "td" #'yxl-dired/toggle-dwim-target
-        "o" #'yxl-dired/open-in-desktop
-        "r" #'revert-buffer
-        "i" #'dired-hide-details-mode)
-      (spacemacs/declare-prefix-for-mode #'dired-mode "ms" "sort")
-      (spacemacs/declare-prefix-for-mode #'dired-mode "mt" "toggle")
-      (spacemacs/declare-prefix-for-mode #'dired-mode "mp" "peep")
-
+      (yxl-dired/leader-setup)
       (yxl-dired/hydra-setup)
 
       (spacemacs/set-leader-keys
