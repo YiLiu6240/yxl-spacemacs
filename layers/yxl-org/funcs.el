@@ -135,7 +135,8 @@
   (setq org-agenda-time-grid '((daily today)
                                "----------------"
                                (0900 1100 1300 1500 1700)))
-
+  (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
+    "E" #'org-agenda-entry-text-mode)
   (add-to-list 'org-agenda-custom-commands
                '("0" "Life -- todo list"
                  ((todo "TODAY" ((org-agenda-files yxl-org-agenda-files-life)))

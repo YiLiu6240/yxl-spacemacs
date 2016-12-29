@@ -130,6 +130,7 @@
   "ome" #'emacs-lisp-mode
 
   ;; orgmode
+  "ooo" #'org-agenda
   "oo1" #'yxl-org/agenda-work
   "oo0" #'yxl-org/agenda-life
 
