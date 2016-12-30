@@ -12,20 +12,31 @@
           (t
            20))))
 
-(defun yxl-window-get-ratio ()
+(defun yxl-window-get-ratio (&optional small)
   "Return the a window width/height corresponding to a ratio to current frame:
-- golden ratio by default;
-- 0.8 with C-u uni prefix;
+- golden ratio by default; if `small' then 1 - golden-ratio
+- 0.75 with C-u uni prefix; if `small' then 0.25
 - 0.X with uni prefix being single digit;
 - X% otherwise."
-  "By default return a golden ratio column width; if has uni prefix, return 0.8;
-if uni prefix is a one digit number, treat it as 0.X; else treat it as X%."
   (let* ((golden-ratio 0.618))
     (cond
      ((equal current-prefix-arg nil)
-      golden-ratio)
+      (if small (- 1 golden-ratio) golden-ratio))
      ((equal current-prefix-arg  '(4))
-      0.75)
+      (if small 0.25 0.75))
+     (t (cond
+         ((< current-prefix-arg 10)(/ current-prefix-arg 10.0))
+         (t (/ current-prefix-arg 100.0)))))))
+
+(defun yxl-window-get-ratio-alt ()
+  "Alternative version of `yxl-window-get-ratio'. Defaults to smaller half
+of the size ratio."
+  (let* ((golden-ratio 0.618))
+    (cond
+     ((equal current-prefix-arg nil)
+      (- 1 golden-ratio))
+     ((equal current-prefix-arg  '(4))
+      0.25)
      (t (cond
          ((< current-prefix-arg 10)(/ current-prefix-arg 10.0))
          (t (/ current-prefix-arg 100.0)))))))
@@ -77,49 +88,29 @@ if uni prefix is a one digit number, treat it as 0.X; else treat it as X%."
 
 (defun yxl-window-split-horizontal-focus ()
   (interactive)
-  (cond
-   ((equal current-prefix-arg '(4))
-    (progn
-      (split-window-below 20)))
-   (t
-    (progn
-      (split-window-below -20)
-      (evil-window-down 1)))))
+  (let* ((win-size (- (round (* (yxl-window-get-ratio t)
+                                (window-total-height))))))
+    (split-window-below win-size)
+    (evil-window-down 1)))
 
 (defun yxl-window-split-horizontal-stay ()
   (interactive)
-  (cond
-   ((equal current-prefix-arg '(4))
-    (progn
-      (split-window-below 20)
-      (evil-window-down 1)))
-   (t
-    (progn
-      (split-window-below -20)))))
+  (let* ((win-size (- (round (* (yxl-window-get-ratio t)
+                             (window-total-height))))))
+    (split-window-below win-size)))
 
 (defun yxl-window-split-vertical-focus ()
   (interactive)
-  (cond
-   ((equal current-prefix-arg '(4))
-    (progn
-      (split-window-right 20)
-      (evil-window-left 1)))
-   (t
-    (progn
-      (split-window-right -20)
-      (evil-window-right 1)))))
+  (let* ((win-size (- (round (* (yxl-window-get-ratio t)
+                             (window-total-width))))))
+    (split-window-right win-size)
+    (evil-window-right 1)))
 
 (defun yxl-window-split-vertical-stay ()
   (interactive)
-  (cond
-   ((equal current-prefix-arg '(4))
-    (progn
-      (split-window-right 20)
-      (evil-window-right 1)))
-   (t
-    (progn
-      (split-window-right -20)
-      (evil-window-left 1)))))
+  (let* ((win-size (- (round (* ((yxl-window-get-ratio t))
+                             (window-total-width))))))
+    (split-window-right win-size)))
 
 
 (defun yxl-window-change-width (width)
