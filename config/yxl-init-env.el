@@ -4,7 +4,7 @@
 (defvar yxl-path-downloads "~/Downloads/")
 (defvar yxl-path-org "~/Dropbox/org/")
 (defvar yxl-path-org-task "~/Dropbox/org/tasks/")
-(defvar yxl-path-projects (concat yxl-path-sync "yxl_projects"))
+(defvar yxl-path-projects (concat yxl-path-local "yxl_projects"))
 
 (defvar yxl-path-code-repo (concat yxl-path-local "c3_pwd/"))
 (defvar yxl-path-phd-repo (concat yxl-path-local "yxl105_ctw/"))
