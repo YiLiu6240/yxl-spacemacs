@@ -74,7 +74,7 @@
     (:hint none :color red)
     "
     [_q_] ../   [_T_] ../   [_._] quit
-    [_h_] ?h? hide detail   [_H_] ?o? omit [_d_] ?d? dwim-target
+    [_h_] ?h? hide detail   [_H_] ?H? omit [_d_] ?d? dwim-target
     [_r_] read only (restore with C-x C-q)"
     ("." nil)
     ("q" hydra-dired-main/body :color blue)
