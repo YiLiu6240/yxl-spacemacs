@@ -14,8 +14,9 @@
 
 (defun yxl-window-get-ratio (&optional small)
   "Return the a window width/height corresponding to a ratio to current frame:
-- golden ratio by default; if `small' then 1 - golden-ratio
-- 0.75 with C-u uni prefix; if `small' then 0.25
+- golden ratio by default; if `small' then 1 - golden-ratio;
+- 0.75 with C-u uni prefix; if `small' then 0.25;
+- C-u C-u: reverse version of C-u;
 - 0.X with uni prefix being single digit;
 - X% otherwise."
   (let* ((golden-ratio 0.618))
@@ -24,6 +25,8 @@
       (if small (- 1 golden-ratio) golden-ratio))
      ((equal current-prefix-arg  '(4))
       (if small 0.25 0.75))
+     ((equal current-prefix-arg  '(16))
+      (if small 0.75 0.25))
      (t (cond
          ((< current-prefix-arg 10)(/ current-prefix-arg 10.0))
          (t (/ current-prefix-arg 100.0)))))))
@@ -86,31 +89,40 @@ of the size ratio."
 
 
 
+;; NOTE: split window logic:
+;; default: split windows downward/rightward and make the new split window size
+;;          the smaller part of the golden ratio of the orig window
+;; focus/stay: obvious
+;; C-u: 1/4 ratio instead of golden ratio
+;; C-u C-u: split upward/leftward
+
 (defun yxl-window-split-horizontal-focus ()
   (interactive)
   (let* ((win-size (- (round (* (yxl-window-get-ratio t)
                                 (window-total-height))))))
     (split-window-below win-size)
-    (evil-window-down 1)))
+    (unless (equal current-prefix-arg '(16)) (evil-window-down 1))))
 
 (defun yxl-window-split-horizontal-stay ()
   (interactive)
   (let* ((win-size (- (round (* (yxl-window-get-ratio t)
                              (window-total-height))))))
-    (split-window-below win-size)))
+    (split-window-below win-size)
+    (if (equal current-prefix-arg '(16)) (evil-window-down 1))))
 
 (defun yxl-window-split-vertical-focus ()
   (interactive)
   (let* ((win-size (- (round (* (yxl-window-get-ratio t)
                              (window-total-width))))))
     (split-window-right win-size)
-    (evil-window-right 1)))
+    (unless (equal current-prefix-arg '(16)) (evil-window-right 1))))
 
 (defun yxl-window-split-vertical-stay ()
   (interactive)
   (let* ((win-size (- (round (* ((yxl-window-get-ratio t))
                              (window-total-width))))))
-    (split-window-right win-size)))
+    (split-window-right win-size)
+    (if (equal current-prefix-arg '(16)) (evil-window-right 1))))
 
 
 (defun yxl-window-change-width (width)
