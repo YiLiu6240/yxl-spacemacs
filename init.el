@@ -130,8 +130,14 @@
                          spacemacs-light
                          solarized-light)
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font `("Input Mono Narrow"
-                               :size ,(if (eq system-type 'darwin) 12 12)
+   dotspacemacs-default-font `(,(cond ((eq system-type 'windows-nt)
+                                       "InputMonoNarrow")
+                                      ((eq system-type 'darwin)
+                                       "InputMonoNarrow")
+                                      (t "InputMonoNarrow"))
+                               :size ,(cond ((eq system-type 'darwin) 12)
+                                            ((eq system-type 'windows-nt) 12)
+                                            (t 12))
                                :weight normal
                                :width normal
                                :powerline-scale 1.3)
