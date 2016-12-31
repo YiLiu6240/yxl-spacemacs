@@ -32,6 +32,10 @@
   "wY" #'yxl-window-record-layout
   "wP" #'yxl-window-load-laytout
   "w <SPC>" #'ace-window
+  "w M-h" #'buf-move-left
+  "w M-j" #'buf-move-down
+  "w M-k" #'buf-move-up
+  "w M-l" #'buf-move-right
   "WY" #'yxl-workspace/record-config
   "WP" #'yxl-workspace/load-config)
 
@@ -169,7 +173,11 @@
   "owh" #'yxl-window-adjust-height-ratio
   "owp" #'yxl-window-get-buffer-previous-window
   "owc" #'yxl-window-center-margins
-  "oww" #'yxl-window-change-width)
+  "oww" #'yxl-window-change-width
+
+  ;; text
+  "oxp" #'counsel-yank-pop
+  "oxh" #'highlight-regexp)
 
 ;; prefixes
 (spacemacs/declare-prefix "." "user-quick")
@@ -189,4 +197,5 @@
 (spacemacs/declare-prefix "om" "modes")
 (spacemacs/declare-prefix "oo" "org-mode")
 (spacemacs/declare-prefix "op" "quick-projects")
+(spacemacs/declare-prefix "ox" "text")
 (spacemacs/declare-prefix "ow" "window-layouts")
