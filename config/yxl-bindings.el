@@ -12,6 +12,7 @@
   ";" #'counsel-M-x  ; prevent overwritten by nerd-commenter
   "<SPC>" #'evil-avy-goto-char-2
   "av" #'yxl-org/agenda-view
+  "bB" #'yxl-buffer-switch-same-major-mode
   ;; TODO: rm this with next spacemacs update
   "bm" #'view-echo-area-messages
   "oak" #'calendar

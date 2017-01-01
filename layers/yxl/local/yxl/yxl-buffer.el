@@ -47,4 +47,24 @@ of the previous buffer, if the major-mode is listed in
   (set-window-buffer (selected-window) yxl-buffer-stored-name)
   (message "switch to stored buffer: %s" yxl-buffer-stored-name))
 
+
+
+(defun yxl-buffer--ivy-get-buffer-list-with-mode (cur-mode)
+  (delq nil
+        (mapcar
+         (lambda (buffer)
+           (when (equal cur-mode (buffer-local-value 'major-mode buffer))
+             (buffer-name buffer)))
+         (buffer-list))))
+
+(defun yxl-buffer-switch-same-major-mode ()
+  (interactive)
+  (let ((cur-mode major-mode))
+   (ivy-read (format "Switch to buffer(s) of %s: " cur-mode)
+            (yxl-buffer--ivy-get-buffer-list-with-mode cur-mode)
+            :action (lambda (x)
+                      (switch-to-buffer x))
+            :caller 'yxl-buffer-switch-same-major-mode)))
+
+
 (provide 'yxl-buffer)
