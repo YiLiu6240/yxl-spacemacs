@@ -36,7 +36,7 @@
     "o" #'elfeed-search-show-entry
     ;; "O" #'elfeed-search-browse-url
     "O" #'yxl-web/elfeed-search-browse-url-w3m
-    "u" #'elfeed-search-browse-url
+    "x" #'elfeed-search-browse-url
     ;; ",R" #'zilong/elfeed-mark-all-as-read
     "m" #'yxl-elfeed-mark-as-read
     "M" #'yxl-elfeed-mark-as-unread
@@ -59,6 +59,7 @@
     ;; ",tm" #'elfeed-toggle-shr-inhibit-images
     ;; ",O" #'elfeed-search-browse-url
     "O"     #'yxl-web/elfeed-show-visit-w3m
+    "x"     #'yxl-web/elfeed-show-visit
     "u"     #'elfeed-show-visit
     "J"     #'elfeed-show-next
     "K"     #'elfeed-show-prev
@@ -81,11 +82,12 @@
     (:hint nil :color blue :inherit (hydra-elfeed-common/heads))
     "
 --------------------------------------------------------------------------------
-  [_k_]  up     [_s_] live   [_RET_] view     [_r_] read      [_a_] refresh
-  [_j_] down    [_S_] set    [_o_] browse     [_u_] unread    [_A_] fetch
-   ^ ^           ^ ^         [_y_] yank url   [_+_] add       [_d_] unjam
-   ^ ^           ^ ^         [_v_] mark       [_-_] remove    [_E_] edit feeds
-   ^ ^           ^ ^          ^ ^              ^ ^            [_q_] exit
+  [_k_]  up     [_s_] live   [_o_] view          [_r_] read      [_a_] refresh
+  [_j_] down    [_S_] set    [_O_] browser (w3m) [_u_] unread    [_A_] fetch
+   ^ ^           ^ ^         [_x_] browser (gen)
+   ^ ^           ^ ^         [_y_] yank url      [_+_] add       [_d_] unjam
+   ^ ^           ^ ^         [_v_] mark          [_-_] remove    [_E_] edit feeds
+   ^ ^           ^ ^          ^ ^                 ^ ^            [_q_] exit
 --------------------------------------------------------------------------------
     "
     ("q"    quit-window)
@@ -96,7 +98,8 @@
     ("S"    elfeed-search-set-filter)
     ("RET"  elfeed-search-show-entry)
     ("o"    elfeed-search-show-entry)
-    ("O"    elfeed-search-browse-url)
+    ("O"    yxl-web/elfeed-search-browse-url-w3m)
+    ("x"    elfeed-search-browse-url)
     ("y"    elfeed-search-yank)
     ("v"    set-mark-command)
     ("j"    next-line :color red)
@@ -112,11 +115,12 @@
     (:hint nil :color blue :inherit (hydra-elfeed-common/heads))
     "
 --------------------------------------------------------------------------------
-   [_k_]  up     [_g_] refresh   [_u_] unread    _S-TAB_
-   [_j_] down    [_O_] browse    [_+_] add       ^  ↑  ^
-   [_K_] prev    [_y_] yank url  [_-_] remove    ^     ^
-   [_J_] next    [_q_] quit      [_*_] star      ^  ↓  ^
-    ^ ^          [_s_] quit & search^^            _TAB_
+   [_k_]  up     [_g_] refresh          [_u_] unread    _S-TAB_
+   [_j_] down    [_O_] browser (w3m)    [_+_] add       ^  ↑  ^
+                 [_x_] browser (gen)
+   [_K_] prev    [_y_] yank url         [_-_] remove    ^     ^
+   [_J_] next    [_q_] quit             [_*_] star      ^  ↓  ^
+    ^ ^          [_s_] quit & search^^                   _TAB_
 --------------------------------------------------------------------------------
     "
     ("q"     elfeed-kill-buffer)
@@ -126,7 +130,8 @@
     ("J"     elfeed-show-next :color red)
     ("K"     elfeed-show-prev :color red)
     ("s"     elfeed-show-new-live-search)
-    ("O"     elfeed-show-visit :color red)
+    ("O"     yxl-web/elfeed-show-visit-w3m :color red)
+    ("x"     elfeed-show-visit :color red)
     ("y"     elfeed-show-yank)
     ("u"     (elfeed-show-tag 'unread))
     ("*"     elfeed-toggle-star)
