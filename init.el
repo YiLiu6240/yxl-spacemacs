@@ -134,7 +134,7 @@
                                        "InputMonoNarrow")
                                       ((eq system-type 'darwin)
                                        "InputMonoNarrow")
-                                      (t "InputMonoNarrow"))
+                                      (t "Input Mono Narrow"))
                                :size ,(cond ((eq system-type 'darwin) 12)
                                             ((eq system-type 'windows-nt) 12)
                                             (t 12))
