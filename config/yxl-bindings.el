@@ -30,7 +30,7 @@
   "wv" #'split-window-right-and-focus
   "wV" #'split-window-right
   "wY" #'yxl-window-record-layout
-  "wP" #'yxl-window-load-laytout
+  "wP" #'yxl-window-load-layout
   "w <SPC>" #'ace-window
   "w M-h" #'buf-move-left
   "w M-j" #'buf-move-down

@@ -147,7 +147,7 @@ of the size ratio."
     (setq yxl-window-stored-layout (window-state-get nil t))
     (message "stored window layout.")))
 
-(defun yxl-window-load-laytout ()
+(defun yxl-window-load-layout ()
   (interactive)
   (progn
     (window-state-put yxl-window-stored-layout (frame-root-window))
