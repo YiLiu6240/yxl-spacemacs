@@ -37,6 +37,7 @@
   "w M-j" #'buf-move-down
   "w M-k" #'buf-move-up
   "w M-l" #'buf-move-right
+  "l" #'spacemacs/workspaces-transient-state/body
   "WY" #'yxl-workspace/record-config
   "WP" #'yxl-workspace/load-config)
 

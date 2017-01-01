@@ -67,7 +67,93 @@
   ("w" other-window))
 
 (defun yxl-workspace/setup-eyebrowse ()
-  )
+  (defvar spacemacs--ts-full-hint-toggle 0
+    "Toggle display of transient states documentations.")
+  (defun spacemacs//workspaces-ts-toggle-hint ()
+    "Toggle the full hint docstring for the workspaces transient-state."
+    (interactive)
+    (setq spacemacs--ts-full-hint-toggle
+          (logxor spacemacs--ts-full-hint-toggle 1)))
+
+  (defun spacemacs/workspaces-ts-rename ()
+    "Rename a workspace and get back to transient-state."
+    (interactive)
+    (eyebrowse-rename-window-config (eyebrowse--get 'current-slot) nil)
+    (spacemacs/workspaces-transient-state/body))
+  (defun spacemacs//workspace-format-name (workspace)
+    "Return a propertized string given a WORKSPACE name."
+    (let* ((current (eq (eyebrowse--get 'current-slot) (car workspace)))
+           (name (nth 2 workspace))
+           (number (car workspace))
+           (caption (if (< 0 (length name))
+                        (concat (int-to-string number) ":" name)
+                      (int-to-string number))))
+      (if current
+          (propertize (concat "[" caption "]") 'face 'warning)
+        caption)))
+  (defun spacemacs//workspaces-ts-hint ()
+    "Return a one liner string containing all the workspaces names."
+    (concat
+     " "
+     (mapconcat 'spacemacs//workspace-format-name
+                (eyebrowse--get 'window-configs) " | ")
+     (if (equal 1 spacemacs--ts-full-hint-toggle)
+         spacemacs--workspaces-ts-full-hint
+       (concat "  (["
+               (propertize "?" 'face 'hydra-face-red)
+               "] help)"))))
+  (spacemacs|transient-state-format-hint workspaces
+    spacemacs--workspaces-ts-full-hint
+    "\n\n
+ Go to^^^^^^                         Actions^^
+ ─────^^^^^^───────────────────────  ───────^^──────────────────────
+ [_0_,_9_]^^     nth/new workspace   [_._] switch
+ [_C-0_,_C-9_]^^ nth/new workspace   [_?_] toggle help
+ [_<tab>_]^^^^   last workspace      [_R_] rename current workspace
+ [_n_/_C-l_]^^   next workspace      [_d_] close current workspace
+ [_N_/_p_/_C-h_] prev workspace      [_c_] create new workspace
+                                     [_C_] clone to new workspace
+                                     [_C-c_] clone main config")
+  (spacemacs|define-transient-state workspaces
+        :title "Workspaces Transient State"
+        :hint-is-doc t
+        :dynamic-hint (spacemacs//workspaces-ts-hint)
+        :bindings
+        ("." eyebrowse-switch-to-window-config)
+        ("?" spacemacs//workspaces-ts-toggle-hint)
+        ("0" eyebrowse-switch-to-window-config-0 :exit t)
+        ("1" eyebrowse-switch-to-window-config-1 :exit t)
+        ("2" eyebrowse-switch-to-window-config-2 :exit t)
+        ("3" eyebrowse-switch-to-window-config-3 :exit t)
+        ("4" eyebrowse-switch-to-window-config-4 :exit t)
+        ("5" eyebrowse-switch-to-window-config-5 :exit t)
+        ("6" eyebrowse-switch-to-window-config-6 :exit t)
+        ("7" eyebrowse-switch-to-window-config-7 :exit t)
+        ("8" eyebrowse-switch-to-window-config-8 :exit t)
+        ("9" eyebrowse-switch-to-window-config-9 :exit t)
+        ("C-0" eyebrowse-switch-to-window-config-0)
+        ("C-1" eyebrowse-switch-to-window-config-1)
+        ("C-2" eyebrowse-switch-to-window-config-2)
+        ("C-3" eyebrowse-switch-to-window-config-3)
+        ("C-4" eyebrowse-switch-to-window-config-4)
+        ("C-5" eyebrowse-switch-to-window-config-5)
+        ("C-6" eyebrowse-switch-to-window-config-6)
+        ("C-7" eyebrowse-switch-to-window-config-7)
+        ("C-8" eyebrowse-switch-to-window-config-8)
+        ("C-9" eyebrowse-switch-to-window-config-9)
+        ("<tab>" eyebrowse-last-window-config)
+        ("C-h" eyebrowse-prev-window-config)
+        ("C-i" eyebrowse-last-window-config)
+        ("C-l" eyebrowse-next-window-config)
+        ("c" eyebrowse-create-window-config-dired)
+        ("C" eyebrowse-create-window-config-clone)
+        ("C-c" eyebrowse-create-window-config-main)
+        ("d" eyebrowse-close-window-config)
+        ("n" eyebrowse-next-window-config)
+        ("N" eyebrowse-prev-window-config)
+        ("p" eyebrowse-prev-window-config)
+        ("R" spacemacs/workspaces-ts-rename :exit t)
+        ("w" eyebrowse-switch-to-window-config :exit t)))
 
 (defun eyebrowse-create-window-config-dired ()
   (interactive)

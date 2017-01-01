@@ -93,7 +93,18 @@ Supports both Emacs and Evil cursor conventions."
        (multi-line (format "%d lines" lines))
        (t (format "%d chars" (if evil chars (1- chars))))))))
 
-(defun powerline-get-current-eyebrowse-tag ()
+(defun powerline-get-eyebrowse-tag-current ()
+  (when (bound-and-true-p eyebrowse-mode)
+    (let* ((window-configs (eyebrowse--get 'window-configs))
+           (curr-id (eyebrowse--get 'current-slot))
+           (curr-pos (cl-position (assoc curr-id window-configs) window-configs))
+           (curr-tag (when curr-id (nth 2 (assoc curr-id window-configs))))
+           (curr-str (if (and curr-tag (< 0 (length curr-tag)))
+                         (concat (int-to-string curr-id) ":" curr-tag)
+                       (when curr-id (int-to-string curr-id)))))
+      (propertize curr-str 'face 'eyebrowse-mode-line-active))))
+
+(defun powerline-get-eyebrowse-tag ()
   (when (and (bound-and-true-p eyebrowse-mode))
     (let* ((left-delimiter (propertize eyebrowse-mode-line-left-delimiter
                                        'face 'eyebrowse-mode-line-delimiters))

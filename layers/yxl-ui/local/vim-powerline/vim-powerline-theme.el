@@ -159,11 +159,13 @@ And if not, try to get the corresponding '-normal' face"
                                                workspace-face 'lr)
                                 ;; eyebrowse
                                 (when (powerline-selected-window-active)
-                                  (if (> (window-width) 100)
-                                      (powerline-raw (eyebrowse-mode-line-indicator)
-                                                     workspace-face 'lr)
-                                    (powerline-raw (powerline-get-current-eyebrowse-tag)
-                                                   workspace-face 'lr)))
+                                  ;; (if (> (window-width) 100)
+                                  ;;     (powerline-raw (eyebrowse-mode-line-indicator)
+                                  ;;                    workspace-face 'lr)
+                                  ;;   (powerline-raw (powerline-get-eyebrowse-tag)
+                                  ;;                  workspace-face 'lr))
+                                  (powerline-raw (powerline-get-eyebrowse-tag-current)
+                                                 workspace-face 'lr))
                                 ;; lhs ends here
                                 (funcall harddiv-left workspace-face split-face)))
 
@@ -180,7 +182,7 @@ And if not, try to get the corresponding '-normal' face"
                                 ;;    (powerline-raw softdiv-right vc-face)))
                                 (funcall harddiv-right vc-face fileformat-face)
                                 ;; line ending and encoding
-                                (when (> (window-width) 100)
+                                (when (> (window-width) 60)
                                   (concat
                                    (when
                                        (not (null platform))

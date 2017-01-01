@@ -16,7 +16,7 @@
       (eyebrowse-mode))
     :config
     (progn
-      (setq eyebrowse-mode-line-style 'always)  ;; display all configs
+      (setq eyebrowse-mode-line-style 'always)
       (yxl-workspace/setup-eyebrowse)
       (eyebrowse-setup-opinionated-keys)
       ;; vim-style tab switching
