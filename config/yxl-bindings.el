@@ -38,8 +38,8 @@
   "w M-k" #'buf-move-up
   "w M-l" #'buf-move-right
   "l" #'spacemacs/workspaces-transient-state/body
-  "WY" #'yxl-workspace/record-config
-  "WP" #'yxl-workspace/load-config)
+  "LY" #'yxl-workspace/record-config
+  "LP" #'yxl-workspace/load-config)
 
 ;; addition to stock bindings
 (spacemacs/set-leader-keys
@@ -186,6 +186,8 @@
 (spacemacs/declare-prefix ".S" "session")
 (spacemacs/declare-prefix ".m" "bm")
 (spacemacs/declare-prefix ".w" "window-register")
+(spacemacs/declare-prefix "l" "layout")
+(spacemacs/declare-prefix "L" "Layout")
 
 (spacemacs/declare-prefix "o" "user-own")
 (spacemacs/declare-prefix "ob" "buffer")
