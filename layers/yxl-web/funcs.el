@@ -55,11 +55,11 @@
     :mode elfeed-show-mode
     :eval-after-load elfeed-show
     :bindings
-    "q" #'quit-window
+    "q" #'delete-window
     ;; ",tm" #'elfeed-toggle-shr-inhibit-images
     ;; ",O" #'elfeed-search-browse-url
     "O"     #'yxl-web/elfeed-show-visit-w3m
-    "x"     #'yxl-web/elfeed-show-visit
+    "x"     #'elfeed-show-visit
     "u"     #'elfeed-show-visit
     "J"     #'elfeed-show-next
     "K"     #'elfeed-show-prev
@@ -82,12 +82,12 @@
     (:hint nil :color blue :inherit (hydra-elfeed-common/heads))
     "
 --------------------------------------------------------------------------------
-  [_k_]  up     [_s_] live   [_o_] view          [_r_] read      [_a_] refresh
-  [_j_] down    [_S_] set    [_O_] browser (w3m) [_u_] unread    [_A_] fetch
-   ^ ^           ^ ^         [_x_] browser (gen)
-   ^ ^           ^ ^         [_y_] yank url      [_+_] add       [_d_] unjam
-   ^ ^           ^ ^         [_v_] mark          [_-_] remove    [_E_] edit feeds
-   ^ ^           ^ ^          ^ ^                 ^ ^            [_q_] exit
+  [_k_]  up     [_s_] filter (live)       [_o_] view          [_r_] read      [_a_] refresh
+  [_j_] down    [_S_] filter (nonlive)    [_O_] browser (w3m) [_u_] unread    [_A_] fetch
+   ^ ^           ^ ^                      [_x_] browser (gen)
+   ^ ^           ^ ^                      [_y_] yank url      [_+_] add       [_d_] unjam
+   ^ ^           ^ ^                      [_v_] mark          [_-_] remove    [_E_] edit feeds
+   ^ ^           ^ ^                       ^ ^                 ^ ^            [_q_] exit
 --------------------------------------------------------------------------------
     "
     ("q"    quit-window)
