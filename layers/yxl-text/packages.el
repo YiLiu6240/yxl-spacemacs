@@ -119,7 +119,8 @@
     (add-hook 'markdown-mode-hook 'outline-minor-mode)
     (add-hook 'markdown-mode-hook
               (lambda ()
-                (setq markdown-command "pandoc")))))
+                (setq markdown-command "pandoc")))
+    (setq markdown-asymmetric-header t)))
 
 (defun yxl-text/init-writegood-mode ()
   (use-package writegood-mode
