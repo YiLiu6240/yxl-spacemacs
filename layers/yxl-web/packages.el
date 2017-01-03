@@ -72,6 +72,9 @@
     :config
     (progn
       (add-hook 'w3m-mode-hook (lambda () (setq yxl-line-width 100)))
+      (setq-default w3m-user-agent (concat "Mozilla/5.0 (Linux; U; Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40)"
+                                           " AppleWebKit/533.1 (KHTML, like Gecko)"
+                                           " Version/4.0 Mobile Safari/533."))
       ;; REVIEW: this is bugged
       ;; w3m seems to auto break line when fetch html
       ;; (add-hook 'w3m-mode-hook (lambda () (visual-line-mode t)))
@@ -91,14 +94,15 @@
       (evilified-state-evilify-map w3m-mode-map
         :mode w3m-mode
         :bindings
-        "t" 'v/w3m-open-site-new-session
-        "x" 'w3m-session-select-quit
-        "o" 'w3m-view-this-url
-        "O" 'w3m-view-this-url-new-session
-        (kbd "C-h") 'windmove-left
-        (kbd "C-j") 'windmove-down
-        (kbd "C-k") 'windmove-up
-        (kbd "C-l") 'windmove-right
+        "q" #'delete-window
+        "t" #'v/w3m-open-site-new-session
+        "x" #'w3m-session-select-quit
+        "o" #'w3m-view-this-url
+        "O" #'w3m-view-this-url-new-session
+        (kbd "C-h") #'windmove-left
+        (kbd "C-j") #'windmove-down
+        (kbd "C-k") #'windmove-up
+        (kbd "C-l") #'windmove-right
         "H" 'eyebrowse-prev-window-config
         "L" 'eyebrowse-next-window-config)
       (spacemacs/set-leader-keys-for-major-mode 'w3m-mode
@@ -110,13 +114,6 @@
         "x" 'w3m-session-select-quit)
       (define-key w3m-mode-map (kbd "C-f") 'evil-scroll-page-down)
       (define-key w3m-mode-map (kbd "C-b") 'evil-scroll-page-up))))
-
-(defun v/init-w3m ()
-  (use-package w3m
-    :init
-    (progn
-      ;; (setq-default browse-url-browser-function 'w3m-goto-url-new-session)
-      (setq-default w3m-user-agent "Mozilla/5.0 (Linux; U; Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533."))))
 
 (defun yxl-web/init-sx ()
   (use-package sx
