@@ -8,6 +8,18 @@
         :candidates '(("yxl-helm-quick" . yxl-helm-quick))
         :action (lambda (candidate) (funcall candidate))))
 
+;; deprecated
+;; (defun yxl-helm-set-simple-todo ()
+;;   (interactive)
+;;   (helm :sources '(((name . "Simple todo")
+;;                    (candidates . (("task1" . yxl-set-simple-todo-task1)
+;;                                   ("task2" . yxl-set-simple-todo-task2)
+;;                                   ("task3" . yxl-set-simple-todo-task3)))
+;;                    (action . (("open" . (lambda (x) (call-interactively x))))))
+;;                    yxl-helm-quick--fallback)
+;;         :buffer "*helm yxl simple-todo*"))
+
+
 (defun yxl-helm-org-files ()
   (interactive)
   (helm :sources '(((name . "Org agenda")
@@ -25,16 +37,6 @@
                       ("open all org files" . (lambda (x)
                                                 (yxl-find-file-open-all yxl-org-files))))
         :action (lambda (candidate) (funcall candidate helm-pattern))))
-
-(defun yxl-helm-set-simple-todo ()
-  (interactive)
-  (helm :sources '(((name . "Simple todo")
-                   (candidates . (("task1" . yxl-set-simple-todo-task1)
-                                  ("task2" . yxl-set-simple-todo-task2)
-                                  ("task3" . yxl-set-simple-todo-task3)))
-                   (action . (("open" . (lambda (x) (call-interactively x))))))
-                   yxl-helm-quick--fallback)
-        :buffer "*helm yxl simple-todo*"))
 
 (defun yxl-helm-websites ()
   (interactive)
