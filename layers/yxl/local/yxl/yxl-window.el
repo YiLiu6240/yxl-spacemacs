@@ -97,28 +97,26 @@
   (let* ((win-size (- (round (* (yxl-window-get-ratio t)
                                 (window-total-height))))))
     (split-window-below win-size)
-    (unless (equal current-prefix-arg '(16)) (evil-window-down 1))))
+    (evil-window-down 1)))
 
 (defun yxl-window-split-horizontal-stay ()
   (interactive)
   (let* ((win-size (- (round (* (yxl-window-get-ratio t)
                              (window-total-height))))))
-    (split-window-below win-size)
-    (if (equal current-prefix-arg '(16)) (evil-window-down 1))))
+    (split-window-below win-size)))
 
 (defun yxl-window-split-vertical-focus ()
   (interactive)
   (let* ((win-size (- (round (* (yxl-window-get-ratio t)
                              (window-total-width))))))
     (split-window-right win-size)
-    (unless (equal current-prefix-arg '(16)) (evil-window-right 1))))
+    (evil-window-right 1)))
 
 (defun yxl-window-split-vertical-stay ()
   (interactive)
   (let* ((win-size (- (round (* ((yxl-window-get-ratio t))
                              (window-total-width))))))
-    (split-window-right win-size)
-    (if (equal current-prefix-arg '(16)) (evil-window-right 1))))
+    (split-window-right win-size)))
 
 
 (defun yxl-window-change-width (width)
