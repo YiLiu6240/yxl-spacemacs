@@ -31,19 +31,6 @@
          ((< current-prefix-arg 10)(/ current-prefix-arg 10.0))
          (t (/ current-prefix-arg 100.0)))))))
 
-(defun yxl-window-get-ratio-alt ()
-  "Alternative version of `yxl-window-get-ratio'. Defaults to smaller half
-of the size ratio."
-  (let* ((golden-ratio 0.618))
-    (cond
-     ((equal current-prefix-arg nil)
-      (- 1 golden-ratio))
-     ((equal current-prefix-arg  '(4))
-      0.25)
-     (t (cond
-         ((< current-prefix-arg 10)(/ current-prefix-arg 10.0))
-         (t (/ current-prefix-arg 100.0)))))))
-
 (defun yxl-window-adjust-width-ratio ()
   "get the width size of a window that should be expanded to gold ratio"
   (interactive)
