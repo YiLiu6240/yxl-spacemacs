@@ -137,7 +137,7 @@
 
   ;; orgmode
   "ooo" #'org-agenda
-  "ooO" #'yxl-org-open-all
+  "ooO" #'yxl-org-open-all-task-files
   "oo1" #'yxl-org/agenda-work
   "oo0" #'yxl-org/agenda-life
 

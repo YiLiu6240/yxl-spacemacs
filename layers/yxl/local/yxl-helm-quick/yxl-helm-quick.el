@@ -14,8 +14,17 @@
                    (candidates . yxl-org-files)
                    (action . (("open" . find-file)
                               ("open other window" . find-file-other-window))))
-                   yxl-helm-quick--fallback)
+                   yxl-helm-org--fallback)
         :buffer "*helm org agenda*"))
+
+(setq yxl-helm-org--fallback
+      (helm-build-sync-source "Fallback"
+        :match (lambda (_candidate) t)
+        :candidates '(("open all task files" . (lambda (x)
+                                                 (yxl-find-file-open-all yxl-org-task-files)))
+                      ("open all org files" . (lambda (x)
+                                                (yxl-find-file-open-all yxl-org-files))))
+        :action (lambda (candidate) (funcall candidate helm-pattern))))
 
 (defun yxl-helm-set-simple-todo ()
   (interactive)
