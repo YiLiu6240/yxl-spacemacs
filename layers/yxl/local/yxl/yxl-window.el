@@ -74,6 +74,15 @@
   (split-window-below)
   (windmove-left))
 
+(defun yxl-window-vertical-3 ()
+  (interactive)
+  (split-window-below)
+  (split-window-below)
+  (progn
+    (let* ((main-height (round (* 0.6 (frame-height)))))
+      (evil-window-down 1)
+      (evil-resize-window main-height nil))))
+
 
 
 ;; NOTE: split window logic:

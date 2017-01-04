@@ -165,7 +165,7 @@
   ;; window
   "ow1" #'yxl-window-custom-layout1
   "ow2" #'yxl-window-custom-layout2
-  "ow3" #'yxl-window-custom-layout3
+  "ow3" #'yxl-window-vertical-3
   ;; "ows" #'split-window-below-small
   "ows" #'yxl-window-split-horizontal-focus
   "owS" #'yxl-window-split-horizontal-stay
