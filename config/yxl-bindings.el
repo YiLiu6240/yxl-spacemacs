@@ -158,8 +158,17 @@
   "ogf" #'yxl-helm-files
   "ogw" #'yxl-helm-websites
 
-  ;; search
+  ;; search/scratch
   "osg" #'helm-google-suggest
+  "oss" (lambda ()
+          (interactive)
+          (find-file "~/Dropbox/.todo"))
+  "oso" (lambda ()
+          (interactive)
+          (find-file yxl-file-org-scratch))
+  "ose" (lambda ()
+          (interactive)
+          (find-file "~/Dropbox/inbox/scratch.el"))
 
   "oy" #'copy-file-name-to-clipboard
 
@@ -202,5 +211,6 @@
 (spacemacs/declare-prefix "om" "modes")
 (spacemacs/declare-prefix "oo" "org-mode")
 (spacemacs/declare-prefix "op" "quick-projects")
+(spacemacs/declare-prefix "os" "search/scratch")
 (spacemacs/declare-prefix "ox" "text")
 (spacemacs/declare-prefix "ow" "window-layouts")
