@@ -137,6 +137,7 @@
 
   ;; orgmode
   "ooo" #'org-agenda
+  "ooO" #'yxl-org-open-all
   "oo1" #'yxl-org/agenda-work
   "oo0" #'yxl-org/agenda-life
 

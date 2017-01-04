@@ -22,4 +22,8 @@ then turn on `yxl-org-task-mode'"
   (if (yxl-org-task-file-p)
       (yxl-org-task-mode 1)))
 
+(defun yxl-org-open-all ()
+  (interactive)
+  (yxl-find-file-open-all yxl-org-files))
+
 (provide 'yxl-org)
