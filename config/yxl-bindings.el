@@ -168,7 +168,7 @@
           (find-file yxl-file-org-scratch))
   "ose" (lambda ()
           (interactive)
-          (find-file "~/Dropbox/inbox/scratch.el"))
+          (find-file "~/Dropbox/Inbox/scratch.el"))
 
   "oy" #'copy-file-name-to-clipboard
 
