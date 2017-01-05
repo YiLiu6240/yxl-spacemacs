@@ -98,7 +98,7 @@
             ;; (keyword       (if (eq variant 'dark) (if (true-color-p) "#859900" "#33859e") (if (true-color-p) "#859900" "#33859e")))
             (keyword       (cond ((eq variant 'dark) (if (true-color-p) "#679a01" "#a16946")) ((eq variant 'gruv) (if (true-color-p) "#a16946" "#a16946")) (t (if (true-color-p) "#679a01" "#33859e"))))
             ;; line numbers
-            (lnum          (cond ((eq variant 'dark) (if (true-color-p) "#586e75" "#282828")) ((eq variant 'gruv) (if (true-color-p) "#282828" "#282828")) (t (if (true-color-p) "#44505c" "#af87af"))))
+            (lnum          (cond ((eq variant 'dark) (if (true-color-p) "#586e75" "#928374")) ((eq variant 'gruv) (if (true-color-p) "#928374" "#928374")) (t (if (true-color-p) "#44505c" "#af87af"))))
             ;; matched, matching parens, brackets, tags
             (mat           (cond ((eq variant 'dark) (if (true-color-p) "#86dc2f" "#98971a")) ((eq variant 'gruv) (if (true-color-p) "#98971a" "#98971a")) (t (if (true-color-p) "#86dc2f" "#af005f"))))
             ;; meta, org's meta line
