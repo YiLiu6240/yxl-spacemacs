@@ -26,4 +26,20 @@ then turn on `yxl-org-task-mode'"
   (interactive)
   (yxl-find-file-open-all yxl-org-task-files))
 
+(defun yxl-org-refile-visible ()
+  (interactive)
+  (let* ((cur-mode 'org-mode)
+         (visible-org-files
+          (delq nil
+                (mapcar
+                 (lambda (buffer)
+                   (when (and (equal cur-mode (buffer-local-value 'major-mode buffer))
+                              ;; detect visible buffer
+                              ;; http://emacs.stackexchange.com/questions/2959/how-to-know-my-buffers-visible-focused-status
+                              (get-buffer-window buffer))
+                     `(,(buffer-file-name buffer) :maxlevel . 1)))
+                 (buffer-list))))
+         (org-refile-targets visible-org-files))
+    (org-refile)))
+
 (provide 'yxl-org)
