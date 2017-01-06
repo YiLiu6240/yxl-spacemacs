@@ -153,7 +153,7 @@
             `(eval-sexp-fu-flash ((,class (:background ,suc :foreground ,bg1))))
             `(eval-sexp-fu-flash-error ((,class (:background ,err :foreground ,bg1))))
             `(font-lock-builtin-face ((,class (:foreground ,keyword))))
-            `(font-lock-comment-face ((,class (:foreground ,comment :background ,(when yxl-theme-comment-bg comment-bg)))))
+            `(font-lock-comment-face ((,class (:foreground ,comment))))
             `(font-lock-constant-face ((,class (:foreground ,const))))
             `(font-lock-doc-face ((,class (:foreground ,comment))))
             `(font-lock-function-name-face ((,class (:foreground ,func :inherit bold))))
