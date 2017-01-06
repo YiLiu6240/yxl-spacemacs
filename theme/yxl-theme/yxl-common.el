@@ -5,7 +5,7 @@
   "Spacemacs-theme options."
   :group 'faces)
 
-(defcustom yxl-theme-comment-bg t
+(defcustom yxl-theme-set-bg t
   "Use a background for comment lines."
   :type 'boolean
   :group 'yxl-theme)

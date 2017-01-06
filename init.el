@@ -200,6 +200,10 @@
   (setq-default custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (load custom-file 'no-error 'no-message)
 
+  (if (not window-system)
+      ;; TODO: tweak various bg settings in TUI
+      (setq yxl-theme-set-bg nil))
+
   (if (eq system-type 'windows-nt)
       (progn
         ;; use external ls
@@ -218,6 +222,9 @@
   ;; --------
   (load-file (concat dotspacemacs-directory "config/yxl-bindings.el"))
   (load-file (concat dotspacemacs-directory "config/post-init-config.el"))
+  ;; use transparent/system background in terminal
+  (if (not window-system)
+      (set-background-color "invalid"))
   ;; emacs general
   ;; osx
   (setq-default mac-option-modifier 'super
