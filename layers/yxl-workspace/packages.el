@@ -28,6 +28,8 @@
       (add-to-list 'window-persistent-parameters '(window-slot . writable))
       (define-key eyebrowse-mode-map (kbd "C-c w d")
         #'eyebrowse-close-window-config)
+      (define-key eyebrowse-mode-map (kbd "C-c w R")
+        #'eyebrowse-rename-window-config)
       ;; eyebrowse new window config:
       ;; c: jump to current dired
       ;; C: clone current window config
