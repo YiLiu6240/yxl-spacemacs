@@ -248,9 +248,10 @@
   (setq yas-snippet-dirs (expand-file-name "snippets" dotspacemacs-directory))
 
   ;; ---- indent ----
-  (setq evil-shift-width 4
-        c-basic-offset 4
-        lua-indent-level 4)
+  (setq-default tab-width 4
+                evil-shift-width 4
+                c-basic-offset 4
+                lua-indent-level 4)
 
   ;; mode list
   (add-to-list 'auto-mode-alist '("\\.todo$" . markdown-mode))
