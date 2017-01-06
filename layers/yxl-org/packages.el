@@ -1,4 +1,5 @@
-(setq yxl-org-packages '(org))
+(setq yxl-org-packages '(org
+                         (evil-org :location local)))
 
 (defun yxl-org/post-init-org ()
   ;; misc settings
@@ -17,3 +18,14 @@
     (yxl-org/setup-capture)
     (yxl-org/setup-keywords)
     (yxl-org/setup-agenda)))
+
+(defun yxl-org/init-evil-org ()
+  (use-package evil-org
+    ;; :commands (evil-org-mode evil-org-recompute-clocks)
+    ;; :init (add-hook 'org-mode-hook 'evil-org-mode)
+    :defer t
+    :after 'org
+    :config
+    (progn
+      (spacemacs/set-leader-keys-for-major-mode 'org-mode
+        "C" 'evil-org-recompute-clocks))))

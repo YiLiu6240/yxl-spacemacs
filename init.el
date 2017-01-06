@@ -29,7 +29,7 @@
      lua
      ;; markdown: need vmd from npm: npm install -g vmd
      (markdown :variables markdown-live-preview-engine 'vmd)
-     org
+     (org :packages (not evil-org))
      python
      sql
      scala
