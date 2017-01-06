@@ -58,6 +58,7 @@
         "aws" 'w3m-search
         "awS" 'w3m-search-new-session
         "awr" 'w3m-reddit
+        "awt" 'yxl-web/toggle-w3m
         "awh" 'w3m-hackernews))
     :config
     (progn
