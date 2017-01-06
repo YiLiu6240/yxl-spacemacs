@@ -1,13 +1,3 @@
-;;; config.el --- W3M Layer configuration File for Spacemacs
-;;
-;;
-;; Original Author: Kuroi Mato <venmos@fuck.gfw.es>
-;; URL: https://github.com/venmos/w3m-layer
-;;
-;; This file is not part of GNU Emacs.
-;;
-;;; License: GPLv3
-
 (setq yxl-web-packages '(w3m
                          helm-w3m
                          sx
