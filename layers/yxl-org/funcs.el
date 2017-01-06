@@ -47,7 +47,10 @@
 
 (defun yxl-org/org-mode-hook ()
   ;; (setq line-spacing 4)
-  (yxl-org-format-task-files))
+  ;; NOTE: buggy, disable for now
+  ;; (yxl-org-format-task-files)
+  )
+
 (defun yxl-org/setup-bindings ()
   (evil-define-key 'normal org-mode-map
     "O" 'evil-open-above
