@@ -6,15 +6,11 @@
   (with-eval-after-load 'org
     (add-hook 'org-mode-hook 'smartparens-mode)
     ;; (add-hook 'org-mode-hook 'org-bullets-mode)
-    (add-hook 'org-mode-hook 'yxl-org/org-mode-hook)
-    (with-eval-after-load 'evil-org
-     (evil-define-key 'normal evil-org-mode-map
-       "-" 'dired-jump
-       "_" 'projectile-dired)))
-
+    (add-hook 'org-mode-hook 'yxl-org/org-mode-hook))
   ;; inject my own configs
   (with-eval-after-load 'org
     (yxl-org/setup-general)
+    (yxl-org/setup-bindings)
     (yxl-org/setup-capture)
     (yxl-org/setup-keywords)
     (yxl-org/setup-agenda)))
@@ -27,5 +23,7 @@
     :after 'org
     :config
     (progn
+      ;; (evil-define-key 'normal evil-org-mode-map
+      ;;   "O" 'evil-open-above)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "C" 'evil-org-recompute-clocks))))

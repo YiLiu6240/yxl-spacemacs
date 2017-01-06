@@ -48,6 +48,51 @@
 (defun yxl-org/org-mode-hook ()
   ;; (setq line-spacing 4)
   (yxl-org-format-task-files))
+(defun yxl-org/setup-bindings ()
+  (evil-define-key 'normal org-mode-map
+    "O" 'evil-open-above
+    "t" 'org-todo
+    "-" 'dired-jump
+    "_" 'projectile-dired
+    "gh" 'outline-up-heading
+    "gp" 'outline-previous-heading
+    "gj" (if (fboundp 'org-forward-same-level) ;to be backward compatible with older org version
+             'org-forward-same-level
+           'org-forward-heading-same-level)
+    "gk" (if (fboundp 'org-backward-same-level)
+             'org-backward-same-level
+           'org-backward-heading-same-level)
+    "gl" 'outline-next-visible-heading
+    "T" '(lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil))))
+    "o" '(lambda () (interactive) (evil-org-eol-call 'clever-insert-item))
+    "O" '(lambda () (interactive) (evil-org-eol-call 'org-insert-heading))
+    "$" 'org-end-of-line
+    "^" 'org-beginning-of-line
+    "<" 'org-metaleft
+    ">" 'org-metaright
+    (kbd "TAB") 'org-cycle)
+  (mapc (lambda (state)
+          (evil-define-key state org-mode-map
+            (kbd "M-l") 'org-metaright
+            (kbd "M-h") 'org-metaleft
+            (kbd "M-k") 'org-metaup
+            (kbd "M-j") 'org-metadown
+            (kbd "M-L") 'org-shiftmetaright
+            (kbd "M-H") 'org-shiftmetaleft
+            (kbd "M-K") 'org-shiftmetaup
+            (kbd "M-J") 'org-shiftmetadown
+            (kbd "M-o") '(lambda () (interactive)
+                           (evil-org-eol-call
+                            '(lambda()
+                               (org-insert-heading)
+                               (org-metaright))))
+            (kbd "M-t") '(lambda () (interactive)
+                           (evil-org-eol-call
+                            '(lambda()
+                               (org-insert-todo-heading nil)
+                               (org-metaright))))
+            ))
+        '(normal insert)))
 
 (defun yxl-org/setup-capture ()
   (setq org-capture-templates
