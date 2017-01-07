@@ -12,11 +12,11 @@
   ";" #'counsel-M-x  ; prevent overwritten by nerd-commenter
   "<SPC>" #'evil-avy-goto-char-2
   "av" #'yxl-org/agenda-view
+  "ak" #'calendar
+  "aK" #'cfw-open-calendar
   "bB" #'yxl-buffer-switch-same-major-mode
   ;; TODO: rm this with next spacemacs update
   "bm" #'view-echo-area-messages
-  "oak" #'calendar
-  "oac" #'cfw-open-calendar
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer

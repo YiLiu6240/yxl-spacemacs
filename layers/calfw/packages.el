@@ -16,12 +16,13 @@ which require an initialization must be listed explicitly in the list.")
       (require 'calfw-cal)
       (require 'calfw-ical)
       (require 'calfw-org)
+      (calfw/setup-bindings)
 
       (defun cfw-open-calendar()
         (interactive)
         (cfw:open-calendar-buffer
          :contents-sources
          (list
-          (cfw:org-create-source "#268bd2"))))
+          (cfw:org-create-source (face-attribute 'default :foreground)))))
 
       (calendar-set-date-style 'iso))))

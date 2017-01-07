@@ -104,7 +104,6 @@
 
      ;; private --------
      helm-dash
-     calfw
      yxl-layers)))
 
 (defun dotspacemacs/init ()
