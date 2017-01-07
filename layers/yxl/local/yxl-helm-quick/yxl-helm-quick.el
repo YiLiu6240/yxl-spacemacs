@@ -67,9 +67,8 @@
 (defun yxl-helm-quick ()
   (interactive)
   (helm :sources '((name . "yxl quick")
-                   (candidates . (
+                   (candidates . (("yxl-helm-org-files" . yxl-helm-org-files)
                                   ;; ("simple-todo" . yxl-helm-set-simple-todo)
-                                  ("yxl-helm-org-files" . yxl-helm-org-files)
                                   ("yxl-helm-files" . yxl-helm-files)
                                   ("yxl-helm-websites" . yxl-helm-websites)
                                   ("calendar" . cfw-open-calendar)
