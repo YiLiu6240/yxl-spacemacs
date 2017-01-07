@@ -1,5 +1,6 @@
 (setq yxl-org-packages '(org
-                         (evil-org :location local)))
+                         (evil-org :location local)
+                         org-gcal))
 
 (defun yxl-org/post-init-org ()
   ;; misc settings
@@ -27,3 +28,15 @@
       ;;   "O" 'evil-open-above)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "C" 'evil-org-recompute-clocks))))
+
+(defun yxl-org/init-org-gcal ()
+  (use-package org-gcal
+    :defer t
+    :commands (org-gcal-sync)
+    :config
+    (progn
+      (setq package-check-signature nil)
+      (setq org-gcal-file-alist '(("yi.liu6240@gmail.com" .  "~/Dropbox/org/tasks/gcal.org")))
+      (defun my-org-gcal-notify (title mes)
+        (message "org-gcal::%s - %s" title mes))
+      (fset 'org-gcal--notify 'my-org-gcal-notify))))

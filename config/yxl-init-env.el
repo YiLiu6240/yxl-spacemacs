@@ -30,9 +30,11 @@
                                  yxl-file-org-proj))
 
 (defvar yxl-org-files (append yxl-org-task-files
-                              (list (concat yxl-path-org-task "proj_ds.org")
-                                    (concat yxl-path-org-task "proj_ctw.org")
-                                    (concat yxl-path-org-task "proj_bham.org"))))
+                              (list
+                               (concat yxl-path-org-task "gcal.org")
+                               (concat yxl-path-org-task "proj_ds.org")
+                               (concat yxl-path-org-task "proj_ctw.org")
+                               (concat yxl-path-org-task "proj_bham.org"))))
 
 
 
