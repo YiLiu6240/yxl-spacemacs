@@ -2,6 +2,7 @@
                          helm-w3m
                          sx
                          elfeed
+                         (yxl-elfeed :location local)
                          atomic-chrome))
 
 (defun yxl-web/init-helm-w3m ()
@@ -129,12 +130,19 @@
     (setq elfeed-goodies/powerline-default-separator 'nil)
     (yxl-web/elfeed-bindings)
     (yxl-web/elfeed-hydra-setup)
-    (yxl-web/elfeed-patch)
 
     (defadvice elfeed-show-yank (after elfeed-show-yank-to-kill-ring activate compile)
       "Insert the yanked text from x-selection to kill ring"
       (kill-new (x-get-selection)))
     (ad-activate 'elfeed-show-yank)))
+
+(defun yxl-web/init-yxl-elfeed ()
+  (use-package yxl-elfeed
+    :defer t
+    :after (helm elfeed)
+    :config
+    (progn
+      (yxl-elfeed-patch))))
 
 (defun yxl-web/init-atomic-chrome ()
   (use-package atomic-chrome
