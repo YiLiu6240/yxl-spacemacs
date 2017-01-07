@@ -1,10 +1,3 @@
-(defun yxl-web/toggle-w3m ()
-  (interactive)
-  (if (not (equal browse-url-browser-function #'w3m-goto-url-new-session))
-      (setq browse-url-browser-function #'w3m-goto-url-new-session)
-    (setq browse-url-browser-function #'browse-url-default-browser))
-  (message "browse-url-browser-function: %s" browse-url-browser-function))
-
 (defun yxl-web/elfeed-search-mode-config ()
   (setq shr-inhibit-images t)
   (setq line-spacing 4))

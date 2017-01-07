@@ -3,6 +3,7 @@
 (require 'yxl-buffer)
 (require 'yxl-find)
 (require 'yxl-org)
+(require 'yxl-web)
 
 (defvar yxl-switch-theme-hook nil
   "hook when yxl-switch-theme-light and yxl-swith-theme-dark invokes")

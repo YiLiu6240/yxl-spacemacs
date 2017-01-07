@@ -14,6 +14,7 @@
   "av" #'yxl-org/agenda-view
   "ak" #'calendar
   "aK" #'cfw-open-calendar
+  "tow" #'yxl-web-switch-browser
   "bB" #'yxl-buffer-switch-same-major-mode
   ;; TODO: rm this with next spacemacs update
   "bm" #'view-echo-area-messages
