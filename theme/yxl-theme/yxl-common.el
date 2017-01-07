@@ -165,7 +165,7 @@
             `(font-lock-type-face ((,class (:foreground ,type :inherit bold))))
             `(font-lock-variable-name-face ((,class (:foreground ,var))))
             `(font-lock-warning-face ((,class (:foreground ,war))))
-            `(fringe ((,class (:background ,bg1 :foreground ,base))))
+            `(fringe ((,class (:foreground ,comment))))
             `(header-line ((,class :background ,bg4)))
             `(highlight ((,class (:foreground ,base :background ,highlight))))
             `(hl-line ((,class (:background ,bg2-hl))))
