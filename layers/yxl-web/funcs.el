@@ -45,8 +45,8 @@
     (kbd "C-j") #'windmove-down
     (kbd "C-k") #'windmove-up
     (kbd "C-l") #'windmove-right
-    "H" #'eyebrowse-prev-window-config
-    "L" #'eyebrowse-next-window-config
+    (kbg "g C-h") #'eyebrowse-prev-window-config
+    (kbg "g C-l") #'eyebrowse-next-window-config
     "w"  nil
     "W"  nil
     "s" #'yxl-helm-elfeed-search
@@ -68,8 +68,8 @@
     (kbd "C-j") #'windmove-down
     (kbd "C-k") #'windmove-up
     (kbd "C-l") #'windmove-right
-    "H" #'eyebrowse-prev-window-config
-    "L" #'eyebrowse-next-window-config
+    (kbd "g C-h") #'eyebrowse-prev-window-config
+    (kbd "g C-l") #'eyebrowse-next-window-config
     (kbd "C-n") #'elfeed-show-next
     (kbd "C-p") #'elfeed-show-prev))
 

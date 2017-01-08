@@ -94,8 +94,8 @@
         (kbd "C-j") #'windmove-down
         (kbd "C-k") #'windmove-up
         (kbd "C-l") #'windmove-right
-        "H" 'eyebrowse-prev-window-config
-        "L" 'eyebrowse-next-window-config)
+        (kbd "g C-h") 'eyebrowse-prev-window-config
+        (kbd "g C-l") 'eyebrowse-next-window-config)
       (spacemacs/set-leader-keys-for-major-mode 'w3m-mode
         "gT" 'w3m-previous-buffer
         "gt" 'w3m-next-buffer

@@ -110,8 +110,8 @@
  [_0_,_9_]^^     nth/new workspace   [_._] switch
  [_C-0_,_C-9_]^^ nth/new workspace   [_?_] toggle help
  [_<tab>_]^^^^   last workspace      [_R_] rename current workspace
- [_L_/_C-l_]^^   next workspace      [_d_] close current workspace
- [_H_/_C-h_] prev workspace      [_c_] create new workspace
+ [_l_/_C-l_]^^   next workspace      [_d_] close current workspace
+ [_h_/_C-h_]^^   prev workspace      [_c_] create new workspace
                                      [_C_] clone to new workspace
                                      [_C-c_] clone main config")
   (spacemacs|define-transient-state workspaces
@@ -145,8 +145,8 @@
         ("C-h" eyebrowse-prev-window-config)
         ("C-i" eyebrowse-last-window-config)
         ("C-l" eyebrowse-next-window-config)
-        ("H" eyebrowse-prev-window-config :exit t)
-        ("L" eyebrowse-next-window-config :exit t)
+        ("h" eyebrowse-prev-window-config :exit t)
+        ("l" eyebrowse-next-window-config :exit t)
         ("c" eyebrowse-create-window-config-dired)
         ("C" eyebrowse-create-window-config-clone)
         ("C-c" eyebrowse-create-window-config-main)
