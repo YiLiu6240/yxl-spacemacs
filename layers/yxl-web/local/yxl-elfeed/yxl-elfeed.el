@@ -27,13 +27,55 @@
 (defalias 'elfeed-toggle-star
   (elfeed-expose #'elfeed-search-toggle-all 'star))
 
+(defface elfeed-search-star-title-face
+  `((t :foreground ,(face-attribute 'bold :foreground)))
+  "Marks a starred Elfeed entry.")
+
+(push '(star elfeed-search-star-title-face) elfeed-search-face-alist)
+
 (defadvice elfeed-show-yank (after elfeed-show-yank-to-kill-ring activate compile)
   "Insert the yanked text from x-selection to kill ring"
   (kill-new (x-get-selection)))
 
 (ad-activate 'elfeed-show-yank)
+
+
 (defun yxl-elfeed-patch ()
-  ;; implement date column as discussed in
+  ;; HACK: highlight current entry name in header
+  (defun elfeed-goodies/entry-header-line ()
+    (let* ((title (elfeed-entry-title elfeed-show-entry))
+           (title-faces 'font-lock-string-face)
+           (tags (elfeed-entry-tags elfeed-show-entry))
+           (tags-str (mapconcat #'symbol-name tags ", "))
+           (date (seconds-to-time (elfeed-entry-date elfeed-show-entry)))
+           (feed (elfeed-entry-feed elfeed-show-entry))
+           (entry-author (elfeed-meta elfeed-show-entry :author))
+           (feed-title (if entry-author
+                           (concat entry-author " (" (elfeed-feed-title feed) ")")
+                         (elfeed-feed-title feed)))
+
+           (separator-left (intern (format "powerline-%s-%s"
+                                           elfeed-goodies/powerline-default-separator
+                                           (car powerline-default-separator-dir))))
+           (separator-right (intern (format "powerline-%s-%s"
+                                            elfeed-goodies/powerline-default-separator
+                                            (cdr powerline-default-separator-dir))))
+           (lhs (list
+                 (powerline-raw (concat " " (propertize tags-str 'face 'elfeed-search-tag-face) " ") 'powerline-active2 'r)
+                 (funcall separator-left 'powerline-active2 'powerline-active1)
+                 (powerline-raw (concat " " (propertize title 'face title-faces) " ") 'powerline-active1 'l)
+                 (funcall separator-left 'powerline-active1 'mode-line)))
+           (rhs (list
+                 (funcall separator-right 'mode-line 'powerline-active1)
+                 (powerline-raw (concat " " (propertize feed-title 'face 'elfeed-search-feed-face) " ") 'powerline-active1)
+                 (funcall separator-right 'powerline-active1 'powerline-active2)
+                 (powerline-raw (format-time-string "%Y-%m-%d %H:%M:%S %z " date) 'powerline-active2 'l))))
+      (concat
+       (powerline-render lhs)
+       (powerline-fill 'mode-line (powerline-width rhs))
+       (powerline-render rhs))))
+
+  ;; HACK: implement date column as discussed in
   ;; https://github.com/algernon/elfeed-goodies/issues/15
   (defun elfeed-goodies/search-header-draw ()
     "Returns the string to be used as the Elfeed header."
@@ -124,7 +166,8 @@ The cursor is moved to the beginning of the first feed line."
                            ("tech_news" . (lambda () (elfeed--read-tag "tech_news" t)))
                            ("news" . (lambda () (elfeed--read-tag "news" t)))
                            ("econ_news" . (lambda () (elfeed--read-tag "econ_news" t)))
-                           ("work" . (lambda () (elfeed--read-tag "work" t))))
+                           ("work" . (lambda () (elfeed--read-tag "work" t)))
+                           ("star" . (lambda () (elfeed--read-tag "+star"))))
              :action (lambda (x) (funcall x)))
           ,(helm-build-sync-source "Fallback"
              :match (lambda (_candidate) t)

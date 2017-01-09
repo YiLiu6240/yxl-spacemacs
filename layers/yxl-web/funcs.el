@@ -23,6 +23,8 @@
 (defun yxl-web/elfeed-bindings ()
   (unbind-key "b" elfeed-search-mode-map)
   (unbind-key "b" elfeed-show-mode-map)
+  (evil-define-key 'visual elfeed-search-mode-map "m" #'yxl-elfeed-mark-as-read)
+  (evil-define-key 'visual elfeed-search-mode-map "M" #'yxl-elfeed-mark-as-unread)
 
   (evilified-state-evilify-map elfeed-search-mode-map
     :mode elfeed-search-mode
