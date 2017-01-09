@@ -441,3 +441,5 @@ Returns the new tags string, or nil to not change the current settings."
       (if rtn
       (mapconcat 'identity current ":")
     nil)))))
+(defun yxl-org/setup-babel ()
+  (setq-default org-export-babel-evaluate nil))

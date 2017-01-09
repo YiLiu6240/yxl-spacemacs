@@ -15,7 +15,7 @@
     (yxl-org/setup-capture)
     (yxl-org/setup-keywords)
     (yxl-org/setup-agenda)
-    (yxl-org/patch)))
+    (yxl-org/setup-babel)))
 
 (defun yxl-org/init-evil-org ()
   (use-package evil-org
