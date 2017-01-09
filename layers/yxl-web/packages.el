@@ -124,16 +124,9 @@
   (with-eval-after-load 'elfeed
     (add-hook 'elfeed-search-mode-hook #'yxl-web/elfeed-search-mode-config)
     (add-hook 'elfeed-show-mode-hook #'yxl-web/elfeed-show-mode-config)
-    (defalias 'elfeed-toggle-star
-      (elfeed-expose #'elfeed-search-toggle-all 'star))
     (setq elfeed-goodies/powerline-default-separator 'nil)
     (yxl-web/elfeed-bindings)
-    (yxl-web/elfeed-hydra-setup)
-
-    (defadvice elfeed-show-yank (after elfeed-show-yank-to-kill-ring activate compile)
-      "Insert the yanked text from x-selection to kill ring"
-      (kill-new (x-get-selection)))
-    (ad-activate 'elfeed-show-yank)))
+    (yxl-web/elfeed-hydra-setup)))
 
 (defun yxl-web/init-yxl-elfeed ()
   (use-package yxl-elfeed

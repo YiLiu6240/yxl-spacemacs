@@ -3,6 +3,35 @@
 
 
 
+(defun zilong/elfeed-mark-all-as-read ()
+  (interactive)
+  (mark-whole-buffer)
+  (elfeed-search-untag-all-unread))
+
+(defun yxl-elfeed-mark-as-read ()
+  (interactive)
+  (elfeed-search-untag-all 'unread))
+
+(defun yxl-elfeed-mark-as-unread ()
+  (interactive)
+  (elfeed-search-tag-all 'unread))
+
+(defun elfeed-toggle-shr-inhibit-images ()
+  "toggle the value of shr-inhibit-images"
+  (interactive)
+  (if (equal shr-inhibit-images t)
+      (setq shr-inhibit-images nil)
+    (setq shr-inhibit-images t))
+  (message "shr-inhibit-images: %s" shr-inhibit-images))
+
+(defalias 'elfeed-toggle-star
+  (elfeed-expose #'elfeed-search-toggle-all 'star))
+
+(defadvice elfeed-show-yank (after elfeed-show-yank-to-kill-ring activate compile)
+  "Insert the yanked text from x-selection to kill ring"
+  (kill-new (x-get-selection)))
+
+(ad-activate 'elfeed-show-yank)
 (defun yxl-elfeed-patch ()
   ;; implement date column as discussed in
   ;; https://github.com/algernon/elfeed-goodies/issues/15

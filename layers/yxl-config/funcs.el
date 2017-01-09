@@ -154,26 +154,6 @@ The colors are determined by the variable
       (pdf-view-goto-page (prefix-numeric-value current-prefix-arg))
     (pdf-view-first-page)))
 
-(defun zilong/elfeed-mark-all-as-read ()
-  (interactive)
-  (mark-whole-buffer)
-  (elfeed-search-untag-all-unread))
-
-(defun yxl-elfeed-mark-as-read ()
-  (interactive)
-  (elfeed-search-untag-all 'unread))
-(defun yxl-elfeed-mark-as-unread ()
-  (interactive)
-  (elfeed-search-tag-all 'unread))
-
-(defun elfeed-toggle-shr-inhibit-images ()
-  "toggle the value of shr-inhibit-images"
-  (interactive)
-  (if (equal shr-inhibit-images t)
-      (setq shr-inhibit-images nil)
-    (setq shr-inhibit-images t))
-  (message "shr-inhibit-images: %s" shr-inhibit-images))
-
 (defun yxl-dired-delete-window ()
   "delete the current dired window, if it is the only window, return to
 spacemacs home buffer"
