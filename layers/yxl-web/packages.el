@@ -80,31 +80,8 @@
             ;; browse-url-browser-function 'w3m-browse-url
             ;; W3M view url new session in background
             w3m-view-this-url-new-session-in-background t)
-
-      (evil-set-initial-state 'w3m-mode 'evilified)
-      (evilified-state-evilify-map w3m-mode-map
-        :mode w3m-mode
-        :bindings
-        "q" #'delete-window
-        "t" #'v/w3m-open-site-new-session
-        "x" #'w3m-session-select-quit
-        "o" #'w3m-view-this-url
-        "O" #'w3m-view-this-url-new-session
-        (kbd "C-h") #'windmove-left
-        (kbd "C-j") #'windmove-down
-        (kbd "C-k") #'windmove-up
-        (kbd "C-l") #'windmove-right
-        (kbd "g C-h") 'eyebrowse-prev-window-config
-        (kbd "g C-l") 'eyebrowse-next-window-config)
-      (spacemacs/set-leader-keys-for-major-mode 'w3m-mode
-        "gT" 'w3m-previous-buffer
-        "gt" 'w3m-next-buffer
-        "<" 'w3m-tab-move-left
-        ">" 'w3m-tab-move-right
-        "o" 'w3m-view-url-with-browse-url
-        "x" 'w3m-session-select-quit)
-      (define-key w3m-mode-map (kbd "C-f") 'evil-scroll-page-down)
-      (define-key w3m-mode-map (kbd "C-b") 'evil-scroll-page-up))))
+      (yxl-web/w3m-bindings)
+      (yxl-web/w3m-hydra))))
 
 (defun yxl-web/init-sx ()
   (use-package sx
