@@ -25,8 +25,8 @@
     :after 'org
     :config
     (progn
-      ;; (evil-define-key 'normal evil-org-mode-map
-      ;;   "O" 'evil-open-above)
+      (evil-define-key 'normal evil-org-mode-map
+        "O" 'evil-open-above)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "C" 'evil-org-recompute-clocks))))
 

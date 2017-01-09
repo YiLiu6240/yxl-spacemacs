@@ -53,7 +53,6 @@
 
 (defun yxl-org/setup-bindings ()
   (evil-define-key 'normal org-mode-map
-    "O" 'evil-open-above
     "t" 'org-todo
     "-" 'dired-jump
     "_" 'projectile-dired
@@ -68,7 +67,7 @@
     "gl" 'outline-next-visible-heading
     "T" '(lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil))))
     "o" '(lambda () (interactive) (evil-org-eol-call 'clever-insert-item))
-    "O" '(lambda () (interactive) (evil-org-eol-call 'org-insert-heading))
+    "O" 'evil-open-above
     "$" 'org-end-of-line
     "^" 'org-beginning-of-line
     "<" 'org-metaleft
@@ -93,8 +92,7 @@
                            (evil-org-eol-call
                             '(lambda()
                                (org-insert-todo-heading nil)
-                               (org-metaright))))
-            ))
+                               (org-metaright))))))
         '(normal insert)))
 
 (defun yxl-org/setup-capture ()
