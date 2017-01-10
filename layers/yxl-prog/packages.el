@@ -1,9 +1,6 @@
 (setq yxl-prog-packages '((prog-mode :location built-in)
                           python
                           cc-mode
-                          ;; org
-                          ;; ob-ipython
-                          ;; company
                           graphviz-dot-mode
                           imenu-anywhere
                           smartparens
@@ -24,7 +21,6 @@
 
 (defun yxl-prog/post-init-python ()
   (with-eval-after-load 'python
-    (add-hook 'python-mode-hook 'which-function-mode)
     ;; (add-hook 'python-mode-hook 'evil-visual-mark-mode)
     ;; (add-hook 'python-mode-hook (lambda () (modify-syntax-entry ?_ "w")))
     )
