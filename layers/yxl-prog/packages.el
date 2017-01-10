@@ -15,9 +15,13 @@
     (progn
       (add-hook 'prog-mode-hook 'fci-mode)
       (add-hook 'prog-mode-hook 'hl-todo-mode)
-      (add-hook 'prog-mode-hook (lambda ()
-                                  (setq indent-tabs-mode nil)
-                                  (setq tab-width 4))))))
+      (setq-default lua-indent-level 4)
+      (setq-default c-basic-offset 4)
+
+      (add-hook 'makefile-mode-hook
+                (lambda ()
+                  (setq-local indent-tabs-mode t)
+                  (setq-local tab-width 4))))))
 
 (defun yxl-prog/post-init-python ()
   (with-eval-after-load 'python

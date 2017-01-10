@@ -254,11 +254,10 @@
   ;; yas
   (setq yas-snippet-dirs (expand-file-name "snippets" dotspacemacs-directory))
 
-  ;; ---- indent ----
-  (setq-default tab-width 4
-                evil-shift-width 4
-                c-basic-offset 4
-                lua-indent-level 4)
+  ;; indent
+  (setq-default tab-width 4)
+  (setq-default evil-shift-width 4)
+  (setq-default indent-tabs-mode nil)
 
   ;; mode list
   (add-to-list 'auto-mode-alist '("\\.todo$" . markdown-mode))
@@ -372,8 +371,6 @@
   ;; misc configs
   ;; --------
   (setq bookmark-default-file "~/Dropbox/inbox/helm-bookmark")
-
-  (setq lua-indent-level 4)
 
   ;; tramp bug, from zilongshanren
   (setq tramp-ssh-controlmaster-options

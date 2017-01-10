@@ -20,8 +20,11 @@
       (add-hook 'text-mode-hook 'visual-line-mode)
       (add-hook 'text-mode-hook 'hl-todo-mode)
       (add-hook 'text-mode-hook (lambda ()
-                                  (setq indent-tabs-mode nil
-                                        tab-width 2))))))
+                                  (setq-local tab-width 2)
+                                  (setq-local evil-shift-width 2)))
+      (add-hook 'markdown-mode-hook (lambda ()
+                                      (setq-local tab-width 4)
+                                      (setq-local evil-shift-width 4))))))
 
 (defun yxl-text/post-init-auctex ()
   (with-eval-after-load 'latex
