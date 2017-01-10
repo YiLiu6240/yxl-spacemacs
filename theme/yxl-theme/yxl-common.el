@@ -582,10 +582,8 @@
             `(markdown-link-face ((,class (:inherit link))))
 
 ;;;;; mode-line
-            ;; `(mode-line           ((,class (:foreground ,base :background ,act1 :box (:color ,border :line-width 1)))))
-            ;; `(mode-line-inactive  ((,class (:foreground ,base :background ,bg1  :box (:color ,border :line-width 1)))))
-            `(mode-line           ((,class (:foreground ,base :background "#303030" :box (:color ,border :line-width 1)))))
-            `(mode-line-inactive  ((,class (:foreground ,base :background "#121212"  :box (:color ,border :line-width 1)))))
+            `(mode-line           ((,class (:foreground ,base :background ,act1 :box (:color ,border :line-width 1)))))
+            `(mode-line-inactive  ((,class (:foreground ,base :background ,bg1  :box (:color ,border :line-width 1)))))
             `(mode-line-buffer-id ((,class (:inherit bold :foreground ,func))))
 
 ;;;;; mu4e
