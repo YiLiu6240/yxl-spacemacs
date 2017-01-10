@@ -41,8 +41,9 @@
 (defun yxl-helm-websites ()
   (interactive)
   (helm :sources '(((name . "Websites")
-                   (candidates . yxl-env-websites-alist)
-                   (action . (("open" . (lambda (x) (browse-url-generic x))))))
+                    (candidates . yxl-env-websites-alist)
+                    (action . (("open" . (lambda (x) (browse-url-generic x)))
+                               ("open-w3m" . (lambda (x) (w3m-goto-url-new-session x))))))
                    yxl-helm-websites--fallback)))
 
 (setq yxl-helm-websites--fallback
