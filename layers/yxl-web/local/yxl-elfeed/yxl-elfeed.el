@@ -167,6 +167,7 @@ The cursor is moved to the beginning of the first feed line."
                            ("news" . (lambda () (elfeed--read-tag "news" t)))
                            ("econ_news" . (lambda () (elfeed--read-tag "econ_news" t)))
                            ("work" . (lambda () (elfeed--read-tag "work" t)))
+                           ("datascience" . (lambda () (elfeed--read-tag "datascience" t)))
                            ("star" . (lambda () (elfeed--read-tag "+star"))))
              :action (lambda (x) (funcall x)))
           ,(helm-build-sync-source "Fallback"
