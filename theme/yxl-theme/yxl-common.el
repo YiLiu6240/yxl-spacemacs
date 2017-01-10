@@ -84,7 +84,7 @@
             (head1         (cond ((eq variant 'dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv) (if (true-color-p) "#458588" "#458588")) (t (if (true-color-p) "#33859e" "#33859e"))))
             (head1-bg      (cond ((eq variant 'dark) (if (true-color-p) "#132b34" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf1ed" "#ffffff"))))
             ;; org lv2 heading
-            (head2         (cond ((eq variant 'dark) (if (true-color-p) "#2aa889" "#689d6a")) ((eq variant 'gruv) (if (true-color-p) "#689d6a" "#689d6a")) (t (if (true-color-p) "#2aa889" "#2aa198"))))
+            (head2         (cond ((eq variant 'dark) (if (true-color-p) "#2aa889" "#d79921")) ((eq variant 'gruv) (if (true-color-p) "#b57614" "#d79921")) (t (if (true-color-p) "#2aa889" "#2aa198"))))
             (head2-bg      (cond ((eq variant 'dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
             ;; org lv3 heading
             (head3         (cond ((eq variant 'dark) (if (true-color-p) "#b58900" "#98971a")) ((eq variant 'gruv) (if (true-color-p) "#98971a" "#98971a")) (t (if (true-color-p) "#b58900" "#5faf00"))))
