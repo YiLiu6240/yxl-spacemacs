@@ -38,6 +38,7 @@
   (setq org-insert-heading-respect-content t)
   (setq org-hide-emphasis-markers nil)
   (setq org-agenda-window-setup 'current-window)
+  (setq org-agenda-sticky t)
   (setq org-highlight-latex-and-related '(latex script entities))
   (setq org-refile-use-outline-path t)
   (setq org-refile-targets '((nil :maxlevel . 1)
