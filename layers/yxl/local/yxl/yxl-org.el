@@ -32,6 +32,29 @@ then turn on `yxl-org-task-mode'"
   (split-window-right-and-focus)
   (org-todo-list))
 
+(defun yxl-org-agenda-format-date-aligned (date)
+  "Format a DATE string for display in the daily/weekly agenda, or timeline.
+This function makes sure that dates are aligned for easy reading."
+  (require 'cal-iso)
+  (let* ((dayname (calendar-day-name date))
+         (day (cadr date))
+         (day-of-week (calendar-day-of-week date))
+         (month (car date))
+         (monthname (calendar-month-name month))
+         (year (nth 2 date))
+         (iso-week (org-days-to-iso-week
+                    (calendar-absolute-from-gregorian date)))
+         (weekyear (cond ((and (= month 1) (>= iso-week 52))
+                          (1- year))
+                         ((and (= month 12) (<= iso-week 1))
+                          (1+ year))
+                         (t year)))
+         (weekstring (if (= day-of-week 1)
+                         (format " W%02d" iso-week)
+                       "")))
+    (format "%4d-%02d-%02d %s %s"
+            year month day dayname weekstring)))
+
 (defun yxl-org-refile-visible ()
   (interactive)
   (let* ((cur-mode 'org-mode)

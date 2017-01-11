@@ -178,6 +178,7 @@
   (setq org-agenda-files yxl-env-org-files)
   ;; agenda view: 1 month
   (setq org-agenda-span 'month)
+  (setq org-agenda-format-date 'yxl-org-agenda-format-date-aligned)
   ;; org agenda time grid
   (setq org-agenda-time-grid '((daily today)
                                "----------------"
