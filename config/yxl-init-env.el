@@ -52,3 +52,12 @@
                                ("github" . "https://www.github.com")
                                ("bham-portable" . "http://my.bham.ac.uk")
                                ("gmail" . "https://www.gmail.com")))
+
+(setq yxl-env-elfeed-tag-alist '(("emacs" . ("emacs" t))
+                                 ("tech_blog" . ("tech_blog" t))
+                                 ("tech_news" . ("tech_news" t))
+                                 ("news" . ("news" t))
+                                 ("econ_news" . ("econ_news" t))
+                                 ("work" . ("work" t))
+                                 ("datascience" . ("datascience" t))
+                                 ("star" . ("+star" nil))))

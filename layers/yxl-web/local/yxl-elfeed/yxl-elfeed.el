@@ -161,15 +161,9 @@ The cursor is moved to the beginning of the first feed line."
   (interactive)
   (helm :sources
         `(,(helm-build-sync-source "Helm Elfeed Search"
-             :candidates '(("emacs" . (lambda () (elfeed--read-tag "emacs" t)))
-                           ("tech_blog" . (lambda () (elfeed--read-tag "tech_blog" t)))
-                           ("tech_news" . (lambda () (elfeed--read-tag "tech_news" t)))
-                           ("news" . (lambda () (elfeed--read-tag "news" t)))
-                           ("econ_news" . (lambda () (elfeed--read-tag "econ_news" t)))
-                           ("work" . (lambda () (elfeed--read-tag "work" t)))
-                           ("datascience" . (lambda () (elfeed--read-tag "datascience" t)))
-                           ("star" . (lambda () (elfeed--read-tag "+star"))))
-             :action (lambda (x) (funcall x)))
+             :candidates yxl-env-elfeed-tag-alist
+             ;; NOTE: use `apply' instead of `funcall' for passing arg list
+             :action (lambda (x) (apply #'elfeed--read-tag x)))
           ,(helm-build-sync-source "Fallback"
              :match (lambda (_candidate) t)
              :candidates '(("Default filter" .
