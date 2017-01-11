@@ -40,6 +40,7 @@
   (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-sticky t)
   (setq org-highlight-latex-and-related '(latex script entities))
+  (setq org-blank-before-new-entry nil)
   (setq org-refile-use-outline-path t)
   (setq org-refile-targets '((nil :maxlevel . 1)
                              (yxl-file-org-scratch :maxlevel . 1)))
