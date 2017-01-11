@@ -40,35 +40,29 @@
     ("%" dired-mark-files-regexp))
 
   (defhydra hydra-dired-main
-    (:hint nil :color pink :inherit (hydra-dired-common/heads))
-    "
-    [_q_] quit      [_o_] open in desktop
-    [_s_] sort+     [_T_] toggle+ [_*_] mark+
-    [_m_] mark      [_u_] unmark  [_U_] unmark all
-    [_y_] copy name [_Y_] copy full name
-    [_C_] cp        [_D_] rm      [_R_] mv         [_H_] ln    [_S_] ln-s
-    [_M_] chmod     [_G_] chgrp   [_O_] chown
-    [_Z_] compress
-    "
-    ("q" nil :color blue)
-    ("o" yxl-dired/open-in-desktop :color blue)
-    ("s" hydra-dired-quick-sort/body :color blue)
-    ("T" hydra-dired-toggle/body :color blue)
-    ("*" hydra-dired-mark/body :color blue)
-    ("m" dired-mark)
-    ("u" dired-unmark)
-    ("U" dired-unmark-all-marks)
-    ("y" dired-copy-filename-as-kill :color blue)
-    ("Y" dired-copy-filename-as-kill-fullname :color blue)
-    ("C" dired-do-copy)
-    ("D" dired-do-delete)
-    ("R" dired-do-rename)
-    ("H" dired-do-hardlink)
-    ("S" dired-do-symlink)
-    ("M" dired-do-chmod)
-    ("G" dired-do-chgrp)
-    ("O" dired-do-chown)
-    ("Z" dired-do-compress))
+    (:color pink :inherit (hydra-dired-common/heads))
+    ("q" nil "quit" :color blue)
+    ("o" yxl-dired/open-in-desktop "open in desktop" :color blue)
+    ("s" hydra-dired-quick-sort/body "+sort" :color blue)
+    ("T" hydra-dired-toggle/body "+toggle" :color blue)
+    ("*" hydra-dired-mark/body "+mark" :color blue)
+    ("m" dired-mark "mark")
+    ("u" dired-unmark "unmark")
+    ("U" dired-unmark-all-marks "unmark all")
+    ("y" dired-copy-filename-as-kill "filename" :color blue)
+    ("Y" dired-copy-filename-as-kill-fullname "full filename" :color blue)
+    ("C" dired-do-copy "copy")
+    ("D" dired-do-delete "delete")
+    ("R" dired-do-rename "rename")
+    ("H" dired-do-hardlink "hardlink")
+    ("S" dired-do-symlink "symlink")
+    ("M" dired-do-chmod "chmod")
+    ("G" dired-do-chgrp "chgrp")
+    ("O" dired-do-chown "chown")
+    ("Z" dired-do-compress "compress")
+    ("_" xah-dired-rename-space-to-underscore "rename: _")
+    ("-" xah-dired-rename-space-to-hyphen "rename: -")
+    ("+" dired-create-directory "mkdir"))
 
   (defhydra hydra-dired-toggle
     (:hint none :color red)
