@@ -130,6 +130,7 @@
     (set-window-margins nil margin margin)))
 
 
+
 (defun yxl-window-get-buffer-previous-window ()
   "open in the current window the buffer in previous window."
   (interactive)
@@ -146,5 +147,17 @@
   (progn
     (window-state-put yxl-window-stored-layout (frame-root-window))
     (message "load stored window layout.")))
+
+
+
+;; support vertical split at the moment
+(defun yxl-window-popwin (buffer &optional width position)
+  (unless width (setq width 0.3))
+  (unless position (setq position 'left))
+  (popwin:create-popup-window width position t)
+  (select-window (get-buffer-window " *popwin-dummy*"))
+  (switch-to-buffer (get-buffer buffer)))
+
+
 
 (provide 'yxl-window)

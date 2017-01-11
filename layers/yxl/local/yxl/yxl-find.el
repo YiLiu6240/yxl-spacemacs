@@ -34,82 +34,41 @@
   (interactive)
   (find-file yxl-file-bib))
 
-(defun yxl-find-file-org-popup ()
+(defun yxl-find-file-popup (file)
   (interactive)
-  (let ((pop-width (yxl-window-popwin-width))
-        (my-file yxl-file-org-main))
+  (let ((pop-width (yxl-window-popwin-width)))
     (cond
      ((equal current-prefix-arg '(4))
-      (find-file my-file))
+      (find-file file))
      ((equal current-prefix-arg 2)
-      (find-file-other-window my-file))
+      (find-file-other-window file))
      (t
-      (progn
-        (popwin:popup-buffer (find-file-noselect my-file)
-                             :width pop-width :position 'left :stick t)
-        (popwin:stop-close-popup-window-timer))))))
+      (yxl-window-popwin (find-file-noselect file) pop-width 'left)))))
+
+(defun yxl-find-file-org-popup ()
+  (interactive)
+  (let ((my-file yxl-file-org-main))
+    (yxl-find-file-popup my-file)))
 
 (defun yxl-find-file-org-work-popup ()
   (interactive)
-  (let ((pop-width (yxl-window-popwin-width))
-        (my-file yxl-file-org-work))
-    (cond
-     ((equal current-prefix-arg '(4))
-      (find-file my-file))
-     ((equal current-prefix-arg 2)
-      (find-file-other-window my-file))
-     (t
-      (progn
-        (popwin:popup-buffer (find-file-noselect my-file)
-                             :width pop-width :position 'left :stick t)
-        (popwin:stop-close-popup-window-timer))))))
+  (let ((my-file yxl-file-org-work))
+    (yxl-find-file-popup my-file)))
 
 (defun yxl-find-file-org-config-popup ()
   (interactive)
-  (let ((pop-width (yxl-window-popwin-width))
-        (my-file yxl-file-org-config))
-    (cond
-     ((equal current-prefix-arg '(4))
-      (find-file my-file))
-     ((equal current-prefix-arg 2)
-      (find-file-other-window my-file))
-     (t
-      (progn
-        (popwin:popup-buffer (find-file-noselect my-file)
-                             :width pop-width :position 'left :stick t)
-        (popwin:stop-close-popup-window-timer))))))
+  (let ((my-file yxl-file-org-config))
+    (yxl-find-file-popup my-file)))
 
 (defun yxl-find-file-org-proj-popup ()
   (interactive)
-  (let ((pop-width (yxl-window-popwin-width))
-        (my-file yxl-file-org-proj))
-    (cond
-     ((equal current-prefix-arg '(4))
-      (find-file my-file))
-     ((equal current-prefix-arg 2)
-      (find-file-other-window my-file))
-     (t
-      (progn
-        (popwin:popup-buffer (find-file-noselect my-file)
-                             :width pop-width :position 'left :stick t)
-        (popwin:stop-close-popup-window-timer))))))
+  (let ((my-file yxl-file-org-proj))
+    (yxl-find-file-popup my-file)))
 
 (defun yxl-find-file-org-scratch-popup ()
   (interactive)
-  ;; TODO: add pop-height as well
-  (let ((pop-width (yxl-window-popwin-width))
-        (my-file yxl-file-org-scratch))
-    (cond
-     ((equal current-prefix-arg '(4))
-      (find-file my-file))
-     ((equal current-prefix-arg 2)
-      (popwin:popup-buffer (find-file-noselect my-file)
-                           :width pop-width :position 'bottom :stick t))
-     (t
-      (progn
-        (popwin:popup-buffer (find-file-noselect my-file)
-                             :width pop-width :position 'left :stick t)
-        (popwin:stop-close-popup-window-timer))))))
+  (let ((my-file yxl-file-org-scratch))
+    (yxl-find-file-popup my-file)))
 
 ;; TODO: change to org version as in capture template
 (defun yxl-find-file-diary ()
