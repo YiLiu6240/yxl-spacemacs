@@ -11,8 +11,9 @@
 (defun yxl-web/elfeed-search-browse-url-w3m ()
   "inject w3m to be the browser function"
   (interactive)
-  (let* ((browse-url-browser-function #'w3m-goto-url-new-session))
-    (elfeed-search-browse-url)))
+  (call-interactively #'elfeed-search-show-entry)
+  (switch-to-buffer "*elfeed-entry*")
+  (yxl-web/elfeed-show-visit-w3m))
 
 (defun yxl-web/elfeed-show-visit-w3m ()
   "inject w3m to be the browser function"
