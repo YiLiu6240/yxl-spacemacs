@@ -22,41 +22,42 @@
 
 (defun yxl-helm-org-files ()
   (interactive)
-  (helm :sources '(((name . "Org agenda")
-                   (candidates . yxl-env-org-files)
-                   (action . (("open" . find-file)
-                              ("open other window" . find-file-other-window))))
-                   yxl-helm-org--fallback)
+  (helm :sources
+        `(,(helm-build-sync-source "Org files"
+             :candidates yxl-env-org-files
+             :action  (helm-make-actions
+                       "open" #'find-file
+                       "open other window" #'find-file-other-window))
+          ,(helm-build-sync-source "Fallback"
+             :match (lambda (_candidate) t)
+             :candidates '(("open all task files" .
+                            (lambda (x)
+                              (yxl-find-file-open-all yxl-env-org-task-files)))
+                           ("open all org files" .
+                            (lambda (x)
+                              (yxl-find-file-open-all yxl-env-org-files))))
+             :action (lambda (candidate) (funcall candidate helm-pattern))))
         :buffer "*helm org agenda*"))
-
-(setq yxl-helm-org--fallback
-      (helm-build-sync-source "Fallback"
-        :match (lambda (_candidate) t)
-        :candidates '(("open all task files" . (lambda (x)
-                                                 (yxl-find-file-open-all yxl-env-org-task-files)))
-                      ("open all org files" . (lambda (x)
-                                                (yxl-find-file-open-all yxl-env-org-files))))
-        :action (lambda (candidate) (funcall candidate helm-pattern))))
 
 (defun yxl-helm-websites ()
   (interactive)
-  (helm :sources '(((name . "Websites")
-                    (candidates . yxl-env-websites-alist)
-                    (action . (("open" . (lambda (x) (browse-url-generic x)))
-                               ("open-w3m" . (lambda (x) (w3m-goto-url-new-session x))))))
-                   yxl-helm-websites--fallback)))
-
-(setq yxl-helm-websites--fallback
-      (helm-build-sync-source "Fallback"
-        :match (lambda (_candidate) t)
-        :candidates '(("yxl-helm-quick" . (lambda (x) (yxl-helm-quick)))
-                      ("Google search" . (lambda (x)
-                                           (let* ((google-base "http://www.google.com/search?q=%s")
-                                                  (query-string (replace-regexp-in-string " " "\+" x))
-                                                  (url-string (format google-base query-string)))
-                                             (browse-url-generic url-string))))
-                      ("Direct Input" . (lambda (x) (browse-url-generic x))))
-        :action (lambda (candidate) (funcall candidate helm-pattern))))
+  (helm :sources
+        `(,(helm-build-sync-source "Websites"
+             :candidates yxl-env-websites-alist
+             :action (helm-make-actions
+                      "open" (lambda (x) (browse-url-generic x))
+                      "open-w3m" (lambda (x) (w3m-goto-url-new-session x))))
+          ,(helm-build-sync-source "Fallback"
+             :match (lambda (_candidate) t)
+             :candidates '(("yxl-helm-quick" . (lambda (x) (yxl-helm-quick)))
+                           ("Google search" .
+                            (lambda (x)
+                              (let* ((google-base "http://www.google.com/search?q=%s")
+                                     (query-string (replace-regexp-in-string " " "\+" x))
+                                     (url-string (format google-base query-string)))
+                                (browse-url-generic url-string))))
+                           ("Direct Input" . (lambda (x) (browse-url-generic x))))
+             :action (lambda (candidate) (funcall candidate helm-pattern))))))
 
 (defun yxl-helm-files ()
   (interactive)
