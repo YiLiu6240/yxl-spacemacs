@@ -175,7 +175,7 @@
 
 (defun yxl-org/setup-agenda ()
   ;; agenda file
-  (setq org-agenda-files yxl-org-files)
+  (setq org-agenda-files yxl-env-org-files)
   ;; agenda view: 1 month
   (setq org-agenda-span 'month)
   ;; org agenda time grid

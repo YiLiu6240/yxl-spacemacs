@@ -23,19 +23,19 @@
 (setq yxl-file-org-log (concat yxl-path-org "logs/" "log.org"))
 (setq yxl-file-org-scratch (concat yxl-path-org "scratch.org"))
 
-(setq yxl-org-task-files (list yxl-file-org-scratch
-                                 yxl-file-org-main
-                                 yxl-file-org-work
-                                 yxl-file-org-config
-                                 yxl-file-org-proj))
+(setq yxl-env-org-task-files (list yxl-file-org-scratch
+                                   yxl-file-org-main
+                                   yxl-file-org-work
+                                   yxl-file-org-config
+                                   yxl-file-org-proj))
 
-(setq yxl-org-files (append yxl-org-task-files
-                              (list
-                               (concat yxl-path-org-task "cal_gen.org")
-                               (concat yxl-path-org-task "cal_google.org")
-                               (concat yxl-path-org-task "proj_ds.org")
-                               (concat yxl-path-org-task "proj_ctw.org")
-                               (concat yxl-path-org-task "proj_bham.org"))))
+(setq yxl-env-org-files (append yxl-env-org-task-files
+                                (list
+                                 (concat yxl-path-org-task "cal_gen.org")
+                                 (concat yxl-path-org-task "cal_google.org")
+                                 (concat yxl-path-org-task "proj_ds.org")
+                                 (concat yxl-path-org-task "proj_ctw.org")
+                                 (concat yxl-path-org-task "proj_bham.org"))))
 
 
 

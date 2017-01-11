@@ -8,13 +8,13 @@
     (text-scale-set 0)))
 
 (defun yxl-org-task-file-p (&optional file)
-  "Return non-nil, if FILE is in `yxl-org-task-files'.
+  "Return non-nil, if FILE is in `yxl-env-org-task-files'.
 If FILE is omitted, use the file associated with the current
 buffer."
   (let ((fname (or file (buffer-file-name))))
     (and fname
          (member (file-truename fname)
-                 (mapcar #'file-truename yxl-org-task-files)))))
+                 (mapcar #'file-truename yxl-env-org-task-files)))))
 
 (defun yxl-org-format-task-files ()
   "If the current file is in `org-agenda-files',
@@ -24,8 +24,8 @@ then turn on `yxl-org-task-mode'"
 
 (defun yxl-org-open-all-task-files ()
   (interactive)
-  (yxl-find-file-open-all yxl-org-task-files)
-  (if (equal 0 (% (length yxl-org-task-files) 2))
+  (yxl-find-file-open-all yxl-env-org-task-files)
+  (if (equal 0 (% (length yxl-env-org-task-files) 2))
       (split-window-below-and-focus)
     (split-window-right-and-focus))
   (org-agenda-list)
