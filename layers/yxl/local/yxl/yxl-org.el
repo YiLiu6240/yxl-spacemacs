@@ -25,8 +25,12 @@ then turn on `yxl-org-task-mode'"
 (defun yxl-org-open-all-task-files ()
   (interactive)
   (yxl-find-file-open-all yxl-org-task-files)
+  (if (equal 0 (% (length yxl-org-task-files) 2))
+      (split-window-below-and-focus)
+    (split-window-right-and-focus))
+  (org-agenda-list)
   (split-window-right-and-focus)
-  (org-agenda-list))
+  (org-todo-list))
 
 (defun yxl-org-refile-visible ()
   (interactive)
