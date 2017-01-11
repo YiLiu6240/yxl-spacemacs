@@ -55,20 +55,22 @@ This function makes sure that dates are aligned for easy reading."
     (format "%4d-%02d-%02d %s %s"
             year month day dayname weekstring)))
 
+(defun yxl-org--get-visible-buffers ()
+  (let* ((cur-mode 'org-mode))
+    (delq nil
+          (mapcar
+           (lambda (buffer)
+             (when (and (equal cur-mode (buffer-local-value 'major-mode buffer))
+                        ;; detect visible buffer
+                        ;; http://emacs.stackexchange.com/questions/2959/how-to-know-my-buffers-visible-focused-status
+                        (get-buffer-window buffer))
+               `(,(buffer-file-name buffer) :maxlevel . 1)))
+           (buffer-list)))))
+
 (defun yxl-org-refile-visible ()
   (interactive)
-  (let* ((cur-mode 'org-mode)
-         (visible-org-files
-          (delq nil
-                (mapcar
-                 (lambda (buffer)
-                   (when (and (equal cur-mode (buffer-local-value 'major-mode buffer))
-                              ;; detect visible buffer
-                              ;; http://emacs.stackexchange.com/questions/2959/how-to-know-my-buffers-visible-focused-status
-                              (get-buffer-window buffer))
-                     `(,(buffer-file-name buffer) :maxlevel . 1)))
-                 (buffer-list))))
+  (let* ((visible-org-files (yxl-org--get-visible-buffers))
          (org-refile-targets visible-org-files))
-    (org-refile)))
+    (call-interactively #'org-refile)))
 
 (provide 'yxl-org)

@@ -43,9 +43,9 @@
   (setq org-blank-before-new-entry nil)
   (setq org-refile-use-outline-path t)
   (setq org-refile-targets '((nil :maxlevel . 1)
-                             (yxl-file-org-scratch :maxlevel . 1)))
+                             (org-agenda-files :maxlevel . 1)))
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
-    "or" #'yxl-org-refile-visible))
+    "r" #'yxl-org-refile-visible))
 
 (defun yxl-org/org-mode-hook ()
   ;; (setq line-spacing 4)
