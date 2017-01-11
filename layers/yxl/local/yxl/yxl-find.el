@@ -44,8 +44,10 @@
      ((equal current-prefix-arg 2)
       (find-file-other-window my-file))
      (t
-      (popwin:popup-buffer (find-file-noselect my-file)
-                           :width pop-width :position 'left :stick t)))))
+      (progn
+        (popwin:popup-buffer (find-file-noselect my-file)
+                             :width pop-width :position 'left :stick t)
+        (popwin:stop-close-popup-window-timer))))))
 
 (defun yxl-find-file-org-work-popup ()
   (interactive)
@@ -57,8 +59,10 @@
      ((equal current-prefix-arg 2)
       (find-file-other-window my-file))
      (t
-      (popwin:popup-buffer (find-file-noselect my-file)
-                           :width pop-width :position 'left :stick t)))))
+      (progn
+        (popwin:popup-buffer (find-file-noselect my-file)
+                             :width pop-width :position 'left :stick t)
+        (popwin:stop-close-popup-window-timer))))))
 
 (defun yxl-find-file-org-config-popup ()
   (interactive)
@@ -70,8 +74,10 @@
      ((equal current-prefix-arg 2)
       (find-file-other-window my-file))
      (t
-      (popwin:popup-buffer (find-file-noselect my-file)
-                           :width pop-width :position 'left :stick t)))))
+      (progn
+        (popwin:popup-buffer (find-file-noselect my-file)
+                             :width pop-width :position 'left :stick t)
+        (popwin:stop-close-popup-window-timer))))))
 
 (defun yxl-find-file-org-proj-popup ()
   (interactive)
@@ -83,8 +89,10 @@
      ((equal current-prefix-arg 2)
       (find-file-other-window my-file))
      (t
-      (popwin:popup-buffer (find-file-noselect my-file)
-                           :width pop-width :position 'left :stick t)))))
+      (progn
+        (popwin:popup-buffer (find-file-noselect my-file)
+                             :width pop-width :position 'left :stick t)
+        (popwin:stop-close-popup-window-timer))))))
 
 (defun yxl-find-file-org-scratch-popup ()
   (interactive)
@@ -98,8 +106,10 @@
       (popwin:popup-buffer (find-file-noselect my-file)
                            :width pop-width :position 'bottom :stick t))
      (t
-      (popwin:popup-buffer (find-file-noselect my-file)
-                           :width pop-width :position 'left :stick t)))))
+      (progn
+        (popwin:popup-buffer (find-file-noselect my-file)
+                             :width pop-width :position 'left :stick t)
+        (popwin:stop-close-popup-window-timer))))))
 
 ;; TODO: change to org version as in capture template
 (defun yxl-find-file-diary ()
