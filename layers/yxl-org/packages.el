@@ -42,7 +42,8 @@
     :config
     (progn
       (setq package-check-signature nil)
-      (setq org-gcal-file-alist '(("yi.liu6240@gmail.com" .  "~/Dropbox/org/tasks/gcal.org")))
+      (setq org-gcal-file-alist
+            '(("yi.liu6240@gmail.com" .  "~/Dropbox/org/tasks/cal_google.org")))
       (defun my-org-gcal-notify (title mes)
         (message "org-gcal::%s - %s" title mes))
       (fset 'org-gcal--notify 'my-org-gcal-notify))))

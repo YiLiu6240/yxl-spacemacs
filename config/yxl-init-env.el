@@ -31,7 +31,8 @@
 
 (defvar yxl-org-files (append yxl-org-task-files
                               (list
-                               (concat yxl-path-org-task "gcal.org")
+                               (concat yxl-path-org-task "cal_gen.org")
+                               (concat yxl-path-org-task "cal_google.org")
                                (concat yxl-path-org-task "proj_ds.org")
                                (concat yxl-path-org-task "proj_ctw.org")
                                (concat yxl-path-org-task "proj_bham.org"))))
