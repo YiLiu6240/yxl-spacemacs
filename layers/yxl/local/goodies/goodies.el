@@ -65,6 +65,9 @@ Useful when creating new window layout/config."
       (progn
         (clipboard-yank)
         (message "graphics active"))
+     ;; TODO: check if the evil package is used
+     (if (eq evil-state 'normal)
+         (evil-append 1))
     (insert (shell-command-to-string cli-cmd)))))
 
 (provide 'goodies)
