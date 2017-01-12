@@ -54,6 +54,7 @@
                                ("gmail" . "https://www.gmail.com")))
 
 (setq yxl-env-elfeed-tag-alist '(("emacs" . ("emacs" t))
+                                 ("blog" . ("blog" t))
                                  ("tech_blog" . ("tech_blog" t))
                                  ("tech_news" . ("tech_news" t))
                                  ("news" . ("news" t))
