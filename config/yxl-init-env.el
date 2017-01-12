@@ -60,4 +60,5 @@
                                  ("econ_news" . ("econ_news" t))
                                  ("work" . ("work" t))
                                  ("datascience" . ("datascience" t))
+                                 ("econ_sites" . ("econ_sites" t))
                                  ("star" . ("+star" nil))))
