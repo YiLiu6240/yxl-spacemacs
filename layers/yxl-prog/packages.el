@@ -1,4 +1,5 @@
 (setq yxl-prog-packages '((prog-mode :location built-in)
+                          parinfer
                           python
                           cc-mode
                           graphviz-dot-mode
@@ -22,6 +23,26 @@
                 (lambda ()
                   (setq-local indent-tabs-mode t)
                   (setq-local tab-width 4))))))
+
+(defun yxl-prog/init-parinfer ()
+  (use-package parinfer
+    :defer t
+    :diminish parinfer-mode
+    :init
+    (progn
+      (add-hook 'emacs-lisp-mode-hook 'parinfer-mode)
+      (add-hook 'clojure-mode-hook 'parinfer-mode)
+      (add-hook 'common-lisp-mode-hook 'parinfer-mode)
+      (add-hook 'scheme-mode-hook 'parinfer-mode)
+      (add-hook 'lisp-mode-hook 'parinfer-mode)
+      (spacemacs|add-toggle parinfer-indent
+        :evil-leader "tP"
+        :documentation "Enable Parinfer Indent Mode."
+        :if (bound-and-true-p parinfer-mode)
+        :status (eq parinfer--mode 'indent)
+        :on (parinfer-toggle-mode)
+        :off (parinfer-toggle-mode))
+      (setq parinfer-extensions '(defaults pretty-parens evil smart-yank)))))
 
 (defun yxl-prog/post-init-python ()
   (with-eval-after-load 'python
