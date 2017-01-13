@@ -78,7 +78,7 @@
                       syntax-checking-enable-by-default nil)
      ;; vim/evil mode --------
      (vinegar :packages (not dired))
-     evil-cleverparens
+     ;; evil-cleverparens
 
      ;; other layers --------
      ;; smex

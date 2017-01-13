@@ -6,7 +6,6 @@
                           ;; (evil-little-word :location local)
                           evil-mc
                           evil-evilified-state))
-;; evil-cleverparens
 
 (defun yxl-evil/post-init-evil ()
   (with-eval-after-load 'evil
@@ -92,16 +91,3 @@ skipping empty lines."
             (defun bb/clear-anzu ()
               (interactive)
               (setq anzu--state nil))))
-
-;; (defun yxl-evil/init-evil-cleverparens ()
-;;   (use-package evil-cleverparens
-;;     :defer t
-;;     :diminish evil-cleverparens-mode
-;;     :init
-;;     (progn
-;;       (setq evil-cleverparens-use-regular-insert t)
-;;       (spacemacs|add-toggle evil-cleverparens
-;;         :status evil-cleverparens-mode
-;;         :on  (evil-cleverparens-mode)
-;;         :off (evil-cleverparens-mode -1)
-;;         :documentation "Enable evil-cleverparens."))))
