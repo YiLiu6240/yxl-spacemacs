@@ -188,11 +188,10 @@
   (add-to-list 'load-path "~/.spacemacs.d/config/")
   (add-to-list 'load-path "~/.spacemacs.d/lisp/")
   (add-to-list 'load-path "~/.spacemacs.d/theme/yxl-theme/")
-
   (add-to-list 'custom-theme-load-path "~/.spacemacs.d/theme/yxl-theme/")
 
-  (load-file (concat dotspacemacs-directory "config/yxl-init-env.el"))
-  (load-file (concat dotspacemacs-directory "config/init-config.el"))
+  (load-file (concat dotspacemacs-directory "config/config-init.el"))
+  (load-file (concat dotspacemacs-directory "config/yxl-env.el"))
   (load-file (concat dotspacemacs-directory "config/hack.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-spacemacs-home.el"))
   (load-file "~/dotfiles/personal/yxl-personal.el")
@@ -221,7 +220,7 @@
   ;; general
   ;; --------
   (load-file (concat dotspacemacs-directory "config/yxl-bindings.el"))
-  (load-file (concat dotspacemacs-directory "config/post-init-config.el"))
+  (load-file (concat dotspacemacs-directory "config/config-post-init.el"))
   ;; use transparent/system background in terminal
   (if (not (display-graphic-p))
       (set-background-color "invalid"))
