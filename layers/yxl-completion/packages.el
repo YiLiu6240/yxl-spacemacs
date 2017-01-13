@@ -6,6 +6,7 @@
 
 (defun yxl-completion/post-init-helm ()
   (with-eval-after-load 'helm
+    (setq helm-mini-default-sources '(helm-source-buffers-list))
     (add-to-list 'helm-type-buffer-actions
                  '("Display buffer(s) in new window(s) `M-v'" .
                    helm-buffer-switch-new-window-v) 'append)
@@ -19,7 +20,12 @@
   ;; remove the "^" element in search
   (delete '(counsel-M-x . "^") ivy-initial-inputs-alist)
   (delete '(counsel-describe-function . "^") ivy-initial-inputs-alist)
-  (delete '(counsel-describe-variable . "^") ivy-initial-inputs-alist))
+  (delete '(counsel-describe-variable . "^") ivy-initial-inputs-alist)
+  ;; ivy views
+  (with-eval-after-load 'ivy
+    (with-eval-after-load 'recentf
+      (setq ivy-use-virtual-buffers nil))
+    (load (concat dotspacemacs-directory "config/yxl-ivy-views.el"))))
 
 (defun yxl-completion/post-init-counsel ()
   (with-eval-after-load 'counsel
