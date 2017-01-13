@@ -625,6 +625,7 @@
             `(org-ellipsis ((,class (:foreground ,keyword))))
             `(org-footnote  ((,class (:underline t :foreground ,base))))
             `(org-hide ((,class (:foreground ,bg1))))
+            `(org-indent ((,class (:foreground ,bg1))))
             `(org-kbd ((,class (:inherit region :foreground ,base :box (:line-width 1 :style released-button)))))
             `(org-level-1 ((,class (:inherit bold :foreground ,head1 :height ,(if yxl-theme-org-height 1.3 1.0) :background ,(when yxl-theme-org-highlight head1-bg)))))
             `(org-level-2 ((,class (:inherit bold :foreground ,head2 :height ,(if yxl-theme-org-height 1.2 1.0) :background ,(when yxl-theme-org-highlight head2-bg)))))
