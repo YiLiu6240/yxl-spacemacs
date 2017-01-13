@@ -127,7 +127,7 @@
     (progn
       ;; https://www.reddit.com/r/emacs/comments/54agp2/from_an_evil_perspective_how_to_efficiently_edit/
       (define-key sp-keymap (kbd "C-<tab>") 'sp-indent-adjust-sexp)
-      (define-key sp-keymap (kbd "C-S-<tab>") 'sp-dedent-adjust-sexp)
+      (define-key sp-keymap (kbd "C-S-<iso-lefttab>") 'sp-dedent-adjust-sexp)
       (setq sp-highlight-pair-overlay nil)
       (setq sp-highlight-wrap-overlay nil)
       (setq sp-highlight-wrap-tag-overlay nil))))
