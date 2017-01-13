@@ -1,4 +1,7 @@
-(defun yxl-dired/leader-setup ()
+(defun yxl-dired/bindings-setup ()
+  (define-key dired-mode-map "z" 'dired-zip-files)
+  (define-key dired-mode-map "." 'hydra-dired-main/body)
+  (define-key dired-mode-map (kbd "C-c \.") 'hydra-dired-main/body)
   (spacemacs/set-leader-keys-for-major-mode 'dired-mode
     "pp" #'peep-dired
     "pk" #'peep-dired-prev-file
@@ -14,9 +17,7 @@
     "H"  #'dired-omit-mode)
   (spacemacs/declare-prefix-for-mode #'dired-mode "ms" "sort")
   (spacemacs/declare-prefix-for-mode #'dired-mode "mt" "toggle")
-  (spacemacs/declare-prefix-for-mode #'dired-mode "mp" "peep"))
-
-(defun yxl-dired/hydra-setup ()
+  (spacemacs/declare-prefix-for-mode #'dired-mode "mp" "peep")
   (defhydra hydra-dired-common (:color blue)
     ("." nil "quit"))
   (defhydra hydra-dired-mark
@@ -38,7 +39,6 @@
     ("!" dired-unmark-all-marks)
     ("t" dired-toggle-marks)
     ("%" dired-mark-files-regexp))
-
   (defhydra hydra-dired-main
     (:color pink :inherit (hydra-dired-common/heads))
     ("q" nil "quit" :color blue)
@@ -63,7 +63,6 @@
     ("_" xah-dired-rename-space-to-underscore "rename: _")
     ("-" xah-dired-rename-space-to-hyphen "rename: -")
     ("+" dired-create-directory "mkdir"))
-
   (defhydra hydra-dired-toggle
     (:hint none :color red)
     "
@@ -82,10 +81,7 @@
     ("d" yxl-dired/toggle-dwim-target
      (if dired-dwim-target
          "[X]" "[ ]"))
-    ("r" dired-toggle-read-only :color blue))
-
-  (define-key dired-mode-map "." 'hydra-dired-main/body)
-  (define-key dired-mode-map (kbd "C-c \.") 'hydra-dired-main/body))
+    ("r" dired-toggle-read-only :color blue)))
 
 (defun dired-copy-filename-as-kill-fullname ()
   (interactive)

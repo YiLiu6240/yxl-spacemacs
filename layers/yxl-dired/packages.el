@@ -13,7 +13,9 @@
       ;; http://qiita.com/maangie/items/5a80ae50c13d14368a72
       (if (eq system-type 'darwin)
           (setq insert-directory-program "gls"))
-
+      (with-eval-after-load 'dired-aux
+        (add-to-list 'dired-compress-file-suffixes
+                     '("\\.zip\\'" ".zip" "unzip")))
       ;; dired sort
       ;; http://ergoemacs.org/emacs/dired_sort.html
       (defun yxl-dired/dired-sort-by-name ()
@@ -37,10 +39,7 @@
       (setq dired-recursive-copies 'always)
       (add-hook 'dired-mode-hook #'spacemacs/toggle-truncate-lines-on)
       (add-hook 'dired-mode-hook #'dired-hide-details-mode)
-
-      (yxl-dired/leader-setup)
-      (yxl-dired/hydra-setup)
-
+      (yxl-dired/bindings-setup)
       (spacemacs/set-leader-keys
         "obo" #'yxl-dired/open-in-desktop))))
 

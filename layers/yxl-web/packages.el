@@ -101,6 +101,7 @@
   (with-eval-after-load 'elfeed
     (add-hook 'elfeed-search-mode-hook #'yxl-web/elfeed-search-mode-config)
     (add-hook 'elfeed-show-mode-hook #'yxl-web/elfeed-show-mode-config)
+    (setq elfeed-db-directory "~/Dropbox/rss/.elfeed")
     (setq elfeed-goodies/powerline-default-separator 'nil)
     (yxl-web/elfeed-bindings)
     (yxl-web/elfeed-hydra-setup)))
