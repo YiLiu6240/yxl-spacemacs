@@ -25,7 +25,7 @@
      emacs-lisp
      (ess :packages (not org))
      (git :variables
-          git-magit-status-fullscreen nil)
+          git-magit-status-fullscreen t)
      lua
      ;; markdown: need vmd from npm: npm install -g vmd
      (markdown :variables markdown-live-preview-engine 'vmd)
