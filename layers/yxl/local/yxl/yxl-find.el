@@ -3,9 +3,6 @@
 
 
 ;; find file functions
-(defun yxl-find-file-bib ()
-  (interactive)
-  (find-file yxl-file-bib))
 
 (defun yxl-find-file-popup (file)
   (interactive)
@@ -17,6 +14,10 @@
       (find-file-other-window file))
      (t
       (yxl-window-popwin (find-file-noselect file) pop-width 'left)))))
+
+(defun yxl-find-file-bib ()
+  (interactive)
+  (yxl-find-file-popup yxl-file-bib))
 
 (defun yxl-find-file-org-popup ()
   (interactive)
