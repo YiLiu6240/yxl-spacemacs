@@ -157,7 +157,8 @@
                   (name 30 30 :left :elide) " "
                   (size 9 -1 :right) " "
                   (mode 16 16 :left :elide) " " filename-and-process)
-            (mark " " (name 16 -1) " " filename)))))
+            (mark " " (name 16 -1) " " filename)))
+    (yxl-config/setup-ibuffer-bindings)))
 
 (defun yxl-config/post-init-neotree ()
   (with-eval-after-load 'neotree
