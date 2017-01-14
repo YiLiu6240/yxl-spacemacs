@@ -104,13 +104,7 @@
 
      ;; private --------
      helm-dash
-     yxl-layers
-
-     (mu4e :variables
-           mu4e-installation-path "/usr/share/emacs/site-lisp/mu4e"
-           mu4e-account-alist t)
-     ;; gnus
-     yxl-mail)))
+     yxl-layers)))
 
 (defun dotspacemacs/init ()
   (setq-default
