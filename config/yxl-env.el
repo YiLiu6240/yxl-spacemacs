@@ -10,11 +10,14 @@
 (setq yxl-path-phd-repo (concat yxl-path-local "yxl105_ctw/"))
 (setq yxl-path-code-pwd (concat yxl-path-local "c3_pwd/code/"))
 (setq yxl-path-paper-pwd (concat yxl-path-local "yxl105_ctw/yxl105_tex/"))
-(setq yxl-path-journal-pwd (concat yxl-path-sync "lit_1_yxl105/1_thesis/"))
-(setq yxl-file-bib (concat yxl-path-sync "bib/yxl_bib_master.bib"))
+(setq yxl-path-journal-pwd (concat yxl-path-sync "journal_yxl"))
+
+(setq yxl-path-book-reference (concat yxl-path-sync "book_reference"))
+
 
 
 
+(setq yxl-file-bib (concat yxl-path-sync "bib/yxl_bib_master.bib"))
 (setq yxl-file-note-master "~/Dropbox/org/note.org")
 (setq yxl-file-org-main (concat yxl-path-org-task "tasks_1_main.org"))
 (setq yxl-file-org-work (concat yxl-path-org-task "tasks_2_work.org"))
@@ -38,6 +41,7 @@
                                  (concat yxl-path-org-task "proj_bham.org"))))
 
 
+;; These alist will be fed to helm
 
 (setq yxl-env-files-alist `(("dotfiles/" . "~/dotfiles/")
                             ("emacs.d/" . "~/.emacs.d/")
