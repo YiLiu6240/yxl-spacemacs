@@ -1,78 +1,84 @@
 (defun yxl-evil/setup-evil-main ()
   (progn
-   ;; insert state:
-   (define-key evil-insert-state-map (kbd "C-h") #'backward-delete-char-untabify)
-   (define-key evil-insert-state-map (kbd "C-d") #'delete-forward-char)
-   (define-key evil-insert-state-map (kbd "C-a") #'beginning-of-line-text)
-   (define-key evil-insert-state-map (kbd "C-e") #'end-of-line)
-   (define-key evil-insert-state-map (kbd "C-p") #'previous-line)
-   (define-key evil-insert-state-map (kbd "C-n") #'next-line)
+    ;; insert state:
+    (define-key evil-insert-state-map (kbd "C-h") #'backward-delete-char-untabify)
+    (define-key evil-insert-state-map (kbd "C-d") #'delete-forward-char)
+    (define-key evil-insert-state-map (kbd "C-a") #'beginning-of-line-text)
+    (define-key evil-insert-state-map (kbd "C-e") #'end-of-line)
+    (define-key evil-insert-state-map (kbd "C-p") #'previous-line)
+    (define-key evil-insert-state-map (kbd "C-n") #'next-line)
 
-   ;; text objects:
-   (define-key evil-outer-text-objects-map "g" #'evil-a-curly)
-   (define-key evil-outer-text-objects-map "h" #'evil-a-bracket)
-   (define-key evil-outer-text-objects-map "t" #'evil-a-double-quote)
-   (define-key evil-outer-text-objects-map "y" #'evil-a-single-quote)
-   (define-key evil-inner-text-objects-map "g" #'evil-inner-curly)
-   (define-key evil-inner-text-objects-map "h" #'evil-inner-bracket)
-   (define-key evil-inner-text-objects-map "t" #'evil-inner-double-quote)
-   (define-key evil-inner-text-objects-map "y" #'evil-inner-single-quote)
+    ;; text objects:
+    (define-key evil-outer-text-objects-map "g" #'evil-a-curly)
+    (define-key evil-outer-text-objects-map "h" #'evil-a-bracket)
+    (define-key evil-outer-text-objects-map "t" #'evil-a-double-quote)
+    (define-key evil-outer-text-objects-map "y" #'evil-a-single-quote)
+    (define-key evil-inner-text-objects-map "g" #'evil-inner-curly)
+    (define-key evil-inner-text-objects-map "h" #'evil-inner-bracket)
+    (define-key evil-inner-text-objects-map "t" #'evil-inner-double-quote)
+    (define-key evil-inner-text-objects-map "y" #'evil-inner-single-quote)
 
-   ;; normal and motion state:
-   (define-key evil-normal-state-map (kbd "j") #'evil-next-visual-line)
-   (define-key evil-normal-state-map (kbd "k") #'evil-previous-visual-line)
-   ;; "g" related commands
-   ;; mark: repalce with evil-middle-of-visual-line
-   (define-key evil-motion-state-map "gm" #'evil-goto-mark)
-   (define-key evil-motion-state-map "gt" #'eyebrowse-next-window-config)
-   (define-key evil-motion-state-map "gT" #'eyebrowse-prev-window-config)
-   (define-key evil-motion-state-map (kbd "g C-h") #'eyebrowse-prev-window-config)
-   (define-key evil-motion-state-map (kbd "g C-l") #'eyebrowse-next-window-config)
-   ;; navigation
-   (define-key evil-motion-state-map "H" #'evil-first-non-blank)
-   (define-key evil-motion-state-map "L" #'evil-end-of-line)
-   (define-key evil-motion-state-map (kbd "C-h") #'evil-window-left)
-   (define-key evil-motion-state-map (kbd "C-j") #'evil-window-down)
-   (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
-   (define-key evil-motion-state-map (kbd "C-l") #'evil-window-right)
-   ;; "q" as a leader
-   (define-key evil-normal-state-map "q" nil)
-   (define-key evil-normal-state-map "qm" #'evil-execute-macro)
-   (define-key evil-normal-state-map "qM" #'evil-record-macro)
-   (define-key evil-normal-state-map "qq" #'yxl-evil-quit)
-   ;; (define-key evil-normal-state-map "qQ" #'evil-save-and-close)
-   (define-key evil-normal-state-map "qw" #'evil-write)
-   (define-key evil-normal-state-map "qW" #'evil-write-all)
-   ;; "\" as another leader
-   (define-key evil-motion-state-map "\\" nil)
-   (define-key evil-motion-state-map "\\\\" #'scratch-pop-sticky)
-   (define-key evil-motion-state-map "\\a" #'scratch-pop)
-   (define-key evil-motion-state-map "\\t" #'scratch-pop-top)
+    ;; normal and motion state:
+    (define-key evil-normal-state-map (kbd "j") #'evil-next-visual-line)
+    (define-key evil-normal-state-map (kbd "k") #'evil-previous-visual-line)
+    ;; "g" related commands
+    ;; mark: repalce with evil-middle-of-visual-line
+    (define-key evil-motion-state-map "gm" #'evil-goto-mark)
+    (define-key evil-motion-state-map "gt" #'eyebrowse-next-window-config)
+    (define-key evil-motion-state-map "gT" #'eyebrowse-prev-window-config)
+    (define-key evil-motion-state-map (kbd "g C-h") #'eyebrowse-prev-window-config)
+    (define-key evil-motion-state-map (kbd "g C-l") #'eyebrowse-next-window-config)
+    ;; navigation
+    (define-key evil-motion-state-map "H" #'evil-first-non-blank)
+    (define-key evil-motion-state-map "L" #'evil-end-of-line)
+    (define-key evil-motion-state-map (kbd "C-h") #'evil-window-left)
+    (define-key evil-motion-state-map (kbd "C-j") #'evil-window-down)
+    (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
+    (define-key evil-motion-state-map (kbd "C-l") #'evil-window-right)
+    ;; "q" as a leader
+    (define-key evil-normal-state-map "q" nil)
+    (define-key evil-normal-state-map "qm" #'evil-execute-macro)
+    (define-key evil-normal-state-map "qM" #'evil-record-macro)
+    (define-key evil-normal-state-map "qq" #'yxl-evil-quit)
+    ;; (define-key evil-normal-state-map "qQ" #'evil-save-and-close)
+    (define-key evil-normal-state-map "qw" #'evil-write)
+    (define-key evil-normal-state-map "qW" #'evil-write-all)
+    ;; "\" as another leader
+    (define-key evil-motion-state-map "\\" nil)
+    (define-key evil-motion-state-map "\\\\" #'scratch-pop-sticky)
+    (define-key evil-motion-state-map "\\a" #'scratch-pop)
+    (define-key evil-motion-state-map "\\t" #'scratch-pop-top)
 
-   ;; ex:
-   ;; ":" and ";"
-   (define-key evil-motion-state-map (kbd dotspacemacs-ex-command-key) 'evil-ex)
-   (if (equal dotspacemacs-ex-command-key ";")
-       (progn
-         (define-key evil-motion-state-map (kbd ":") 'evil-repeat-find-char)))
+    ;; ex:
+    ;; ":" and ";"
+    (define-key evil-motion-state-map (kbd dotspacemacs-ex-command-key) 'evil-ex)
+    (if (equal dotspacemacs-ex-command-key ";")
+        (progn
+          (define-key evil-motion-state-map (kbd ":") 'evil-repeat-find-char)))
 
-   ;; misc:
-   ;; find comma in sentence TODO: let them find period as well
-   (define-key evil-motion-state-map (kbd "C-)") 'evil-sentence-comma-forward)
-   (define-key evil-motion-state-map (kbd "C-(") 'evil-sentence-comma-backward)
-   ;; (define-key evil-motion-state-map (kbd "C-S-p") #'helm-M-x)
-   (define-key evil-motion-state-map (kbd "C-S-p") #'counsel-M-x)
-   (define-key evil-normal-state-map (kbd "_") #'projectile-dired)
-   ;; ---- disabled ----
-   ;; vim-surround, use "S"
-   ;; (define-key 'visual evil-surround-mode-map "s" #'evil-substitute)
-   ;; (define-key 'visual evil-surround-mode-map "S" #'evil-surround-region)
-   ;; ;; swap colon and semi colon
-   ;; (define-key evil-normal-state-map "g:" #'goto-last-change)
-   ;; ;; (define-key evil-motion-state-map ":" #'evil-repeat-find-char)
+    ;; misc:
+    ;; (define-key evil-motion-state-map (kbd "C-S-p") #'helm-M-x)
+    (define-key evil-motion-state-map (kbd "C-S-p") #'counsel-M-x)
+    (define-key evil-normal-state-map (kbd "_") #'projectile-dired)
 
-   ;; Ex commands
-   (evil-ex-define-cmd "tabn[ew]" 'eyebrowse-create-window-config-dired)))
+    ;; from evil-textobj-column
+    (define-key evil-inner-text-objects-map "k" #'evil-textobj-column-word)
+    (define-key evil-inner-text-objects-map "K" #'evil-textobj-column-WORD)
+
+    ;; from evil-goodies
+    (define-key evil-motion-state-map "gh" #'yxl-evil-go-up-indent)
+    (define-key evil-inner-text-objects-map "q" #'evil-indent-chains)
+
+    ;; ---- disabled ----
+    ;; vim-surround, use "S"
+    ;; (define-key 'visual evil-surround-mode-map "s" #'evil-substitute)
+    ;; (define-key 'visual evil-surround-mode-map "S" #'evil-surround-region)
+    ;; ;; swap colon and semi colon
+    ;; (define-key evil-normal-state-map "g:" #'goto-last-change)
+    ;; ;; (define-key evil-motion-state-map ":" #'evil-repeat-find-char)
+
+    ;; Ex commands
+    (evil-ex-define-cmd "tabn[ew]" 'eyebrowse-create-window-config-dired)))
 
 (defun yxl-evil/setup-evil-personal ()
   "personal bindings, rely on external yxl functions"
