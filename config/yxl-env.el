@@ -14,6 +14,20 @@
 
 (setq yxl-path-book-reference (concat yxl-path-sync "book_reference"))
 
+;; hydra
+(with-eval-after-load 'hydra
+  (defhydra yxl-find-dir (:color blue)
+    "Directory: "
+    ("d" (find-file yxl-path-dotfiles) "dotfiles")
+    ("g" (find-file yxl-path-downloads) "downloads")
+    ("G" (find-file yxl-path-local) "local-repo")
+    ("h" (find-file yxl-path-sync) "dropbox")
+    ("H" (find-file yxl-path-projects) "projects")
+    ("o" (find-file yxl-path-org) "org")
+    ("c" (find-file yxl-path-code-pwd) "code")
+    ("p" (find-file yxl-path-paper-pwd) "papers")
+    ("j" (find-file yxl-path-journal-pwd) "journals")
+    ("b" (find-file yxl-path-book-reference) "books")))
 
 
 

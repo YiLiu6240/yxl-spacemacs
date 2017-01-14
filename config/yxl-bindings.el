@@ -143,15 +143,7 @@
   "oo0" #'yxl-org/agenda-life
 
   ;; project
-  "opg" #'yxl-find-dir-downloads
-  "opG" #'yxl-find-dir-local
-  "oph" #'yxl-find-dir-dropbox
-  "opH" #'yxl-find-dir-projects
-  "opc" #'yxl-find-pwd-code
-  "opd" #'yxl-find-dir-dotfiles
-  "opj" #'yxl-find-pwd-journal
-  "opo" #'yxl-find-dir-org
-  "opp" #'yxl-find-pwd-paper
+  "op"  #'yxl-find-dir/body
 
   ;; quick
   "ogg" #'yxl-helm-quick
