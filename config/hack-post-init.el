@@ -10,3 +10,9 @@
   ;; overwrite spacemacs default
   (define-key helm-find-files-map (kbd "C-h") 'backward-delete-char)
   (define-key helm-read-file-map (kbd "C-h") 'backward-delete-char))
+
+;; override spacemacs popwin
+(delete '("^\*WoMan.+\*$" :regexp t :position bottom)
+      popwin:special-display-config)
+;; (delete '("*Help*" :dedicated t :position bottom :stick t :noselect t :height 0.4)
+;;       popwin:special-display-config)
