@@ -2,18 +2,13 @@
 
 
 
-(defvar yxl-popwin-width-big 60)
-(defvar yxl-popwin-width-small 40)
-
-
-
 (defun yxl-find-file-popup (file)
   (interactive)
   (let ((pop-width (yxl-window-popwin-width)))
     (cond
      ((equal current-prefix-arg '(4))
       (find-file file))
-     ((equal current-prefix-arg 2)
+     ((equal current-prefix-arg '(16))
       (find-file-other-window file))
      (t
       (yxl-window-popwin (find-file-noselect file) pop-width 'left)))))

@@ -6,11 +6,12 @@
 
 (defun yxl-window-popwin-width ()
   "calculate the size of the popwin window, base on current frame width"
-  (let ((auto-width (round (* (frame-width) 0.20))))
+  (let ((win-width (round (* (frame-width) 0.20)))
+        (min-width 20))
     (cond ((> (frame-width) 100)
-           auto-width)
+           win-width)
           (t
-           20))))
+           min-width))))
 
 (defun yxl-window-get-ratio (&optional small)
   "Return the a window width/height corresponding to a ratio to current frame:
@@ -44,6 +45,7 @@
     (evil-resize-window main-height nil)))
 
 
+
 (defun yxl-window-custom-layout1 ()
   "window layout 1 | 2/3"
   (interactive)
