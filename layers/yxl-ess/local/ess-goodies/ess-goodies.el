@@ -1,5 +1,6 @@
 ;; TODO: require ess? which ess?
 (require 'popup)
+(require 'ess-site)
 
 (defun asb-read-into-string (buffer)
   (with-current-buffer buffer
@@ -28,30 +29,5 @@ Run R-FUN for object at point, and display results in a popup."
 (defun asb-ess-R-object-popup-interactive (r-func)
   (interactive "sR function to execute: ")
   (asb-ess-R-object-popup r-func))
-
-(defun ess-rdired-str ()
-  (interactive)
-  (let ((objname (ess-rdired-object)))
-    (ess-execute (concat "str(" objname ")\n"))))
-
-(defun ess-execute-func-at-point (r-func)
-  (let ((objname (current-word)))
-    (if objname
-        (progn
-          (ess-execute (concat r-func "(" objname ")"))))))
-
-(defun ess-at-point-str ()
-  (interactive)
-  (ess-execute-func-at-point "str"))
-
-(defun ess-at-point-generic (r-func)
-  (interactive "sR function to execute: ")
-  (ess-execute-func-at-point r-func))
-
-(defun ess-eval-region-and-newline (start end toggle)
-  (interactive "r\nP")
-  (ess-eval-region start end toggle)
-  (ess-execute "\n"))
-
 
 (provide 'ess-goodies)

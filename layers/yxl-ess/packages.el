@@ -1,4 +1,5 @@
 (setq yxl-ess-packages '(ess
+                         (yxl-ess :location local)
                          (ess-goodies :location local)))
 
 (defun yxl-ess/post-init-ess ()
@@ -14,12 +15,10 @@
     (key-chord-define ess-mode-map ">>" "%>%")
     ;; ess mode leader key bindings
     (spacemacs/set-leader-keys-for-major-mode 'ess-mode
-      "sr" #'ess-eval-region-and-newline)
-    (spacemacs/set-leader-keys-for-major-mode 'ess-mode
       ",e" #'ess-execute
       ",d" #'ess-rdired
-      ",s" #'ess-at-point-str
-      ",S" #'ess-at-point-generic
+      ",s" #'yxl-ess-at-point-str
+      ",S" #'yxl-ess-at-point-generic
       ",fs" #'yxl-ess/lsos
       ",ff" #'yxl-ess/lsdf
       "hh" #'ess-help
@@ -27,7 +26,7 @@
       ",I" #'asb-ess-R-object-popup-interactive)
     (add-hook 'ess-rdired-mode-hook
               (lambda ()
-                (local-set-key "s" 'ess-rdired-str)
+                (local-set-key "s" 'yxl-ess-rdired-str)
                 (local-set-key "S" 'ess-rdired-sort))))
 
   (with-eval-after-load 'flycheck
@@ -36,6 +35,10 @@
                 "camel_case_linter=NULL, "
                 "commented_code_linter=NULL, "
                 "infix_spaces_linter=NULL)"))))
+
+(defun yxl-ess/init-yxl-ess ()
+  (use-package yxl-ess
+    :after ess-site))
 
 (defun yxl-ess/init-ess-goodies ()
   (use-package ess-goodies
