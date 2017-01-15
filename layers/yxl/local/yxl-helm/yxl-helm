@@ -2,24 +2,6 @@
 
 
 
-(setq yxl-helm-quick--fallback
-      (helm-build-sync-source "Helm Quick"
-        :match (lambda (_candidate) t)  ;; persistent
-        :candidates '(("yxl-helm-quick" . yxl-helm-quick))
-        :action (lambda (candidate) (funcall candidate))))
-
-;; deprecated
-;; (defun yxl-helm-set-simple-todo ()
-;;   (interactive)
-;;   (helm :sources '(((name . "Simple todo")
-;;                    (candidates . (("task1" . yxl-set-simple-todo-task1)
-;;                                   ("task2" . yxl-set-simple-todo-task2)
-;;                                   ("task3" . yxl-set-simple-todo-task3)))
-;;                    (action . (("open" . (lambda (x) (call-interactively x))))))
-;;                    yxl-helm-quick--fallback)
-;;         :buffer "*helm yxl simple-todo*"))
-
-
 (defun yxl-helm-org-files ()
   (interactive)
   (helm :sources
@@ -61,28 +43,25 @@
 
 (defun yxl-helm-files ()
   (interactive)
-  (helm :sources '(((name . "Files and Directories")
-                   (candidates . yxl-env-files-alist)
-                   (action . (("open" . (lambda (x) (find-file x))))))
-                   yxl-helm-quick--fallback)))
+  (helm :sources
+        `(,(helm-build-sync-source "Files and Directories"
+             :candidates yxl-env-files-alist
+             :action (helm-make-actions
+                      "open" (lambda (x) (find-file x))))
+          ,(helm-build-sync-source "Helm Quick"
+             :match (lambda (_candidate) t)  ;; persistent
+             :candidates '(("yxl-helm-quick" . yxl-helm-quick))
+             :action (lambda (candidate) (funcall candidate))))))
 
-(defun yxl-helm-quick ()
+(defun yxl-helm-hotspot ()
   (interactive)
-  (helm :sources '((name . "yxl quick")
-                   (candidates . (("yxl-helm-org-files" . yxl-helm-org-files)
-                                  ;; ("simple-todo" . yxl-helm-set-simple-todo)
-                                  ("yxl-helm-files" . yxl-helm-files)
-                                  ("yxl-helm-websites" . yxl-helm-websites)
-                                  ("calendar" . cfw-open-calendar)
-                                  ("calculator" . (lambda ()
-                                                    (helm-calcul-expression)))
-                                  ("rss" . elfeed)
-                                  ("helm-github-stars" . helm-github-stars)
-                                  ("helm-show-kill-ring" . helm-show-kill-ring)
-                                  ("helm-all-mark-rings" . helm-all-mark-rings)))
-                   (action . (("open" . (lambda (x) (funcall x))))))
-        :buffer "*helm yxl quick*"))
+  (helm :sources
+        '(,(helm-build-sync-source "My hotspot"
+             :candidates yxl-env-helm-hotspot-alist
+             :action (helm-make-actions
+                      "open" (lambda (x) (funcall x)))))
+        :buffer "*helm yxl hotspot*"))
 
 
 
-(provide 'yxl-helm-quick)
+(provide 'yxl-helm)

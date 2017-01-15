@@ -1,5 +1,5 @@
 (setq yxl-packages '((yxl-emacs-goodies :location local)
-                     (yxl-helm-quick :location local)
+                     (yxl-helm :location local)
                      (goodies :location local)
                      (alarm :location local)
                      (simple-todo :location local)
@@ -13,10 +13,10 @@
 (defun yxl/init-yxl-emacs-goodies ()
   (use-package yxl-emacs-goodies))
 
-(defun yxl/init-yxl-helm-quick ()
-  (use-package yxl-helm-quick
+(defun yxl/init-yxl-helm ()
+  (use-package yxl-helm
     :after 'helm
-    :commands (yxl-helm-quick
+    :commands (yxl-helm-hotspot
                yxl-helm-org-files
                yxl-helm-websites
                yxl-helm-files)
