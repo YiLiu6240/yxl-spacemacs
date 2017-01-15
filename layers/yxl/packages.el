@@ -1,6 +1,4 @@
-(setq yxl-packages '((yxl-utils :location local)
-                     (yxl-helm :location local)
-                     (goodies :location local)
+(setq yxl-packages '((goodies :location local)
                      (alarm :location local)
                      (simple-todo :location local)
                      ;; (scratch-pop :location (recipe :fetcher github
@@ -9,18 +7,6 @@
                      (scratch-pop :location local)
                      bm
                      key-chord))
-
-(defun yxl/init-yxl-utils ()
-  (use-package yxl-utils))
-
-(defun yxl/init-yxl-helm ()
-  (use-package yxl-helm
-    :after 'helm
-    :commands (yxl-helm-hotspot
-               yxl-helm-org-files
-               yxl-helm-websites
-               yxl-helm-files)
-    :defer t))
 
 (defun yxl/init-goodies ()
   (use-package goodies))

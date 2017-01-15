@@ -1,5 +1,4 @@
 (setq yxl-evil-packages '(evil
-                          (yxl-evil :location local)
                           evil-surround
                           evil-textobj-column
                           evil-mc
@@ -10,10 +9,6 @@
     (yxl-evil/setup-evil-main)
     (yxl-evil/setup-evil-personal)
     (yxl-evil/setup-evil-misc)))
-
-(defun yxl-evil/init-yxl-evil ()
-  (use-package yxl-evil
-    :after evil))
 
 (defun yxl-evil/post-init-evil-evilified-state ()
   (with-eval-after-load 'evil-evilified-state

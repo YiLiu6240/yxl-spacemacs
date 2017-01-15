@@ -2,7 +2,6 @@
                          helm-w3m
                          sx
                          elfeed
-                         (yxl-elfeed :location local)
                          atomic-chrome))
 
 (defun yxl-web/init-helm-w3m ()
@@ -105,14 +104,6 @@
     (setq elfeed-goodies/powerline-default-separator 'nil)
     (yxl-web/elfeed-bindings)
     (yxl-web/elfeed-hydra-setup)))
-
-(defun yxl-web/init-yxl-elfeed ()
-  (use-package yxl-elfeed
-    :defer t
-    :after (helm elfeed)
-    :config
-    (progn
-      (yxl-elfeed-patch))))
 
 (defun yxl-web/init-atomic-chrome ()
   (use-package atomic-chrome

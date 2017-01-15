@@ -1,5 +1,4 @@
 (setq yxl-ess-packages '(ess
-                         (yxl-ess :location local)
                          (ess-goodies :location local)))
 
 (defun yxl-ess/post-init-ess ()
@@ -35,10 +34,6 @@
                 "camel_case_linter=NULL, "
                 "commented_code_linter=NULL, "
                 "infix_spaces_linter=NULL)"))))
-
-(defun yxl-ess/init-yxl-ess ()
-  (use-package yxl-ess
-    :after ess-site))
 
 (defun yxl-ess/init-ess-goodies ()
   (use-package ess-goodies

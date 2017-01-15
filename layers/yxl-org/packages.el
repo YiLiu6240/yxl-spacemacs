@@ -1,5 +1,4 @@
 (setq yxl-org-packages '(org
-                         (yxl-org-patch :location local)
                          (evil-org :location local)
                          org-gcal))
 
@@ -17,10 +16,6 @@
     (yxl-org/setup-keywords)
     (yxl-org/setup-agenda)
     (yxl-org/setup-babel)))
-
-(defun yxl-org/init-yxl-org-patch ()
-  (use-package yxl-org-patch
-    :after (org)))
 
 (defun yxl-org/init-evil-org ()
   (use-package evil-org
