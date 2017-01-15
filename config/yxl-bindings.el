@@ -21,7 +21,7 @@
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
-  "dd" #'ivy-switch-dired-buffer
+  "dd" #'yxl-ivy-switch-dired-buffer
   "i <SPC>" #'evil-insert-newline-around
   "ii" #'evil-insert-space
   "ia" #'evil-apend-space
@@ -67,7 +67,7 @@
   ".vP" #'ivy-pop-view
 
   ;; top-level quick actions
-  "o-" #'dired-popup
+  "o-" #'yxl-dired-popup
 
   ;; cite
   "occ" #'helm-bibtex

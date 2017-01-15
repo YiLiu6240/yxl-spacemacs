@@ -1,3 +1,4 @@
+(require 'yxl-dired)
 (require 'yxl-frame)
 (require 'yxl-window)
 (require 'yxl-buffer)
