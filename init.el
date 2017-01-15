@@ -24,8 +24,7 @@
             c-c++-default-mode-for-headers 'c++-mode)
      emacs-lisp
      (ess :packages (not org))
-     (git :variables
-          git-magit-status-fullscreen t)
+     git
      lua
      ;; markdown: need vmd from npm: npm install -g vmd
      (markdown :variables markdown-live-preview-engine 'vmd)
