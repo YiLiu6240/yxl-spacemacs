@@ -119,6 +119,7 @@
     (split-window-right win-size)))
 
 
+
 (defun yxl-window-change-width (width)
   (interactive "nwindow width: ")
   (evil-resize-window width t))

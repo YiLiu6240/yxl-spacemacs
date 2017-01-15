@@ -1,3 +1,7 @@
+(require 'ivy)
+
+
+
 (defvar yxl-buffer-stored-name nil)
 
 (defvar yxl-buffer-inherit-whitelist '(latex-mode
@@ -23,13 +27,14 @@ if true use the translated major-mode, else use original major-mode."
     (if curr-mode-sp curr-mode-sp
       curr-mode)))
 
-(defun yxl-buffer-inherit ()
+(defun yxl-buffer-inherit (&optional buf-name)
   "Create a new buffer \"untitled\" which inherits the major-mode
 of the previous buffer, if the major-mode is listed in
 `yxl-buffer-inherit-whitelist'; otherwise use `initial-major-mode'."
   (interactive)
+  (unless buf-name (setq buf-name "untitled"))
   (let* ((curr-mode (yxl-buffer--translate-major-mode))
-         (newbuf (generate-new-buffer-name "untitled")))
+         (newbuf (generate-new-buffer-name buf-name)))
     (switch-to-buffer newbuf)
     (if (member curr-mode yxl-buffer-inherit-whitelist)
         (funcall curr-mode)

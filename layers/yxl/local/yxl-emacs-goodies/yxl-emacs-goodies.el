@@ -5,9 +5,6 @@
 (require 'yxl-org)
 (require 'yxl-web)
 
-(defvar yxl-switch-theme-hook nil
-  "hook when yxl-switch-theme-light and yxl-swith-theme-dark invokes")
-
 
 
 (defun yxl-append-to-scratch (text)
@@ -32,20 +29,6 @@
 
 
 
-(defun yxl-switch-theme-light ()
-  (interactive)
-  (load-theme 'yxl-light t)
-  (setq frame-background-mode 'light)
-  (run-hooks 'yxl-switch-theme-hook))
-
-(defun yxl-switch-theme-dark ()
-  (interactive)
-  (load-theme 'yxl-dark t)
-  (setq frame-background-mode 'dark)
-  (run-hooks 'yxl-switch-theme-hook))
-
-
-
 (define-minor-mode yxl-big-text-mode
   "Bigger text."
   :lighter ""
@@ -55,4 +38,5 @@
     (text-scale-set 0)))
 
 
-(provide 'yxl)
+
+(provide 'yxl-emacs-goodies)

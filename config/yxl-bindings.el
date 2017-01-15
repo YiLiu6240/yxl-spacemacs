@@ -21,9 +21,11 @@
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
+  "dd" #'ivy-switch-dired-buffer
   "i <SPC>" #'evil-insert-newline-around
   "ii" #'evil-insert-space
   "ia" #'evil-apend-space
+  "hdF" #'counsel-faces
   "pG" #'projectile-regenerate-tags
   "tob" #'yxl-big-text-mode
   "tom" #'evil-show-marks
@@ -41,11 +43,6 @@
   "l" #'spacemacs/workspaces-transient-state/body
   "LY" #'yxl-workspace/record-config
   "LP" #'yxl-workspace/load-config)
-
-;; addition to stock bindings
-(spacemacs/set-leader-keys
-  "hdF" #'counsel-faces
-  "dd" #'ivy-switch-dired-buffer)
 
 ;; leader keys
 (spacemacs/set-leader-keys
@@ -70,16 +67,7 @@
   ".vP" #'ivy-pop-view
 
   ;; top-level quick actions
-  "o1" #'yxl-find-file-org-popup
-  "o2" #'yxl-find-file-org-work-popup
-  "o3" #'yxl-find-file-org-config-popup
-  "o4" #'yxl-find-file-org-proj-popup
-  "o0" #'yxl-find-file-org-scratch-popup
   "o-" #'dired-popup
-  "ok" #'yxl-frame-select-code
-  "oj" #'yxl-frame-select-repl
-  "oh" #'yxl-frame-select-meta
-  "ol" #'yxl-frame-select-config
 
   ;; cite
   "occ" #'helm-bibtex
@@ -100,25 +88,11 @@
 
   ;; file
   "ofb" #'yxl-find-file-bib
-  "ofn" #'yxl-find-file-note
-  "ofN" #'yxl-find-file-note-master
-  "ofm" #'yxl-text/find-TeX-master
-  "ofr" #'yxl-text/find-project-root
-  "ofu" #'yxl-text/find-project-outline
+  "off" #'yxl-find-file/body
 
   ;; Frame
   "oFM" #'make-frame
   "oFN" #'set-frame-name
-  "oFn" #'yxl-frame-select-by-name
-  "oFs1" #'yxl-frame-set-code
-  "oFs2" #'yxl-frame-set-repl
-  "oFs3" #'yxl-frame-set-meta
-  "oFs4" #'yxl-frame-set-config
-
-  "oFsh" #'yxl-frame-set-meta
-  "oFsj" #'yxl-frame-set-repl
-  "oFsk" #'yxl-frame-set-code
-  "oFsl" #'yxl-frame-set-config
 
   ;; ess
   "oe2" #'yxl-ess-repl-2cols
@@ -136,11 +110,12 @@
   "omr" #'R-mode
   "ome" #'emacs-lisp-mode
 
-  ;; orgmode
-  "ooo" #'org-agenda
-  "ooO" #'yxl-org-open-all-task-files
-  "oo1" #'yxl-org/agenda-work
-  "oo0" #'yxl-org/agenda-life
+  "oo" #'yxl-hydra-hotspot/body
+
+  ;; orgmode TODO: use hydra
+  "oOo" #'org-agenda
+  "oO1" #'yxl-org/agenda-work
+  "oO0" #'yxl-org/agenda-life
 
   ;; project
   "op"  #'yxl-find-dir/body
@@ -153,15 +128,6 @@
 
   ;; search/scratch
   "osg" #'helm-google-suggest
-  "oss" (lambda ()
-          (interactive)
-          (find-file "~/Dropbox/.todo"))
-  "oso" (lambda ()
-          (interactive)
-          (find-file yxl-file-org-scratch))
-  "ose" (lambda ()
-          (interactive)
-          (find-file "~/Dropbox/Inbox/scratch.el"))
 
   "oy" #'copy-file-name-to-clipboard
 

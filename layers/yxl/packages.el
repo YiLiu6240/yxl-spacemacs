@@ -1,4 +1,4 @@
-(setq yxl-packages '((yxl :location local)
+(setq yxl-packages '((yxl-emacs-goodies :location local)
                      (yxl-helm-quick :location local)
                      (goodies :location local)
                      (alarm :location local)
@@ -10,8 +10,8 @@
                      bm
                      key-chord))
 
-(defun yxl/init-yxl ()
-  (use-package yxl))
+(defun yxl/init-yxl-emacs-goodies ()
+  (use-package yxl-emacs-goodies))
 
 (defun yxl/init-yxl-helm-quick ()
   (use-package yxl-helm-quick

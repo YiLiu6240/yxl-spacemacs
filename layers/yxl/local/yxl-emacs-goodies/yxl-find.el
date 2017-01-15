@@ -1,8 +1,11 @@
+(require 'popwin)
+
+
+
 (defvar yxl-popwin-width-big 60)
 (defvar yxl-popwin-width-small 40)
 
-
-;; find file functions
+
 
 (defun yxl-find-file-popup (file)
   (interactive)
@@ -14,48 +17,6 @@
       (find-file-other-window file))
      (t
       (yxl-window-popwin (find-file-noselect file) pop-width 'left)))))
-
-(defun yxl-find-file-bib ()
-  (interactive)
-  (yxl-find-file-popup yxl-file-bib))
-
-(defun yxl-find-file-org-popup ()
-  (interactive)
-  (let ((my-file yxl-file-org-main))
-    (yxl-find-file-popup my-file)))
-
-(defun yxl-find-file-org-work-popup ()
-  (interactive)
-  (let ((my-file yxl-file-org-work))
-    (yxl-find-file-popup my-file)))
-
-(defun yxl-find-file-org-config-popup ()
-  (interactive)
-  (let ((my-file yxl-file-org-config))
-    (yxl-find-file-popup my-file)))
-
-(defun yxl-find-file-org-proj-popup ()
-  (interactive)
-  (let ((my-file yxl-file-org-proj))
-    (yxl-find-file-popup my-file)))
-
-(defun yxl-find-file-org-scratch-popup ()
-  (interactive)
-  (let ((my-file yxl-file-org-scratch))
-    (yxl-find-file-popup my-file)))
-
-;; TODO: change to org version as in capture template
-(defun yxl-find-file-diary ()
-  (interactive)
-  (find-file diary-file))
-
-(defun yxl-find-file-note ()
-  (interactive)
-  (find-file yxl-text-note-file))
-
-(defun yxl-find-file-note-master ()
-  (interactive)
-  (find-file yxl-file-note-master))
 
 (defun yxl-find-file-open-all (file-list)
   "TODO: add doc"

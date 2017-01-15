@@ -54,6 +54,34 @@
                                  (concat yxl-path-org-task "proj_ctw.org")
                                  (concat yxl-path-org-task "proj_bham.org"))))
 
+(with-eval-after-load 'hydra
+  (defhydra yxl-find-file (:color blue)
+    "File: "
+    ("1" (yxl-find-file-popup yxl-file-org-main) "tasks_1_main.org")
+    ("2" (yxl-find-file-popup yxl-file-org-work) "tasks_2_work.org")
+    ("3" (yxl-find-file-popup yxl-file-org-config) "tasks_3_config.org")
+    ("4" (yxl-find-file-popup yxl-file-org-proj) "tasks_4_proj.org")
+    ("0" (yxl-find-file-popup yxl-file-org-scratch) "scratch.org")
+    ("o" (yxl-org-open-all-task-files) "open all org files")
+    ("b" (yxl-find-file-popup yxl-file-bib) "bib file")
+    ("n" (yxl-find-file-popup yxl-file-note-master) "note file")
+    ("e" (yxl-find-file-popup "~/Dropbox/Inbox/scratch.el") "scratch.el")))
+
+
+
+(with-eval-after-load 'hydra
+  (defhydra yxl-hydra-hotspot (:color blue)
+    "Hotspot: "
+    ("h" (yxl-frame-select-or-set "Code") "Frame: Code")
+    ("j" (yxl-frame-select-or-set "REPL") "Frame: REPL")
+    ("k" (yxl-frame-select-or-set "Meta") "Frame: Meta")
+    ("l" (yxl-frame-select-or-set "Conf") "Frame: Conf")
+    ("1" (yxl-find-file-popup yxl-file-org-main) "tasks_1_main.org")
+    ("2" (yxl-find-file-popup yxl-file-org-work) "tasks_2_work.org")
+    ("3" (yxl-find-file-popup yxl-file-org-config) "tasks_3_config.org")
+    ("4" (yxl-find-file-popup yxl-file-org-proj) "tasks_4_proj.org")
+    ("0" (yxl-find-file-popup yxl-file-org-scratch) "scratch.org")))
+
 
 ;; These alist will be fed to helm
 
