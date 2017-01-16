@@ -1,4 +1,5 @@
 (setq yxl-completion-packages '(helm
+                                (yxl-helm-hotspot :location site)
                                 ivy
                                 counsel
                                 (helm-pdf-occur :location local)
@@ -15,6 +16,16 @@
                    helm-buffer-switch-new-window-s) 'append)
     (define-key helm-buffer-map (kbd "M-v") #'helm-buffer-switch-new-window-v)
     (define-key helm-buffer-map (kbd "M-s") #'helm-buffer-switch-new-window-h)))
+
+(defun yxl-completion/init-yxl-helm-hotspot ()
+  (use-package yxl-helm-hotspot
+    :after 'helm
+    :load-path "~/local-repo/yxl-emacs-goodies/yxl-helm-hotspot"
+    :commands (yxl-helm-hotspot
+               yxl-helm-org-files
+               yxl-helm-websites
+               yxl-helm-files)
+    :defer t))
 
 (defun yxl-completion/post-init-ivy ()
   ;; remove the "^" element in search

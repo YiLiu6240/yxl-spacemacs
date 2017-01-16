@@ -1,4 +1,5 @@
-(setq yxl-packages '((goodies :location local)
+(setq yxl-packages '((yxl-utils :location site)
+                     (goodies :location local)
                      (alarm :location local)
                      (simple-todo :location local)
                      ;; (scratch-pop :location (recipe :fetcher github
@@ -7,6 +8,10 @@
                      (scratch-pop :location local)
                      bm
                      key-chord))
+
+(defun yxl/init-yxl-utils ()
+  (use-package yxl-utils
+    :load-path "~/local-repo/yxl-emacs-goodies/yxl-utils"))
 
 (defun yxl/init-goodies ()
   (use-package goodies))

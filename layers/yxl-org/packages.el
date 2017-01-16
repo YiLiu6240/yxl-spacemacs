@@ -1,4 +1,5 @@
 (setq yxl-org-packages '(org
+                         (yxl-org :location local)
                          (evil-org :location local)
                          org-gcal))
 
@@ -29,6 +30,11 @@
         "O" 'evil-open-above)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "C" 'evil-org-recompute-clocks))))
+
+(defun yxl-org/init-yxl-org ()
+  (use-package yxl-org
+    :load-path "~/local-repo/yxl-emacs-goodies/yxl-org"
+    :after (org)))
 
 (defun yxl-org/init-org-gcal ()
   (use-package org-gcal

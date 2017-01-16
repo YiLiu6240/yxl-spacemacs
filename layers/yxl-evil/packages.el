@@ -1,4 +1,6 @@
 (setq yxl-evil-packages '(evil
+                          evil-evilified-state
+                          (yxl-evil :location site)
                           evil-surround
                           evil-textobj-column
                           evil-mc
@@ -14,6 +16,11 @@
   (with-eval-after-load 'evil-evilified-state
     (yxl-evil/setup-evilified)
     (yxl-evil/setup-evilified-personal)))
+
+(defun yxl-evil/init-yxl-evil ()
+  (use-package yxl-evil
+    :load-path "~/local-repo/yxl-emacs-goodies/yxl-evil"
+    :after evil))
 
 (defun yxl-evil/post-init-evil-surround ()
   (with-eval-after-load 'evil-surround
