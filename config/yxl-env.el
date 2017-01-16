@@ -62,7 +62,6 @@
     ("3" (yxl-find-file-popup yxl-file-org-config) "tasks_3_config.org")
     ("4" (yxl-find-file-popup yxl-file-org-proj) "tasks_4_proj.org")
     ("0" (yxl-find-file-popup yxl-file-org-scratch) "scratch.org")
-    ("o" (yxl-org-open-all-task-files) "open all org files")
     ("b" (yxl-find-file-popup yxl-file-bib) "bib file")
     ("n" (yxl-find-file-popup yxl-file-note-master) "note file")
     ("e" (yxl-find-file-popup "~/Dropbox/Inbox/scratch.el") "scratch.el")))
@@ -76,11 +75,13 @@
     ("j" (yxl-frame-select-or-set "REPL") "Frame: REPL")
     ("k" (yxl-frame-select-or-set "Meta") "Frame: Meta")
     ("l" (yxl-frame-select-or-set "Conf") "Frame: Conf")
-    ("1" (yxl-find-file-popup yxl-file-org-main) "tasks_1_main.org")
-    ("2" (yxl-find-file-popup yxl-file-org-work) "tasks_2_work.org")
-    ("3" (yxl-find-file-popup yxl-file-org-config) "tasks_3_config.org")
-    ("4" (yxl-find-file-popup yxl-file-org-proj) "tasks_4_proj.org")
-    ("0" (yxl-find-file-popup yxl-file-org-scratch) "scratch.org")))
+    ("o" (yxl-org-open-all-task-files) "org: open all tasks")
+    ("a" (org-agenda) "org: agenda")
+    ("1" (yxl-find-file-popup yxl-file-org-main) "org: tasks_1_main.org")
+    ("2" (yxl-find-file-popup yxl-file-org-work) "org: tasks_2_work.org")
+    ("3" (yxl-find-file-popup yxl-file-org-config) "org: tasks_3_config.org")
+    ("4" (yxl-find-file-popup yxl-file-org-proj) "org: tasks_4_proj.org")
+    ("0" (yxl-find-file-popup yxl-file-org-scratch) "org: scratch.org")))
 
 
 ;; These alist will be fed to helm

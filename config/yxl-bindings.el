@@ -121,7 +121,7 @@
   "op"  #'yxl-find-dir/body
 
   ;; quick
-  "ogg" #'yxl-helm-quick
+  "ogg" #'yxl-helm-hotspot
   "ogo" #'yxl-helm-org-files
   "ogf" #'yxl-helm-files
   "ogw" #'yxl-helm-websites
