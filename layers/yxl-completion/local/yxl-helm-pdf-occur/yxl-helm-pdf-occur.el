@@ -6,30 +6,29 @@
 
 
 
-(setq helm-pdf-occur-preset-list
+(setq yxl-hpo-preset-list
       '("previous\|traditional\|critici\|drawback"
         "hypothes\|propose\|question\|problem\|attempt\|issue\|approach\|method"
         "result\|stat\|result\|show\|support"
         "regulat\|supervis\|prudential\|systemic\|policy"
         "contagion\|spillover\|shock"))
 
-(setq helm-pdf-occur-sources-preset
+
+
+(setq yxl-hpo--sources-preset
       '((name . "Preset Keywords")
-        (candidates . helm-pdf-occur-preset-list)
+        (candidates . yxl-hpo-preset-list)
         (action . (("Search" . (lambda (x)
                                  (interactive)
                                  (pdf-occur x t)))))))
 
-(setq helm-pdf-occur-preset-all
-      (mapconcat 'identity helm-pdf-occur-preset-list "\|"))
-
-(setq helm-pdf-occur-sources-all
-      `((name . "All Keywords")
-        (candidates . (("Search all" . helm-pdf-occur-search-preset)))
+(setq yxl-hpo--sources-all
+      '((name . "All Keywords")
+        (candidates . (("Search all" . yxl-pdf-occur-all-keywords)))
         (action . (("open" . (lambda (x) (call-interactively x)))))))
 
 
-(setq helm-pdf-occur-sources-fallback
+(setq yxl-hpo--sources-fallback
       (helm-build-sync-source "Fallback"
                               :match (lambda (_candidate) t)
                               :candidates '("Search Pattern")
@@ -38,25 +37,25 @@
 
 
 
-(defun helm-pdf-occur-search-preset ()
+(defun yxl-pdf-occur-all-keywords ()
   (interactive)
-  (pdf-occur helm-pdf-occur-preset-all t))
+  (pdf-occur (mapconcat 'identity yxl-hpo-preset-list "\|") t))
 
-(defun helm-pdf-occur ()
+(defun yxl-helm-pdf-occur ()
   "Three sources:
-- `helm-pdf-occur-sources-preset':
-  sources obtained from `helm-pdf-occur-preset-list', search each preset entry.
-- `helm-pdf-occur-sources-all':
-  search a combined list of all entries in `helm-pdf-occur-preset-list'.
-- `helm-pdf-occur-sources-fallback':
+- `yxl-hpo--sources-preset':
+  sources obtained from `yxl-hpo-preset-list', search each preset entry.
+- `yxl-hpo--sources-all':
+  search a combined list of all entries in `yxl-hpo-preset-list'.
+- `yxl-hpo--sources-fallback':
   search patterns provided by user input
 "
   (interactive)
-  (helm :sources '(helm-pdf-occur-sources-preset
-                   helm-pdf-occur-sources-all
-                   helm-pdf-occur-sources-fallback)
+  (helm :sources '(yxl-hpo--sources-preset
+                   yxl-hpo--sources-all
+                   yxl-hpo--sources-fallback)
         :buffer "*helm pdf occur"))
 
 
 
-(provide 'helm-pdf-occur)
+(provide 'yxl-helm-pdf-occur)
