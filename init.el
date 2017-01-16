@@ -96,13 +96,13 @@
 
      ;; tools --------
      csv
-     calfw
      graphviz
      pdf-tools
      imenu-list
 
-     ;; private --------
+     ;; my private layers --------
      helm-dash
+     calfw
      yxl-layers)))
 
 (defun dotspacemacs/init ()
