@@ -76,7 +76,7 @@
     ("k" (yxl-frame-select-or-set "Meta") "Frame: Meta")
     ("l" (yxl-frame-select-or-set "Conf") "Frame: Conf")
     ("o" (yxl-org-open-all-task-files) "org: open all tasks")
-    ("a" (org-agenda) "org: agenda")
+    ("a" (org-agenda-list) "org: agenda")
     ("1" (yxl-find-file-popup yxl-file-org-main) "org: tasks_1_main.org")
     ("2" (yxl-find-file-popup yxl-file-org-work) "org: tasks_2_work.org")
     ("3" (yxl-find-file-popup yxl-file-org-config) "org: tasks_3_config.org")
