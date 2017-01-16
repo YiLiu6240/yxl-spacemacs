@@ -103,6 +103,7 @@
      ;; my private layers --------
      helm-dash
      calfw
+     ov-highlighter
      yxl-layers)))
 
 (defun dotspacemacs/init ()
