@@ -2,7 +2,7 @@
                                 (yxl-helm-hotspot :location site)
                                 ivy
                                 counsel
-                                (yxl-helm-pdf-occur :location local)
+                                (yxl-helm-pdf-occur :location site)
                                 helm-github-stars))
 
 (defun yxl-completion/post-init-helm ()
@@ -44,6 +44,7 @@
 
 (defun yxl-completion/init-yxl-helm-pdf-occur ()
   (use-package yxl-helm-pdf-occur
+    :load-path "~/local-repo/yxl-emacs-goodies/yxl-helm-pdf-occur"
     :after (helm pdf-tools)
     :commands (yxl-helm-pdf-occur yxl-pdf-occur-all-keywords)
     :defer t))
