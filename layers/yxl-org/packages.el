@@ -34,7 +34,8 @@
 (defun yxl-org/init-yxl-org ()
   (use-package yxl-org
     :load-path "~/dotfiles/yxl-emacs-goodies/yxl-org"
-    :after (org)))
+    :after (org)
+    :commands (yxl-org-open-all-task-files)))
 
 (defun yxl-org/init-org-gcal ()
   (use-package org-gcal
