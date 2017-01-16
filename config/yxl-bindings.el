@@ -42,7 +42,9 @@
   "w M-l" #'buf-move-right
   "l" #'spacemacs/workspaces-transient-state/body
   "LY" #'yxl-workspace/record-config
-  "LP" #'yxl-workspace/load-config)
+  "LP" #'yxl-workspace/load-config
+  "xh" #'yxl-ov-highlighter/bodyadditional
+  "xH" #'highlight-regexp)
 
 ;; leader keys
 (spacemacs/set-leader-keys
@@ -147,8 +149,7 @@
   "oww" #'yxl-window-change-width
 
   ;; text
-  "oxp" #'counsel-yank-pop
-  "oxh" #'highlight-regexp)
+  "oxp" #'counsel-yank-pop)
 
 ;; prefixes
 (spacemacs/declare-prefix "." "user-quick")
