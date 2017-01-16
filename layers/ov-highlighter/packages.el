@@ -10,6 +10,7 @@
   (use-package ov-highlighter
     :config
     (progn
+      (setq ov-highlight-disable-save t)
       ;; Gruvbox scheme
       (ov-make-highlight "red" '(:background "#9d0006"))
       (ov-make-highlight "green" '(:background "#79740e"))
