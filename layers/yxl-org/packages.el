@@ -33,7 +33,7 @@
 
 (defun yxl-org/init-yxl-org ()
   (use-package yxl-org
-    :load-path "~/local-repo/yxl-emacs-goodies/yxl-org"
+    :load-path "~/dotfiles/yxl-emacs-goodies/yxl-org"
     :after (org)))
 
 (defun yxl-org/init-org-gcal ()

@@ -11,7 +11,7 @@
 
 (defun yxl/init-yxl-utils ()
   (use-package yxl-utils
-    :load-path "~/local-repo/yxl-emacs-goodies/yxl-utils"))
+    :load-path "~/dotfiles/yxl-emacs-goodies/yxl-utils"))
 
 (defun yxl/init-goodies ()
   (use-package goodies))

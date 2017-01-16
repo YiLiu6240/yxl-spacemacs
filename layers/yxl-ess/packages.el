@@ -38,7 +38,7 @@
 
 (defun yxl-ess/init-yxl-ess ()
   (use-package yxl-ess
-    :load-path "~/local-repo/yxl-emacs-goodies/yxl-ess"
+    :load-path "~/dotfiles/yxl-emacs-goodies/yxl-ess"
     :after ess-site))
 
 (defun yxl-ess/init-ess-goodies ()

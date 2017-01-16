@@ -108,7 +108,7 @@
 
 (defun yxl-web/init-yxl-elfeed ()
   (use-package yxl-elfeed
-    :load-path "~/local-repo/yxl-emacs-goodies/yxl-elfeed"
+    :load-path "~/dotfiles/yxl-emacs-goodies/yxl-elfeed"
     :defer t
     :after (helm elfeed)
     :config
