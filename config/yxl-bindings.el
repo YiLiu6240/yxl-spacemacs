@@ -14,7 +14,6 @@
   "av" #'yxl-org/agenda-view
   "ak" #'calendar
   "aK" #'cfw-open-calendar
-  "tow" #'yxl-web-switch-browser
   "bB" #'yxl-buffer-switch-same-major-mode
   ;; TODO: rm this with next spacemacs update
   "bm" #'view-echo-area-messages
@@ -27,8 +26,6 @@
   "ia" #'evil-apend-space
   "hdF" #'counsel-faces
   "pG" #'projectile-regenerate-tags
-  "tob" #'yxl-big-text-mode
-  "tom" #'evil-show-marks
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
@@ -43,24 +40,16 @@
   "l" #'spacemacs/workspaces-transient-state/body
   "LY" #'yxl-workspace/record-config
   "LP" #'yxl-workspace/load-config
-  "xh" #'yxl-ov-highlighter/bodyadditional
+  "xh" #'yxl-ov-highlighter/body
   "xH" #'highlight-regexp)
 
 ;; leader keys
 (spacemacs/set-leader-keys
+  ;; TODO: clean these
   ".."  #'spacemacs/scale-font-transient-state/body
+  ".," #'eval-expression
   "./"  #'spacemacs/zoom-frm-transient-state/body
   ".s"  #'yxl-append-to-scratch
-  ".mm" #'bm-toggle
-  ".mM" #'bm-toggle-buffer-persistence
-  ".mk" #'bm-previous
-  ".mj" #'bm-next
-  ".mK" #'bm-previous
-  ".mJ" #'bm-next
-  ".ms" #'bm-show
-  ".mS" #'bm-show-all
-  ".ww" #'window-configuration-to-register
-  ".wj" #'jump-to-register
   ".Ss1" #'yxl-session-save-1
   ".Sl1" #'yxl-session-load-1
   ".Ss2" #'yxl-session-save-2
@@ -70,16 +59,13 @@
 
   ;; top-level quick actions
   "o-" #'yxl-dired-popup
-
   ;; cite
   "occ" #'helm-bibtex
   "ocg" #'gscholar-bibtex
-
   ;; dictionary
   "odd" #'helm-dictionary
   "odb" #'bing-dict-brief
   "ods" #'synonyms
-
   ;; frames
   "obb" #'ibuffer
   "obc" #'clone-indirect-buffer-other-window
@@ -87,22 +73,21 @@
   "obn" #'yxl-buffer-inherit
   "o <SPC>" #'delete-other-windows
   "obr" #'revert-buffer
-
-  ;; file
-  "ofb" #'yxl-find-file-bib
-  "off" #'yxl-find-file/body
-
+  ;; find
+  "of" #'yxl-find-file/body
   ;; Frame
   "oFM" #'make-frame
   "oFN" #'set-frame-name
-
   ;; ess
   "oe2" #'yxl-ess-repl-2cols
   "oe3" #'yxl-ess-repl-3cols
-
+  ;; HOTSPOT: helm
+  "ogg" #'yxl-helm-hotspot
+  "ogo" #'yxl-helm-org-files
+  "ogf" #'yxl-helm-files
+  "ogw" #'yxl-helm-websites
   ;; insert
   "ois" 'yas-insert-snippet
-
   ;; mode
   "omh" #'html-mode
   "oml" #'latex-mode
@@ -111,33 +96,15 @@
   "omp" #'python-mode
   "omr" #'R-mode
   "ome" #'emacs-lisp-mode
-
+  ;; HOTSPOT: hydra
   "oo" #'yxl-hydra-hotspot/body
-
-  ;; orgmode TODO: use hydra
-  "oOo" #'org-agenda
-  "oO1" #'yxl-org/agenda-work
-  "oO0" #'yxl-org/agenda-life
-
-  ;; project
   "op"  #'yxl-find-dir/body
-
-  ;; quick
-  "ogg" #'yxl-helm-hotspot
-  "ogo" #'yxl-helm-org-files
-  "ogf" #'yxl-helm-files
-  "ogw" #'yxl-helm-websites
-
-  ;; search/scratch
+  "ot" #'yxl-hydra-toggler/body
   "osg" #'helm-google-suggest
-
   "oy" #'copy-file-name-to-clipboard
-
-  ;; window
   "ow1" #'yxl-window-custom-layout1
   "ow2" #'yxl-window-custom-layout2
   "ow3" #'yxl-window-vertical-3
-  ;; "ows" #'split-window-below-small
   "ows" #'yxl-window-split-horizontal-focus
   "owS" #'yxl-window-split-horizontal-stay
   "owv" #'yxl-window-split-vertical-focus
@@ -147,8 +114,6 @@
   "owp" #'yxl-window-get-buffer-previous-window
   "owc" #'yxl-window-center-margins
   "oww" #'yxl-window-change-width
-
-  ;; text
   "oxp" #'counsel-yank-pop)
 
 ;; prefixes

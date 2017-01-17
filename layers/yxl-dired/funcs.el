@@ -23,11 +23,11 @@
   (defhydra hydra-dired-mark
     (:hint nil :color red :inherit (hydra-dired-common/heads))
     "
-    [_q_] ../
-    [_m_] mark        [_u_] unmark   [_!_] unmark all
-    [_*_] executables [_@_] symlinks [_/_] dirs       [_s_] files in subdir
-    [_t_] toggle
-    [_%_] regexp
+ | _q_ ../         | _u_ unmark   |  _!_ unmark all | _s_ files in subdir
+ | _m_ mark        | _@_ symlinks |  _/_ dirs       | ^^
+ | _*_ executables | ^^           | ^^              | ^^
+ | _t_ toggle      | ^^           | ^^              | ^^
+ | _%_ regexp      | ^^           | ^^              | ^^
     "
     ("q" hydra-dired-main/body :color blue "../")
     ("m" dired-mark)
@@ -41,6 +41,13 @@
     ("%" dired-mark-files-regexp))
   (defhydra hydra-dired-main
     (:color pink :inherit (hydra-dired-common/heads))
+    "
+ | _T_: +toggle ^^^^                   | _s_: +sort  ^^^^               | _*_: +mark ^^^^                 |
+ | _m_/_u_/_U_: mark/unmark/unmark all | _y_: filename ^^^^             | _C_/_D_/_R_: copy/delete/rename | _+_: mkdir |
+ | _H_/_S_: hardlink/symlink ^^        | _M_/_G_/_O_: chmod/chgrp/chown |
+ | _Z_: compress ^^^^                  |
+ | ___/_-_: rename: _/- ^^             |
+"
     ("q" nil "quit" :color blue)
     ("o" yxl-dired/open-in-desktop "open in desktop" :color blue)
     ("s" hydra-dired-quick-sort/body "+sort" :color blue)
@@ -66,9 +73,10 @@
   (defhydra hydra-dired-toggle
     (:hint none :color red)
     "
-    [_q_] ../   [_T_] ../   [_._] quit
-    [_h_] ?h? hide detail   [_H_] ?H? omit [_d_] ?d? dwim-target
-    [_r_] read only (restore with C-x C-q)"
+ | _q_ ../             | _T_ ../      | _._ quit
+ | _h_ ?h? hide detail | _H_ ?H? omit | _d_ ?d? dwim-target
+ | _r_ read only (restore with C-x C-q)
+"
     ("." nil)
     ("q" hydra-dired-main/body :color blue)
     ("T" hydra-dired-main/body :color blue)
