@@ -166,4 +166,10 @@ Supports both Emacs and Evil cursor conventions."
                              ("inactive" . "N"))))
     (cdr (assoc state evil-symbol-alist))))
 
+(defun powerline-mode-line-timer ()
+  (when (featurep 'mode-line-timer)
+    (unless (string-empty-p mode-line-timer--mode-line)
+      (concat
+       (propertize mode-line-timer--mode-line 'face 'mode-line-timer-timer)))))
+
 (provide 'powerline-funcs)

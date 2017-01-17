@@ -143,6 +143,9 @@ And if not, try to get the corresponding '-normal' face"
                                 (powerline-raw "%*" fileinfo-face 'lr)
                                 (powerline-narrow fileinfo-face 'l)
                                 (funcall harddiv-left fileinfo-face workspace-face)
+                                ;; mode-line-timer
+                                (when (powerline-selected-window-active)
+                                  (powerline-raw (powerline-mode-line-timer) workspace-face 'l))
                                 ;; anzu
                                 (when (and (powerline-selected-window-active)
                                            (bound-and-true-p anzu--state))

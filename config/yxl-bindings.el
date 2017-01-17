@@ -57,9 +57,10 @@ Hotspot:
 (defhydra yxl-hydra-system (:color blue :hint nil)
   "
 System:
- | _f_: +font-size     | _F_: +Frame-size  | _T_: +Transparency |
- | _b_: big text       | _B_: invlidate bg | _m_: evil marks    | _M_: menubar |
- | _w_: switch browser |
+ | _f_: +font-size      ^^^^          | _F_: +Frame-size  | _T_: +Transparency |
+ | _b_: big text        ^^^^          | _B_: invlidate bg | _m_: evil marks    | _M_: menubar |
+ | _w_: switch browser  ^^^^          |
+ | _t_/_d_/_D_: timer:start/stop/down |
 "
   ("," #'eval-expression "M-:")
   ("f" #'spacemacs/scale-font-transient-state/body)
@@ -69,7 +70,10 @@ System:
   ("B" (set-background-color "invalid"))
   ("w" yxl-web-switch-browser)
   ("m" evil-show-marks)
-  ("M" menu-bar-mode))
+  ("M" menu-bar-mode)
+  ("t" mode-line-timer-start)
+  ("d" mode-line-timer-stop)
+  ("D" mode-line-timer-done))
 
 
 
