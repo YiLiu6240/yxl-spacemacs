@@ -2,11 +2,7 @@
                      (goodies :location local)
                      (alarm :location local)
                      (simple-todo :location local)
-                     ;; (scratch-pop :location (recipe :fetcher github
-                     ;;                                :repo "YiLiu6240/scratch-pop"
-                     ;;                                :branch "dev"))
                      (scratch-pop :location local)
-                     bm
                      key-chord))
 
 (defun yxl/init-yxl-utils ()
@@ -44,15 +40,6 @@
         (interactive)
         (let ((scratch-pop-position 'top))
           (scratch-pop))))))
-
-(defun yxl/init-bm ()
-  (use-package bm
-    :defer t
-    :config
-    (progn
-      (setq bm-repository-file
-            (expand-file-name "~/Dropbox/inbox/.bm-repository"))
-      (setq bm-cycle-all-buffers t))))
 
 (defun yxl/init-key-chord ()
   (use-package key-chord
