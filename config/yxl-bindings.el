@@ -7,6 +7,72 @@
 (global-set-key (kbd "C-h") #'delete-backward-char)
 (define-key isearch-mode-map "\C-h" #'isearch-delete-char)
 
+
+
+(defhydra yxl-find-dir (:color blue)
+  "Directory: "
+  ("d" (find-file yxl-path-dotfiles) "dotfiles")
+  ("g" (find-file yxl-path-downloads) "downloads")
+  ("G" (find-file yxl-path-local) "local-repo")
+  ("h" (find-file yxl-path-sync) "dropbox")
+  ("H" (find-file yxl-path-projects) "projects")
+  ("o" (find-file yxl-path-org) "org")
+  ("c" (find-file yxl-path-code-pwd) "code")
+  ("p" (find-file yxl-path-paper-pwd) "papers")
+  ("j" (find-file yxl-path-journal-pwd) "journals")
+  ("b" (find-file yxl-path-book-reference) "books"))
+
+(defhydra yxl-find-file (:color blue)
+  "File: "
+  ("1" (yxl-find-file-stay yxl-file-org-main) "tasks_1_main.org")
+  ("2" (yxl-find-file-stay yxl-file-org-work) "tasks_2_work.org")
+  ("3" (yxl-find-file-stay yxl-file-org-config) "tasks_3_config.org")
+  ("4" (yxl-find-file-stay yxl-file-org-proj) "tasks_4_proj.org")
+  ("0" (yxl-find-file-stay yxl-file-org-scratch) "scratch.org")
+  ("b" (yxl-find-file-stay yxl-file-bib) "bib file")
+  ("n" (yxl-find-file-stay yxl-file-note-master) "note file")
+  ("e" (yxl-find-file-stay "~/Dropbox/Inbox/scratch.el") "scratch.el"))
+
+(defhydra yxl-hydra-hotspot (:color blue :hint nil)
+  "
+Hotspot:
+ | _h_ Frame: Meta | _0_ Org: scratch |
+ | _j_ Frame: REPL | _1_ Org: main    |
+ | _k_ Frame: Code | _2_ Org: work    |
+ | _l_ Frame: Conf | _3_ Org: config  |
+ | ^^              | _4_ Org: proj    |
+"
+  ("h" (yxl-frame-select-or-set "Meta"))
+  ("j" (yxl-frame-select-or-set "REPL"))
+  ("k" (yxl-frame-select-or-set "Code"))
+  ("l" (yxl-frame-select-or-set "Conf"))
+  ("o" (yxl-org-open-all-task-files) "org: open all tasks")
+  ("a" (org-agenda-list) "org: agenda")
+  ("1" (yxl-find-file-popup yxl-file-org-main))
+  ("2" (yxl-find-file-popup yxl-file-org-work))
+  ("3" (yxl-find-file-popup yxl-file-org-config))
+  ("4" (yxl-find-file-popup yxl-file-org-proj))
+  ("0" (yxl-find-file-popup yxl-file-org-scratch)))
+
+(defhydra yxl-hydra-system (:color blue :hint nil)
+  "
+System:
+ | _f_: +font-size     | _F_: +Frame-size  | _T_: +Transparency |
+ | _b_: big text       | _B_: invlidate bg | _m_: evil marks    | _M_: menubar |
+ | _w_: switch browser |
+"
+  ("," #'eval-expression "M-:")
+  ("f" #'spacemacs/scale-font-transient-state/body)
+  ("F" #'spacemacs/zoom-frm-transient-state/body)
+  ("T" #'spacemacs/scale-transparency-transient-state/spacemacs/toggle-transparency)
+  ("b" yxl-big-text-mode)
+  ("B" (set-background-color "invalid"))
+  ("w" yxl-web-switch-browser)
+  ("m" evil-show-marks)
+  ("M" menu-bar-mode))
+
+
+
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
   ";" #'counsel-M-x  ; prevent overwritten by nerd-commenter
@@ -43,65 +109,88 @@
   "xh" #'yxl-ov-highlighter/body
   "xH" #'highlight-regexp)
 
-;; leader keys
-(spacemacs/set-leader-keys
-  ;; TODO: clean these
-  ".."  #'spacemacs/scale-font-transient-state/body
-  ".," #'eval-expression
-  "./"  #'spacemacs/zoom-frm-transient-state/body
-  ".s"  #'yxl-append-to-scratch
-  ".Ss1" #'yxl-session-save-1
-  ".Sl1" #'yxl-session-load-1
-  ".Ss2" #'yxl-session-save-2
-  ".Sl2" #'yxl-session-load-2
-  ".vp" #'ivy-push-view
-  ".vP" #'ivy-pop-view
+
 
-  ;; top-level quick actions
+(spacemacs/set-leader-keys
+  "." #'yxl-hydra-system/body)
+
+(spacemacs/declare-prefix "o" "user-own")
+(spacemacs/set-leader-keys
   "o-" #'yxl-dired-popup
-  ;; cite
-  "occ" #'helm-bibtex
-  "ocg" #'gscholar-bibtex
-  ;; dictionary
-  "odd" #'helm-dictionary
-  "odb" #'bing-dict-brief
-  "ods" #'synonyms
-  ;; frames
+  "o <SPC>" #'delete-other-windows
+  "of" #'yxl-find-file/body
+  "oy" #'copy-file-name-to-clipboard
+  "oo" #'yxl-hydra-hotspot/body
+  "op"  #'yxl-find-dir/body)
+
+(spacemacs/declare-prefix "ob" "buffer")
+(spacemacs/set-leader-keys
   "obb" #'ibuffer
   "obc" #'clone-indirect-buffer-other-window
   "obd" #'delete-other-windows
   "obn" #'yxl-buffer-inherit
-  "o <SPC>" #'delete-other-windows
-  "obr" #'revert-buffer
-  ;; find
-  "of" #'yxl-find-file/body
-  ;; Frame
+  "obr" #'revert-buffer)
+
+(spacemacs/declare-prefix "oc" "cite")
+(spacemacs/set-leader-keys
+  "occ" #'helm-bibtex
+  "ocg" #'gscholar-bibtex)
+
+(spacemacs/declare-prefix "od" "dictionary")
+(spacemacs/set-leader-keys
+  "odd" #'helm-dictionary
+  "odb" #'bing-dict-brief
+  "ods" #'synonyms)
+
+(spacemacs/declare-prefix "oF" "Frames")
+(spacemacs/set-leader-keys
   "oFM" #'make-frame
-  "oFN" #'set-frame-name
-  ;; ess
+  "oFN" #'set-frame-name)
+
+(spacemacs/declare-prefix "oe" "ess")
+(spacemacs/set-leader-keys
   "oe2" #'yxl-ess-repl-2cols
-  "oe3" #'yxl-ess-repl-3cols
-  ;; HOTSPOT: helm
+  "oe3" #'yxl-ess-repl-3cols)
+
+(spacemacs/declare-prefix "og" "Helm-hotspot")
+(spacemacs/set-leader-keys
   "ogg" #'yxl-helm-hotspot
   "ogo" #'yxl-helm-org-files
   "ogf" #'yxl-helm-files
-  "ogw" #'yxl-helm-websites
-  ;; insert
-  "ois" 'yas-insert-snippet
-  ;; mode
+  "ogw" #'yxl-helm-websites)
+
+(spacemacs/declare-prefix "oi" "insert")
+(spacemacs/set-leader-keys
+  "ois" #'yas-insert-snippet
+  "oia" #'yxl-append-to-scratch)
+
+(spacemacs/declare-prefix "om" "modes")
+(spacemacs/set-leader-keys
   "omh" #'html-mode
   "oml" #'latex-mode
   "omm" #'gfm-mode
   "omo" #'org-mode
   "omp" #'python-mode
   "omr" #'R-mode
-  "ome" #'emacs-lisp-mode
-  ;; HOTSPOT: hydra
-  "oo" #'yxl-hydra-hotspot/body
-  "op"  #'yxl-find-dir/body
-  "ot" #'yxl-hydra-toggler/body
-  "osg" #'helm-google-suggest
-  "oy" #'copy-file-name-to-clipboard
+  "ome" #'emacs-lisp-mode)
+
+(spacemacs/declare-prefix "os" "search")
+(spacemacs/set-leader-keys
+  "osg" #'helm-google-suggest)
+
+(spacemacs/declare-prefix "oS" "session")
+(spacemacs/set-leader-keys
+  "oSs1" #'yxl-session-save-1
+  "oSl1" #'yxl-session-load-1
+  "oSs2" #'yxl-session-save-2
+  "oSl2" #'yxl-session-load-2)
+
+(spacemacs/declare-prefix "ox" "text")
+(spacemacs/set-leader-keys
+  "oxp" #'counsel-yank-pop)
+
+(spacemacs/declare-prefix "ow" "window")
+(spacemacs/set-leader-keys
   "ow1" #'yxl-window-custom-layout1
   "ow2" #'yxl-window-custom-layout2
   "ow3" #'yxl-window-vertical-3
@@ -113,29 +202,4 @@
   "owh" #'yxl-window-adjust-height-ratio
   "owp" #'yxl-window-get-buffer-previous-window
   "owc" #'yxl-window-center-margins
-  "oww" #'yxl-window-change-width
-  "oxp" #'counsel-yank-pop)
-
-;; prefixes
-(spacemacs/declare-prefix "." "user-quick")
-(spacemacs/declare-prefix ".S" "session")
-(spacemacs/declare-prefix ".m" "bm")
-(spacemacs/declare-prefix ".w" "window-register")
-(spacemacs/declare-prefix "l" "layout")
-(spacemacs/declare-prefix "L" "Layout")
-
-(spacemacs/declare-prefix "o" "user-own")
-(spacemacs/declare-prefix "ob" "buffer")
-(spacemacs/declare-prefix "oc" "cite")
-(spacemacs/declare-prefix "oC" "cheatsheet")
-(spacemacs/declare-prefix "od" "dictionary")
-(spacemacs/declare-prefix "oF" "Frames")
-(spacemacs/declare-prefix "oe" "ess")
-(spacemacs/declare-prefix "of" "quick-files")
-(spacemacs/declare-prefix "oi" "insert")
-(spacemacs/declare-prefix "om" "modes")
-(spacemacs/declare-prefix "oo" "org-mode")
-(spacemacs/declare-prefix "op" "quick-projects")
-(spacemacs/declare-prefix "os" "search/scratch")
-(spacemacs/declare-prefix "ox" "text")
-(spacemacs/declare-prefix "ow" "window-layouts")
+  "oww" #'yxl-window-change-width)

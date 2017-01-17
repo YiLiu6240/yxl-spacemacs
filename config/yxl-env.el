@@ -14,21 +14,6 @@
 
 (setq yxl-path-book-reference (concat yxl-path-sync "book_reference"))
 
-;; hydra
-(with-eval-after-load 'hydra
-  (defhydra yxl-find-dir (:color blue)
-    "Directory: "
-    ("d" (find-file yxl-path-dotfiles) "dotfiles")
-    ("g" (find-file yxl-path-downloads) "downloads")
-    ("G" (find-file yxl-path-local) "local-repo")
-    ("h" (find-file yxl-path-sync) "dropbox")
-    ("H" (find-file yxl-path-projects) "projects")
-    ("o" (find-file yxl-path-org) "org")
-    ("c" (find-file yxl-path-code-pwd) "code")
-    ("p" (find-file yxl-path-paper-pwd) "papers")
-    ("j" (find-file yxl-path-journal-pwd) "journals")
-    ("b" (find-file yxl-path-book-reference) "books")))
-
 
 
 (setq yxl-file-bib (concat yxl-path-sync "bib/yxl_bib_master.bib"))
@@ -53,52 +38,6 @@
                                  (concat yxl-path-org-task "proj_ds.org")
                                  (concat yxl-path-org-task "proj_ctw.org")
                                  (concat yxl-path-org-task "proj_bham.org"))))
-
-(with-eval-after-load 'hydra
-  (defhydra yxl-find-file (:color blue)
-    "File: "
-    ("1" (yxl-find-file-stay yxl-file-org-main) "tasks_1_main.org")
-    ("2" (yxl-find-file-stay yxl-file-org-work) "tasks_2_work.org")
-    ("3" (yxl-find-file-stay yxl-file-org-config) "tasks_3_config.org")
-    ("4" (yxl-find-file-stay yxl-file-org-proj) "tasks_4_proj.org")
-    ("0" (yxl-find-file-stay yxl-file-org-scratch) "scratch.org")
-    ("b" (yxl-find-file-stay yxl-file-bib) "bib file")
-    ("n" (yxl-find-file-stay yxl-file-note-master) "note file")
-    ("e" (yxl-find-file-stay "~/Dropbox/Inbox/scratch.el") "scratch.el")))
-
-
-
-(with-eval-after-load 'hydra
-  (defhydra yxl-hydra-hotspot (:color blue :hint nil)
-    "
-Hotspot:
- | _h_ Frame: Meta | _0_ Org: scratch |
- | _j_ Frame: REPL | _1_ Org: main    |
- | _k_ Frame: Code | _2_ Org: work    |
- | _l_ Frame: Conf | _3_ Org: config  |
- | ^^              | _4_ Org: proj    |
-"
-    ("h" (yxl-frame-select-or-set "Meta"))
-    ("j" (yxl-frame-select-or-set "REPL"))
-    ("k" (yxl-frame-select-or-set "Code"))
-    ("l" (yxl-frame-select-or-set "Conf"))
-    ("o" (yxl-org-open-all-task-files) "org: open all tasks")
-    ("a" (org-agenda-list) "org: agenda")
-    ("1" (yxl-find-file-popup yxl-file-org-main))
-    ("2" (yxl-find-file-popup yxl-file-org-work))
-    ("3" (yxl-find-file-popup yxl-file-org-config))
-    ("4" (yxl-find-file-popup yxl-file-org-proj))
-    ("0" (yxl-find-file-popup yxl-file-org-scratch))))
-
-
-(with-eval-after-load 'hydra
-  (defhydra yxl-hydra-toggler (:color blue)
-    "Toggles: "
-    ("b" yxl-big-text-mode "big text")
-    ("m" evil-show-marks "evil show marks")
-    ("w" yxl-web-switch-browser "switch browser")
-    ("B" (set-background-color "invalid") "terminal background")
-    ("M" menu-bar-mode "rm menubar")))
 
 
 ;; These alist will be fed to helm
