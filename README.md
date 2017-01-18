@@ -1,21 +1,33 @@
 # My own Emacs config based on Spacemacs
 
+[Yi Liu](https://github.com/YiLiu6240)
+
 ## External depdencies
+
 - vim
 - Exuberant ctags
 - pdf-tools
 - ag (the silver searcher), pt (the platinum searcher)
 
-## Goodies
-- hydra integration in dired
-- `ess` goodies, some collected elsewhere and some wrote by me.
+## Highlights
 
-## Difference from stock Spacemacs
+- hydra integrations.
+- "goodies":
+    - [`yxl-emacs-goodies`](https://github.com/YiLiu6240/yxl-emacs-goodies)
+    written/re-written by me.
+    - [other goodies](site-lisp) collected/modified by me.
+
+## Difference from vanilla Spacemacs
+
 - ui:
-  - use a mode line based on `vim-powerline`, instead of spaceline
-  - a "solarized" dark/light theme based on `spacemacs-theme`
+    - use a mode line based on `vim-powerline`.
+    - theme: `yxl-gruv` (based on gruvbox), `yxl-dark`/`yxl-light` (based on Solarized).
+    The [`yxl-theme`](theme/yxl-theme) package is written based on `spacemacs-theme`.
+
 - bindings:
-  - more "vimish" bindings like C-h/j/k/l for window navigation
+    - more "vimish" bindings like C-h/j/k/l for window navigation
+    - TODO
+
 - packages:
-  - remove stock packages and configs of spacemacs-layouts (window-numbering, eyebrowse, persp-mode).
-    I use a simpler and more customised workspace config based on my own fork of eyebrowse.
+    - package load-path: TODO
+    - spacemacs base config: TODO
