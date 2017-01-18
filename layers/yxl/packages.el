@@ -5,8 +5,7 @@
                      key-chord))
 
 (defun yxl/init-yxl-utils ()
-  (use-package yxl-utils
-    :load-path "~/dotfiles/yxl-emacs-goodies"))
+  (use-package yxl-utils))
 
 (defun yxl/init-goodies ()
   (use-package goodies))

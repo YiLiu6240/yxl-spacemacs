@@ -20,7 +20,6 @@
 (defun yxl-completion/init-yxl-helm-hotspot ()
   (use-package yxl-helm-hotspot
     :after 'helm
-    :load-path "~/dotfiles/yxl-emacs-goodies"
     :commands (yxl-helm-hotspot
                yxl-helm-org-files
                yxl-helm-websites
@@ -44,7 +43,6 @@
 
 (defun yxl-completion/init-yxl-helm-pdf-occur ()
   (use-package yxl-helm-pdf-occur
-    :load-path "~/dotfiles/yxl-emacs-goodies"
     :after (helm pdf-tools)
     :commands (yxl-helm-pdf-occur yxl-pdf-occur-all-keywords)
     :defer t))

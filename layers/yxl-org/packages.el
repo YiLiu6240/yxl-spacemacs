@@ -33,7 +33,6 @@
 
 (defun yxl-org/init-yxl-org ()
   (use-package yxl-org
-    :load-path "~/dotfiles/yxl-emacs-goodies"
     :after (org)
     :commands (yxl-org-open-all-task-files)))
 

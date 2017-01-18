@@ -44,7 +44,6 @@
 
 (defun yxl-ess/init-yxl-ess ()
   (use-package yxl-ess
-    :load-path "~/dotfiles/yxl-emacs-goodies"
     :after ess-site))
 
 (defun yxl-ess/init-ess-goodies ()

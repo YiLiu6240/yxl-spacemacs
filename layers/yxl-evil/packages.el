@@ -19,7 +19,6 @@
 
 (defun yxl-evil/init-yxl-evil ()
   (use-package yxl-evil
-    :load-path "~/dotfiles/yxl-emacs-goodies"
     :after evil))
 
 (defun yxl-evil/post-init-evil-surround ()
