@@ -63,6 +63,7 @@
                                  ("news" . ("news" t))
                                  ("econ_news" . ("econ_news" t))
                                  ("work" . ("work" t))
+                                 ("job_mkt" . ("job_mkt" t))
                                  ("datascience" . ("datascience" t))
                                  ("econ_sites" . ("econ_sites" t))
                                  ("star" . ("+star" nil))))
