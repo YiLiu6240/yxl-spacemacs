@@ -36,11 +36,11 @@
 (defhydra yxl-hydra-hotspot (:color blue :hint nil)
   "
 Hotspot:
- | _h_ Frame: Meta | _0_ Org: scratch |
- | _j_ Frame: REPL | _1_ Org: main    |
- | _k_ Frame: Code | _2_ Org: work    |
- | _l_ Frame: Conf | _3_ Org: config  |
- | ^^              | _4_ Org: proj    |
+ | _h_ Frame: Meta | _0_ Org: scratch | _k_: calendar     |
+ | _j_ Frame: REPL | _1_ Org: main    | _K_: cfw-calendar |
+ | _k_ Frame: Code | _2_ Org: work    | _o_: org-files    |
+ | _l_ Frame: Conf | _3_ Org: config  | _a_: org-agenda   |
+ | ^^              | _4_ Org: proj    | _v_: org-agenda_view |
 "
   ("h" (yxl-frame-select-or-set "Meta"))
   ("j" (yxl-frame-select-or-set "REPL"))
@@ -48,6 +48,9 @@ Hotspot:
   ("l" (yxl-frame-select-or-set "Conf"))
   ("o" (yxl-org-open-all-task-files) "org: open all tasks")
   ("a" (org-agenda-list) "org: agenda")
+  ("k" calendar)
+  ("K" cfw-open-calendar)
+  ("v" yxl-org/agenda-view)
   ("1" (yxl-find-file-popup yxl-file-org-main))
   ("2" (yxl-find-file-popup yxl-file-org-work))
   ("3" (yxl-find-file-popup yxl-file-org-config))
@@ -81,9 +84,6 @@ System:
 (spacemacs/set-leader-keys
   ";" #'counsel-M-x  ; prevent overwritten by nerd-commenter
   "<SPC>" #'evil-avy-goto-char-2
-  "av" #'yxl-org/agenda-view
-  "ak" #'calendar
-  "aK" #'cfw-open-calendar
   "bB" #'yxl-buffer-switch-same-major-mode
   ;; TODO: rm this with next spacemacs update
   "bm" #'view-echo-area-messages
