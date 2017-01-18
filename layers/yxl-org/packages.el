@@ -1,6 +1,6 @@
 (setq yxl-org-packages '(org
-                         (yxl-org :location local)
                          (evil-org :location local)
+                         (yxl-org :location site)
                          org-gcal))
 
 (defun yxl-org/post-init-org ()
