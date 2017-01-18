@@ -70,7 +70,7 @@ System:
   ("F" #'spacemacs/zoom-frm-transient-state/body)
   ("T" #'spacemacs/scale-transparency-transient-state/spacemacs/toggle-transparency)
   ("b" yxl-big-text-mode)
-  ("B" (set-background-color "invalid"))
+  ("B" (set-face-background 'default "unspecified-bg" (selected-frame)))
   ("w" yxl-web-switch-browser)
   ("m" evil-show-marks)
   ("M" menu-bar-mode)
