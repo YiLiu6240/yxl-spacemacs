@@ -86,6 +86,7 @@ System:
   ";" #'counsel-M-x  ; prevent overwritten by nerd-commenter
   "<SPC>" #'evil-avy-goto-char-2
   "bB" #'yxl-buffer-switch-same-major-mode
+  "bh" #'yxl-utils/home
   ;; TODO: rm this with next spacemacs update
   "bm" #'view-echo-area-messages
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
