@@ -40,6 +40,7 @@
     (define-key evil-normal-state-map "qm" #'evil-execute-macro)
     (define-key evil-normal-state-map "qM" #'evil-record-macro)
     (define-key evil-normal-state-map "qq" #'yxl-evil-quit)
+    (define-key evil-normal-state-map "q." #'yxl-evil-execute-last-macro)
     ;; (define-key evil-normal-state-map "qQ" #'evil-save-and-close)
     (define-key evil-normal-state-map "qw" #'evil-write)
     (define-key evil-normal-state-map "qW" #'evil-write-all)
