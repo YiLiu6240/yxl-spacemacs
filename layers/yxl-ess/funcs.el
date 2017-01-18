@@ -1,13 +1,3 @@
-(defun yxl-ess/lsos ()
-  "invoke lsos function, this function needs to be in environment"
-  (interactive)
-  (ess-execute "lsos()"))
-
-(defun yxl-ess/lsdf ()
-  "invoke lsos function, this function needs to be in environment"
-  (interactive)
-  (ess-execute "lsdf()"))
-
 (defun yxl-ess/ess-setup ()
   "wrap my settings in a function"
   ;; no history file
