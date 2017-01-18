@@ -1,16 +1,16 @@
-(setq yxl-packages '((yxl-utils :location site)
-                     (general-goodies :location site)
-                     (simple-todo :location site)
-                     (scratch-pop :location site)
-                     key-chord))
+(setq yxl-utils-packages '((yxl-utils :location site)
+                           (general-goodies :location site)
+                           (simple-todo :location site)
+                           (scratch-pop :location site)
+                           key-chord))
 
-(defun yxl/init-yxl-utils ()
+(defun yxl-utils/init-yxl-utils ()
   (use-package yxl-utils))
 
-(defun yxl/init-general-goodies ()
+(defun yxl-utils/init-general-goodies ()
   (use-package general-goodies))
 
-;; (defun yxl/init-simple-todo ()
+;; (defun yxl-utils/init-simple-todo ()
 ;;   (use-package simple-todo
 ;;     :init
 ;;     (progn
@@ -18,7 +18,7 @@
 ;;       (spacemacs/set-leader-keys "ot2" #'yxl-set-simple-todo-task2)
 ;;       (spacemacs/set-leader-keys "ot3" #'yxl-set-simple-todo-task3))))
 
-(defun yxl/init-scratch-pop ()
+(defun yxl-utils/init-scratch-pop ()
   (use-package scratch-pop
     ;; need this for autoload
     :commands (scratch-pop scratch-pop-sticky)
@@ -31,7 +31,7 @@
         (let ((scratch-pop-position 'top))
           (scratch-pop))))))
 
-(defun yxl/init-key-chord ()
+(defun yxl-utils/init-key-chord ()
   (use-package key-chord
     :init
     (progn (key-chord-mode 1))
