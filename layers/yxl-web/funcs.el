@@ -85,14 +85,12 @@
   (defhydra hydra-elfeed-search
     (:hint nil :color blue :inherit (hydra-elfeed-common/heads))
     "
---------------------------------------------------------------------------------
-  [_k_]  up     [_s_] filter (helm)       [_o_] view          [_r_] read      [_a_] refresh
-  [_j_] down    [_S_] filter (nonlive)    [_O_] browser (w3m) [_u_] unread    [_A_] fetch
-   ^ ^           ^ ^                      [_x_] browser (gen)
-   ^ ^           ^ ^                      [_y_] yank url      [_+_] add       [_d_] unjam
-   ^ ^           ^ ^                      [_v_] mark          [_-_] remove    [_E_] edit feeds
-   ^ ^           ^ ^                       ^ ^                 ^ ^            [_q_] exit
---------------------------------------------------------------------------------
+ | _k_:  up  | _s_: filter (helm)    | _o_: view          | _a_: refresh    |
+ | _j_: down | _S_: filter (nonlive) | _O_: browser (w3m) | _A_: fetch      |
+ | ^^        | _r_: read             | _x_: browser (gen) | _w_: db-save    |
+ | ^^        | _u_: unread           | _y_: yank url      | _d_: unjam      |
+ | ^^        | _+_: add              | _v_: mark          | _E_: edit feeds |
+ | ^^        | _-_: remove           | ^^                 | _q_: exit       |
     "
     ("q"    quit-window)
     ("a"    elfeed-search-update--force)
@@ -119,14 +117,12 @@
   (defhydra hydra-elfeed-show
     (:hint nil :color blue :inherit (hydra-elfeed-common/heads))
     "
---------------------------------------------------------------------------------
-   [_k_]  up     [_g_] refresh          [_u_] unread    _S-TAB_
-   [_j_] down    [_O_] browser (w3m)    [_+_] add       ^  ↑  ^
-                 [_x_] browser (gen)
-   [_K_] prev    [_y_] yank url         [_-_] remove    ^     ^
-   [_J_] next    [_q_] quit             [_*_] star      ^  ↓  ^
-    ^ ^          [_s_] quit & search^^                   _TAB_
---------------------------------------------------------------------------------
+ | _k_:  up  |   _g_: refresh       | _u_: unread | _S-TAB_ |
+ | _j_: down |   _O_: browser (w3m) | _+_: add    | ^  ↑  ^ |
+ | ^^        |   _x_: browser (gen) | ^^          | ^     ^ |
+ | _K_: prev |   _y_: yank url      | _-_: remove | ^     ^ |
+ | _J_: next |   _q_: quit          | _*_: star   | ^  ↓  ^ |
+ | ^^        |   _s_: quit & search | ^^          |  _TAB_  |
     "
     ("q"     elfeed-kill-buffer)
     ("g"     elfeed-show-refresh)

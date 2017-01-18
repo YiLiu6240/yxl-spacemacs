@@ -80,6 +80,7 @@
             ;; browse-url-browser-function 'w3m-browse-url
             ;; W3M view url new session in background
             w3m-view-this-url-new-session-in-background t)
+      (setq w3m-default-display-inline-images nil)
       (yxl-web/w3m-bindings)
       (yxl-web/w3m-hydra))))
 
