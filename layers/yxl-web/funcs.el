@@ -113,7 +113,8 @@
     ("E"    (lambda() (interactive) (find-file "~/dotfiles/rss/feeds.org")))
     ("*"    elfeed-toggle-star :color red)
     ("+"    elfeed-search-tag-all)
-    ("-"    elfeed-search-untag-all))
+    ("-"    elfeed-search-untag-all)
+    ("w"    (elfeed-db-save)))
 
   (defhydra hydra-elfeed-show
     (:hint nil :color blue :inherit (hydra-elfeed-common/heads))
