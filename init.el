@@ -104,7 +104,19 @@
      helm-dash
      calfw
      ov-highlighter
-     yxl-layers)))
+     yxl-utils
+     yxl-workspace
+     yxl-config
+     yxl-evil
+     yxl-prog
+     yxl-text
+     yxl-dired
+     yxl-ess
+     yxl-org
+     yxl-web
+     yxl-completion
+     yxl-ui
+     yxl-misc)))
 
 (defun dotspacemacs/init ()
   (setq-default
