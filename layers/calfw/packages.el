@@ -13,11 +13,9 @@ which require an initialization must be listed explicitly in the list.")
     :config
     (progn
       (evil-set-initial-state 'cfw:calendar-mode 'evilified)
-      (require 'calfw-cal)
-      (require 'calfw-ical)
+      ;; (require 'calfw-cal)
+      ;; (require 'calfw-ical)
       (require 'calfw-org)
-      (calfw/setup-bindings)
-
       (defun cfw-open-calendar()
         (interactive)
         (cfw:open-calendar-buffer
