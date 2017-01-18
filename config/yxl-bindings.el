@@ -36,27 +36,30 @@
 (defhydra yxl-hydra-hotspot (:color blue :hint nil)
   "
 Hotspot:
- | _h_ Frame: Meta | _0_ Org: scratch | _c_: calendar     |
- | _j_ Frame: REPL | _1_ Org: main    | _C_: cfw-calendar |
- | _k_ Frame: Code | _2_ Org: work    | _o_: org-files    |
- | _l_ Frame: Conf | _3_ Org: config  | _a_: org-agenda   |
- | ^^              | _4_ Org: proj    | _v_: org-agenda_view |
+ | [_h_]: Frame: Meta | [_0_]: Org: scratch | [_c_]: calendar        |
+ | [_j_]: Frame: REPL | [_1_]: Org: main    | [_C_]: cfw-calendar    |
+ | [_k_]: Frame: Code | [_2_]: Org: work    | [_o_]: org-files       |
+ | [_l_]: Frame: Conf | [_3_]: Org: config  | [_a_]: org-agenda      |
+ | ^^                 | [_4_]: Org: proj    | [_v_]: org-agenda_view |
 "
   ("h" (yxl-frame-select-or-set "Meta"))
   ("j" (yxl-frame-select-or-set "REPL"))
   ("k" (yxl-frame-select-or-set "Code"))
   ("l" (yxl-frame-select-or-set "Conf"))
+
+  ("0" (yxl-find-file-popup yxl-file-org-scratch))
+  ("1" (yxl-find-file-popup yxl-file-org-main))
+  ("2" (yxl-find-file-popup yxl-file-org-work))
+  ("3" (yxl-find-file-popup yxl-file-org-config))
+  ("4" (yxl-find-file-popup yxl-file-org-proj))
+
   ("o" (yxl-org-open-all-task-files))
   ("a" (org-agenda-list))
   ("c" calendar)
   ("C" cfw-open-calendar)
   ("v" yxl-org/agenda-view)
-  ("g" yxl-helm-hotspot "helm: hotspot")
-  ("1" (yxl-find-file-popup yxl-file-org-main))
-  ("2" (yxl-find-file-popup yxl-file-org-work))
-  ("3" (yxl-find-file-popup yxl-file-org-config))
-  ("4" (yxl-find-file-popup yxl-file-org-proj))
-  ("0" (yxl-find-file-popup yxl-file-org-scratch)))
+
+  ("g" yxl-helm-hotspot "helm: hotspot"))
 
 (defhydra yxl-hydra-system (:color blue :hint nil)
   "
@@ -77,7 +80,8 @@ System:
   ("M" menu-bar-mode)
   ("t" mode-line-timer-start)
   ("d" mode-line-timer-stop)
-  ("D" mode-line-timer-done))
+  ("D" mode-line-timer-done)
+  ("+" make-frame "make frame"))
 
 
 
