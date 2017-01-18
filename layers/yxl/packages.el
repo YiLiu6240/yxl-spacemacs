@@ -1,14 +1,14 @@
 (setq yxl-packages '((yxl-utils :location site)
-                     (goodies :location local)
-                     (simple-todo :location local)
-                     (scratch-pop :location local)
+                     (general-goodies :location site)
+                     (simple-todo :location site)
+                     (scratch-pop :location site)
                      key-chord))
 
 (defun yxl/init-yxl-utils ()
   (use-package yxl-utils))
 
-(defun yxl/init-goodies ()
-  (use-package goodies))
+(defun yxl/init-general-goodies ()
+  (use-package general-goodies))
 
 ;; (defun yxl/init-simple-todo ()
 ;;   (use-package simple-todo

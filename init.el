@@ -185,10 +185,12 @@
    dotspacemacs-whitespace-cleanup `all))
 
 (defun dotspacemacs/user-init ()
-  (add-to-list 'load-path "~/.spacemacs.d/config/")
-  (add-to-list 'load-path "~/.spacemacs.d/lisp/")
-  (add-to-list 'custom-theme-load-path "~/.spacemacs.d/theme/yxl-theme/")
+  (add-to-list 'load-path "~/.spacemacs.d/config")
+  (add-to-list 'load-path "~/.spacemacs.d/site-lisp")
+  (add-to-list 'load-path "~/.spacemacs.d/theme/yxl-theme")
   (add-to-list 'load-path "~/dotfiles/yxl-emacs-goodies")
+
+  (add-to-list 'custom-theme-load-path "~/.spacemacs.d/theme/yxl-theme")
 
   (load-file (concat dotspacemacs-directory "config/config-init.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-env.el"))

@@ -1,6 +1,6 @@
 (setq ov-highlighter-packages '(ov
-                                (ov-highlighter :location local)
-                                (org-ov-highlighter :location local)))
+                                (ov-highlighter :location site)
+                                (org-ov-highlighter :location site)))
 
 (defun ov-highlighter/init-ov ()
   (use-package ov

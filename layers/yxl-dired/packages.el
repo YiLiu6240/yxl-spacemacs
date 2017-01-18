@@ -1,5 +1,5 @@
 (setq yxl-dired-packages '(dired
-                           (dired-goodies :location local)
+                           (dired-goodies :location site)
                            peep-dired
                            image+
                            dired-quick-sort))

@@ -1,4 +1,4 @@
-(setq yxl-workspace-packages '((eyebrowse :location local)
+(setq yxl-workspace-packages '((eyebrowse :location site)
                                buffer-move))
 
 (defun yxl-workspace/init-buffer-move ()

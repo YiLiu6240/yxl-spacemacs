@@ -1,6 +1,6 @@
 (setq yxl-ess-packages '(ess
                          (yxl-ess :location site)
-                         (ess-goodies :location local)))
+                         (ess-goodies :location site)))
 
 (defun yxl-ess/post-init-ess ()
   (with-eval-after-load 'ess-site
