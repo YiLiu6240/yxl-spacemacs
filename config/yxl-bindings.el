@@ -31,7 +31,9 @@
   ("0" (yxl-find-file-stay yxl-file-org-scratch) "scratch.org")
   ("b" (yxl-find-file-stay yxl-file-bib) "bib file")
   ("n" (yxl-find-file-stay yxl-file-note-master) "note file")
-  ("e" (yxl-find-file-stay "~/Dropbox/Inbox/scratch.el") "scratch.el"))
+  ("e" (yxl-find-file-stay "~/Dropbox/inbox/scratch.el") "scratch.el")
+  ("rf" (yxl-find-file-stay yxl-file-reading-list-files) "reading-list: files")
+  ("rw" (yxl-find-file-stay yxl-file-reading-list-webpages) "reading-list: webpages"))
 
 (defhydra yxl-hydra-hotspot (:color blue :hint nil)
   "

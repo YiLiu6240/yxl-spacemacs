@@ -18,6 +18,11 @@
 
 (setq yxl-file-bib (concat yxl-path-sync "bib/yxl_bib_master.bib"))
 (setq yxl-file-note-master "~/Dropbox/org/note.org")
+(setq yxl-file-reading-list-files (concat yxl-path-sync
+                                          "inbox/yxl-reading-list-files.txt"))
+(setq yxl-file-reading-list-webpages (concat yxl-path-sync
+                                          "inbox/yxl-reading-list-webpages.txt"))
+
 (setq yxl-file-org-main (concat yxl-path-org-task "tasks_1_main.org"))
 (setq yxl-file-org-work (concat yxl-path-org-task "tasks_2_work.org"))
 (setq yxl-file-org-config (concat yxl-path-org-task "tasks_3_config.org"))
