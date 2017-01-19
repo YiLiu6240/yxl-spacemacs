@@ -31,31 +31,6 @@
                  :follow-link "\C-m"
                  (propertize "Rollback Package Update"
                              'face 'font-lock-keyword-face))
-  (insert "\n\n")
-  (widget-create 'push-button
-                 :tag (propertize "Agenda: work" 'face 'font-lock-type-face)
-                 :action (lambda (&rest ignore) (yxl-org/agenda-work))
-                 :mouse-face 'highlight)
-  (insert " ")
-  (widget-create 'push-button
-                 :tag (propertize "Agenda: life" 'face 'font-lock-string-face)
-                 :action (lambda (&rest ignore) (yxl-org/agenda-life))
-                 :mouse-face 'highlight)
-  (insert " ")
-  (widget-create 'push-button
-                 :tag (propertize "Org: work" 'face 'font-lock-type-face)
-                 :action (lambda (&rest ignore) (yxl-find-file-org-work))
-                 :mouse-face 'highlight)
-  (insert " ")
-  (widget-create 'push-button
-                 :tag (propertize "Org: life" 'face 'font-lock-string-face)
-                 :action (lambda (&rest ignore) (yxl-find-file-org))
-                 :mouse-face 'highlight)
-  (insert " ")
-  (widget-create 'push-button
-                 :tag (propertize "agenda-view" 'face 'font-lock-warning-face)
-                 :action (lambda (&rest ignore) (yxl-org/agenda-view))
-                 :mouse-face 'highlight)
   (insert "\n\n"))
 
 (defun spacemacs-buffer//insert-footer ())
