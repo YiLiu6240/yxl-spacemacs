@@ -1,12 +1,5 @@
 (defun spacemacs-buffer//insert-buttons ()
   (goto-char (point-max))
-  (widget-create 'url-link
-                 :tag (propertize "Homepage" 'face 'font-lock-keyword-face)
-                 :help-echo "Open the Spacemacs Github page in your browser."
-                 :mouse-face 'highlight
-                 :follow-link "\C-m"
-                 "http://spacemacs.org")
-  (insert " ")
   (widget-create 'push-button
                  :help-echo "Update Spacemacs core and layers."
                  :action (lambda (&rest ignore) (spacemacs/switch-to-version))
@@ -53,3 +46,7 @@
     (with-current-buffer (get-buffer-create spacemacs-buffer-name)
       (let ((buffer-read-only nil))
         (insert "\n")))))
+
+(defun spacemacs-buffer/display-info-box ()
+  "Display an info box."
+  (spacemacs//redisplay))
