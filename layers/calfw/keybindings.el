@@ -51,15 +51,14 @@
 
 (defhydra cfw-calendar-hydra (:color red :hint nil)
   "
- | Navigation ^^^^       | View            | Goto               |
- | [_b_/_h_]: prev day   | [_D_]: Day      | [_o_]: open        |
- | [_f_/_l_]: next day   | [_W_]: Week     | [_O_]: open agenda |
- | [_p_/_k_]: prev week  | [_T_]: Two-week | [_g_]: goto        |
- | [_n_/_j_]: next week  | [_M_]: Month    | [_t_]: today       |
- | [_H_]: week start ^^  | ^^              | [_TAB_]: item      |
- | [_L_]: week end   ^^  | ^^              | ^^                 |
- | [_<_/_K_]: prev month | ^^              | ^^                 |
- | [_>_/_J_]: next month | ^^              | ^^                 |
+ | [_b_/_h_]: prev day          | [_D_]: Day      | [_o_]: open        |
+ | [_f_/_l_]: next day          | [_W_]: Week     | [_O_]: open agenda |
+ | [_p_/_k_]: prev week         | [_T_]: Two-week | [_g_]: goto        |
+ | [_n_/_j_]: next week         | [_M_]: Month    | [_t_]: today       |
+ | [_\\^_/_H_]: week start        | ^^              | [_TAB_]: item      |
+ | [_$_/_L_]: week end          | ^^              | ^^                 |
+ | [_<_/_K_]: prev month        | ^^              | ^^                 |
+ | [_>_/_J_]: next month        | ^^              | ^^                 |
 "
 
   ("f" cfw:navi-next-day-command)
