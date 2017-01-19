@@ -22,7 +22,9 @@
   ("j" (find-file yxl-path-journal-pwd) "journals")
   ("b" (find-file yxl-path-book-reference) "books"))
 
-(defhydra yxl-find-file (:color blue)
+(defhydra yxl-find-file (:color blue
+                         :pre (setq which-key-inhibit t)
+                         :post (setq which-key-inhibit nil))
   "File: "
   ("1" (yxl-find-file-stay yxl-file-org-main) "tasks_1_main.org")
   ("2" (yxl-find-file-stay yxl-file-org-work) "tasks_2_work.org")
@@ -35,23 +37,30 @@
   ("rf" (yxl-find-file-stay yxl-file-reading-list-files) "reading-list: files")
   ("rw" (yxl-find-file-stay yxl-file-reading-list-webpages) "reading-list: webpages"))
 
-(defhydra yxl-hydra-hotspot (:color blue :hint nil)
+(defhydra yxl-hydra-hotspot (:color blue :hint nil
+                             :pre (setq which-key-inhibit t)
+                             :post (setq which-key-inhibit nil))
   "
 
 Hotspot:
 
- | [_h_]: Frame: Meta          | [_0_]: Org: scratch          |
- | [_j_]: Frame: REPL          | [_1_]: Org: main             |
- | [_k_]: Frame: Code          | [_2_]: Org: work             |
- | [_l_]: Frame: Conf          | [_3_]: Org: config           |
- | ^^                          | [_4_]: Org: proj             |
- | ^^                          | ^^                           |
- | [_c_]: calendar             | [_g_]: Helm: my hotspot      |
- | [_C_]: cfw-calendar         | [_O_]: Helm: my org files    |
- | [_o_]: Org: open all files  | [_f_]: Helm: my files/dirs   |
- | [_a_]: Org: agenda list     | [_w_]: Helm: my websitess    |
- | [_v_]: Org: calendar/agenda | [_r_]: Helm: my reading list |
+ | [_h_]: Frame: Meta           | [_0_]: Org: scratch           |
+ | [_j_]: Frame: REPL           | [_1_]: Org: main              |
+ | [_k_]: Frame: Code           | [_2_]: Org: work              |
+ | [_l_]: Frame: Conf           | [_3_]: Org: config            |
+ | ^^                           | [_4_]: Org: proj              |
+
+ | [_cc_]: calendar             | [_gg_]: Helm: my hotspot      |
+ | [_cC_]: cfw-calendar         | [_go_]: Helm: my org files    |
+ | [_oo_]: Org: open all files  | [_gf_]: Helm: my files/dirs   |
+ | [_oa_]: Org: agenda list     | [_gw_]: Helm: my websitess    |
+ | [_ov_]: Org: calendar/agenda | [_gr_]: Helm: my reading list |
+ | [_ot_]: Org: todo list       | ^^                            |
+ | [_oc_]: Org: capture         | ^^                            |
 "
+  ("q" nil "quit")
+  ("." nil "quit")
+
   ("h" (yxl-frame-select-or-set "Meta"))
   ("j" (yxl-frame-select-or-set "REPL"))
   ("k" (yxl-frame-select-or-set "Code"))
@@ -63,17 +72,20 @@ Hotspot:
   ("3" (yxl-find-file-popup yxl-file-org-config))
   ("4" (yxl-find-file-popup yxl-file-org-proj))
 
-  ("o" (yxl-org-open-all-task-files))
-  ("a" (org-agenda-list))
-  ("c" calendar)
-  ("C" cfw-open-calendar)
-  ("v" yxl-org/agenda-view)
+  ("cc" calendar)
+  ("cC" cfw-open-calendar)
 
-  ("g" yxl-helm-hotspot)
-  ("O" yxl-helm-org-files)
-  ("f" yxl-helm-files)
-  ("w" yxl-helm-websites)
-  ("r" yxl-helm-reading-list))
+  ("oo" yxl-org-open-all-task-files)
+  ("oa" org-agenda-list)
+  ("ov" yxl-org/agenda-view)
+  ("ot" org-todo-list)
+  ("oc" org-capture)
+
+  ("gg" yxl-helm-hotspot)
+  ("go" yxl-helm-org-files)
+  ("gf" yxl-helm-files)
+  ("gw" yxl-helm-websites)
+  ("gr" yxl-helm-reading-list))
 
 (defhydra yxl-hydra-system (:color blue :hint nil)
   "
