@@ -43,6 +43,7 @@
 (defun yxl-web/init-w3m()
   "Initializes w3m and adds keybindings for its exposed functionalities."
   (use-package w3m
+    :defer t
     :commands (v/w3m-open-site
                w3m-goto-url
                w3m-goto-url-new-session
@@ -66,21 +67,12 @@
       (setq-default w3m-user-agent (concat "Mozilla/5.0 (Linux; U; Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40)"
                                            " AppleWebKit/533.1 (KHTML, like Gecko)"
                                            " Version/4.0 Mobile Safari/533."))
-      ;; REVIEW: this is bugged
-      ;; w3m seems to auto break line when fetch html
-      ;; (add-hook 'w3m-mode-hook (lambda () (visual-line-mode t)))
-      (setq w3m-home-page "http://www.google.com"
-            ;; W3M default display images
-            w3m-default-display-inline-images t
-            w3m-default-toggle-inline-images t
-            ;; W3M use cookies
-            w3m-command-arguments '("-cookie" "-F")
-            w3m-use-cookies t
-            ;; Browse url function use w3m
-            ;; browse-url-browser-function 'w3m-browse-url
-            ;; W3M view url new session in background
-            w3m-view-this-url-new-session-in-background t)
+      (setq w3m-home-page "http://www.google.com")
       (setq w3m-default-display-inline-images nil)
+      (setq w3m-default-toggle-inline-images t)
+      (setq w3m-command-arguments '("-cookie" "-F"))
+      (setq w3m-use-cookies t)
+      (setq w3m-view-this-url-new-session-in-background t)
       (yxl-web/w3m-bindings)
       (yxl-web/w3m-hydra))))
 
