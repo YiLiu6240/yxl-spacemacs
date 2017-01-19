@@ -23,6 +23,7 @@
     :commands (yxl-helm-hotspot
                yxl-helm-org-files
                yxl-helm-websites
+               yxl-helm-reading-list
                yxl-helm-files)
     :defer t))
 
