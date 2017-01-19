@@ -35,12 +35,20 @@
 
 (defhydra yxl-hydra-hotspot (:color blue :hint nil)
   "
+
 Hotspot:
- | [_h_]: Frame: Meta | [_0_]: Org: scratch | [_c_]: calendar        |
- | [_j_]: Frame: REPL | [_1_]: Org: main    | [_C_]: cfw-calendar    |
- | [_k_]: Frame: Code | [_2_]: Org: work    | [_o_]: org-files       |
- | [_l_]: Frame: Conf | [_3_]: Org: config  | [_a_]: org-agenda      |
- | ^^                 | [_4_]: Org: proj    | [_v_]: org-agenda_view |
+
+ | [_h_]: Frame: Meta          | [_0_]: Org: scratch          |
+ | [_j_]: Frame: REPL          | [_1_]: Org: main             |
+ | [_k_]: Frame: Code          | [_2_]: Org: work             |
+ | [_l_]: Frame: Conf          | [_3_]: Org: config           |
+ | ^^                          | [_4_]: Org: proj             |
+ | ^^                          | ^^                           |
+ | [_c_]: calendar             | [_g_]: Helm: my hotspot      |
+ | [_C_]: cfw-calendar         | [_O_]: Helm: my org files    |
+ | [_o_]: Org: open all files  | [_f_]: Helm: my files/dirs   |
+ | [_a_]: Org: agenda list     | [_w_]: Helm: my websitess    |
+ | [_v_]: Org: calendar/agenda | [_r_]: Helm: my reading list |
 "
   ("h" (yxl-frame-select-or-set "Meta"))
   ("j" (yxl-frame-select-or-set "REPL"))
@@ -59,7 +67,11 @@ Hotspot:
   ("C" cfw-open-calendar)
   ("v" yxl-org/agenda-view)
 
-  ("g" yxl-helm-hotspot "helm: hotspot"))
+  ("g" yxl-helm-hotspot)
+  ("O" yxl-helm-org-files)
+  ("f" yxl-helm-files)
+  ("w" yxl-helm-websites)
+  ("r" yxl-helm-reading-list))
 
 (defhydra yxl-hydra-system (:color blue :hint nil)
   "
@@ -161,13 +173,6 @@ System:
 (spacemacs/set-leader-keys
   "oe2" #'yxl-ess-repl-2cols
   "oe3" #'yxl-ess-repl-3cols)
-
-(spacemacs/declare-prefix "og" "Helm-hotspot")
-(spacemacs/set-leader-keys
-  "ogg" #'yxl-helm-hotspot
-  "ogo" #'yxl-helm-org-files
-  "ogf" #'yxl-helm-files
-  "ogw" #'yxl-helm-websites)
 
 (spacemacs/declare-prefix "oi" "insert")
 (spacemacs/set-leader-keys
