@@ -135,7 +135,7 @@
   (setq org-todo-keyword-faces
         `(("INBOX" . (:foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
           ("TODAY" . (:foreground ,(face-attribute 'font-lock-warning-face :foreground)))
-          ("TODO" . (:foreground ,(face-attribute 'font-lock-warning-face :foreground)))
+          ("TODO" . (:foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
           ("HOLD" . (:foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
           ("NEXT" . (:foreground ,(face-attribute 'font-lock-constant-face :foreground)))
           ("QUICK" . (:foreground ,(face-attribute 'font-lock-constant-face :foreground)))
