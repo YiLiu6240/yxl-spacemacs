@@ -77,19 +77,22 @@ Window Split:
 
 Hotspot:
 
- | [_h_]: Frame: Meta           | [_0_]: Org: scratch           |
- | [_j_]: Frame: REPL           | [_1_]: Org: main              |
- | [_k_]: Frame: Code           | [_2_]: Org: work              |
- | [_l_]: Frame: Conf           | [_3_]: Org: config            |
- | ^^                           | [_4_]: Org: proj              |
+ | [_h_]: Frame: Meta             | [_0_]: Org: scratch           |
+ | [_j_]: Frame: REPL             | [_1_]: Org: main              |
+ | [_k_]: Frame: Code             | [_2_]: Org: work              |
+ | [_l_]: Frame: Conf             | [_3_]: Org: config            |
+ | ^^                             | [_4_]: Org: proj              |
 
- | [_ck_]: calendar             | [_gg_]: Helm: my hotspot      |
- | [_cC_]: cfw-calendar         | [_go_]: Helm: my org files    |
- | [_cc_]: Org: capture         | [_gf_]: Helm: my files/dirs   |
- | [_oa_]: Org: agenda list     | [_gw_]: Helm: my websitess    |
- | [_ov_]: Org: calendar/agenda | [_gr_]: Helm: my reading list |
- | [_ot_]: Org: todo list       | ^^                            |
- | [_oo_]: Org: open all files  | ^^                            |
+ | [_ck_]: calendar               | [_gg_]: Helm: my hotspot      |
+ | [_cC_]: cfw-calendar           | [_go_]: Helm: my org files    |
+ | [_cc_]: Org: capture           | [_gf_]: Helm: my files/dirs   |
+ | [_oa_]: Org: agenda list       | [_gw_]: Helm: my websitess    |
+ | [_ov_]: Org: calendar/agenda   | [_gr_]: Helm: my reading list |
+ | [_ot_]: Org: todo list         | ^^                            |
+ | [_oo_]: Org: open all files    |                               |
+
+ | [_ia_]: append: to *scratch*   |                               |
+ | [_is_]: append: to scratch.org |                               |
 "
   ("q" nil "quit")
   ("." nil "quit")
@@ -118,7 +121,10 @@ Hotspot:
   ("go" yxl-helm-org-files)
   ("gf" yxl-helm-files)
   ("gw" yxl-helm-websites)
-  ("gr" yxl-helm-reading-list))
+  ("gr" yxl-helm-reading-list)
+
+  ("is" (yxl-append-to-scratch yxl-file-org-scratch))
+  ("ia" yxl-append-to-scratch))
 
 (defhydra yxl-hydra-system (:color blue :hint nil
                             :pre (setq which-key-inhibit t)
@@ -237,8 +243,7 @@ System:
 
 (spacemacs/declare-prefix "oi" "insert")
 (spacemacs/set-leader-keys
-  "ois" #'yas-insert-snippet
-  "oia" #'yxl-append-to-scratch)
+  "ois" #'yas-insert-snippet)
 
 (spacemacs/declare-prefix "om" "modes")
 (spacemacs/set-leader-keys
