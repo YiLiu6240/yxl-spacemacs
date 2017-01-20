@@ -131,6 +131,10 @@
       (define-key evil-evilified-state-map-original (kbd "C-k") #'evil-window-up)
       (define-key evil-evilified-state-map-original (kbd "C-l") #'evil-window-right)
 
+      (define-key evil-evilified-state-map-original (kbd "zz") #'evil-scroll-line-to-center)
+      (define-key evil-evilified-state-map-original (kbd "zb") #'evil-scroll-line-to-bottom)
+      (define-key evil-evilified-state-map-original (kbd "zt") #'evil-scroll-line-to-top)
+
       (define-key evil-evilified-state-map-original
         (kbd dotspacemacs-ex-command-key) #'evil-ex))))
 
