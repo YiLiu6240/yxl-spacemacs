@@ -9,6 +9,39 @@
 
 
 
+(defhydra yxl-window-hydra (:color blue :hint nil)
+  "
+Window Split:
+
++------+----+  +---+---+---+  +-----------+  +-----------+
+| S V  |    |  |C C|   | C |  |           |  |     |     |
++------+  v |  || || ->| | |  |---- g ----|  |     h     |
+| s    |    |  |u u|   | u |  |           |  |     |     |
++------+----+  +---+---+---+  +-----------+  +-----------+
+
+[_s_/_S_] sp: focus/stay [_v_/_V_] vsp: focus/stay
+
+[_g_]: adjust width  [_h_]: adjust height
+"
+  ("q" nil "quit")
+  ("." nil "quit")
+
+  ("s" yxl-window-split-horizontal-focus)
+  ("S" yxl-window-split-horizontal-stay)
+  ("v" yxl-window-split-vertical-focus)
+  ("V" yxl-window-split-vertical-stay)
+  ("g" yxl-window-adjust-width-ratio)
+  ("h" yxl-window-adjust-height-ratio)
+
+  ("1" yxl-window-custom-layout1 "layout: 1")
+  ("2" yxl-window-custom-layout2 "layout: 2")
+  ("3" yxl-window-vertical-3 "layout: v3")
+
+  ("p" yxl-window-get-buffer-previous-window "previous buffer")
+  ("c" yxl-window-center-margins "center margin")
+  ("w" yxl-window-change-width "adjust width"))
+
+
 (defhydra yxl-find-dir (:color blue)
   "Directory: "
   ("d" (find-file yxl-path-dotfiles) "dotfiles")
@@ -170,7 +203,8 @@ System:
   "of" #'yxl-find-file/body
   "oy" #'copy-file-name-to-clipboard
   "oo" #'yxl-hydra-hotspot/body
-  "op"  #'yxl-find-dir/body)
+  "op" #'yxl-find-dir/body
+  "ow" #'yxl-window-hydra/body)
 
 (spacemacs/declare-prefix "ob" "buffer")
 (spacemacs/set-leader-keys
@@ -230,18 +264,3 @@ System:
 (spacemacs/declare-prefix "ox" "text")
 (spacemacs/set-leader-keys
   "oxp" #'counsel-yank-pop)
-
-(spacemacs/declare-prefix "ow" "window")
-(spacemacs/set-leader-keys
-  "ow1" #'yxl-window-custom-layout1
-  "ow2" #'yxl-window-custom-layout2
-  "ow3" #'yxl-window-vertical-3
-  "ows" #'yxl-window-split-horizontal-focus
-  "owS" #'yxl-window-split-horizontal-stay
-  "owv" #'yxl-window-split-vertical-focus
-  "owV" #'yxl-window-split-vertical-stay
-  "owg" #'yxl-window-adjust-width-ratio
-  "owh" #'yxl-window-adjust-height-ratio
-  "owp" #'yxl-window-get-buffer-previous-window
-  "owc" #'yxl-window-center-margins
-  "oww" #'yxl-window-change-width)
