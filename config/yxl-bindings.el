@@ -236,11 +236,6 @@ System:
   "oFM" #'make-frame
   "oFN" #'set-frame-name)
 
-(spacemacs/declare-prefix "oe" "ess")
-(spacemacs/set-leader-keys
-  "oe2" #'yxl-ess-repl-2cols
-  "oe3" #'yxl-ess-repl-3cols)
-
 (spacemacs/declare-prefix "oi" "insert")
 (spacemacs/set-leader-keys
   "ois" #'yas-insert-snippet)
