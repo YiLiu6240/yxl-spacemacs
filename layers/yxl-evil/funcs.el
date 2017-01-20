@@ -83,23 +83,7 @@
 
 (defun yxl-evil/setup-evil-personal ()
   "personal bindings, rely on external yxl functions"
-  (progn
-    ;; tmux style bindings for my personal 4 frame setup
-    (define-key evil-motion-state-map (kbd "C-a h") #'yxl-frame-select-meta)
-    (define-key evil-motion-state-map (kbd "C-a j") #'yxl-frame-select-repl)
-    (define-key evil-motion-state-map (kbd "C-a k") #'yxl-frame-select-code)
-    (define-key evil-motion-state-map (kbd "C-a l") #'yxl-frame-select-config)
-    ;; TODO: check if we need to bind in comint-mode-map
-    (evil-define-key 'normal comint-mode-map
-      (kbd "C-a h") #'yxl-frame-select-meta
-      (kbd "C-a j") #'yxl-frame-select-repl
-      (kbd "C-a k") #'yxl-frame-select-code
-      (kbd "C-a l") #'yxl-frame-select-config)
-    (evil-define-key 'normal inferior-ess-mode-map
-      (kbd "C-a h") #'yxl-frame-select-meta
-      (kbd "C-a j") #'yxl-frame-select-repl
-      (kbd "C-a k") #'yxl-frame-select-code
-      (kbd "C-a l") #'yxl-frame-select-config)))
+  )
 
 (defun yxl-evil/setup-evil-misc ()
   (evil-define-key 'insert comint-mode-map
