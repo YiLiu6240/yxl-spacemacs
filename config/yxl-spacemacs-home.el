@@ -1,29 +1,18 @@
 (defun spacemacs-buffer//insert-buttons ()
   (goto-char (point-max))
   (widget-create 'push-button
-                 :help-echo "Update Spacemacs core and layers."
-                 :action (lambda (&rest ignore) (spacemacs/switch-to-version))
+                 :action (lambda (&rest ignore)
+                           (yxl-hydra-hotspot/body))
                  :mouse-face 'highlight
-                 :follow-link "\C-m"
-                 (propertize "Update Spacemacs" 'face 'font-lock-keyword-face))
-  (insert " ")
+                 (propertize "Hotspot" 'face 'font-lock-keyword-face))
+  (insert "\n")
   (widget-create 'push-button
                  :help-echo "Update all ELPA packages to the latest versions."
                  :action (lambda (&rest ignore)
-                           (configuration-layer/update-packages))
+                           (yxl-hydra-system/body))
                  :mouse-face 'highlight
                  :follow-link "\C-m"
-                 (propertize "Update Packages" 'face 'font-lock-keyword-face))
-  (insert " ")
-  (widget-create 'push-button
-                 :help-echo
-                 "Rollback ELPA package updates if something got borked."
-                 :action (lambda (&rest ignore)
-                           (call-interactively 'configuration-layer/rollback))
-                 :mouse-face 'highlight
-                 :follow-link "\C-m"
-                 (propertize "Rollback Package Update"
-                             'face 'font-lock-keyword-face))
+                 (propertize "System" 'face 'font-lock-keyword-face))
   (insert "\n\n"))
 
 (defun spacemacs-buffer//insert-footer ())
