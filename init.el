@@ -101,7 +101,6 @@
      imenu-list
 
      ;; my private layers --------
-     helm-dash
      calfw
      ov-highlighter
      yxl-utils
@@ -111,6 +110,9 @@
      yxl-prog
      yxl-text
      yxl-dired
+     (yxl-dash :variables
+               yxl-dash-docset-newpath "~/Dropbox/dash-docsets"
+               yxl-dash-browser-func 'w3m-goto-url-new-session)
      yxl-ess
      yxl-org
      yxl-web
