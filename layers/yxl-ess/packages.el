@@ -28,6 +28,10 @@
     (spacemacs/set-leader-keys-for-major-mode 'ess-mode
       "hh" #'ess-help)
     (spacemacs/set-leader-keys-for-major-mode 'ess-mode
+      "st" nil
+      "sT" nil
+      "sf" #'ess-eval-function
+      "sF" #'ess-eval-function-and-go
       "sp" #'ess-eval-paragraph
       "sP" #'ess-eval-pipe-through-line)
     (add-hook 'ess-rdired-mode-hook
