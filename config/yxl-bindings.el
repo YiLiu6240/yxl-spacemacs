@@ -33,13 +33,13 @@ Window Split:
   ("g" yxl-window-adjust-width-ratio)
   ("h" yxl-window-adjust-height-ratio)
 
-  ("1" yxl-window-custom-layout1 "layout: 1")
-  ("2" yxl-window-custom-layout2 "layout: 2")
-  ("3" yxl-window-vertical-3 "layout: v3")
+  ("w1" yxl-window-custom-layout1 "layout: 1")
+  ("w2" yxl-window-custom-layout2 "layout: 2")
+  ("w3" yxl-window-vertical-3 "layout: v3")
 
-  ("p" yxl-window-get-buffer-previous-window "previous buffer")
-  ("c" yxl-window-center-margins "center margin")
-  ("w" yxl-window-change-width "adjust width"))
+  ("wp" yxl-window-get-buffer-previous-window "previous buffer")
+  ("wc" yxl-window-center-margins "center margin")
+  ("ww" yxl-window-change-width "adjust width"))
 
 
 (defhydra yxl-find-dir (:color blue)
@@ -83,13 +83,13 @@ Hotspot:
  | [_l_]: Frame: Conf           | [_3_]: Org: config            |
  | ^^                           | [_4_]: Org: proj              |
 
- | [_cc_]: calendar             | [_gg_]: Helm: my hotspot      |
+ | [_ck_]: calendar             | [_gg_]: Helm: my hotspot      |
  | [_cC_]: cfw-calendar         | [_go_]: Helm: my org files    |
- | [_oo_]: Org: open all files  | [_gf_]: Helm: my files/dirs   |
+ | [_cc_]: Org: capture         | [_gf_]: Helm: my files/dirs   |
  | [_oa_]: Org: agenda list     | [_gw_]: Helm: my websitess    |
  | [_ov_]: Org: calendar/agenda | [_gr_]: Helm: my reading list |
  | [_ot_]: Org: todo list       | ^^                            |
- | [_oc_]: Org: capture         | ^^                            |
+ | [_oo_]: Org: open all files  | ^^                            |
 "
   ("q" nil "quit")
   ("." nil "quit")
@@ -105,14 +105,14 @@ Hotspot:
   ("3" (yxl-find-file-popup yxl-file-org-config))
   ("4" (yxl-find-file-popup yxl-file-org-proj))
 
-  ("cc" calendar)
+  ("ck" calendar)
   ("cC" cfw-open-calendar)
 
+  ("cc" org-capture)
   ("oo" yxl-org-open-all-task-files)
   ("oa" org-agenda-list)
   ("ov" yxl-org/agenda-view)
   ("ot" org-todo-list)
-  ("oc" org-capture)
 
   ("gg" yxl-helm-hotspot)
   ("go" yxl-helm-org-files)
