@@ -130,8 +130,8 @@ System:
  [_su_]: update Spacemacs [_sU_]: update packages [_sR_]: roll back packages
 
  | [_f_]: +font-size      ^^^^          | [_F_]: +Frame-size  | [_T_]: +Transparency |
- | [_b_]: big text        ^^^^          | [_B_]: invlidate bg | [_m_]: evil marks    | [_M_]: menubar |
- | [_w_]: switch browser  ^^^^          |
+ | [_b_]: big text        ^^^^          | [_B_]: invlidate bg | [_m_]: evil marks    |
+ | [_w_]: switch browser  ^^^^          | [_M_]: menubar      |
  | [_t_/_d_/_D_]: timer:start/stop/down |
 "
   ("q" nil "quit")
