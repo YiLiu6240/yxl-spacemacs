@@ -23,14 +23,11 @@
         :status (eq parinfer--mode 'indent)
         :on (parinfer-toggle-mode)
         :off (parinfer-toggle-mode))
-      (setq parinfer-extensions '(defaults pretty-parens evil smart-tab smart-yank)))))
+      (setq parinfer-extensions '(defaults pretty-parens evil lispy smart-tab smart-yank)))))
 
 (defun yxl-edit/init-lispy ()
   (use-package lispy
     :defer t
-    :init
-    (progn
-      (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1))))
     :config
     (progn
       (define-key emacs-lisp-mode-map
