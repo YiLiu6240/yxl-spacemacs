@@ -174,6 +174,7 @@ System:
   ;; TODO: rm this with next spacemacs update
   "bm" #'view-echo-area-messages
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
+  "fp" #'counsel-projectile-find-file
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
   "dd" #'yxl-ivy-switch-dired-buffer
