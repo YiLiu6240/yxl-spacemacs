@@ -34,6 +34,8 @@
         (kbd "C-<tab>") 'lispy-indent-adjust-parens)
       (define-key emacs-lisp-mode-map
         (kbd "C-S-<tab>") 'lispy-dedent-adjust-parens)
+      (define-key emacs-lisp-mode-map
+        (kbd "<C-iso-lefttab>") 'lispy-dedent-adjust-parens)
       (define-key lispy-mode-map (kbd "C-2") 'lispy-describe-inline)
       (define-key lispy-mode-map (kbd "C-3") 'lispy-arglist-inline))))
       ;; (define-key lispy-mode-map (kbd "C-k") 'lispy-splice)
