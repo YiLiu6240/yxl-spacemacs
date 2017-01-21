@@ -47,11 +47,11 @@
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
     "r" #'yxl-org-refile-visible))
 
-(defun yxl-org/org-mode-hook ()
+(defun yxl-org/org-mode-hook ())
   ;; (setq line-spacing 4)
   ;; NOTE: buggy, disable for now
   ;; (yxl-org-format-task-files)
-  )
+
 
 (defun yxl-org/setup-bindings ()
   (evil-define-key 'normal org-mode-map
