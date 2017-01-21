@@ -42,20 +42,21 @@ Window Split:
   ("ww" yxl-window-change-width "adjust width"))
 
 
-  "Directory: "
-  ("d" (find-file yxl-path-dotfiles) "dotfiles")
-  ("g" (find-file yxl-path-downloads) "downloads")
-  ("G" (find-file yxl-path-local) "local-repo")
-  ("h" (find-file yxl-path-sync) "dropbox")
-  ("H" (find-file yxl-path-projects) "projects")
-  ("o" (find-file yxl-path-org) "org")
-  ("c" (find-file yxl-path-code-pwd) "code")
-  ("p" (find-file yxl-path-paper-pwd) "papers")
-  ("j" (find-file yxl-path-journal-pwd) "journals")
-  ("b" (find-file yxl-path-book-reference) "books"))
-
-(defhydra yxl-find-file (:color blue
 (defhydra yxl-find-dir-hydra (:color blue :hint nil)
+  "
+Directory:
+"
+  ("d" (yxl-find-dir yxl-path-dotfiles) "dotfiles")
+  ("g" (yxl-find-dir yxl-path-downloads) "downloads")
+  ("G" (yxl-find-dir yxl-path-local) "local-repo")
+  ("h" (yxl-find-dir yxl-path-sync) "dropbox")
+  ("H" (yxl-find-dir yxl-path-projects) "projects")
+  ("o" (yxl-find-dir yxl-path-org) "org")
+  ("c" (yxl-find-dir yxl-path-code-pwd) "code")
+  ("p" (yxl-find-dir yxl-path-paper-pwd) "papers")
+  ("j" (yxl-find-dir yxl-path-journal-pwd) "journals")
+  ("b" (yxl-find-dir yxl-path-book-reference) "books"))
+
 (defhydra yxl-find-file-hydra (:color blue
                          :pre (setq which-key-inhibit t)
                          :post (setq which-key-inhibit nil))
