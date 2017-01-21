@@ -29,4 +29,4 @@ Useful when creating new window layout/config."
                        :width 40 :position 'left :stick t))
 
 
-(provide 'goodies)
+(provide 'general-goodies)
