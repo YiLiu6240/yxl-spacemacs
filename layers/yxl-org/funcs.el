@@ -121,7 +121,6 @@
   (setq org-todo-keywords
         '((sequence
            "INBOX(i)"                   ;; ideas, undecided
-           "QUICK(q)"                   ;; quick
            "TODAY(T)"                       ;; needs to be done today
            "TODO(t)"                        ;; needs to be done
            "NEXT(n)"                        ;; next in line
@@ -129,33 +128,32 @@
            "WIP(I)"
            "PROJ(p)"
            "PLAN(P)"                        ;; still under planning
-           "FOLLOW-UP(f)"                   ;; follow-up results
+           "FOLLOW(f)"                   ;; follow-up results
            "SOMEDAY(s)"                     ;; not now
            "|" "DONE(d)" "CANCELED(C)" "ABORT(A)" "FAILED(F)")))
   (setq org-todo-keyword-faces
-        `(("INBOX" . (:foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
-          ("TODAY" . (:foreground ,(face-attribute 'font-lock-warning-face :foreground)))
-          ("TODO" . (:foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
-          ("HOLD" . (:foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
-          ("NEXT" . (:foreground ,(face-attribute 'font-lock-constant-face :foreground)))
-          ("QUICK" . (:foreground ,(face-attribute 'font-lock-constant-face :foreground)))
-          ("FOLLOW-UP" . (:foreground ,(face-attribute 'font-lock-constant-face :foreground)))
-          ("PROJ" . (:foreground ,(face-attribute 'font-lock-type-face :foreground)))
-          ("WIP" . (:foreground ,(face-attribute 'font-lock-type-face :foreground)))
-          ("DONE" . (:foreground ,(face-attribute 'font-lock-comment-face :foreground)))))
+        `(("INBOX" . (:weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
+          ("TODAY" . (:weight bold :foreground ,(face-attribute 'font-lock-warning-face :foreground)))
+          ("TODO" . (:weight bold :foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
+          ("HOLD" . (:weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
+          ("NEXT" . (:weight bold :foreground ,(face-attribute 'font-lock-constant-face :foreground)))
+          ("FOLLOW" . (:weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
+          ("PROJ" . (:weight bold :foreground ,(face-attribute 'font-lock-type-face :foreground)))
+          ("WIP" . (:weight bold :foreground ,(face-attribute 'font-lock-type-face :foreground)))
+          ("DONE" . (:weight bold :foreground ,(face-attribute 'font-lock-comment-face :foreground)))))
   (setq org-tag-faces
-        `(("CTW" . (:foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
-          ("WORK" . (:foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
-          ("HOME" . (:foreground ,(face-attribute 'font-lock-constant-face :foreground)))
-          ("HAVE_A_LOOK" . (:foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
-          ("MAJOR" . (:foreground ,(face-attribute 'font-lock-warning-face :foreground)))
-          ("MID" . (:foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
-          ("MINOR" . (:foreground ,(face-attribute 'font-lock-string-face :foreground)))
-          ("00" . (:foreground "#deab0e"))
-          ("25" . (:foreground "#b58900"))
-          ("50" . (:foreground "#b58900"))
-          ("75" . (:foreground "#926e00"))
-          ("95" . (:foreground "#926e00"))))
+        `(("CTW" . (:weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
+          ("WORK" . (:weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
+          ("HOME" . (:weight bold :foreground ,(face-attribute 'font-lock-constant-face :foreground)))
+          ("HAVE_A_LOOK" . (:weight bold :foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
+          ("MAJOR" . (:weight bold :foreground ,(face-attribute 'font-lock-warning-face :foreground)))
+          ("MID" . (:weight bold :foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
+          ("MINOR" . (:weight bold :foreground ,(face-attribute 'font-lock-string-face :foreground)))
+          ("00" . (:weight bold :foreground "#deab0e"))
+          ("25" . (:weight bold :foreground "#b58900"))
+          ("50" . (:weight bold :foreground "#b58900"))
+          ("75" . (:weight bold :foreground "#926e00"))
+          ("95" . (:weight bold :foreground "#926e00"))))
   (setq org-tag-persistent-alist
         '((:startgroup . "group")
           ("CTW") ("WORK") ("HOME")

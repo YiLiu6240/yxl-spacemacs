@@ -57,11 +57,13 @@
   (with-eval-after-load 'hl-todo
     (setq-default hl-todo-keyword-faces
                   `(("HOLD" . (:weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
+                    ("TODAY" . (:weight bold :foreground ,(face-attribute 'font-lock-warning-face :foreground)))
                     ("TODO" . (:weight bold :foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
                     ("NEXT" . (:weight bold :foreground ,(face-attribute 'font-lock-constant-face :foreground)))
                     ("PROG" . (:weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
                     ("WIP" . (:weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
                     ("OKAY" . (:weight bold :foreground ,(face-attribute 'success :foreground)))
+                    ("FOLLOW" . (:weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
                     ("DONT" . (:weight bold :foreground ,(face-attribute 'font-lock-builtin-face :foreground)))
                     ("IDEA" . (:weight bold :foreground ,(face-attribute 'font-lock-builtin-face :foreground)))
                     ("DOC" . (:weight bold :foreground ,(face-attribute 'font-lock-builtin-face :foreground)))
