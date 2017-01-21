@@ -109,6 +109,7 @@
      yxl-evil
      yxl-prog
      yxl-text
+     yxl-edit
      yxl-dired
      (yxl-dash :variables
                yxl-dash-docset-newpath "~/Dropbox/dash-docsets"

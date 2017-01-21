@@ -48,33 +48,6 @@
 ;; misc stuff
 (setq-default require-final-newline t)
 (setq-default auto-revert-interval 60)
-;; -----------
-;; ==== general packages below ====
-;; -----------
-(setq-default hl-todo-keyword-faces '(("HOLD" . "#268bd2")
-                                      ("TODAY" . "#dc322f")
-                                      ("TODO" . "#cb4b16")
-                                      ("NEXT" . "#859900")
-                                      ("THEM" . "#859900")
-                                      ("PROG" . "#cb4b16")
-                                      ("ISSUE" . "#cb4b16")
-                                      ("DOING" . "#b58900")
-                                      ("WIP" . "#b58900")
-                                      ("OKAY" . "#859900")
-                                      ("DONT" . "#2aa198")
-                                      ("IDEA" . "#2aa198")
-                                      ("FAIL" . "#dc322f")
-                                      ("DOC" . "#dc322f")
-                                      ("DONE" . "#586e75")
-                                      ("NOTE" . "#859900")
-                                      ("REVIEW" . "#859900")
-                                      ("KLUDGE" . "#859900")
-                                      ("HACK" . "#268bd2")
-                                      ("PATCH" . "#268bd2")
-                                      ("FIXME" . "#b58900")
-                                      ("XXX" . "#b58900")
-                                      ("XXXX" . "#cb4b16")
-                                      ("???" . "#dc322f")))
 
 ;; --------
 ;; display-buffer-alist
