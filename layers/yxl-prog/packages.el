@@ -1,6 +1,7 @@
 (setq yxl-prog-packages '((prog-mode :location built-in)
                           python
                           cc-mode
+                          ob-ipython
                           graphviz-dot-mode
                           bash-completion))
 
@@ -57,34 +58,14 @@
                                "label" "edge" "bgcolor" "style"
                                "record") company-keywords-alist)))
 
-;; ;; literate programming
-;; ;; from builtin ess layer
-;; (defun yxl-prog/post-init-org ()
-;;   (spacemacs|use-package-add-hook org
-;;     :post-config
-;;     (progn
-;;       (add-to-list 'org-babel-load-languages '(dot . t))
-;;       (add-to-list 'org-babel-load-languages '(latex . t))
-;;       (add-to-list 'org-babel-load-languages '(octave . t))
-;;       (add-to-list 'org-babel-load-languages '(org . t))
-;;       (add-to-list 'org-babel-load-languages '(perl . t))
-;;       (add-to-list 'org-babel-load-languages '(python . t))
-;;       (add-to-list 'org-babel-load-languages '(ruby . t))
-;;       (add-to-list 'org-babel-load-languages '(sh . t))
-;;       (add-to-list 'org-babel-load-languages '(sqlite . t))
-;;       (setq org-confirm-babel-evaluate nil)
-;;       (setq org-src-preserve-indentation t)
-;;       (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
-;;       (add-hook 'org-mode-hook 'org-display-inline-images))))
-
-;; (defun yxl-prog/init-ob-ipython ()
-;;   (use-package ob-ipython
-;;     :defer t
-;;     :config
-;;     (org-babel-do-load-languages
-;;      'org-babel-load-languages
-;;      '((ipython . t)))))
-
+(defun yxl-prog/init-ob-ipython ()
+  (use-package ob-ipython))
+;; TODO: defer this
+;; :defer t
+;; :commands (org-babel-ipython-initiate-session
+;;            org-babel-load-session:ipython
+;;            org-babel-prep-session:ipython
+;;            org-babel-execute:ipython)))
 
 (defun yxl-prog/init-bash-completion ()
   (use-package bash-completion
