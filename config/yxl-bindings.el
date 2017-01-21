@@ -90,10 +90,10 @@ Hotspot:
  | [_oa_]: Org: agenda list       | [_gw_]: Helm: my websitess    |
  | [_ov_]: Org: calendar/agenda   | [_gr_]: Helm: my reading list |
  | [_ot_]: Org: todo list         | ^^                            |
- | [_oo_]: Org: open all files    |                               |
+ | [_oo_]: Org: open all files    | ^^                            |
 
- | [_ia_]: append: to *scratch*   |                               |
- | [_is_]: append: to scratch.org |                               |
+ | [_ia_]: append: to *scratch*   | ^^                            |
+ | [_is_]: append: to scratch.org | ^^                            |
 "
   ("q" nil "quit")
   ("." nil "quit")
