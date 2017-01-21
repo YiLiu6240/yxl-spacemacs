@@ -47,6 +47,7 @@ Window Split:
 Directory:
 "
   ("d" (yxl-find-dir yxl-path-dotfiles) "dotfiles")
+  ("D" (yxl-find-dir "~/.emacs.d") ".emacs.d")
   ("g" (yxl-find-dir yxl-path-downloads) "downloads")
   ("G" (yxl-find-dir yxl-path-local) "local-repo")
   ("h" (yxl-find-dir yxl-path-sync) "dropbox")
