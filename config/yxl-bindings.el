@@ -42,7 +42,6 @@ Window Split:
   ("ww" yxl-window-change-width "adjust width"))
 
 
-(defhydra yxl-find-dir (:color blue)
   "Directory: "
   ("d" (find-file yxl-path-dotfiles) "dotfiles")
   ("g" (find-file yxl-path-downloads) "downloads")
@@ -56,6 +55,8 @@ Window Split:
   ("b" (find-file yxl-path-book-reference) "books"))
 
 (defhydra yxl-find-file (:color blue
+(defhydra yxl-find-dir-hydra (:color blue :hint nil)
+(defhydra yxl-find-file-hydra (:color blue
                          :pre (setq which-key-inhibit t)
                          :post (setq which-key-inhibit nil))
   "File: "
@@ -206,10 +207,10 @@ System:
 (spacemacs/set-leader-keys
   "o-" #'yxl-dired-popup
   "o <SPC>" #'delete-other-windows
-  "of" #'yxl-find-file/body
+  "of" #'yxl-find-file-hydra/body
   "oy" #'copy-file-name-to-clipboard
   "oo" #'yxl-hydra-hotspot/body
-  "op" #'yxl-find-dir/body
+  "op" #'yxl-find-dir-hydra/body
   "ow" #'yxl-window-hydra/body)
 
 (spacemacs/declare-prefix "ob" "buffer")
