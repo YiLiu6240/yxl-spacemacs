@@ -183,6 +183,9 @@ System:
   "ii" #'evil-insert-space
   "ia" #'evil-apend-space
   "hdF" #'counsel-faces
+  "l" #'spacemacs/workspaces-transient-state/body
+  "LY" #'yxl-workspace/record-config
+  "LP" #'yxl-workspace/load-config
   "pG" #'projectile-regenerate-tags
   "p C-g" nil
   "qf" #'spacemacs/frame-killer
@@ -197,9 +200,6 @@ System:
   "w M-j" #'buf-move-down
   "w M-k" #'buf-move-up
   "w M-l" #'buf-move-right
-  "l" #'spacemacs/workspaces-transient-state/body
-  "LY" #'yxl-workspace/record-config
-  "LP" #'yxl-workspace/load-config
   "xh" #'yxl-ov-highlighter/body
   "xH" #'highlight-regexp
   "xa{" 'spacemacs/align-repeat-left-curly-brace
