@@ -1,3 +1,14 @@
+(defun yxl-web/invoke-elfeed ()
+  "When invoke with prefix arg, fetch news after invoking elfeed;
+otherwise invoke elfeed as usual.
+"
+  (interactive)
+  (if current-prefix-arg
+      (progn
+        (elfeed)
+        (elfeed-update))
+    (elfeed)))
+
 (defun yxl-web/elfeed-search-mode-config ()
   (setq shr-inhibit-images t)
   (setq line-spacing 4))

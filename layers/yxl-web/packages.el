@@ -97,7 +97,8 @@
     (setq elfeed-db-directory "~/Dropbox/rss/.elfeed")
     (setq elfeed-goodies/powerline-default-separator 'nil)
     (yxl-web/elfeed-bindings)
-    (yxl-web/elfeed-hydra-setup)))
+    (yxl-web/elfeed-hydra-setup)
+    (spacemacs/set-leader-keys "af" #'yxl-web/invoke-elfeed)))
 
 (defun yxl-web/init-yxl-elfeed ()
   (use-package yxl-elfeed
