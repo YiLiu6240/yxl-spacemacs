@@ -184,6 +184,7 @@ System:
   "ia" #'evil-apend-space
   "hdF" #'counsel-faces
   "pG" #'projectile-regenerate-tags
+  "p C-g" nil
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
