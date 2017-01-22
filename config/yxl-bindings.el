@@ -185,6 +185,7 @@ System:
   "hdF" #'counsel-faces
   "pG" #'projectile-regenerate-tags
   "p C-g" nil
+  "qf" #'spacemacs/frame-killer
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
