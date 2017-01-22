@@ -608,7 +608,7 @@
             `(org-agenda-done ((,class (:foreground ,suc :height ,(if yxl-theme-org-height 1.2 1.0)))))
             `(org-agenda-structure ((,class (:inherit bold :foreground ,comp))))
             ;; `(org-block ((,class (:background ,cblk-bg :foreground ,cblk))))
-            `(org-block ((,class (:background ,bg2))))
+            `(org-block ((,class (:background ,cblk-bg))))
             ;; `(org-block-begin-line ((,class (:background ,cblk-ln-bg :foreground ,cblk-ln))))
             ;; `(org-block-end-line ((,class (:background ,cblk-ln-bg :foreground ,cblk-ln))))
             `(org-block-begin-line ((,class (:foreground ,comment))))
