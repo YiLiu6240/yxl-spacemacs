@@ -239,6 +239,8 @@
   (setq-default org-export-babel-evaluate nil)
   (setq org-confirm-babel-evaluate nil)
   (setq org-src-preserve-indentation t)
+  (setq org-src-fontify-natively t)
+  (setq org-src-tab-acts-natively t)
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
   (add-hook 'org-mode-hook 'org-display-inline-images)
   (org-babel-do-load-languages 'org-babel-load-languages '((dot . t)
