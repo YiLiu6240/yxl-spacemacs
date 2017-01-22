@@ -12,32 +12,7 @@
     (yxl-ess/ess-setup)
     (yxl-ess/ess-setup-imenu)
     (add-hook 'R-mode-hook #'yxl-ess/R-hook)
-    (key-chord-define ess-mode-map ">>" "%>%")
-    ;; ess mode leader key bindings
-    (spacemacs/declare-prefix-for-mode 'ess-mode
-      "m," "user-defined")
-    (spacemacs/set-leader-keys-for-major-mode 'ess-mode
-      ",e" #'ess-execute
-      ",d" #'ess-rdired
-      ",s" #'yxl-ess-at-point-str
-      ",S" #'yxl-ess-at-point-generic
-      ",fs" #'yxl-ess-exec-lsos
-      ",ff" #'yxl-ess-exec-lsdf
-      ",i" #'asb-ess-R-object-popup-str
-      ",I" #'asb-ess-R-object-popup-interactive)
-    (spacemacs/set-leader-keys-for-major-mode 'ess-mode
-      "hh" #'ess-help)
-    (spacemacs/set-leader-keys-for-major-mode 'ess-mode
-      "st" nil
-      "sT" nil
-      "sf" #'ess-eval-function
-      "sF" #'ess-eval-function-and-go
-      "sp" #'ess-eval-paragraph
-      "sP" #'ess-eval-pipe-through-line)
-    (add-hook 'ess-rdired-mode-hook
-              (lambda ()
-                (local-set-key "s" 'yxl-ess-rdired-str)
-                (local-set-key "S" 'ess-rdired-sort))))
+    (key-chord-define ess-mode-map ">>" "%>%"))
 
   (with-eval-after-load 'flycheck
    (setq flycheck-lintr-linters
