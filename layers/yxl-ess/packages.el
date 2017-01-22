@@ -8,7 +8,6 @@
     (add-hook 'ess-mode-hook 'smartparens-mode)
     (add-hook 'ess-mode-hook 'fci-mode)
     (add-hook 'ess-mode-hook 'hl-todo-mode)
-    (add-hook 'ess-mode-hook 'which-function-mode)
     (yxl-ess/ess-setup)
     (yxl-ess/ess-setup-imenu)
     (add-hook 'R-mode-hook #'yxl-ess/R-hook)

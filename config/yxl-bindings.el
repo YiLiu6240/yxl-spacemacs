@@ -168,7 +168,6 @@ System:
 
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
-  ";" #'counsel-M-x  ; prevent overwritten by nerd-commenter
   "<SPC>" #'evil-avy-goto-char-2
   "bB" #'yxl-buffer-switch-same-major-mode
   "bh" #'yxl-utils/home
