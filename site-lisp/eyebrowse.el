@@ -173,6 +173,12 @@ If t, ask for confirmation."
   :type 'string
   :group 'eyebrowse)
 
+(defcustom eyebrowse-default-tag-name-list ""
+  "Default name for tags.
+An association list of (SLOT . NAME) for each slot."
+  :type 'string
+  :group 'eyebrowse)
+
 (defvar eyebrowse-mode-map
   (let ((map (make-sparse-keymap)))
     (let ((prefix-map (make-sparse-keymap)))
@@ -291,7 +297,8 @@ last window config."
     (let* ((current-slot (eyebrowse--get 'current-slot))
            (window-configs (eyebrowse--get 'window-configs))
            (current-tag (nth 2 (assoc current-slot window-configs)))
-           (last-slot (eyebrowse--get 'last-slot)))
+           (last-slot (eyebrowse--get 'last-slot))
+           (default-tag (cdr (assoc slot eyebrowse-default-tag-name-list))))
       (when (and eyebrowse-switch-back-and-forth (= current-slot slot))
         (setq slot last-slot))
       (let ((new-window-config (not (eyebrowse--window-config-present-p slot))))
@@ -300,8 +307,11 @@ last window config."
           (eyebrowse--update-window-config-element
            (eyebrowse--current-window-config current-slot current-tag))
           (when new-window-config
-            (eyebrowse--insert-in-window-config-list
-             (eyebrowse--current-window-config slot "")))
+            (if default-tag
+                (eyebrowse--insert-in-window-config-list
+                 (eyebrowse--current-window-config slot default-tag))
+              (eyebrowse--insert-in-window-config-list
+               (eyebrowse--current-window-config slot ""))))
           (eyebrowse--load-window-config slot)
           (eyebrowse--set 'last-slot current-slot)
           (eyebrowse--set 'current-slot slot)
