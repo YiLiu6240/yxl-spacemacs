@@ -16,3 +16,11 @@
       popwin:special-display-config)
 ;; (delete '("*Help*" :dedicated t :position bottom :stick t :noselect t :height 0.4)
 ;;       popwin:special-display-config)
+
+
+;; add align actions
+;; https://github.com/syl20bnr/spacemacs/pull/8118/files
+(spacemacs|create-align-repeat-x "left-curly-brace" "{")
+(spacemacs|create-align-repeat-x "right-curly-brace" "}" t)
+(spacemacs|create-align-repeat-x "left-square-brace" "\\[")
+(spacemacs|create-align-repeat-x "right-square-brace" "\\]" t)

@@ -200,7 +200,11 @@ System:
   "LY" #'yxl-workspace/record-config
   "LP" #'yxl-workspace/load-config
   "xh" #'yxl-ov-highlighter/body
-  "xH" #'highlight-regexp)
+  "xH" #'highlight-regexp
+  "xa{" 'spacemacs/align-repeat-left-curly-brace
+  "xa}" 'spacemacs/align-repeat-right-curly-brace
+  "xa[" 'spacemacs/align-repeat-left-square-brace
+  "xa]" 'spacemacs/align-repeat-right-square-brace)
 
 
 
