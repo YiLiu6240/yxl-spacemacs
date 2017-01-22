@@ -17,6 +17,13 @@
     :config
     (progn
       (setq eyebrowse-mode-line-style 'always)
+      (setq eyebrowse-default-tag-name-list '((0 . "conf")
+                                              (1 . "main")
+                                              (2 . "support")
+                                              (3 . "doc")
+                                              (4 . "item")
+                                              (8 . "info")
+                                              (9 . "todo")))
       (yxl-workspace/setup-eyebrowse)
       (eyebrowse-setup-opinionated-keys)
       ;; vim-style tab switching
