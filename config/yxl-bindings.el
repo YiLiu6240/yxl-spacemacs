@@ -92,7 +92,8 @@ Hotspot:
  | [_oa_]: Org: agenda list       | [_gw_]: Helm: my websitess    |
  | [_ov_]: Org: calendar/agenda   | [_gr_]: Helm: my reading list |
  | [_ot_]: Org: todo list         | ^^                            |
- | [_oo_]: Org: open all files    | ^^                            |
+ | [_oo_]: Org: open task files   | ^^                            |
+ | [_oO_]: Org: open all files    | ^^                            |
 
  | [_ia_]: append: to *scratch*   | ^^                            |
  | [_is_]: append: to scratch.org | ^^                            |
@@ -115,7 +116,14 @@ Hotspot:
   ("cC" cfw-open-calendar)
 
   ("cc" org-capture)
-  ("oo" yxl-org-open-all-task-files)
+  ("oo" (lambda ()
+          (interactive)
+          (yxl-find-file-open-all `(,yxl-file-org-main
+                                    ,yxl-file-org-work
+                                    ,yxl-file-org-config
+                                    ,yxl-file-org-proj))
+          (yxl-find-file-popup yxl-file-org-scratch)))
+  ("oO" yxl-org-open-all-task-files)
   ("oa" org-agenda-list)
   ("ov" yxl-org/agenda-view)
   ("ot" org-todo-list)
