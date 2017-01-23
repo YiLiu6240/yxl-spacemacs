@@ -100,6 +100,7 @@ Hotspot:
 "
   ("q" nil "quit")
   ("." nil "quit")
+  ("+" make-frame "make-frame")
 
   ("h" (yxl-frame-select-or-set "Meta"))
   ("j" (yxl-frame-select-or-set "REPL"))
