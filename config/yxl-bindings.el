@@ -74,8 +74,8 @@ Directory:
   ("rw" (yxl-find-file-stay yxl-file-reading-list-webpages) "reading-list: webpages"))
 
 (defhydra yxl-hydra-hotspot (:color blue :hint nil
-                             :pre (setq which-key-inhibit t)
-                             :post (setq which-key-inhibit nil))
+                                    :pre (setq which-key-inhibit t)
+                                    :post (setq which-key-inhibit nil))
   "
 
 Hotspot:
