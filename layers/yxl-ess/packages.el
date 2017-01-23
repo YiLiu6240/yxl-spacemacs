@@ -11,7 +11,8 @@
     (yxl-ess/ess-setup)
     (yxl-ess/ess-setup-imenu)
     (add-hook 'R-mode-hook #'yxl-ess/R-hook)
-    (key-chord-define ess-mode-map ">>" "%>%"))
+    (key-chord-define ess-mode-map ">>" "%>%")
+    (key-chord-define ess-mode-map "__" "<-"))
 
   (with-eval-after-load 'flycheck
    (setq flycheck-lintr-linters
