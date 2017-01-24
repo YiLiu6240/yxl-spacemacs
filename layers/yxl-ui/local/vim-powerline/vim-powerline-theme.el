@@ -175,30 +175,9 @@ And if not, try to get the corresponding '-normal' face"
                           ;; Right Hand Side
                           (rhs (list
                                 (powerline-raw global-mode-string split-face 'r)
-                                ;; ;; version control
-                                ;; (when
-                                ;;     (and (> (window-width) 100)
-                                ;;          (powerline-selected-window-active)
-                                ;;          vc-mode)
-                                ;;   (concat
-                                ;;    (powerline-raw (downcase (format-mode-line '(vc-mode vc-mode))) vc-face 'r)
-                                ;;    (powerline-raw softdiv-right vc-face)))
                                 (funcall harddiv-right vc-face fileformat-face)
-                                ;; line ending and encoding
-                                (when (> (window-width) 60)
-                                  (concat
-                                   (when
-                                       (not (null platform))
-                                     (concat (powerline-raw platform fileformat-face 'lr)
-                                             (powerline-raw softdiv-right fileformat-face)))
-                                   (powerline-raw encoding fileencoding-face 'lr)
-                                   (powerline-raw softdiv-right fileencoding-face)))
                                 ;; major mode
                                 (powerline-major-mode filetype-face 'lr)
-                                (powerline-raw softdiv-right filetype-face)
-                                ;; indent
-                                (powerline-raw (zilongshanren/display-mode-indent-width) filetype-face 'lr)
-                                (funcall harddiv-right filetype-face scrollpercent-face)
                                 ;; percentage
                                 (powerline-raw "%p" scrollpercent-face 'lr)
                                 (funcall harddiv-right scrollpercent-face lineinfo-face)
