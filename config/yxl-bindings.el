@@ -144,36 +144,41 @@ Hotspot:
                             :pre (setq which-key-inhibit t)
                             :post (setq which-key-inhibit nil))
   "
+name: %`buffer-file-name
+branch: %(magit-get-current-branch)
+evil-shift-width: %`evil-shift-width; tabs: %`indent-tabs-mode
+encoding: %`buffer-file-coding-system
 
-System:
+--------
+ [_su_]: update Spacemacs ^^^^ [_sU_]: update packages [_sR_]: roll back packages
 
- [_su_]: update Spacemacs [_sU_]: update packages [_sR_]: roll back packages
+ [_f_]: +font-size ^^^^        [_F_]: +Frame-size      [_T_]: +Transparency
 
- | [_f_]: +font-size      ^^^^          | [_F_]: +Frame-size  | [_T_]: +Transparency |
- | [_b_]: big text        ^^^^          | [_B_]: invlidate bg | [_m_]: evil marks    |
- | [_w_]: switch browser  ^^^^          | [_M_]: menubar      |
- | [_t_/_d_/_D_]: timer:start/stop/down |
+ [_tw_]: switch browser  ^^^^  [_tm_]: menubar         [_tb_]: big text
+
+ [_att_/_atd_/_atD_]: timer:start/stop/down
 "
   ("q" nil "quit")
   ("." nil "quit")
+  ("," #'eval-expression "M-:")
 
   ("su" spacemacs/switch-to-version)
   ("sU" configuration-layer/update-packages)
   ("sR" (call-interactively 'configuration-layer/rollback))
 
-  ("," #'eval-expression "M-:")
   ("f" #'spacemacs/scale-font-transient-state/body)
   ("F" #'spacemacs/zoom-frm-transient-state/body)
   ("T" #'spacemacs/scale-transparency-transient-state/spacemacs/toggle-transparency)
-  ("b" yxl-big-text-mode)
-  ("B" (set-face-background 'default "unspecified-bg" (selected-frame)))
-  ("w" yxl-web-switch-browser)
-  ("m" evil-show-marks)
-  ("M" menu-bar-mode)
-  ("t" mode-line-timer-start)
-  ("d" mode-line-timer-stop)
-  ("D" mode-line-timer-done)
-  ("+" make-frame "make frame"))
+
+  ("b" (set-face-background 'default "unspecified-bg" (selected-frame)) "invalidate bg")
+
+  ("tw" yxl-web-switch-browser)
+  ("tm" menu-bar-mode)
+  ("tb" yxl-big-text-mode)
+
+  ("att" mode-line-timer-start)
+  ("atd" mode-line-timer-stop)
+  ("atD" mode-line-timer-done))
 
 
 
