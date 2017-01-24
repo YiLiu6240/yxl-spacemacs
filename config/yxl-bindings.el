@@ -42,7 +42,7 @@ Window Split:
   ("ww" yxl-window-change-width "adjust width"))
 
 
-(defhydra yxl-find-dir-hydra (:color blue :hint nil)
+(defhydra yxl-find-dir-hydra (:color blue :hint nil :columns 4)
   "
 Directory:
 "
@@ -61,7 +61,9 @@ Directory:
 (defhydra yxl-find-file-hydra (:color blue :columns 4
                                       :pre (setq which-key-inhibit t)
                                       :post (setq which-key-inhibit nil))
-  "File: "
+  "
+File:
+"
   ("1" (yxl-find-file-stay yxl-file-org-main) "tasks_1_main.org")
   ("2" (yxl-find-file-stay yxl-file-org-work) "tasks_2_work.org")
   ("3" (yxl-find-file-stay yxl-file-org-config) "tasks_3_config.org")
