@@ -104,21 +104,11 @@
 ;; --------
 ;; under REVIEW
 ;; --------
-;; (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
-;; (evil-define-key 'normal evil-cleverparens-mode-map (kbd "H") nil)
-;; (evil-define-key 'normal evil-cleverparens-mode-map (kbd "L") nil)
-;; ;; evil-cp overwrites y, cannot use reguster 0
-;; (evil-define-key 'normal evil-cleverparens-mode-map (kbd "y") nil)
-;; (evil-define-key 'visual evil-cleverparens-mode-map (kbd "y") nil)
-;; ;; dont overwrite evil unimpared
-;; (evil-define-key 'normal evil-cleverparens-mode-map (kbd "[") nil)
-;; (evil-define-key 'visual evil-cleverparens-mode-map (kbd "[") nil)
-;; (evil-define-key 'normal evil-cleverparens-mode-map (kbd "]") nil)
-;; (evil-define-key 'visual evil-cleverparens-mode-map (kbd "]") nil)
 
 ;; (add-hook 'lua-mode-hook (lambda () (setq-local origami-fold-style 'triple-braces)))
 (add-hook 'bibtex-mode-hook (lambda () (setq-local origami-fold-style 'triple-braces)))
 (setq-default origami-show-fold-header nil)
+
 ;; --------
 ;; misc configs
 ;; --------
