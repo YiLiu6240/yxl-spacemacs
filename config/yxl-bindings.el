@@ -144,7 +144,7 @@ Hotspot:
                             :pre (setq which-key-inhibit t)
                             :post (setq which-key-inhibit nil))
   "
-name: %`buffer-file-name
+location: %(if buffer-file-name buffer-file-name default-directory)
 branch: %(magit-get-current-branch)
 evil-shift-width: %`evil-shift-width; tabs: %`indent-tabs-mode
 encoding: %`buffer-file-coding-system
