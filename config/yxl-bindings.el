@@ -229,6 +229,7 @@ encoding: %`buffer-file-coding-system
 
 (spacemacs/declare-prefix "o" "user-own")
 (spacemacs/set-leader-keys
+  ";" #'counsel-M-x
   "o-" #'yxl-dired-popup
   "o <SPC>" #'delete-other-windows
   "of" #'yxl-find-file-hydra/body
