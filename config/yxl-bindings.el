@@ -72,6 +72,8 @@ File:
   ("b" (yxl-find-file-stay yxl-file-bib) "bib file")
   ("n" (yxl-find-file-stay yxl-file-note-master) "note file")
   ("e" (yxl-find-file-stay "~/Dropbox/inbox/scratch.el") "scratch.el")
+  ("sf" (yxl-find-file-stay yxl-file-sites-local) "sites: local")
+  ("sw" (yxl-find-file-stay yxl-file-sites-web) "sites: web")
   ("rf" (yxl-find-file-stay yxl-file-reading-list-files) "reading-list: files")
   ("rw" (yxl-find-file-stay yxl-file-reading-list-webpages) "reading-list: webpages"))
 

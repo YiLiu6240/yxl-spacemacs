@@ -1,6 +1,7 @@
 (setq yxl-path-dotfiles "~/dotfiles/")
 (setq yxl-path-sync "~/Dropbox/")  ;; sync location for repos
 (setq yxl-path-local "~/local-repo/")  ;; local location for repos
+(setq yxl-path-personal "~/dotfiles/personal/")  ;; location for personal files
 (setq yxl-path-downloads "~/Downloads/")
 (setq yxl-path-org "~/Dropbox/org/")
 (setq yxl-path-org-task "~/Dropbox/org/tasks/")
@@ -18,10 +19,14 @@
 
 (setq yxl-file-bib (concat yxl-path-sync "bib/yxl_bib_master.bib"))
 (setq yxl-file-note-master "~/Dropbox/org/note.org")
-(setq yxl-file-reading-list-files (concat yxl-path-sync
-                                          "inbox/yxl-reading-list-files.txt"))
-(setq yxl-file-reading-list-webpages (concat yxl-path-sync
-                                          "inbox/yxl-reading-list-webpages.txt"))
+(setq yxl-file-sites-local (concat yxl-path-personal
+                                          "yxl-sites-local.txt"))
+(setq yxl-file-sites-web (concat yxl-path-personal
+                                 "yxl-sites-web.txt"))
+(setq yxl-file-reading-list-files (concat yxl-path-personal
+                                          "yxl-reading-list-files.txt"))
+(setq yxl-file-reading-list-webpages (concat yxl-path-personal
+                                          "yxl-reading-list-webpages.txt"))
 
 (setq yxl-file-org-main (concat yxl-path-org-task "tasks_1_main.org"))
 (setq yxl-file-org-work (concat yxl-path-org-task "tasks_2_work.org"))
@@ -46,20 +51,6 @@
 
 
 ;; These alist will be fed to helm
-
-(setq yxl-env-files-alist `(("dotfiles/" . "~/dotfiles/")
-                            ("emacs.d/" . "~/.emacs.d/")
-                            ("local-repos/" . ,yxl-path-local)
-                            ("dropbox" . ,yxl-path-sync)
-                            ("projects" . ,yxl-path-projects)
-                            ("org/" . ,yxl-path-org)
-                            ("journal-papers/" . ,yxl-path-journal-pwd)
-                            ("bib" . ,yxl-file-bib)))
-
-(setq yxl-env-websites-alist '(("wunderlist" . "https://www.wunderlist.com")
-                               ("github" . "https://www.github.com")
-                               ("bham-portable" . "http://my.bham.ac.uk")
-                               ("gmail" . "https://www.gmail.com")))
 
 (setq yxl-env-elfeed-tag-alist '(("emacs" . ("emacs" t))
                                  ("blog" . ("blog" t))
