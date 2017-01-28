@@ -19,14 +19,14 @@
 
 (setq yxl-file-bib (concat yxl-path-sync "bib/yxl_bib_master.bib"))
 (setq yxl-file-note-master "~/Dropbox/org/note.org")
-(setq yxl-file-sites-local (concat yxl-path-personal
-                                          "yxl-sites-local.txt"))
-(setq yxl-file-sites-web (concat yxl-path-personal
-                                 "yxl-sites-web.txt"))
-(setq yxl-file-reading-list-files (concat yxl-path-personal
-                                          "yxl-reading-list-files.txt"))
-(setq yxl-file-reading-list-webpages (concat yxl-path-personal
-                                          "yxl-reading-list-webpages.txt"))
+(setq yxl-file-sites-local (concat yxl-path-sync
+                                          "inbox/yxl-sites-local.txt"))
+(setq yxl-file-sites-web (concat yxl-path-sync
+                                 "inbox/yxl-sites-web.txt"))
+(setq yxl-file-reading-list-files (concat yxl-path-sync
+                                          "inbox/yxl-reading-list-files.txt"))
+(setq yxl-file-reading-list-webpages (concat yxl-path-sync
+                                          "inbox/yxl-reading-list-webpages.txt"))
 
 (setq yxl-file-org-main (concat yxl-path-org-task "tasks_1_main.org"))
 (setq yxl-file-org-work (concat yxl-path-org-task "tasks_2_work.org"))
