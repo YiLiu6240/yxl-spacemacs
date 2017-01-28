@@ -194,7 +194,7 @@ encoding: %`buffer-file-coding-system
   "fp" #'counsel-projectile-find-file
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
-  "dd" #'yxl-ivy-switch-dired-buffer
+  "dd" #'yxl-dired-ivy-switch-buffer
   "i <SPC>" #'evil-insert-newline-around
   "ii" #'evil-insert-space
   "ia" #'evil-apend-space

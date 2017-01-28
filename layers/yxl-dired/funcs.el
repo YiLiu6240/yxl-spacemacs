@@ -1,7 +1,7 @@
 (defun yxl-dired/bindings-setup ()
   (define-key dired-mode-map "z" 'dired-zip-files)
-  (define-key dired-mode-map "." 'hydra-dired-main/body)
-  (define-key dired-mode-map (kbd "C-c \.") 'hydra-dired-main/body)
+  (define-key dired-mode-map "." 'yxl-dired-hydra-main/body)
+  (define-key dired-mode-map (kbd "C-c \.") 'yxl-dired-hydra-main/body)
   (spacemacs/set-leader-keys-for-major-mode 'dired-mode
     "pp" #'peep-dired
     "pk" #'peep-dired-prev-file
@@ -10,8 +10,8 @@
     "sd" #'yxl-dired/dired-sort-by-date
     "ss" #'yxl-dired/dired-sort-by-size
     "sD" #'yxl-dired/dired-sort-by-dir
-    "td" #'yxl-dired/toggle-dwim-target
-    "o"  #'yxl-dired/open-in-desktop
+    "td" #'yxl-dired-toggle-dwim-target
+    "o"  #'yxl-dired-open-in-desktop
     "r"  #'revert-buffer
     "h"  #'dired-hide-details-mode
     "H"  #'dired-omit-mode)

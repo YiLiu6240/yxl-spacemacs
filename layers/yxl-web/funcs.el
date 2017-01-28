@@ -63,7 +63,7 @@ otherwise invoke elfeed as usual.
     (kbd "g C-l") #'eyebrowse-next-window-config
     "w"  nil
     "W"  nil
-    "s" #'yxl-helm-elfeed-search
+    "s" #'yxl-elfeed-helm-search
     "S" #'elfeed-search-set-filter)
 
   (evilified-state-evilify-map elfeed-show-mode-map
@@ -107,7 +107,7 @@ otherwise invoke elfeed as usual.
     ("a"    elfeed-search-update--force)
     ("A"    elfeed-update)
     ("d"    elfeed-unjam)
-    ("s"    yxl-helm-elfeed-search)
+    ("s"    yxl-elfeed-helm-search)
     ("S"    elfeed-search-set-filter)
     ("RET"  elfeed-search-show-entry)
     ("o"    elfeed-search-show-entry)
