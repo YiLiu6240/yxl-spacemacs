@@ -44,7 +44,6 @@
     :init
     (progn (key-chord-mode 1))
     :config
-    (progn
+    (progn)))
       ;; (setq key-chord-two-keys-delay 0.015)
       ;; (setq key-chord-one-key-delay 0.020)
-      )))
