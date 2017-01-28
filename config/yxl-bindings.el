@@ -84,23 +84,23 @@ File:
 
 Hotspot:
 
- | [_h_]: Frame: Meta             | [_0_]: Org: scratch           |
- | [_j_]: Frame: REPL             | [_1_]: Org: main              |
- | [_k_]: Frame: Code             | [_2_]: Org: work              |
- | [_l_]: Frame: Conf             | [_3_]: Org: config            |
- | ^^                             | [_4_]: Org: proj              |
+ | [_h_]: Frame: Meta             | [_0_]: Org: scratch                 |
+ | [_j_]: Frame: REPL             | [_1_]: Org: main                    |
+ | [_k_]: Frame: Code             | [_2_]: Org: work                    |
+ | [_l_]: Frame: Conf             | [_3_]: Org: config                  |
+ | ^^                             | [_4_]: Org: proj                    |
 
- | [_ck_]: calendar               | [_gg_]: Helm: my hotspot      |
- | [_cC_]: cfw-calendar           | [_go_]: Helm: my org files    |
- | [_cc_]: Org: capture           | [_gf_]: Helm: my files/dirs   |
- | [_oa_]: Org: agenda list       | [_gw_]: Helm: my websitess    |
- | [_ov_]: Org: calendar/agenda   | [_gr_]: Helm: my reading list |
- | [_ot_]: Org: todo list         | ^^                            |
- | [_oo_]: Org: open task files   | ^^                            |
- | [_oO_]: Org: open all files    | ^^                            |
+ | [_ck_]: calendar               | [_gg_]: Helm: my hotspot            |
+ | [_cC_]: cfw-calendar           | ^^                                  |
+ | [_cc_]: Org: capture           | [_go_]: Helm: my org files          |
+ | [_oa_]: Org: agenda list       | [_gs_]: Helm: my local/web shorcuts |
+ | [_ov_]: Org: calendar/agenda   | ^^                                  |
+ | [_ot_]: Org: todo list         | [_gr_]: Helm: my reading list       |
+ | [_oo_]: Org: open task files   | ^^                                  |
+ | [_oO_]: Org: open all files    | ^^                                  |
 
- | [_ia_]: append: to *scratch*   | ^^                            |
- | [_is_]: append: to scratch.org | ^^                            |
+ | [_ia_]: append: to *scratch*   | ^^                                  |
+ | [_is_]: append: to scratch.org | ^^                                  |
 "
   ("q" nil "quit")
   ("." nil "quit")
@@ -135,8 +135,7 @@ Hotspot:
 
   ("gg" yxl-helm-hotspot)
   ("go" yxl-helm-org-files)
-  ("gf" yxl-helm-files)
-  ("gw" yxl-helm-websites)
+  ("gs" yxl-helm-shortcuts)
   ("gr" yxl-helm-reading-list)
 
   ("is" (yxl-append-to-scratch yxl-file-org-scratch))
