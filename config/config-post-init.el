@@ -127,3 +127,6 @@
               (let ((result  (apply fun args)))
                 (advice-remove 'fci-mode #'fci-mode-override-advice)
                 result)))
+
+;; force prefer-coding-system
+(prefer-coding-system 'utf-8-unix)
