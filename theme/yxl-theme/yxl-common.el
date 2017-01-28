@@ -651,7 +651,7 @@
             `(org-verse ((,class (:inherit org-block :slant italic))))
             `(org-warning ((,class (:foreground ,err))))
             `(org-tag ((,class (:foreground ,comment))))
-            `(org-latex-and-related ((,class (:inherit font-latex-math-face))))
+            `(org-latex-and-related ((,class (:foreground ,type))))
 
 ;;;;; perspective
             `(persp-selected-face ((,class (:inherit bold :foreground ,func))))
