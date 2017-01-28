@@ -5,7 +5,15 @@
                            key-chord))
 
 (defun yxl-utils/init-yxl-utils ()
-  (use-package yxl-utils))
+  (use-package yxl-utils
+    :config
+    (progn
+      (setq yxl-hhs-org-files yxl-env-org-files)
+      (setq yxl-hhs-file-local-list yxl-file-sites-local)
+      (setq yxl-hhs-file-web-list yxl-file-sites-web)
+      (setq yxl-hhs-file-reading-list-local yxl-file-reading-list-files)
+      (setq yxl-hhs-file-reading-list-webpages yxl-file-reading-list-webpages)
+      (setq yxl-org-task-files yxl-env-org-files))))
 
 (defun yxl-utils/init-general-goodies ()
   (use-package general-goodies))

@@ -106,7 +106,8 @@
     :after (helm elfeed)
     :config
     (progn
-      (yxl-elfeed-patch))))
+      (yxl-elfeed-patch)
+      (setq yxl-elfeed-tag-alist yxl-personal-elfeed-tag-alist))))
 
 (defun yxl-web/init-atomic-chrome ()
   (use-package atomic-chrome
