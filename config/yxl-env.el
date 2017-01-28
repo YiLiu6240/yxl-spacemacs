@@ -48,18 +48,3 @@
                                  (concat yxl-path-org-task "proj_ds.org")
                                  (concat yxl-path-org-task "proj_ctw.org")
                                  (concat yxl-path-org-task "proj_bham.org"))))
-
-
-;; These alist will be fed to helm
-
-(setq yxl-env-elfeed-tag-alist '(("emacs" . ("emacs" t))
-                                 ("blog" . ("blog" t))
-                                 ("tech_blog" . ("tech_blog" t))
-                                 ("tech_news" . ("tech_news" t))
-                                 ("news" . ("news" t))
-                                 ("econ_news" . ("econ_news" t))
-                                 ("work" . ("work" t))
-                                 ("job_mkt" . ("job_mkt" t))
-                                 ("datascience" . ("datascience" t))
-                                 ("econ_sites" . ("econ_sites" t))
-                                 ("star" . ("+star" nil))))
