@@ -123,11 +123,18 @@ Hotspot:
   ("cc" org-capture)
   ("oo" (lambda ()
           (interactive)
+          (delete-other-windows)
+          ;; open main org files
           (yxl-find-file-open-all `(,yxl-file-org-main
                                     ,yxl-file-org-work
                                     ,yxl-file-org-config
                                     ,yxl-file-org-proj))
-          (yxl-find-file-popup yxl-file-org-scratch)))
+          ;; open scratch as sidebar
+          (yxl-find-file-popup yxl-file-org-scratch)
+          ;; adjust height
+          (evil-window-right 1)
+          (evil-window-down 1)
+          (yxl-window-adjust-height-ratio)))
   ("oO" yxl-org-open-all-task-files)
   ("oa" org-agenda-list)
   ("ov" yxl-org/agenda-view)
