@@ -3,7 +3,8 @@
                           smartparens
                           imenu-anywhere
                           hl-todo
-                          narrow-indirect))
+                          narrow-indirect
+                          flyspell))
 
 (defun yxl-edit/init-parinfer ()
   (use-package parinfer
@@ -89,6 +90,12 @@
       ;; TODO: write a function to predicate files in a filter list
       (setq imenu-anywhere-buffer-filter-functions '(imenu-anywhere-same-mode-p
                                                      imenu-anywhere-friendly-mode-p)))))
+
+(defun yxl-edit/post-init-flyspell ()
+  (with-eval-after-load 'flyspell
+    (define-key flyspell-mouse-map (kbd "<C-down-mouse-1>") #'flyspell-correct-word)
+    (define-key flyspell-mouse-map (kbd "<C-mouse-1>") 'undefined)))
+
 (defun yxl-edit/init-narrow-indirect ()
   (use-package narrow-indirect
     :defer t))
