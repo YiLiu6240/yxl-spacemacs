@@ -85,7 +85,7 @@
             (iedit        ,darkred         ,brightestred t)
             (lisp         ,brightpurple    ,mediumpurple t))
 
-           (("scrollpercent" "raw" "filesize")
+           (("scrollpercent" "raw" "filesize" "filetype")
             (normal      ,gray9           ,gray4)
             (inactive    ,gray4           ,gray1)
             (insert      ,mediumcyan      ,darkblue))
@@ -111,7 +111,7 @@
             (insert      ,brightestred    nil          t))
 
            (("branch" "currenttag" "fullcurrenttag" "fileformat" "fileencoding"
-             "pwd" "filetype" "rvm.string" "rvm.statusline"
+             "pwd" "rvm.string" "rvm.statusline"
              "virtualenv.statusline" "charcode" "currhigroup" "workspace")
             (normal      ,gray8           ,gray2)
             (inactive    ,gray3           ,gray0)

@@ -127,7 +127,7 @@ And if not, try to get the corresponding '-normal' face"
 
                           (scrollpercent-face   (pl/vim-face "scrollpercent" editor-state))
                           (lineinfo-face        (pl/vim-face "lineinfo" editor-state))
-                          (workspace-face        (pl/vim-face "workspace" editor-state))
+                          (workspace-face       (pl/vim-face "workspace" editor-state))
 
                           (input (split-string (symbol-name buffer-file-coding-system) "-"))
                           (platform (check-in-list input '("mac" "unix" "dos")))
@@ -160,31 +160,25 @@ And if not, try to get the corresponding '-normal' face"
                                   (powerline-raw (my-flycheck) workspace-face 'lr))
                                 (powerline-raw (selection-info)
                                                workspace-face 'lr)
-                                ;; eyebrowse
-                                (when (powerline-selected-window-active)
-                                  ;; (if (> (window-width) 100)
-                                  ;;     (powerline-raw (eyebrowse-mode-line-indicator)
-                                  ;;                    workspace-face 'lr)
-                                  ;;   (powerline-raw (powerline-get-eyebrowse-tag)
-                                  ;;                  workspace-face 'lr))
-                                  (powerline-raw (powerline-get-eyebrowse-tag-current)
-                                                 workspace-face 'lr))
+
                                 ;; lhs ends here
                                 (funcall harddiv-left workspace-face split-face)))
 
                           ;; Right Hand Side
                           (rhs (list
                                 (powerline-raw global-mode-string split-face 'r)
-                                (funcall harddiv-right vc-face fileformat-face)
+                                ;; eyebrowse
+                                (when (powerline-selected-window-active)
+                                  (powerline-raw (powerline-get-eyebrowse-tag-current)
+                                                 workspace-face 'lr))
                                 ;; major mode
                                 (powerline-major-mode filetype-face 'lr)
-                                ;; percentage
-                                (powerline-raw "%p" scrollpercent-face 'lr)
-                                (funcall harddiv-right scrollpercent-face lineinfo-face)
+                                (funcall harddiv-right filetype-face lineinfo-face)
                                 ;; row and column number
                                 (powerline-raw "%l" lineinfo-face 'l)
-                                (powerline-raw ":" lineinfo-face 'lr)
-                                (powerline-raw "%c" lineinfo-face 'r))))
+                                (powerline-raw "/" lineinfo-face)
+                                (powerline-raw (format "%s" (line-number-at-pos (point-max)))
+                                               lineinfo-face 'r))))
 
                      (when active
                        (set-face-attribute 'mode-line nil :underline nil :overline nil :box nil))
