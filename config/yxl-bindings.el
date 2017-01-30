@@ -178,7 +178,7 @@ encoding: %`buffer-file-coding-system
   ("F" #'spacemacs/zoom-frm-transient-state/body)
   ("T" #'spacemacs/scale-transparency-transient-state/spacemacs/toggle-transparency)
 
-  ("b" (set-face-background 'default "unspecified-bg" (selected-frame)) "invalidate bg")
+  ("b" #'yxl-terminal-transparency "invalidate bg")
 
   ("tw" yxl-web-switch-browser)
   ("tm" menu-bar-mode)
