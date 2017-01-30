@@ -86,6 +86,7 @@
     :config
     (progn
       ;; remove same-project-p, too confusing
+      ;; TODO: write a function to predicate files in a filter list
       (setq imenu-anywhere-buffer-filter-functions '(imenu-anywhere-same-mode-p
                                                      imenu-anywhere-friendly-mode-p)))))
 (defun yxl-edit/init-narrow-indirect ()
