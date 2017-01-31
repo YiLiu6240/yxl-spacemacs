@@ -160,6 +160,8 @@ And if not, try to get the corresponding '-normal' face"
                                   (powerline-raw (my-flycheck) workspace-face 'lr))
                                 (powerline-raw (selection-info)
                                                workspace-face 'lr)
+                                ;; process
+                                (powerline-raw mode-line-process fileencoding-face 'lr)
 
                                 ;; lhs ends here
                                 (funcall harddiv-left workspace-face split-face)))
