@@ -34,6 +34,7 @@
 (setq yxl-file-org-proj (concat yxl-path-org-task "tasks_4_proj.org"))
 (setq yxl-file-org-log (concat yxl-path-org "logs/" "log.org"))
 (setq yxl-file-org-scratch (concat yxl-path-org "scratch.org"))
+(setq yxl-file-org-local "~/scratch-local.org")
 
 (setq yxl-env-org-task-files (list yxl-file-org-scratch
                                    yxl-file-org-main

@@ -116,6 +116,7 @@ Hotspot:
   ("2" (yxl-find-file-popup yxl-file-org-work))
   ("3" (yxl-find-file-popup yxl-file-org-config))
   ("4" (yxl-find-file-popup yxl-file-org-proj))
+  ("5" (yxl-find-file-popup yxl-file-org-local))
 
   ("ck" calendar)
   ("cC" cfw-open-calendar)
@@ -131,9 +132,10 @@ Hotspot:
                                     ,yxl-file-org-proj))
           ;; open scratch as sidebar
           (yxl-find-file-popup yxl-file-org-scratch)
+          (split-window-below-and-focus)
+          (find-file yxl-file-org-local)
           ;; adjust height
           (evil-window-right 1)
-          (evil-window-down 1)
           (yxl-window-adjust-height-ratio)))
   ("oO" yxl-org-open-all-task-files)
   ("oa" org-agenda-list)
