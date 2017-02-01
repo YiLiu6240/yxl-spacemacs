@@ -132,7 +132,7 @@
    dotspacemacs-startup-banner nil
    dotspacemacs-startup-lists nil
    dotspacemacs-startup-buffer-responsive t
-   dotspacemacs-scratch-mode 'markdown-mode
+   dotspacemacs-scratch-mode 'fundamental-mode
    dotspacemacs-themes '(yxl-gruv
                          yxl-dark
                          spacegray

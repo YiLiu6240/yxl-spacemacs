@@ -9,7 +9,7 @@
 (setq-default mac-option-modifier 'super
               mac-command-modifier 'meta)
 (setq-default ns-use-srgb-colorspace t)
-(setq-default initial-major-mode 'markdown-mode)
+(setq-default initial-major-mode 'fundamental-mode)
 ;; ui
 (setq-default neo-theme 'ascii)
 (setq-default fci-rule-color (face-attribute 'highlight :background))
