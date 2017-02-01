@@ -49,7 +49,7 @@
   (setq org-blank-before-new-entry nil)
   (setq org-refile-use-outline-path t)
   (setq org-refile-targets '((nil :maxlevel . 1)
-                             (org-agenda-files :maxlevel . 1)))
+                             (yxl-env-org-task-files :maxlevel . 1)))
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
     "r" #'yxl-org-refile-visible
     "R" #'yxl-org/refile-to-scratch))
