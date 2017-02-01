@@ -90,8 +90,8 @@ Hotspot:
  | [_l_]: Frame: Conf             | [_3_]: Org: config                  |
  | ^^                             | [_4_]: Org: proj                    |
 
- | [_ck_]: calendar               | [_gg_]: Helm: my hotspot            |
- | [_cC_]: cfw-calendar           | ^^                                  |
+ | [_cK_]: calendar               | [_gg_]: Helm: my hotspot            |
+ | [_ck_]: cfw-calendar           | ^^                                  |
  | [_cc_]: Org: capture           | [_go_]: Helm: my org files          |
  | [_oa_]: Org: agenda list       | [_gs_]: Helm: my local/web shorcuts |
  | [_ov_]: Org: calendar/agenda   | ^^                                  |
@@ -118,8 +118,8 @@ Hotspot:
   ("4" (yxl-find-file-popup yxl-file-org-proj))
   ("5" (yxl-find-file-popup yxl-file-org-local))
 
-  ("ck" calendar)
-  ("cC" cfw-open-calendar)
+  ("cK" calendar)
+  ("ck" cfw-open-calendar)
 
   ("cc" org-capture)
   ("oo" (lambda ()
