@@ -6,6 +6,12 @@
   (interactive)
   (org-agenda nil "0"))
 
+(defun yxl-org/refile-to-scratch ()
+  (interactive)
+  (let ((org-refile-targets '((yxl-file-org-scratch :maxlevel . 1)
+                              (nil :maxlevel . 1))))
+    (org-refile)))
+
 (defun yxl-org/agenda-view ()
   (interactive)
   (delete-other-windows)
@@ -45,7 +51,8 @@
   (setq org-refile-targets '((nil :maxlevel . 1)
                              (org-agenda-files :maxlevel . 1)))
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
-    "r" #'yxl-org-refile-visible))
+    "r" #'yxl-org-refile-visible
+    "R" #'yxl-org/refile-to-scratch))
 
 (defun yxl-org/org-mode-hook ())
   ;; (setq line-spacing 4)
