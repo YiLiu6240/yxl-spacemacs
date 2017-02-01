@@ -128,6 +128,7 @@ And if not, try to get the corresponding '-normal' face"
                           (scrollpercent-face   (pl/vim-face "scrollpercent" editor-state))
                           (lineinfo-face        (pl/vim-face "lineinfo" editor-state))
                           (workspace-face       (pl/vim-face "workspace" editor-state))
+                          (branch-face          (pl/vim-face "branch" editor-state))
 
                           (input (split-string (symbol-name buffer-file-coding-system) "-"))
                           (platform (check-in-list input '("mac" "unix" "dos")))
@@ -173,6 +174,7 @@ And if not, try to get the corresponding '-normal' face"
                                 (when (powerline-selected-window-active)
                                   (powerline-raw (powerline-get-eyebrowse-tag-current)
                                                  workspace-face 'lr))
+                                (powerline-raw (magit-get-current-branch) branch-face 'r)
                                 ;; major mode
                                 (powerline-major-mode filetype-face 'lr)
                                 (funcall harddiv-right filetype-face lineinfo-face)

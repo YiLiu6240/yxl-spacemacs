@@ -155,7 +155,7 @@ Hotspot:
                             :post (setq which-key-inhibit nil))
   "
 location: %(if buffer-file-name buffer-file-name default-directory)
-major-mode: %`major-mode; branch: %(magit-get-current-branch)
+major-mode: %`major-mode
 pos: %(line-number-at-pos)/%(line-number-at-pos (point-max)):%(current-column)
 evil-shift-width: %`evil-shift-width; tabs: %`indent-tabs-mode
 encoding: %`buffer-file-coding-system
