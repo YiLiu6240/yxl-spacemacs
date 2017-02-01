@@ -81,15 +81,27 @@
 (defun yxl-edit/init-imenu-anywhere ()
   (use-package imenu-anywhere
     :defer t
-    :init
-    (progn
-      (spacemacs/set-leader-keys "sJ" #'imenu-anywhere))
+    :commands (imenu-anywhere yxl-imenu-anywhere ivy-imenu-anywhere)
     :config
     (progn
+      (defun imenu-anywhere-buffer-visible-p (current other)
+        (let ((visible-buffer-list (delq nil
+                                         (mapcar
+                                          (lambda (buffer)
+                                            (when (get-buffer-window buffer)
+                                              buffer))
+                                          (buffer-list)))))
+          (member other visible-buffer-list)))
       ;; remove same-project-p, too confusing
       ;; TODO: write a function to predicate files in a filter list
       (setq imenu-anywhere-buffer-filter-functions '(imenu-anywhere-same-mode-p
-                                                     imenu-anywhere-friendly-mode-p)))))
+                                                     imenu-anywhere-friendly-mode-p))
+      (defun yxl-imenu-anywhere ()
+        (interactive)
+        (if current-prefix-arg
+            (let ((imenu-anywhere-buffer-filter-functions '(imenu-anywhere-buffer-visible-p)))
+              (ivy-imenu-anywhere))
+          (ivy-imenu-anywhere))))))
 
 (defun yxl-edit/post-init-flyspell ()
   (with-eval-after-load 'flyspell

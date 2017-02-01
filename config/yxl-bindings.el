@@ -215,6 +215,7 @@ encoding: %`buffer-file-coding-system
   "pG" #'projectile-regenerate-tags
   "p C-g" nil
   "qf" #'spacemacs/frame-killer
+  "sJ" #'yxl-imenu-anywhere
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
