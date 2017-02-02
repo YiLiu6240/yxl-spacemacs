@@ -161,6 +161,10 @@ And if not, try to get the corresponding '-normal' face"
                                   (powerline-raw (my-flycheck) workspace-face 'lr))
                                 (powerline-raw (selection-info)
                                                workspace-face 'lr)
+                                ;; eyebrowse
+                                (when (powerline-selected-window-active)
+                                  (powerline-raw (powerline-get-eyebrowse-tag-current)
+                                                 workspace-face 'lr))
                                 ;; process
                                 (powerline-raw mode-line-process fileencoding-face 'lr)
 
@@ -170,11 +174,6 @@ And if not, try to get the corresponding '-normal' face"
                           ;; Right Hand Side
                           (rhs (list
                                 (powerline-raw global-mode-string split-face 'r)
-                                ;; eyebrowse
-                                (when (powerline-selected-window-active)
-                                  (powerline-raw (powerline-get-eyebrowse-tag-current)
-                                                 workspace-face 'lr))
-                                (powerline-raw (magit-get-current-branch) branch-face 'r)
                                 ;; branch
                                 (when (featurep 'magit) (powerline-raw (magit-get-current-branch) branch-face 'r))
                                 ;; major mode
