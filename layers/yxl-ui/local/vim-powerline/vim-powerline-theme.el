@@ -175,6 +175,8 @@ And if not, try to get the corresponding '-normal' face"
                                   (powerline-raw (powerline-get-eyebrowse-tag-current)
                                                  workspace-face 'lr))
                                 (powerline-raw (magit-get-current-branch) branch-face 'r)
+                                ;; branch
+                                (when (featurep 'magit) (powerline-raw (magit-get-current-branch) branch-face 'r))
                                 ;; major mode
                                 (powerline-major-mode filetype-face 'lr)
                                 (funcall harddiv-right filetype-face lineinfo-face)
