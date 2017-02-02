@@ -98,6 +98,7 @@ otherwise invoke elfeed as usual.
     "
  | _k_:  up  | _s_: filter (helm)    | _o_: view          | _a_: refresh    |
  | _j_: down | _S_: filter (nonlive) | _O_: browser (w3m) | _A_: fetch      |
+ | ^^        | _c_: clean filter     | ^^                 | ^^              |
  | ^^        | _r_: read             | _x_: browser (gen) | _w_: db-save    |
  | ^^        | _u_: unread           | _y_: yank url      | _d_: unjam      |
  | ^^        | _+_: add              | _v_: mark          | _E_: edit feeds |
@@ -109,6 +110,7 @@ otherwise invoke elfeed as usual.
     ("d"    elfeed-unjam)
     ("s"    yxl-elfeed-helm-search)
     ("S"    elfeed-search-set-filter)
+    ("c"    (elfeed--read-tag (default-value 'elfeed-search-filter)))
     ("RET"  elfeed-search-show-entry)
     ("o"    elfeed-search-show-entry)
     ("O"    yxl-web/elfeed-search-browse-url-w3m)
