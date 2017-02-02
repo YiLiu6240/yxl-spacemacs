@@ -136,7 +136,8 @@ Hotspot:
           (find-file yxl-file-org-local)
           ;; adjust height
           (evil-window-right 1)
-          (yxl-window-adjust-height-ratio)))
+          (let ((current-prefix-arg 80))
+            (yxl-window-adjust-height-ratio))))
   ("oO" yxl-org-open-all-task-files)
   ("oa" org-agenda-list)
   ("ov" yxl-org/agenda-view)
