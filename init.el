@@ -97,7 +97,7 @@
      ;; tools --------
      csv
      graphviz
-     pdf-tools
+     yxl-pdf-tools
      imenu-list
 
      ;; my private layers --------

@@ -1,0 +1,67 @@
+* Notes for compiling and setting up pdf-tools using msys2
+  
+** Steps
+     
+   1. Open msys2 shell
+
+   2. Get pdf-tools
+      #+BEGIN_SRC sh
+      git clone https://github.com/politza/pdf-tools
+      cd pdf-tools
+      #+END_SRC
+   
+   3. Update and install dependencies, skipping any you already have
+      #+BEGIN_SRC sh
+      pacman -Syu
+      pacman -S base-devel
+      pacman -S mingw-w64-x86_64-toolchain
+      pacman -S mingw-w64-x86_64-zlib
+      pacman -S mingw-w64-x86_64-libpng
+      pacman -S mingw-w64-x86_64-poppler
+      pacman -S mingw-w64-x86_64-imagemagick
+      #+END_SRC
+      
+   4. Open mingw64 shell
+      
+   5. Compile pdf-tools
+      #+BEGIN_SRC sh
+      make -s
+      #+END_SRC
+      
+   6. Open emacs
+   
+   7. Install
+      #+BEGIN_SRC 
+      M-x package-install-file RET pdf-tools-${VERSION}.tar RET
+      #+END_SRC
+   
+   8. Activate package
+      #+BEGIN_SRC 
+      M-x pdf-tools-install RET
+      #+END_SRC
+   
+   9. Test
+      #+BEGIN_SRC 
+      M-x pdf-info-check-epdfinfo RET
+      #+END_SRC
+   
+** Problems
+   1. Step 8 failed for me and it took me a while to figure out why. There were
+      two problems to be fixed
+
+      1. epdfinfo.exe was loading a library from git-for-windows and there was
+         an error from this. To fix this I made sure the mingw libraries were
+         ahead of the git-for-windows ones in my path like this
+         #+BEGIN_SRC emacs-lisp
+         (setenv "PATH" (concat "C:\\msys64\\mingw64\\bin;" (getenv "PATH")))
+         #+END_SRC
+
+      2. The default encoding for newly created files was utf-8-dos, which uses
+         line endings that epdfinfo doesn't like. I originally had
+         #+BEGIN_SRC emacs-lisp
+         (prefer-coding-system 'utf-8)
+         #+END_SRC
+         but needed 
+         #+BEGIN_SRC emacs-lisp
+         (prefer-coding-system 'utf-8-unix)
+         #+END_SRC
