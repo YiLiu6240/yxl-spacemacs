@@ -7,10 +7,8 @@
 (setq yxl-path-org-task "~/Dropbox/org/tasks/")
 (setq yxl-path-projects (concat yxl-path-local "yxl_projects"))
 
-(setq yxl-path-code-repo (concat yxl-path-local "c3_pwd/"))
-(setq yxl-path-phd-repo (concat yxl-path-local "yxl105_ctw/"))
-(setq yxl-path-code-pwd (concat yxl-path-local "c3_pwd/code/"))
-(setq yxl-path-paper-pwd (concat yxl-path-local "yxl105_ctw/yxl105_tex/"))
+(setq yxl-path-code-pwd (concat yxl-path-local "yxl_ctw_code/"))
+(setq yxl-path-paper-pwd (concat yxl-path-local "yxl_ctw_paper/"))
 (setq yxl-path-journal-pwd (concat yxl-path-sync "journal_yxl"))
 
 (setq yxl-path-book-reference (concat yxl-path-sync "book_reference"))
