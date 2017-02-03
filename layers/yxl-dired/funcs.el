@@ -15,6 +15,9 @@
     "r"  #'revert-buffer
     "h"  #'dired-hide-details-mode
     "H"  #'dired-omit-mode)
+  (define-key dired-mode-map (kbd "C-c C-w") #'dired-toggle-read-only)
+  (with-eval-after-load 'wdired
+    (define-key wdired-mode-map (kbd "C-c C-w") #'wdired-finish-edit))
   (spacemacs/declare-prefix-for-mode #'dired-mode "ms" "sort")
   (spacemacs/declare-prefix-for-mode #'dired-mode "mt" "toggle")
   (spacemacs/declare-prefix-for-mode #'dired-mode "mp" "peep"))
