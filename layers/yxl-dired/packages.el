@@ -2,7 +2,8 @@
                            (dired-goodies :location site)
                            peep-dired
                            image+
-                           dired-quick-sort))
+                           dired-quick-sort
+                           dired-subtree))
 
 (defun yxl-dired/post-init-dired ()
   (use-package dired
@@ -90,3 +91,11 @@
     :init
     (with-eval-after-load 'dired
       (dired-quick-sort-setup))))
+
+(defun yxl-dired/init-dired-subtree ()
+  (use-package dired-subtree
+    :defer t
+    :config
+    (progn
+      (setq dired-subtree-use-backgrounds nil)
+      (define-key dired-mode-map "i" #'dired-subtree-toggle))))
