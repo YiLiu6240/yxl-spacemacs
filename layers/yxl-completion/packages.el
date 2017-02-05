@@ -8,6 +8,10 @@
 (defun yxl-completion/post-init-helm ()
   (with-eval-after-load 'helm
     (setq helm-mini-default-sources '(helm-source-buffers-list))
+    (setq helm-move-to-line-cycle-in-source t)
+    ;; NOTE: these not work in terminal; Use C-o
+    (define-key helm-map (kbd "C-S-k") #'helm-previous-source)
+    (define-key helm-map (kbd "C-S-j") #'helm-next-source)
     (add-to-list 'helm-type-buffer-actions
                  '("Display buffer(s) in new window(s) `M-v'" .
                    helm-buffer-switch-new-window-v) 'append)
