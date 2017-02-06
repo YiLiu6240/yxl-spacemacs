@@ -87,8 +87,8 @@
               ibuffer-group-buffers-by 'modes)
      search-engine
      deft
-     (elfeed :variables
-             rmh-elfeed-org-files (list "~/dotfiles/rss/feeds.org"))
+     (elfeed :packages (not elfeed-org))
+
      github
 
      ;; os-dependent --------
