@@ -1,4 +1,5 @@
 (setq yxl-utils-packages '((yxl-utils :location site)
+                           (yxl-projectile :location site)
                            (general-goodies :location site)
                            (simple-todo :location site)
                            (scratch-pop :location site)
@@ -14,6 +15,9 @@
       (setq yxl-hhs-file-reading-list-local yxl-file-reading-list-files)
       (setq yxl-hhs-file-reading-list-webpages yxl-file-reading-list-webpages)
       (setq yxl-org-task-files yxl-env-org-files))))
+
+(defun yxl-utils/init-yxl-projectile ()
+  (use-package yxl-projectile))
 
 (defun yxl-utils/init-general-goodies ()
   (use-package general-goodies))

@@ -203,6 +203,7 @@ encoding: %`buffer-file-coding-system
   "bm" #'view-echo-area-messages
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "fp" #'counsel-projectile-find-file
+  "fP" #'yxl-projectile-find-file
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
   "dd" #'yxl-dired-ivy-switch-buffer
