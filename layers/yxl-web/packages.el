@@ -96,6 +96,8 @@
     (add-hook 'elfeed-show-mode-hook #'yxl-web/elfeed-show-mode-config)
     (setq elfeed-db-directory "~/Dropbox/rss/.elfeed")
     (setq elfeed-goodies/powerline-default-separator 'nil)
+    (setq elfeed-goodies/entry-pane-position 'bottom)
+    (setq elfeed-goodies/entry-pane-size 0.85)
     (yxl-web/elfeed-bindings)
     (yxl-web/elfeed-hydra-setup)
     (spacemacs/set-leader-keys "af" #'yxl-web/invoke-elfeed)))
