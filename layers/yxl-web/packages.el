@@ -18,7 +18,7 @@
   "Opens site in new w3m session with 'http://' appended"
   (interactive
    (list (read-string "Enter website address (default: google.com):"
-                      nil nil "google.com" nil )))
+                      nil nil "google.com" nil)))
   (w3m-goto-url
    (concat "http://" site)))
 
@@ -26,7 +26,7 @@
   "Opens site in new w3m session with 'http://' appended"
   (interactive
    (list (read-string "Enter website address (default: google.com):"
-                      nil nil "google.com" nil )))
+                      nil nil "google.com" nil)))
   (w3m-goto-url-new-session
    (concat "http://" site)))
 
