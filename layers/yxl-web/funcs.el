@@ -37,6 +37,8 @@ otherwise invoke elfeed as usual.
   (unbind-key "b" elfeed-show-mode-map)
   (evil-define-key 'visual elfeed-search-mode-map "m" #'yxl-elfeed-mark-as-read)
   (evil-define-key 'visual elfeed-search-mode-map "M" #'yxl-elfeed-mark-as-unread)
+  (evil-define-key 'visual elfeed-search-mode-map "+" #'yxl-elfeed-add-tag)
+  (evil-define-key 'visual elfeed-search-mode-map "-" #'yxl-elfeed-rm-tag)
 
   (evilified-state-evilify-map elfeed-search-mode-map
     :mode elfeed-search-mode
@@ -61,6 +63,8 @@ otherwise invoke elfeed as usual.
     (kbd "C-l") #'windmove-right
     (kbd "g C-h") #'eyebrowse-prev-window-config
     (kbd "g C-l") #'eyebrowse-next-window-config
+    "+" #'yxl-elfeed-add-tag
+    "-" #'yxl-elfeed-rm-tag
     "w"  nil
     "W"  nil
     "s" #'yxl-elfeed-helm-search
@@ -123,8 +127,8 @@ otherwise invoke elfeed as usual.
     ("u"    elfeed-search-tag-all-unread)
     ("E"    (lambda() (interactive) (find-file "~/dotfiles/rss/feeds.org")))
     ("*"    elfeed-toggle-star :color red)
-    ("+"    elfeed-search-tag-all)
-    ("-"    elfeed-search-untag-all)
+    ("+"    yxl-elfeed-add-tag)
+    ("-"    yxl-elfeed-rm-tag)
     ("w"    (elfeed-db-save)))
 
   (defhydra hydra-elfeed-show
