@@ -40,9 +40,7 @@
       (setq dired-recursive-copies 'always)
       (add-hook 'dired-mode-hook #'spacemacs/toggle-truncate-lines-on)
       (add-hook 'dired-mode-hook #'dired-hide-details-mode)
-      (yxl-dired/bindings-setup)
-      (spacemacs/set-leader-keys
-        "obo" #'yxl-dired/open-in-desktop))))
+      (yxl-dired/bindings-setup))))
 
 (defun yxl-dired/init-dired-goodies ()
   (use-package dired-goodies

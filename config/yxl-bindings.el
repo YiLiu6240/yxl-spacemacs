@@ -211,6 +211,8 @@ encoding: %`buffer-file-coding-system
   ;; TODO: rm this with next spacemacs update
   "bm" #'view-echo-area-messages
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
+  "fo" #'spacemacs/open-file-or-directory-in-external-app ; with C-u open in desktop
+  "fO" #'yxl-dired-open-in-desktop
   "fp" #'counsel-projectile-find-file
   "fP" #'yxl-projectile-find-file
   "bY" #'yxl-buffer-store-name
