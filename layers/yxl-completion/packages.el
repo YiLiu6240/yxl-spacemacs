@@ -38,6 +38,7 @@
   (delete '(counsel-describe-variable . "^") ivy-initial-inputs-alist)
   ;; ivy views
   (with-eval-after-load 'ivy
+    (setq ivy-wrap t)
     (with-eval-after-load 'recentf
       (setq ivy-use-virtual-buffers nil))
     (load (concat dotspacemacs-directory "config/yxl-ivy-views.el"))))
