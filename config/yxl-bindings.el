@@ -170,21 +170,28 @@ encoding: %`buffer-file-coding-system
 
  [_f_]: +font-size ^^^^        [_F_]: +Frame-size      [_T_]: +Transparency
 
- [_tw_]: switch browser  ^^^^  [_tm_]: menubar         [_tb_]: big text
+ [_tw_]: switch browser  ^^^^  [_tb_]: big text
 
  [_att_/_atd_/_atD_]: timer:start/stop/down
 "
   ("," #'eval-expression "M-:")
 
-  ("su" spacemacs/switch-to-version)
-  ("sU" configuration-layer/update-packages)
-  ("sR" (call-interactively 'configuration-layer/rollback))
+  ("su" (lambda ()
+          (interactive)
+          (spacemacs/home)
+          (spacemacs/switch-to-version)))
+  ("sU" (lambda ()
+          (interactive)
+          (spacemacs/home)
+          (configuration-layer/update-packages)))
+  ("sR" (lambda ()
+          (interactive)
+          (spacemacs/home)
+          (call-interactively 'configuration-layer/rollback)))
 
   ("f" #'spacemacs/scale-font-transient-state/body)
   ("F" #'spacemacs/zoom-frm-transient-state/body)
   ("T" #'spacemacs/scale-transparency-transient-state/spacemacs/toggle-transparency)
-
-  ("b" #'yxl-terminal-transparency "invalidate bg")
 
   ("tw" yxl-web-switch-browser)
   ("tm" menu-bar-mode)
