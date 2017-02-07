@@ -1,12 +1,10 @@
 (setq yxl-text-packages '((text-mode :location built-in)
                           auctex
-                          ;; latex-extra
                           (bibtex :location built-in)
                           org-ref
                           gscholar-bibtex
                           magic-latex-buffer
                           markdown-mode
-                          ;; writeroom-mode
                           writegood-mode
                           bing-dict
                           synonyms
