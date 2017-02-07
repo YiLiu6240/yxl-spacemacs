@@ -17,40 +17,31 @@
    dotspacemacs-install-packages 'used-only
    dotspacemacs-configuration-layers
    '(yxl-spacemacs
+     yxl-utils
+
      better-defaults
 
      ;; major langs --------
-     (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode)
-     emacs-lisp
-     (ess :packages (not org))
+     yxl-prog
+     yxl-text
+     (shell :variables
+            shell-default-shell (if (eq window-system 'w32) 'eshell
+                                  'shell)
+            shell-default-height 30
+            shell-default-position 'bottom
+            shell-default-full-span nil)
      git
-     lua
-     ;; markdown: need vmd from npm: npm install -g vmd
-     (markdown :variables markdown-live-preview-engine 'vmd)
-     (org :packages (not evil-org))
-     python
-     sql
-     scala
-     (latex :variables
-            ;; LatexMK has to be enabled to let spc fetch auctex-latexmk
-            ;; latex-build-command "LatexMk"
-            ;; NOTE: could not get latexmk to work properly, use latex
-            latex-build-command "LaTeX"
-            latex-enable-auto-fill nil
-            latex-enable-folding t)
-     javascript
-     html
 
-     ;; minor langs --------
-     ipython-notebook
-     vimscript
-     yaml
-     extra-langs
-     autohotkey
-     ;; windows-scripts
 
      ;; major features --------
+     yxl-edit
+     (vinegar :packages (not dired))
+     yxl-evil
+     (spell-checking :variables
+                     spell-checking-enable-by-default nil)
+     (syntax-checking :variables
+                      syntax-checking-enable-by-default nil)
+
      ivy
      (auto-completion :variables
                       ;; use tab to complete
@@ -63,21 +54,6 @@
                       :disabled-for  ; layer name
                       org
                       markdown)
-     ;; semantic
-     pandoc
-     (shell :variables
-            shell-default-shell (if (eq window-system 'w32) 'eshell
-                                  'shell)
-            shell-default-height 30
-            shell-default-position 'bottom
-            shell-default-full-span nil)
-     (spell-checking :variables
-                     spell-checking-enable-by-default nil)
-     (syntax-checking :variables
-                      syntax-checking-enable-by-default nil)
-     ;; vim/evil mode --------
-     (vinegar :packages (not dired))
-     ;; evil-cleverparens
 
      ;; other layers --------
      ;; smex
@@ -86,30 +62,18 @@
               ;; dont set to projects, really freaking slow
               ibuffer-group-buffers-by 'modes)
      search-engine
-     deft
-     (elfeed :packages (not elfeed-org))
-
      github
-
-     ;; os-dependent --------
-     ;; osx
 
      ;; tools --------
      csv
      graphviz
      yxl-pdf-tools
      imenu-list
-
-     ;; my private layers --------
      calfw
      ov-highlighter
-     yxl-utils
+
      yxl-workspace
      yxl-config
-     yxl-evil
-     yxl-prog
-     yxl-text
-     yxl-edit
      yxl-dired
      (yxl-dash :variables
                yxl-dash-docset-newpath "~/Dropbox/dash-docsets"
