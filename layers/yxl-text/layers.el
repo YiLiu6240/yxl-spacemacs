@@ -8,4 +8,5 @@
           ;; NOTE: could not get latexmk to work properly, use latex
           latex-build-command "LaTeX"
           latex-enable-auto-fill nil
-          latex-enable-folding t)))
+          latex-enable-folding t)
+   bibtex))

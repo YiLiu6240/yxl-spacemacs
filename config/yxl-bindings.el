@@ -273,7 +273,7 @@ encoding: %`buffer-file-coding-system
 
 (spacemacs/declare-prefix "oc" "cite")
 (spacemacs/set-leader-keys
-  "occ" #'helm-bibtex
+  "occ" #'org-ref-helm-insert-cite-link
   "ocg" #'gscholar-bibtex)
 
 (spacemacs/declare-prefix "od" "dictionary")

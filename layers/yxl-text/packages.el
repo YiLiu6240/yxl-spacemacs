@@ -2,7 +2,7 @@
                           auctex
                           ;; latex-extra
                           (bibtex :location built-in)
-                          helm-bibtex
+                          org-ref
                           gscholar-bibtex
                           magic-latex-buffer
                           markdown-mode
@@ -68,36 +68,28 @@
       (spacemacs/set-leader-keys-for-major-mode 'latex-mode
         "om" #'magic-latex-buffer))))
 
-(defun yxl-text/init-helm-bibtex ()
-  (use-package helm-bibtex
-    :defer t
-    :init
-    (progn
-      (setq bibtex-completion-bibliography yxl-file-bib)
-      (setq bibtex-completion-cite-prompt-for-optional-arguments nil)
-      (setq bibtex-completion-cite-default-command "citet")
-      (setq bibtex-completion-cite-default-as-initial-input nil)
-      (setq bibtex-completion-notes-path "~/Dropbox/bib/bib_notes.org")
-      (setq biblio-download-directory "~/Dropbox/bib/general")
-      (setq bibtex-completion-library-path '("~/Dropbox/bib/general"
-                                             "~/Dropbox/bib/topic_tmp")))
-    :config
-    (progn
-      (setq helm-bibtex-full-frame nil)
-      (setq bibtex-completion-additional-search-fields '(keywords author title year journal chapter booktitle))
-      (setq bibtex-completion-display-formats
-            '((article . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  ${journal:25}")
-              (inbook . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  Chapter ${chapter:25}")
-              (incollection . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  ${booktitle:25}")
-              (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  ${booktitle:25}")
-              (t . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}")))
-      ;; rearrange helm-bibtex actions
-      (helm-delete-action-from-source "Insert citation" helm-source-bibtex)
-      (helm-delete-action-from-source "Insert BibTeX key" helm-source-bibtex)
-      (helm-delete-action-from-source "Insert reference" helm-source-bibtex)
-      (helm-add-action-to-source "Insert BibTeX key" 'helm-bibtex-insert-key helm-source-bibtex 0)
-      (helm-add-action-to-source "Insert citation" 'helm-bibtex-insert-citation helm-source-bibtex 1)
-      (helm-add-action-to-source "Insert reference" 'helm-bibtex-insert-reference helm-source-bibtex 2))))
+(defun yxl-text/post-init-org-ref ()
+  (with-eval-after-load 'helm-bibtex
+    (setq org-ref-default-bibliography yxl-file-bib)
+    (setq org-ref-pdf-directory nil)
+    (setq org-ref-bibliography-notes "~/Dropbox/bib/bib_notes.org")
+    (setq bibtex-completion-bibliography yxl-file-bib)
+    (setq bibtex-completion-cite-prompt-for-optional-arguments nil)
+    (add-to-list 'bibtex-completion-cite-commands "citet")
+    (setq bibtex-completion-cite-default-command "citet")
+    (setq bibtex-completion-cite-default-as-initial-input t)
+    (setq bibtex-completion-notes-path "~/Dropbox/bib/bib_notes.org")
+    (setq biblio-download-directory "~/Dropbox/bib/general")
+    (setq bibtex-completion-library-path '("~/Dropbox/bib/general"
+                                           "~/Dropbox/bib/topic_tmp"))
+    (setq helm-bibtex-full-frame nil)
+    (setq bibtex-completion-additional-search-fields '(keywords author title year journal chapter booktitle))
+    (setq bibtex-completion-display-formats
+          '((article . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  ${journal:25}")
+            (inbook . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  Chapter ${chapter:25}")
+            (incollection . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  ${booktitle:25}")
+            (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  ${booktitle:25}")
+            (t . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}")))))
 
 (defun yxl-text/init-gscholar-bibtex ()
   (use-package gscholar-bibtex
