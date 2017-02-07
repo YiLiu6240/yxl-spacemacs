@@ -20,7 +20,75 @@
   (use-package general-goodies))
 
 (defun yxl-utils/init-find-file-in-project ()
-  (use-package find-file-in-project))
+  (use-package find-file-in-project
+    :defer t
+    :config
+    (progn
+      ;; need this otherwise spacemacs.d will not be searched
+      (setq ffip-prune-patterns '(;; VCS
+                                  "*/.git/*"
+                                  "*/.svn/*"
+                                  "*/.cvs/*"
+                                  "*/.bzr/*"
+                                  "*/.hg/*"
+                                  ;; project misc
+                                  "*.log"
+                                  "*/bin/*"
+                                  ;; Mac
+                                  "*/.DS_Store/*"
+                                  ;; Ctags
+                                  "*/tags"
+                                  "*/TAGS"
+                                  ;; Global/Cscope
+                                  "*/GTAGS"
+                                  "*/GPATH"
+                                  "*/GRTAGS"
+                                  "*/cscope.files"
+                                  ;; html/javascript/css
+                                  "*/.npm/*"
+                                  "*/.tmp/*" ; TypeScript
+                                  "*/.sass-cache/*" ; SCSS/SASS
+                                  "*/.idea/*"
+                                  "*min.js"
+                                  "*min.css"
+                                  "*/node_modules/*"
+                                  "*/bower_components/*"
+                                  ;; Images
+                                  "*.png"
+                                  "*.jpg"
+                                  "*.jpeg"
+                                  "*.gif"
+                                  "*.bmp"
+                                  "*.tiff"
+                                  "*.ico"
+                                  ;; documents
+                                  "*.doc"
+                                  "*.docx"
+                                  "*.pdf"
+                                  ;; C/C++
+                                  "*.obj"
+                                  "*.o"
+                                  "*.a"
+                                  "*.dylib"
+                                  "*.lib"
+                                  "*.dll"
+                                  "*.exe"
+                                  ;; Java
+                                  "*/.metadata*"
+                                  "*/.gradle/*"
+                                  "*.class"
+                                  "*.war"
+                                  "*.jar"
+                                  ;; Emacs/Vim
+                                  "*flymake"
+                                  "*/#*#"
+                                  ".#*"
+                                  "*.swp"
+                                  "*~"
+                                  "*.elc"
+                                  "*/.cask/*"
+                                  ;; Python
+                                  "*.pyc")))))
 
 ;; (defun yxl-utils/init-simple-todo ()
 ;;   (use-package simple-todo
