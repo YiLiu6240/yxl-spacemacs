@@ -1,6 +1,6 @@
 (setq yxl-utils-packages '((yxl-utils :location site)
-                           (yxl-projectile :location site)
                            (general-goodies :location site)
+                           find-file-in-project
                            (simple-todo :location site)
                            (scratch-pop :location site)
                            key-chord))
@@ -16,11 +16,11 @@
       (setq yxl-hhs-file-reading-list-webpages yxl-file-reading-list-webpages)
       (setq yxl-org-task-files yxl-env-org-files))))
 
-(defun yxl-utils/init-yxl-projectile ()
-  (use-package yxl-projectile))
-
 (defun yxl-utils/init-general-goodies ()
   (use-package general-goodies))
+
+(defun yxl-utils/init-find-file-in-project ()
+  (use-package find-file-in-project))
 
 ;; (defun yxl-utils/init-simple-todo ()
 ;;   (use-package simple-todo
