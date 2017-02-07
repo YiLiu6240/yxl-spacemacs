@@ -77,9 +77,15 @@ File:
   ("rf" (yxl-find-file-stay yxl-file-reading-list-files) "reading-list: files")
   ("rw" (yxl-find-file-stay yxl-file-reading-list-webpages) "reading-list: webpages"))
 
+(defhydra yxl-hydra-common (:color blue :hint nil)
+  ("." nil "quit")
+  ("q" nil "quit")
+  ("+" make-frame "make-frame"))
+
 (defhydra yxl-hydra-hotspot (:color blue :hint nil
                                     :pre (setq which-key-inhibit t)
-                                    :post (setq which-key-inhibit nil))
+                                    :post (setq which-key-inhibit nil)
+                                    :inherit (yxl-hydra-common/heads))
   "
 
 Hotspot:
@@ -102,9 +108,6 @@ Hotspot:
  | [_ia_]: append: to *scratch*   | ^^                                  |
  | [_is_]: append: to scratch.org | ^^                                  |
 "
-  ("q" nil "quit")
-  ("." nil "quit")
-  ("+" make-frame "make-frame")
 
   ("h" (yxl-frame-select-or-set "Meta"))
   ("j" (yxl-frame-select-or-set "REPL"))
@@ -152,8 +155,9 @@ Hotspot:
   ("ia" yxl-append-to-scratch))
 
 (defhydra yxl-hydra-system (:color blue :hint nil
-                            :pre (setq which-key-inhibit t)
-                            :post (setq which-key-inhibit nil))
+                                   :pre (setq which-key-inhibit t)
+                                   :post (setq which-key-inhibit nil)
+                                   :inherit (yxl-hydra-common/heads))
   "
 location: %(if buffer-file-name buffer-file-name default-directory)
 major-mode: %`major-mode
@@ -170,8 +174,6 @@ encoding: %`buffer-file-coding-system
 
  [_att_/_atd_/_atD_]: timer:start/stop/down
 "
-  ("q" nil "quit")
-  ("." nil "quit")
   ("," #'eval-expression "M-:")
 
   ("su" spacemacs/switch-to-version)
