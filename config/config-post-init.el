@@ -1,9 +1,10 @@
 ;; --------
 ;; general
 ;; --------
-;; use transparent/system background in terminal
-(if (not (display-graphic-p))
-    (set-background-color "invalid"))
+;; invoke terminal configs when emacs launches at terminal, or makes a new frame
+(yxl-frame-terminal-init)
+(add-hook 'after-make-frame-functions #'yxl-frame-terminal-init t)
+
 ;; emacs general
 ;; osx
 (setq-default mac-option-modifier 'super
