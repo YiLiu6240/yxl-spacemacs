@@ -21,3 +21,10 @@
     ;; osx setup of pdf-tools
     ;; http://emacs.stackexchange.com/questions/13314/install-pdf-tools-on-emacs-macosx
     (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo"))
+
+(defun on-frame-open (&optional frame)
+  "If the FRAME created in terminal don't load background color."
+  (unless (display-graphic-p frame)
+    (set-face-background 'default "unspecified-bg" frame)))
+(on-frame-open)
+(add-hook 'after-make-frame-functions 'on-frame-open)

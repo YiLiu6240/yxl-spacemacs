@@ -1,11 +1,8 @@
 ;; --------
 ;; general
 ;; --------
-;; invoke terminal configs when emacs launches at terminal, or makes a new frame
-(yxl-frame-terminal-init)
-(add-hook 'after-make-frame-functions #'yxl-frame-terminal-init t)
-
 ;; emacs general
+(setq-default menu-bar-mode nil)
 ;; osx
 (setq-default mac-option-modifier 'super
               mac-command-modifier 'meta)
