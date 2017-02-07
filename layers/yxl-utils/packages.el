@@ -22,7 +22,7 @@
 (defun yxl-utils/init-find-file-in-project ()
   (use-package find-file-in-project
     :defer t
-    :config
+    :init
     (progn
       ;; need this otherwise spacemacs.d will not be searched
       (setq ffip-prune-patterns '(;; VCS
