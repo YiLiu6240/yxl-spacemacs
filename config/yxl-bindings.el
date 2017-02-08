@@ -225,6 +225,8 @@ encoding: %`buffer-file-coding-system
   "l" #'spacemacs/workspaces-transient-state/body
   "LY" #'yxl-workspace/record-config
   "LP" #'yxl-workspace/load-config
+  "pm" #'helm-make
+  "pM" #'helm-make-projectile
   "pG" #'projectile-regenerate-tags
   "p C-g" nil
   "qf" #'spacemacs/frame-killer
