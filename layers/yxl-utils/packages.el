@@ -22,8 +22,14 @@
 (defun yxl-utils/init-find-file-in-project ()
   (use-package find-file-in-project
     :defer t
-    :init
+    :commands (find-file-in-project find-file-in-project-truename)
+    :config
     (progn
+      (defun find-file-in-project-truename ()
+        "Use the true directory (in case of a symlinked file/dir.)"
+        (interactive)
+        (let ((default-directory (file-name-directory buffer-file-truename)))
+          (find-file-in-project)))
       ;; need this otherwise spacemacs.d will not be searched
       (setq ffip-prune-patterns '(;; VCS
                                   "*/.git/*"

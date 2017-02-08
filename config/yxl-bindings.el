@@ -214,7 +214,7 @@ encoding: %`buffer-file-coding-system
   "fo" #'spacemacs/open-file-or-directory-in-external-app ; with C-u open in desktop
   "fO" #'yxl-dired-open-in-desktop
   "fp" #'counsel-projectile-find-file
-  "fP" #'find-file-in-project
+  "fP" #'find-file-in-project-truename
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
   "dd" #'yxl-dired-ivy-switch-buffer
