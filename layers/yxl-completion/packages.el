@@ -25,10 +25,9 @@
   (use-package yxl-helm-hotspot
     :after 'helm
     :commands (yxl-helm-hotspot
+               yxl-helm-shorcuts
                yxl-helm-org-files
-               yxl-helm-websites
-               yxl-helm-reading-list
-               yxl-helm-files)
+               yxl-helm-reading-list)
     :defer t))
 
 (defun yxl-completion/post-init-ivy ()
