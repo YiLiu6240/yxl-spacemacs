@@ -55,7 +55,13 @@
                                       (cond ((looking-at "%%% ") 1)
                                             ((looking-at "%% ") 2)
                                             ((looking-at "[ \t]*@") 3)
-                                            (t 1000))))))))
+                                            (t 1000))))))
+    :config
+    (progn
+      ;; override spacemacs config; already has `[['
+      (evil-define-key 'normal bibtex-mode-map
+           (kbd "C-j") 'evil-window-down
+           (kbd "C-k") 'evil-window-up))))
 
 (defun yxl-text/init-magic-latex-buffer ()
   (use-package magic-latex-buffer
