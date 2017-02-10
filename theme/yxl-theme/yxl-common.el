@@ -94,6 +94,8 @@
             (head4-bg      (cond ((eq variant 'dark) (if (true-color-p) "#32322c" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#f6f1e1" "#ffffff"))))
             ;; highlighted area ???
             (highlight     (cond ((eq variant 'dark) (if (true-color-p) "#1d4250" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#3c3836" "#3c3836")) (t (if (true-color-p) "#1d4250" "#d7d7ff"))))
+            ;; TODO: work on this
+            (highlight-dim (cond ((eq variant 'dark) (if (true-color-p) "#1d4250" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#3c3836" "#3c3836")) (t (if (true-color-p) "#1d4250" "#d7d7ff"))))
             ;; keyword
             ;; (keyword       (if (eq variant 'dark) (if (true-color-p) "#859900" "#33859e") (if (true-color-p) "#859900" "#33859e")))
             (keyword       (cond ((eq variant 'dark) (if (true-color-p) "#679a01" "#a16946")) ((eq variant 'gruv) (if (true-color-p) "#a16946" "#d75f5f")) (t (if (true-color-p) "#679a01" "#33859e"))))
@@ -317,6 +319,7 @@
             `(elfeed-search-unread-title-face ((t (:foreground ,base))))
             `(elfeed-search-feed-face ((t (:foreground ,type))))
             `(elfeed-search-tag-face ((t (:foreground ,keyword))))
+            `(elfeed-search-date-face ((,class (:foreground ,head2))))
 
 ;;;;; enh-ruby
             `(enh-ruby-string-delimiter-face ((,class (:foreground ,str))))
@@ -600,6 +603,14 @@
             `(neo-file-link-face ((,class (:foreground ,base))))
             `(neo-root-dir-face ((,class (:foreground ,func :inherit bold))))
 
+;;;;; notmuch
+            `(notmuch-search-date ((,class (:foreground ,func))))
+            `(notmuch-search-flagged-face ((,class (:weight extra-bold))))
+            `(notmuch-search-non-matching-authors ((,class (:foreground ,base-dim))))
+            `(notmuch-search-unread-face ((,class (:background ,highlight-dim :box ,border))))
+            `(notmuch-tag-face ((,class (:foreground ,keyword))))
+            `(notmuch-tag-flagged ((,class (:foreground ,war))))
+
 ;;;;; org
             `(org-agenda-clocking ((,class (:background ,highlight :foreground ,comp))))
             `(org-agenda-date ((,class (:foreground ,var :height ,(if yxl-theme-org-height 1.1 1.0)))))
@@ -715,6 +726,15 @@
             `(swiper-match-face-1 ((,class (:inherit bold))))
             `(swiper-match-face-2 ((,class (:foreground ,head1 :underline t))))
             `(swiper-match-face-3 ((,class (:foreground ,head4 :underline t))))
+
+;;;;; tabbar
+            `(tabbar-default ((,class (:background ,bg1 :foreground ,head1 :height 0.9))))
+            `(tabbar-button ((,class (:inherit tabbar-default))))
+            `(tabbar-button-highlight ((,class (:inherit tabbar-default))))
+            `(tabbar-highlight ((,class (:underline t))))
+            `(tabbar-selected ((,class (:inherit tabbar-default :foreground ,func :weight bold))))
+            `(tabbar-separator ((,class (:inherit tabbar-default))))
+            `(tabbar-unselected ((,class (:inherit tabbar-default :background ,bg1 :slant italic :weight light))))
             `(swiper-match-face-4 ((,class (:foreground ,head3 :underline t))))
 
 ;;;;; term
