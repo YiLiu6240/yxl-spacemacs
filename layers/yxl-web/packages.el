@@ -64,6 +64,7 @@
     :config
     (progn
       (add-hook 'w3m-mode-hook (lambda () (setq yxl-line-width 100)))
+      (add-hook 'w3m-mode-hook #'yxl-big-text-mode)
       (setq-default w3m-user-agent (concat "Mozilla/5.0 (Linux; U; Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40)"
                                            " AppleWebKit/533.1 (KHTML, like Gecko)"
                                            " Version/4.0 Mobile Safari/533."))
@@ -94,6 +95,8 @@
   (with-eval-after-load 'elfeed
     (add-hook 'elfeed-search-mode-hook #'yxl-web/elfeed-search-mode-config)
     (add-hook 'elfeed-show-mode-hook #'yxl-web/elfeed-show-mode-config)
+    (add-hook 'elfeed-search-mode-hook #'yxl-big-text-mode)
+    (add-hook 'elfeed-show-mode-hook #'yxl-big-text-mode)
     (setq elfeed-db-directory "~/Dropbox/rss/.elfeed")
     (setq elfeed-goodies/powerline-default-separator 'nil)
     (setq elfeed-goodies/entry-pane-position 'bottom)
