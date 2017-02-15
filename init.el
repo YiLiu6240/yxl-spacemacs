@@ -109,10 +109,10 @@
                          solarized-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font `(,(cond ((eq system-type 'windows-nt)
-                                       "InputMonoNarrow")
+                                       "hack")
                                       ((eq system-type 'darwin)
-                                       "InputMonoNarrow")
-                                      (t "Input Mono Narrow"))
+                                       "hack")
+                                      (t "hack"))
                                :size ,(cond ((eq system-type 'darwin) 12)
                                             ((eq system-type 'windows-nt) 12)
                                             (t 12))
