@@ -54,6 +54,7 @@
   "rP" 'ess-roxy-preview-text
   "rt" 'ess-roxy-toggle-hiding)
 (spacemacs/set-leader-keys-for-major-mode 'ess-mode
+  ";" #'ess-execute
   "sa" #'ess-switch-process
   "st" nil
   "sT" nil
@@ -82,6 +83,8 @@
 (spacemacs/declare-prefix-for-mode 'inferior-ess-mode "mr" "roxygen")
 
 (spacemacs/set-leader-keys-for-major-mode 'inferior-ess-mode
+  ";" #'ess-execute
+
   "sU" #'ess-install-library
   "su" #'ess-load-library
   "s:" #'ess-execute
