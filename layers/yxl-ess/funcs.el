@@ -1,26 +1,28 @@
 (defun yxl-ess/ess-setup ()
-  "wrap my settings in a function"
-  ;; no history file
   (setq ess-history-file nil)
   ;; no spaces around argument assignment
   (setq ess-R-argument-suffix "=")
-  ;; speed ess eval efficiency
   (setq ess-eval-visibly 'nowait)
-  ;; show results in buffer when calling ess-execute
   (setq ess-execute-in-process-buffer t)
-  ;; Start R in the working directory by default
-  (setq ess-ask-for-ess-directory nil))
+  (setq ess-ask-for-ess-directory nil)
+  (setq ess-own-style-list '((ess-indent-offset . 4)
+                             (ess-offset-arguments . open-delim)
+                             (ess-offset-arguments-newline . prev-line)
+                             (ess-offset-block . prev-line)
+                             (ess-offset-continued . straight)
+                             (ess-align-nested-calls . '("ifelse"))
+                             (ess-align-arguments-in-calls "function[     ]*(")
+                             (ess-align-continuations-in-calls)
+                             (ess-align-blocks)
+                             (ess-indent-from-lhs arguments)
+                             (ess-indent-from-chain-start . t)
+                             (ess-indent-with-fancy-comments)))
+  (setq ess-default-style 'OWN))
 
 (defun yxl-ess/R-hook ()
-  (ess-set-style 'RStudio 'quiet)
-  ;; indent with 4 spaces
   (setq evil-shift-width 4)
-  (setq ess-indent-offset 4)
   ;; no fancy comment
-  (setq comment-add 0)
-  ;; nested ifelse
-  (setq ess-align-nested-calls '("ifelse"))
-  (setq ess-indent-with-fancy-comments nil))
+  (setq comment-add 0))
 
 (defun yxl-ess/ess-setup-imenu ()
   (setq ess-imenu-S-generic-expression
