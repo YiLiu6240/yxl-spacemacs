@@ -1,5 +1,5 @@
 (setq yxl-dired-packages '(dired
-                           (dired-goodies :location site)
+                           (yxl-dired :location site)
                            peep-dired
                            image+
                            dired-quick-sort
@@ -42,8 +42,8 @@
       (add-hook 'dired-mode-hook #'dired-hide-details-mode)
       (yxl-dired/bindings-setup))))
 
-(defun yxl-dired/init-dired-goodies ()
-  (use-package dired-goodies
+(defun yxl-dired/init-yxl-dired ()
+  (use-package yxl-dired
     :after dired))
 
 (defun yxl-dired/init-image+ ()
