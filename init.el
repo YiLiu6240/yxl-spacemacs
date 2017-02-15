@@ -17,31 +17,54 @@
    dotspacemacs-install-packages 'used-only
    dotspacemacs-configuration-layers
    '(yxl-spacemacs
-     yxl-utils
 
-     better-defaults
 
-     ;; major langs --------
-     yxl-prog
-     yxl-text
+     ;; prog langs
+     (ess :packages (not org))
+     emacs-lisp
+     python
+     ipython-notebook
+     vimscript
+     yaml
+     extra-langs
+     windows-scripts
+     autohotkey
+     (c-c++ :variables
+            c-c++-default-mode-for-headers 'c++-mode)
+     sql
+     lua
+     scala
+     javascript
+     html
+     graphviz
+     csv
      (shell :variables
             shell-default-shell (if (eq window-system 'w32) 'eshell
                                   'shell)
             shell-default-height 30
             shell-default-position 'bottom
             shell-default-full-span nil)
-     git
 
+     ;; markup langs
+     (org :packages (not evil-org))
+     (markdown :variables markdown-live-preview-engine 'vmd)
+     ;; markdown: need vmd from npm: npm install -g vmd
+     pandoc
+     (latex :variables
+            latex-build-command "LatexMk"
+            latex-enable-auto-fill nil
+            latex-enable-folding t)
+     bibtex
 
-     ;; major features --------
-     yxl-edit
+     ;; editing
      (vinegar :packages (not dired))
-     yxl-evil
+
+     ;; major util modes
+     (elfeed :packages (not elfeed-org))
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      (syntax-checking :variables
                       syntax-checking-enable-by-default nil)
-
      ivy
      (auto-completion :variables
                       ;; use tab to complete
@@ -54,24 +77,27 @@
                       :disabled-for  ; layer name
                       org
                       markdown)
+     git
+     github
 
-     ;; other layers --------
-     ;; smex
+     ;; minor utils modes
      colors
      (ibuffer :variables
               ;; dont set to projects, really freaking slow
               ibuffer-group-buffers-by 'modes)
      search-engine
-     github
-
-     ;; tools --------
-     csv
-     graphviz
-     yxl-pdf-tools
+     better-defaults
      imenu-list
+
+     ;; my private layers
      calfw
      ov-highlighter
-
+     yxl-pdf-tools
+     yxl-utils
+     yxl-edit
+     yxl-evil
+     yxl-prog
+     yxl-text
      yxl-workspace
      yxl-config
      yxl-dired
