@@ -44,6 +44,8 @@
             (act2          (cond ((eq variant 'dark) (if (true-color-p) "#132b34" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#3c3836" "#3c3836")) (t (if (true-color-p) "#e9e2cb" "#afafd7"))))
             ;; basic foreground color
             (base          (cond ((eq variant 'dark) (if (true-color-p) "#839496" "#bdae93")) ((eq variant 'gruv) (if (true-color-p) "#bdae93" "#ffdfaf")) (t (if (true-color-p) "#52676f" "#5f5f87"))))
+            ;; lighter version of foreground color
+            (base-light    (cond ((eq variant 'dark) (if (true-color-p) "#839496" "#bdae93")) ((eq variant 'gruv) (if (true-color-p) "#fbf1c7" "#fbf1c7")) (t (if (true-color-p) "#52676f" "#5f5f87"))))
             ;; dimmed version of foreground color
             (base-dim      (cond ((eq variant 'dark) (if (true-color-p) "#657b83" "#7c6f64")) ((eq variant 'gruv) (if (true-color-p) "#7c6f64" "#7c6f64")) (t (if (true-color-p) "#81908f" "#afafd7"))))
             ;; normal background color
@@ -124,21 +126,21 @@
 
             ;; colors
             (aqua          (cond ((eq variant 'dark) (if (true-color-p) "#2d9574" "#8ec07c")) ((eq variant 'gruv) (if (true-color-p) "#8ec07c" "#87af87")) (t (if (true-color-p) "#2d9574" "#2aa198"))))
-            (aqua-bg       (cond ((eq variant 'dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
+            (aqua-bg       (cond ((eq variant 'dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
             (green         (cond ((eq variant 'dark) (if (true-color-p) "#859900" "#98971a")) ((eq variant 'gruv) (if (true-color-p) "#98971a" "#afaf00")) (t (if (true-color-p) "#859900" "#5faf00"))))
-            (green-bg      (cond ((eq variant 'dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
+            (green-bg      (cond ((eq variant 'dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#79740e" "#79740e")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
             (green-bg-s    (cond ((eq variant 'dark) (if (true-color-p) "#29422d" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#dae6d0" "#ffffff"))))
             (cyan          (cond ((eq variant 'dark) (if (true-color-p) "#2aa889" "#689d6a")) ((eq variant 'gruv) (if (true-color-p) "#689d6a" "#689d6a")) (t (if (true-color-p) "#2aa889" "#008080"))))
             (orange        (cond ((eq variant 'dark) (if (true-color-p) "#cb4b16" "#d65d0e")) ((eq variant 'gruv) (if (true-color-p) "#d65d0e" "#ff8700")) (t (if (true-color-p) "#cb4b16" "#cb4b16"))))
             (red           (cond ((eq variant 'dark) (if (true-color-p) "#dc322f" "#cc241d")) ((eq variant 'gruv) (if (true-color-p) "#cc241d" "#d75f5f")) (t (if (true-color-p) "#dc322f" "#d70008"))))
-            (red-bg        (cond ((eq variant 'dark) (if (true-color-p) "#3c2a2c" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#faede4" "#ffffff"))))
+            (red-bg        (cond ((eq variant 'dark) (if (true-color-p) "#3c2a2c" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#9d0006" "#9d0006")) (t (if (true-color-p) "#faede4" "#ffffff"))))
             (red-bg-s      (cond ((eq variant 'dark) (if (true-color-p) "#512e31" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#eed9d2" "#ffffff"))))
             (blue          (cond ((eq variant 'dark) (if (true-color-p) "#4f97d7" "#458588")) ((eq variant 'gruv) (if (true-color-p) "#458588" "#87afaf")) (t (if (true-color-p) "#4f97d7" "#33859e"))))
-            (blue-bg       (cond ((eq variant 'dark) (if (true-color-p) "#293239" "#076678")) ((eq variant 'gruv) (if (true-color-p) "#076678" "#262626")) (t (if (true-color-p) "#edf1ed" "#d7d7ff"))))
+            (blue-bg       (cond ((eq variant 'dark) (if (true-color-p) "#293239" "#076678")) ((eq variant 'gruv) (if (true-color-p) "#076678" "#076678")) (t (if (true-color-p) "#edf1ed" "#d7d7ff"))))
             ;; TODO: add violet
             (magenta       (cond ((eq variant 'dark) (if (true-color-p) "#d33682" "#b16286")) ((eq variant 'gruv) (if (true-color-p) "#b16286" "#d787af")) (t (if (true-color-p) "#a31db1" "#800080"))))
             (yellow        (cond ((eq variant 'dark) (if (true-color-p) "#b58900" "#d79921")) ((eq variant 'gruv) (if (true-color-p) "#d79921" "#ff8700")) (t (if (true-color-p) "#b58900" "#875f00"))))
-            (yellow-bg     (cond ((eq variant 'dark) (if (true-color-p) "#32322c" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#f6f1e1" "#ffffff"))))
+            (yellow-bg     (cond ((eq variant 'dark) (if (true-color-p) "#32322c" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#b57614" "#b57614")) (t (if (true-color-p) "#f6f1e1" "#ffffff"))))
             )
 
            custom-colors-override
