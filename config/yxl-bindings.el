@@ -242,8 +242,8 @@ encoding: %`buffer-file-coding-system
   "w M-j" #'buf-move-down
   "w M-k" #'buf-move-up
   "w M-l" #'buf-move-right
-  "xh" #'yxl-ov-highlighter/body
-  "xH" #'highlight-regexp
+  "xh" #'highlight-regexp
+  "xH" #'yxl-ov-highlighter/body
   "xa{" 'spacemacs/align-repeat-left-curly-brace
   "xa}" 'spacemacs/align-repeat-right-curly-brace
   "xa[" 'spacemacs/align-repeat-left-square-brace
