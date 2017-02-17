@@ -3,6 +3,7 @@
                           smartparens
                           imenu-anywhere
                           hl-todo
+                          (hi-lock :location built-in)
                           narrow-indirect
                           flyspell))
 
@@ -77,6 +78,12 @@
                     ("FIXME" . (:weight bold :foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
                     ("XXX" . (:weight bold :foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
                     ("???" . (:weight bold :foreground ,(face-attribute 'font-lock-warning-face :foreground)))))))
+
+(defun yxl-edit/post-init-hi-lock ()
+  (with-eval-after-load 'hi-lock
+    (progn
+      (setq hi-lock-auto-select-face t)
+      (setq hi-lock-face-defaults '("hi-blue" "hi-green" "hi-yellow" "hi-pink")))))
 
 (defun yxl-edit/init-imenu-anywhere ()
   (use-package imenu-anywhere
