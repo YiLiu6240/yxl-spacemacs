@@ -2,6 +2,9 @@
 
 [Yi Liu](https://github.com/YiLiu6240)
 
+screenshot:
+![ui](theme/yxl-theme/screenshots/yxl-gruv-theme-ui.png)
+
 ## External depdencies
 
 - vim
@@ -13,8 +16,9 @@
 
 - hydra integrations.
 - "goodies":
+    - [`yxl-theme`](theme/yxl-theme) solarized-dark/light and gruvbox-dark theme built on [`spacemacs-theme`](https://github.com/nashamri/spacemacs-theme); spacemacs-theme provides an extensive list of syntax highlights.
     - [`yxl-emacs-goodies`](https://github.com/YiLiu6240/yxl-emacs-goodies)
-    written/re-written by me.
+    written/modified by me.
     - [other goodies](site-lisp) collected/modified by me.
 
 ## Difference from vanilla Spacemacs
