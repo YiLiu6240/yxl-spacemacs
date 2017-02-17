@@ -1,6 +1,3 @@
-;; --------
-;; general
-;; --------
 ;; emacs general
 (setq-default menu-bar-mode nil)
 ;; osx
@@ -47,9 +44,7 @@
 (setq-default require-final-newline t)
 (setq-default auto-revert-interval 60)
 
-;; --------
 ;; display-buffer-alist
-;; --------
 ;; (add-to-list 'display-buffer-alist '("\\*R" display-buffer-same-window))
 ;; (add-to-list 'display-buffer-alist '("\\*R" display-buffer-pop-up-window))
 ;; FIXME: not working
@@ -57,9 +52,7 @@
 (add-to-list 'display-buffer-alist '("\\*magit:" display-buffer-same-window))
 (add-to-list 'display-buffer-alist '("\\*PDF" display-buffer-at-bottom))
 
-;; --------
 ;; yas
-;; --------
 ;; solve an known issue revolving evil visual and yasnippet
 ;; TODO: check if actually need that hook
 (with-eval-after-load 'yasnippet
@@ -81,9 +74,7 @@
           (lambda () (define-key spacemacs-buffer-mode-map
                        "o" 'widget-button-press)))
 
-;; --------
 ;; proselint
-;; --------
 (with-eval-after-load 'flycheck
   (flycheck-define-checker proselint
     "A linter for prose."
