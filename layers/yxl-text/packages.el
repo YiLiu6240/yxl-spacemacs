@@ -4,7 +4,6 @@
                           org-ref
                           gscholar-bibtex
                           magic-latex-buffer
-                          langtool
                           markdown-mode
                           writegood-mode
                           bing-dict
@@ -109,41 +108,6 @@
       (gscholar-bibtex-source-on-off :off "ACM Digital Library")
       (gscholar-bibtex-source-on-off :off "DBLP")
       (setq gscholar-bibtex-database-file yxl-file-bib))))
-
-(defun yxl-text/init-langtool ()
-  (use-package langtool
-    :commands (langtool-hydra/body langtool-check)
-    :defer t
-    :init
-    (progn
-      (spacemacs/set-leader-keys
-        "Sl" #'langtool-hydra/body))
-    :config
-    (progn
-      ;; TODO: get path done for all platforms
-      (setq langtool-language-tool-jar
-            (cond ((eq system-type 'windows-nt)
-                   nil)
-                  ;; brew install languagetool
-                  ((eq system-type 'darwin)
-                   "/usr/local/Cellar/languagetool/3.6/libexec/languagetool-commandline.jar")
-                  (t nil)))
-      (defun langtool-autoshow-detail-popup (overlays)
-        (when (require 'popup nil t)
-          ;; Do not interrupt current popup
-          (unless (or popup-instances
-                      ;; suppress popup after type `C-g` .
-                      (memq last-command '(keyboard-quit)))
-            (let ((msg (langtool-details-error-message overlays)))
-              (popup-tip msg)))))
-      (setq langtool-autoshow-message-function
-            'langtool-autoshow-detail-popup)
-      (defhydra langtool-hydra (:color blue :hint nil :columns 4)
-        ("c" langtool-check "langtool-check")
-        ("d" langtool-check-done "langtool-check-done")
-        ("s" langtool-switch-default-language "langtool-switch-default-language")
-        ("m" langtool-show-message-at-point "langtool-show-message-at-point")
-        ("b" langtool-correct-buffer "langtool-correct-buffer")))))
 
 (defun yxl-text/post-init-markdown-mode ()
   (when (configuration-layer/layer-usedp 'markdown)

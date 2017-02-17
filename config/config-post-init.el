@@ -57,19 +57,6 @@
 (add-to-list 'display-buffer-alist '("\\*magit:" display-buffer-same-window))
 (add-to-list 'display-buffer-alist '("\\*PDF" display-buffer-at-bottom))
 
-
-;; spelling
-;; download dictionary to ~/Library/Spelling/
-;; from http://wordlist.aspell.net/dicts/
-(when (executable-find "hunspell")
-  (progn
-    (setq-default ispell-program-name "hunspell")
-    (setenv
-     "DICPATH"
-     (concat (getenv "HOME") "/Library/Spelling"))
-    (setenv "DICTIONARY" "en_GB-large")
-    (setq-default ispell-local-dictionary "en_GB-large")))
-
 ;; --------
 ;; yas
 ;; --------

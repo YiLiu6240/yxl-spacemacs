@@ -5,6 +5,7 @@
                           hl-todo
                           (hi-lock :location built-in)
                           narrow-indirect
+                          langtool
                           flyspell))
 
 (defun yxl-edit/init-parinfer ()
@@ -112,8 +113,63 @@
 
 (defun yxl-edit/post-init-flyspell ()
   (with-eval-after-load 'flyspell
+    ;; hunspell
+    ;; download dictionary from http://wordlist.aspell.net/dicts/
+    (when (executable-find "hunspell")
+      (progn
+        (setq-default ispell-program-name "hunspell")
+        (cond ((eq system-type 'darwin)
+               (progn
+                 (setenv "DICPATH"
+                         (concat (getenv "HOME") "/Library/Spelling"))
+                 (setenv "DICTIONARY" "en_GB-large")))
+              ;; self-defined in ubuntu: ~/.local/share/hunspell
+              ((eq system-type 'gnu/linux)
+               (progn
+                 (setenv "DICPATH"
+                         (concat (getenv "HOME") "/.local/share/hunspell"))))
+              (t nil))
+        (setq-default ispell-local-dictionary "en_GB-large")))
     (define-key flyspell-mouse-map (kbd "<C-down-mouse-1>") #'flyspell-correct-word)
     (define-key flyspell-mouse-map (kbd "<C-mouse-1>") 'undefined)))
+
+(defun yxl-edit/init-langtool ()
+  (use-package langtool
+    :commands (langtool-hydra/body langtool-check)
+    :defer t
+    :init
+    (progn
+      (spacemacs/set-leader-keys
+        "Sl" #'langtool-hydra/body))
+    :config
+    (progn
+      ;; TODO: get path done for all platforms
+      (setq langtool-language-tool-jar
+            (cond (;; windows:
+                   (eq system-type 'windows-nt)
+                   nil)
+                  ;; macOS: brew install languagetool
+                  ((eq system-type 'darwin)
+                   "/usr/local/Cellar/languagetool/3.6/libexec/languagetool-commandline.jar")
+                  ;; linux: download standalone and choose a destination
+                  (t (expand-file-name
+                      "~/.local/share/LanguageTool-3.6/languagetool-commandline.jar"))))
+      (defun langtool-autoshow-detail-popup (overlays)
+        (when (require 'popup nil t)
+          ;; Do not interrupt current popup
+          (unless (or popup-instances
+                      ;; suppress popup after type `C-g` .
+                      (memq last-command '(keyboard-quit)))
+            (let ((msg (langtool-details-error-message overlays)))
+              (popup-tip msg)))))
+      (setq langtool-autoshow-message-function
+            'langtool-autoshow-detail-popup)
+      (defhydra langtool-hydra (:color blue :hint nil :columns 4)
+        ("c" langtool-check "langtool-check")
+        ("d" langtool-check-done "langtool-check-done")
+        ("s" langtool-switch-default-language "langtool-switch-default-language")
+        ("m" langtool-show-message-at-point "langtool-show-message-at-point")
+        ("b" langtool-correct-buffer "langtool-correct-buffer")))))
 
 (defun yxl-edit/init-narrow-indirect ()
   (use-package narrow-indirect
