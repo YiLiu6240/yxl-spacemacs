@@ -352,6 +352,7 @@
 ;;;;; evil
             `(evil-ex-substitute-matches ((,class (:background ,red-bg :foreground ,red))))
             `(evil-ex-substitute-replacement ((,class (:background ,green-bg :foreground ,green))))
+            `(evil-search-highlight-persist-highlight-face ((,class (:background ,green-bg :foreground ,base-light))))
 
 ;;;;; eyebrowse
             `(eyebrowse-mode-line-active ((,class (:foreground ,mat :weight bold))))
