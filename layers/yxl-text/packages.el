@@ -46,6 +46,9 @@
     :defer t
     :init
     (progn
+      ;; HACK
+      ;; TODO: should add text-mode hooks to bibtex-mode-hook
+      (add-hook 'bibtex-mode-hook 'yxl-evil/evil-surround-pairs)
       (add-hook 'bibtex-mode-hook 'outline-minor-mode)
       (add-hook 'bibtex-mode-hook (lambda ()
                                     (setq outline-regexp
