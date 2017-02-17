@@ -11,6 +11,7 @@ screenshot:
 - Exuberant ctags
 - pdf-tools
 - ag (the silver searcher), pt (the platinum searcher)
+- hunspell, languagetool
 
 ## Highlights
 
