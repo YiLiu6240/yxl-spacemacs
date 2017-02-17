@@ -114,9 +114,9 @@
             ;; tooltip
             (ttip          (cond ((eq variant 'dark) (if (true-color-p) "#586e75" "#504945")) ((eq variant 'gruv) (if (true-color-p) "#504945" "#504945")) (t (if (true-color-p) "#8c799f" "#5f5f87"))))
             ;; tooltip selection
-            (ttip-sl       (cond ((eq variant 'dark) (if (true-color-p) "#1b343d" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#3c3836" "#3c3836")) (t (if (true-color-p) "#c8c6dd" "#afafff"))))
+            (ttip-sl       (cond ((eq variant 'dark) (if (true-color-p) "#1b343d" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#076678" "#076678")) (t (if (true-color-p) "#c8c6dd" "#afafff"))))
             ;; tooltip bg
-            (ttip-bg       (cond ((eq variant 'dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv) (if (true-color-p) "#282828" "#282828")) (t (if (true-color-p) "#e2e0ea" "#dfdfff"))))
+            (ttip-bg       (cond ((eq variant 'dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv) (if (true-color-p) "#1d2021" "#1d2021")) (t (if (true-color-p) "#e2e0ea" "#dfdfff"))))
             ;; type
             (type          (cond ((eq variant 'dark) (if (true-color-p) "#b58900" "#b16286")) ((eq variant 'gruv) (if (true-color-p) "#b16286" "#d787af")) (t (if (true-color-p) "#b58900" "#af005f"))))
             ;; variable
