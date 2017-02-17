@@ -462,8 +462,10 @@
             `(helm-swoop-target-word-face ((,class (:background ,highlight :foreground ,mat))))
 
 ;;;;; highlights
-            `(hi-yellow ((,class (:foreground ,yellow :background ,yellow-bg))))
-            `(hi-green  ((,class (:foreground ,green :background ,green-bg))))
+            `(hi-yellow ((,class (:foreground ,base-light :background ,yellow-bg))))
+            `(hi-green  ((,class (:foreground ,base-light :background ,green-bg))))
+            `(hi-blue  ((,class (:foreground ,base-light :background ,blue-bg))))
+            `(hi-pink  ((,class (:foreground ,base-light :background ,aqua-bg))))
 
 ;;;;; highlight-indentation
             `(highlight-indentation-face ((,class (:background ,comment-bg))))
