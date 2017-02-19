@@ -136,8 +136,10 @@ And if not, try to get the corresponding '-normal' face"
 
                           ;; Left hand side
                           (lhs (list
-                                ;; evil state
-                                (powerline-raw (format " %s " editor-symbol) state-indicator-face)
+                                ;; winum, otherwise editor state
+                                (if (bound-and-true-p winum-mode)
+                                    (powerline-raw (format " %s " (winum-get-number)) state-indicator-face)
+                                  (powerline-raw (format " %s " editor-symbol) state-indicator-face))
                                 ;; buffer id
                                 (powerline-buffer-id-short fileinfo-face 'l)
                                 ;; modified status
