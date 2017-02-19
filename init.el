@@ -58,6 +58,8 @@
 
      ;; editing
      (vinegar :packages (not dired))
+     (evil-snipe :variables
+                 evil-snipe-enable-alternate-f-and-t-behaviors t)
 
      ;; major util modes
      (elfeed :packages (not elfeed-org))
