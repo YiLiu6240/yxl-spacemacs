@@ -210,6 +210,7 @@ encoding: %`buffer-file-coding-system
   "bh" #'yxl-utils/home
   ;; TODO: rm this with next spacemacs update
   "bm" #'view-echo-area-messages
+  "ff" #'yxl-find-file-counsel
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "fo" #'spacemacs/open-file-or-directory-in-external-app ; with C-u open in desktop
   "fO" #'yxl-dired-open-in-desktop
