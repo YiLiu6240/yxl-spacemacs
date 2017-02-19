@@ -1,4 +1,5 @@
 (setq yxl-workspace-packages '((eyebrowse :location site)
+                               winum
                                buffer-move))
 
 (defun yxl-workspace/init-buffer-move ()
@@ -54,3 +55,47 @@
         #'eyebrowse-create-window-config-clone)
       (define-key eyebrowse-mode-map (kbd "C-c w C-c")
         #'eyebrowse-create-window-config-main))))
+
+
+(defun yxl-workspace/init-winum ()
+  (use-package winum
+    :config
+    (progn
+      (defun spacemacs//winum-assign-func ()
+        "Custom number assignment for neotree."
+        (when (and (boundp 'neo-buffer-name)
+                   (string= (buffer-name) neo-buffer-name)
+                   ;; in case there are two neotree windows. Example: when
+                   ;; invoking a transient state from neotree window, the new
+                   ;; window will show neotree briefly before displaying the TS,
+                   ;; causing an error message. the error is eliminated by
+                   ;; assigning 0 only to the top-left window
+                   (eq (selected-window) (frame-first-window)))
+          0))
+      (setq winum-auto-assign-0-to-minibuffer nil
+            winum-assign-func 'spacemacs//winum-assign-func
+            winum-auto-setup-mode-line nil
+            winum-ignored-buffers '(" *which-key*"))
+      (spacemacs/set-leader-keys
+        "0" 'winum-select-window-0-or-10
+        "1" 'winum-select-window-1
+        "2" 'winum-select-window-2
+        "3" 'winum-select-window-3
+        "4" 'winum-select-window-4
+        "5" 'winum-select-window-5
+        "6" 'winum-select-window-6
+        "7" 'winum-select-window-7
+        "8" 'winum-select-window-8
+        "9" 'winum-select-window-9)
+      (define-key winum-keymap (kbd "C-,")   'winum-select-window-by-number)
+      (define-key winum-keymap (kbd "C-w 0") 'winum-select-window-0-or-10)
+      (define-key winum-keymap (kbd "C-w 1") 'winum-select-window-1)
+      (define-key winum-keymap (kbd "C-w 2") 'winum-select-window-2)
+      (define-key winum-keymap (kbd "C-w 3") 'winum-select-window-3)
+      (define-key winum-keymap (kbd "C-w 4") 'winum-select-window-4)
+      (define-key winum-keymap (kbd "C-w 5") 'winum-select-window-5)
+      (define-key winum-keymap (kbd "C-w 6") 'winum-select-window-6)
+      (define-key winum-keymap (kbd "C-w 7") 'winum-select-window-7)
+      (define-key winum-keymap (kbd "C-w 8") 'winum-select-window-8)
+      (define-key winum-keymap (kbd "C-w 9") 'winum-select-window-9)
+      (winum-mode))))
