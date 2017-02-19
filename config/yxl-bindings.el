@@ -99,7 +99,7 @@ Hotspot:
  | [_cK_]: calendar               | [_gg_]: Helm: my hotspot            |
  | [_ck_]: cfw-calendar           | ^^                                  |
  | [_cc_]: Org: capture           | [_go_]: Helm: my org files          |
- | [_oa_]: Org: agenda list       | [_gs_]: Helm: my local/web shorcuts |
+ | [_oa_]: Org: agenda list       | [_gs_]: Helm: my local/web shortcuts|
  | [_ov_]: Org: calendar/agenda   | ^^                                  |
  | [_ot_]: Org: todo list         | [_gr_]: Helm: my reading list       |
  | [_oo_]: Org: open task files   | ^^                                  |
