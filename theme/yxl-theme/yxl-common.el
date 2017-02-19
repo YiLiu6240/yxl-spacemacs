@@ -354,6 +354,10 @@
             `(evil-ex-substitute-replacement ((,class (:background ,green-bg :foreground ,green))))
             `(evil-search-highlight-persist-highlight-face ((,class (:background ,green-bg :foreground ,base-light))))
 
+;;;;; evil-snipe
+            `(evil-snipe-first-match-face ((,class (:inherit isearch :foreground ,base-light))))
+            `(evil-snipe--match-face ((,class (:inherit region))))
+
 ;;;;; eyebrowse
             `(eyebrowse-mode-line-active ((,class (:foreground ,mat :weight bold))))
             `(eyebrowse-mode-line-inactive ((,class (:foreground ,base))))
@@ -505,6 +509,10 @@
             `(ivy-minibuffer-match-face-4 ((,class (:foreground ,head3 :underline t))))
             `(ivy-remote ((,class (:foreground ,cyan))))
             `(ivy-virtual ((,class (:foreground ,comment))))
+
+;;;;; langtool
+            `(langtool-errline ((,class (:foreground ,base-light :background ,red-bg))))
+            `(langtool-correction-face ((,class (:foreground ,base-light :background ,yellow-bg))))
 
 ;;;;; latex
             `(font-latex-math-face ((,class (:foreground ,type))))
