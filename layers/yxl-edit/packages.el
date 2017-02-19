@@ -140,7 +140,7 @@
     :init
     (progn
       (spacemacs/set-leader-keys
-        "Sl" #'langtool-hydra/body))
+        "al" #'langtool-hydra/body))
     :config
     (progn
       ;; TODO: get path done for all platforms
