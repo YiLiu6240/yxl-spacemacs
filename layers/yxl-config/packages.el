@@ -133,6 +133,8 @@
     (setq magit-log-arguments '("-n15" "--graph" "--decorate"))
     ;; prefer two way ediff
     (setq magit-ediff-dwim-show-on-hunks t)
+    ;; word diff
+    (setq magit-diff-refine-hunk 'all)
     ;; bindings
     (evil-define-key 'normal magit-mode-map (kbd "C-S-j") #'magit-section-forward)
     (evil-define-key 'normal magit-mode-map (kbd "C-S-k") #'magit-section-backward)
