@@ -7,6 +7,7 @@
 (setq-default initial-major-mode 'fundamental-mode)
 ;; ui
 (setq-default neo-theme 'ascii)
+(setq neo-show-updir-line t)
 (setq-default fci-rule-color (face-attribute 'highlight :background))
 
 ;; evil escape
