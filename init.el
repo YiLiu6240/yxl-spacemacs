@@ -41,9 +41,10 @@
      (shell :variables
             shell-default-shell (if (eq window-system 'w32) 'eshell
                                   'shell)
-            shell-default-height 30
+            ;; TODO: change back when upstream bug is fixed
+            shell-default-height 60
             shell-default-position 'bottom
-            shell-default-full-span nil)
+            shell-default-full-span t)
 
      ;; markup langs
      (org :packages (not evil-org))
