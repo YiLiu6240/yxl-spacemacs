@@ -11,7 +11,7 @@
     "ss" #'yxl-dired/dired-sort-by-size
     "sD" #'yxl-dired/dired-sort-by-dir
     "td" #'yxl-dired-toggle-dwim-target
-    "o"  #'yxl-dired-open-in-desktop
+    "o"  #'yxl-open-in-desktop
     "z"  #'yxl-dired-zip-files
     "r"  #'revert-buffer
     "h"  #'dired-hide-details-mode
