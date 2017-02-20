@@ -213,7 +213,7 @@ encoding: %`buffer-file-coding-system
   "ff" #'yxl-find-file-counsel
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "fo" #'spacemacs/open-file-or-directory-in-external-app ; with C-u open in desktop
-  "fO" #'yxl-dired-open-in-desktop
+  "fO" #'yxl-open-file-external
   "fp" #'counsel-projectile-find-file
   "fP" #'find-file-in-project-truename
   "bY" #'yxl-buffer-store-name
