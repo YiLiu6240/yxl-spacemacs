@@ -83,7 +83,8 @@
 
 (defun yxl-evil/setup-evil-personal ()
   "personal bindings, rely on external yxl functions"
-  )
+  ;; stay in normal mode when switch to wdired-mode
+  (delete 'wdired-mode evil-insert-state-modes))
 
 (defun yxl-evil/setup-evil-misc ()
   (evil-define-key 'insert comint-mode-map
