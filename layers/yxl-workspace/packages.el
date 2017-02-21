@@ -1,5 +1,6 @@
 (setq yxl-workspace-packages '((eyebrowse :location site)
                                winum
+                               (yxl-session :location site)
                                buffer-move))
 
 (defun yxl-workspace/init-buffer-move ()
@@ -99,3 +100,14 @@
       (define-key winum-keymap (kbd "C-w 8") 'winum-select-window-8)
       (define-key winum-keymap (kbd "C-w 9") 'winum-select-window-9)
       (winum-mode))))
+
+(defun yxl-workspace/init-yxl-session ()
+  (use-package yxl-session
+    :defer t
+    :commands (yxl-session-load-1
+               yxl-session-load-2
+               yxl-session-save-1
+               yxl-session-save-2)
+    :config
+    (progn
+      (setq yxl-session-location "~/Dropbox/inbox/"))))
