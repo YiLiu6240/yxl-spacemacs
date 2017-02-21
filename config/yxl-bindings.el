@@ -80,7 +80,8 @@ File:
 (defhydra yxl-hydra-common (:color blue :hint nil)
   ("." nil "quit")
   ("q" nil "quit")
-  ("+" make-frame "make-frame"))
+  ("+" make-frame "make-frame")
+  ("v" yxl-ivy-views-hydra/body "ivy-views"))
 
 (defhydra yxl-hydra-hotspot (:color blue :hint nil
                                     :pre (setq which-key-inhibit t)

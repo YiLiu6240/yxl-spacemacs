@@ -3,6 +3,7 @@
                                 ivy
                                 counsel
                                 (yxl-helm-pdf-occur :location site)
+                                (yxl-ivy-views :location site)
                                 helm-github-stars))
 
 (defun yxl-completion/post-init-helm ()
@@ -38,12 +39,18 @@
   (with-eval-after-load 'ivy
     (setq ivy-wrap t)
     (with-eval-after-load 'recentf
-      (setq ivy-use-virtual-buffers nil))
-    (load (concat dotspacemacs-directory "config/yxl-ivy-views.el"))))
+      (setq ivy-use-virtual-buffers nil))))
 
 (defun yxl-completion/post-init-counsel ()
   (with-eval-after-load 'counsel
     (define-key counsel-find-file-map (kbd "C-h") (kbd "DEL"))))
+
+(defun yxl-completion/init-yxl-ivy-views ()
+  (use-package yxl-ivy-views
+    :after (ivy)
+    :config
+    (progn
+      (setq yxl-ivy-views-storage-location yxl-file-ivy-views))))
 
 (defun yxl-completion/init-yxl-helm-pdf-occur ()
   (use-package yxl-helm-pdf-occur
