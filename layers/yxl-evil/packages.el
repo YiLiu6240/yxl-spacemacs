@@ -10,7 +10,9 @@
   (with-eval-after-load 'evil
     (yxl-evil/setup-evil-main)
     (yxl-evil/setup-evil-personal)
-    (yxl-evil/setup-evil-misc)))
+    (yxl-evil/setup-evil-misc)
+    ;; TODO: check if this causes trouble
+    (setq evil-move-beyond-eol t)))
 
 (defun yxl-evil/post-init-evil-evilified-state ()
   (with-eval-after-load 'evil-evilified-state
