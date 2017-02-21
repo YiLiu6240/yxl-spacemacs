@@ -81,7 +81,7 @@ File:
   ("." nil "quit")
   ("q" nil "quit")
   ("+" make-frame "make-frame")
-  ("v" yxl-ivy-views-hydra/body "ivy-views"))
+  ("s" yxl-hydra-sessions/body "sessions"))
 
 (defhydra yxl-hydra-hotspot (:color blue :hint nil
                                     :pre (setq which-key-inhibit t)
@@ -167,7 +167,7 @@ evil-shift-width: %`evil-shift-width; tabs: %`indent-tabs-mode
 encoding: %`buffer-file-coding-system
 
 --------
- [_su_]: update Spacemacs ^^^^ [_sU_]: update packages [_sR_]: roll back packages
+ [_Su_]: update Spacemacs ^^^^ [_SU_]: update packages [_SR_]: roll back packages
 
  [_f_]: +font-size ^^^^        [_F_]: +Frame-size      [_T_]: +Transparency
 
@@ -177,15 +177,15 @@ encoding: %`buffer-file-coding-system
 "
   ("," #'eval-expression "M-:")
 
-  ("su" (lambda ()
+  ("Su" (lambda ()
           (interactive)
           (spacemacs/home)
           (spacemacs/switch-to-version)))
-  ("sU" (lambda ()
+  ("SU" (lambda ()
           (interactive)
           (spacemacs/home)
           (configuration-layer/update-packages)))
-  ("sR" (lambda ()
+  ("SR" (lambda ()
           (interactive)
           (spacemacs/home)
           (call-interactively 'configuration-layer/rollback)))
@@ -201,6 +201,22 @@ encoding: %`buffer-file-coding-system
   ("att" mode-line-timer-start)
   ("atd" mode-line-timer-stop)
   ("atD" mode-line-timer-done))
+
+(defhydra yxl-hydra-sessions (:color blue :hint nil :columns 4
+                                     :pre (setq which-key-inhibit t)
+                                     :post (setq which-key-inhibit nil))
+  ("s" yxl-ivy-views-switch "ivy-views: switch")
+  ("vs" yxl-ivy-views-save "ivy-views: save")
+  ("vl" yxl-ivy-views-load "ivy-views: load")
+  ("vp" yxl-ivy-push-view "ivy-views: push")
+  ("vP" ivy-pop-view "ivy-views: pop")
+  ("vK" (setq ivy-views nil) "ivy-views: clean")
+  ("ve" (find-file yxl-ivy-views-storage-location) "ivy-views: edit")
+  ("Ss1" yxl-session-save-1 "desktop: profile1, save")
+  ("Sl1" yxl-session-load-1 "desktop: profile1, load")
+  ("Ss2" yxl-session-save-2 "desktop: profile2, save")
+  ("Sl2" yxl-session-load-2 "desktop: profile2, load")
+  ("b" helm-bookmarks "helm: bookmarks"))
 
 
 
@@ -308,13 +324,6 @@ encoding: %`buffer-file-coding-system
 (spacemacs/declare-prefix "os" "search")
 (spacemacs/set-leader-keys
   "osg" #'helm-google-suggest)
-
-(spacemacs/declare-prefix "oS" "session")
-(spacemacs/set-leader-keys
-  "oSs1" #'yxl-session-save-1
-  "oSl1" #'yxl-session-load-1
-  "oSs2" #'yxl-session-save-2
-  "oSl2" #'yxl-session-load-2)
 
 (spacemacs/declare-prefix "ox" "text")
 (spacemacs/set-leader-keys

@@ -48,6 +48,11 @@
 (defun yxl-completion/init-yxl-ivy-views ()
   (use-package yxl-ivy-views
     :after (ivy)
+    :defer t
+    :commands (yxl-ivy-push-view
+               yxl-ivy-views-load
+               yxl-ivy-views-save
+               yxl-ivy-views-switch)
     :config
     (progn
       (setq yxl-ivy-views-storage-location yxl-file-ivy-views))))
