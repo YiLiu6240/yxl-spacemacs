@@ -35,6 +35,8 @@
     (define-key evil-motion-state-map (kbd "C-j") #'evil-window-down)
     (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
     (define-key evil-motion-state-map (kbd "C-l") #'evil-window-right)
+    (define-key evil-motion-state-map "{" 'yxl-evil-backward-paragraph)
+    (define-key evil-motion-state-map "}" 'yxl-evil-forward-paragraph)
     ;; "q" as a leader
     (define-key evil-normal-state-map "q" nil)
     (define-key evil-normal-state-map "qm" #'evil-execute-macro)
