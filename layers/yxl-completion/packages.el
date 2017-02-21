@@ -35,7 +35,6 @@
   (delete '(counsel-M-x . "^") ivy-initial-inputs-alist)
   (delete '(counsel-describe-function . "^") ivy-initial-inputs-alist)
   (delete '(counsel-describe-variable . "^") ivy-initial-inputs-alist)
-  ;; ivy views
   (with-eval-after-load 'ivy
     (setq ivy-wrap t)
     (with-eval-after-load 'recentf
