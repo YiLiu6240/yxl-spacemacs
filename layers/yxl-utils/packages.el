@@ -28,7 +28,7 @@
       (defun find-file-in-project-truename ()
         "Use the true directory (in case of a symlinked file/dir.)"
         (interactive)
-        (let ((default-directory (file-name-directory buffer-file-truename)))
+        (let ((default-directory (file-truename default-directory)))
           (find-file-in-project)))
       ;; need this otherwise spacemacs.d will not be searched
       (setq ffip-prune-patterns '(;; VCS
