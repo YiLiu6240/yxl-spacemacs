@@ -20,10 +20,8 @@
 
 (defun yxl-org/init-evil-org ()
   (use-package evil-org
-    ;; :commands (evil-org-mode evil-org-recompute-clocks)
-    ;; :init (add-hook 'org-mode-hook 'evil-org-mode)
-    :defer t
-    :after 'org
+    :commands (evil-org-mode evil-org-recompute-clocks)
+    :init (add-hook 'org-mode-hook 'evil-org-mode)
     :config
     (progn
       (evil-define-key 'normal evil-org-mode-map
