@@ -222,6 +222,12 @@ encoding: %`buffer-file-coding-system
 
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
+  ;; workaround
+  "'" (lambda ()
+        (interactive)
+        (if (eq system-type 'windows-nt)
+            (eshell)
+          (shell)))
   "<SPC>" #'evil-avy-goto-char-2
   "bB" #'yxl-buffer-switch-same-major-mode
   "bh" #'yxl-utils/home
