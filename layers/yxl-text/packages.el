@@ -111,11 +111,6 @@
 
 (defun yxl-text/post-init-markdown-mode ()
   (when (configuration-layer/layer-usedp 'markdown)
-    ;; (setq auto-mode-alist (cons '("\\.text$" . gfm-mode) auto-mode-alist))
-    ;; (setq auto-mode-alist (cons '("\\.md$" . gfm-mode) auto-mode-alist))
-    ;; (setq auto-mode-alist (cons '("\\.mdown$" . gfm-mode) auto-mode-alist))
-    ;; (setq auto-mode-alist (cons '("\\.mdt$" . gfm-mode) auto-mode-alist))
-    ;; (setq auto-mode-alist (cons '("\\.markdown$" . gfm-mode) auto-mode-alist))
     (setq auto-mode-alist (cons '("\\.text$" . markdown-mode) auto-mode-alist)))
   (with-eval-after-load 'markdown-mode
     (add-hook 'markdown-mode-hook 'outline-minor-mode)
