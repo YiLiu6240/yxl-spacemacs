@@ -537,6 +537,7 @@
             `(font-latex-string-face ((,class (:foreground ,str))))
             `(font-latex-sedate-face ((,class (:foreground ,comment))))
             `(font-latex-warning-face ((,class (:foreground ,str))))
+            `(font-latex-script-char-face ((,class (:foreground ,str))))
 
 ;;;;; linum-mode
             `(linum ((,class (:foreground ,lnum :background ,bg1))))
