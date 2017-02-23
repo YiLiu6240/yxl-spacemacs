@@ -117,6 +117,7 @@
     (add-hook 'markdown-mode-hook
               (lambda ()
                 (setq markdown-command "pandoc")))
+    (add-hook 'markdown-mode-hook #'yxl-text/highlight-todos)
     (setq markdown-asymmetric-header t)))
 
 (defun yxl-text/init-writegood-mode ()

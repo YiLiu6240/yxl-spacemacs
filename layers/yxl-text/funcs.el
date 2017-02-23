@@ -24,6 +24,14 @@
 ;;         (find-file (projectile-project-root))
 ;;       (find-file yxl-path-local))))
 
+(defun yxl-text/highlight-todos ()
+  ;; hl-todo-mode only highlights in comments
+  ;; this is useful in main text
+  (highlight-lines-matching-regexp
+   "\\<\\(FIXME\\|WIP\\|TODO\\|BUG\\):?"
+   'hi-green))
+
+
 (defun yxl-text/latex-align-buffer ()
   "basically ggVG then align"
   (interactive)
