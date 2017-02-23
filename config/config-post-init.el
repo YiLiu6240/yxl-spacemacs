@@ -1,5 +1,6 @@
 ;; emacs general
 (setq-default menu-bar-mode nil)
+(setq scroll-margin 3)
 ;; osx
 (setq-default mac-option-modifier 'super
               mac-command-modifier 'meta)
