@@ -109,7 +109,7 @@
 (defun yxl-web/init-yxl-elfeed ()
   (use-package yxl-elfeed
     :defer t
-    :after (helm elfeed)
+    :after (elfeed)
     :config
     (progn
       (yxl-elfeed-patch)
