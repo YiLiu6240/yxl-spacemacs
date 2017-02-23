@@ -1,4 +1,14 @@
-(defhydra yxl-hydra-window (:color blue :hint nil)
+(defhydra yxl-hydra-common (:color blue :hint nil)
+  ("." nil "quit")
+  ("q" nil "quit"))
+
+(defhydra yxl-hydra-access (:color blue :hint nil
+                                   :inherit (yxl-hydra-common/heads))
+  ("+" make-frame "make-frame")
+  ("s" yxl-hydra-sessions/body "sessions"))
+
+(defhydra yxl-hydra-window (:color blue :hint nil
+                                   :inherit (yxl-hydra-common/heads))
   "
 Window Split:
 
@@ -12,9 +22,6 @@ Window Split:
 
 [_g_]: adjust width  [_h_]: adjust height
 "
-  ("q" nil "quit")
-  ("." nil "quit")
-
   ("s" yxl-window-split-horizontal-focus)
   ("S" yxl-window-split-horizontal-stay)
   ("v" yxl-window-split-vertical-focus)
@@ -31,7 +38,8 @@ Window Split:
   ("ww" yxl-window-change-width "adjust width"))
 
 
-(defhydra yxl-hydra-find-dir (:color blue :hint nil :columns 4)
+(defhydra yxl-hydra-find-dir (:color blue :hint nil :columns 4
+                                     :inherit (yxl-hydra-common/heads))
   "
 Directory:
 "
@@ -49,7 +57,8 @@ Directory:
 
 (defhydra yxl-hydra-find-file (:color blue :columns 4
                                       :pre (setq which-key-inhibit t)
-                                      :post (setq which-key-inhibit nil))
+                                      :post (setq which-key-inhibit nil)
+                                      :inherit (yxl-hydra-common/heads))
   "
 File:
 "
@@ -66,16 +75,10 @@ File:
   ("rf" (yxl-find-file-stay yxl-file-reading-list-files) "reading-list: files")
   ("rw" (yxl-find-file-stay yxl-file-reading-list-webpages) "reading-list: webpages"))
 
-(defhydra yxl-hydra-common (:color blue :hint nil)
-  ("." nil "quit")
-  ("q" nil "quit")
-  ("+" make-frame "make-frame")
-  ("s" yxl-hydra-sessions/body "sessions"))
-
 (defhydra yxl-hydra-hotspot (:color blue :hint nil
                                     :pre (setq which-key-inhibit t)
                                     :post (setq which-key-inhibit nil)
-                                    :inherit (yxl-hydra-common/heads))
+                                    :inherit (yxl-hydra-access/heads))
   "
 
 Hotspot:
@@ -147,7 +150,7 @@ Hotspot:
 (defhydra yxl-hydra-system (:color blue :hint nil
                                    :pre (setq which-key-inhibit t)
                                    :post (setq which-key-inhibit nil)
-                                   :inherit (yxl-hydra-common/heads))
+                                   :inherit (yxl-hydra-access/heads))
   "
 location: %(if buffer-file-name buffer-file-name default-directory)
 major-mode: %`major-mode
@@ -193,7 +196,8 @@ encoding: %`buffer-file-coding-system
 
 (defhydra yxl-hydra-sessions (:color blue :hint nil :columns 4
                                      :pre (setq which-key-inhibit t)
-                                     :post (setq which-key-inhibit nil))
+                                     :post (setq which-key-inhibit nil)
+                                     :inherit (yxl-hydra-common/heads))
   ("s" yxl-ivy-views-switch "ivy-views: switch")
   ("vs" yxl-ivy-views-save "ivy-views: save")
   ("vl" yxl-ivy-views-load "ivy-views: load")
