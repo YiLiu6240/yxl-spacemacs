@@ -1,4 +1,4 @@
-(defhydra yxl-window-hydra (:color blue :hint nil)
+(defhydra yxl-hydra-window (:color blue :hint nil)
   "
 Window Split:
 
@@ -31,7 +31,7 @@ Window Split:
   ("ww" yxl-window-change-width "adjust width"))
 
 
-(defhydra yxl-find-dir-hydra (:color blue :hint nil :columns 4)
+(defhydra yxl-hydra-find-dir (:color blue :hint nil :columns 4)
   "
 Directory:
 "
@@ -47,7 +47,7 @@ Directory:
   ("j" (yxl-find-dir yxl-path-journal-pwd) "journals")
   ("b" (yxl-find-dir yxl-path-book-reference) "books"))
 
-(defhydra yxl-find-file-hydra (:color blue :columns 4
+(defhydra yxl-hydra-find-file (:color blue :columns 4
                                       :pre (setq which-key-inhibit t)
                                       :post (setq which-key-inhibit nil))
   "

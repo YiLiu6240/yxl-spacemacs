@@ -68,11 +68,11 @@
   ";" #'counsel-M-x
   "o-" #'yxl-dired-popup
   "o <SPC>" #'delete-other-windows
-  "of" #'yxl-find-file-hydra/body
+  "of" #'yxl-hydra-find-file/body
   "oy" #'copy-file-name-to-clipboard
   "oo" #'yxl-hydra-hotspot/body
-  "op" #'yxl-find-dir-hydra/body
-  "ow" #'yxl-window-hydra/body)
+  "op" #'yxl-hydra-find-dir/body
+  "ow" #'yxl-hydra-window/body)
 
 (spacemacs/declare-prefix "ob" "buffer")
 (spacemacs/set-leader-keys
