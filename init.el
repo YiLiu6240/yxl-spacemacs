@@ -212,5 +212,6 @@
 (defun dotspacemacs/user-config ()
   (load-file (concat dotspacemacs-directory "config/config-post-init.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-bindings.el"))
+  (load-file (concat dotspacemacs-directory "config/yxl-hydra.el"))
   (load-file (concat dotspacemacs-directory "config/hack-post-init.el"))
   (load-file (concat dotspacemacs-directory "config/config-last.el")))
