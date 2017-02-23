@@ -28,7 +28,12 @@
     (define-key evil-motion-state-map "gT" #'eyebrowse-prev-window-config)
     (define-key evil-motion-state-map (kbd "g C-h") #'eyebrowse-prev-window-config)
     (define-key evil-motion-state-map (kbd "g C-l") #'eyebrowse-next-window-config)
+
     ;; navigation
+    ;; put "HML" to "g/HML", use "HL" as "^$"
+    (define-key evil-motion-state-map "gH" 'evil-window-top)
+    (define-key evil-motion-state-map "gL" 'evil-window-bottom)
+    (define-key evil-motion-state-map "gM" 'evil-window-middle)
     (define-key evil-motion-state-map "H" #'evil-first-non-blank)
     (define-key evil-motion-state-map "L" #'evil-end-of-line)
     (define-key evil-motion-state-map (kbd "C-h") #'evil-window-left)
@@ -69,7 +74,7 @@
     (define-key evil-inner-text-objects-map "K" #'evil-textobj-column-WORD)
 
     ;; from evil-goodies
-    (define-key evil-motion-state-map "gh" #'yxl-evil-go-up-indent)
+    (define-key evil-motion-state-map "g<" #'yxl-evil-go-up-indent)
     (define-key evil-inner-text-objects-map "q" #'evil-indent-chains)
 
     ;; ---- disabled ----
