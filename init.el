@@ -47,7 +47,8 @@
             shell-default-full-span t)
 
      ;; markup langs
-     (org :packages (not evil-org))
+     (org :packages (not evil-org)
+          :variables org-enable-reveal-js-support t)
      (markdown :variables markdown-live-preview-engine 'vmd)
      ;; markdown: need vmd from npm: npm install -g vmd
      pandoc

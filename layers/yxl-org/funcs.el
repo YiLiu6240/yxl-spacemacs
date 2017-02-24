@@ -50,6 +50,9 @@
   (setq org-refile-use-outline-path t)
   (setq org-refile-targets '((nil :maxlevel . 1)
                              (yxl-env-org-task-files :maxlevel . 1)))
+  (setq org-reveal-root
+        (format "file:///%s"
+                (expand-file-name "~/dotfiles/external/reveal.js/")))
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
     "r" #'yxl-org-refile-visible
     "R" #'yxl-org/refile-to-scratch))
