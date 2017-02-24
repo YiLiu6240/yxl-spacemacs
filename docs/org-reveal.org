@@ -17,6 +17,9 @@
 #+REVEAL_PLUGINS: (markdown notes)
 #+REVEAL_EXTRA_CSS: ./org-reveal-local.css
 
+
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+
 [[http://melpa.org/#/ox-reveal][file:http://melpa.org/packages/ox-reveal-badge.svg]]
 [[http://www.gnu.org/licenses/gpl-3.0.html][http://img.shields.io/:license-gpl3-blue.svg]]
 
