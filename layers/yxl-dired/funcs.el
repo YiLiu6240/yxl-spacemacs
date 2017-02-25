@@ -1,3 +1,6 @@
+(defun yxl-dired/general-config ()
+  (setq line-spacing 4))
+
 (defun yxl-dired/bindings-setup ()
   (define-key dired-mode-map "z" 'dired-zip-files)
   (define-key dired-mode-map "." 'yxl-dired-hydra-main/body)

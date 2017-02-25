@@ -40,6 +40,7 @@
       (setq dired-recursive-copies 'always)
       (add-hook 'dired-mode-hook #'spacemacs/toggle-truncate-lines-on)
       (add-hook 'dired-mode-hook #'dired-hide-details-mode)
+      (add-hook 'dired-mode-hook #'yxl-dired/general-config)
       (yxl-dired/bindings-setup))))
 
 (defun yxl-dired/init-yxl-dired ()
