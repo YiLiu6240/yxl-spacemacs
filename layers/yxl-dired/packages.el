@@ -94,7 +94,10 @@
 (defun yxl-dired/init-dired-subtree ()
   (use-package dired-subtree
     :defer t
+    :init
+    (progn
+      (with-eval-after-load 'dired
+       (define-key dired-mode-map "i" #'dired-subtree-toggle)))
     :config
     (progn
-      (setq dired-subtree-use-backgrounds nil)
-      (define-key dired-mode-map "i" #'dired-subtree-toggle))))
+      (setq dired-subtree-use-backgrounds nil))))
