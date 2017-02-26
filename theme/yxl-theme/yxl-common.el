@@ -112,7 +112,7 @@
             ;; success
             (suc           (cond ((eq variant 'dark) (if (true-color-p) "#86dc2f" "#98971a")) ((eq variant 'gruv) (if (true-color-p) "#98971a" "#afaf00")) (t (if (true-color-p) "#86dc2f" "#00af00"))))
             ;; tooltip
-            (ttip          (cond ((eq variant 'dark) (if (true-color-p) "#586e75" "#504945")) ((eq variant 'gruv) (if (true-color-p) "#504945" "#504945")) (t (if (true-color-p) "#8c799f" "#5f5f87"))))
+            (ttip          (cond ((eq variant 'dark) (if (true-color-p) "#586e75" "#504945")) ((eq variant 'gruv) (if (true-color-p) "#bdae93" "#ffdfaf")) (t (if (true-color-p) "#8c799f" "#5f5f87"))))
             ;; tooltip selection
             (ttip-sl       (cond ((eq variant 'dark) (if (true-color-p) "#1b343d" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#076678" "#076678")) (t (if (true-color-p) "#c8c6dd" "#afafff"))))
             ;; tooltip bg
@@ -453,7 +453,7 @@
             `(helm-match ((,class (:background ,head1-bg :foreground ,head1))))
             `(helm-match-item ((,class (:background ,head1-bg :foreground ,head1))))
             `(helm-moccur-buffer ((,class (:foreground ,var :background ,bg1))))
-            `(helm-selection ((,class (:background ,highlight))))
+            `(helm-selection ((,class (:background ,ttip-sl))))
             `(helm-selection-line ((,class (:background ,bg2))))
             `(helm-separator ((,class (:foreground ,comp :background ,bg1))))
             `(helm-source-header ((,class (:background ,comp :foreground ,bg1 :inherit bold))))
@@ -502,7 +502,7 @@
             `(info-title-4 ((,class (:height 1.2))))
 
 ;;;;; ivy
-            `(ivy-current-match ((,class (:background ,highlight :inherit bold))))
+            `(ivy-current-match ((,class (:background ,ttip-sl :foreground ,base))))
             `(ivy-minibuffer-match-face-1 ((,class (:inherit bold))))
             `(ivy-minibuffer-match-face-2 ((,class (:foreground ,head1 :underline t))))
             `(ivy-minibuffer-match-face-3 ((,class (:foreground ,head4 :underline t))))
