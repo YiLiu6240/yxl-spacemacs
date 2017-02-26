@@ -52,6 +52,8 @@
   (spacemacs/set-leader-keys-for-major-mode mode
     ";" #'ess-execute
     "of" #'yxl-ess-call-useful-funcs
+    "os" #'yxl-ess-at-point-str
+    "oS" #'yxl-ess-at-point-generic
     ;; send
     "sa" #'ess-switch-process
     "st" nil
@@ -111,9 +113,7 @@
     "vI" #'asb-ess-R-object-popup-interactive
     "vp" #'ess-R-dv-pprint
     "vt" #'ess-R-dv-ctable
-    "vd" #'ess-rdired
-    "vs" #'yxl-ess-at-point-str
-    "vS" #'yxl-ess-at-point-generic))
+    "vd" #'ess-rdired))
 
 (defun yxl-ess/declare-prefix (mode)
   (spacemacs/declare-prefix-for-mode mode "ms" "repl-interaction")
