@@ -234,11 +234,11 @@
             `(company-template-field ((,class (:inherit region))))
             `(company-tooltip ((,class (:background ,ttip-bg :foreground ,ttip))))
             `(company-tooltip-annotation ((,class (:foreground ,keyword))))
-            `(company-tooltip-common ((,class (:background ,ttip-bg :foreground ,base))))
-            `(company-tooltip-common-selection ((,class (:foreground ,base))))
+            `(company-tooltip-selection ((,class (:background ,ttip-sl :foreground ,base))))
+            `(company-tooltip-common ((,class (:inherit company-tooltip :weight bold :underline nil))))
+            `(company-tooltip-common-selection ((,class (:inherit company-tooltip-selection :weight bold :underline nil))))
             `(company-tooltip-mouse ((,class (:inherit highlight))))
             `(company-tooltip-search ((,class (:inherit match))))
-            `(company-tooltip-selection ((,class (:background ,ttip-sl :foreground ,base))))
 
 ;;;;; calfw
             `(cfw:face-title ((t (:foreground ,head1 :weight bold :height 2.0))))
