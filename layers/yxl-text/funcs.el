@@ -28,9 +28,14 @@
   ;; hl-todo-mode only highlights in comments
   ;; this is useful in main text
   (highlight-lines-matching-regexp
-   "\\<\\(FIXME\\|WIP\\|TODO\\|BUG\\):?"
-   'hi-green))
-
+   "\\<\\(FIXME\\|BUG\\):?"
+   'hi-green)
+  (highlight-lines-matching-regexp
+   "\\<\\(WIP\\):?"
+   'hi-yellow)
+  (highlight-lines-matching-regexp
+   "\\<\\(TODO\\):?"
+   'hi-blue))
 
 (defun yxl-text/latex-align-buffer ()
   "basically ggVG then align"
