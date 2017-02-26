@@ -5,6 +5,10 @@
 (spacemacs/declare-prefix-for-mode 'inferior-ess-mode "mb" "debugging")
 (spacemacs/declare-prefix-for-mode 'inferior-ess-mode "mv" "views")
 (spacemacs/declare-prefix-for-mode 'inferior-ess-mode "mr" "roxygen")
+
+(spacemacs/set-leader-keys-for-major-mode 'ess-mode
+  "O" #'yxl-ess-call-useful-funcs)
+
 (spacemacs/set-leader-keys-for-major-mode 'ess-mode
   "ofs" #'yxl-ess-exec-lsos
   "off" #'yxl-ess-exec-lsdf)
@@ -84,6 +88,7 @@
 
 (spacemacs/set-leader-keys-for-major-mode 'inferior-ess-mode
   ";" #'ess-execute
+  "O" #'yxl-ess-call-useful-funcs
 
   "sU" #'ess-install-library
   "su" #'ess-load-library
