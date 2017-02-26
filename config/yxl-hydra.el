@@ -53,7 +53,9 @@ Directory:
   ("c" (yxl-find-dir yxl-path-code-pwd) "code")
   ("p" (yxl-find-dir yxl-path-paper-pwd) "papers")
   ("j" (yxl-find-dir yxl-path-journal-pwd) "journals")
-  ("b" (yxl-find-dir yxl-path-book-reference) "books"))
+  ("b" (yxl-find-dir yxl-path-book-reference) "books")
+  ("s" (yxl-find-dir (concat yxl-path-local
+                             "yxl_datascience")) "datascience"))
 
 (defhydra yxl-hydra-find-file (:color blue :columns 4
                                       :pre (setq which-key-inhibit t)
