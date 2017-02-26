@@ -77,7 +77,7 @@
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-enable-sort-by-usage t
                       ;; completion tool tip, nil, buggy in evil
-                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-help-tooltip nil
                       :disabled-for  ; layer name
                       org
                       markdown)
