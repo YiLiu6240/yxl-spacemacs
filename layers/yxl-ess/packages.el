@@ -8,18 +8,15 @@
     (add-hook 'ess-mode-hook 'smartparens-mode)
     (add-hook 'ess-mode-hook 'fci-mode)
     (add-hook 'ess-mode-hook 'hl-todo-mode)
-    (yxl-ess/ess-setup)
-    (yxl-ess/ess-setup-imenu)
+    (yxl-ess/setup)
+    (yxl-ess/setup-imenu)
+    (yxl-ess/setup-rdired)
+    (yxl-ess/setup-lintr)
     (add-hook 'R-mode-hook #'yxl-ess/R-hook)
+    (mapcar #'yxl-ess/set-leader-keys '(ess-mode inferior-ess-mode))
+    (mapcar #'yxl-ess/declare-prefix '(ess-mode inferior-ess-mode))
     (key-chord-define ess-mode-map ">>" "%>%")
-    (key-chord-define ess-mode-map "__" "<-"))
-
-  (with-eval-after-load 'flycheck
-   (setq flycheck-lintr-linters
-        (concat "with_defaults(assignment_linter=NULL, "
-                "camel_case_linter=NULL, "
-                "commented_code_linter=NULL, "
-                "infix_spaces_linter=NULL)"))))
+    (key-chord-define ess-mode-map "__" "<-")))
 
 (defun yxl-ess/init-yxl-ess ()
   (use-package yxl-ess
