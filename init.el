@@ -18,7 +18,6 @@
    dotspacemacs-configuration-layers
    '(yxl-spacemacs
 
-
      ;; prog langs
      (ess :packages (not org))
      emacs-lisp
