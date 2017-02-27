@@ -37,6 +37,14 @@ Window Split:
   ("wc" yxl-window-center-margins "center margin")
   ("ww" yxl-window-change-width "adjust width"))
 
+(defhydra yxl-hydra-ace-window (:color blue :hint nil :columns 4
+                                       :inherit (yxl-hydra-common/heads))
+  ("m" ace-swap-window "ace: swap window")
+  ("M" ace-maximize-window "ace: max window")
+  ("s" ace-select-window "ace: select window")
+  ("d" ace-delete-window "ace: delete window")
+  ("p" yxl-window-ace-push-window "ace: push window")
+  ("f" yxl-window-ace-pull-window "ace: pull window"))
 
 (defhydra yxl-hydra-find-dir (:color blue :hint nil :columns 4
                                      :inherit (yxl-hydra-common/heads))

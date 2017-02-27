@@ -48,7 +48,7 @@
   "wV" #'split-window-right
   "wY" #'yxl-window-record-layout
   "wP" #'yxl-window-load-layout
-  "w <SPC>" #'ace-window
+  "w <SPC>" #'yxl-hydra-ace-window/body
   "w M-h" #'buf-move-left
   "w M-j" #'buf-move-down
   "w M-k" #'buf-move-up
