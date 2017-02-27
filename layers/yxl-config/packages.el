@@ -130,6 +130,10 @@
     (remove-hook 'server-switch-hook 'magit-commit-diff)
     (add-hook 'magit-mode-hook #'visual-line-mode)
     (setq vc-handled-backends nil)
+    (setq auto-revert-buffer-list-filter
+          'magit-auto-revert-repository-buffers-p)
+    (setq magit-refresh-status-buffer nil)
+    ;; other configs
     (setq magit-log-arguments '("-n15" "--graph" "--decorate"))
     ;; prefer two way ediff
     (setq magit-ediff-dwim-show-on-hunks t)
