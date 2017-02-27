@@ -93,10 +93,10 @@ File:
 
 Hotspot:
 
- | [_h_]: Frame: Meta             | [_0_]: Org: scratch                 |
- | [_j_]: Frame: REPL             | [_1_]: Org: main                    |
- | [_k_]: Frame: Code             | [_2_]: Org: work                    |
- | [_l_]: Frame: Conf             | [_3_]: Org: config                  |
+ | [_h_]: Frame: h                | [_0_]: Org: scratch                 |
+ | [_j_]: Frame: j                | [_1_]: Org: main                    |
+ | [_k_]: Frame: k                | [_2_]: Org: work                    |
+ | [_l_]: Frame: l                | [_3_]: Org: config                  |
  | ^^                             | [_4_]: Org: proj                    |
 
  | [_cK_]: calendar               | [_gg_]: Helm: my hotspot            |
@@ -112,10 +112,10 @@ Hotspot:
  | [_is_]: append: to scratch.org | ^^                                  |
 "
 
-  ("h" (yxl-frame-select-or-set "Meta"))
-  ("j" (yxl-frame-select-or-set "REPL"))
-  ("k" (yxl-frame-select-or-set "Code"))
-  ("l" (yxl-frame-select-or-set "Conf"))
+  ("h" (yxl-frame-select-or-set "Frame-h"))
+  ("j" (yxl-frame-select-or-set "Frame-j"))
+  ("k" (yxl-frame-select-or-set "Frame-k"))
+  ("l" (yxl-frame-select-or-set "Frame-l"))
 
   ("0" (yxl-find-file-popup yxl-file-org-scratch))
   ("1" (yxl-find-file-popup yxl-file-org-main))
