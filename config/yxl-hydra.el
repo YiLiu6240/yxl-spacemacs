@@ -43,8 +43,8 @@ Window Split:
   ("M" ace-maximize-window "ace: max window")
   ("s" ace-select-window "ace: select window")
   ("d" ace-delete-window "ace: delete window")
-  ("p" yxl-window-ace-push-window "ace: push window")
-  ("f" yxl-window-ace-pull-window "ace: pull window"))
+  ("p" yxl-ace-window-push-window "ace: push window")
+  ("f" yxl-ace-window-pull-window "ace: pull window"))
 
 (defhydra yxl-hydra-find-dir (:color blue :hint nil :columns 4
                                      :inherit (yxl-hydra-common/heads))

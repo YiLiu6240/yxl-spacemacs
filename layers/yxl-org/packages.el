@@ -32,7 +32,11 @@
 (defun yxl-org/init-yxl-org ()
   (use-package yxl-org
     :after (org)
-    :commands (yxl-org-open-all-task-files)))
+    :commands (yxl-org-open-all-task-files)
+    :config
+    (progn
+      (setq yxl-org-task-files yxl-env-org-files))))
+
 
 (defun yxl-org/init-org-gcal ()
   (use-package org-gcal

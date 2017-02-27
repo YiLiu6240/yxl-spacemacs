@@ -29,7 +29,13 @@
                yxl-helm-shortcuts
                yxl-helm-org-files
                yxl-helm-reading-list)
-    :defer t))
+    :config
+    (progn
+      (setq yxl-hhs-org-files yxl-env-org-files)
+      (setq yxl-hhs-file-local-list yxl-file-sites-local)
+      (setq yxl-hhs-file-web-list yxl-file-sites-web)
+      (setq yxl-hhs-file-reading-list-local yxl-file-reading-list-files)
+      (setq yxl-hhs-file-reading-list-webpages yxl-file-reading-list-webpages))))
 
 (defun yxl-completion/post-init-ivy ()
   ;; remove the "^" element in search

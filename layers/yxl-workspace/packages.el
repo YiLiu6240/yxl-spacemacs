@@ -1,7 +1,12 @@
 (setq yxl-workspace-packages '((eyebrowse :location site)
                                winum
+                               (yxl-ace-window :location site)
                                (yxl-session :location site)
                                buffer-move))
+
+(defun yxl-workspace/init-yxl-ace-window ()
+  (use-package yxl-ace-window
+    :after (ace-window)))
 
 (defun yxl-workspace/init-buffer-move ()
   (use-package buffer-move
