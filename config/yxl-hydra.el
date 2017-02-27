@@ -44,7 +44,7 @@ Window Split:
   ("s" ace-select-window "ace: select window")
   ("d" ace-delete-window "ace: delete window")
   ("p" yxl-ace-window-push-window "ace: push window")
-  ("f" yxl-ace-window-pull-window "ace: pull window"))
+  ("f" yxl-ace-window-fetch-window "ace: fetch window"))
 
 (defhydra yxl-hydra-find-dir (:color blue :hint nil :columns 4
                                      :inherit (yxl-hydra-common/heads))
