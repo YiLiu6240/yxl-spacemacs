@@ -15,7 +15,7 @@
         (if (eq system-type 'windows-nt)
             (eshell)
           (shell)))
-  "<SPC>" #'evil-avy-goto-char-2
+  "<SPC>" #'yxl-hydra-ace-window/body
   "bB" #'yxl-buffer-switch-same-major-mode
   "bh" #'yxl-utils/home
   ;; TODO: rm this with next spacemacs update
@@ -29,10 +29,11 @@
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
   "dd" #'yxl-dired-ivy-switch-buffer
+  "hdF" #'counsel-faces
   "i <SPC>" #'evil-insert-newline-around
   "ii" #'evil-insert-space
   "ia" #'evil-apend-space
-  "hdF" #'counsel-faces
+  "jj" #'evil-avy-goto-char-2
   "l" #'spacemacs/workspaces-transient-state/body
   "LY" #'yxl-workspace/record-config
   "LP" #'yxl-workspace/load-config
@@ -48,7 +49,6 @@
   "wV" #'split-window-right
   "wY" #'yxl-window-record-layout
   "wP" #'yxl-window-load-layout
-  "w <SPC>" #'yxl-hydra-ace-window/body
   "w M-h" #'buf-move-left
   "w M-j" #'buf-move-down
   "w M-k" #'buf-move-up
