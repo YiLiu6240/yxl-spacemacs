@@ -55,6 +55,7 @@
     "op" #'yxl-ess-call-atpoint-useful-funcs
     "os" #'yxl-ess-call-atpoint-str
     "oS" #'yxl-ess-call-atpoint-generic
+    "R" #'yxl-ess-open-rstudio
     ;; send
     "sa" #'ess-switch-process
     "st" nil
