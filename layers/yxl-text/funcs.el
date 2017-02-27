@@ -28,7 +28,7 @@
   ;; hl-todo-mode only highlights in comments
   ;; this is useful in main text
   (highlight-lines-matching-regexp
-   "\\<\\(FIXME\\|BUG\\):?"
+   "\\<\\(FIXME\\|BUG\\|NEXT\\):?"
    'hi-green)
   (highlight-lines-matching-regexp
    "\\<\\(WIP\\):?"
