@@ -52,8 +52,9 @@
   (spacemacs/set-leader-keys-for-major-mode mode
     ";" #'ess-execute
     "of" #'yxl-ess-call-useful-funcs
-    "os" #'yxl-ess-at-point-str
-    "oS" #'yxl-ess-at-point-generic
+    "op" #'yxl-ess-call-atpoint-useful-funcs
+    "os" #'yxl-ess-call-atpoint-str
+    "oS" #'yxl-ess-call-atpoint-generic
     ;; send
     "sa" #'ess-switch-process
     "st" nil
