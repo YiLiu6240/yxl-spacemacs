@@ -10,6 +10,8 @@
 (setq-default neo-theme 'ascii)
 (setq neo-show-updir-line t)
 (setq-default fci-rule-color (face-attribute 'highlight :background))
+(global-hl-line-mode -1)
+(file-name-shadow-mode -1)
 
 ;; evil escape
 (setq-default evil-escape-key-sequence "jk")
