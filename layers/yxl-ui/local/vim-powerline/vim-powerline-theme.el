@@ -141,7 +141,9 @@ And if not, try to get the corresponding '-normal' face"
                                     (powerline-raw (format " %s " (winum-get-number)) state-indicator-face)
                                   (powerline-raw (format " %s " editor-symbol) state-indicator-face))
                                 ;; buffer id
-                                (powerline-buffer-id-short fileinfo-face 'l)
+                                (if (< (window-width) 100)
+                                    (powerline-buffer-id-short fileinfo-face 'l)
+                                  (powerline-buffer-id fileinfo-face 'l))
                                 ;; modified status
                                 (powerline-raw "%*" fileinfo-face 'lr)
                                 (powerline-narrow fileinfo-face 'l)
