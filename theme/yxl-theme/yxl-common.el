@@ -489,6 +489,9 @@
             `(ido-subdir ((,class (:foreground ,keyword))))
             `(ido-vertical-match-face ((,class (:foreground ,comp :underline nil))))
 
+;;;;; iedit
+            `(iedit-occurrence ((,class (:inherit highlight :background ,mat))))
+
 ;;;;; info
             `(info-header-xref ((,class (:foreground ,func :underline t))))
             `(info-menu ((,class (:foreground ,suc))))
