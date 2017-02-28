@@ -853,6 +853,7 @@
 
 ;; Local Variables:
 ;; no-byte-compile: t
+;; eval: (when (featurep 'parinfer) (parinfer-mode-disable))
 ;; End:
 
 ;;; yxl-common.el ends here
