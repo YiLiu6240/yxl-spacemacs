@@ -5,6 +5,7 @@
   (setq ess-eval-visibly 'nowait)
   (setq ess-execute-in-process-buffer t)
   (setq ess-ask-for-ess-directory nil)
+  ;; ISSUE: fancy comments not disabled
   (setq ess-own-style-list '((ess-indent-offset . 4)
                              (ess-offset-arguments . open-delim)
                              (ess-offset-arguments-newline . prev-line)
@@ -16,7 +17,7 @@
                              (ess-align-blocks)
                              (ess-indent-from-lhs arguments)
                              (ess-indent-from-chain-start . t)
-                             (ess-indent-with-fancy-comments)))
+                             (ess-indent-with-fancy-comments . nil)))
   (setq ess-default-style 'OWN))
 
 (defun yxl-ess/R-hook ()
