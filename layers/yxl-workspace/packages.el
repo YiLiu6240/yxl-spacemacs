@@ -6,7 +6,17 @@
 
 (defun yxl-workspace/init-yxl-ace-window ()
   (use-package yxl-ace-window
-    :after (ace-window)))
+    :after (ace-window)
+    :config
+    (progn
+      (with-eval-after-load 'dired
+        (evil-define-key 'evilified dired-mode-map
+          "O"  #'yxl-ace-window-dired-open))
+      (with-eval-after-load 'counsel
+        (ivy-add-actions 'counsel-find-file
+                         '(("O" yxl-ace-window-open "dispatch to an ace window")
+                           ("s" yxl-ace-window-open-horz "split horz, ace window")
+                           ("v" yxl-ace-window-open-vert "split horz, ace window")))))))
 
 (defun yxl-workspace/init-buffer-move ()
   (use-package buffer-move

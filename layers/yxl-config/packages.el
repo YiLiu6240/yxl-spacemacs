@@ -15,7 +15,6 @@
   (with-eval-after-load 'dired
     (evilified-state-evilify dired-mode dired-mode-map
       "o"  #'dired-find-file
-      "O"  #'yxl-ace-window-dired-open
       "q"  #'yxl-dired-delete-window
       "-"  #'dired-up-directory
       ;; from vinegar layer

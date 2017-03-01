@@ -49,10 +49,7 @@
 
 (defun yxl-completion/post-init-counsel ()
   (with-eval-after-load 'counsel
-    (define-key counsel-find-file-map (kbd "C-h") (kbd "DEL"))
-    (with-eval-after-load 'yxl-ace-window
-     (ivy-add-actions
-      'counsel-find-file '(("O" yxl-ace-window-open "dispatch to an ace window"))))))
+    (define-key counsel-find-file-map (kbd "C-h") (kbd "DEL"))))
 
 (defun yxl-completion/init-yxl-ivy-views ()
   (use-package yxl-ivy-views
