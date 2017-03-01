@@ -2,8 +2,7 @@
                                winum
                                (yxl-ace-window :location site)
                                (yxl-session :location site)
-                               buffer-move
-                               perspeen))
+                               buffer-move))
 
 (defun yxl-workspace/init-yxl-ace-window ()
   (use-package yxl-ace-window
@@ -117,11 +116,3 @@
     :config
     (progn
       (setq yxl-session-location "~/Dropbox/inbox/"))))
-
-(defun yxl-workspace/init-perspeen ()
-  (use-package perspeen
-    :ensure t
-    :init
-    (setq perspeen-use-tab t)
-    :config
-    (perspeen-mode)))
