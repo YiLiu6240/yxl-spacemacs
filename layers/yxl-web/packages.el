@@ -114,7 +114,6 @@
     (progn
       (yxl-elfeed-patch)
       (setq elfeed-feeds yxl-personal-elfeed-feeds)
-      (setq yxl-elfeed-tag-alist yxl-personal-elfeed-tag-alist)
       (setq yxl-elfeed-score-alist yxl-personal-elfeed-score-alist))))
 
 (defun yxl-web/init-yxl-web ()
