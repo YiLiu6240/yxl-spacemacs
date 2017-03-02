@@ -5,6 +5,7 @@
 (defhydra yxl-hydra-access (:color blue :hint nil
                                    :inherit (yxl-hydra-common/heads))
   ("+" make-frame "make-frame")
+  ("-" yxl-dired-popup "dired-popup")
   ("s" yxl-hydra-sessions/body "sessions"))
 
 (defhydra yxl-hydra-window (:color blue :hint nil
