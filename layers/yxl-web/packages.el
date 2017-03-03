@@ -4,7 +4,8 @@
                          elfeed
                          (yxl-elfeed :location site)
                          (yxl-web :location site)
-                         atomic-chrome))
+                         atomic-chrome
+                         helm-chrome))
 
 (defun yxl-web/init-helm-w3m ()
   "Initializes helm-w3m and adds keybindings for its exposed functionalities."
@@ -121,4 +122,8 @@
 
 (defun yxl-web/init-atomic-chrome ()
   (use-package atomic-chrome
+    :defer t))
+
+(defun yxl-web/init-helm-chrome ()
+  (use-package helm-chrome
     :defer t))
