@@ -10,11 +10,7 @@
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
   ;; workaround
-  "'" (lambda ()
-        (interactive)
-        (if (eq system-type 'windows-nt)
-            (eshell)
-          (shell)))
+  "'" #'yxl-shell-invoke
   "<SPC>" #'yxl-hydra-ace-window/body
   "bB" #'yxl-buffer-switch-same-major-mode
   "bh" #'yxl-utils/home
