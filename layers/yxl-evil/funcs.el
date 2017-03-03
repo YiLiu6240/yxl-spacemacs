@@ -119,7 +119,9 @@
   (push '(?m . ("\\\(" . "\\\)")) evil-surround-pairs-alist)
   (push '(?M . ("\\\( " . " \\\)")) evil-surround-pairs-alist)
   (push '(?n . ("\\[" . "\\]")) evil-surround-pairs-alist)
-  (push '(?N . ("\\[ " . " \\]")) evil-surround-pairs-alist))
+  (push '(?N . ("\\[ " . " \\]")) evil-surround-pairs-alist)
+  (push '(?k . ("$ " . " $")) evil-surround-pairs-alist)
+  (push '(?K . ("$" . "$")) evil-surround-pairs-alist))
 
 (defun yxl-evil/setup-evilified ()
   (when (boundp 'evil-evilified-state-map-original)

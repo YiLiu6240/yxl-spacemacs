@@ -100,10 +100,10 @@
   "custom auctex settings"
   (setq font-latex-user-keyword-classes
         '(("citet" (("citet" "{")) 'yxl-latex-font-hide 'declaration)
-          ("citep" (("citep" "{")) 'yxl-latex-font-hide 'declaration)
+          ("citep" (("citep" "{")) 'yxl-latex-font-hide 'declaration))))
           ;; ("shadow-comment" (("comment" "{")) 'yxl-latex-font-comment 'declaration)
           ;; ("shadow-hidden" (("hide" "{")) 'yxl-latex-font-hide 'declaration)
-          )))
+
 
 (defun yxl-text/setup-latex-pairs ()
   "smartparens and evil-surround"
@@ -114,10 +114,18 @@
 
   (with-eval-after-load 'smartparens
     ;; REVIEW: why latex-mode work, but not LaTeX-mode ?
-    (sp-local-pair 'latex-mode "\\(" "\\)" :trigger "\\m ")
-    (sp-local-pair 'latex-mode "\\[" "\\]" :trigger "\\n ")
-    (sp-local-pair 'latex-mode "\\( " " \\)" :trigger "\\M ")
-    (sp-local-pair 'latex-mode "\\[ " " \\]" :trigger "\\N ")))
+    (sp-with-modes '(tex-mode
+                     plain-tex-mode
+                     latex-mode
+                     LaTeX-mode)
+      (sp-local-pair "\\(" "\\)" :trigger "\\m ")
+      (sp-local-pair "\\[" "\\]" :trigger "\\n ")
+      (sp-local-pair "\\( " " \\)" :trigger "\\M ")
+      (sp-local-pair "\\[ " " \\]" :trigger "\\N ")
+      (sp-local-pair "$" "$"
+                     :trigger "\\k "
+                     :pre-handlers '(sp-latex-pre-slurp-handler)
+                     :post-handlers '(sp-latex-insert-spaces-inside-pair)))))
 
 (defun yxl-text/setup-latex-reftex ()
   ;; set master file using directory variables
