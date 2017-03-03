@@ -66,6 +66,7 @@
   "o-" #'yxl-dired-popup
   "o <SPC>" #'delete-other-windows
   "of" #'yxl-hydra-find-file/body
+  "og" #'yxl-helm-hotspot
   "oy" #'copy-file-name-to-clipboard
   "oo" #'yxl-hydra-hotspot/body
   "op" #'yxl-hydra-find-dir/body
