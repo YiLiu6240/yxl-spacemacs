@@ -85,6 +85,7 @@
      github
 
      ;; minor utils modes
+     nlinum
      colors
      (ibuffer :variables
               ;; dont set to projects, really freaking slow
