@@ -21,6 +21,7 @@
   ;; TODO: rm this with next spacemacs update
   "bm" #'view-echo-area-messages
   "ff" #'yxl-find-file-counsel
+  "fF" #'find-file-in-current-directory
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "fo" #'spacemacs/open-file-or-directory-in-external-app ; with C-u open in desktop
   "fO" #'yxl-open-file-external
