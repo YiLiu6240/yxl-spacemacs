@@ -3,29 +3,42 @@
 
 url: https://github.com/mkaito/base16-emacs")
 
-(let ((normal-outer-foreground  (face-background 'highlight)) (normal-outer-background  (face-foreground 'font-lock-function-name-face))
-      (normal-inner-foreground  (face-foreground 'fringe))    (normal-inner-background  (face-background 'fringe))
-      (normal-center-foreground (face-foreground 'highlight)) (normal-center-background (face-background 'highlight))
+;; based on gruvbox
+(let* ((color-active-fg "#d5c4a1") ;; active modeline fg, should be dimmer than default fg
+       (color-inactive-fg "#928374") ;; inactive modeline fg, even dimmer
+       (color-bg "#32302f") ;; modeline bg, should be lighter than default bg
+       (color-bg-alt "#504945") ;; modeline bg, a more "highlighted" version
+       ;; color when the specified evil state is active
+       (color-state-fg "#ebdbb2") ;; general state fg
+       (color-normal-bg "#7c6f64")
+       (color-insert-bg "#427b58")
+       (color-visual-bg "#af3a03")
+       (color-replace-bg "#cc241d")
+       (color-emacs-bg "#d3869b")
 
-      (insert-outer-foreground  (face-background 'highlight)) (insert-outer-background  (face-foreground 'success))
-      (insert-inner-foreground  (face-foreground 'success))   (insert-inner-background  (face-background 'fringe))
-      (insert-center-foreground (face-foreground 'highlight)) (insert-center-background (face-background 'highlight))
+       (normal-outer-foreground  color-state-fg) (normal-outer-background  color-normal-bg)
+       (normal-inner-foreground  color-active-fg) (normal-inner-background  color-bg-alt)
+       (normal-center-foreground color-active-fg) (normal-center-background color-bg)
 
-      (visual-outer-foreground  (face-background 'highlight))          (visual-outer-background  (face-foreground 'font-lock-doc-face))
-      (visual-inner-foreground  (face-foreground 'font-lock-doc-face)) (visual-inner-background  (face-background 'fringe))
-      (visual-center-foreground (face-foreground 'highlight))          (visual-center-background (face-background 'highlight))
+       (insert-outer-foreground  color-state-fg) (insert-outer-background  color-insert-bg)
+       (insert-inner-foreground  color-active-fg) (insert-inner-background  color-bg-alt)
+       (insert-center-foreground color-active-fg) (insert-center-background color-bg)
 
-      (replace-outer-foreground  (face-background 'highlight)) (replace-outer-background  (face-foreground 'error))
-      (replace-inner-foreground  (face-foreground 'fringe))    (replace-inner-background  (face-background 'fringe))
-      (replace-center-foreground (face-foreground 'highlight)) (replace-center-background (face-background 'highlight))
+       (visual-outer-foreground  color-state-fg) (visual-outer-background  color-visual-bg)
+       (visual-inner-foreground  color-active-fg) (visual-inner-background  color-bg-alt)
+       (visual-center-foreground color-active-fg) (visual-center-background color-bg)
 
-      (emacs-outer-foreground  (face-background 'highlight)) (emacs-outer-background  (face-foreground 'escape-glyph))
-      (emacs-inner-foreground  (face-foreground 'fringe))    (emacs-inner-background  (face-background 'fringe))
-      (emacs-center-foreground (face-foreground 'highlight)) (emacs-center-background (face-background 'highlight))
+       (replace-outer-foreground  color-state-fg) (replace-outer-background  color-replace-bg)
+       (replace-inner-foreground  color-active-fg) (replace-inner-background  color-bg-alt)
+       (replace-center-foreground color-active-fg) (replace-center-background color-bg)
 
-      (inactive1-foreground (face-foreground 'fringe)) (inactive1-background (face-foreground 'highlight))
-      (inactive2-foreground (face-foreground 'fringe)) (inactive2-background (face-foreground 'highlight))
-      (inactive3-foreground (face-foreground 'fringe)) (inactive3-background (face-foreground 'highlight)))
+       (emacs-outer-foreground  color-state-fg) (emacs-outer-background  color-emacs-bg)
+       (emacs-inner-foreground  color-active-fg) (emacs-inner-background  color-bg-alt)
+       (emacs-center-foreground color-active-fg) (emacs-center-background color-bg)
+
+       (inactive1-foreground color-inactive-fg) (inactive1-background color-bg)
+       (inactive2-foreground color-inactive-fg) (inactive2-background color-bg)
+       (inactive3-foreground color-inactive-fg) (inactive3-background color-bg))
 
   (airline-themes-set-deftheme 'yxl-airline)
 
