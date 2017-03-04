@@ -3,6 +3,53 @@
 (require 'airline-themes)
 (require 'yxl-modeline-funcs)
 
+(defun yxl-airline-themes-set-deftheme (theme-name)
+  "Set appropriate face attributes"
+
+  (when airline-eshell-colors
+    (airline-themes-set-eshell-prompt))
+
+  (when airline-helm-colors
+    (custom-theme-set-faces
+     theme-name
+     `(helm-header           ((t ( :foreground ,insert-inner-foreground  :background ,insert-inner-background  :bold t))))
+     `(helm-selection        ((t ( :foreground ,insert-outer-foreground  :background ,insert-outer-background  :bold t))))
+     `(helm-source-header    ((t ( :foreground ,insert-center-foreground :background ,insert-center-background :bold t))))
+     `(helm-candidate-number ((t ( :foreground ,normal-inner-foreground  :background ,normal-inner-background  :bold t))))
+     `(helm-selection-line   ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :bold t))))))
+
+  (custom-theme-set-faces
+   theme-name
+   `(which-func            ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :bold t))))
+
+   `(airline-normal-outer  ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background :bold t))))
+   `(airline-normal-inner  ((t ( :foreground ,normal-inner-foreground  :background ,normal-inner-background :bold t))))
+   `(airline-normal-center ((t ( :foreground ,normal-center-foreground :background ,normal-center-background))))
+
+   `(airline-insert-outer  ((t ( :foreground ,insert-outer-foreground  :background ,insert-outer-background :bold t))))
+   `(airline-insert-inner  ((t ( :foreground ,insert-inner-foreground  :background ,insert-inner-background :bold t))))
+   `(airline-insert-center ((t ( :foreground ,insert-center-foreground :background ,insert-center-background))))
+
+   `(airline-visual-outer  ((t ( :foreground ,visual-outer-foreground  :background ,visual-outer-background :bold t))))
+   `(airline-visual-inner  ((t ( :foreground ,visual-inner-foreground  :background ,visual-inner-background :bold t))))
+   `(airline-visual-center ((t ( :foreground ,visual-center-foreground :background ,visual-center-background))))
+
+   `(airline-replace-outer ((t ( :foreground ,replace-outer-foreground :background ,replace-outer-background :bold t))))
+   `(airline-replace-inner  ((t ( :foreground ,replace-inner-foreground  :background ,replace-inner-background :bold t))))
+   `(airline-replace-center ((t ( :foreground ,replace-center-foreground :background ,replace-center-background))))
+
+   `(airline-emacs-outer   ((t ( :foreground ,emacs-outer-foreground   :background ,emacs-outer-background :bold t))))
+   `(airline-emacs-inner  ((t ( :foreground ,emacs-inner-foreground  :background ,emacs-inner-background :bold t))))
+   `(airline-emacs-center ((t ( :foreground ,emacs-center-foreground :background ,emacs-center-background))))
+
+   `(powerline-inactive1   ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background :bold t))))
+   `(powerline-inactive2   ((t ( :foreground ,inactive2-foreground     :background ,inactive2-background :bold t))))
+   `(airline-inactive3   ((t ( :foreground ,inactive3-foreground     :background ,inactive3-background))))
+
+   `(mode-line             ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :box nil :underline nil :overline nil))))
+   `(mode-line-inactive    ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background     :box nil :underline nil :overline nil))))
+   `(mode-line-buffer-id   ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil :underline nil :overline nil))))))
+
 (defun yxl-airline-themes-set-modeline ()
   "Set the airline mode-line-format"
   (interactive)
@@ -10,12 +57,6 @@
                 '("%e"
                   (:eval
                    (let* ((active (powerline-selected-window-active))
-                          (separator-left (intern (format "powerline-%s-%s"
-                                                          (powerline-current-separator)
-                                                          (car powerline-default-separator-dir))))
-                          (separator-right (intern (format "powerline-%s-%s"
-                                                           (powerline-current-separator)
-                                                           (cdr powerline-default-separator-dir))))
                           (mode-line-face (if active 'mode-line 'mode-line-inactive))
                           (visual-block (if (featurep 'evil)
                                             (and (evil-visual-state-p)
@@ -68,106 +109,62 @@
                              'airline-inactive3))
 
                           ;; Left Hand Side
-                          (lhs-mode (if (featurep 'evil)
-                                        (list
-                                         ;; Evil Mode Name
-                                         (powerline-raw (concat " " current-evil-state-string " ") outer-face)
-                                         (funcall separator-left outer-face inner-face)
-                                         ;; Modified string
-                                         (powerline-raw "%*" inner-face 'l))
-
-                                      (list
-                                       ;; Modified string
-                                       (powerline-raw "%*" outer-face 'l)
-                                       ;; Separator >
-                                       (powerline-raw " " outer-face)
-                                       (funcall separator-left outer-face inner-face))))
+                          (lhs-mode (list
+                                     ;; ;; Evil Mode Name
+                                     ;; (powerline-raw (concat " " current-evil-state-string " ") outer-face)
+                                     ;; winum, otherwise editor state
+                                     (if (bound-and-true-p winum-mode)
+                                         (powerline-raw (format " %s " (winum-get-number)) outer-face)
+                                       (powerline-raw (format " %s " current-evil-state-string) outer-face))
+                                     ;; Buffer ID
+                                     (powerline-raw "  " inner-face 'lr)
+                                     (powerline-raw (buffer-id-short 100) inner-face 'lr)
+                                     ;; Modified string
+                                     (powerline-raw " %* " inner-face 'lr)))
 
                           (lhs-rest (list
-                                     ;; ;; Separator >
-                                     ;; (powerline-raw (char-to-string #x2b81) inner-face 'l)
-
+                                     (powerline-raw " " center-face 'lr)
+                                     ;; selection info
+                                     (powerline-raw (modeline-selection-info) center-face 'lr)
+                                     ;; anzu
+                                     (when (bound-and-true-p anzu--state)
+                                       (powerline-raw (anzu--update-mode-line) center-face 'lr))
+                                     ;; pdf pages
+                                     (when (eq 'pdf-view-mode major-mode)
+                                       (powerline-raw (modeline-pdfview-page-number) center-face 'lr))
+                                     ;; flycheck
+                                     (when (bound-and-true-p flycheck-mode)
+                                       (powerline-raw (modeline-flycheck) center-face 'lr))
                                      ;; Eyebrowse current tab/window config
-                                     (if (featurep 'eyebrowse)
-                                         (powerline-raw (concat " " (eyebrowse-mode-line-indicator)) inner-face))
-
-                                     ;; Git Branch
-                                     (powerline-raw (airline-get-vc) inner-face)
-
-                                     ;; Separator >
-                                     (powerline-raw " " inner-face)
-                                     (funcall separator-left inner-face center-face)
-
-                                     ;; Directory
-                                     (when (eq airline-display-directory 'airline-directory-shortened)
-                                       (powerline-raw (airline-shorten-directory default-directory airline-shortened-directory-length) center-face 'l))
-                                     (when (eq airline-display-directory 'airline-directory-full)
-                                       (powerline-raw default-directory center-face 'l))
-                                     (when (eq airline-display-directory nil)
-                                       (powerline-raw " " center-face))
-
-                                     ;; Buffer ID
-                                     ;; (powerline-buffer-id center-face)
-                                     (powerline-raw "%b" center-face)
+                                     (when active
+                                      (powerline-raw (modeline-get-eyebrowse-tag-current) center-face 'l))
 
                                      ;; Current Function (which-function-mode)
                                      (when (and (boundp 'which-func-mode) which-func-mode)
                                        ;; (powerline-raw which-func-format 'l nil))
-                                       (powerline-raw which-func-format center-face 'l))
-
-                                     ;; ;; Separator >
-                                     ;; (powerline-raw " " center-face)
-                                     ;; (funcall separator-left mode-line face1)
-
-                                     (when (boundp 'erc-modified-channels-object)
-                                       (powerline-raw erc-modified-channels-object center-face 'l))))
-
-                                     ;; ;; Separator <
-                                     ;; (powerline-raw " " face1)
-                                     ;; (funcall separator-right face1 face2)
-
+                                       (powerline-raw which-func-format center-face 'l))))
 
                           (lhs (append lhs-mode lhs-rest))
 
                           ;; Right Hand Side
                           (rhs (list (powerline-raw global-mode-string center-face 'r)
-
-                                     ;; ;; Separator <
-                                     ;; (powerline-raw (char-to-string #x2b83) center-face 'l)
-
-                                     ;; Subseparator <
-                                     (powerline-raw (char-to-string airline-utf-glyph-subseparator-right) center-face 'l)
-
+                                     ;; erc
+                                     (when (boundp 'erc-modified-channels-object)
+                                       (powerline-raw erc-modified-channels-object center-face 'r))
+                                     ;; Git Branch
+                                     (powerline-raw (modeline-get-vc) center-face 'lr)
+                                     (powerline-raw " " center-face 'lr)
+                                     ;; process
+                                     (powerline-process center-face 'lr)
                                      ;; Major Mode
-                                     (powerline-major-mode center-face 'l)
-                                     (powerline-process center-face)
-
-                                     ;; Separator <
-                                     (powerline-raw " " center-face)
-                                     (funcall separator-right center-face inner-face)
-
-                                     ;; Buffer Size
-                                     (when powerline-display-buffer-size
-                                       (powerline-buffer-size inner-face 'l))
-
-                                     ;; Mule Info
-                                     (when powerline-display-mule-info
-                                       (powerline-raw mode-line-mule-info inner-face 'l))
-
-                                     (powerline-raw " " inner-face)
-
-                                     ;; Separator <
-                                     (funcall separator-right inner-face outer-face)
-
-                                     ;; LN charachter
-                                     (powerline-raw (char-to-string airline-utf-glyph-linenumber) outer-face 'l)
-
-                                     ;; Current Line
-                                     (powerline-raw "%4l" outer-face 'l)
-                                     (powerline-raw ":" outer-face 'l)
-                                     ;; Current Column
-                                     (powerline-raw "%3c" outer-face 'r))))
-
+                                     (powerline-raw " " inner-face 'lr)
+                                     (powerline-major-mode inner-face 'lr)
+                                     (powerline-raw " " inner-face 'lr)
+                                     ;; lin num and total linum
+                                     (powerline-raw "%l" outer-face 'l)
+                                     (powerline-raw "/" outer-face)
+                                     (powerline-raw (format "%s" (line-number-at-pos (point-max)))
+                                                    outer-face 'r))))
 
                      ;; Combine Left and Right Hand Sides
                      (concat (powerline-render lhs)

@@ -40,7 +40,7 @@ url: https://github.com/mkaito/base16-emacs")
        (inactive2-foreground color-inactive-fg) (inactive2-background color-bg)
        (inactive3-foreground color-inactive-fg) (inactive3-background color-bg))
 
-  (airline-themes-set-deftheme 'yxl-airline)
+  (yxl-airline-themes-set-deftheme 'yxl-airline)
 
   (when airline-cursor-colors
     (progn
