@@ -13,8 +13,7 @@
                                     spaceline
                                     window-numbering
                                     org-bullets
-                                    tern
-                                    evil-mc)
+                                    tern)
    dotspacemacs-install-packages 'used-only
    dotspacemacs-configuration-layers
    '(yxl-spacemacs
