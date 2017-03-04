@@ -16,6 +16,7 @@
   "bh" #'yxl-utils/home
   ;; TODO: rm this with next spacemacs update
   "bm" #'view-echo-area-messages
+  "bx" #'kill-buffer-and-window
   "ff" #'yxl-find-file-counsel
   "fF" #'find-file-in-current-directory
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
@@ -50,6 +51,7 @@
   "w M-j" #'buf-move-down
   "w M-k" #'buf-move-up
   "w M-l" #'buf-move-right
+  "wx" #'kill-buffer-and-window
   "xh" #'highlight-regexp
   "xH" #'yxl-ov-highlighter/body
   "xa{" 'spacemacs/align-repeat-left-curly-brace
