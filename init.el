@@ -198,9 +198,11 @@
   (add-to-list 'load-path "~/.spacemacs.d/config")
   (add-to-list 'load-path "~/.spacemacs.d/site-lisp")
   (add-to-list 'load-path "~/.spacemacs.d/theme/yxl-theme")
+  (add-to-list 'load-path "~/.spacemacs.d/theme/yxl-airline-theme")
   (add-to-list 'load-path "~/dotfiles/yxl-emacs-goodies")
 
   (add-to-list 'custom-theme-load-path "~/.spacemacs.d/theme/yxl-theme")
+  (add-to-list 'custom-theme-load-path "~/.spacemacs.d/theme/yxl-airline-theme")
 
   (load-file (concat dotspacemacs-directory "config/config-init.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-env.el"))
@@ -212,6 +214,7 @@
   (load custom-file 'no-error 'no-message))
 
 (defun dotspacemacs/user-config ()
+  (load-theme 'yxl-airline t)
   (load-file (concat dotspacemacs-directory "config/config-post-init.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-bindings.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-hydra.el"))
