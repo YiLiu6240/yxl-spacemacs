@@ -1,0 +1,1 @@
+(provide 'yxl-modeline-funcs)

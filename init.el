@@ -198,6 +198,7 @@
   (add-to-list 'load-path "~/.spacemacs.d/config")
   (add-to-list 'load-path "~/.spacemacs.d/site-lisp")
   (add-to-list 'load-path "~/.spacemacs.d/theme/yxl-theme")
+  (add-to-list 'load-path "~/.spacemacs.d/theme/yxl-airline")
   (add-to-list 'load-path "~/.spacemacs.d/theme/yxl-airline-theme")
   (add-to-list 'load-path "~/dotfiles/yxl-emacs-goodies")
 
