@@ -4,19 +4,19 @@
 
 (defun yxl-ess/post-init-ess ()
   (with-eval-after-load 'ess-site
-    (ess--unset-smart-S-assign-key)
+
     (add-hook 'ess-mode-hook 'smartparens-mode)
     (add-hook 'ess-mode-hook 'fci-mode)
     (add-hook 'ess-mode-hook 'hl-todo-mode)
-    (yxl-ess/setup)
+    (yxl-ess/setup-generic)
+    (yxl-ess/setup-bindings)
     (yxl-ess/setup-imenu)
     (yxl-ess/setup-rdired)
     (yxl-ess/setup-lintr)
+    (add-hook 'ess-mode-hook #'yxl-ess/ess-hook)
     (add-hook 'R-mode-hook #'yxl-ess/R-hook)
     (mapcar #'yxl-ess/set-leader-keys '(ess-mode inferior-ess-mode))
-    (mapcar #'yxl-ess/declare-prefix '(ess-mode inferior-ess-mode))
-    (key-chord-define ess-mode-map ">>" "%>%")
-    (key-chord-define ess-mode-map "__" "<-")))
+    (mapcar #'yxl-ess/declare-prefix '(ess-mode inferior-ess-mode))))
 
 (defun yxl-ess/init-yxl-ess ()
   (use-package yxl-ess

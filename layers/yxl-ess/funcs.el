@@ -1,29 +1,40 @@
-(defun yxl-ess/setup ()
+(defun yxl-ess/setup-generic ()
   (setq ess-history-file nil)
   ;; no spaces around argument assignment
   (setq ess-R-argument-suffix "=")
   (setq ess-eval-visibly 'nowait)
   (setq ess-execute-in-process-buffer t)
   (setq ess-ask-for-ess-directory nil)
-  ;; ISSUE: fancy comments not disabled
-  (setq ess-own-style-list '((ess-indent-offset . 4)
-                             (ess-offset-arguments . open-delim)
-                             (ess-offset-arguments-newline . prev-line)
-                             (ess-offset-block . prev-line)
-                             (ess-offset-continued . straight)
-                             (ess-align-nested-calls . '("ifelse"))
-                             (ess-align-arguments-in-calls "function[     ]*(")
-                             (ess-align-continuations-in-calls)
-                             (ess-align-blocks)
-                             (ess-indent-from-lhs arguments)
-                             (ess-indent-from-chain-start . t)
-                             (ess-indent-with-fancy-comments . nil)))
-  (setq ess-default-style 'OWN))
+  (setq yxl-ess-style '((ess-indent-offset . 4)
+                        (ess-offset-arguments . open-delim)
+                        (ess-offset-arguments-newline . prev-call)
+                        (ess-offset-block . prev-line)
+                        (ess-offset-continued . straight)
+                        (ess-align-nested-calls "ifelse")
+                        (ess-align-arguments-in-calls "function[    ]*(")
+                        (ess-align-continuations-in-calls . t)
+                        (ess-align-blocks control-flow)
+                        (ess-indent-from-lhs arguments fun-decl-opening)
+                        (ess-indent-from-chain-start . t)
+                        (ess-indent-with-fancy-comments)))
+  (ess-add-style 'yxl-ess-style yxl-ess-style)
+  (setq ess-default-style 'yxl-ess-style))
+
+(defun yxl-ess/setup-bindings ()
+  ;; move "<-" key to "C-c ="
+  (setq ess-S-assign "<-")
+  (setq ess-smart-S-assign-key (kbd "C-c ="))
+  (ess-toggle-S-assign nil)
+  (ess-toggle-S-assign nil)
+
+  (define-key ess-mode-map (kbd "C-c >") (lambda ()
+                                           (interactive)
+                                           (insert "%>%"))))
 
 (defun yxl-ess/R-hook ()
-  (setq evil-shift-width 4)
-  ;; no fancy comment
-  (setq comment-add 0))
+  (setq evil-shift-width 4))
+
+(defun yxl-ess/ess-hook ())
 
 (defun yxl-ess/setup-imenu ()
   (setq ess-imenu-S-generic-expression

@@ -13,13 +13,17 @@
                                     spaceline
                                     window-numbering
                                     org-bullets
-                                    tern)
+                                    tern
+                                    ess-smart-equals)
    dotspacemacs-install-packages 'used-only
    dotspacemacs-configuration-layers
    '(yxl-spacemacs
 
      ;; prog langs
-     (ess :packages (not org))
+     (ess :packages (not (org ess-smart-equals))
+          :variables
+          ess-enable-smart-equals nil)
+
      emacs-lisp
      python
      ipython-notebook

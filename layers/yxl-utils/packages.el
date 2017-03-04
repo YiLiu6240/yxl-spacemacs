@@ -3,8 +3,7 @@
                            (general-goodies :location site)
                            find-file-in-project
                            (simple-todo :location site)
-                           (scratch-pop :location site)
-                           key-chord))
+                           (scratch-pop :location site)))
 
 (defun yxl-utils/init-yxl-utils ()
   (use-package yxl-utils))
@@ -112,12 +111,3 @@
         (interactive)
         (let ((scratch-pop-position 'top))
           (scratch-pop))))))
-
-(defun yxl-utils/init-key-chord ()
-  (use-package key-chord
-    :init
-    (progn (key-chord-mode 1))
-    :config
-    (progn)))
-      ;; (setq key-chord-two-keys-delay 0.015)
-      ;; (setq key-chord-one-key-delay 0.020)
