@@ -31,10 +31,14 @@
                                            (interactive)
                                            (insert "%>%"))))
 
-(defun yxl-ess/R-hook ()
-  (setq evil-shift-width 4))
+(defun yxl-ess/R-hook ())
 
-(defun yxl-ess/ess-hook ())
+(defun yxl-ess/ess-hook ()
+  (setq-local comment-add 0))
+
+(defun yxl-ess/ess-set-style-advice (&optional style quiet)
+  "Set `evil-shift-width' based on `ess-indent-offset'."
+  (setq-local evil-shift-width ess-indent-offset))
 
 (defun yxl-ess/setup-imenu ()
   (setq ess-imenu-S-generic-expression
