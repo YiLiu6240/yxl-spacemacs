@@ -1,6 +1,7 @@
 (setq yxl-ess-packages '(ess
                          (yxl-ess :location site)
-                         (ess-goodies :location site)))
+                         (ess-goodies :location site)
+                         polymode))
 
 (defun yxl-ess/post-init-ess ()
   (with-eval-after-load 'ess-site
@@ -25,3 +26,16 @@
 (defun yxl-ess/init-ess-goodies ()
   (use-package ess-goodies
     :after ess-site))
+
+(defun yxl-ess/init-polymode ()
+  (use-package polymode
+    :mode (("\\.Rmd"   . Rmd-mode))
+    :init
+    (progn
+      (defun Rmd-mode ()
+        "ESS Markdown mode for Rmd files"
+        (interactive)
+        (require 'poly-R)
+        (require 'poly-markdown)
+        (R-mode)
+        (poly-markdown+r-mode)))))
