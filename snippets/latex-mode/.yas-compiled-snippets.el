@@ -14,4 +14,4 @@
                        ("align" "\\begin{align}\n  $0\n\\end{align}\n" "\\begin{align} ... \\end{align}" nil nil nil "/home/yiliu/.spacemacs.d/snippets/latex-mode/env_align" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Nov  6 20:40:31 2016
+;;; Do not edit! File generated at Mon Mar  6 10:57:29 2017

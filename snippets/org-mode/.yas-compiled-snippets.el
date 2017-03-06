@@ -17,6 +17,7 @@
                           0))
                         nil nil "/home/yiliu/.spacemacs.d/snippets/org-mode/startup" nil nil)
                        ("src" "#+begin_src $1\n$2\n#+end_src" "source" nil nil nil "/home/yiliu/.spacemacs.d/snippets/org-mode/src" nil nil)
+                       ("node_folded" "*** desc\n:PROPERTIES:\n:VISIBILITY: folded\n:END:" "node_foled" nil nil nil "/home/yiliu/.spacemacs.d/snippets/org-mode/node_folded" nil nil)
                        ("block" "#+BEGIN_$1 $2\n  $0\n#+END_$1" "#+begin_...#+end_"
                         (or
                          (=
@@ -33,4 +34,4 @@
                        ("bbn" "#+begin_src $1 :exports both :results output code\n$0\n#+end_src\n" "babel_nosession" nil nil nil "/home/yiliu/.spacemacs.d/snippets/org-mode/babel_nosession" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Nov  6 20:40:31 2016
+;;; Do not edit! File generated at Mon Mar  6 10:57:29 2017
