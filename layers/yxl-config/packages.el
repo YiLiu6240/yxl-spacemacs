@@ -115,6 +115,8 @@
     (setq magit-ediff-dwim-show-on-hunks t)
     ;; word diff
     (setq magit-diff-refine-hunk 'all)
+    ;; log
+    (setq magit-log-margin '(t "%Y-%m-%d %H:%M %a " magit-log-margin-width t 18))
     ;; bindings
     (evil-define-key 'normal magit-mode-map (kbd "C-S-j") #'magit-section-forward)
     (evil-define-key 'normal magit-mode-map (kbd "C-S-k") #'magit-section-backward)
