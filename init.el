@@ -198,22 +198,23 @@
    dotspacemacs-whitespace-cleanup `all))
 
 (defun dotspacemacs/user-init ()
+  ;; load path
   (add-to-list 'load-path (concat dotspacemacs-directory "config"))
   (add-to-list 'load-path (concat dotspacemacs-directory "site-lisp"))
   (add-to-list 'load-path (concat dotspacemacs-directory "theme/yxl-theme"))
   (add-to-list 'load-path (concat dotspacemacs-directory "theme/yxl-airline"))
   (add-to-list 'load-path (concat dotspacemacs-directory "theme/yxl-airline-theme"))
-  (add-to-list 'load-path "~/dotfiles/yxl-emacs-goodies")
-
   (add-to-list 'custom-theme-load-path (concat dotspacemacs-directory "theme/yxl-theme"))
   (add-to-list 'custom-theme-load-path (concat dotspacemacs-directory "theme/yxl-airline-theme"))
-
-  (load-file (concat dotspacemacs-directory "config/config-init.el"))
+  ;; my env
   (load-file (concat dotspacemacs-directory "config/yxl-env.el"))
+  (add-to-list 'load-path (concat yxl-path-dotfiles "yxl-emacs-goodies"))
+  ;; init stage config
+  (load-file (concat dotspacemacs-directory "config/config-init.el"))
   (load-file (concat dotspacemacs-directory "config/hack.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-spacemacs-home.el"))
   (load-file "~/dotfiles/personal/yxl-personal.el")
-
+  ;; custom.el
   (setq-default custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (load custom-file 'no-error 'no-message))
 
