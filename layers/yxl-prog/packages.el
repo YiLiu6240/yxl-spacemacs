@@ -22,10 +22,9 @@
                   (setq-local tab-width 4))))))
 
 (defun yxl-prog/post-init-python ()
-  (with-eval-after-load 'python
-    ;; (add-hook 'python-mode-hook 'evil-visual-mark-mode)
-    ;; (add-hook 'python-mode-hook (lambda () (modify-syntax-entry ?_ "w")))
-    )
+  (with-eval-after-load 'python)
+  ;; (add-hook 'python-mode-hook 'evil-visual-mark-mode)
+  ;; (add-hook 'python-mode-hook (lambda () (modify-syntax-entry ?_ "w")))
 
   ;; python imenu hack ----
   ;; http://stackoverflow.com/questions/21644876/imenu-does-not-work-for-python-mode-or-c-mode
