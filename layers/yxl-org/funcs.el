@@ -109,19 +109,23 @@
 
 (defun yxl-org/setup-capture ()
   (setq org-capture-templates
-        '(("i" "life-inbox" entry (file+headline yxl-file-org-main "Inbox")
+        '(;; generalised
+          ("i" "general: inbox" entry (file+headline yxl-file-org-config "Capture")
            "* INBOX %?\n  %i\n")
-          ("t" "life-todo" entry (file+headline yxl-file-org-main "Inbox")
+          ("t" "general: todo" entry (file+headline yxl-file-org-config "Capture")
            "* TODO %?\n  %i\n")
-          ("c" "config" entry (file+headline yxl-file-org-config "Config")
+          ;; specialised
+          ("I" "main: inbox" entry (file+headline yxl-file-org-main "Inbox")
            "* INBOX %?\n  %i\n")
+          ("T" "main: todo" entry (file+headline yxl-file-org-main "Inbox")
+           "* TODO %?\n  %i\n")
+          ("j" "work: jobs" entry (file+headline yxl-file-org-work "Posts")
+           "* %?\n** desc \n:PROPERTIES:\n:VISIBILITY: folded\n:END:\n %i\n")
+          ;; note and log
           ("n" "quick note" item (file+headline yxl-file-note-master "Quick Notes"))
-          ("I" "work-inbox" entry (file+headline yxl-file-org-work "Inbox")
-           "* INBOX %?\n  %i\n")
-          ("T" "work-todo" entry (file+headline yxl-file-org-work "Inbox")
-           "* TODO %?\n  %i\n")
           ("l" "logs" entry (file+datetree yxl-file-org-log)
            "* %?\n  -- %U\n  %i\n")
+          ;; calendar
           ("g" "Google Calendar" entry (file (concat yxl-path-org-task "cal_google.org"))
            "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
           ("G" "Local Calendar" entry (file+headline (concat yxl-path-org-task "cal_gen.org") "2017")
