@@ -17,25 +17,6 @@
       (with-eval-after-load 'dired-aux
         (add-to-list 'dired-compress-file-suffixes
                      '("\\.zip\\'" ".zip" "unzip")))
-      ;; dired sort
-      ;; http://ergoemacs.org/emacs/dired_sort.html
-      (defun yxl-dired/dired-sort-by-name ()
-        (interactive)
-        (setq -arg "-Al --si --time-style long-iso ")
-        (dired-sort-other -arg))
-      (defun yxl-dired/dired-sort-by-date ()
-        (interactive)
-        (setq -arg "-Al --si --time-style long-iso -t")
-        (dired-sort-other -arg))
-      (defun yxl-dired/dired-sort-by-size ()
-        (interactive)
-        (setq -arg "-Al --si --time-style long-iso -S")
-        (dired-sort-other -arg))
-      (defun yxl-dired/dired-sort-by-dir ()
-        (interactive)
-        (setq -arg "-Al --si --time-style long-iso --group-directories-first")
-        (dired-sort-other -arg))
-
       (setq dired-listing-switches "-l -a -h")
       (setq dired-recursive-copies 'always)
       (add-hook 'dired-mode-hook #'spacemacs/toggle-truncate-lines-on)

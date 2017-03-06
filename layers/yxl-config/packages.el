@@ -1,5 +1,4 @@
-(setq yxl-config-packages '(dired
-                            pdf-tools
+(setq yxl-config-packages '(pdf-tools
                             ess
                             python
                             imenu-list
@@ -10,28 +9,6 @@
                             ibuffer
                             neotree
                             graphviz))
-
-(defun yxl-config/post-init-dired ()
-  (with-eval-after-load 'dired
-    (evilified-state-evilify dired-mode dired-mode-map
-      "o"  #'dired-find-file
-      "q"  #'yxl-dired-delete-window
-      "-"  #'dired-up-directory
-      ;; from vinegar layer
-      "0"         'dired-back-to-start-of-files
-      "="         'vinegar/dired-diff
-      "I"         'vinegar/dotfiles-toggle
-      ;; do not kill previous buffer, useful in splits
-      (kbd "~")   '(lambda ()(interactive) (find-file "~/"))
-      "T"         'dired-tree-down
-      "f"         (if (configuration-layer/layer-usedp 'ivy)
-                      'counsel-find-file
-                    'helm-find-files)
-      "J"         'dired-goto-file
-      (kbd "C-f") 'find-name-dired
-      "K"         'dired-do-kill-lines
-      "r"         'revert-buffer
-      (kbd "C-r") 'dired-do-redisplay)))
 
 (defun yxl-config/post-init-pdf-tools ()
   (with-eval-after-load 'pdf-tools
