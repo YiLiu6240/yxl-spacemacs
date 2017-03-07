@@ -35,6 +35,7 @@
   "l" #'spacemacs/workspaces-transient-state/body
   "LY" #'yxl-workspace/record-config
   "LP" #'yxl-workspace/load-config
+  "po" #'yxl-projectile-todo-popup
   "pm" #'helm-make-projectile
   "pM" #'helm-make
   "pG" #'projectile-regenerate-tags

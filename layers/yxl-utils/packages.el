@@ -6,7 +6,10 @@
                            (scratch-pop :location site)))
 
 (defun yxl-utils/init-yxl-utils ()
-  (use-package yxl-utils))
+  (use-package yxl-utils
+    :config
+    (progn
+      (setq yxl-projectile-todo-global yxl-file-org-config))))
 
 (defun yxl-utils/init-yxl-window ()
   (use-package yxl-window))
