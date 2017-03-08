@@ -28,9 +28,9 @@
   "bP" #'yxl-buffer-visit-stored-buffer
   "dd" #'yxl-dired-ivy-switch-buffer
   "hdF" #'counsel-faces
-  "i <SPC>" #'evil-insert-newline-around
-  "ii" #'evil-insert-space
-  "ia" #'evil-apend-space
+  "i <SPC>" #'yxl-evil-insert-newline-around
+  "ii" #'yxl-evil-insert-space
+  "ia" #'yxl-evil-apend-space
   "jj" #'evil-avy-goto-char-2
   "l" #'spacemacs/workspaces-transient-state/body
   "LY" #'yxl-workspace/record-config

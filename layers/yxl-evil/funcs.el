@@ -17,6 +17,7 @@
     (define-key evil-inner-text-objects-map "h" #'evil-inner-bracket)
     (define-key evil-inner-text-objects-map "t" #'evil-inner-double-quote)
     (define-key evil-inner-text-objects-map "y" #'evil-inner-single-quote)
+    (define-key evil-inner-text-objects-map "c" #'yxl-evil-indent-chains)
 
     ;; normal and motion state:
     (define-key evil-normal-state-map (kbd "j") #'evil-next-visual-line)
