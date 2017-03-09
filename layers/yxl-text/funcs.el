@@ -76,15 +76,16 @@
   ;; extra line padding
   (add-hook 'LaTeX-mode-hook (lambda () (setq line-spacing 4)))
   (add-hook 'LaTeX-mode-hook (lambda () (setq yxl-line-width 100)))
-  (add-hook 'LaTeX-mode-hook (lambda () (auto-fill-mode -1)) t)
+  (add-hook 'LaTeX-mode-hook #'fci-mode)
+  ;; (add-hook 'LaTeX-mode-hook (lambda () (auto-fill-mode -1)) t)
   (setq TeX-auto-local ".auto")
   (setq TeX-style-local ".style")
   (setq-default font-latex-fontify-script nil)
   ;; RET to newline no indent; S-RET to newline post indent
-  (define-key LaTeX-mode-map (kbd "RET") 'electric-indent-just-newline)
-  (define-key LaTeX-mode-map (kbd "S-RET") 'newline)
-  ;; (setq-default TeX-newline-function 'reindent-then-newline-and-indent)
-  (setq TeX-newline-function 'newline)
+  ;; (define-key LaTeX-mode-map (kbd "RET") 'electric-indent-just-newline)
+  ;; (define-key LaTeX-mode-map (kbd "S-RET") 'newline)
+  (setq-default TeX-newline-function 'reindent-then-newline-and-indent)
+  ;; (setq TeX-newline-function 'newline)
   (setq LaTeX-fill-excluded-macros '("hide" "comment"))
   (setq latex-noindent-environments '("document" "equation" "equation*"
                                       "align" "align*"))
