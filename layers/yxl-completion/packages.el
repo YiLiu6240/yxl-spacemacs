@@ -39,10 +39,11 @@
 
 (defun yxl-completion/post-init-ivy ()
   ;; remove the "^" element in search
-  (delete '(counsel-M-x . "^") ivy-initial-inputs-alist)
-  (delete '(counsel-describe-function . "^") ivy-initial-inputs-alist)
-  (delete '(counsel-describe-variable . "^") ivy-initial-inputs-alist)
   (with-eval-after-load 'ivy
+    (setq ivy-initial-inputs-alist nil)
+    (setq ivy-re-builders-alist
+          '((ivy-switch-buffer . ivy--regex-plus)
+            (t . ivy--regex-fuzzy)))
     (setq ivy-wrap t)
     (with-eval-after-load 'recentf
       (setq ivy-use-virtual-buffers nil))))
