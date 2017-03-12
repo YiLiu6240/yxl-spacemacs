@@ -1,6 +1,7 @@
 (setq yxl-ess-packages '(ess
                          (yxl-ess :location site)
                          (ess-goodies :location site)
+                         ess-view
                          polymode))
 
 (defun yxl-ess/post-init-ess ()
@@ -25,6 +26,10 @@
 
 (defun yxl-ess/init-ess-goodies ()
   (use-package ess-goodies
+    :after ess-site))
+
+(defun yxl-ess/init-ess-view ()
+  (use-package ess-view
     :after ess-site))
 
 (defun yxl-ess/init-polymode ()
