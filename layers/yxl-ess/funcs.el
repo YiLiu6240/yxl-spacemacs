@@ -143,9 +143,23 @@
   (spacemacs/declare-prefix-for-mode mode "mo" "user-defined"))
 
 (defun yxl-ess/setup-rdired ()
-  (evilified-state-evilify ess-rdired-mode ess-rdired-mode-map
-    "s" #'yxl-ess-rdired-str
-    "S" #'ess-rdired-sort
-    "v" #'ess-rdired-view
-    "V" #'ess-rdired-View
-    "g" #'revert-buffer))
+  (defhydra yxl-ess-rdired-hydra (:color blue :hint nil :columns 4
+                                         :pre (setq which-key-inhibit t)
+                                         :post (setq which-key-inhibit nil))
+    ("s" yxl-ess-rdired-str "str")
+    ("S" ess-rdired-sort "sort")
+    ;; view in REPL
+    ("vv" ess-rdired-view "view")
+    ;; view in its own buffer
+    ("vp" ess-R-dv-pprint "dv:pprint")
+    ("vd" ess-view-inspect-df "ess-view:inspect-df")
+    ("vt" ess-R-dv-ctable "dv:ctable")
+    ("g" revert-buffer "revert")
+    ("a" yxl-ess-rdired-call-atpoint-useful-funcs "useful-funcs")
+    ("A" yxl-ess-rdired-call-atpoint-useful-funcs-pop "useful-funcs:pop")
+    ("p" ess-rdired-plot "plot")
+    ("y" ess-rdired-type "mode(.)")
+    ("d" ess-rdired-delete "delete")
+    ("u" ess-rdired-undelete "undelete")
+    ("x" ess-rdired-expunge "expunge"))
+  (define-key ess-rdired-mode-map "." #'yxl-ess-rdired-hydra/body))
