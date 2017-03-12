@@ -183,6 +183,7 @@ browser: %`browse-url-browser-function
  [_att_/_atd_/_atD_]: timer:start/stop/down
 "
   ("," #'eval-expression "M-:")
+  ("d" #'delete-frame  "delete-frame")
 
   ("Su" (lambda ()
           (interactive)
