@@ -209,6 +209,7 @@
   ;; my env
   (load-file (concat dotspacemacs-directory "config/yxl-env.el"))
   (add-to-list 'load-path (concat yxl-path-dotfiles "yxl-emacs-goodies"))
+  (add-to-list 'load-path (concat yxl-path-dotfiles "yxl-ess-goodies"))
   ;; init stage config
   (load-file (concat dotspacemacs-directory "config/config-init.el"))
   (load-file (concat dotspacemacs-directory "config/hack.el"))
