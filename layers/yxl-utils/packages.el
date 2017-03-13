@@ -3,7 +3,8 @@
                            (general-goodies :location site)
                            find-file-in-project
                            (simple-todo :location site)
-                           (scratch-pop :location site)))
+                           (scratch-pop :location site)
+                           visual-fill-column))
 
 (defun yxl-utils/init-yxl-utils ()
   (use-package yxl-utils
@@ -114,3 +115,7 @@
         (interactive)
         (let ((scratch-pop-position 'top))
           (scratch-pop))))))
+
+(defun yxl-utils/init-visual-fill-column ()
+  (use-package visual-fill-column
+    :defer t))
