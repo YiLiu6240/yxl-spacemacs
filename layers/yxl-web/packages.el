@@ -76,6 +76,7 @@
       (setq w3m-command-arguments '("-cookie" "-F"))
       (setq w3m-use-cookies t)
       (setq w3m-view-this-url-new-session-in-background t)
+      (setq w3m-fill-column 80)
       (yxl-web/w3m-bindings)
       (yxl-web/w3m-hydra))))
 
