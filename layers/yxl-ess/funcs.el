@@ -162,4 +162,6 @@
     ("d" ess-rdired-delete "delete")
     ("u" ess-rdired-undelete "undelete")
     ("x" ess-rdired-expunge "expunge"))
-  (define-key ess-rdired-mode-map "." #'yxl-ess-rdired-hydra/body))
+  (add-hook 'ess-rdired-mode-hook
+            (lambda ()
+              (define-key ess-rdired-mode-map "." #'yxl-ess-rdired-hydra/body))))
