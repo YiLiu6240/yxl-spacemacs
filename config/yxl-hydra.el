@@ -9,6 +9,8 @@
   ("s" yxl-hydra-sessions/body "sessions"))
 
 (defhydra yxl-hydra-window (:color blue :hint nil
+                                   :pre (setq which-key-inhibit t)
+                                   :post (setq which-key-inhibit nil)
                                    :inherit (yxl-hydra-common/heads))
   "
 Window Split:
@@ -32,7 +34,9 @@ Window Split:
 
   ("w1" yxl-window-custom-layout1 "layout: 1")
   ("w2" yxl-window-custom-layout2 "layout: 2")
-  ("w3" yxl-window-vertical-3 "layout: v3")
+  ("wv2" yxl-window-layout-v2h2 "layout: v2h2")
+  ("wh3" yxl-window-layout-h3 "layout: h3")
+  ("wv3" yxl-window-layout-v3h2 "layout: v3h2")
 
   ("wp" yxl-window-get-buffer-previous-window "previous buffer")
   ("wc" yxl-window-center-margins "center margin")
