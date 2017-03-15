@@ -27,9 +27,11 @@
   (ess-toggle-S-assign nil)
   (ess-toggle-S-assign nil)
 
-  (define-key ess-mode-map (kbd "C-c >") (lambda ()
-                                           (interactive)
-                                           (insert "%>%"))))
+  (define-key ess-mode-map (kbd "C-c C-.") (lambda ()
+                                             (interactive)
+                                             (insert "%>%")))
+  (define-key ess-mode-map (kbd "C-<tab>") #'sp-indent-adjust-sexp)
+  (define-key ess-mode-map (kbd "C-S-<tab>") #'sp-dedent-adjust-sexp))
 
 (defun yxl-ess/R-hook ())
 
@@ -54,7 +56,8 @@
           ("Data" "^\\(.+\\)[ \t\n]-*<-[ \t\n]*\\(read\\|.*data\.frame\\).*(" 1)
           ("Outline" "^\\(## .+\\)$" 1)
           ("Outline" "^\\(### .+\\)$" 1)
-          ("Outline" "^\\(#### .+\\)$" 1))))
+          ("Outline" "^\\(#### .+\\)$" 1)
+          ("FALSE block" "^\\(if (FALSE) {.*\\)$" 1))))
 
 (defun yxl-ess/setup-lintr ()
   (with-eval-after-load 'flycheck
