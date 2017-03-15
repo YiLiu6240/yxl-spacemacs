@@ -57,6 +57,8 @@
           ("Outline" "^\\(## .+\\)$" 1)
           ("Outline" "^\\(### .+\\)$" 1)
           ("Outline" "^\\(#### .+\\)$" 1)
+          ("Outline" "^\\(# .+\\)----.*$" 1)
+          ("Outline" "^\\(# .+\\)====.*$" 1)
           ("FALSE block" "^\\(if (FALSE) {.*\\)$" 1))))
 
 (defun yxl-ess/setup-lintr ()
