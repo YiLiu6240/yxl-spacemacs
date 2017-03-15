@@ -20,6 +20,10 @@
   (ess-add-style 'yxl-ess-style yxl-ess-style)
   (setq ess-default-style 'yxl-ess-style))
 
+(defun yxl-ess/insert-pipe ()
+  (interactive)
+  (insert "%>%"))
+
 (defun yxl-ess/setup-bindings ()
   ;; move "<-" key to "C-c ="
   (setq ess-S-assign "<-")
@@ -27,9 +31,7 @@
   (ess-toggle-S-assign nil)
   (ess-toggle-S-assign nil)
 
-  (define-key ess-mode-map (kbd "C-c C-.") (lambda ()
-                                             (interactive)
-                                             (insert "%>%")))
+  (define-key ess-mode-map (kbd "C-c C-.") #'yxl-ess/insert-pipe)
   (define-key ess-mode-map (kbd "C-<tab>") #'sp-indent-adjust-sexp)
   (define-key ess-mode-map (kbd "C-S-<tab>") #'sp-dedent-adjust-sexp))
 
