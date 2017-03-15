@@ -41,9 +41,9 @@
   ;; remove the "^" element in search
   (with-eval-after-load 'ivy
     (setq ivy-initial-inputs-alist nil)
-    (setq ivy-re-builders-alist
-          '((ivy-switch-buffer . ivy--regex-plus)
-            (t . ivy--regex-fuzzy)))
+    ;; (setq ivy-re-builders-alist
+    ;;       '((ivy-switch-buffer . ivy--regex-plus)
+    ;;         (t . ivy--regex-fuzzy)))
     (setq ivy-wrap t)
     (with-eval-after-load 'recentf
       (setq ivy-use-virtual-buffers nil))))
