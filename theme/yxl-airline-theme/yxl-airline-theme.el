@@ -8,6 +8,7 @@ url: https://github.com/mkaito/base16-emacs")
        (color-inactive-fg "#928374") ;; inactive modeline fg, even dimmer
        (color-bg "#32302f") ;; modeline bg, should be lighter than default bg
        (color-bg-alt "#504945") ;; modeline bg, a more "highlighted" version
+       (color-border "#504945") ;; border color for the modeline
        ;; color when the specified evil state is active
        (color-state-fg "#ebdbb2") ;; general state fg
        (color-normal-bg "#7c6f64")

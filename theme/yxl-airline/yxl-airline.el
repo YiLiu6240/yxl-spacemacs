@@ -46,9 +46,9 @@
    `(powerline-inactive2   ((t ( :foreground ,inactive2-foreground     :background ,inactive2-background :bold t))))
    `(airline-inactive3   ((t ( :foreground ,inactive3-foreground     :background ,inactive3-background))))
 
-   `(mode-line             ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :box nil :underline nil :overline nil))))
-   `(mode-line-inactive    ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background     :box nil :underline nil :overline nil))))
-   `(mode-line-buffer-id   ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box nil :underline nil :overline nil))))))
+   `(mode-line             ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :box (:color ,color-border :line-width 1) :underline nil :overline nil))))
+   `(mode-line-inactive    ((t ( :foreground ,inactive1-foreground     :background ,inactive1-background     :box (:color ,color-border :line-width 1) :underline nil :overline nil))))
+   `(mode-line-buffer-id   ((t ( :foreground ,normal-outer-foreground  :background ,normal-outer-background  :box (:color ,color-border :line-width 1) :underline nil :overline nil))))))
 
 (defun yxl-airline-themes-set-modeline ()
   "Set the airline mode-line-format"
