@@ -143,7 +143,7 @@
   (spacemacs/declare-prefix-for-mode mode "mo" "user-defined"))
 
 (defun yxl-ess/setup-rdired ()
-  (defhydra yxl-ess-rdired-hydra (:color blue :hint nil :columns 4
+  (defhydra yxl-ess/rdired-hydra (:color blue :hint nil :columns 4
                                          :pre (setq which-key-inhibit t)
                                          :post (setq which-key-inhibit nil))
     ("s" yxl-ess-rdired-str "str")
@@ -162,6 +162,6 @@
     ("d" ess-rdired-delete "delete")
     ("u" ess-rdired-undelete "undelete")
     ("x" ess-rdired-expunge "expunge"))
-  (add-hook 'ess-rdired-mode-hook
-            (lambda ()
-              (define-key ess-rdired-mode-map "." #'yxl-ess-rdired-hydra/body))))
+  (defun yxl-ess/rdired-config ()
+    (define-key ess-rdired-mode-map "." #'yxl-ess/rdired-hydra/body))
+  (add-hook 'ess-rdired-mode-hook #'yxl-ess/rdired-config))
