@@ -120,7 +120,8 @@
                                      (powerline-raw "  " inner-face 'lr)
                                      (powerline-raw (buffer-id-short 100) inner-face 'lr)
                                      ;; Modified string
-                                     (powerline-raw " %* " inner-face 'lr)))
+                                     (powerline-raw " %* " inner-face 'lr)
+                                     (powerline-raw (modeline-window-dedication) inner-face 'lr)))
 
                           (lhs-rest (list
                                      (powerline-raw " " center-face 'lr)

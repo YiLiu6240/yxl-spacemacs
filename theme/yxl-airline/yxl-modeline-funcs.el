@@ -29,6 +29,11 @@
                               map))))
    face pad))
 
+(defun modeline-window-dedication ()
+  (let* ((dedicated (window-dedicated-p (selected-window)))
+         (str (if dedicated " ! " "")))
+    (propertize str 'face 'font-lock-type-face)))
+
 (defun modeline-flycheck ()
   (pcase flycheck-last-status-change
     ((\` not-checked) nil)
