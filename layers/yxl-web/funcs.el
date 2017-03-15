@@ -163,13 +163,17 @@ otherwise invoke elfeed as usual.
   (define-key elfeed-search-mode-map "." 'hydra-elfeed-search/body)
   (define-key elfeed-show-mode-map "." 'hydra-elfeed-show/body))
 
+(defun yxl-web/w3m-open-external ()
+  (interactive)
+  (browse-url w3m-current-url))
+
 (defun yxl-web/w3m-bindings ()
   (evil-set-initial-state 'w3m-mode 'evilified)
   (evilified-state-evilify-map w3m-mode-map
     :mode w3m-mode
     :bindings
     "t" #'v/w3m-open-site-new-session
-    "x" #'w3m-session-select-quit
+    "x" #'yxl-web/w3m-open-external
     "o" #'w3m-view-this-url
     "O" #'w3m-view-this-url-new-session
     (kbd "C-h") #'windmove-left
