@@ -74,8 +74,9 @@
 (defun yxl-ess/set-leader-keys (mode)
   (spacemacs/set-leader-keys-for-major-mode mode
     ";" #'ess-execute
+    "aa" #'yxl-ess-atpoint
+    "aA" #'yxl-ess-atpoint-pop
     "of" #'yxl-ess-call-useful-funcs
-    "op" #'yxl-ess-call-atpoint-useful-funcs
     "os" #'yxl-ess-call-atpoint-str
     "oS" #'yxl-ess-call-atpoint-generic
     "R" #'yxl-ess-open-rstudio
@@ -141,6 +142,7 @@
     "vd" #'ess-rdired))
 
 (defun yxl-ess/declare-prefix (mode)
+  (spacemacs/declare-prefix-for-mode mode "ma" "atpoint")
   (spacemacs/declare-prefix-for-mode mode "ms" "repl-interaction")
   (spacemacs/declare-prefix-for-mode mode "mh" "help")
   (spacemacs/declare-prefix-for-mode mode "md" "developer")
@@ -162,8 +164,8 @@
     ("vd" ess-view-inspect-df "ess-view:inspect-df")
     ("vt" ess-R-dv-ctable "dv:ctable")
     ("g" revert-buffer "revert")
-    ("a" yxl-ess-rdired-call-atpoint-useful-funcs "useful-funcs")
-    ("A" yxl-ess-rdired-call-atpoint-useful-funcs-pop "useful-funcs:pop")
+    ("a" yxl-ess-rdired-atpoint "useful-funcs")
+    ("A" yxl-ess-rdired-atpoint-pop "useful-funcs:pop")
     ("p" ess-rdired-plot "plot")
     ("y" ess-rdired-type "mode(.)")
     ("d" ess-rdired-delete "delete")
