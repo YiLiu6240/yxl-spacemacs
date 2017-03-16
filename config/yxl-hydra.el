@@ -32,11 +32,11 @@ Window Split:
   ("g" yxl-window-adjust-width-ratio)
   ("h" yxl-window-adjust-height-ratio)
 
-  ("w1" yxl-window-custom-layout1 "layout: 1")
-  ("w2" yxl-window-custom-layout2 "layout: 2")
-  ("wv2" yxl-window-layout-v2h2 "layout: v2h2")
-  ("wh3" yxl-window-layout-h3 "layout: h3")
-  ("wv3" yxl-window-layout-v3h2 "layout: v3h2")
+  ("l1" yxl-window-custom-layout1 "layout: 1")
+  ("l2" yxl-window-custom-layout2 "layout: 2")
+  ("lv2" yxl-window-layout-v2h2 "layout: v2h2")
+  ("lh3" yxl-window-layout-h3 "layout: h3")
+  ("lv3" yxl-window-layout-v3h2 "layout: v3h2")
 
   ("wp" yxl-window-get-buffer-previous-window "previous buffer")
   ("wc" yxl-window-center-margins "center margin")
