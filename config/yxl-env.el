@@ -11,7 +11,7 @@
 (setq yxl-path-paper-pwd (concat yxl-path-local "yxl_ctw_paper/"))
 (setq yxl-path-journal-pwd (concat yxl-path-sync "journal_yxl"))
 
-(setq yxl-path-book-reference (concat yxl-path-sync "book_reference"))
+(setq yxl-path-book-reference (concat yxl-path-sync "books-text"))
 
 
 
