@@ -34,9 +34,10 @@
 
 (defun yxl-ess/init-polymode ()
   (use-package polymode
-    :mode (("\\.Rmd"   . Rmd-mode))
+    ;; :mode (("\\.Rmd"   . Rmd-mode))
     :init
     (progn
+      ;; TODO: try to toggle Rmd-mode
       (defun Rmd-mode ()
         "ESS Markdown mode for Rmd files"
         (interactive)

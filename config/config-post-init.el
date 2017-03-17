@@ -39,6 +39,7 @@
 ;; mode list
 (add-to-list 'auto-mode-alist '("\\.todo$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.inbox$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.Rmd$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.tex$" . latex-mode))
 (add-to-list 'auto-mode-alist '("\\.sublime-settings$" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.sublime-keymap$" . json-mode))
