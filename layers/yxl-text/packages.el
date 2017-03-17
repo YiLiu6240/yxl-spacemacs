@@ -118,7 +118,9 @@
               (lambda ()
                 (setq markdown-command "pandoc")))
     (add-hook 'markdown-mode-hook #'yxl-text/highlight-todos)
-    (setq markdown-asymmetric-header t)))
+    (setq markdown-asymmetric-header t)
+    (spacemacs/set-leader-keys-for-major-mode #'markdown-mode
+      "ir" #'yxl-text/insert-r-block)))
 
 (defun yxl-text/init-writegood-mode ()
   (use-package writegood-mode
