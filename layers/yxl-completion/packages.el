@@ -50,7 +50,9 @@
 
 (defun yxl-completion/post-init-counsel ()
   (with-eval-after-load 'counsel
-    (define-key counsel-find-file-map (kbd "C-h") (kbd "DEL"))))
+    (define-key counsel-find-file-map (kbd "C-h") (kbd "DEL"))
+    (ivy-add-actions 'counsel-find-file
+                     '(("x" yxl-open-file-external "open in external program")))))
 
 (defun yxl-completion/init-yxl-ivy-views ()
   (use-package yxl-ivy-views
