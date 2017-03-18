@@ -74,8 +74,8 @@
 (defun yxl-ess/set-leader-keys (mode)
   (spacemacs/set-leader-keys-for-major-mode mode
     ";" #'ess-execute
-    "aa" #'yxl-ess-atpoint
-    "aA" #'yxl-ess-atpoint-pop
+    "a" #'yxl-ess-atpoint
+    "A" #'yxl-ess-atpoint-pop
     "of" #'yxl-ess-call-useful-funcs
     "os" #'yxl-ess-call-atpoint-str
     "oS" #'yxl-ess-call-atpoint-generic
