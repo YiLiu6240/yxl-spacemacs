@@ -188,7 +188,7 @@
    dotspacemacs-mode-line-unicode-symbols nil
    dotspacemacs-smooth-scrolling nil
    dotspacemacs-line-numbers nil
-   dotspacemacs-folding-method 'origami
+   dotspacemacs-folding-method 'evil
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis nil
    dotspacemacs-highlight-delimiters 'all
