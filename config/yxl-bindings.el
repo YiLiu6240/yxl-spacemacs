@@ -85,7 +85,8 @@
 
 (spacemacs/declare-prefix "oc" "cite")
 (spacemacs/set-leader-keys
-  "occ" #'org-ref-helm-insert-cite-link
+  "occ" #'yxl-text/helm-bibtex
+  "ocC" #'helm-bibtex
   "ocg" #'gscholar-bibtex)
 
 (spacemacs/declare-prefix "od" "dictionary")
