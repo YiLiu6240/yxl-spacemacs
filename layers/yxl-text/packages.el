@@ -95,12 +95,6 @@
           (incollection . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  ${booktitle:25}")
           (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}  ${booktitle:25}")
           (t . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:25}  ${title:*}")))
-  (defvar-local yxl-text/helm-bibtex-bibliography nil)
-  (defun yxl-text/helm-bibtex (&optional arg)
-    (interactive "P")
-    (let ((bibtex-completion-bibliography (or yxl-text/helm-bibtex-bibliography
-                                              (bibtex-completion-find-local-bibliography))))
-      (helm-bibtex arg)))
   (with-eval-after-load 'helm-bibtex
     (add-to-list 'bibtex-completion-cite-commands "citet")))
 

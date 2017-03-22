@@ -35,7 +35,10 @@
   "l" #'spacemacs/workspaces-transient-state/body
   "LY" #'yxl-workspace/record-config
   "LP" #'yxl-workspace/load-config
-  "po" #'yxl-projectile-todo-popup
+  "pc" #'yxl-project-cite
+  "pC" #'projectile-compile-project
+  "po" #'yxl-project-todo-popup
+  "pO" #'yxl-project-select
   "pm" #'helm-make-projectile
   "pM" #'helm-make
   "pG" #'projectile-regenerate-tags
@@ -85,8 +88,7 @@
 
 (spacemacs/declare-prefix "oc" "cite")
 (spacemacs/set-leader-keys
-  "occ" #'yxl-text/helm-bibtex
-  "ocC" #'helm-bibtex
+  "occ" #'helm-bibtex
   "ocg" #'gscholar-bibtex)
 
 (spacemacs/declare-prefix "od" "dictionary")

@@ -1,4 +1,5 @@
 (setq yxl-utils-packages '((yxl-utils :location site)
+                           (yxl-project :location site)
                            (yxl-window :location site)
                            (general-goodies :location site)
                            find-file-in-project
@@ -7,10 +8,13 @@
                            visual-fill-column))
 
 (defun yxl-utils/init-yxl-utils ()
-  (use-package yxl-utils
+  (use-package yxl-utils))
+
+(defun yxl-utils/init-yxl-project ()
+  (use-package yxl-project
     :config
     (progn
-      (setq yxl-projectile-todo-global yxl-file-org-config))))
+      (setq yxl-project-todo-global yxl-file-org-config))))
 
 (defun yxl-utils/init-yxl-window ()
   (use-package yxl-window))
