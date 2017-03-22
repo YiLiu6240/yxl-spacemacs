@@ -37,8 +37,8 @@
   "LP" #'yxl-workspace/load-config
   "pc" #'yxl-project-cite
   "pC" #'projectile-compile-project
-  "po" #'yxl-project-todo-popup
-  "pO" #'yxl-project-select
+  "pO" #'yxl-project-todo-popup
+  "po" #'yxl-project-select
   "pm" #'helm-make-projectile
   "pM" #'helm-make
   "pG" #'projectile-regenerate-tags
