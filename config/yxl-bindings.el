@@ -20,8 +20,8 @@
   "ff" #'yxl-find-file-counsel
   "fF" #'find-file-in-current-directory
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
-  "fo" #'spacemacs/open-file-or-directory-in-external-app ; with C-u open in desktop
-  "fO" #'yxl-open-file-external
+  "fO" #'spacemacs/open-file-or-directory-in-external-app ; with C-u open in desktop
+  "fo" #'yxl-open-file-external
   "fp" #'counsel-projectile-find-file
   "fP" #'find-file-in-project-truename
   "bY" #'yxl-buffer-store-name
