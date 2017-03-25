@@ -76,6 +76,7 @@
   "oy" #'copy-file-name-to-clipboard
   "oo" #'yxl-hydra-hotspot/body
   "op" #'yxl-hydra-find-dir/body
+  "oP" #'yxl-project-open
   "ow" #'yxl-hydra-window/body)
 
 (spacemacs/declare-prefix "ob" "buffer")
