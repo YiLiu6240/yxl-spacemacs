@@ -45,6 +45,7 @@
   "p C-g" nil
   "qf" #'spacemacs/frame-killer
   "sJ" #'yxl-imenu-anywhere
+  "tv" #'visual-fill-column-mode
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
