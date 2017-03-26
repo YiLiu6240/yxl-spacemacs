@@ -49,6 +49,8 @@
       (add-to-list 'window-persistent-parameters '(window-slot . writable))
       (define-key eyebrowse-mode-map (kbd "C-c w .")
         #'spacemacs/workspaces-transient-state/body)
+      (define-key eyebrowse-mode-map (kbd "C-w .")
+        #'spacemacs/workspaces-transient-state/body)
       (define-key eyebrowse-mode-map (kbd "C-c w C-h")
         #'eyebrowse-prev-window-config)
       (define-key eyebrowse-mode-map (kbd "C-c w C-l")
