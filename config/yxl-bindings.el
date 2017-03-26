@@ -77,6 +77,7 @@
   "oo" #'yxl-hydra-hotspot/body
   "op" #'yxl-hydra-find-dir/body
   "oP" #'yxl-project-open
+  "ot" #'ivy-todo
   "ow" #'yxl-hydra-window/body)
 
 (spacemacs/declare-prefix "ob" "buffer")

@@ -1,7 +1,8 @@
 (setq yxl-org-packages '(org
                          (yxl-org :location site)
                          (evil-org :location site)
-                         org-gcal))
+                         org-gcal
+                         ivy-todo))
 
 (defun yxl-org/post-init-org ()
   ;; misc settings
@@ -49,3 +50,19 @@
       (defun my-org-gcal-notify (title mes)
         (message "org-gcal::%s - %s" title mes))
       (fset 'org-gcal--notify 'my-org-gcal-notify))))
+
+(defun yxl-org/init-ivy-todo ()
+  (use-package ivy-todo
+    :defer t
+    :config
+    (progn
+      (setq ivy-todo-file (expand-file-name "scratch.org" yxl-path-org))
+      (setq ivy-todo-headline '("quick-todo"
+                                "inbox"))
+      (defun ivy-todo-visit (headline)
+        (let ((headline-pos (cdr ivy-todo-headline)))
+          (find-file ivy-todo-file)
+          (ivy-todo--old-or-new-item headline headline-pos)))
+      (ivy-add-actions
+       'ivy-todo
+       '(("v" ivy-todo-visit "visit"))))))
