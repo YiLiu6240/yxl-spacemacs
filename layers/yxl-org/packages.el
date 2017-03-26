@@ -57,6 +57,7 @@
     :config
     (progn
       (setq ivy-todo-file (expand-file-name "scratch.org" yxl-path-org))
+      (setq ivy-todo-guess-list nil)
       (setq ivy-todo-headline '("quick-todo"
                                 "inbox"))
       (defun ivy-todo-visit (headline)
