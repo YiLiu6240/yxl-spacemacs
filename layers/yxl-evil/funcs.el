@@ -153,6 +153,8 @@
       (define-key evil-evilified-state-map-original (kbd "zb") #'evil-scroll-line-to-bottom)
       (define-key evil-evilified-state-map-original (kbd "zt") #'evil-scroll-line-to-top)
 
+      (define-key evil-evilified-state-map-original "-" #'dired-jump)
+
       (define-key evil-evilified-state-map-original
         (kbd dotspacemacs-ex-command-key) #'evil-ex))))
 

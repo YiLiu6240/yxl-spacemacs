@@ -8,7 +8,6 @@
   (evilified-state-evilify dired-mode dired-mode-map
     "o" #'dired-find-file
     "q" #'yxl-dired-delete-window
-    "-" #'dired-up-directory
     ;; from vinegar layer
     "0" #'dired-back-to-start-of-files
     "=" #'vinegar/dired-diff

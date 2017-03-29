@@ -66,7 +66,6 @@
 (defun yxl-org/setup-bindings ()
   (evil-define-key 'normal org-mode-map
     "t" 'org-todo
-    "-" 'dired-jump
     "_" 'projectile-dired
     "gh" 'outline-up-heading
     "gp" 'outline-previous-heading
