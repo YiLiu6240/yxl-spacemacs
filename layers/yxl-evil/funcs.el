@@ -27,14 +27,14 @@
     (define-key evil-motion-state-map "gm" #'evil-goto-mark)
     (define-key evil-motion-state-map "gt" #'eyebrowse-next-window-config)
     (define-key evil-motion-state-map "gT" #'eyebrowse-prev-window-config)
-    (define-key evil-motion-state-map (kbd "g C-h") #'eyebrowse-prev-window-config)
-    (define-key evil-motion-state-map (kbd "g C-l") #'eyebrowse-next-window-config)
+    (define-key evil-motion-state-map (kbd "C-w C-h") #'eyebrowse-prev-window-config)
+    (define-key evil-motion-state-map (kbd "C-w C-l") #'eyebrowse-next-window-config)
 
     ;; navigation
     ;; put "HML" to "g/HML", use "HL" as "^$"
-    (define-key evil-motion-state-map "gH" 'evil-window-top)
-    (define-key evil-motion-state-map "gL" 'evil-window-bottom)
-    (define-key evil-motion-state-map "gM" 'evil-window-middle)
+    (define-key evil-motion-state-map (kbd "g C-h") 'evil-window-top)
+    (define-key evil-motion-state-map (kbd "g C-l") 'evil-window-bottom)
+    (define-key evil-motion-state-map (kbd "g C-m") 'evil-window-middle)
     (define-key evil-motion-state-map "H" #'evil-first-non-blank)
     (define-key evil-motion-state-map "L" #'evil-end-of-line)
     (define-key evil-motion-state-map (kbd "C-h") #'evil-window-left)
