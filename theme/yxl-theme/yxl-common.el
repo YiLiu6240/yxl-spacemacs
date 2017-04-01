@@ -203,10 +203,10 @@
             `(ac-completion-face ((,class (:background ,ttip-bg :foreground ,ttip))))
 
 ;;;;; avy
-            `(avy-lead-face   ((,class (:background ,blue-bg :foreground ,magenta))))
-            `(avy-lead-face-0 ((,class (:background ,blue-bg :foreground ,blue))))
-            `(avy-lead-face-1 ((,class (:background ,blue-bg :foreground ,magenta))))
-            `(avy-lead-face-2 ((,class (:background ,blue-bg :foreground ,blue))))
+            `(avy-lead-face   ((,class (:background ,bg2 :foreground ,magenta))))
+            `(avy-lead-face-0 ((,class (:background ,bg2 :foreground ,blue))))
+            `(avy-lead-face-1 ((,class (:background ,bg2 :foreground ,magenta))))
+            `(avy-lead-face-2 ((,class (:background ,bg2 :foreground ,blue))))
 
 ;;;;; bm
             `(bm-face ((,class (:background "#245361" :foreground ,base))))
