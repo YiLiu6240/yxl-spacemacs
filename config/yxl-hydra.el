@@ -64,6 +64,7 @@ Directory:
   ("H" (yxl-find-dir yxl-path-projects) "projects")
   ("o" (yxl-find-dir yxl-path-org) "org")
   ("c" (yxl-find-dir yxl-path-code-pwd) "code")
+  ("C" (yxl-find-dir yxl-path-code-master-pwd) "code-master")
   ("p" (yxl-find-dir yxl-path-paper-pwd) "papers")
   ("j" (yxl-find-dir yxl-path-journal-pwd) "journals")
   ("b" (yxl-find-dir yxl-path-book-reference) "books")
