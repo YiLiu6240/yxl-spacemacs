@@ -16,8 +16,9 @@
     (yxl-org/setup-bindings)
     (yxl-org/setup-capture)
     (yxl-org/setup-keywords)
-    (yxl-org/setup-agenda)
-    (yxl-org/setup-babel)))
+    (yxl-org/setup-babel))
+  (with-eval-after-load 'org-agenda
+    (yxl-org/setup-agenda)))
 
 (defun yxl-org/init-evil-org ()
   (use-package evil-org
