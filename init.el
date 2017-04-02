@@ -195,7 +195,7 @@
    dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    dotspacemacs-default-package-repository nil
-   dotspacemacs-whitespace-cleanup `all))
+   dotspacemacs-whitespace-cleanup 'trailing))
 
 (defun dotspacemacs/user-init ()
   ;; load path
