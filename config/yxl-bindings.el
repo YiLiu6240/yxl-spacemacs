@@ -13,6 +13,7 @@
   "'" #'yxl-shell-invoke
   "<SPC>" #'yxl-hydra-ace-window/body
   "bB" #'yxl-buffer-switch-same-major-mode
+  "bb" #'yxl-buffer-switch
   "bh" #'yxl-utils/home
   ;; TODO: rm this with next spacemacs update
   "bm" #'view-echo-area-messages
