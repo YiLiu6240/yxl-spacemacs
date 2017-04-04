@@ -44,6 +44,9 @@
 (add-to-list 'auto-mode-alist '("\\.sublime-settings$" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.sublime-keymap$" . json-mode))
 
+(which-function-mode 1)
+(setq which-func-unknown "--")
+
 ;; misc stuff
 (setq-default require-final-newline t)
 (setq-default auto-revert-interval 60)
