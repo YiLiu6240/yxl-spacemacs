@@ -138,12 +138,8 @@
                                        (powerline-raw (modeline-flycheck) center-face 'lr))
                                      ;; Eyebrowse current tab/window config
                                      (when active
-                                      (powerline-raw (modeline-get-eyebrowse-tag-current) center-face 'l))
+                                      (powerline-raw (modeline-get-eyebrowse-tag-current) center-face 'l))))
 
-                                     ;; Current Function (which-function-mode)
-                                     (when (and (boundp 'which-func-mode) which-func-mode)
-                                       ;; (powerline-raw which-func-format 'l nil))
-                                       (powerline-raw which-func-format center-face 'l))))
 
                           (lhs (append lhs-mode lhs-rest))
 
@@ -152,8 +148,11 @@
                                      ;; erc
                                      (when (boundp 'erc-modified-channels-object)
                                        (powerline-raw erc-modified-channels-object center-face 'r))
-                                     ;; Git Branch
-                                     (powerline-raw (modeline-get-vc) center-face 'lr)
+                                     ;; ;; Git Branch
+                                     ;; (powerline-raw (modeline-get-vc) center-face 'lr)
+                                     ;; Current Function (which-function-mode)
+                                     (when (and (boundp 'which-function-mode) which-function-mode)
+                                       (powerline-raw which-func-format center-face 'l))
                                      (powerline-raw " " center-face 'lr)
                                      ;; process
                                      (powerline-process center-face 'lr)
