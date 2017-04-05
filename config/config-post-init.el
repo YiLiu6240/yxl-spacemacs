@@ -44,7 +44,7 @@
 (add-to-list 'auto-mode-alist '("\\.sublime-settings$" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.sublime-keymap$" . json-mode))
 
-(which-function-mode 1)
+;; (which-function-mode 1)
 (setq which-func-unknown "--")
 
 ;; misc stuff
