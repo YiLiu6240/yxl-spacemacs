@@ -31,12 +31,12 @@
     (define-key evil-motion-state-map (kbd "C-w C-l") #'eyebrowse-next-window-config)
 
     ;; navigation
-    ;; put "HML" to "g/HML", use "HL" as "^$"
-    (define-key evil-motion-state-map (kbd "g C-h") 'evil-window-top)
-    (define-key evil-motion-state-map (kbd "g C-l") 'evil-window-bottom)
-    (define-key evil-motion-state-map (kbd "g C-m") 'evil-window-middle)
-    (define-key evil-motion-state-map "H" #'evil-first-non-blank)
-    (define-key evil-motion-state-map "L" #'evil-end-of-line)
+    ;; ;; put "HML" to "g/HML", use "HL" as "^$"
+    ;; (define-key evil-motion-state-map (kbd "g C-h") 'evil-window-top)
+    ;; (define-key evil-motion-state-map (kbd "g C-l") 'evil-window-bottom)
+    ;; (define-key evil-motion-state-map (kbd "g C-m") 'evil-window-middle)
+    ;; (define-key evil-motion-state-map "H" #'evil-first-non-blank)
+    ;; (define-key evil-motion-state-map "L" #'evil-end-of-line)
     (define-key evil-motion-state-map (kbd "C-h") #'evil-window-left)
     (define-key evil-motion-state-map (kbd "C-j") #'evil-window-down)
     (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
@@ -48,15 +48,15 @@
     (evil-define-key 'motion evil-snipe-mode-map "gS" 'evil-snipe-S)
     (evil-define-key 'operator evil-snipe-mode-map "gs" 'evil-snipe-s)
     (evil-define-key 'operator evil-snipe-mode-map "gS" 'evil-snipe-S)
-    ;; "q" as a leader
-    (define-key evil-normal-state-map "q" nil)
-    (define-key evil-normal-state-map "qm" #'evil-execute-macro)
-    (define-key evil-normal-state-map "qM" #'evil-record-macro)
-    (define-key evil-normal-state-map "qq" #'yxl-evil-quit)
-    (define-key evil-normal-state-map "q." #'yxl-evil-execute-last-macro)
-    ;; (define-key evil-normal-state-map "qQ" #'evil-save-and-close)
-    (define-key evil-normal-state-map "qw" #'evil-write)
-    (define-key evil-normal-state-map "qW" #'evil-write-all)
+    ;; ;; "q" as a leader
+    ;; (define-key evil-normal-state-map "q" nil)
+    ;; (define-key evil-normal-state-map "qm" #'evil-execute-macro)
+    ;; (define-key evil-normal-state-map "qM" #'evil-record-macro)
+    ;; (define-key evil-normal-state-map "qq" #'yxl-evil-quit)
+    ;; (define-key evil-normal-state-map "q." #'yxl-evil-execute-last-macro)
+    ;; ;; (define-key evil-normal-state-map "qQ" #'evil-save-and-close)
+    ;; (define-key evil-normal-state-map "qw" #'evil-write)
+    ;; (define-key evil-normal-state-map "qW" #'evil-write-all)
     ;; "\" as another leader
     (define-key evil-motion-state-map "\\" nil)
     (define-key evil-motion-state-map "\\\\" #'scratch-pop-sticky)
