@@ -75,7 +75,7 @@
             ;; cursor/point ???
             (cursor        (cond ((eq variant 'dark) (if (true-color-p) "#e3dedd" "#d0d0d0")) ((eq variant 'gruv) (if (true-color-p) "#d0d0d0" "#d0d0d0")) (t (if (true-color-p) "#100a14" "#121212"))))
             ;; constant
-            (const         (cond ((eq variant 'dark) (if (true-color-p) "#33859e" "#d3869b")) ((eq variant 'gruv) (if (true-color-p) "#d3869b" "#d787af")) (t (if (true-color-p) "#33859e" "#8700af"))))
+            (const         (cond ((eq variant 'dark) (if (true-color-p) "#33859e" "#d3869b")) ((eq variant 'gruv) (if (true-color-p) "#87af87" "#87af87")) (t (if (true-color-p) "#33859e" "#8700af"))))
             ;; complementary
             (comp          (cond ((eq variant 'dark) (if (true-color-p) "#b58900" "#8ec07c")) ((eq variant 'gruv) (if (true-color-p) "#8ec07c" "#8ec07c")) (t (if (true-color-p) "#b58900" "#8700af"))))
             ;; errors
@@ -94,13 +94,13 @@
             ;; org lv4 heading
             (head4         (cond ((eq variant 'dark) (if (true-color-p) "#86dc2f" "#8ec07c")) ((eq variant 'gruv) (if (true-color-p) "#8ec07c" "#8ec07c")) (t (if (true-color-p) "#859900" "#875f00"))))
             (head4-bg      (cond ((eq variant 'dark) (if (true-color-p) "#32322c" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#f6f1e1" "#ffffff"))))
-            ;; highlighted area ???
-            (highlight     (cond ((eq variant 'dark) (if (true-color-p) "#1d4250" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#3c3836" "#3c3836")) (t (if (true-color-p) "#1d4250" "#d7d7ff"))))
+            ;; highlighted area, NOTE: this should be different from line highlight
+            (highlight     (cond ((eq variant 'dark) (if (true-color-p) "#1d4250" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#504945" "#3c3836")) (t (if (true-color-p) "#1d4250" "#d7d7ff"))))
             ;; TODO: work on this
             (highlight-dim (cond ((eq variant 'dark) (if (true-color-p) "#1d4250" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#3c3836" "#3c3836")) (t (if (true-color-p) "#1d4250" "#d7d7ff"))))
             ;; keyword
             ;; (keyword       (if (eq variant 'dark) (if (true-color-p) "#859900" "#33859e") (if (true-color-p) "#859900" "#33859e")))
-            (keyword       (cond ((eq variant 'dark) (if (true-color-p) "#679a01" "#a16946")) ((eq variant 'gruv) (if (true-color-p) "#a16946" "#d75f5f")) (t (if (true-color-p) "#679a01" "#33859e"))))
+            (keyword       (cond ((eq variant 'dark) (if (true-color-p) "#679a01" "#a16946")) ((eq variant 'gruv) (if (true-color-p) "#fe8019" "#d75f5f")) (t (if (true-color-p) "#679a01" "#33859e"))))
             ;; line numbers
             (lnum          (cond ((eq variant 'dark) (if (true-color-p) "#586e75" "#767676")) ((eq variant 'gruv) (if (true-color-p) "#928374" "#767676")) (t (if (true-color-p) "#44505c" "#af87af"))))
             ;; matched, matching parens, brackets, tags
@@ -118,9 +118,9 @@
             ;; tooltip bg
             (ttip-bg       (cond ((eq variant 'dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv) (if (true-color-p) "#1d2021" "#1d2021")) (t (if (true-color-p) "#e2e0ea" "#dfdfff"))))
             ;; type
-            (type          (cond ((eq variant 'dark) (if (true-color-p) "#b58900" "#b16286")) ((eq variant 'gruv) (if (true-color-p) "#689d6a" "#87af87")) (t (if (true-color-p) "#b58900" "#af005f"))))
+            (type          (cond ((eq variant 'dark) (if (true-color-p) "#b58900" "#b16286")) ((eq variant 'gruv) (if (true-color-p) "#d3869b" "#d787af")) (t (if (true-color-p) "#b58900" "#af005f"))))
             ;; variable
-            (var           (cond ((eq variant 'dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv) (if (true-color-p) "#458588" "#87afaf")) (t (if (true-color-p) "#33859e" "#af5fd7"))))
+            (var           (cond ((eq variant 'dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv) (if (true-color-p) "#83a598" "#87afaf")) (t (if (true-color-p) "#33859e" "#af5fd7"))))
             ;; warning
             (war           (cond ((eq variant 'dark) (if (true-color-p) "#dc752f" "#cc241d")) ((eq variant 'gruv) (if (true-color-p) "#cc241d" "#d75f5f")) (t (if (true-color-p) "#dc752f" "#dc752f"))))
 
@@ -156,12 +156,12 @@
             `(error ((,class (:foreground ,err))))
             `(eval-sexp-fu-flash ((,class (:background ,suc :foreground ,bg1))))
             `(eval-sexp-fu-flash-error ((,class (:background ,err :foreground ,bg1))))
-            `(font-lock-builtin-face ((,class (:foreground ,keyword))))
+            `(font-lock-builtin-face ((,class (:foreground ,const))))
             `(font-lock-comment-face ((,class (:foreground ,comment))))
             `(font-lock-constant-face ((,class (:foreground ,const))))
             `(font-lock-doc-face ((,class (:foreground ,comment))))
             `(font-lock-function-name-face ((,class (:foreground ,func :inherit bold))))
-            `(font-lock-keyword-face ((,class (:inherit bold :foreground ,keyword))))
+            `(font-lock-keyword-face ((,class (:foreground ,keyword))))
             `(font-lock-negation-char-face ((,class (:foreground ,const))))
             `(font-lock-preprocessor-face ((,class (:foreground ,func))))
             `(font-lock-reference-face ((,class (:foreground ,const))))
@@ -335,6 +335,8 @@
             `(erc-notice-face ((,class (:foreground ,str))))
             `(erc-prompt-face ((,class (:foreground ,mat :inherit bold))))
             `(erc-timestamp-face ((,class (:foreground ,keyword))))
+;;;;; ess
+            `(ess-function-call-face ((,class (:inherit font-lock-function-name-face :weight normal))))
 
 ;;;;; eshell
             `(eshell-ls-archive ((,class (:foreground ,red :inherit bold))))
@@ -475,6 +477,9 @@
 ;;;;; highlight-indentation
             `(highlight-indentation-face ((,class (:background ,comment-bg))))
             `(highlight-indentation-current-column-face ((,class (:background ,bg2))))
+
+;;;;; highlight-numbers
+            `(highlight-numbers-number ((,class (:inherit font-lock-type-face))))
 
 ;;;;; highlight-symbol
             `(highlight-symbol-face ((,class (:background ,bg2))))
