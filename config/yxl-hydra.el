@@ -168,15 +168,18 @@ Hotspot:
                                    :post (setq which-key-inhibit nil)
                                    :inherit (yxl-hydra-access/heads))
   "
-File:
-location: %(if buffer-file-name buffer-file-name default-directory)
-major-mode: %`major-mode
-pos: %(line-number-at-pos)/%(line-number-at-pos (point-max)):%(current-column)
-evil-shift-width: %`evil-shift-width; tabs: %`indent-tabs-mode
-encoding: %`buffer-file-coding-system
+# File:
+- location: %(if buffer-file-name buffer-file-name default-directory)
+- major-mode: %`major-mode
+- pos: %(line-number-at-pos)/%(line-number-at-pos (point-max)):%(current-column)
+- evil-shift-width: %`evil-shift-width; indent-tabs-mode: %`indent-tabs-mode
+- encoding: %`buffer-file-coding-system
 
-Emacs:
-browser: %`browse-url-browser-function
+# Project:
+- git-branch: %(if (featurep 'magit) (magit-get-current-branch) \"magit not started\")
+
+# Emacs:
+- browser-func: %`browse-url-browser-function
 
 --------
  [_Su_]: update Spacemacs ^^^^ [_SU_]: update packages [_SR_]: roll back packages
