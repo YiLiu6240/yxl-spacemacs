@@ -1,7 +1,7 @@
 (require 'yxl-common)
 
-(deftheme yxl-light "Spacemacs theme, the light version")
+(deftheme yxl-solar-light "Solarized light version")
 
-(create-yxl-theme 'light 'yxl-light)
+(create-yxl-theme 'solar-light 'yxl-solar-light)
 
-(provide-theme 'yxl-light)
+(provide-theme 'yxl-solar-light)

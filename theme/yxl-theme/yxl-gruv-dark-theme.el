@@ -1,7 +1,7 @@
 (require 'yxl-common)
 
-(deftheme yxl-gruv "yxl theme, the gruvbox version")
+(deftheme yxl-gruv-dark "Gruvbox dark version")
 
-(create-yxl-theme 'gruv 'yxl-gruv)
+(create-yxl-theme 'gruv-dark 'yxl-gruv-dark)
 
-(provide-theme 'yxl-gruv)
+(provide-theme 'yxl-gruv-dark)

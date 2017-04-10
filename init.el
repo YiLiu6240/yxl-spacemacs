@@ -131,8 +131,9 @@
    dotspacemacs-startup-lists nil
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'fundamental-mode
-   dotspacemacs-themes '(yxl-gruv
-                         yxl-dark
+   dotspacemacs-themes '(yxl-gruv-dark
+                         yxl-gruv-light
+                         yxl-solar-dark
                          spacegray
                          sanityinc-tomorrow-night
                          gruvbox

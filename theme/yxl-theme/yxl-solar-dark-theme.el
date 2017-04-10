@@ -1,7 +1,7 @@
 (require 'yxl-common)
 
-(deftheme yxl-dark "yxl theme, the dark version")
+(deftheme yxl-solar-dark "Solarized dark version")
 
-(create-yxl-theme 'dark 'yxl-dark)
+(create-yxl-theme 'solar-dark 'yxl-solar-dark)
 
-(provide-theme 'yxl-dark)
+(provide-theme 'yxl-solar-dark)
