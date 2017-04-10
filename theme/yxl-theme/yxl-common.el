@@ -39,108 +39,104 @@
             ;;                                                              GUI       TER                                               GUI       TER                               GUI       TER
             ;; generic
             ;; mode line active color 1
-            (act1          (cond ((eq variant 'dark) (if (true-color-p) "#073642" "#504945")) ((eq variant 'gruv) (if (true-color-p) "#504945" "#504945")) (t (if (true-color-p) "#fcf4dc" "#d7dfff"))))
+            (act1          (cond ((eq variant 'solar-dark) (if (true-color-p) "#073642" "#504945")) ((eq variant 'gruv-dark) (if (true-color-p) "#504945" "#504945")) ((eq variant 'gruv-light) (if (true-color-p) "#ebdbb2" "#ebdbb2")) (t (if (true-color-p) "#fcf4dc" "#d7dfff"))))
             ;; mode line active color 2
-            (act2          (cond ((eq variant 'dark) (if (true-color-p) "#132b34" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#3c3836" "#3c3836")) (t (if (true-color-p) "#e9e2cb" "#afafd7"))))
+            (act2          (cond ((eq variant 'solar-dark) (if (true-color-p) "#132b34" "#3c3836")) ((eq variant 'gruv-dark) (if (true-color-p) "#3c3836" "#3c3836")) ((eq variant 'gruv-light) (if (true-color-p) "#d5c4a1" "#d5c4a1")) (t (if (true-color-p) "#e9e2cb" "#afafd7"))))
             ;; basic foreground color
-            (base          (cond ((eq variant 'dark) (if (true-color-p) "#839496" "#bdae93")) ((eq variant 'gruv) (if (true-color-p) "#d5c4a1" "#ffdfaf")) (t (if (true-color-p) "#52676f" "#5f5f87"))))
+            (base          (cond ((eq variant 'solar-dark) (if (true-color-p) "#839496" "#bdae93")) ((eq variant 'gruv-dark) (if (true-color-p) "#d5c4a1" "#ffdfaf")) ((eq variant 'gruv-light) (if (true-color-p) "#504945" "#504945")) (t (if (true-color-p) "#52676f" "#5f5f87"))))
             ;; lighter version of foreground color
-            (base-light    (cond ((eq variant 'dark) (if (true-color-p) "#839496" "#bdae93")) ((eq variant 'gruv) (if (true-color-p) "#fbf1c7" "#fbf1c7")) (t (if (true-color-p) "#52676f" "#5f5f87"))))
+            (base-light    (cond ((eq variant 'solar-dark) (if (true-color-p) "#839496" "#bdae93")) ((eq variant 'gruv-dark) (if (true-color-p) "#fbf1c7" "#fbf1c7")) ((eq variant 'gruv-light) (if (true-color-p) "#504945" "#504945")) (t (if (true-color-p) "#52676f" "#5f5f87"))))
             ;; dimmed version of foreground color
-            (base-dim      (cond ((eq variant 'dark) (if (true-color-p) "#657b83" "#7c6f64")) ((eq variant 'gruv) (if (true-color-p) "#7c6f64" "#7c6f64")) (t (if (true-color-p) "#81908f" "#afafd7"))))
+            (base-dim      (cond ((eq variant 'solar-dark) (if (true-color-p) "#657b83" "#7c6f64")) ((eq variant 'gruv-dark) (if (true-color-p) "#7c6f64" "#7c6f64")) ((eq variant 'gruv-light) (if (true-color-p) "#282828" "#282828")) (t (if (true-color-p) "#81908f" "#afafd7"))))
             ;; normal background color
             ;; comment
-            (comment       (cond ((eq variant 'dark) (if (true-color-p) "#586e75" "#7c6f64")) ((eq variant 'gruv) (if (true-color-p) "#7c6f64" "#8a8a8a")) (t (if (true-color-p) "#81908f" "#008787"))))
+            (comment       (cond ((eq variant 'solar-dark) (if (true-color-p) "#586e75" "#7c6f64")) ((eq variant 'gruv-dark) (if (true-color-p) "#7c6f64" "#8a8a8a")) ((eq variant 'gruv-light) (if (true-color-p) "#928374" "#928374")) (t (if (true-color-p) "#81908f" "#008787"))))
             ;; comment bg
-            (comment-bg    (cond ((eq variant 'dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv) (if (true-color-p) "#282828" "#282828")) (t (if (true-color-p) "#fcf4dc" "#ffffff"))))
+            (comment-bg    (cond ((eq variant 'solar-dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv-dark) (if (true-color-p) "#282828" "#282828")) ((eq variant 'gruv-light) (if (true-color-p) "#282828" "#282828")) (t (if (true-color-p) "#fcf4dc" "#ffffff"))))
             ;; bg1: main background
-            (bg1           (cond ((eq variant 'dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv) (if (true-color-p) "#282828" "#262626")) (t (if (true-color-p) "#fcf4dc" "#ffffff"))))
+            (bg1           (cond ((eq variant 'solar-dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv-dark) (if (true-color-p) "#282828" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#f2ebbc" "#f2ebbc")) (t (if (true-color-p) "#fcf4dc" "#ffffff"))))
             ;; current line highlight
-            (bg2           (cond ((eq variant 'dark) (if (true-color-p) "#132b34" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#3c3836" "#3a3a3a")) (t (if (true-color-p) "#e9e2cb" "#e4e4e4"))))
-            (bg2-hl        (cond ((eq variant 'dark) (if (true-color-p) "#1b343d" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#3c3836" "#3c3836")) (t (if (true-color-p) "#e9e2cb" "#e4e4e4"))))
+            (bg2           (cond ((eq variant 'solar-dark) (if (true-color-p) "#132b34" "#3c3836")) ((eq variant 'gruv-dark) (if (true-color-p) "#3c3836" "#3a3a3a")) ((eq variant 'gruv-light) (if (true-color-p) "#ebdbb2" "#ebdbb2")) (t (if (true-color-p) "#e9e2cb" "#e4e4e4"))))
             ;; darker shade of bg1
-            (bg3           (cond ((eq variant 'dark) (if (true-color-p) "#073642" "#504945")) ((eq variant 'gruv) (if (true-color-p) "#504945" "#504945")) (t (if (true-color-p) "#e9e2cb" "#d0d0d0"))))
+            (bg3           (cond ((eq variant 'solar-dark) (if (true-color-p) "#073642" "#504945")) ((eq variant 'gruv-dark) (if (true-color-p) "#504945" "#504945")) ((eq variant 'gruv-light) (if (true-color-p) "#ebdbb2" "#ebdbb2")) (t (if (true-color-p) "#e9e2cb" "#d0d0d0"))))
             ;; darkeest of bg
-            (bg4           (cond ((eq variant 'dark) (if (true-color-p) "#073642" "#504945")) ((eq variant 'gruv) (if (true-color-p) "#504945" "#504945")) (t (if (true-color-p) "#e9e2cb" "#bcbcbc"))))
+            (bg4           (cond ((eq variant 'solar-dark) (if (true-color-p) "#073642" "#504945")) ((eq variant 'gruv-dark) (if (true-color-p) "#504945" "#504945")) ((eq variant 'gruv-light) (if (true-color-p) "#a89984" "#a89984")) (t (if (true-color-p) "#e9e2cb" "#bcbcbc"))))
             ;; mode line border color
-            (border        (cond ((eq variant 'dark) (if (true-color-p) "#073642" "#504945")) ((eq variant 'gruv) (if (true-color-p) "#504945" "#504945")) (t (if (true-color-p) "#708183" "#b3b9be"))))
+            (border        (cond ((eq variant 'solar-dark) (if (true-color-p) "#073642" "#504945")) ((eq variant 'gruv-dark) (if (true-color-p) "#504945" "#504945")) ((eq variant 'gruv-light) (if (true-color-p) "#7c6f64" "#7c6f64")) (t (if (true-color-p) "#708183" "#b3b9be"))))
             ;; code block fg
-            (cblk          (cond ((eq variant 'dark) (if (true-color-p) "#cbc1d5" "#b2b2b2")) ((eq variant 'gruv) (if (true-color-p) "#b2b2b2" "#b2b2b2")) (t (if (true-color-p) "#655370" "#5f5f87"))))
+            (cblk          (cond ((eq variant 'solar-dark) (if (true-color-p) "#cbc1d5" "#b2b2b2")) ((eq variant 'gruv-dark) (if (true-color-p) "#b2b2b2" "#b2b2b2")) ((eq variant 'gruv-light) (if (true-color-p) "#7c6f64" "#7c6f64")) (t (if (true-color-p) "#655370" "#5f5f87"))))
             ;; code block bg
-            (cblk-bg       (cond ((eq variant 'dark) (if (true-color-p) "#2f2b33" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#e8e3f0" "#ffffff"))))
+            (cblk-bg       (cond ((eq variant 'solar-dark) (if (true-color-p) "#2f2b33" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#ebdbb2" "#ebdbb2")) (t (if (true-color-p) "#e8e3f0" "#ffffff"))))
             ;; code block header line
-            (cblk-ln       (cond ((eq variant 'dark) (if (true-color-p) "#827591" "#af5faf")) ((eq variant 'gruv) (if (true-color-p) "#af5faf" "#af5faf")) (t (if (true-color-p) "#9380b2" "#af5fdf"))))
+            (cblk-ln       (cond ((eq variant 'solar-dark) (if (true-color-p) "#827591" "#af5faf")) ((eq variant 'gruv-dark) (if (true-color-p) "#af5faf" "#af5faf")) ((eq variant 'gruv-light) (if (true-color-p) "#af5faf" "#af5faf")) (t (if (true-color-p) "#9380b2" "#af5fdf"))))
             ;; code block header line bg
-            (cblk-ln-bg    (cond ((eq variant 'dark) (if (true-color-p) "#373040" "#333333")) ((eq variant 'gruv) (if (true-color-p) "#333333" "#333333")) (t (if (true-color-p) "#ddd8eb" "#dfdfff"))))
+            (cblk-ln-bg    (cond ((eq variant 'solar-dark) (if (true-color-p) "#373040" "#333333")) ((eq variant 'gruv-dark) (if (true-color-p) "#333333" "#333333")) ((eq variant 'gruv-light) (if (true-color-p) "#282828" "#282828")) (t (if (true-color-p) "#ddd8eb" "#dfdfff"))))
             ;; cursor/point ???
-            (cursor        (cond ((eq variant 'dark) (if (true-color-p) "#e3dedd" "#d0d0d0")) ((eq variant 'gruv) (if (true-color-p) "#d0d0d0" "#d0d0d0")) (t (if (true-color-p) "#100a14" "#121212"))))
+            (cursor        (cond ((eq variant 'solar-dark) (if (true-color-p) "#e3dedd" "#d0d0d0")) ((eq variant 'gruv-dark) (if (true-color-p) "#d0d0d0" "#d0d0d0")) ((eq variant 'gruv-light) (if (true-color-p) "#d0d0d0" "#d0d0d0")) (t (if (true-color-p) "#100a14" "#121212"))))
             ;; constant
-            (const         (cond ((eq variant 'dark) (if (true-color-p) "#33859e" "#d3869b")) ((eq variant 'gruv) (if (true-color-p) "#87af87" "#87af87")) (t (if (true-color-p) "#33859e" "#8700af"))))
+            (const         (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#d3869b")) ((eq variant 'gruv-dark) (if (true-color-p) "#87af87" "#87af87")) ((eq variant 'gruv-light) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#33859e" "#8700af"))))
             ;; complementary
-            (comp          (cond ((eq variant 'dark) (if (true-color-p) "#b58900" "#8ec07c")) ((eq variant 'gruv) (if (true-color-p) "#8ec07c" "#8ec07c")) (t (if (true-color-p) "#b58900" "#8700af"))))
+            (comp          (cond ((eq variant 'solar-dark) (if (true-color-p) "#b58900" "#8ec07c")) ((eq variant 'gruv-dark) (if (true-color-p) "#8ec07c" "#8ec07c")) ((eq variant 'gruv-light) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#b58900" "#8700af"))))
             ;; errors
-            (err           (cond ((eq variant 'dark) (if (true-color-p) "#dc322f" "#cc241d")) ((eq variant 'gruv) (if (true-color-p) "#cc241d" "#cc241d")) (t (if (true-color-p) "#dc322f" "#e0211d"))))
+            (err           (cond ((eq variant 'solar-dark) (if (true-color-p) "#dc322f" "#cc241d")) ((eq variant 'gruv-dark) (if (true-color-p) "#cc241d" "#cc241d")) ((eq variant 'gruv-light) (if (true-color-p) "#9d0006" "#9d0006")) (t (if (true-color-p) "#dc322f" "#e0211d"))))
             ;; functions
-            (func          (cond ((eq variant 'dark) (if (true-color-p) "#33859e" "#d79921")) ((eq variant 'gruv) (if (true-color-p) "#d79921" "#ffaf00")) (t (if (true-color-p) "#33859e" "#8700af"))))
+            (func          (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#d79921")) ((eq variant 'gruv-dark) (if (true-color-p) "#d79921" "#ffaf00")) ((eq variant 'gruv-light) (if (true-color-p) "#b57614" "#b57614")) (t (if (true-color-p) "#33859e" "#8700af"))))
             ;; org lv1 heading
-            (head1         (cond ((eq variant 'dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv) (if (true-color-p) "#458588" "#458588")) (t (if (true-color-p) "#33859e" "#33859e"))))
-            (head1-bg      (cond ((eq variant 'dark) (if (true-color-p) "#132b34" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf1ed" "#ffffff"))))
+            (head1         (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv-dark) (if (true-color-p) "#458588" "#458588")) ((eq variant 'gruv-light) (if (true-color-p) "#458588" "#458588")) (t (if (true-color-p) "#33859e" "#33859e"))))
+            (head1-bg      (cond ((eq variant 'solar-dark) (if (true-color-p) "#132b34" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf1ed" "#ffffff"))))
             ;; org lv2 heading
-            (head2         (cond ((eq variant 'dark) (if (true-color-p) "#2aa889" "#d79921")) ((eq variant 'gruv) (if (true-color-p) "#b57614" "#d79921")) (t (if (true-color-p) "#2aa889" "#2aa198"))))
-            (head2-bg      (cond ((eq variant 'dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
+            (head2         (cond ((eq variant 'solar-dark) (if (true-color-p) "#2aa889" "#d79921")) ((eq variant 'gruv-dark) (if (true-color-p) "#b57614" "#d79921")) ((eq variant 'gruv-light) (if (true-color-p) "#b57614" "#d79921")) (t (if (true-color-p) "#2aa889" "#2aa198"))))
+            (head2-bg      (cond ((eq variant 'solar-dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
             ;; org lv3 heading
-            (head3         (cond ((eq variant 'dark) (if (true-color-p) "#b58900" "#98971a")) ((eq variant 'gruv) (if (true-color-p) "#98971a" "#afaf00")) (t (if (true-color-p) "#b58900" "#5faf00"))))
-            (head3-bg      (cond ((eq variant 'dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
+            (head3         (cond ((eq variant 'solar-dark) (if (true-color-p) "#b58900" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#98971a" "#afaf00")) ((eq variant 'gruv-light) (if (true-color-p) "#98971a" "#afaf00")) (t (if (true-color-p) "#b58900" "#5faf00"))))
+            (head3-bg      (cond ((eq variant 'solar-dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
             ;; org lv4 heading
-            (head4         (cond ((eq variant 'dark) (if (true-color-p) "#86dc2f" "#8ec07c")) ((eq variant 'gruv) (if (true-color-p) "#8ec07c" "#8ec07c")) (t (if (true-color-p) "#859900" "#875f00"))))
-            (head4-bg      (cond ((eq variant 'dark) (if (true-color-p) "#32322c" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#f6f1e1" "#ffffff"))))
+            (head4         (cond ((eq variant 'solar-dark) (if (true-color-p) "#86dc2f" "#8ec07c")) ((eq variant 'gruv-dark) (if (true-color-p) "#8ec07c" "#8ec07c")) ((eq variant 'gruv-light) (if (true-color-p) "#8ec07c" "#8ec07c")) (t (if (true-color-p) "#859900" "#875f00"))))
+            (head4-bg      (cond ((eq variant 'solar-dark) (if (true-color-p) "#32322c" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#f6f1e1" "#ffffff"))))
             ;; highlighted area, NOTE: this should be different from line highlight
-            (highlight     (cond ((eq variant 'dark) (if (true-color-p) "#1d4250" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#504945" "#3c3836")) (t (if (true-color-p) "#1d4250" "#d7d7ff"))))
-            ;; TODO: work on this
-            (highlight-dim (cond ((eq variant 'dark) (if (true-color-p) "#1d4250" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#3c3836" "#3c3836")) (t (if (true-color-p) "#1d4250" "#d7d7ff"))))
-            ;; keyword
-            ;; (keyword       (if (eq variant 'dark) (if (true-color-p) "#859900" "#33859e") (if (true-color-p) "#859900" "#33859e")))
-            (keyword       (cond ((eq variant 'dark) (if (true-color-p) "#679a01" "#a16946")) ((eq variant 'gruv) (if (true-color-p) "#fe8019" "#d75f5f")) (t (if (true-color-p) "#679a01" "#33859e"))))
+            (highlight     (cond ((eq variant 'solar-dark) (if (true-color-p) "#1d4250" "#3c3836")) ((eq variant 'gruv-dark) (if (true-color-p) "#504945" "#3c3836")) ((eq variant 'gruv-light) (if (true-color-p) "#bdae93" "#bdae93")) (t (if (true-color-p) "#1d4250" "#d7d7ff"))))
+            ;; (keyword       (if (eq variant 'solar-dark) (if (true-color-p) "#859900" "#33859e") (if (true-color-p) "#859900" "#33859e")))
+            (keyword       (cond ((eq variant 'solar-dark) (if (true-color-p) "#679a01" "#a16946")) ((eq variant 'gruv-dark) (if (true-color-p) "#fe8019" "#d75f5f")) ((eq variant 'gruv-light) (if (true-color-p) "#af3a03" "#af3a03")) (t (if (true-color-p) "#679a01" "#33859e"))))
             ;; line numbers
-            (lnum          (cond ((eq variant 'dark) (if (true-color-p) "#586e75" "#767676")) ((eq variant 'gruv) (if (true-color-p) "#928374" "#767676")) (t (if (true-color-p) "#44505c" "#af87af"))))
+            (lnum          (cond ((eq variant 'solar-dark) (if (true-color-p) "#586e75" "#767676")) ((eq variant 'gruv-dark) (if (true-color-p) "#928374" "#767676")) ((eq variant 'gruv-light) (if (true-color-p) "#928374" "#928374")) (t (if (true-color-p) "#44505c" "#af87af"))))
             ;; matched, matching parens, brackets, tags
-            (mat           (cond ((eq variant 'dark) (if (true-color-p) "#86dc2f" "#98971a")) ((eq variant 'gruv) (if (true-color-p) "#98971a" "#98971a")) (t (if (true-color-p) "#86dc2f" "#af005f"))))
+            (mat           (cond ((eq variant 'solar-dark) (if (true-color-p) "#86dc2f" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#98971a" "#98971a")) ((eq variant 'gruv-light) (if (true-color-p) "#79740e" "#79740e")) (t (if (true-color-p) "#86dc2f" "#af005f"))))
             ;; meta, org's meta line
-            (meta          (cond ((eq variant 'dark) (if (true-color-p) "#6c71c4" "#689d6a")) ((eq variant 'gruv) (if (true-color-p) "#689d6a" "#689d6a")) (t (if (true-color-p) "#6c71c4" "#df5f5f"))))
+            (meta          (cond ((eq variant 'solar-dark) (if (true-color-p) "#6c71c4" "#689d6a")) ((eq variant 'gruv-dark) (if (true-color-p) "#689d6a" "#689d6a")) ((eq variant 'gruv-light) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#6c71c4" "#df5f5f"))))
             ;; string
-            (str           (cond ((eq variant 'dark) (if (true-color-p) "#2aa198" "#98971a")) ((eq variant 'gruv) (if (true-color-p) "#98971a" "#afaf00")) (t (if (true-color-p) "#2aa198" "#2aa198"))))
+            (str           (cond ((eq variant 'solar-dark) (if (true-color-p) "#2aa198" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#98971a" "#afaf00")) ((eq variant 'gruv-light) (if (true-color-p) "#79740e" "#79740e")) (t (if (true-color-p) "#2aa198" "#2aa198"))))
             ;; success
-            (suc           (cond ((eq variant 'dark) (if (true-color-p) "#86dc2f" "#98971a")) ((eq variant 'gruv) (if (true-color-p) "#98971a" "#afaf00")) (t (if (true-color-p) "#86dc2f" "#00af00"))))
+            (suc           (cond ((eq variant 'solar-dark) (if (true-color-p) "#86dc2f" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#98971a" "#afaf00")) ((eq variant 'gruv-light) (if (true-color-p) "#98971a" "#98971a")) (t (if (true-color-p) "#86dc2f" "#00af00"))))
             ;; tooltip
-            (ttip          (cond ((eq variant 'dark) (if (true-color-p) "#586e75" "#504945")) ((eq variant 'gruv) (if (true-color-p) "#bdae93" "#ffdfaf")) (t (if (true-color-p) "#8c799f" "#5f5f87"))))
+            (ttip          (cond ((eq variant 'solar-dark) (if (true-color-p) "#586e75" "#504945")) ((eq variant 'gruv-dark) (if (true-color-p) "#bdae93" "#ffdfaf")) ((eq variant 'gruv-light) (if (true-color-p) "#bdae93" "#ffdfaf")) (t (if (true-color-p) "#8c799f" "#5f5f87"))))
             ;; tooltip selection
-            (ttip-sl       (cond ((eq variant 'dark) (if (true-color-p) "#1b343d" "#3c3836")) ((eq variant 'gruv) (if (true-color-p) "#076678" "#076678")) (t (if (true-color-p) "#c8c6dd" "#afafff"))))
+            (ttip-sl       (cond ((eq variant 'solar-dark) (if (true-color-p) "#1b343d" "#3c3836")) ((eq variant 'gruv-dark) (if (true-color-p) "#076678" "#076678")) ((eq variant 'gruv-light) (if (true-color-p) "#838598" "#838598")) (t (if (true-color-p) "#c8c6dd" "#afafff"))))
             ;; tooltip bg
-            (ttip-bg       (cond ((eq variant 'dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv) (if (true-color-p) "#1d2021" "#1d2021")) (t (if (true-color-p) "#e2e0ea" "#dfdfff"))))
+            (ttip-bg       (cond ((eq variant 'solar-dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv-dark) (if (true-color-p) "#1d2021" "#1d2021")) ((eq variant 'gruv-light) (if (true-color-p) "#1d2021" "#1d2021")) (t (if (true-color-p) "#e2e0ea" "#dfdfff"))))
             ;; type
-            (type          (cond ((eq variant 'dark) (if (true-color-p) "#b58900" "#b16286")) ((eq variant 'gruv) (if (true-color-p) "#d3869b" "#d787af")) (t (if (true-color-p) "#b58900" "#af005f"))))
+            (type          (cond ((eq variant 'solar-dark) (if (true-color-p) "#b58900" "#b16286")) ((eq variant 'gruv-dark) (if (true-color-p) "#d3869b" "#d787af")) ((eq variant 'gruv-light) (if (true-color-p) "#d3869b" "#d787af")) (t (if (true-color-p) "#b58900" "#af005f"))))
             ;; variable
-            (var           (cond ((eq variant 'dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv) (if (true-color-p) "#83a598" "#87afaf")) (t (if (true-color-p) "#33859e" "#af5fd7"))))
+            (var           (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv-dark) (if (true-color-p) "#83a598" "#87afaf")) ((eq variant 'gruv-light) (if (true-color-p) "#076678" "#076678")) (t (if (true-color-p) "#33859e" "#af5fd7"))))
             ;; warning
-            (war           (cond ((eq variant 'dark) (if (true-color-p) "#dc752f" "#cc241d")) ((eq variant 'gruv) (if (true-color-p) "#cc241d" "#d75f5f")) (t (if (true-color-p) "#dc752f" "#dc752f"))))
+            (war           (cond ((eq variant 'solar-dark) (if (true-color-p) "#dc752f" "#cc241d")) ((eq variant 'gruv-dark) (if (true-color-p) "#cc241d" "#d75f5f")) ((eq variant 'gruv-light) (if (true-color-p) "#af3a03" "#af3a03")) (t (if (true-color-p) "#dc752f" "#dc752f"))))
 
             ;; colors
-            (aqua          (cond ((eq variant 'dark) (if (true-color-p) "#2d9574" "#8ec07c")) ((eq variant 'gruv) (if (true-color-p) "#8ec07c" "#87af87")) (t (if (true-color-p) "#2d9574" "#2aa198"))))
-            (aqua-bg       (cond ((eq variant 'dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
-            (green         (cond ((eq variant 'dark) (if (true-color-p) "#859900" "#98971a")) ((eq variant 'gruv) (if (true-color-p) "#98971a" "#afaf00")) (t (if (true-color-p) "#859900" "#5faf00"))))
-            (green-bg      (cond ((eq variant 'dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#79740e" "#79740e")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
-            (green-bg-s    (cond ((eq variant 'dark) (if (true-color-p) "#29422d" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#dae6d0" "#ffffff"))))
-            (cyan          (cond ((eq variant 'dark) (if (true-color-p) "#2aa889" "#689d6a")) ((eq variant 'gruv) (if (true-color-p) "#689d6a" "#689d6a")) (t (if (true-color-p) "#2aa889" "#008080"))))
-            (orange        (cond ((eq variant 'dark) (if (true-color-p) "#cb4b16" "#d65d0e")) ((eq variant 'gruv) (if (true-color-p) "#d65d0e" "#ff8700")) (t (if (true-color-p) "#cb4b16" "#cb4b16"))))
-            (red           (cond ((eq variant 'dark) (if (true-color-p) "#dc322f" "#cc241d")) ((eq variant 'gruv) (if (true-color-p) "#cc241d" "#d75f5f")) (t (if (true-color-p) "#dc322f" "#d70008"))))
-            (red-bg        (cond ((eq variant 'dark) (if (true-color-p) "#3c2a2c" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#9d0006" "#9d0006")) (t (if (true-color-p) "#faede4" "#ffffff"))))
-            (red-bg-s      (cond ((eq variant 'dark) (if (true-color-p) "#512e31" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#eed9d2" "#ffffff"))))
-            (blue          (cond ((eq variant 'dark) (if (true-color-p) "#4f97d7" "#458588")) ((eq variant 'gruv) (if (true-color-p) "#458588" "#87afaf")) (t (if (true-color-p) "#4f97d7" "#33859e"))))
-            (blue-bg       (cond ((eq variant 'dark) (if (true-color-p) "#293239" "#076678")) ((eq variant 'gruv) (if (true-color-p) "#076678" "#076678")) (t (if (true-color-p) "#edf1ed" "#d7d7ff"))))
+            (aqua          (cond ((eq variant 'solar-dark) (if (true-color-p) "#2d9574" "#8ec07c")) ((eq variant 'gruv-dark) (if (true-color-p) "#8ec07c" "#87af87")) ((eq variant 'gruv-light) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#2d9574" "#2aa198"))))
+            (aqua-bg       (cond ((eq variant 'solar-dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#427b58" "#427b58")) ((eq variant 'gruv-light) (if (true-color-p) "#8ec07c" "#8ec07c")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
+            (green         (cond ((eq variant 'solar-dark) (if (true-color-p) "#859900" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#98971a" "#afaf00")) ((eq variant 'gruv-light) (if (true-color-p) "#797403" "#797403")) (t (if (true-color-p) "#859900" "#5faf00"))))
+            (green-bg      (cond ((eq variant 'solar-dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#79740e" "#79740e")) ((eq variant 'gruv-light) (if (true-color-p) "#b8bb26" "#b8bb26")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
+            (green-bg-s    (cond ((eq variant 'solar-dark) (if (true-color-p) "#29422d" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#dae6d0" "#ffffff"))))
+            (cyan          (cond ((eq variant 'solar-dark) (if (true-color-p) "#2aa889" "#689d6a")) ((eq variant 'gruv-dark) (if (true-color-p) "#689d6a" "#689d6a")) ((eq variant 'gruv-light) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#2aa889" "#008080"))))
+            (orange        (cond ((eq variant 'solar-dark) (if (true-color-p) "#cb4b16" "#d65d0e")) ((eq variant 'gruv-dark) (if (true-color-p) "#d65d0e" "#ff8700")) ((eq variant 'gruv-light) (if (true-color-p) "#af3a03" "#af3a03")) (t (if (true-color-p) "#cb4b16" "#cb4b16"))))
+            (red           (cond ((eq variant 'solar-dark) (if (true-color-p) "#dc322f" "#cc241d")) ((eq variant 'gruv-dark) (if (true-color-p) "#cc241d" "#d75f5f")) ((eq variant 'gruv-light) (if (true-color-p) "#9d0006" "#9d0006")) (t (if (true-color-p) "#dc322f" "#d70008"))))
+            (red-bg        (cond ((eq variant 'solar-dark) (if (true-color-p) "#3c2a2c" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#9d0006" "#9d0006")) ((eq variant 'gruv-light) (if (true-color-p) "#cc241d" "#cc241d")) (t (if (true-color-p) "#faede4" "#ffffff"))))
+            (red-bg-s      (cond ((eq variant 'solar-dark) (if (true-color-p) "#512e31" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#eed9d2" "#ffffff"))))
+            (blue          (cond ((eq variant 'solar-dark) (if (true-color-p) "#4f97d7" "#458588")) ((eq variant 'gruv-dark) (if (true-color-p) "#458588" "#87afaf")) ((eq variant 'gruv-light) (if (true-color-p) "#076678" "#076678")) (t (if (true-color-p) "#4f97d7" "#33859e"))))
+            (blue-bg       (cond ((eq variant 'solar-dark) (if (true-color-p) "#293239" "#076678")) ((eq variant 'gruv-dark) (if (true-color-p) "#076678" "#076678")) ((eq variant 'gruv-light) (if (true-color-p) "#83a598" "#83a598")) (t (if (true-color-p) "#edf1ed" "#d7d7ff"))))
             ;; TODO: add violet
-            (magenta       (cond ((eq variant 'dark) (if (true-color-p) "#d33682" "#b16286")) ((eq variant 'gruv) (if (true-color-p) "#b16286" "#d787af")) (t (if (true-color-p) "#a31db1" "#800080"))))
-            (yellow        (cond ((eq variant 'dark) (if (true-color-p) "#b58900" "#d79921")) ((eq variant 'gruv) (if (true-color-p) "#d79921" "#ff8700")) (t (if (true-color-p) "#b58900" "#875f00"))))
-            (yellow-bg     (cond ((eq variant 'dark) (if (true-color-p) "#32322c" "#262626")) ((eq variant 'gruv) (if (true-color-p) "#b57614" "#b57614")) (t (if (true-color-p) "#f6f1e1" "#ffffff"))))
+            (magenta       (cond ((eq variant 'solar-dark) (if (true-color-p) "#d33682" "#b16286")) ((eq variant 'gruv-dark) (if (true-color-p) "#b16286" "#d787af")) ((eq variant 'gruv-light) (if (true-color-p) "#8f3f71" "#8f3f71")) (t (if (true-color-p) "#a31db1" "#800080"))))
+            (yellow        (cond ((eq variant 'solar-dark) (if (true-color-p) "#b58900" "#d79921")) ((eq variant 'gruv-dark) (if (true-color-p) "#d79921" "#ff8700")) ((eq variant 'gruv-light) (if (true-color-p) "#b57614" "#b57614")) (t (if (true-color-p) "#b58900" "#875f00"))))
+            (yellow-bg     (cond ((eq variant 'solar-dark) (if (true-color-p) "#32322c" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#b57614" "#b57614")) ((eq variant 'gruv-light) (if (true-color-p) "#fabd2f" "#fabd2f")) (t (if (true-color-p) "#f6f1e1" "#ffffff"))))
             )
 
            custom-colors-override
@@ -172,7 +168,7 @@
             `(fringe ((,class (:foreground ,comment))))
             `(header-line ((,class :background ,bg4)))
             `(highlight ((,class (:foreground ,base :background ,highlight))))
-            `(hl-line ((,class (:background ,bg2-hl))))
+            `(hl-line ((,class (:background ,bg2))))
             `(isearch ((,class (:foreground ,bg1 :background ,mat))))
             `(lazy-highlight ((,class (:background ,blue-bg :weight normal))))
             ;; `(link ((,class (:foreground ,comment :underline t))))
@@ -630,7 +626,7 @@
             `(notmuch-search-date ((,class (:foreground ,func))))
             `(notmuch-search-flagged-face ((,class (:weight extra-bold))))
             `(notmuch-search-non-matching-authors ((,class (:foreground ,base-dim))))
-            `(notmuch-search-unread-face ((,class (:background ,highlight-dim :box ,border))))
+            `(notmuch-search-unread-face ((,class (:background ,highlight :box ,border))))
             `(notmuch-tag-face ((,class (:foreground ,keyword))))
             `(notmuch-tag-flagged ((,class (:foreground ,war))))
 
