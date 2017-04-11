@@ -70,11 +70,8 @@
           ("Package" "^.*\\(library\\|require\\)(\\(.*\\)" 2)
           ("Data" "^\\(.+\\)[ \t\n]-*=[ \t\n]*\\(read\\|.*data\.frame\\).*(" 1)
           ("Data" "^\\(.+\\)[ \t\n]-*<-[ \t\n]*\\(read\\|.*data\.frame\\).*(" 1)
-          ("Outline" "^\\(## .+\\)$" 1)
-          ("Outline" "^\\(### .+\\)$" 1)
-          ("Outline" "^\\(#### .+\\)$" 1)
-          ("Outline" "^\\(# .+\\)----.*$" 1)
-          ("Outline" "^\\(# .+\\)====.*$" 1)
+          ("Outline" "^[ \t]*\\(# .+\\)----.*$" 1)
+          ("Outline" "^[ \t]*\\(# .+\\)====.*$" 1)
           ("FALSE block" "^\\(if (FALSE) {.*\\)$" 1))))
 
 (defun yxl-ess/setup-lintr ()
