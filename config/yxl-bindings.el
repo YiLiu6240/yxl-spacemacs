@@ -36,6 +36,7 @@
   "l" #'spacemacs/workspaces-transient-state/body
   "LY" #'yxl-workspace/record-config
   "LP" #'yxl-workspace/load-config
+  "nr" #'ni-narrow-to-region-indirect-same-window
   "pc" #'yxl-project-cite
   "pC" #'projectile-compile-project
   "pO" #'yxl-project-todo-popup

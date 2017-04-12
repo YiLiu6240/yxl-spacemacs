@@ -173,4 +173,21 @@
 
 (defun yxl-edit/init-narrow-indirect ()
   (use-package narrow-indirect
-    :defer t))
+    :defer t
+    :commands (ni-narrow-to-region-indirect-same-window)
+    :config
+    (progn
+      (defun ni-narrow-to-region-indirect-same-window (start end here &optional full-name text msgp)
+        (interactive
+         (list (region-beginning) (region-end) (point) (and current-prefix-arg  (read-string "Buffer name: ")) nil 'MSGP))
+        (if (and (= start end)  msgp)
+            (message "Region is empty")
+          (deactivate-mark)
+          (let* ((buf  (or full-name  text  (ni-buffer-substring-collapsed-visible start end)))
+                 (buf  (or full-name  (concat ni-buf-name-prefix (buffer-name) ni-buf-name-separator buf)))
+                 (buf  (or full-name  (substring buf 0 (min (length buf) ni-narrowed-buf-name-max))))
+                 (buf   (clone-indirect-buffer buf nil)))
+            (with-current-buffer buf (narrow-to-region start end) (goto-char here))
+            (switch-to-buffer buf)
+            (setq mode-line-buffer-identification  (list (propertize (car mode-line-buffer-identification)
+                                                                     'face 'ni-mode-line-buffer-id)))))))))
