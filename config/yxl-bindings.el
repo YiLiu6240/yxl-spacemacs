@@ -115,7 +115,7 @@
 (spacemacs/set-leader-keys
   "omh" #'html-mode
   "oml" #'latex-mode
-  "omm" #'gfm-mode
+  "omm" #'markdown-mode
   "omo" #'org-mode
   "omp" #'python-mode
   "omr" #'R-mode
