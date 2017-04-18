@@ -15,7 +15,7 @@
     (yxl-evil/setup-evil-personal)
     (yxl-evil/setup-evil-misc)
     ;; TODO: check if this causes trouble
-    (setq evil-move-beyond-eol t)))
+    (setq evil-move-beyond-eol nil)))
 
 (defun yxl-evil/post-init-evil-evilified-state ()
   (with-eval-after-load 'evil-evilified-state
