@@ -78,7 +78,7 @@
                       ;; return key enters new line
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'complete
-                      auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-sort-by-usage nil
                       ;; completion tool tip, nil, buggy in evil
                       auto-completion-enable-help-tooltip nil
                       :disabled-for  ; layer name
