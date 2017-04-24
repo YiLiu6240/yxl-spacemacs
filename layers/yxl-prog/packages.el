@@ -46,8 +46,7 @@
        (setq imenu-create-index-function 'yxl-python-imenu)))))
 
 (defun yxl-prog/post-init-cc-mode ()
-  (with-eval-after-load 'cc-mode
-    (add-hook 'c++-mode-hook 'which-function-mode)))
+  (with-eval-after-load 'cc-mode))
 
 (defun yxl-prog/post-init-graphviz-dot-mode ()
   ;; copy from zilongshanren
