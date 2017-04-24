@@ -47,4 +47,7 @@
   (use-package evil-lion
     :ensure t
     :config
-    (evil-lion-mode)))
+    (progn
+      (setq evil-lion-left-align-key (kbd "g a"))
+      (setq evil-lion-right-align-key (kbd "g A"))
+      (evil-lion-mode))))
