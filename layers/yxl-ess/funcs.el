@@ -46,6 +46,7 @@
   (ess-toggle-S-assign nil)
 
   (define-key ess-mode-map (kbd "C-c C-.") #'yxl-ess/insert-pipe)
+  (define-key ess-mode-map (kbd "M--") (lambda () (interactive) (insert "<-")))
   (define-key ess-mode-map (kbd "C-<tab>") #'sp-indent-adjust-sexp)
   (define-key ess-mode-map (kbd "C-S-<tab>") #'sp-dedent-adjust-sexp))
 
