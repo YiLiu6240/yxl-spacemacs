@@ -16,7 +16,8 @@
   "bb" #'yxl-buffer-switch
   "bh" #'yxl-utils/home
   ;; TODO: rm this with next spacemacs update
-  "bm" #'view-echo-area-messages
+  "bM" #'view-echo-area-messages
+  "bm" #'yxl-buffer-switch-same-major-mode
   "bx" #'kill-buffer-and-window
   "ff" #'yxl-find-file-counsel
   "fF" #'find-file-in-current-directory
