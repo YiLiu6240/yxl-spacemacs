@@ -166,4 +166,42 @@
 (defun yxl-ess/setup-rdired ()
   (defun yxl-ess/rdired-config ()
     (define-key ess-rdired-mode-map "." #'yxl-ess-rdired-hydra/body))
-  (add-hook 'ess-rdired-mode-hook #'yxl-ess/rdired-config))
+  (add-hook 'ess-rdired-mode-hook #'yxl-ess/rdired-config)
+  (setq ess-rdired-objects "{.rdired.objects <- function(objs) {
+  if (length(objs)==0) {
+    \"No objects to view!\"
+  } else {
+  mode <- sapply(objs, function(my.x) {
+    eval( parse( text=sprintf('data.class(get(\"%s\"))', my.x))) })
+  length <- sapply(objs, function(my.x) {
+    eval( parse( text=sprintf('length(get(\"%s\"))', my.x))) })
+  nrow <- sapply(objs, function(my.x) {
+    eval( parse( text=
+      sprintf('if (is.null(nrow(get(\"%s\")))) {
+                 \".\"
+               } else {
+                 nrow(get(\"%s\"))
+               }', my.x, my.x))) })
+  ncol <- sapply(objs, function(my.x) {
+    eval( parse( text=
+      sprintf('if (is.null(ncol(get(\"%s\")))) {
+                 \".\"
+               } else {
+                 ncol(get(\"%s\"))
+               }', my.x, my.x))) })
+  size <- sapply(objs, function(my.x) {
+    eval( parse( text=sprintf('format(object.size(get(\"%s\")),
+                                      units=\"auto\")',
+                               my.x))) })
+  d <- data.frame(mode, length, nrow, ncol, size)
+  var.names <- row.names(d)
+  ## If any names contain spaces, we need to quote around them.
+  quotes = rep('', length(var.names))
+  spaces = grep(' ', var.names)
+  if (any(spaces))
+    quotes[spaces] <- '\"'
+  var.names = paste(quotes, var.names, quotes, sep='')
+  row.names(d) <- paste('  ', var.names, sep='')
+  d[order(mode), ]
+  }
+}; cat('\n'); print(.rdired.objects(ls()))}\n"))
