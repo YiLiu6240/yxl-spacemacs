@@ -106,6 +106,7 @@
     "s:" #'ess-execute
     ;; R helpers
     "hh" #'ess-display-help-on-object
+    "hb" #'ess-display-help-in-browser
     "hH" #'ess-describe-object-at-point
     "ha" #'ess-display-help-apropos
     "hp" #'ess-display-package-index
@@ -162,6 +163,19 @@
   (spacemacs/declare-prefix-for-mode mode "mv" "views")
   (spacemacs/declare-prefix-for-mode mode "mr" "roxygen")
   (spacemacs/declare-prefix-for-mode mode "mo" "user-defined"))
+
+(defun yxl-ess/setup-ess-help ()
+  (defun yxl-ess/ess-help-config ()
+    (define-key ess-help-mode-map "." #'yxl-ess-help-hydra/body))
+  (add-hook 'ess-help-mode-hook #'yxl-ess/ess-help-config)
+  (defhydra yxl-ess-help-hydra (:color blue :hint nil :columns 4
+                                       :pre (setq which-key-inhibit t)
+                                       :post (setq which-key-inhibit nil))
+    ("h" ess-display-help-on-object "help")
+    ("b" ess-display-help-in-browser "help-in-browser")
+    ("p" ess-display-package-index "package index")
+    ("v" ess-display-vignettes "vignettes")
+    ("w" ess-help-web-search "web-search")))
 
 (defun yxl-ess/setup-rdired ()
   (defun yxl-ess/rdired-config ()

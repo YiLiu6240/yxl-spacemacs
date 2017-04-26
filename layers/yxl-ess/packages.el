@@ -11,6 +11,7 @@
     (yxl-ess/setup-bindings)
     (yxl-ess/setup-imenu)
     (yxl-ess/setup-rdired)
+    (yxl-ess/setup-ess-help)
     (yxl-ess/setup-lintr)
     (add-hook 'ess-mode-hook #'yxl-ess/ess-hook)
     (add-hook 'R-mode-hook #'yxl-ess/R-hook)
