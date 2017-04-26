@@ -112,7 +112,8 @@
       (define-key winum-keymap (kbd "C-w 6") 'winum-select-window-6)
       (define-key winum-keymap (kbd "C-w 7") 'winum-select-window-7)
       (define-key winum-keymap (kbd "C-w 8") 'winum-select-window-8)
-      (define-key winum-keymap (kbd "C-w 9") 'winum-select-window-9))))
+      (define-key winum-keymap (kbd "C-w 9") 'winum-select-window-9)
+      (winum-mode))))
 
 (defun yxl-workspace/init-yxl-session ()
   (use-package yxl-session
