@@ -110,7 +110,7 @@
           'magit-auto-revert-repository-buffers-p)
     (setq magit-refresh-status-buffer nil)
     ;; other configs
-    (setq magit-log-arguments '("-n15" "--graph" "--decorate"))
+    (setq magit-log-arguments '("-n15" "--graph" "--decorate" "--follow"))
     ;; prefer two way ediff
     (setq magit-ediff-dwim-show-on-hunks t)
     ;; word diff
