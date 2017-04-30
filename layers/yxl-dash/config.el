@@ -1,4 +1,4 @@
-(defvar yxl-dash-docset-newpath "~/.docsets"
+(defvar yxl-dash-docset-path "~/.docsets"
   "Path containing dash docsets.")
 
 (defvar yxl-dash-browser-func 'browse-url

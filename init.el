@@ -110,7 +110,7 @@
      yxl-config
      yxl-dired
      (yxl-dash :variables
-               yxl-dash-docset-newpath "~/Dropbox/dash-docsets"
+               yxl-dash-docset-path "~/Dropbox/dash-docsets"
                yxl-dash-browser-func 'w3m-goto-url-new-session)
      yxl-ess
      yxl-org

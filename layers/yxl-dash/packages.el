@@ -15,7 +15,7 @@
     :config
     (progn
       (setq helm-dash-browser-func 'w3m-goto-url-new-session)
-      (yxl-dash//activate-package-docsets yxl-dash-docset-newpath))))
+      (yxl-dash//activate-package-docsets yxl-dash-docset-path))))
 
 (defun yxl-dash/init-counsel-dash ()
   (use-package counsel-dash
@@ -35,4 +35,4 @@
     :config
     (progn
       (setq counsel-dash-browser-func yxl-dash-browser-func)
-      (yxl-dash//activate-package-docsets yxl-dash-docset-newpath))))
+      (yxl-dash//activate-package-docsets yxl-dash-docset-path))))
