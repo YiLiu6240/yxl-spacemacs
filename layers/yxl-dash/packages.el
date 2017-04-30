@@ -20,18 +20,12 @@
 (defun yxl-dash/init-counsel-dash ()
   (use-package counsel-dash
     :defer t
+    :commands (helm-dash-installed-docsets yxl-dash/select-docset)
     :init
     (progn
       (spacemacs/set-leader-keys
-        "dh" 'counsel-dash
-        "dH" 'counsel-dash-at-point)
-      (defun counsel-dash-at-point ()
-        "Counsel dash with selected point"
-        (interactive)
-        (counsel-dash
-         (if (use-region-p)
-             (buffer-substring-no-properties (region-beginning) (region-end))
-           (substring-no-properties (or (thing-at-point 'symbol) ""))))))
+        "dH" 'counsel-dash
+        "dh" 'yxl-dash/select-docset))
     :config
     (progn
       (setq counsel-dash-browser-func yxl-dash-browser-func)

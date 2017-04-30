@@ -4,3 +4,10 @@
   (setq helm-dash-common-docsets (helm-dash-installed-docsets))
   (message (format "activated %d docsets from: %s"
                    (length helm-dash-common-docsets) path)))
+
+(defun yxl-dash/select-docset ()
+  (interactive)
+  (let* ((counsel-dash-common-docsets
+          (list (ivy-read "which docset to use: "
+                          (helm-dash-installed-docsets)))))
+    (counsel-dash)))
