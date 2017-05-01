@@ -113,10 +113,6 @@
     (setq magit-log-arguments '("-n15" "--graph" "--decorate" "--follow"))
     ;; prefer two way ediff
     (setq magit-ediff-dwim-show-on-hunks t)
-    ;; highlight trailing whitespace
-    (setq magit-diff-paint-whitespace t)
-    (setq magit-diff-highlight-trailing t)
-    (setq magit-diff-highlight-indentation t)
     ;; word diff
     (setq magit-diff-refine-hunk 'all)
     ;; log
