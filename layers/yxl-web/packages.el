@@ -65,8 +65,8 @@
         "awh" 'w3m-hackernews))
     :config
     (progn
-      (add-hook 'w3m-mode-hook (lambda () (setq yxl-line-width 100)))
-      (add-hook 'w3m-mode-hook #'yxl-big-text-mode)
+      ;; (add-hook 'w3m-mode-hook (lambda () (setq yxl-line-width 100)))
+      ;; (add-hook 'w3m-mode-hook #'yxl-big-text-mode)
       (setq-default w3m-user-agent (concat "Mozilla/5.0 (Linux; U; Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40)"
                                            " AppleWebKit/533.1 (KHTML, like Gecko)"
                                            " Version/4.0 Mobile Safari/533."))
@@ -76,7 +76,7 @@
       (setq w3m-command-arguments '("-cookie" "-F"))
       (setq w3m-use-cookies t)
       (setq w3m-view-this-url-new-session-in-background t)
-      (setq w3m-fill-column 100)
+      ;; (setq w3m-fill-column 100)
       (yxl-web/w3m-bindings)
       (yxl-web/w3m-hydra))))
 
