@@ -48,6 +48,8 @@
     :ensure t
     :config
     (progn
-      (setq evil-lion-left-align-key (kbd "g a"))
-      (setq evil-lion-right-align-key (kbd "g A"))
+      (define-key evil-normal-state-map (kbd "ga") #'evil-lion-left)
+      (define-key evil-normal-state-map (kbd "gA") #'evil-lion-right)
+      (define-key evil-visual-state-map (kbd "ga") #'evil-lion-left)
+      (define-key evil-visual-state-map (kbd "gA") #'evil-lion-right)
       (evil-lion-mode))))
