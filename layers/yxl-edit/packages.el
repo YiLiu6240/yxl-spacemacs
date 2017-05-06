@@ -1,5 +1,6 @@
 (setq yxl-edit-packages '(parinfer
                           lispy
+                          editorconfig
                           smartparens
                           imenu-anywhere
                           hl-todo
@@ -43,6 +44,12 @@
       (define-key lispy-mode-map (kbd "C-3") 'lispy-arglist-inline))))
       ;; (define-key lispy-mode-map (kbd "C-k") 'lispy-splice)
       ;; (define-key lispy-mode-map (kbd "C-3") 'lispy-mark-symbol)
+
+(defun yxl-edit/init-editorconfig ()
+  (use-package editorconfig
+    :ensure t
+    :config
+    (editorconfig-mode 1)))
 
 (defun yxl-edit/pre-init-smartparens ()
   (spacemacs|use-package-add-hook smartparens
