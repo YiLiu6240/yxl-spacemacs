@@ -58,8 +58,8 @@
   (setq-local comment-add 0))
 
 (defun yxl-ess/ess-set-style-advice (&optional style quiet)
-  "Set `evil-shift-width' based on `ess-indent-offset'."
-  (setq-local evil-shift-width ess-indent-offset))
+  "Set `evil-shift-width' based on `ess-indent-offset'.")
+;; (setq-local evil-shift-width ess-indent-offset)
 
 (defun yxl-ess/setup-imenu ()
   (setq ess-imenu-S-generic-expression
