@@ -1,4 +1,4 @@
-(setq yxl-workspace-packages '((eyebrowse :location site)
+(setq yxl-workspace-packages '(eyebrowse
                                winum
                                (yxl-ace-window :location site)
                                (yxl-session :location site)
@@ -21,23 +21,42 @@
 
 (defun yxl-workspace/init-eyebrowse ()
   (use-package eyebrowse
-    :commands (eyebrowse-mode)
+    :ensure t
     :init
+    (eyebrowse-mode)
+    :config
     (progn
       (setq eyebrowse-wrap-around t)
       (setq eyebrowse-keymap-prefix (kbd "C-c w"))
       (setq eyebrowse-default-tag-name "main")
-      (eyebrowse-mode))
-    :config
-    (progn
       (setq eyebrowse-mode-line-style 'always)
-      (setq eyebrowse-default-tag-name-list '((0 . "conf")
-                                              (1 . "main")
-                                              (2 . "support")
-                                              (3 . "doc")
-                                              (4 . "item")
-                                              (8 . "info")
-                                              (9 . "todo")))
+
+      (defun yxl-eyebrowse-update-tag-name ()
+        (interactive)
+        (eyebrowse-rename-window-config
+         (eyebrowse--get 'current-slot) (buffer-name)))
+
+      (defun yxl-eyebrowse-rename-window-config (slot tag)
+        "Rename the window config at SLOT to TAG.
+When used interactively, default to the current window config,
+use the prefix argument to prompt for a slot or a numerical
+prefix argument to select a slot by its number."
+        (interactive (list (cond
+                            ((consp current-prefix-arg)
+                             (eyebrowse--read-slot))
+                            ((numberp current-prefix-arg)
+                             current-prefix-arg)
+                            (t (eyebrowse--get 'current-slot)))
+                           nil))
+        (let* ((window-configs (eyebrowse--get 'window-configs))
+               (window-config (assoc slot window-configs))
+               (current-tag (buffer-name))
+               (tag (or tag (read-string "Tag: " current-tag))))
+          (setf (nth 2 window-config) tag)))
+
+      (advice-add 'eyebrowse-rename-window-config :override
+                  #'yxl-eyebrowse-rename-window-config)
+
       (yxl-workspace/setup-eyebrowse)
       (eyebrowse-setup-opinionated-keys)
       ;; vim-style tab switching
@@ -51,6 +70,8 @@
         #'spacemacs/workspaces-transient-state/body)
       (define-key eyebrowse-mode-map (kbd "C-w .")
         #'spacemacs/workspaces-transient-state/body)
+      (define-key eyebrowse-mode-map (kbd "C-w ,")
+        #'eyebrowse-rename-window-config)
       (define-key eyebrowse-mode-map (kbd "C-c w C-h")
         #'eyebrowse-prev-window-config)
       (define-key eyebrowse-mode-map (kbd "C-c w C-l")
