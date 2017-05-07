@@ -138,7 +138,7 @@
                                        (powerline-raw (modeline-flycheck) center-face 'lr))
                                      ;; Eyebrowse current tab/window config
                                      (when active
-                                      (powerline-raw (modeline-get-eyebrowse-tag-current) center-face 'l))))
+                                      (powerline-raw (eyebrowse-mode-line-indicator) center-face 'l))))
 
 
                           (lhs (append lhs-mode lhs-rest))
