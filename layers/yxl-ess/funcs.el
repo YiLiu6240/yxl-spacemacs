@@ -115,17 +115,18 @@
     "hv" #'ess-display-vignettes
     "hw" #'ess-help-web-search
     ;; Developer bindings
-    "dT" 'ess-build-tags-for-directory
-    "ds" 'ess-set-style
-    "dg" 'ess-dump-object-into-edit-buffer
+    "d" #'ess-rdired
+    "DT" 'ess-build-tags-for-directory
+    "Ds" 'ess-set-style
+    "Dg" 'ess-dump-object-into-edit-buffer
     ;; TODO only show these bindings if we're in R-mode.
-    "dl" 'ess-r-devtools-load-package
-    "dp" 'ess-r-devtools-set-pacakge
-    "dt" 'ess-r-devtools-test-pacakge
-    "dc" 'ess-r-devtools-check-pacakge
-    "dr" 'ess-r-devtools-document-package
-    "du" 'ess-r-devtools-unload-package
-    "di" 'ess-r-devtools-install-package
+    "Dl" 'ess-r-devtools-load-package
+    "Dp" 'ess-r-devtools-set-pacakge
+    "Dt" 'ess-r-devtools-test-pacakge
+    "Dc" 'ess-r-devtools-check-pacakge
+    "Dr" 'ess-r-devtools-document-package
+    "Du" 'ess-r-devtools-unload-package
+    "Di" 'ess-r-devtools-install-package
     ;; debug bindings
     "bT" 'ess-show-traceback
     ;; "b~" 'ess-show-callstack
@@ -153,14 +154,13 @@
     "vi" #'asb-ess-R-object-popup-str
     "vI" #'asb-ess-R-object-popup-interactive
     "vp" #'ess-R-dv-pprint
-    "vt" #'ess-R-dv-ctable
-    "vd" #'ess-rdired))
+    "vt" #'ess-R-dv-ctable))
 
 (defun yxl-ess/declare-prefix (mode)
   (spacemacs/declare-prefix-for-mode mode "ma" "atpoint")
   (spacemacs/declare-prefix-for-mode mode "ms" "repl-interaction")
   (spacemacs/declare-prefix-for-mode mode "mh" "help")
-  (spacemacs/declare-prefix-for-mode mode "md" "developer")
+  (spacemacs/declare-prefix-for-mode mode "mD" "developer")
   (spacemacs/declare-prefix-for-mode mode "mb" "debugging")
   (spacemacs/declare-prefix-for-mode mode "mv" "views")
   (spacemacs/declare-prefix-for-mode mode "mr" "roxygen")
