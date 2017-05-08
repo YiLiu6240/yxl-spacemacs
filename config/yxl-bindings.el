@@ -12,7 +12,6 @@
   ;; workaround
   "," #'eval-expression
   "'" #'yxl-shell-invoke
-  "\"" #'dired-smart-shell-command
   "<SPC>" #'yxl-hydra-ace-window/body
   "bB" #'yxl-buffer-switch-same-major-mode
   "bb" #'yxl-buffer-switch
