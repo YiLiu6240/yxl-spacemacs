@@ -357,7 +357,7 @@
             `(evil-snipe--match-face ((,class (:inherit region))))
 
 ;;;;; eyebrowse
-            `(eyebrowse-mode-line-active ((,class (:foreground ,mat :weight bold))))
+            `(eyebrowse-mode-line-active ((,class (:foreground ,func :weight bold))))
             `(eyebrowse-mode-line-inactive ((,class (:foreground ,base))))
             `(eyebrowse-mode-line-separator ((,class (:foreground ,base))))
             `(eyebrowse-mode-line-delimiters ((,class (:foreground ,base))))
