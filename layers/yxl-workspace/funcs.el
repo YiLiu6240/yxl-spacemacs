@@ -219,3 +219,16 @@ pre-populate/re-populate fake configs with names."
           (eyebrowse--set 'current-slot current-slot)
           (eyebrowse--set 'last-slot last-slot)
           (eyebrowse--load-window-config current-slot)))))
+
+(defun yxl-workspace/setup-eyebrowse-keys ()
+  (let ((map eyebrowse-mode-map))
+    (define-key map (kbd "C-c w C-h") 'eyebrowse-prev-window-config)
+    (define-key map (kbd "C-c w C-l") 'eyebrowse-next-window-config)
+    (define-key map (kbd "C-c w d") 'eyebrowse-close-window-config)
+    ;; eyebrowse new window config:
+    ;; c: jump to current dired
+    ;; C: clone current window config
+    ;; C-c: new config with current window maximized
+    (define-key map (kbd "C-c w c") 'eyebrowse-create-window-config-dired)
+    (define-key map (kbd "C-c w C") 'eyebrowse-create-window-config-clone)
+    (define-key map (kbd "C-c w C-c") 'eyebrowse-create-window-config-main)))

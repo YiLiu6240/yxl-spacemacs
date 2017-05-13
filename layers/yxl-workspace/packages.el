@@ -22,66 +22,21 @@
   (use-package eyebrowse
     :ensure t
     :init
-    (eyebrowse-mode)
+    (progn
+      (setq eyebrowse-keymap-prefix (kbd "C-c w"))
+      (eyebrowse-mode))
     :config
     (progn
       (setq eyebrowse-wrap-around t)
       (setq eyebrowse-mode-line-style 'always)
-
-      (defun yxl-eyebrowse-update-tag-name ()
-        (interactive)
-        (eyebrowse-rename-window-config
-         (eyebrowse--get 'current-slot) (buffer-name)))
-
-      (defun yxl-eyebrowse-rename-window-config (slot tag)
-        "Rename the window config at SLOT to TAG.
-When used interactively, default to the current window config,
-use the prefix argument to prompt for a slot or a numerical
-prefix argument to select a slot by its number."
-        (interactive (list (cond
-                            ((consp current-prefix-arg)
-                             (eyebrowse--read-slot))
-                            ((numberp current-prefix-arg)
-                             current-prefix-arg)
-                            (t (eyebrowse--get 'current-slot)))
-                           nil))
-        (let* ((window-configs (eyebrowse--get 'window-configs))
-               (window-config (assoc slot window-configs))
-               (current-tag (buffer-name))
-               (tag (or tag (read-string "Tag: " current-tag))))
-          (setf (nth 2 window-config) tag)))
-
-      (advice-add 'eyebrowse-rename-window-config :override
-                  #'yxl-eyebrowse-rename-window-config)
-
+      (setq eyebrowse-new-workspace 'dired-stay-or-jump)
       (yxl-workspace/setup-eyebrowse)
       (eyebrowse-setup-opinionated-keys)
-      ;; vim-style tab switching
-      (define-key evil-motion-state-map "gt" 'eyebrowse-next-window-config)
-      (define-key evil-motion-state-map "gT" 'eyebrowse-prev-window-config)
       ;; overwrite gc
       (define-key evil-motion-state-map "gc" 'evilnc-comment-operator)
+      (yxl-workspace/setup-eyebrowse-keys)
       (add-to-list 'window-persistent-parameters '(window-side . writable))
-      (add-to-list 'window-persistent-parameters '(window-slot . writable))
-      (define-key eyebrowse-mode-map (kbd "C-c C-w C-h")
-        #'eyebrowse-prev-window-config)
-      (define-key eyebrowse-mode-map (kbd "C-c C-w C-l")
-        #'eyebrowse-next-window-config)
-      (define-key eyebrowse-mode-map (kbd "C-c C-w d")
-        #'eyebrowse-close-window-config)
-      (define-key eyebrowse-mode-map (kbd "C-c C-w r")
-        #'eyebrowse-rename-window-config)
-      ;; eyebrowse new window config:
-      ;; c: jump to current dired
-      ;; C: clone current window config
-      ;; C-c: new config with current window maximized
-      (setq eyebrowse-new-workspace 'dired-stay-or-jump)
-      (define-key eyebrowse-mode-map (kbd "C-c C-w c")
-        #'eyebrowse-create-window-config-dired)
-      (define-key eyebrowse-mode-map (kbd "C-c C-w C")
-        #'eyebrowse-create-window-config-clone)
-      (define-key eyebrowse-mode-map (kbd "C-c C-w C-c")
-        #'eyebrowse-create-window-config-main))))
+      (add-to-list 'window-persistent-parameters '(window-slot . writable)))))
 
 (defun yxl-workspace/init-yxl-session ()
   (use-package yxl-session
