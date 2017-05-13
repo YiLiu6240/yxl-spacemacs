@@ -26,8 +26,6 @@
     :config
     (progn
       (setq eyebrowse-wrap-around t)
-      (setq eyebrowse-keymap-prefix (kbd "C-c w"))
-      (setq eyebrowse-default-tag-name "main")
       (setq eyebrowse-mode-line-style 'always)
 
       (defun yxl-eyebrowse-update-tag-name ()
@@ -65,30 +63,24 @@ prefix argument to select a slot by its number."
       (define-key evil-motion-state-map "gc" 'evilnc-comment-operator)
       (add-to-list 'window-persistent-parameters '(window-side . writable))
       (add-to-list 'window-persistent-parameters '(window-slot . writable))
-      (define-key eyebrowse-mode-map (kbd "C-c w .")
-        #'spacemacs/workspaces-transient-state/body)
-      (define-key eyebrowse-mode-map (kbd "C-w .")
-        #'spacemacs/workspaces-transient-state/body)
-      (define-key eyebrowse-mode-map (kbd "C-w ,")
-        #'eyebrowse-rename-window-config)
-      (define-key eyebrowse-mode-map (kbd "C-c w C-h")
+      (define-key eyebrowse-mode-map (kbd "C-c C-w C-h")
         #'eyebrowse-prev-window-config)
-      (define-key eyebrowse-mode-map (kbd "C-c w C-l")
+      (define-key eyebrowse-mode-map (kbd "C-c C-w C-l")
         #'eyebrowse-next-window-config)
-      (define-key eyebrowse-mode-map (kbd "C-c w d")
+      (define-key eyebrowse-mode-map (kbd "C-c C-w d")
         #'eyebrowse-close-window-config)
-      (define-key eyebrowse-mode-map (kbd "C-c w R")
+      (define-key eyebrowse-mode-map (kbd "C-c C-w r")
         #'eyebrowse-rename-window-config)
       ;; eyebrowse new window config:
       ;; c: jump to current dired
       ;; C: clone current window config
       ;; C-c: new config with current window maximized
       (setq eyebrowse-new-workspace 'dired-stay-or-jump)
-      (define-key eyebrowse-mode-map (kbd "C-c w c")
+      (define-key eyebrowse-mode-map (kbd "C-c C-w c")
         #'eyebrowse-create-window-config-dired)
-      (define-key eyebrowse-mode-map (kbd "C-c w C")
+      (define-key eyebrowse-mode-map (kbd "C-c C-w C")
         #'eyebrowse-create-window-config-clone)
-      (define-key eyebrowse-mode-map (kbd "C-c w C-c")
+      (define-key eyebrowse-mode-map (kbd "C-c C-w C-c")
         #'eyebrowse-create-window-config-main))))
 
 (defun yxl-workspace/init-yxl-session ()
