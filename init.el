@@ -12,6 +12,7 @@
                                     smooth-scrolling
                                     spaceline
                                     window-numbering
+                                    winum
                                     org-bullets
                                     tern
                                     ess-smart-equals)
