@@ -50,9 +50,13 @@
             shell-default-position 'bottom
             shell-default-full-span t)
 
-     ;; markup langs
+     ;; note takings
+     (deft :variables
+       deft-directory "~/Dropbox/org/notes")
      (org :packages (not evil-org)
           :variables org-enable-reveal-js-support t)
+
+     ;; markup langs
      (markdown :variables markdown-live-preview-engine 'vmd)
      ;; markdown: need vmd from npm: npm install -g vmd
      pandoc

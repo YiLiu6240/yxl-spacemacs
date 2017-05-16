@@ -8,7 +8,8 @@
                             magit
                             ibuffer
                             neotree
-                            graphviz))
+                            graphviz
+                            deft))
 
 (defun yxl-config/post-init-pdf-tools ()
   (with-eval-after-load 'pdf-tools
@@ -151,3 +152,7 @@
 (defun yxl-config/post-init-graphviz ()
   (with-eval-after-load 'graphviz-dot-mode
     (define-key graphviz-dot-mode-map ";" nil)))
+
+(defun yxl-config/post-init-deft ()
+  (with-eval-after-load 'deft
+    (evil-define-key 'insert deft-mode-map (kbd "C-h") #'deft-filter-decrement)))
