@@ -5,7 +5,8 @@
                            find-file-in-project
                            (simple-todo :location site)
                            (scratch-pop :location site)
-                           visual-fill-column))
+                           visual-fill-column
+                           (yxl-invoke-applications :location site)))
 
 (defun yxl-utils/init-yxl-utils ()
   (use-package yxl-utils))
@@ -135,3 +136,17 @@
 (defun yxl-utils/init-visual-fill-column ()
   (use-package visual-fill-column
     :defer t))
+
+(defun yxl-utils/init-yxl-invoke-applications ()
+  (use-package yxl-invoke-applications
+    :defer t
+    :commands (yxl-invoke-applications)
+    :config
+    (progn
+      (setq yxl-ia-list
+            '("calendar" "org-agenda" "org-capture"
+              "elfeed" "w3m" "cfw-calendar" "deft"
+              "counsel-dash" "helm-github-stars"
+              "helm-chrome-bookmarks"
+              "helm-bibtex" "gscholar-bibtex"
+              "helm-google-suggest")))))
