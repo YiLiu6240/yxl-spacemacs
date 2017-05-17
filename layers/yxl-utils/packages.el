@@ -144,9 +144,16 @@
     :config
     (progn
       (setq yxl-ia-list
-            '("calendar" "org-agenda" "org-capture"
-              "elfeed" "w3m" "cfw-calendar" "deft"
-              "counsel-dash" "helm-github-stars"
-              "helm-chrome-bookmarks"
-              "helm-bibtex" "gscholar-bibtex"
-              "helm-google-suggest")))))
+            '(("calendar" . calendar)
+              ("org-agenda" . org-agenda)
+              ("org-capture" . org-capture)
+              ("elfeed" . elfeed)
+              ("w3m" . w3m)
+              ("cfw-calendar" . cfw-calendar)
+              ("def" . deft)
+              ("counsel-dash" . counsel-dash)
+              ("helm-github-stars" . helm-github-stars)
+              ("helm-chrome-bookmarks" . helm-chrome-bookmarks)
+              ("helm-bibtex" . helm-bibtex)
+              ("gscholar-bibtex" . gscholar-bibtex)
+              ("helm-google-suggest" . helm-google-suggest))))))
