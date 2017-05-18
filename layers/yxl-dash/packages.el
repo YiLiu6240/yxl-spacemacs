@@ -24,8 +24,8 @@
     :init
     (progn
       (spacemacs/set-leader-keys
-        "dH" 'counsel-dash
-        "dh" 'yxl-dash/select-docset))
+        "dh" 'yxl-dash/search-docset
+        "dH" 'yxl-dash/search-docset-external-browser))
     :config
     (progn
       (setq counsel-dash-browser-func yxl-dash-browser-func)
