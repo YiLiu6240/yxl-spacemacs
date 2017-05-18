@@ -18,8 +18,8 @@
     (add-hook 'ess-mode-hook 'smartparens-mode)
     (add-hook 'ess-mode-hook 'fci-mode)
     (add-hook 'ess-mode-hook 'hl-todo-mode)
-    (mapcar #'yxl-ess/set-leader-keys '(ess-mode inferior-ess-mode))
-    (mapcar #'yxl-ess/declare-prefix '(ess-mode inferior-ess-mode))))
+    (mapcar #'yxl-ess/set-leader-keys '(ess-mode ess-julia-mode inferior-ess-mode))
+    (mapcar #'yxl-ess/declare-prefix '(ess-mode ess-julia-mode inferior-ess-mode))))
 
 (defun yxl-ess/init-yxl-ess ()
   (use-package yxl-ess
