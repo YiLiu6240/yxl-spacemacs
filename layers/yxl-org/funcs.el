@@ -182,6 +182,29 @@
           ("ISSUES") ("HAVE_A_LOOK") ("THINK") ("REFACTOR")
           (:endgroup . nil))))
 
+(defun yxl-org/setup-extra-fontlock ()
+  ;; source: https://github.com/hlissner/.emacs.d/blob/master/modules/lang/org/config.el
+  (setq org-font-lock-extra-keywords
+        (delete '("\\[\\([0-9]*%\\)\\]\\|\\[\\([0-9]*\\)/\\([0-9]*\\)\\]"
+                  (0 (org-get-checkbox-statistics-face) t))
+                org-font-lock-extra-keywords))
+  (nconc org-font-lock-extra-keywords
+         '( ;; Make checkbox statistic cookies respect underlying faces
+           ("\\[\\([0-9]*%\\)\\]\\|\\[\\([0-9]*\\)/\\([0-9]*\\)\\]"
+            (0 (org-get-checkbox-statistics-face) prepend))
+           ;; I like how org-mode fontifies checked TODOs and want this to extend to
+           ;; checked checkbox items:
+           ("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)"
+            1 'org-headline-done prepend)
+           ;; make plain list bullets stand out
+           ("^ *\\([-+]\\|[0-9]+[).]\\) " 1 'org-list-dt append)
+           ;; and separators/dividers
+           ("^ *\\(-----+\\)$" 1 'org-meta-line)
+           ;; custom #hashtags & @at-tags for another level of organization
+           ;; TODO refactor this into a single rule
+           ("\\s-\\(#[^ \n]+\\)" 1 'org-tag)
+           ("\\s-\\(@[^ \n]+\\)" 1 'org-special-keyword))))
+
 (defun yxl-org/setup-agenda ()
   ;; agenda file
   (setq org-agenda-files yxl-env-org-files)

@@ -16,6 +16,8 @@
     (yxl-org/setup-bindings)
     (yxl-org/setup-capture)
     (yxl-org/setup-keywords)
+    (add-hook 'org-font-lock-set-keywords-hook
+              #'yxl-org/setup-extra-fontlock)
     (yxl-org/setup-babel))
   (with-eval-after-load 'org-agenda
     (yxl-org/setup-agenda)))
