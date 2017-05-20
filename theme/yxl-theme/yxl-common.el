@@ -184,9 +184,9 @@
             `(tooltip ((,class (:background ,ttip-sl :foreground ,base :bold nil :italic nil :underline nil))))
             `(vertical-border ((,class (:foreground ,bg4))))
             `(warning ((,class (:foreground ,war))))
-            `(bold ((,class (:foreground "#0f7095" :weight bold))))
-            `(bold-italic ((,class (:foreground "#2aa198" :slant italic :weight bold))))
-            `(italic ((,class (:foreground "#2aa198" :slant italic))))
+            `(bold ((,class (:foreground ,orange :weight bold))))
+            `(bold-italic ((,class (:foreground ,cyan :slant italic :weight bold))))
+            `(italic ((,class (:foreground ,cyan :slant italic))))
 
 ;;;;; ahs
             `(ahs-face ((,class (:background ,highlight))))
