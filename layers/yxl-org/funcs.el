@@ -209,7 +209,7 @@
   ;; agenda file
   (setq org-agenda-files yxl-env-org-files)
   ;; agenda view: 1 month
-  (setq org-agenda-span 'month)
+  (setq org-agenda-span 'week)
   (setq org-agenda-format-date 'yxl-org-agenda-format-date-aligned)
   ;; org agenda time grid
   (setq org-agenda-time-grid '((daily today)
@@ -218,58 +218,8 @@
   (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
     "E" #'org-agenda-entry-text-mode
     "." #'spacemacs/org-agenda-transient-state/body)
-  (add-to-list 'org-agenda-custom-commands
-               '("0" "Life -- todo list"
-                 ((todo "TODAY" ((org-agenda-files yxl-org-agenda-files-life)))
-                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-life)))
-                  (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-life)))
-                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-life)))
-                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl-org-agenda-files-life)))))
-               nil)
-  (add-to-list 'org-agenda-custom-commands
-               '("9" "Life -- Bi-Weekly"
-                 ((agenda "Agenda" ((org-agenda-ndays 14)
-                                    (org-agenda-start-day "-7d")
-                                    (org-agenda-files yxl-org-agenda-files-life)
-                                    (org-agenda-repeating-timestamp-show-all t)))
-                  (todo "TODAY" ((org-agenda-files yxl-org-agenda-files-life)))
-                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-life)))
-                  (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-life)))
-                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-life)))
-                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl-org-agenda-files-life)))))
-               nil)
-  (add-to-list 'org-agenda-custom-commands
-               '("1" "Work -- todo list"
-                 ((todo "TODAY" ((org-agenda-files yxl-org-agenda-files-work)))
-                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-work)))
-                  (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-work)))
-                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-work)))
-                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl-org-agenda-files-work)))))
-               nil)
-  (add-to-list 'org-agenda-custom-commands
-               '("2" "Work -- 14 Days"
-                 ((agenda "Agenda" ((org-agenda-ndays 14)
-                                    (org-agenda-start-day "-7d")
-                                    (org-agenda-files yxl-org-agenda-files-work)
-                                    (org-agenda-repeating-timestamp-show-all t)))
-                  (todo "TODAY" ((org-agenda-files yxl-org-agenda-files-work)))
-                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-work)))
-                  (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-work)))
-                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-work)))
-                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl-org-agenda-files-work)))))
-               nil)
-  (add-to-list 'org-agenda-custom-commands
-               '("3" "Work -- 30 Days"
-                 ((agenda "Agenda" ((org-agenda-ndays 30)
-                                    (org-agenda-start-day "-7d")
-                                    (org-agenda-files yxl-org-agenda-files-work)
-                                    (org-agenda-repeating-timestamp-show-all t)))
-                  (todo "TODAY" ((org-agenda-files yxl-org-agenda-files-work)))
-                  (todo "INBOX|QUICK|HAVE-A-LOOK" ((org-agenda-files yxl-org-agenda-files-work)))
-                  (todo "TODO|NEXT" ((org-agenda-files yxl-org-agenda-files-work)))
-                  (todo "DOING|00|25|50|75|95" ((org-agenda-files yxl-org-agenda-files-work)))
-                  (todo "FOLLOW-UP|SOMEDAY" ((org-agenda-files yxl-org-agenda-files-work)))))
-               nil))
+  (dolist (agenda yxl-org-agenda-commands)
+    (add-to-list 'org-agenda-custom-commands agenda t)))
 
 (defun yxl-org/setup-babel ()
   (setq-default org-export-babel-evaluate nil)
