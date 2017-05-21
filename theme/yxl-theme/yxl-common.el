@@ -188,6 +188,9 @@
             `(bold-italic ((,class (:foreground ,cyan :slant italic :weight bold))))
             `(italic ((,class (:foreground ,cyan :slant italic))))
 
+;;;;; ace-window
+            `(aw-leading-char-face ((,class (:foreground ,keyword :weight bold))))
+
 ;;;;; ahs
             `(ahs-face ((,class (:background ,highlight))))
             `(ahs-plugin-whole-buffer-face ((,class (:background ,mat :foreground ,bg1))))
