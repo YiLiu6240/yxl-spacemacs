@@ -78,6 +78,7 @@
                     ("DOC" . (:weight bold :foreground ,(face-foreground 'font-lock-builtin-face)))
                     ("ISSUE" . (:weight bold :foreground ,(face-foreground 'font-lock-warning-face)))
                     ("FAIL" . (:weight bold :foreground ,(face-foreground 'font-lock-warning-face)))
+                    ("NOT" . (:weight bold :foreground ,(face-foreground 'font-lock-warning-face)))
                     ("DONE" . (:weight bold :foreground ,(face-foreground 'font-lock-comment-face)))
                     ("NOTE" . (:weight bold :foreground ,(face-foreground 'font-lock-string-face)))
                     ("REVIEW" . (:weight bold :foreground ,(face-foreground 'font-lock-string-face)))
