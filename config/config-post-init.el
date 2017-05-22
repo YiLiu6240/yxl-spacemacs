@@ -81,6 +81,10 @@
 (add-hook 'spacemacs-buffer-mode-hook
           (lambda () (define-key spacemacs-buffer-mode-map
                        "o" 'widget-button-press)))
+(setq spacemacs-useless-buffers-regexp
+      '("*\.\+" "TAGS"))
+(setq spacemacs-useful-buffers-regexp
+      '("\\*scratch\\*" "\\*R:*" "\\*julia:*"))
 
 ;; proselint
 (with-eval-after-load 'flycheck
