@@ -33,7 +33,7 @@
 (setq yxl-file-org-work (concat yxl-path-org-task "tasks_2_work.org"))
 (setq yxl-file-org-config (concat yxl-path-org-task "tasks_3_config.org"))
 (setq yxl-file-org-proj (concat yxl-path-org-task "tasks_4_proj.org"))
-(setq yxl-file-org-log (concat yxl-path-org "logs/" "log.org"))
+(setq yxl-file-org-log (concat yxl-path-org "logs/"))
 (setq yxl-file-org-scratch (concat yxl-path-org "scratch.org"))
 (setq yxl-file-org-local "~/scratch-local.org")
 

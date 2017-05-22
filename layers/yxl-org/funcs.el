@@ -1,10 +1,14 @@
-(defun yxl-org/agenda-work ()
+(defun my-org-agenda-work ()
   (interactive)
   (org-agenda nil "1"))
 
-(defun yxl-org/agenda-life ()
+(defun my-org-agenda-life ()
   (interactive)
   (org-agenda nil "0"))
+
+(defun my-org-log ()
+  (interactive)
+  (find-file yxl-file-org-log))
 
 (defun yxl-org/refile-to-scratch ()
   (interactive)

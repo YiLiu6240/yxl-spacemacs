@@ -109,9 +109,9 @@ Hotspot:
  | [_cK_]: calendar               | [_gg_]: Helm: my hotspot            |
  | [_ck_]: cfw-calendar           | ^^                                  |
  | [_cc_]: Org: capture           | [_go_]: Helm: my org files          |
- | [_oa_]: Org: agenda list       | [_gs_]: Helm: my local/web shortcuts|
- | [_ov_]: Org: calendar/agenda   | ^^                                  |
- | [_ot_]: Org: todo list         | [_gr_]: Helm: my reading list       |
+ | [_oa_]: Org: agenda: life      | [_gs_]: Helm: my local/web shortcuts|
+ | [_oA_]: Org: agenda: work      | ^^                                  |
+ | [_ol_]: Org: log               | [_gr_]: Helm: my reading list       |
  | [_oo_]: Org: open task files   | ^^                                  |
  | [_oO_]: Org: open all files    | ^^                                  |
 
@@ -124,12 +124,40 @@ Hotspot:
   ("k" (yxl-frame-select-or-set "Frame-k"))
   ("l" (yxl-frame-select-or-set "Frame-l"))
 
+  ;; org files opening logic
+  ;; - 0 - 5: open them in "sidebar"
+  ;; - C-u: open them in current window
+  ;; - Shift + 0 - 5: open them in bottom popup
   ("0" (yxl-find-file-popup yxl-file-org-scratch))
   ("1" (yxl-find-file-popup yxl-file-org-main))
   ("2" (yxl-find-file-popup yxl-file-org-work))
   ("3" (yxl-find-file-popup yxl-file-org-config))
   ("4" (yxl-find-file-popup yxl-file-org-proj))
   ("5" (yxl-find-file-popup yxl-file-org-local))
+  (")" (popwin:popup-buffer (find-file-noselect yxl-file-org-scratch)
+                            :stick t
+                            :height 0.4
+                            :position 'bottom))
+  ("!" (popwin:popup-buffer (find-file-noselect yxl-file-org-main)
+                            :stick t
+                            :height 0.4
+                            :position 'bottom))
+  ("\"" (popwin:popup-buffer (find-file-noselect yxl-file-org-work)
+                             :stick t
+                             :height 0.4
+                             :position 'bottom))
+  ("~" (popwin:popup-buffer (find-file-noselect yxl-file-org-config)
+                            :stick t
+                            :height 0.4
+                            :position 'bottom))
+  ("$" (popwin:popup-buffer (find-file-noselect yxl-file-org-local)
+                            :stick t
+                            :height 0.4
+                            :position 'bottom))
+  ("%" (popwin:popup-buffer (find-file-noselect yxl-file-org-proj)
+                            :stick t
+                            :height 0.4
+                            :position 'bottom))
 
   ("cK" calendar)
   ("ck" cfw-open-calendar)
@@ -152,9 +180,9 @@ Hotspot:
           (let ((current-prefix-arg 80))
             (yxl-window-adjust-height-ratio))))
   ("oO" yxl-org-open-all-task-files)
-  ("oa" org-agenda-list)
-  ("ov" yxl-org/agenda-view)
-  ("ot" org-todo-list)
+  ("oa" my-org-agenda-life)
+  ("oA" my-org-agenda-work)
+  ("ol" my-org-log)
 
   ("gg" yxl-helm-hotspot)
   ("go" yxl-helm-org-files)
