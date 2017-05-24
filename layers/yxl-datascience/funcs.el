@@ -1,4 +1,4 @@
-(defun yxl-ess/setup-generic ()
+(defun yxl-datascience/setup-generic ()
   (setq ess-history-file nil)
   ;; no spaces around argument assignment
   (setq ess-R-argument-suffix "=")
@@ -34,34 +34,34 @@
           (ess-R-fl-keyword:F&T . t)
           (ess-R-fl-keyword:%op% . t))))
 
-(defun yxl-ess/insert-pipe ()
+(defun yxl-datascience/insert-pipe ()
   (interactive)
   (insert "%>%"))
 
-(defun yxl-ess/setup-bindings ()
+(defun yxl-datascience/setup-bindings ()
   ;; move "<-" key to "C-c ="
   (setq ess-S-assign "<-")
   (setq ess-smart-S-assign-key (kbd "C-c ="))
   (ess-toggle-S-assign nil)
   (ess-toggle-S-assign nil)
 
-  (define-key ess-mode-map (kbd "C-c C-.") #'yxl-ess/insert-pipe)
+  (define-key ess-mode-map (kbd "C-c C-.") #'yxl-datascience/insert-pipe)
   (define-key ess-mode-map (kbd "M--") (lambda () (interactive) (insert "<-")))
   (define-key ess-mode-map (kbd "C-<tab>") #'sp-indent-adjust-sexp)
   (define-key ess-mode-map (kbd "C-S-<tab>") #'sp-dedent-adjust-sexp)
   (evil-define-key 'normal inferior-ess-mode-map
     (kbd "C-d") #'evil-scroll-down))
 
-(defun yxl-ess/R-hook ())
+(defun yxl-datascience/R-hook ())
 
-(defun yxl-ess/ess-hook ()
+(defun yxl-datascience/ess-hook ()
   (setq-local comment-add 0))
 
-(defun yxl-ess/ess-set-style-advice (&optional style quiet)
+(defun yxl-datascience/ess-set-style-advice (&optional style quiet)
   "Set `evil-shift-width' based on `ess-indent-offset'.")
 ;; (setq-local evil-shift-width ess-indent-offset)
 
-(defun yxl-ess/setup-imenu ()
+(defun yxl-datascience/setup-imenu ()
   (setq ess-imenu-S-generic-expression
         '(("Functions" "^\\(.+\\)[ \t\n]*=[ \t\n]*function[ ]*" 1)
           ("Functions" "^\\(.+\\)[ \t\n]*<-[ \t\n]*function[ ]*" 1)
@@ -77,7 +77,7 @@
           ("Outline" "^[ \t]*\\(# .+\\)====.*$" 1)
           ("FALSE block" "^\\(if (FALSE) {.*\\)$" 1))))
 
-(defun yxl-ess/setup-lintr ()
+(defun yxl-datascience/setup-lintr ()
   (with-eval-after-load 'flycheck
     (setq flycheck-lintr-linters
           (concat "with_defaults(assignment_linter=NULL, "
@@ -85,7 +85,7 @@
                   "commented_code_linter=NULL, "
                   "infix_spaces_linter=NULL)"))))
 
-(defun yxl-ess/set-leader-keys (mode)
+(defun yxl-datascience/set-leader-keys (mode)
   (spacemacs/set-leader-keys-for-major-mode mode
     ";" #'ess-execute
     "a" #'yxl-ess-atpoint
@@ -156,7 +156,7 @@
     "vp" #'ess-R-dv-pprint
     "vt" #'ess-R-dv-ctable))
 
-(defun yxl-ess/declare-prefix (mode)
+(defun yxl-datascience/declare-prefix (mode)
   (spacemacs/declare-prefix-for-mode mode "ma" "atpoint")
   (spacemacs/declare-prefix-for-mode mode "ms" "repl-interaction")
   (spacemacs/declare-prefix-for-mode mode "mh" "help")
@@ -166,10 +166,10 @@
   (spacemacs/declare-prefix-for-mode mode "mr" "roxygen")
   (spacemacs/declare-prefix-for-mode mode "mo" "user-defined"))
 
-(defun yxl-ess/setup-ess-help ()
-  (defun yxl-ess/ess-help-config ()
+(defun yxl-datascience/setup-ess-help ()
+  (defun yxl-datascience/ess-help-config ()
     (define-key ess-help-mode-map "." #'yxl-ess-help-hydra/body))
-  (add-hook 'ess-help-mode-hook #'yxl-ess/ess-help-config)
+  (add-hook 'ess-help-mode-hook #'yxl-datascience/ess-help-config)
   (defhydra yxl-ess-help-hydra (:color blue :hint nil :columns 4
                                        :pre (setq which-key-inhibit t)
                                        :post (setq which-key-inhibit nil))
@@ -179,10 +179,10 @@
     ("v" ess-display-vignettes "vignettes")
     ("w" ess-help-web-search "web-search")))
 
-(defun yxl-ess/setup-rdired ()
-  (defun yxl-ess/rdired-config ()
+(defun yxl-datascience/setup-rdired ()
+  (defun yxl-datascience/rdired-config ()
     (define-key ess-rdired-mode-map "." #'yxl-ess-rdired-hydra/body))
-  (add-hook 'ess-rdired-mode-hook #'yxl-ess/rdired-config)
+  (add-hook 'ess-rdired-mode-hook #'yxl-datascience/rdired-config)
   (defhydra yxl-ess-rdired-hydra (:color blue :hint nil :columns 4
                                          :pre (setq which-key-inhibit t)
                                          :post (setq which-key-inhibit nil))

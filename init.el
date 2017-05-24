@@ -114,10 +114,7 @@
      yxl-workspace
      yxl-config
      yxl-dired
-     (yxl-dash :variables
-               yxl-dash-docset-path "~/Dropbox/dash-docsets"
-               yxl-dash-browser-func 'w3m-goto-url-new-session)
-     yxl-ess
+     yxl-datascience
      yxl-org
      yxl-web
      yxl-completion
@@ -215,7 +212,7 @@
   ;; my env
   (load-file (concat dotspacemacs-directory "config/yxl-env.el"))
   (add-to-list 'load-path (concat yxl-path-dotfiles "yxl-emacs-goodies"))
-  (add-to-list 'load-path (concat yxl-path-dotfiles "yxl-ess-goodies"))
+  (add-to-list 'load-path (concat yxl-path-dotfiles "yxl-emacs-datascience-goodies"))
   ;; init stage config
   (load-file (concat dotspacemacs-directory "config/config-init.el"))
   (load-file (concat dotspacemacs-directory "config/hack.el"))
