@@ -92,7 +92,7 @@
     ;; ;; (define-key evil-motion-state-map ":" #'evil-repeat-find-char)
 
     ;; Ex commands
-    (evil-ex-define-cmd "tabn[ew]" 'eyebrowse-create-window-config-dired)))
+    (evil-ex-define-cmd "tabn[ew]" 'eyebrowse-cwc-dired)))
 
 (defun yxl-evil/setup-evil-personal ()
   "personal bindings, rely on external yxl functions"

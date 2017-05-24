@@ -147,27 +147,27 @@
         ("C-l" eyebrowse-next-window-config)
         ("h" eyebrowse-prev-window-config :exit t)
         ("l" eyebrowse-next-window-config :exit t)
-        ("c" eyebrowse-create-window-config-dired)
-        ("C" eyebrowse-create-window-config-clone)
-        ("C-c" eyebrowse-create-window-config-main)
+        ("c" eyebrowse-cwc-dired)
+        ("C" eyebrowse-cwc-clone)
+        ("C-c" eyebrowse-cwc-main)
         ("d" eyebrowse-close-window-config)
         ("R" spacemacs/workspaces-ts-rename :exit t)
         ("w" eyebrowse-switch-to-window-config :exit t)))
 
-(defun eyebrowse-create-window-config-dired ()
+(defun eyebrowse-cwc-dired ()
   (interactive)
   (let* ((cur-buf-name (buffer-name (current-buffer)))
          (eyebrowse-new-workspace cur-buf-name))
     (call-interactively #'eyebrowse-create-window-config)
     (call-interactively #'dired-stay-or-jump)))
 
-(defun eyebrowse-create-window-config-clone ()
+(defun eyebrowse-cwc-clone ()
   (interactive)
   (let* ((eyebrowse-new-workspace nil))
     (call-interactively 'eyebrowse-create-window-config)
     (message "clone to new workspace")))
 
-(defun eyebrowse-create-window-config-main ()
+(defun eyebrowse-cwc-main ()
   (interactive)
   (let* ((eyebrowse-new-workspace 'delete-other-windows))
     (call-interactively 'eyebrowse-create-window-config)
@@ -229,6 +229,6 @@ pre-populate/re-populate fake configs with names."
     ;; c: jump to current dired
     ;; C: clone current window config
     ;; C-c: new config with current window maximized
-    (define-key map (kbd "C-c w c") 'eyebrowse-create-window-config-dired)
-    (define-key map (kbd "C-c w C") 'eyebrowse-create-window-config-clone)
-    (define-key map (kbd "C-c w C-c") 'eyebrowse-create-window-config-main)))
+    (define-key map (kbd "C-c w c") 'eyebrowse-cwc-dired)
+    (define-key map (kbd "C-c w C") 'eyebrowse-cwc-clone)
+    (define-key map (kbd "C-c w C-c") 'eyebrowse-cwc-main)))
