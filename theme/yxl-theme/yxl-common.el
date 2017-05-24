@@ -474,8 +474,8 @@
             `(hi-pink  ((,class (:foreground ,base :background ,aqua-bg))))
 
 ;;;;; highlight-indentation
-            `(highlight-indentation-face ((,class (:background ,comment-bg))))
-            `(highlight-indentation-current-column-face ((,class (:background ,bg2))))
+            `(highlight-indentation-face ((,class (:background ,bg2))))
+            `(highlight-indentation-current-column-face ((,class (:background ,highlight))))
 
 ;;;;; highlight-numbers
             `(highlight-numbers-number ((,class (:inherit font-lock-type-face))))
