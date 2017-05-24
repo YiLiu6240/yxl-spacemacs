@@ -119,6 +119,7 @@
   "omh" #'html-mode
   "oml" #'latex-mode
   "omm" #'markdown-mode
+  "omM" #'gfm-mode
   "omo" #'org-mode
   "omp" #'python-mode
   "omr" #'R-mode
