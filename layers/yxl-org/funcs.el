@@ -115,6 +115,8 @@
         '(;; generalised
           ("i" "general: inbox" entry (file+headline yxl-file-org-config "Capture")
            "* INBOX %?\n  %i\n")
+          ("c" "general: inbox" entry (file+headline yxl-file-org-config "Capture")
+           "* INBOX %?\n  %i\n")
           ("t" "general: todo" entry (file+headline yxl-file-org-config "Capture")
            "* TODO %?\n  %i\n")
           ;; specialised
