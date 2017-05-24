@@ -100,6 +100,9 @@
     :modes (text-mode markdown-mode gfm-mode LaTeX-mode))
   (add-to-list 'flycheck-checkers 'proselint))
 
+;; calendar
+(setq calendar-week-start-day 1)
+
 ;; --------
 ;; under REVIEW
 ;; --------
