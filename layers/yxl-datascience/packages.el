@@ -18,8 +18,8 @@
     :init
     (progn
       (spacemacs/set-leader-keys
-        "dh" 'yxl-dash-search-docset
-        "dH" 'yxl-dash-search-docset-external-browser))
+        "dh" #'yxl-dash-search-docset
+        "dH" #'yxl-dash-search-docset-external-browser))
     :config
     (progn
       (setq yxl-dash-docset-path "~/Dropbox/dash-docsets")
