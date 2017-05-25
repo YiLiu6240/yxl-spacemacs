@@ -5,7 +5,8 @@
                                  (yxl-ess :location site)
                                  (ess-goodies :location site)
                                  ess-view
-                                 polymode))
+                                 polymode
+                                 python))
 
 (defun yxl-datascience/init-counsel-dash ()
   (use-package counsel-dash
@@ -85,3 +86,8 @@
         (require 'poly-markdown)
         (R-mode)
         (poly-markdown+r-mode)))))
+
+(defun yxl-datascience/post-init-python ()
+  (with-eval-after-load 'python
+    (spacemacs/set-leader-keys-for-major-mode 'python-mode
+      ";" #'python-shell-send-string)))
