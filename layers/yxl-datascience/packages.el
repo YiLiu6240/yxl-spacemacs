@@ -1,5 +1,6 @@
 (setq yxl-datascience-packages '((counsel-dash)
                                  (yxl-dash :location site)
+                                 (yxl-doc-portal :location site)
                                  ess
                                  (yxl-ess :location site)
                                  (ess-goodies :location site)
@@ -26,6 +27,18 @@
       (setq yxl-dash-browser-func 'w3m-goto-url-new-session)
       (setq counsel-dash-browser-func yxl-dash-browser-func)
       (yxl-dash-activate-package-docsets yxl-dash-docset-path))))
+
+(defun yxl-datascience/init-yxl-doc-portal ()
+  (use-package yxl-doc-portal
+    :defer t
+    :commands (yxl-doc-portal)
+    :init
+    (progn
+      (spacemacs/set-leader-keys
+        "dp" #'yxl-doc-portal))
+    :config
+    (add-to-list 'yxl-dp-docs
+                 '("R - quantreg" . "https://cran.r-project.org/web/packages/quantreg/quantreg.pdf"))))
 
 (defun yxl-datascience/post-init-ess ()
   (with-eval-after-load 'ess-site
