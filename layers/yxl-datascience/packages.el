@@ -38,8 +38,8 @@
       (spacemacs/set-leader-keys
         "dp" #'yxl-doc-portal))
     :config
-    (add-to-list 'yxl-dp-docs
-                 '("R - quantreg" . "https://cran.r-project.org/web/packages/quantreg/quantreg.pdf"))))
+    (add-to-list 'yxl-dp-docs '("R - quantreg" . "https://cran.r-project.org/web/packages/quantreg/quantreg.pdf"))
+    (add-to-list 'yxl-dp-docs '("moab commands" . "http://docs.adaptivecomputing.com/torque/6-1-1/adminGuide/help.htm#topics/moabWorkloadManager/topics/moabCommands/a.gcommandoverview.html"))))
 
 (defun yxl-datascience/post-init-ess ()
   (with-eval-after-load 'ess-site
