@@ -241,3 +241,7 @@
   d[order(mode), ]
   }
 }; cat('\n'); print(.rdired.objects(ls()))}\n"))
+
+(defun yxl-datascience/setup-julia-bindings ()
+  (spacemacs/set-leader-keys-for-major-mode 'ess-julia-mode
+    "<tab>" #'julia-latexsub-or-indent))

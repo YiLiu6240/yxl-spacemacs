@@ -59,7 +59,8 @@
     (mapcar #'yxl-datascience/set-leader-keys
             '(ess-mode ess-julia-mode inferior-ess-mode))
     (mapcar #'yxl-datascience/declare-prefix
-            '(ess-mode ess-julia-mode inferior-ess-mode))))
+            '(ess-mode ess-julia-mode inferior-ess-mode))
+    (yxl-datascience/setup-julia-bindings)))
 
 (defun yxl-datascience/init-yxl-ess ()
   (use-package yxl-ess
