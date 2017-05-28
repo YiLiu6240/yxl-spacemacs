@@ -136,15 +136,17 @@
                                      ;; flycheck
                                      (when (bound-and-true-p flycheck-mode)
                                        (powerline-raw (modeline-flycheck) center-face 'lr))
-                                     ;; Eyebrowse current tab/window config
-                                     (when active
-                                      (powerline-raw (eyebrowse-mode-line-indicator) center-face 'l))))
+                                     ;; magit
+                                     (when (featurep 'magit)
+                                       (powerline-raw (magit-get-current-branch) center-face 'lr))))
 
 
                           (lhs (append lhs-mode lhs-rest))
 
                           ;; Right Hand Side
                           (rhs (list (powerline-raw global-mode-string center-face 'r)
+                                     ;; Eyebrowse current tab/window config
+                                     (powerline-raw (eyebrowse-mode-line-indicator) center-face 'l)
                                      ;; erc
                                      (when (boundp 'erc-modified-channels-object)
                                        (powerline-raw erc-modified-channels-object center-face 'r))
