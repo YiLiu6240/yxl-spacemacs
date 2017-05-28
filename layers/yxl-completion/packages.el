@@ -45,6 +45,7 @@
     ;;       '((ivy-switch-buffer . ivy--regex-plus)
     ;;         (t . ivy--regex-fuzzy)))
     (setq ivy-wrap t)
+    (setq ivy-count-format "(%d/%d) ")
     (with-eval-after-load 'recentf
       (setq ivy-use-virtual-buffers nil))))
 
