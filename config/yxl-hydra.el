@@ -68,6 +68,7 @@ Directory:
   ("C" (yxl-find-dir yxl-path-code-master-pwd) "code-master")
   ("p" (yxl-find-dir yxl-path-paper-pwd) "papers")
   ("j" (yxl-find-dir yxl-path-journal-pwd) "journals")
+  ("J" (yxl-find-dir yxl-path-journal-more-pwd) "Journals")
   ("b" (yxl-find-dir yxl-path-book-reference) "books")
   ("s" (yxl-find-dir (concat yxl-path-local
                              "yxl_datascience")) "datascience"))
