@@ -80,8 +80,11 @@
              'org-backward-same-level
            'org-backward-heading-same-level)
     "gl" 'outline-next-visible-heading
-    "T" '(lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil))))
-    "o" '(lambda () (interactive) (evil-org-eol-call 'clever-insert-item))
+    "T" (lambda ()
+          (interactive)
+          (evil-org-eol-call
+           (lambda() (org-insert-todo-heading nil))))
+    "o" 'evil-open-below
     "O" 'evil-open-above
     "$" 'org-end-of-line
     "^" 'org-beginning-of-line

@@ -1,6 +1,5 @@
 (setq yxl-org-packages '(org
                          (yxl-org :location site)
-                         (evil-org :location site)
                          org-gcal
                          ivy-todo))
 
@@ -21,17 +20,6 @@
     (yxl-org/setup-babel))
   (with-eval-after-load 'org-agenda
     (yxl-org/setup-agenda)))
-
-(defun yxl-org/init-evil-org ()
-  (use-package evil-org
-    :commands (evil-org-mode evil-org-recompute-clocks)
-    :init (add-hook 'org-mode-hook 'evil-org-mode)
-    :config
-    (progn
-      (evil-define-key 'normal evil-org-mode-map
-        "O" 'evil-open-above)
-      (spacemacs/set-leader-keys-for-major-mode 'org-mode
-        "C" 'evil-org-recompute-clocks))))
 
 (defun yxl-org/init-yxl-org ()
   (use-package yxl-org
