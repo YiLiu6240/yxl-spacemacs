@@ -38,11 +38,18 @@
       (spacemacs/set-leader-keys
         "dp" #'yxl-doc-portal))
     :config
-    (add-to-list 'yxl-dp-docs '("R - quantreg" . "https://cran.r-project.org/web/packages/quantreg/quantreg.pdf"))
-    (add-to-list 'yxl-dp-docs '("Moab" . "http://docs.adaptivecomputing.com/torque/6-1-1/adminGuide/help.htm#topics/moabWorkloadManager/topics/moabCommands/a.gcommandoverview.html"))
-    (add-to-list 'yxl-dp-docs '("Cpp - Armadillo" . "http://arma.sourceforge.net/docs.html"))
-    (add-to-list 'yxl-dp-docs '("Python - strftime" . "http://strftime.org/"))
-    (add-to-list 'yxl-dp-docs '("Python - string format" . "https://pyformat.info/"))))
+    (progn
+      (setq yxl-dp-docs
+            (sort (append yxl-dp-docs
+                          '(("R - quantreg" . "https://cran.r-project.org/web/packages/quantreg/quantreg.pdf")
+                            ("Moab" . "http://docs.adaptivecomputing.com/torque/6-1-1/adminGuide/help.htm#topics/moabWorkloadManager/topics/moabCommands/a.gcommandoverview.html")
+                            ("Cpp - Armadillo" . "http://arma.sourceforge.net/docs.html")
+                            ("Python - strftime" . "http://strftime.org/")
+                            ("Python - string format" . "https://pyformat.info/")))
+                  (lambda (elem1 elem2)
+                    (let ((str1 (car elem1))
+                          (str2 (car elem2)))
+                      (string-lessp str1 str2))))))))
 
 (defun yxl-datascience/post-init-ess ()
   (with-eval-after-load 'ess-site
