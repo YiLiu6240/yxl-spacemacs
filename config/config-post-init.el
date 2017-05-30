@@ -11,6 +11,7 @@
 (setq-default neo-theme 'ascii)
 (setq neo-show-updir-line t)
 (setq-default fci-rule-color (face-attribute 'highlight :background))
+(setq neo-window-width 20)
 
 ;; evil escape
 (setq-default evil-escape-key-sequence "jk")
