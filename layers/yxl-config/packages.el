@@ -97,13 +97,7 @@
           (multi-occur (projectile-project-buffers) my-todo-occur-regex)
         (occur my-todo-occur-regex)))
     (spacemacs/declare-prefix "p/" "TODO-occur")
-    (spacemacs/set-leader-keys "p/t" #'my/todo-occur)
-    (with-eval-after-load 'counsel-projectile
-      (ivy-add-actions 'counsel-projectile-find-file
-                       '(("d" (lambda (x) (dired-jump nil (projectile-expand-root x)))
-                          "directory")
-                         ("x" (lambda (x) (yxl-open-file-external (projectile-expand-root x)))
-                          "external"))))))
+    (spacemacs/set-leader-keys "p/t" #'my/todo-occur)))
 
 (defun yxl-config/post-init-magit ()
   (with-eval-after-load 'magit

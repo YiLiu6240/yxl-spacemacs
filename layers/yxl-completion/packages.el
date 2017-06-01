@@ -54,7 +54,13 @@
   (with-eval-after-load 'counsel
     (define-key counsel-find-file-map (kbd "C-h") (kbd "DEL"))
     (ivy-add-actions 'counsel-find-file
-                     '(("x" yxl-open-file-external "open in external program")))))
+                     '(("x" yxl-open-file-external "open in external program"))))
+  (with-eval-after-load 'counsel-projectile
+    (ivy-add-actions 'counsel-projectile-find-file
+                     '(("d" (lambda (x) (dired-jump nil (projectile-expand-root x)))
+                        "directory")
+                       ("x" (lambda (x) (yxl-open-file-external (projectile-expand-root x)))
+                        "external")))))
 
 (defun yxl-completion/init-yxl-ivy-views ()
   (use-package yxl-ivy-views
