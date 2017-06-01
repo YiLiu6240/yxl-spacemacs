@@ -46,6 +46,7 @@
                             ("Cpp - Armadillo" . "http://arma.sourceforge.net/docs.html")
                             ("Python - strftime" . "http://strftime.org/")
                             ("Python - string format" . "https://pyformat.info/")
+                            ("GFM" . "https://guides.github.com/features/mastering-markdown/")
                             ("R - adv-r" . "http://adv-r.had.co.nz/")
                             ("R - rmarkdown" . "http://rmarkdown.rstudio.com/html_document_format.html")
                             ("R - bookdown" . "https://bookdown.org/yihui/bookdown/")
