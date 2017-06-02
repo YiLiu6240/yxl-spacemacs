@@ -95,6 +95,8 @@
     "os" #'yxl-ess-call-atpoint-str
     "oS" #'yxl-ess-call-atpoint-generic
     "R" #'yxl-ess-open-rstudio
+    "d" #'ess-rdired
+    "i" #'yxl-ess-repl-popup
     ;; send
     "sa" #'ess-switch-process
     "st" nil
@@ -116,7 +118,6 @@
     "hv" #'ess-display-vignettes
     "hw" #'ess-help-web-search
     ;; Developer bindings
-    "d" #'ess-rdired
     "DT" 'ess-build-tags-for-directory
     "Ds" 'ess-set-style
     "Dg" 'ess-dump-object-into-edit-buffer
