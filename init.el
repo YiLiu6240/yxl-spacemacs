@@ -89,7 +89,8 @@
                       :disabled-for  ; layer name
                       org
                       markdown)
-     git
+     (git :variables
+          git-magit-status-fullscreen t)
      github
 
      ;; minor utils modes
