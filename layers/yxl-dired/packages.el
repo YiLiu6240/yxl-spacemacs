@@ -90,7 +90,8 @@
     :init
     (progn
       (with-eval-after-load 'dired
-       (define-key dired-mode-map "i" #'dired-subtree-toggle)))
+        (define-key dired-mode-map "i" #'dired-subtree-toggle)))
     :config
     (progn
-      (setq dired-subtree-use-backgrounds nil))))
+      (setq dired-subtree-use-backgrounds nil)
+      (setq dired-subtree-line-prefix "    "))))
