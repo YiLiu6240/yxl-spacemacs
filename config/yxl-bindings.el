@@ -42,7 +42,7 @@
   "nr" #'ni-narrow-to-region-indirect-same-window
   "pc" #'yxl-project-cite
   "pC" #'projectile-compile-project
-  "pO" #'yxl-project-todo-popup
+  "pO" #'yxl-project-popup
   "po" #'yxl-project-select
   "pm" #'helm-make-projectile
   "pM" #'helm-make
