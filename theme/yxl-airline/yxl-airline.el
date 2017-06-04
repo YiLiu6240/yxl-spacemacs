@@ -108,6 +108,8 @@
                                  'airline-normal-center)
                              'airline-inactive3))
 
+                          (pl-sep (powerline-raw "|" 'mode-line-inactive 'lr))
+
                           ;; Left Hand Side
                           (lhs-mode (list
                                      ;; ;; Evil Mode Name
@@ -117,41 +119,41 @@
                                          (powerline-raw (format " %s " (winum-get-number)) outer-face)
                                        (powerline-raw (format " %s " current-evil-state-string) outer-face))
                                      ;; Buffer ID
-                                     (powerline-raw "  " inner-face 'lr)
-                                     (powerline-raw (buffer-id-short 100) inner-face 'lr)
+                                     (powerline-raw (concat "  " (buffer-id-short 100)) inner-face 'lr)
                                      ;; Modified string
                                      (powerline-raw " %* " inner-face 'lr)
                                      (powerline-raw (modeline-window-dedication) inner-face 'lr)))
 
                           (lhs-rest (list
                                      (powerline-raw " " center-face 'lr)
+                                     ;; magit
+                                     (when (and (featurep 'magit)
+                                                (magit-get-current-branch))
+                                       (powerline-raw (concat " " (magit-get-current-branch) " " pl-sep) center-face 'lr))
+                                     ;; Eyebrowse current tab/window config
+                                     (powerline-raw (concat " " (modeline-get-eyebrowse-tag-current) " " pl-sep) center-face 'lr)
                                      ;; selection info
-                                     (powerline-raw (modeline-selection-info) center-face 'lr)
+                                     (when (or mark-active
+                                               (and (bound-and-true-p evil-local-mode)
+                                                    (eq 'visual evil-state)))
+                                       (powerline-raw (concat " " (modeline-selection-info) " " pl-sep) center-face 'lr))
                                      ;; anzu
                                      (when (bound-and-true-p anzu--state)
-                                       (powerline-raw (anzu--update-mode-line) center-face 'lr))
+                                       (powerline-raw (concat " " (anzu--update-mode-line) " " pl-sep) center-face 'lr))
                                      ;; pdf pages
                                      (when (eq 'pdf-view-mode major-mode)
-                                       (powerline-raw (modeline-pdfview-page-number) center-face 'lr))
+                                       (powerline-raw (concat " " (modeline-pdfview-page-number) " " pl-sep) center-face 'lr))
                                      ;; flycheck
                                      (when (bound-and-true-p flycheck-mode)
-                                       (powerline-raw (modeline-flycheck) center-face 'lr))
-                                     ;; magit
-                                     (when (featurep 'magit)
-                                       (powerline-raw (magit-get-current-branch) center-face 'lr))))
-
+                                       (powerline-raw (concat " " (modeline-flycheck) " ") center-face 'lr))))
 
                           (lhs (append lhs-mode lhs-rest))
 
                           ;; Right Hand Side
                           (rhs (list (powerline-raw global-mode-string center-face 'r)
-                                     ;; Eyebrowse current tab/window config
-                                     (powerline-raw (eyebrowse-mode-line-indicator) center-face 'l)
                                      ;; erc
                                      (when (boundp 'erc-modified-channels-object)
                                        (powerline-raw erc-modified-channels-object center-face 'r))
-                                     ;; ;; Git Branch
-                                     ;; (powerline-raw (modeline-get-vc) center-face 'lr)
                                      ;; Current Function (which-function-mode)
                                      (when (and (boundp 'which-function-mode) which-function-mode)
                                        (powerline-raw which-func-format center-face 'l))

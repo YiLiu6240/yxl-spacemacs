@@ -93,7 +93,7 @@ Supports both Emacs and Evil cursor conventions."
                                      (concat (int-to-string curr-id) ":" curr-tag)
                                    (when curr-id (int-to-string curr-id)))
                                  'face 'eyebrowse-mode-line-active))
-           (str (concat "[" curr-str "/" (int-to-string config-len) "]")))
+           (str (concat curr-str "/" (int-to-string config-len))))
       str)))
 
 (defun modeline-get-state-symbol (state)
