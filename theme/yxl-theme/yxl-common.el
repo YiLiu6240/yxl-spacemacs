@@ -336,6 +336,7 @@
             `(erc-timestamp-face ((,class (:foreground ,keyword))))
 ;;;;; ess
             `(ess-function-call-face ((,class (:inherit font-lock-function-name-face :weight normal))))
+            `(ess-backquoted-face ((,class (:inherit font-lock-variable-name-face :weight normal))))
 
 ;;;;; eshell
             `(eshell-ls-archive ((,class (:foreground ,red :inherit bold))))
