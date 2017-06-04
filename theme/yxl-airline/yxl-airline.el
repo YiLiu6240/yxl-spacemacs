@@ -160,6 +160,7 @@
                                      (powerline-raw " " center-face 'lr)
                                      ;; process
                                      (powerline-process center-face 'lr)
+                                     (powerline-raw (modeline-buffer-encoding) center-face 'lr)
                                      ;; Major Mode
                                      (powerline-raw " " inner-face 'lr)
                                      (powerline-major-mode inner-face 'lr)

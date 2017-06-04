@@ -115,4 +115,18 @@ Supports both Emacs and Evil cursor conventions."
       (magit-get-current-branch)
     " "))
 
+(defun modeline-buffer-encoding ()
+  "https://github.com/hlissner/.emacs.d/blob/master/modules/ui/doom-modeline/config.el"
+  (concat (let ((eol-type (coding-system-eol-type buffer-file-coding-system)))
+            (cond ((eq eol-type 0) "LF ")
+                  ((eq eol-type 1) "CRLF ")
+                  ((eq eol-type 2) "CR ")))
+          (let* ((sys (coding-system-plist buffer-file-coding-system))
+                 (sys-name (plist-get sys :name))
+                 (sys-cat (plist-get sys :category)))
+            (cond ((memq sys-cat '(coding-category-undecided coding-category-utf-8))
+                   "UTF-8")
+                  (t (upcase (symbol-name sys-name)))))
+          " "))
+
 (provide 'yxl-modeline-funcs)
