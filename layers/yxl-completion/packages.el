@@ -68,7 +68,8 @@
                 :preselect (and (projectile-project-p)
                                 (abbreviate-file-name (projectile-project-root)))
                 :action (lambda (dir)
-                          (let ((projectile-switch-project-action 'dired-jump))
+                          (let ((projectile-switch-project-action
+                                 (lambda () (find-file (projectile-project-root)))))
                            (projectile-switch-project-by-name dir arg)))
                 :require-match t
                 :caller 'counsel-projectile-switch-project))
@@ -76,7 +77,8 @@
                 :override #'yxl-counsel-projectile-switch-project)
     (ivy-add-actions 'counsel-projectile-switch-project
                      '(("o" (lambda (dir)
-                              (let ((projectile-switch-project-action 'dired-jump))
+                              (let ((projectile-switch-project-action
+                                     (lambda () (find-file (projectile-project-root)))))
                                 (projectile-switch-project-by-name dir arg)))
                         "open")))))
 
