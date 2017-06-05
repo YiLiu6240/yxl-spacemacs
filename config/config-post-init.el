@@ -65,6 +65,9 @@
 ;; solve an known issue revolving evil visual and yasnippet
 ;; TODO: check if actually need that hook
 (with-eval-after-load 'yasnippet
+  (add-hook 'snippet-mode-hook
+            (lambda ()
+              (setq mode-require-final-newline nil)))
   (add-hook 'yas-before-expand-snippet-hook
             #'(lambda()
                 (when (evil-visual-state-p)
