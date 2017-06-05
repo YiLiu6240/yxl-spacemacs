@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: r-block
+# name: code-block
 # --
-\`\`\`{r}
+\`\`\`
 $0
 \`\`\`
