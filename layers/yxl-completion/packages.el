@@ -60,7 +60,25 @@
                      '(("d" (lambda (x) (dired-jump nil (projectile-expand-root x)))
                         "directory")
                        ("x" (lambda (x) (yxl-open-file-external (projectile-expand-root x)))
-                        "external")))))
+                        "external")))
+    (defun yxl-counsel-projectile-switch-project (&optional arg)
+      (interactive "P")
+      (ivy-read (projectile-prepend-project-name "Switch to project: ")
+                projectile-known-projects
+                :preselect (and (projectile-project-p)
+                                (abbreviate-file-name (projectile-project-root)))
+                :action (lambda (dir)
+                          (let ((projectile-switch-project-action 'dired-jump))
+                           (projectile-switch-project-by-name dir arg)))
+                :require-match t
+                :caller 'counsel-projectile-switch-project))
+    (advice-add #'counsel-projectile-switch-project
+                :override #'yxl-counsel-projectile-switch-project)
+    (ivy-add-actions 'counsel-projectile-switch-project
+                     '(("o" (lambda (dir)
+                              (let ((projectile-switch-project-action 'dired-jump))
+                                (projectile-switch-project-by-name dir arg)))
+                        "open")))))
 
 (defun yxl-completion/init-yxl-ivy-views ()
   (use-package yxl-ivy-views
