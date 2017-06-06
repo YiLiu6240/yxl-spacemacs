@@ -40,23 +40,26 @@
     :config
     (progn
       (setq yxl-dp-docs
-            (sort (append yxl-dp-docs
-                          '(("R - quantreg" . "https://cran.r-project.org/web/packages/quantreg/quantreg.pdf")
-                            ("Moab" . "http://docs.adaptivecomputing.com/torque/6-1-1/adminGuide/help.htm#topics/moabWorkloadManager/topics/moabCommands/a.gcommandoverview.html")
-                            ("Cpp - Armadillo" . "http://arma.sourceforge.net/docs.html")
-                            ("Python - strftime" . "http://strftime.org/")
-                            ("Python - string format" . "https://pyformat.info/")
-                            ("GFM" . "https://guides.github.com/features/mastering-markdown/")
-                            ("R - adv-r" . "http://adv-r.had.co.nz/")
-                            ("R - rmarkdown" . "http://rmarkdown.rstudio.com/html_document_format.html")
-                            ("R - bookdown" . "https://bookdown.org/yihui/bookdown/")
-                            ("R - blogdown" . "https://bookdown.org/yihui/blogdown/")
-                            ("R - igraph" . "http://igraph.org/r/doc/00Index.html")
-                            ("R - cowplot" . "https://cran.r-project.org/web/packages/cowplot/")))
-                  (lambda (elem1 elem2)
-                    (let ((str1 (car elem1))
-                          (str2 (car elem2)))
-                      (string-lessp str1 str2))))))))
+            (delete-dups
+             (sort (append yxl-dp-docs
+                           '(("R - quantreg" . "https://cran.r-project.org/web/packages/quantreg/quantreg.pdf")
+                             ("Moab" . "http://docs.adaptivecomputing.com/torque/6-1-1/adminGuide/help.htm#topics/moabWorkloadManager/topics/moabCommands/a.gcommandoverview.html")
+                             ("Cpp - Armadillo" . "http://arma.sourceforge.net/docs.html")
+                             ("Python - strftime" . "http://strftime.org/")
+                             ("Python - string format" . "https://pyformat.info/")
+                             ("GFM" . "https://guides.github.com/features/mastering-markdown/")
+                             ("R - adv-r" . "http://adv-r.had.co.nz/")
+                             ("R - rmarkdown - html" . "http://rmarkdown.rstudio.com/html_document_format.html")
+                             ("R - rmarkdown - cheatsheet" . "https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf")
+                             ("R - knitr - options" . "https://yihui.name/knitr/options/")
+                             ("R - bookdown" . "https://bookdown.org/yihui/bookdown/")
+                             ("R - blogdown" . "https://bookdown.org/yihui/blogdown/")
+                             ("R - igraph" . "http://igraph.org/r/doc/00Index.html")
+                             ("R - cowplot" . "https://cran.r-project.org/web/packages/cowplot/")))
+                   (lambda (elem1 elem2)
+                     (let ((str1 (car elem1))
+                           (str2 (car elem2)))
+                       (string-lessp str1 str2)))))))))
 
 (defun yxl-datascience/post-init-ess ()
   (with-eval-after-load 'ess-site
