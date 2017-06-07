@@ -137,8 +137,11 @@
   (setq-default reftex-idle-time 0)
   (setq-default reftex-ref-macro-prompt nil))
 
-(defun yxl-text/insert-r-block (header)
+(defun yxl-text/insert-code-block ()
+  (interactive)
+  (markdown-insert-gfm-code-block ""))
+
+(defun yxl-text/insert-r-block ()
   "Insert an r-chunk in markdown mode. Necessary due to interactions between polymode and yas snippet"
-  (interactive "sHeader: ")
-  (insert (concat "```{r " header "}\n\n```"))
-  (forward-line -1))
+  (interactive)
+  (markdown-insert-gfm-code-block "{r}"))

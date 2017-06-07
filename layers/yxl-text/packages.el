@@ -120,7 +120,8 @@
     (add-hook 'markdown-mode-hook #'yxl-text/highlight-todos)
     (setq markdown-asymmetric-header t)
     (spacemacs/set-leader-keys-for-major-mode #'markdown-mode
-      "ir" #'yxl-text/insert-r-block)))
+      "oir" #'yxl-text/insert-r-block
+      "oic" #'yxl-text/insert-code-block)))
 
 (defun yxl-text/init-writegood-mode ()
   (use-package writegood-mode
