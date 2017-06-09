@@ -137,6 +137,47 @@
   (setq-default reftex-idle-time 0)
   (setq-default reftex-ref-macro-prompt nil))
 
+(defun yxl-text/markdown-insert-gfm-code-block (&optional lang closer)
+  "Insert GFM code block for language LANG.
+If LANG is nil, the language will be queried from user.  If a
+region is active, wrap this region with the markup instead.  If
+the region boundaries are not on empty lines, these are added
+automatically in order to have the correct markup."
+  (interactive
+   (list (let ((completion-ignore-case nil))
+           (condition-case nil
+               (markdown-clean-language-string
+                (completing-read
+                 "Programming language: "
+                 (markdown-gfm-get-corpus)
+                 nil 'confirm (car markdown-gfm-used-languages)
+                 'markdown-gfm-language-history))
+             (quit "")))))
+  (unless (string= lang "") (markdown-gfm-add-used-language lang))
+  (when (and (eq closer nil) (> (length lang) 0))
+    (setq lang (concat " " lang)))
+  (if (markdown-use-region-p)
+      (let ((b (region-beginning)) (e (region-end)))
+        (goto-char e)
+        ;; if we're on a blank line, don't newline, otherwise the ```
+        ;; should go on its own line
+        (unless (looking-back "\n" nil)
+          (newline))
+        (insert "```")
+        (markdown-ensure-blank-line-after)
+        (goto-char b)
+        ;; if we're on a blank line, insert the quotes here, otherwise
+        ;; add a new line first
+        (unless (looking-at-p "\n")
+          (newline)
+          (forward-line -1))
+        (markdown-ensure-blank-line-before)
+        (insert "```" lang))
+    (markdown-ensure-blank-line-before)
+    (insert "```" lang "\n\n```")
+    (markdown-ensure-blank-line-after)
+    (forward-line -1)))
+
 (defun yxl-text/insert-code-block ()
   (interactive)
   (markdown-insert-gfm-code-block ""))
@@ -144,4 +185,4 @@
 (defun yxl-text/insert-r-block ()
   "Insert an r-chunk in markdown mode. Necessary due to interactions between polymode and yas snippet"
   (interactive)
-  (markdown-insert-gfm-code-block "{r}"))
+  (yxl-text/markdown-insert-gfm-code-block "{r}" t))
