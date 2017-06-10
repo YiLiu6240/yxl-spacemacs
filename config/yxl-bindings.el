@@ -44,8 +44,8 @@
   "p'" nil
   "pc" #'yxl-project-cite
   "pC" #'projectile-compile-project
-  "pO" #'yxl-project-popup
-  "po" #'yxl-project-select
+  "pO" #'yxl-project-select
+  "po" #'yxl-project-popup
   "pm" #'helm-make-projectile
   "pM" #'helm-make
   "pG" #'projectile-regenerate-tags
