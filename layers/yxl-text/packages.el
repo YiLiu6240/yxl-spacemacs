@@ -119,6 +119,7 @@
                 (setq markdown-command "pandoc")))
     (add-hook 'markdown-mode-hook #'yxl-text/highlight-todos)
     (setq markdown-asymmetric-header t)
+    (setq markdown-nested-imenu-heading-index t)
     (spacemacs/set-leader-keys-for-major-mode #'markdown-mode
       "oir" #'yxl-text/insert-r-block
       "oic" #'yxl-text/insert-code-block)))
