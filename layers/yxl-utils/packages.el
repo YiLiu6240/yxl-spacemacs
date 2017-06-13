@@ -1,6 +1,7 @@
 (setq yxl-utils-packages '((yxl-utils :location site)
                            (yxl-project :location site)
                            (yxl-window :location site)
+                           (yxl-open :location site)
                            (general-goodies :location site)
                            find-file-in-project
                            (simple-todo :location site)
@@ -31,6 +32,31 @@
 
 (defun yxl-utils/init-yxl-window ()
   (use-package yxl-window))
+
+(defun yxl-utils/init-yxl-open ()
+  (use-package yxl-open
+    :config
+    (progn
+      (setq yxl-open-file-external-commands-linux
+            '(("default" . (lambda (x) (browse-url x)))
+              ("gvim" . (lambda (x) (yxl-open--linux-command "gvim" x)))
+              ("subl" . (lambda (x) (yxl-open--linux-command "subl" x)))
+              ("atom" . (lambda (x) (yxl-open--linux-command "atom" x)))
+              ("zathura" . (lambda (x) (yxl-open--linux-command "zathura" x)))
+              ("tad" . (lambda (x) (yxl-open--linux-command "tad" x)))
+              ("vmd" . (lambda (x) (yxl-open--linux-command "vmd" x)))
+              ("browser" . (lambda (x) (yxl-open--linux-command "google-chrome" x)))
+              ("desktop" . (lambda (x) (yxl-open-in-desktop)))
+              ("directory in terminal" . (lambda (x) (yxl-open-in-terminal)))))
+      (setq yxl-open-file-external-commands-darwin
+            '(("default" . (lambda (x) (browse-url x)))
+              ("gvim" . (lambda (x) (yxl-open--darwin-command "gvim" x)))
+              ("subl" . (lambda (x) (yxl-open--darwin-command "subl" x)))
+              ("atom" . (lambda (x) (yxl-open--darwin-command "atom" x)))
+              ("zathura" . (lambda (x) (yxl-open--darwin-command "zathura" x)))
+              ("browser" . (lambda (x) (yxl-open--darwin-command "open -a \"Google Chrome\"" x)))
+              ("desktop" . (lambda (x) (yxl-open-in-desktop)))
+              ("directory in terminal" . (lambda (x) (yxl-open-in-terminal))))))))
 
 (defun yxl-utils/init-general-goodies ()
   (use-package general-goodies))
