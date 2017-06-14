@@ -44,6 +44,7 @@
              (sort (append yxl-dp-docs
                            '(("R - quantreg" . "https://cran.r-project.org/web/packages/quantreg/quantreg.pdf")
                              ("Moab" . "http://docs.adaptivecomputing.com/torque/6-1-1/adminGuide/help.htm#topics/moabWorkloadManager/topics/moabCommands/a.gcommandoverview.html")
+                             ("Slurm" . "https://slurm.schedmd.com/")
                              ("Cpp - Armadillo" . "http://arma.sourceforge.net/docs.html")
                              ("Python - strftime" . "http://strftime.org/")
                              ("Python - string format" . "https://pyformat.info/")
