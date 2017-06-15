@@ -82,7 +82,7 @@
             ;; functions
             (func          (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#d79921")) ((eq variant 'gruv-dark) (if (true-color-p) "#d79921" "#ffaf00")) ((eq variant 'gruv-light) (if (true-color-p) "#b57614" "#b57614")) (t (if (true-color-p) "#33859e" "#8700af"))))
             ;; org lv1 heading
-            (head1         (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv-dark) (if (true-color-p) "#458588" "#458588")) ((eq variant 'gruv-light) (if (true-color-p) "#458588" "#458588")) (t (if (true-color-p) "#33859e" "#33859e"))))
+            (head1         (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv-dark) (if (true-color-p) "#00695c" "#00695c")) ((eq variant 'gruv-light) (if (true-color-p) "#458588" "#458588")) (t (if (true-color-p) "#33859e" "#33859e"))))
             (head1-bg      (cond ((eq variant 'solar-dark) (if (true-color-p) "#132b34" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf1ed" "#ffffff"))))
             ;; org lv2 heading
             (head2         (cond ((eq variant 'solar-dark) (if (true-color-p) "#2aa889" "#d79921")) ((eq variant 'gruv-dark) (if (true-color-p) "#b57614" "#d79921")) ((eq variant 'gruv-light) (if (true-color-p) "#b57614" "#d79921")) (t (if (true-color-p) "#2aa889" "#2aa198"))))
@@ -110,7 +110,7 @@
             ;; tooltip
             (ttip          (cond ((eq variant 'solar-dark) (if (true-color-p) "#586e75" "#504945")) ((eq variant 'gruv-dark) (if (true-color-p) "#bdae93" "#ffdfaf")) ((eq variant 'gruv-light) (if (true-color-p) "#bdae93" "#ffdfaf")) (t (if (true-color-p) "#8c799f" "#5f5f87"))))
             ;; tooltip selection
-            (ttip-sl       (cond ((eq variant 'solar-dark) (if (true-color-p) "#1b343d" "#3c3836")) ((eq variant 'gruv-dark) (if (true-color-p) "#076678" "#076678")) ((eq variant 'gruv-light) (if (true-color-p) "#838598" "#838598")) (t (if (true-color-p) "#c8c6dd" "#afafff"))))
+            (ttip-sl       (cond ((eq variant 'solar-dark) (if (true-color-p) "#1b343d" "#3c3836")) ((eq variant 'gruv-dark) (if (true-color-p) "#00695c" "#00695c")) ((eq variant 'gruv-light) (if (true-color-p) "#838598" "#838598")) (t (if (true-color-p) "#c8c6dd" "#afafff"))))
             ;; tooltip bg
             (ttip-bg       (cond ((eq variant 'solar-dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv-dark) (if (true-color-p) "#1d2021" "#1d2021")) ((eq variant 'gruv-light) (if (true-color-p) "#1d2021" "#1d2021")) (t (if (true-color-p) "#e2e0ea" "#dfdfff"))))
             ;; type
@@ -452,13 +452,13 @@
             `(helm-grep-match ((,class (:foreground nil :background nil :inherit helm-match))))
             `(helm-header ((,class (:foreground ,base :background ,bg1 :underline nil :box nil))))
             `(helm-header-line-left-margin ((,class (:foreground ,keyword :background ,nil))))
-            `(helm-match ((,class (:background ,head1-bg :foreground ,head1))))
-            `(helm-match-item ((,class (:background ,head1-bg :foreground ,head1))))
+            `(helm-match ((,class (:background ,head1-bg :foreground ,mat))))
+            `(helm-match-item ((,class (:background ,head1-bg :foreground ,mat))))
             `(helm-moccur-buffer ((,class (:foreground ,var :background ,bg1))))
-            `(helm-selection ((,class (:background ,ttip-sl))))
+            `(helm-selection ((,class (:background ,ttip-sl :weight bold))))
             `(helm-selection-line ((,class (:background ,bg2))))
             `(helm-separator ((,class (:foreground ,comp :background ,bg1))))
-            `(helm-source-header ((,class (:background ,comp :foreground ,bg1 :inherit bold))))
+            `(helm-source-header ((,class (:background ,bg1 :foreground ,base :inherit bold))))
             `(helm-time-zone-current ((,class (:foreground ,keyword :background ,bg1))))
             `(helm-time-zone-home ((,class (:foreground ,comp :background ,bg1))))
             `(helm-visible-mark ((,class (:foreground ,keyword :background ,bg3))))
@@ -512,7 +512,7 @@
 ;;;;; ivy
             `(ivy-current-match ((,class (:background ,ttip-sl :foreground ,base))))
             `(ivy-minibuffer-match-face-1 ((,class (:inherit bold))))
-            `(ivy-minibuffer-match-face-2 ((,class (:foreground ,head1 :underline t))))
+            `(ivy-minibuffer-match-face-2 ((,class (:foreground ,mat :underline t))))
             `(ivy-minibuffer-match-face-3 ((,class (:foreground ,head4 :underline t))))
             `(ivy-minibuffer-match-face-4 ((,class (:foreground ,head3 :underline t))))
             `(ivy-remote ((,class (:foreground ,cyan))))
@@ -752,7 +752,7 @@
 ;;;;; swiper
             `(swiper-line-face ((,class (:background ,highlight :inherit bold))))
             `(swiper-match-face-1 ((,class (:inherit bold))))
-            `(swiper-match-face-2 ((,class (:foreground ,head1 :underline t))))
+            `(swiper-match-face-2 ((,class (:foreground ,mat :underline t))))
             `(swiper-match-face-3 ((,class (:foreground ,head4 :underline t))))
 
 ;;;;; tabbar

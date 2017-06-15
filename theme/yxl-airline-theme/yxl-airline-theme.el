@@ -14,7 +14,7 @@ url: https://github.com/mkaito/base16-emacs")
          ;; color when the specified evil state is active
          (color-state-fg "#ebdbb2") ;; general state fg
          (color-normal-bg "#7c6f64")
-         (color-insert-bg "#427b58")
+         (color-insert-bg "#00695c")
          (color-visual-bg "#af3a03")
          (color-replace-bg "#cc241d")
          (color-emacs-bg "#d3869b")
@@ -24,8 +24,8 @@ url: https://github.com/mkaito/base16-emacs")
          (normal-center-foreground color-active-fg) (normal-center-background color-bg)
 
          (insert-outer-foreground  color-state-fg) (insert-outer-background  color-insert-bg)
-         (insert-inner-foreground  color-active-fg) (insert-inner-background  color-bg-alt)
-         (insert-center-foreground color-active-fg) (insert-center-background color-bg)
+         (insert-inner-foreground  color-active-fg) (insert-inner-background  color-insert-bg)
+         (insert-center-foreground color-active-fg) (insert-center-background color-insert-bg)
 
          (visual-outer-foreground  color-state-fg) (visual-outer-background  color-visual-bg)
          (visual-inner-foreground  color-active-fg) (visual-inner-background  color-bg-alt)

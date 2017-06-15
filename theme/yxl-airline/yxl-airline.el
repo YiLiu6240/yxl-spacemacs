@@ -9,14 +9,15 @@
   (when airline-eshell-colors
     (airline-themes-set-eshell-prompt))
 
-  (when airline-helm-colors
-    (custom-theme-set-faces
-     theme-name
-     `(helm-header           ((t ( :foreground ,insert-inner-foreground  :background ,insert-inner-background  :bold t))))
-     `(helm-selection        ((t ( :foreground ,insert-outer-foreground  :background ,insert-outer-background  :bold t))))
-     `(helm-source-header    ((t ( :foreground ,insert-center-foreground :background ,insert-center-background :bold t))))
-     `(helm-candidate-number ((t ( :foreground ,normal-inner-foreground  :background ,normal-inner-background  :bold t))))
-     `(helm-selection-line   ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :bold t))))))
+  ;; do not attempt to override helm color
+  ;; (when airline-helm-colors
+  ;;   (custom-theme-set-faces
+  ;;    theme-name
+  ;;    `(helm-header           ((t ( :foreground ,insert-inner-foreground  :background ,insert-inner-background  :bold t))))
+  ;;    `(helm-selection        ((t ( :foreground ,insert-outer-foreground  :background ,insert-outer-background  :bold t))))
+  ;;    `(helm-source-header    ((t ( :foreground ,insert-center-foreground :background ,insert-center-background :bold t))))
+  ;;    `(helm-candidate-number ((t ( :foreground ,normal-inner-foreground  :background ,normal-inner-background  :bold t))))
+  ;;    `(helm-selection-line   ((t ( :foreground ,normal-center-foreground :background ,normal-center-background :bold t))))))
 
   (custom-theme-set-faces
    theme-name
@@ -108,7 +109,7 @@
                                  'airline-normal-center)
                              'airline-inactive3))
 
-                          (pl-sep (powerline-raw "|" 'mode-line-inactive 'lr))
+                          (pl-sep (powerline-raw "|" center-face 'lr))
 
                           ;; Left Hand Side
                           (lhs-mode (list
