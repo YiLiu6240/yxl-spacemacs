@@ -40,6 +40,7 @@
   "LY" #'yxl-workspace/record-config
   "LP" #'yxl-workspace/load-config
   "nr" #'ni-narrow-to-region-indirect-same-window
+  "ph" #'yxl-project-helm
   "ps" #'yxl-project-shell-popup
   "p'" nil
   "pc" #'yxl-project-cite
