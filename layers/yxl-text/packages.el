@@ -120,6 +120,8 @@
     (add-hook 'markdown-mode-hook #'yxl-text/highlight-todos)
     (setq markdown-asymmetric-header t)
     (setq markdown-nested-imenu-heading-index t)
+    (define-key markdown-mode-map (kbd "C-M-i") #'yxl-text/insert-r-block)
+    (define-key markdown-mode-map (kbd "C-M-S-i") #'yxl-text/insert-code-block)
     (spacemacs/set-leader-keys-for-major-mode #'markdown-mode
       "oir" #'yxl-text/insert-r-block
       "oic" #'yxl-text/insert-code-block)))
