@@ -63,7 +63,7 @@ Directory:
   ("G" (yxl-find-dir yxl-path-local) "local-repo")
   ("h" (yxl-find-dir yxl-path-sync) "dropbox")
   ("H" (yxl-find-dir yxl-path-projects) "projects")
-  ("o" (yxl-find-dir yxl-path-org) "org")
+  ("o" (find-file yxl-path-org) "org")
   ("c" (yxl-find-dir yxl-path-code-pwd) "code")
   ("C" (yxl-find-dir yxl-path-code-master-pwd) "code-master")
   ("p" (yxl-find-dir yxl-path-paper-pwd) "papers")
@@ -80,10 +80,7 @@ Directory:
   "
 File:
 "
-  ("1" (yxl-find-file-stay yxl-file-org-main) "tasks_1_main.org")
-  ("2" (yxl-find-file-stay yxl-file-org-work) "tasks_2_work.org")
-  ("3" (yxl-find-file-stay yxl-file-org-config) "tasks_3_config.org")
-  ("4" (yxl-find-file-stay yxl-file-org-proj) "tasks_4_proj.org")
+  ("1" (yxl-find-file-stay yxl-file-org-todo) "todo.org")
   ("0" (yxl-find-file-stay yxl-file-org-scratch) "scratch.org")
   ("b" (yxl-find-file-stay yxl-file-bib) "bib file")
   ("n" (yxl-find-file-stay yxl-file-note-master) "note file")
@@ -102,10 +99,9 @@ File:
 Hotspot:
 
  | [_h_]: Frame: h                | [_0_]: Org: scratch                 |
- | [_j_]: Frame: j                | [_1_]: Org: main                    |
- | [_k_]: Frame: k                | [_2_]: Org: work                    |
- | [_l_]: Frame: l                | [_3_]: Org: config                  |
- | ^^                             | [_4_]: Org: proj                    |
+ | [_j_]: Frame: j                | [_1_]: Org: todo                    |
+ | [_k_]: Frame: k                | ^^                                  |
+ | [_l_]: Frame: l                | ^^                                  |
 
  | [_cK_]: calendar               | [_gg_]: Helm: my hotspot            |
  | [_ck_]: cfw-calendar           | ^^                                  |
@@ -130,36 +126,15 @@ Hotspot:
   ;; - C-u: open them in current window
   ;; - Shift + 0 - 5: open them in bottom popup
   ("0" (yxl-find-file-popup yxl-file-org-scratch))
-  ("1" (yxl-find-file-popup yxl-file-org-main))
-  ("2" (yxl-find-file-popup yxl-file-org-work))
-  ("3" (yxl-find-file-popup yxl-file-org-config))
-  ("4" (yxl-find-file-popup yxl-file-org-proj))
-  ("5" (yxl-find-file-popup yxl-file-org-local))
+  ("1" (yxl-find-file-popup yxl-file-org-todo))
   (")" (popwin:popup-buffer (find-file-noselect yxl-file-org-scratch)
                             :stick t
                             :height 0.4
                             :position 'bottom))
-  ("!" (popwin:popup-buffer (find-file-noselect yxl-file-org-main)
+  ("!" (popwin:popup-buffer (find-file-noselect yxl-file-org-todo)
                             :stick t
                             :height 0.4
                             :position 'bottom))
-  ("\"" (popwin:popup-buffer (find-file-noselect yxl-file-org-work)
-                             :stick t
-                             :height 0.4
-                             :position 'bottom))
-  ("~" (popwin:popup-buffer (find-file-noselect yxl-file-org-config)
-                            :stick t
-                            :height 0.4
-                            :position 'bottom))
-  ("$" (popwin:popup-buffer (find-file-noselect yxl-file-org-local)
-                            :stick t
-                            :height 0.4
-                            :position 'bottom))
-  ("%" (popwin:popup-buffer (find-file-noselect yxl-file-org-proj)
-                            :stick t
-                            :height 0.4
-                            :position 'bottom))
-
   ("cK" calendar)
   ("ck" cfw-open-calendar)
 
@@ -168,10 +143,8 @@ Hotspot:
           (interactive)
           (delete-other-windows)
           ;; open main org files
-          (yxl-find-file-open-all `(,yxl-file-org-main
-                                    ,yxl-file-org-work
-                                    ,yxl-file-org-config
-                                    ,yxl-file-org-proj))
+          (yxl-find-file-open-all `(,yxl-file-org-todo
+                                    ,yxl-file-org-scratch))
           ;; open scratch as sidebar
           (yxl-find-file-popup yxl-file-org-scratch)
           (split-window-below-and-focus)

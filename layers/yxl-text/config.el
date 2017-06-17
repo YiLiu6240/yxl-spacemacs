@@ -1,4 +1,4 @@
-(defvar yxl-text-outline-file yxl-file-org-work
+(defvar yxl-text-outline-file nil
   "outline file for a tex directory, default is nil")
 
 (defvar yxl-text-note-file yxl-file-note-master

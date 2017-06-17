@@ -28,7 +28,7 @@
                                ,yxl-path-journal-pwd
                                ,yxl-path-book-reference
                                ,(concat yxl-path-local "yxl_datascience")))
-      (setq yxl-project-todo-global yxl-file-org-config))))
+      (setq yxl-project-todo-global yxl-file-org-todo))))
 
 (defun yxl-utils/init-yxl-window ()
   (use-package yxl-window))
