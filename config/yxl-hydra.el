@@ -123,10 +123,12 @@ Hotspot:
 
   ;; org files opening logic
   ;; - 0 - 5: open them in "sidebar"
-  ;; - C-u: open them in current window
+  ;; - C-u / Meta + 0 - 5: open them in current window
   ;; - Shift + 0 - 5: open them in bottom popup
   ("0" (yxl-find-file-popup yxl-file-org-scratch))
+  ("M-0" (find-file yxl-file-org-scratch))
   ("1" (yxl-find-file-popup yxl-file-org-todo))
+  ("M-1" (find-file yxl-file-org-todo))
   (")" (popwin:popup-buffer (find-file-noselect yxl-file-org-scratch)
                             :stick t
                             :height 0.4
