@@ -15,8 +15,6 @@
 
 (setq yxl-path-book-reference (concat yxl-path-sync "books-text"))
 
-
-
 (setq yxl-file-bib (concat yxl-path-paper-pwd "yxl_bib/yxl_bib_master.bib"))
 (setq yxl-file-note-master "~/Dropbox/org/note.org")
 (setq yxl-file-sites-local (concat yxl-path-sync
@@ -35,8 +33,24 @@
 (setq yxl-file-org-scratch (concat yxl-path-org-task "scratch.org"))
 (setq yxl-file-org-local "~/scratch-local.org")
 
+(setq yxl-env-project-files
+      (directory-files (concat yxl-path-org "projects/") t
+                       ".+\\.org"))
+
 (setq yxl-env-org-task-files (list yxl-file-org-scratch
                                    yxl-file-org-todo))
 
 (setq yxl-env-org-files (append yxl-env-org-task-files
-                                (list)))
+                                yxl-env-project-files))
+
+(defun yxl-env-project-view ()
+  (interactive)
+  (make-frame)
+  (delete-other-windows)
+  ;; open main org files
+  (yxl-find-file-open-all yxl-env-project-files)
+  ;; open scratch as sidebar
+  (yxl-find-file-popup yxl-file-org-scratch)
+  (split-window-below-and-focus)
+  (find-file yxl-file-org-local)
+  (evil-window-right 1))

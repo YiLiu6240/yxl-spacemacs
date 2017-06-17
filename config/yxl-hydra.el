@@ -109,7 +109,7 @@ Hotspot:
  | [_oa_]: Org: agenda: life      | [_gs_]: Helm: my local/web shortcuts|
  | [_oA_]: Org: agenda: work      | ^^                                  |
  | [_ol_]: Org: log               | [_gr_]: Helm: my reading list       |
- | [_oo_]: Org: open task files   | ^^                                  |
+ | [_oo_]: Org: project view      | ^^                                  |
  | [_oO_]: Org: open all files    | ^^                                  |
 
  | [_ia_]: append: to *scratch*   | ^^                                  |
@@ -139,20 +139,7 @@ Hotspot:
   ("ck" cfw-open-calendar)
 
   ("cc" org-capture)
-  ("oo" (lambda ()
-          (interactive)
-          (delete-other-windows)
-          ;; open main org files
-          (yxl-find-file-open-all `(,yxl-file-org-todo
-                                    ,yxl-file-org-scratch))
-          ;; open scratch as sidebar
-          (yxl-find-file-popup yxl-file-org-scratch)
-          (split-window-below-and-focus)
-          (find-file yxl-file-org-local)
-          ;; adjust height
-          (evil-window-right 1)
-          (let ((current-prefix-arg 80))
-            (yxl-window-adjust-height-ratio))))
+  ("oo" yxl-env-project-view)
   ("oO" yxl-org-open-all-task-files)
   ("oa" my-org-agenda-life)
   ("oA" my-org-agenda-work)
