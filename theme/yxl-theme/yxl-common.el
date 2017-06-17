@@ -82,7 +82,7 @@
             ;; functions
             (func          (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#d79921")) ((eq variant 'gruv-dark) (if (true-color-p) "#d79921" "#ffaf00")) ((eq variant 'gruv-light) (if (true-color-p) "#b57614" "#b57614")) (t (if (true-color-p) "#33859e" "#8700af"))))
             ;; org lv1 heading
-            (head1         (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv-dark) (if (true-color-p) "#00695c" "#00695c")) ((eq variant 'gruv-light) (if (true-color-p) "#458588" "#458588")) (t (if (true-color-p) "#33859e" "#33859e"))))
+            (head1         (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv-dark) (if (true-color-p) "#458588" "#458588")) ((eq variant 'gruv-light) (if (true-color-p) "#458588" "#458588")) (t (if (true-color-p) "#33859e" "#33859e"))))
             (head1-bg      (cond ((eq variant 'solar-dark) (if (true-color-p) "#132b34" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf1ed" "#ffffff"))))
             ;; org lv2 heading
             (head2         (cond ((eq variant 'solar-dark) (if (true-color-p) "#2aa889" "#d79921")) ((eq variant 'gruv-dark) (if (true-color-p) "#b57614" "#d79921")) ((eq variant 'gruv-light) (if (true-color-p) "#b57614" "#d79921")) (t (if (true-color-p) "#2aa889" "#2aa198"))))
@@ -678,8 +678,8 @@
             `(org-sexp-date ((,class (:foreground ,base))))
             `(org-table ((,class (:foreground ,base :background ,head1-bg))))
             `(org-time-grid ((,class (:foreground ,str))))
-            `(org-todo ((,class (:foreground ,str :inherit bold))))
-            `(org-done ((,class (:foreground ,comment :inherit bold))))
+            `(org-todo ((,class (:foreground ,str :weight bold :slant italic :height 0.8))))
+            `(org-done ((,class (:foreground ,comment :weight bold :slant italic :height 0.8))))
             `(org-headline-done ((,class (:foreground ,comment :inherit org-level-4))))
             `(org-checkbox ((,class (:inherit org-todo))))
             `(org-checkbox-statistics-todo ((,class (:inherit org-todo))))
