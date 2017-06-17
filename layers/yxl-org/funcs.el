@@ -61,7 +61,8 @@
     "r" #'yxl-org-refile-visible
     "R" #'yxl-org/refile-to-scratch))
 
-(defun yxl-org/org-mode-hook ())
+(defun yxl-org/org-mode-hook ()
+  (setq evil-auto-indent nil))
   ;; (setq line-spacing 4)
   ;; NOTE: buggy, disable for now
   ;; (yxl-org-format-task-files)
