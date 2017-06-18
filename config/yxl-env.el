@@ -34,8 +34,8 @@
 (setq yxl-file-org-local "~/scratch-local.org")
 
 (setq yxl-env-project-files
-      (directory-files (concat yxl-path-org "projects/") t
-                       ".+\\.org"))
+      (directory-files (concat yxl-path-org "projects/")
+                       t ".+\\.org"))
 
 (setq yxl-env-org-task-files (list yxl-file-org-scratch
                                    yxl-file-org-todo))
@@ -43,14 +43,25 @@
 (setq yxl-env-org-files (append yxl-env-org-task-files
                                 yxl-env-project-files))
 
-(defun yxl-env-project-view ()
+(defun yxl-env-project-view (&optional same-frame side-width)
   (interactive)
-  (make-frame)
+  (unless same-frame
+    (make-frame))
   (delete-other-windows)
   ;; open main org files
-  (yxl-find-file-open-all yxl-env-project-files)
+  (yxl-find-file-open-all (directory-files (concat yxl-path-org "projects/")
+                                           t ".+\\.org"))
   ;; open scratch as sidebar
-  (yxl-find-file-popup yxl-file-org-scratch)
+  (yxl-find-file-popup yxl-file-org-scratch side-width)
   (split-window-below-and-focus)
   (find-file yxl-file-org-local)
   (evil-window-right 1))
+
+(defun yxl-env-update-org-files ()
+  (interactive)
+  (setq yxl-env-project-files
+        (directory-files (concat yxl-path-org "projects/")
+                         t ".+\\.org"))
+  (setq yxl-env-org-files (append yxl-env-org-task-files
+                                  yxl-env-project-files))
+  (setq org-agenda-files yxl-env-org-files))
