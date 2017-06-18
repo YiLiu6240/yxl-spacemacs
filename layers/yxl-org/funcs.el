@@ -51,6 +51,7 @@
   (setq org-agenda-sticky t)
   (setq org-highlight-latex-and-related '(latex script entities))
   (setq org-blank-before-new-entry nil)
+  (setq org-fontify-whole-heading-line t)
   (setq org-refile-use-outline-path t)
   (setq org-refile-targets '((nil :maxlevel . 1)
                              (yxl-env-org-task-files :maxlevel . 1)))
