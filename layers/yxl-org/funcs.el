@@ -55,6 +55,13 @@
   (setq org-refile-use-outline-path t)
   (setq org-refile-targets '((nil :maxlevel . 1)
                              (yxl-env-org-task-files :maxlevel . 1)))
+  (setq org-file-apps '((auto-mode . emacs)
+                        ("\\.mm\\'" . default)
+                        ("\\.x?html?\\'" . default)
+                        ("\\.pdf\\'" . (lambda (path str)
+                                         (yxl-open-file-external path)))
+                        (t . (lambda (path str)
+                               (yxl-open-file-external path)))))
   (setq org-reveal-root
         (format "file:///%s"
                 (expand-file-name "~/dotfiles/external/reveal.js/")))
