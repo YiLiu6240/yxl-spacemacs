@@ -47,6 +47,7 @@
               ("vmd" . (lambda (x) (yxl-open--linux-command "vmd" x)))
               ("browser" . (lambda (x) (yxl-open--linux-command "google-chrome" x)))
               ("desktop" . (lambda (x) (yxl-open-in-desktop)))
+              ("dired" . (lambda (x) (dired-jump t x)))
               ("directory in terminal" . (lambda (x) (yxl-open-in-terminal)))))
       (setq yxl-open-file-external-commands-darwin
             '(("default" . (lambda (x) (browse-url x)))
@@ -56,6 +57,7 @@
               ("zathura" . (lambda (x) (yxl-open--darwin-command "zathura" x)))
               ("browser" . (lambda (x) (yxl-open--darwin-command "open -a \"Google Chrome\"" x)))
               ("desktop" . (lambda (x) (yxl-open-in-desktop)))
+              ("dired" . (lambda (x) (dired-jump t x)))
               ("directory in terminal" . (lambda (x) (yxl-open-in-terminal))))))))
 
 (defun yxl-utils/init-general-goodies ()
