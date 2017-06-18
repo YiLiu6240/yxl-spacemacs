@@ -219,7 +219,6 @@
   (load-file (concat dotspacemacs-directory "config/hack.el"))
   ;; (load-file (concat dotspacemacs-directory "config/yxl-spacemacs-home.el"))
   (load-file "~/dotfiles/personal/yxl-personal.el")
-  (setq yxl-theme-org-highlight t)
   ;; custom.el
   (setq-default custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (load custom-file 'no-error 'no-message))

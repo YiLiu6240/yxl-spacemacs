@@ -635,7 +635,7 @@
             `(notmuch-tag-flagged ((,class (:foreground ,war))))
 
 ;;;;; org
-            `(org-level-1 ((,class (:inherit bold :overline ,border :underline ,border :foreground ,head1 :height ,(if yxl-theme-org-height 1.3 1.0) :background ,(when yxl-theme-org-highlight head1-bg)))))
+            `(org-level-1 ((,class (:inherit bold :foreground ,head1 :height ,(if yxl-theme-org-height 1.3 1.0) :background ,(when yxl-theme-org-highlight head1-bg)))))
             `(org-level-2 ((,class (:inherit bold :foreground ,head2 :height ,(if yxl-theme-org-height 1.2 1.0) :background ,(when yxl-theme-org-highlight head2-bg)))))
             `(org-level-3 ((,class (:bold nil :foreground ,head3 :height ,(if yxl-theme-org-height 1.1 1.0) :background ,(when yxl-theme-org-highlight head3-bg)))))
             `(org-level-4 ((,class (:bold nil :foreground ,head4 :background ,(when yxl-theme-org-highlight head4-bg)))))
