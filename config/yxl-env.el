@@ -64,4 +64,5 @@
                          t ".+\\.org"))
   (setq yxl-env-org-files (append yxl-env-org-task-files
                                   yxl-env-project-files))
-  (setq org-agenda-files yxl-env-org-files))
+  (setq org-agenda-files yxl-env-org-files)
+  (setq yxl-hhs-org-files yxl-env-org-files))
