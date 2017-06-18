@@ -56,7 +56,7 @@
   (setq yxl-env-project-files
         (append
          (directory-files (concat yxl-path-org "projects/")
-                          t ".+\\.org")
+                          t "^proj_.+\\.org")
          ;; only find files that begins with "log_"
          (directory-files (concat yxl-path-org "logs/")
                           t "^log_.+\\.org")))
