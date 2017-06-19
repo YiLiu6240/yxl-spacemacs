@@ -60,6 +60,7 @@
 ;; (add-to-list 'display-buffer-alist '("\\*magit:" display-buffer-same-window))
 (add-to-list 'display-buffer-alist '("\\*shell" display-buffer-same-window))
 (add-to-list 'display-buffer-alist '("\\*PDF" display-buffer-at-bottom))
+(add-to-list 'display-buffer-alist '("\\*edit-indirect" display-buffer-at-bottom))
 
 ;; yas
 ;; solve an known issue revolving evil visual and yasnippet

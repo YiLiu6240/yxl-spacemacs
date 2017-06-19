@@ -5,6 +5,7 @@
                           gscholar-bibtex
                           magic-latex-buffer
                           markdown-mode
+                          edit-indirect
                           writegood-mode
                           bing-dict
                           synonyms
@@ -118,13 +119,21 @@
               (lambda ()
                 (setq markdown-command "pandoc")))
     (add-hook 'markdown-mode-hook #'yxl-text/highlight-todos)
-    (setq markdown-asymmetric-header t)
-    (setq markdown-nested-imenu-heading-index t)
+    (setq-default markdown-asymmetric-header t)
+    (setq-default markdown-nested-imenu-heading-index t)
+    (setq-default markdown-hide-urls nil)
+    (setq-default markdown-fontify-code-blocks-natively t)
     (define-key markdown-mode-map (kbd "C-M-i") #'yxl-text/insert-r-block)
     (define-key markdown-mode-map (kbd "C-M-S-i") #'yxl-text/insert-code-block)
+    (define-key markdown-mode-map (kbd "C-c '") #'markdown-edit-code-block)
     (spacemacs/set-leader-keys-for-major-mode #'markdown-mode
+      "bb"  #'markdown-edit-code-block
       "oir" #'yxl-text/insert-r-block
       "oic" #'yxl-text/insert-code-block)))
+
+(defun yxl-text/init-edit-indirect ()
+  (use-package edit-indirect
+    :defer t))
 
 (defun yxl-text/init-writegood-mode ()
   (use-package writegood-mode
