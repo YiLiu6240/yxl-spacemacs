@@ -82,10 +82,10 @@
             ;; functions
             (func          (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#d79921")) ((eq variant 'gruv-dark) (if (true-color-p) "#d79921" "#ffaf00")) ((eq variant 'gruv-light) (if (true-color-p) "#b57614" "#b57614")) (t (if (true-color-p) "#33859e" "#8700af"))))
             ;; org lv1 heading
-            (head1         (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv-dark) (if (true-color-p) "#458588" "#458588")) ((eq variant 'gruv-light) (if (true-color-p) "#458588" "#458588")) (t (if (true-color-p) "#33859e" "#33859e"))))
+            (head1         (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv-dark) (if (true-color-p) "#83a598" "#83a598")) ((eq variant 'gruv-light) (if (true-color-p) "#458588" "#458588")) (t (if (true-color-p) "#33859e" "#33859e"))))
             (head1-bg      (cond ((eq variant 'solar-dark) (if (true-color-p) "#132b34" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#32302f" "#32302f")) ((eq variant 'gruv-light) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf1ed" "#ffffff"))))
             ;; org lv2 heading
-            (head2         (cond ((eq variant 'solar-dark) (if (true-color-p) "#2aa889" "#d79921")) ((eq variant 'gruv-dark) (if (true-color-p) "#b57614" "#d79921")) ((eq variant 'gruv-light) (if (true-color-p) "#b57614" "#d79921")) (t (if (true-color-p) "#2aa889" "#2aa198"))))
+            (head2         (cond ((eq variant 'solar-dark) (if (true-color-p) "#2aa889" "#d79921")) ((eq variant 'gruv-dark) (if (true-color-p) "#d79921" "#d79921")) ((eq variant 'gruv-light) (if (true-color-p) "#b57614" "#d79921")) (t (if (true-color-p) "#2aa889" "#2aa198"))))
             (head2-bg      (cond ((eq variant 'solar-dark) (if (true-color-p) "#293235" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#edf2e9" "#ffffff"))))
             ;; org lv3 heading
             (head3         (cond ((eq variant 'solar-dark) (if (true-color-p) "#b58900" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#98971a" "#afaf00")) ((eq variant 'gruv-light) (if (true-color-p) "#98971a" "#afaf00")) (t (if (true-color-p) "#b58900" "#5faf00"))))
@@ -599,12 +599,15 @@
             `(Man-underline ((,class (:foreground ,comp :underline t))))
 
 ;;;;; markdown
-            `(markdown-header-face-1 ((,class (:inherit bold :foreground ,head1 :height ,(if yxl-theme-org-height 1.3 1.0)))))
+            `(markdown-header-face-1 ((,class (:inherit bold :foreground ,head1 :height ,(if yxl-theme-org-height 1.4 1.0)))))
             `(markdown-header-face-2 ((,class (:inherit bold :foreground ,head2 :height ,(if yxl-theme-org-height 1.2 1.0)))))
             `(markdown-header-face-3 ((,class (:bold nil :foreground ,head3 :height ,(if yxl-theme-org-height 1.1 1.0)))))
             `(markdown-header-face-4 ((,class (:bold nil :foreground ,head4))))
             `(markdown-header-face-5 ((,class (:bold nil :foreground ,head1))))
             `(markdown-header-face-6 ((,class (:bold nil :foreground ,head2))))
+            `(markdown-header-rule-face ((,class (:inherit bold :foreground ,comment))))
+            `(markdown-hr-face ((,class (:foreground ,comment))))
+            `(markdown-markup-face ((,class (:foreground ,comment))))
             `(markdown-link-face ((,class (:inherit link))))
 
 ;;;;; mode-line
