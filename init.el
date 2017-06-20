@@ -57,7 +57,9 @@
           :variables org-enable-reveal-js-support t)
 
      ;; markup langs
-     (markdown :variables markdown-live-preview-engine 'vmd)
+     (markdown
+      :packages (not mmm-mode)
+      :variables markdown-live-preview-engine 'vmd)
      ;; markdown: need vmd from npm: npm install -g vmd
      pandoc
      (latex :variables
