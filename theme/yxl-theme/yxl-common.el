@@ -66,7 +66,7 @@
             ;; code block fg
             (cblk          (cond ((eq variant 'solar-dark) (if (true-color-p) "#cbc1d5" "#b2b2b2")) ((eq variant 'gruv-dark) (if (true-color-p) "#b2b2b2" "#b2b2b2")) ((eq variant 'gruv-light) (if (true-color-p) "#7c6f64" "#7c6f64")) (t (if (true-color-p) "#655370" "#5f5f87"))))
             ;; code block bg
-            (cblk-bg       (cond ((eq variant 'solar-dark) (if (true-color-p) "#2f2b33" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#ebdbb2" "#ebdbb2")) (t (if (true-color-p) "#e8e3f0" "#ffffff"))))
+            (cblk-bg       (cond ((eq variant 'solar-dark) (if (true-color-p) "#2f2b33" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#32302f" "#32302f")) ((eq variant 'gruv-light) (if (true-color-p) "#ebdbb2" "#ebdbb2")) (t (if (true-color-p) "#e8e3f0" "#ffffff"))))
             ;; code block header line
             (cblk-ln       (cond ((eq variant 'solar-dark) (if (true-color-p) "#827591" "#af5faf")) ((eq variant 'gruv-dark) (if (true-color-p) "#af5faf" "#af5faf")) ((eq variant 'gruv-light) (if (true-color-p) "#af5faf" "#af5faf")) (t (if (true-color-p) "#9380b2" "#af5fdf"))))
             ;; code block header line bg
@@ -609,6 +609,10 @@
             `(markdown-hr-face ((,class (:foreground ,comment))))
             `(markdown-markup-face ((,class (:foreground ,comment))))
             `(markdown-link-face ((,class (:inherit link))))
+            `(markdown-bold-face ((,class (:weight bold))))
+            `(markdown-italic-face ((,class (:slant italic))))
+            `(markdown-inline-code-face ((,class (:foreground ,var :background ,cblk-bg))))
+            `(markdown-code-face ((,class (:foreground ,base :background ,cblk-bg))))
 
 ;;;;; mode-line
             `(mode-line           ((,class (:foreground ,base :background ,act1 :box (:color ,border :line-width 1)))))
