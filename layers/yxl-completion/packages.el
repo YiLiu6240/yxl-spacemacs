@@ -9,6 +9,7 @@
 
 (defun yxl-completion/post-init-company ()
   (with-eval-after-load 'company
+    (setq-default company-selection-wrap-around t)
     ;; (define-key company-active-map (kbd "<ESC>") #'company-cancel)
     (define-key company-active-map (kbd "C-h") nil)
     (define-key company-active-map (kbd "C-j") #'company-select-next)
