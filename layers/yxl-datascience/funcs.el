@@ -1,11 +1,11 @@
 (defun yxl-datascience/setup-generic ()
   (setq ess-history-file nil)
   ;; no spaces around argument assignment
-  (setq ess-R-argument-suffix "=")
+  (setq ess-R-argument-suffix " = ")
   (setq ess-eval-visibly 'nowait)
   (setq ess-execute-in-process-buffer t)
   (setq ess-ask-for-ess-directory nil)
-  (setq yxl-ess-style '((ess-indent-offset . 4)
+  (setq yxl-ess-style '((ess-indent-offset . 2)
                         (ess-offset-arguments . open-delim)
                         (ess-offset-arguments-newline . prev-call)
                         (ess-offset-block . prev-line)
