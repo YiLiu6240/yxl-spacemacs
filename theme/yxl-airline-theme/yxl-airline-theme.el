@@ -17,7 +17,7 @@ url: https://github.com/mkaito/base16-emacs")
          (color-insert-bg "#00695c")
          (color-visual-bg "#af3a03")
          (color-replace-bg "#cc241d")
-         (color-emacs-bg "#d3869b")
+         (color-emacs-bg "#8f3f71")
 
          (normal-outer-foreground  color-state-fg) (normal-outer-background  color-normal-bg)
          (normal-inner-foreground  color-active-fg) (normal-inner-background  color-bg-alt)
