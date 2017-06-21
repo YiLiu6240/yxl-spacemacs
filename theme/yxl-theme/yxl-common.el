@@ -100,7 +100,7 @@
             ;; line numbers
             (lnum          (cond ((eq variant 'solar-dark) (if (true-color-p) "#586e75" "#767676")) ((eq variant 'gruv-dark) (if (true-color-p) "#665c54" "#665c54")) ((eq variant 'gruv-light) (if (true-color-p) "#928374" "#928374")) (t (if (true-color-p) "#44505c" "#af87af"))))
             ;; matched, matching parens, brackets, tags
-            (mat           (cond ((eq variant 'solar-dark) (if (true-color-p) "#86dc2f" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#98971a" "#98971a")) ((eq variant 'gruv-light) (if (true-color-p) "#79740e" "#79740e")) (t (if (true-color-p) "#86dc2f" "#af005f"))))
+            (mat           (cond ((eq variant 'solar-dark) (if (true-color-p) "#86dc2f" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#8ec07c" "#8ec07c")) ((eq variant 'gruv-light) (if (true-color-p) "#79740e" "#79740e")) (t (if (true-color-p) "#86dc2f" "#af005f"))))
             ;; meta, org's meta line
             (meta          (cond ((eq variant 'solar-dark) (if (true-color-p) "#6c71c4" "#689d6a")) ((eq variant 'gruv-dark) (if (true-color-p) "#689d6a" "#689d6a")) ((eq variant 'gruv-light) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#6c71c4" "#df5f5f"))))
             ;; string
@@ -175,7 +175,7 @@
             ;; `(link-visited ((,class (:foreground ,comp :underline t))))
             `(link ((,class (:foreground ,comment))))
             `(link-visited ((,class (:foreground ,comp))))
-            `(match ((,class (:background ,highlight :foreground ,mat))))
+            `(match ((,class (:foreground ,mat :weight bold))))
             `(minibuffer-prompt ((,class (:inherit bold :foreground ,keyword))))
             `(page-break-lines ((,class (:foreground ,act2))))
             `(region ((,class (:background ,highlight))))
@@ -452,8 +452,8 @@
             `(helm-grep-match ((,class (:foreground nil :background nil :inherit helm-match))))
             `(helm-header ((,class (:foreground ,base :background ,bg1 :underline nil :box nil))))
             `(helm-header-line-left-margin ((,class (:foreground ,keyword :background ,nil))))
-            `(helm-match ((,class (:background ,head1-bg :foreground ,mat))))
-            `(helm-match-item ((,class (:background ,head1-bg :foreground ,mat))))
+            `(helm-match ((,class (:inherit match :background ,head1-bg))))
+            `(helm-match-item ((,class (:inherit match :background ,head1-bg))))
             `(helm-moccur-buffer ((,class (:foreground ,var :background ,bg1))))
             `(helm-selection ((,class (:background ,ttip-sl :weight bold))))
             `(helm-selection-line ((,class (:background ,bg2))))
@@ -490,7 +490,7 @@
 
 ;;;;; ido
             `(ido-first-match ((,class (:foreground ,comp :inherit bold))))
-            `(ido-only-match ((,class (:foreground ,mat :inherit bold))))
+            `(ido-only-match ((,class (:inherit match))))
             `(ido-subdir ((,class (:foreground ,keyword))))
             `(ido-vertical-match-face ((,class (:foreground ,comp :underline nil))))
 
@@ -512,7 +512,7 @@
 ;;;;; ivy
             `(ivy-current-match ((,class (:background ,ttip-sl :foreground ,base))))
             `(ivy-minibuffer-match-face-1 ((,class (:inherit bold))))
-            `(ivy-minibuffer-match-face-2 ((,class (:foreground ,mat :underline t))))
+            `(ivy-minibuffer-match-face-2 ((,class (:inherit match :underline t))))
             `(ivy-minibuffer-match-face-3 ((,class (:foreground ,head4 :underline t))))
             `(ivy-minibuffer-match-face-4 ((,class (:foreground ,head3 :underline t))))
             `(ivy-remote ((,class (:foreground ,cyan))))
