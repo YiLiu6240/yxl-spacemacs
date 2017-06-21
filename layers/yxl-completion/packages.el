@@ -1,10 +1,21 @@
-(setq yxl-completion-packages '(helm
+(setq yxl-completion-packages '(company
+                                helm
                                 (yxl-helm-hotspot :location site)
                                 ivy
                                 counsel
                                 (yxl-helm-pdf-occur :location site)
                                 (yxl-ivy-views :location site)
                                 helm-github-stars))
+
+(defun yxl-completion/post-init-company ()
+  (with-eval-after-load 'company
+    ;; (define-key company-active-map (kbd "<ESC>") #'company-cancel)
+    (define-key company-active-map (kbd "C-h") nil)
+    (define-key company-active-map (kbd "C-j") #'company-select-next)
+    (define-key company-active-map (kbd "C-k") #'company-select-previous)
+    (define-key company-active-map (kbd "C-n") #'company-select-next)
+    (define-key company-active-map (kbd "C-p") #'company-select-previous)
+    (define-key company-active-map (kbd "C-l") nil)))
 
 (defun yxl-completion/post-init-helm ()
   (with-eval-after-load 'helm

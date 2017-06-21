@@ -2,7 +2,6 @@
                             ess
                             python
                             imenu-list
-                            company
                             hippie-exp
                             projectile
                             magit
@@ -73,16 +72,6 @@
           (imenu-list-minor-mode))
       (select-window (get-buffer-window imenu-list-buffer-name)))
     (spacemacs/set-leader-keys "bI" #'imenu-list-select-window)))
-
-(defun yxl-config/post-init-company ()
-  (with-eval-after-load 'company
-    ;; (define-key company-active-map (kbd "<ESC>") #'company-cancel)
-    (define-key company-active-map (kbd "C-h") nil)
-    (define-key company-active-map (kbd "C-j") #'company-select-next)
-    (define-key company-active-map (kbd "C-k") #'company-select-previous)
-    (define-key company-active-map (kbd "C-n") #'company-select-next)
-    (define-key company-active-map (kbd "C-p") #'company-select-previous)
-    (define-key company-active-map (kbd "C-l") nil)))
 
 (defun yxl-config/post-init-hippie-exp ()
   (define-key evil-insert-state-map (kbd "C-p") #'previous-line))
