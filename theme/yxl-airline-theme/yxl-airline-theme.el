@@ -28,16 +28,16 @@ url: https://github.com/mkaito/base16-emacs")
          (insert-center-foreground color-active-fg) (insert-center-background color-insert-bg)
 
          (visual-outer-foreground  color-state-fg) (visual-outer-background  color-visual-bg)
-         (visual-inner-foreground  color-active-fg) (visual-inner-background  color-bg-alt)
-         (visual-center-foreground color-active-fg) (visual-center-background color-bg)
+         (visual-inner-foreground  color-active-fg) (visual-inner-background  color-visual-bg)
+         (visual-center-foreground color-active-fg) (visual-center-background color-visual-bg)
 
          (replace-outer-foreground  color-state-fg) (replace-outer-background  color-replace-bg)
-         (replace-inner-foreground  color-active-fg) (replace-inner-background  color-bg-alt)
-         (replace-center-foreground color-active-fg) (replace-center-background color-bg)
+         (replace-inner-foreground  color-active-fg) (replace-inner-background  color-replace-bg)
+         (replace-center-foreground color-active-fg) (replace-center-background color-replace-bg)
 
          (emacs-outer-foreground  color-state-fg) (emacs-outer-background  color-emacs-bg)
-         (emacs-inner-foreground  color-active-fg) (emacs-inner-background  color-bg-alt)
-         (emacs-center-foreground color-active-fg) (emacs-center-background color-bg)
+         (emacs-inner-foreground  color-active-fg) (emacs-inner-background  color-emacs-bg)
+         (emacs-center-foreground color-active-fg) (emacs-center-background color-emacs-bg)
 
          (inactive1-foreground color-inactive-fg) (inactive1-background color-bg)
          (inactive2-foreground color-inactive-fg) (inactive2-background color-bg)
