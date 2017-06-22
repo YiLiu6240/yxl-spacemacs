@@ -495,7 +495,7 @@
             `(ido-vertical-match-face ((,class (:foreground ,comp :underline nil))))
 
 ;;;;; iedit
-            `(iedit-occurrence ((,class (:inherit highlight :background ,mat))))
+            `(iedit-occurrence ((,class (:inherit highlight :foreground ,mat))))
 
 ;;;;; info
             `(info-header-xref ((,class (:foreground ,func :underline t))))
