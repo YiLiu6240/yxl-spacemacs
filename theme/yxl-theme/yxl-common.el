@@ -95,12 +95,12 @@
             (head4-bg      (cond ((eq variant 'solar-dark) (if (true-color-p) "#32322c" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#f6f1e1" "#ffffff"))))
             ;; highlighted area, NOTE: this should be different from line highlight
             (highlight     (cond ((eq variant 'solar-dark) (if (true-color-p) "#1d4250" "#3c3836")) ((eq variant 'gruv-dark) (if (true-color-p) "#504945" "#3c3836")) ((eq variant 'gruv-light) (if (true-color-p) "#bdae93" "#bdae93")) (t (if (true-color-p) "#1d4250" "#d7d7ff"))))
-            ;; (keyword       (if (eq variant 'solar-dark) (if (true-color-p) "#859900" "#33859e") (if (true-color-p) "#859900" "#33859e")))
-            (keyword       (cond ((eq variant 'solar-dark) (if (true-color-p) "#679a01" "#a16946")) ((eq variant 'gruv-dark) (if (true-color-p) "#fe8019" "#d75f5f")) ((eq variant 'gruv-light) (if (true-color-p) "#af3a03" "#af3a03")) (t (if (true-color-p) "#679a01" "#33859e"))))
+            ;; keywrod
+            (keyword       (cond ((eq variant 'solar-dark) (if (true-color-p) "#679a01" "#a16946")) ((eq variant 'gruv-dark) (if (true-color-p) "#ef5350" "#d75f5f")) ((eq variant 'gruv-light) (if (true-color-p) "#af3a03" "#af3a03")) (t (if (true-color-p) "#679a01" "#33859e"))))
             ;; line numbers
             (lnum          (cond ((eq variant 'solar-dark) (if (true-color-p) "#586e75" "#767676")) ((eq variant 'gruv-dark) (if (true-color-p) "#665c54" "#665c54")) ((eq variant 'gruv-light) (if (true-color-p) "#928374" "#928374")) (t (if (true-color-p) "#44505c" "#af87af"))))
             ;; matched, matching parens, brackets, tags
-            (mat           (cond ((eq variant 'solar-dark) (if (true-color-p) "#86dc2f" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#8ec07c" "#8ec07c")) ((eq variant 'gruv-light) (if (true-color-p) "#79740e" "#79740e")) (t (if (true-color-p) "#86dc2f" "#af005f"))))
+            (mat           (cond ((eq variant 'solar-dark) (if (true-color-p) "#86dc2f" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#fabd2f" "#fabd2f")) ((eq variant 'gruv-light) (if (true-color-p) "#fabd2f" "#fabd2f")) (t (if (true-color-p) "#86dc2f" "#af005f"))))
             ;; meta, org's meta line
             (meta          (cond ((eq variant 'solar-dark) (if (true-color-p) "#6c71c4" "#689d6a")) ((eq variant 'gruv-dark) (if (true-color-p) "#689d6a" "#689d6a")) ((eq variant 'gruv-light) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#6c71c4" "#df5f5f"))))
             ;; string
@@ -136,8 +136,8 @@
             ;; TODO: add violet
             (magenta       (cond ((eq variant 'solar-dark) (if (true-color-p) "#d33682" "#b16286")) ((eq variant 'gruv-dark) (if (true-color-p) "#b16286" "#d787af")) ((eq variant 'gruv-light) (if (true-color-p) "#8f3f71" "#8f3f71")) (t (if (true-color-p) "#a31db1" "#800080"))))
             (yellow        (cond ((eq variant 'solar-dark) (if (true-color-p) "#b58900" "#d79921")) ((eq variant 'gruv-dark) (if (true-color-p) "#d79921" "#ff8700")) ((eq variant 'gruv-light) (if (true-color-p) "#b57614" "#b57614")) (t (if (true-color-p) "#b58900" "#875f00"))))
-            (yellow-bg     (cond ((eq variant 'solar-dark) (if (true-color-p) "#32322c" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#b57614" "#b57614")) ((eq variant 'gruv-light) (if (true-color-p) "#fabd2f" "#fabd2f")) (t (if (true-color-p) "#f6f1e1" "#ffffff"))))
-            )
+            (yellow-bg     (cond ((eq variant 'solar-dark) (if (true-color-p) "#32322c" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#b57614" "#b57614")) ((eq variant 'gruv-light) (if (true-color-p) "#fabd2f" "#fabd2f")) (t (if (true-color-p) "#f6f1e1" "#ffffff")))))
+
 
            custom-colors-override
 
@@ -176,7 +176,7 @@
             `(link ((,class (:foreground ,comment))))
             `(link-visited ((,class (:foreground ,comp))))
             `(match ((,class (:foreground ,mat :weight bold))))
-            `(minibuffer-prompt ((,class (:inherit bold :foreground ,keyword))))
+            `(minibuffer-prompt ((,class (:inherit bold :foreground ,func))))
             `(page-break-lines ((,class (:foreground ,act2))))
             `(region ((,class (:background ,highlight))))
             `(secondary-selection ((,class (:background ,bg3))))
@@ -510,7 +510,7 @@
             `(info-title-4 ((,class (:height 1.2))))
 
 ;;;;; ivy
-            `(ivy-current-match ((,class (:background ,ttip-sl :foreground ,base))))
+            `(ivy-current-match ((,class (:background ,ttip-sl))))
             `(ivy-minibuffer-match-face-1 ((,class (:inherit bold))))
             `(ivy-minibuffer-match-face-2 ((,class (:inherit match :underline t))))
             `(ivy-minibuffer-match-face-3 ((,class (:foreground ,head4 :underline t))))
@@ -549,6 +549,7 @@
 
 ;;;;; linum-mode
             `(linum ((,class (:foreground ,lnum :background ,bg1))))
+            `(nlinum-current-line ((,class (:foreground ,comp :background ,bg1))))
 
 ;;;;; linum-relative
             `(linum-relative-current-face ((,class (:foreground ,comp))))
@@ -569,8 +570,8 @@
             `(magit-branch-local ((,class (:background ,blue-bg :foreground ,blue :inherit bold))))
             `(magit-branch-remote ((,class (:background ,aqua-bg :foreground ,aqua :inherit bold))))
             `(magit-diff-context-highlight ((,class (:background ,bg2 :foreground ,base))))
-            `(magit-diff-file-header ((,class (:background ,comment-bg :foreground ,orange))))
-            `(magit-diff-file-heading ((,class (:background ,comment-bg :foreground ,orange))))
+            `(magit-diff-file-header ((,class (:background ,comment-bg :foreground ,func))))
+            `(magit-diff-file-heading ((,class (:background ,comment-bg :foreground ,func))))
             `(magit-diff-file-heading-highlight ((,class (:inherit magit-diff-file-heading))))
             `(magit-diff-hunk-header ((,class (:background ,ttip-bg :foreground ,ttip))))
             `(magit-diff-hunk-heading ((,class (:background ,ttip-bg :foreground ,ttip))))
@@ -783,6 +784,9 @@
             `(term-color-white ((,class (:foreground ,base))))
             `(term-color-yellow ((,class (:foreground ,yellow))))
 
+;;;;; vi-tilde-fringe
+            `(vi-tilde-fringe-face ((,class (:foreground ,comment))))
+
 ;;;;; web-mode
             `(web-mode-builtin-face ((,class (:inherit ,font-lock-builtin-face))))
             `(web-mode-comment-face ((,class (:inherit ,font-lock-comment-face))))
@@ -860,9 +864,9 @@
 
            (custom-theme-set-variables
             theme-name
-            `(ansi-color-names-vector [,bg4 ,red ,green ,yellow ,blue ,magenta ,cyan ,base]))
+            `(ansi-color-names-vector [,bg4 ,red ,green ,yellow ,blue ,magenta ,cyan ,base]))))
 
-           ))
+
 
 
 ;;;###autoload
