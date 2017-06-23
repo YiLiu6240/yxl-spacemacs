@@ -592,7 +592,7 @@
             `(magit-section-heading        ((,class (:foreground ,keyword :inherit bold))))
             `(magit-section-highlight      ((,class (:background ,bg2))))
             `(magit-section-title ((,class (:background ,bg1 :foreground ,keyword :inherit bold))))
-            `(magit-tag ((,class (:foreground ,type :inherit bold :box t))))
+            `(magit-tag ((,class (:foreground ,keyword :inherit bold :box t))))
 
 ;;;;; man
             `(Man-overstrike ((,class (:foreground ,head1 :inherit bold))))
