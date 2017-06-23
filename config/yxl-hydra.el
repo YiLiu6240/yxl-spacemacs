@@ -170,6 +170,10 @@ Hotspot:
 # Project:
 - git-branch: %(if (featurep 'magit) (magit-get-current-branch) \"magit not started\")
 
+# Buffer & Frame:
+- Font-zoomed-scale: %`text-scale-mode-amount
+- Frame-zoomed-scale: %(frame-parameter nil 'zoomed)
+
 # Emacs:
 - browser-func: %`browse-url-browser-function
 
