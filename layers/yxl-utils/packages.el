@@ -46,6 +46,7 @@
               ("tad" . (lambda (x) (yxl-open--linux-command "tad" x)))
               ("vmd" . (lambda (x) (yxl-open--linux-command "vmd" x)))
               ("browser" . (lambda (x) (yxl-open--linux-command "google-chrome" x)))
+              ("qutebrowser" . (lambda (x) (yxl-open--linux-command "qutebrowser" x)))
               ("desktop" . (lambda (x) (yxl-open-in-desktop)))
               ("dired" . (lambda (x) (dired-jump t x)))
               ("directory in terminal" . (lambda (x) (yxl-open-in-terminal)))))
