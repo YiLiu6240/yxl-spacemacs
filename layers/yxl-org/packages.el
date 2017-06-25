@@ -1,5 +1,6 @@
 (setq yxl-org-packages '(org
                          (yxl-org :location site)
+                         (org-display-inline-images-with-background :location site)
                          org-gcal
                          ivy-todo))
 
@@ -29,6 +30,13 @@
     (progn
       (setq yxl-org-task-files yxl-env-org-files))))
 
+(defun yxl-org/init-org-display-inline-images-with-background ()
+  (use-package org-display-inline-images-with-background
+    :after (org)
+    :config
+    (progn
+      (advice-add 'org-display-inline-images :override
+                  #'org-display-inline-images-with-background))))
 
 (defun yxl-org/init-org-gcal ()
   (use-package org-gcal
