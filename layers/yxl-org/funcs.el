@@ -65,13 +65,18 @@
   (setq org-reveal-root
         (format "file:///%s"
                 (expand-file-name "~/dotfiles/external/reveal.js/")))
-  (spacemacs/declare-prefix-for-mode 'org-mode
-    "b" "src-block")
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
     "b" nil
+    "m" nil)
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode
     "bb" #'org-edit-src-code
+    "bn" #'org-next-block
+    "bp" #'org-previous-block
+    "mm" #'org-toggle-latex-fragment
     "r" #'yxl-org-refile-visible
-    "R" #'yxl-org/refile-to-scratch))
+    "R" #'yxl-org/refile-to-scratch)
+  (spacemacs/declare-prefix-for-mode 'org-mode "b" "src-block")
+  (spacemacs/declare-prefix-for-mode 'org-mode "m" "math"))
 
 (defun yxl-org/org-mode-hook ()
   (setq evil-auto-indent nil))
@@ -232,6 +237,9 @@
     "." #'spacemacs/org-agenda-transient-state/body)
   (dolist (agenda yxl-org-agenda-commands)
     (add-to-list 'org-agenda-custom-commands agenda t)))
+
+(defun yxl-org/setup-latex ()
+  (setq org-preview-latex-image-directory ".ltximg/"))
 
 (defun yxl-org/setup-babel ()
   (setq-default org-export-babel-evaluate nil)
