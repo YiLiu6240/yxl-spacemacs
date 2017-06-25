@@ -65,7 +65,11 @@
   (setq org-reveal-root
         (format "file:///%s"
                 (expand-file-name "~/dotfiles/external/reveal.js/")))
+  (spacemacs/declare-prefix-for-mode 'org-mode
+    "b" "src-block")
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
+    "b" nil
+    "bb" #'org-edit-src-code
     "r" #'yxl-org-refile-visible
     "R" #'yxl-org/refile-to-scratch))
 
