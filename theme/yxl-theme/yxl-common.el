@@ -64,19 +64,19 @@
             ;; mode line border color
             (border        (cond ((eq variant 'solar-dark) (if (true-color-p) "#073642" "#504945")) ((eq variant 'gruv-dark) (if (true-color-p) "#504945" "#504945")) ((eq variant 'gruv-light) (if (true-color-p) "#7c6f64" "#7c6f64")) (t (if (true-color-p) "#708183" "#b3b9be"))))
             ;; code block fg
-            (cblk          (cond ((eq variant 'solar-dark) (if (true-color-p) "#cbc1d5" "#b2b2b2")) ((eq variant 'gruv-dark) (if (true-color-p) "#b2b2b2" "#b2b2b2")) ((eq variant 'gruv-light) (if (true-color-p) "#7c6f64" "#7c6f64")) (t (if (true-color-p) "#655370" "#5f5f87"))))
+            (cblk          (cond ((eq variant 'solar-dark) (if (true-color-p) "#839496" "#bdae93")) ((eq variant 'gruv-dark) (if (true-color-p) "#d5c4a1" "#ffdfaf")) ((eq variant 'gruv-light) (if (true-color-p) "#504945" "#504945")) (t (if (true-color-p) "#52676f" "#5f5f87"))))
             ;; code block bg
-            (cblk-bg       (cond ((eq variant 'solar-dark) (if (true-color-p) "#2f2b33" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#32302f" "#32302f")) ((eq variant 'gruv-light) (if (true-color-p) "#ebdbb2" "#ebdbb2")) (t (if (true-color-p) "#e8e3f0" "#ffffff"))))
+            (cblk-bg       (cond ((eq variant 'solar-dark) (if (true-color-p) "#073642" "#504945")) ((eq variant 'gruv-dark) (if (true-color-p) "#32302f" "#32302f")) ((eq variant 'gruv-light) (if (true-color-p) "#ebdbb2" "#ebdbb2")) (t (if (true-color-p) "#e9e2cb" "#d0d0d0"))))
             ;; code block header line
-            (cblk-ln       (cond ((eq variant 'solar-dark) (if (true-color-p) "#827591" "#af5faf")) ((eq variant 'gruv-dark) (if (true-color-p) "#af5faf" "#af5faf")) ((eq variant 'gruv-light) (if (true-color-p) "#af5faf" "#af5faf")) (t (if (true-color-p) "#9380b2" "#af5fdf"))))
+            (cblk-ln       (cond ((eq variant 'solar-dark) (if (true-color-p) "#586e75" "#7c6f64")) ((eq variant 'gruv-dark) (if (true-color-p) "#928374" "#928374")) ((eq variant 'gruv-light) (if (true-color-p) "#928374" "#928374")) (t (if (true-color-p) "#81908f" "#008787"))))
             ;; code block header line bg
-            (cblk-ln-bg    (cond ((eq variant 'solar-dark) (if (true-color-p) "#373040" "#333333")) ((eq variant 'gruv-dark) (if (true-color-p) "#333333" "#333333")) ((eq variant 'gruv-light) (if (true-color-p) "#282828" "#282828")) (t (if (true-color-p) "#ddd8eb" "#dfdfff"))))
+            (cblk-ln-bg    (cond ((eq variant 'solar-dark) (if (true-color-p) "#132b34" "#3c3836")) ((eq variant 'gruv-dark) (if (true-color-p) "#32302f" "#32302f")) ((eq variant 'gruv-light) (if (true-color-p) "#ebdbb2" "#ebdbb2")) (t (if (true-color-p) "#e9e2cb" "#e4e4e4"))))
             ;; cursor/point ???
             (cursor        (cond ((eq variant 'solar-dark) (if (true-color-p) "#e3dedd" "#d0d0d0")) ((eq variant 'gruv-dark) (if (true-color-p) "#d0d0d0" "#d0d0d0")) ((eq variant 'gruv-light) (if (true-color-p) "#d0d0d0" "#d0d0d0")) (t (if (true-color-p) "#100a14" "#121212"))))
             ;; constant
-            (const         (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#d3869b")) ((eq variant 'gruv-dark) (if (true-color-p) "#87af87" "#87af87")) ((eq variant 'gruv-light) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#33859e" "#8700af"))))
+            (const         (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#d3869b")) ((eq variant 'gruv-dark) (if (true-color-p) "#d3869b" "#d3869b")) ((eq variant 'gruv-light) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#33859e" "#8700af"))))
             ;; complementary
-            (comp          (cond ((eq variant 'solar-dark) (if (true-color-p) "#b58900" "#8ec07c")) ((eq variant 'gruv-dark) (if (true-color-p) "#8ec07c" "#8ec07c")) ((eq variant 'gruv-light) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#b58900" "#8700af"))))
+            (comp          (cond ((eq variant 'solar-dark) (if (true-color-p) "#b58900" "#8ec07c")) ((eq variant 'gruv-dark) (if (true-color-p) "#87af87" "#87af87")) ((eq variant 'gruv-light) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#b58900" "#8700af"))))
             ;; errors
             (err           (cond ((eq variant 'solar-dark) (if (true-color-p) "#dc322f" "#cc241d")) ((eq variant 'gruv-dark) (if (true-color-p) "#cc241d" "#cc241d")) ((eq variant 'gruv-light) (if (true-color-p) "#9d0006" "#9d0006")) (t (if (true-color-p) "#dc322f" "#e0211d"))))
             ;; functions
@@ -95,7 +95,7 @@
             (head4-bg      (cond ((eq variant 'solar-dark) (if (true-color-p) "#32322c" "#262626")) ((eq variant 'gruv-dark) (if (true-color-p) "#262626" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#262626" "#262626")) (t (if (true-color-p) "#f6f1e1" "#ffffff"))))
             ;; highlighted area, NOTE: this should be different from line highlight
             (highlight     (cond ((eq variant 'solar-dark) (if (true-color-p) "#1d4250" "#3c3836")) ((eq variant 'gruv-dark) (if (true-color-p) "#504945" "#3c3836")) ((eq variant 'gruv-light) (if (true-color-p) "#bdae93" "#bdae93")) (t (if (true-color-p) "#1d4250" "#d7d7ff"))))
-            ;; keywrod
+            ;; keyword
             (keyword       (cond ((eq variant 'solar-dark) (if (true-color-p) "#679a01" "#a16946")) ((eq variant 'gruv-dark) (if (true-color-p) "#ef5350" "#d75f5f")) ((eq variant 'gruv-light) (if (true-color-p) "#af3a03" "#af3a03")) (t (if (true-color-p) "#679a01" "#33859e"))))
             ;; line numbers
             (lnum          (cond ((eq variant 'solar-dark) (if (true-color-p) "#586e75" "#767676")) ((eq variant 'gruv-dark) (if (true-color-p) "#665c54" "#665c54")) ((eq variant 'gruv-light) (if (true-color-p) "#928374" "#928374")) (t (if (true-color-p) "#44505c" "#af87af"))))
@@ -114,7 +114,7 @@
             ;; tooltip bg
             (ttip-bg       (cond ((eq variant 'solar-dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv-dark) (if (true-color-p) "#1d2021" "#1d2021")) ((eq variant 'gruv-light) (if (true-color-p) "#1d2021" "#1d2021")) (t (if (true-color-p) "#e2e0ea" "#dfdfff"))))
             ;; type
-            (type          (cond ((eq variant 'solar-dark) (if (true-color-p) "#b58900" "#b16286")) ((eq variant 'gruv-dark) (if (true-color-p) "#d3869b" "#d787af")) ((eq variant 'gruv-light) (if (true-color-p) "#d3869b" "#d787af")) (t (if (true-color-p) "#b58900" "#af005f"))))
+            (type          (cond ((eq variant 'solar-dark) (if (true-color-p) "#b58900" "#b16286")) ((eq variant 'gruv-dark) (if (true-color-p) "#8ec07c" "#8ec07c")) ((eq variant 'gruv-light) (if (true-color-p) "#d3869b" "#d787af")) (t (if (true-color-p) "#b58900" "#af005f"))))
             ;; variable
             (var           (cond ((eq variant 'solar-dark) (if (true-color-p) "#33859e" "#458588")) ((eq variant 'gruv-dark) (if (true-color-p) "#83a598" "#87afaf")) ((eq variant 'gruv-light) (if (true-color-p) "#076678" "#076678")) (t (if (true-color-p) "#33859e" "#af5fd7"))))
             ;; warning
@@ -152,7 +152,7 @@
             `(error ((,class (:foreground ,err))))
             `(eval-sexp-fu-flash ((,class (:background ,suc :foreground ,bg1))))
             `(eval-sexp-fu-flash-error ((,class (:background ,err :foreground ,bg1))))
-            `(font-lock-builtin-face ((,class (:foreground ,const))))
+            `(font-lock-builtin-face ((,class (:foreground ,comp))))
             `(font-lock-comment-face ((,class (:foreground ,comment))))
             `(font-lock-constant-face ((,class (:foreground ,const))))
             `(font-lock-doc-face ((,class (:foreground ,str))))
@@ -337,6 +337,9 @@
 ;;;;; ess
             `(ess-function-call-face ((,class (:inherit font-lock-function-name-face :weight normal))))
             `(ess-backquoted-face ((,class (:inherit font-lock-variable-name-face :weight normal))))
+            `(ess-operator-face ((,class (:foreground ,comp))))
+            `(ess-%op%-face ((,class (:inherit ess-operator-face))))
+            `(ess-numbers-face ((,class (:foreground ,const))))
 
 ;;;;; eshell
             `(eshell-ls-archive ((,class (:foreground ,red :inherit bold))))
@@ -479,7 +482,7 @@
             `(highlight-indentation-current-column-face ((,class (:background ,highlight))))
 
 ;;;;; highlight-numbers
-            `(highlight-numbers-number ((,class (:inherit font-lock-type-face))))
+            `(highlight-numbers-number ((,class (:inherit font-lock-constant-face))))
 
 ;;;;; highlight-symbol
             `(highlight-symbol-face ((,class (:background ,bg2))))
@@ -657,11 +660,8 @@
             `(org-agenda-date-weekend ((,class (:inherit bold :foreground ,var))))
             `(org-agenda-done ((,class (:foreground ,suc :height ,(if yxl-theme-org-height 1.2 1.0)))))
             `(org-agenda-structure ((,class (:inherit bold :foreground ,comp))))
-            ;; `(org-block ((,class (:background ,cblk-bg :foreground ,cblk))))
-            `(org-block ((,class (:background ,cblk-bg))))
-            ;; `(org-block-begin-line ((,class (:background ,cblk-ln-bg :foreground ,cblk-ln))))
-            ;; `(org-block-end-line ((,class (:background ,cblk-ln-bg :foreground ,cblk-ln))))
-            `(org-block-begin-line ((,class (:foreground ,comment))))
+            `(org-block ((,class (:background ,cblk-bg :foreground ,cblk))))
+            `(org-block-begin-line ((,class (:background ,cblk-ln-bg :foreground ,cblk-ln))))
             `(org-block-end-line ((,class (:inherit org-block-begin-line))))
             `(org-clock-overlay ((,class (:foreground ,comp))))
             `(org-code ((,class (:foreground ,cyan))))
