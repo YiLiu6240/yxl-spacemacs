@@ -129,7 +129,9 @@
     (define-key markdown-mode-map (kbd "C-M-S-i") #'yxl-text/insert-code-block)
     (define-key markdown-mode-map (kbd "C-c '") #'markdown-edit-code-block)
     (spacemacs/set-leader-keys-for-major-mode #'markdown-mode
-      "bb"  #'markdown-edit-code-block
+      "bb" #'markdown-edit-code-block
+      "bp" #'markdown-backward-block
+      "bn" #'markdown-forward-block
       "oir" #'yxl-text/insert-r-block
       "oic" #'yxl-text/insert-code-block)))
 
