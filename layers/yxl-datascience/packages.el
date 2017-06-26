@@ -15,7 +15,7 @@
 (defun yxl-datascience/init-yxl-dash ()
   (use-package yxl-dash
     :after counsel-dash
-    :commands (yxl-dash-select-docset
+    :commands (yxl-dash-search-docset
                yxl-dash-search-docset-external-browser)
     :init
     (progn
