@@ -603,9 +603,9 @@
             `(Man-underline ((,class (:foreground ,comp :underline t))))
 
 ;;;;; markdown
-            `(markdown-header-face-1 ((,class (:inherit bold :foreground ,head1 :height ,(if yxl-theme-org-height 1.4 1.0)))))
-            `(markdown-header-face-2 ((,class (:inherit bold :foreground ,head2 :height ,(if yxl-theme-org-height 1.2 1.0)))))
-            `(markdown-header-face-3 ((,class (:bold nil :foreground ,head3 :height ,(if yxl-theme-org-height 1.1 1.0)))))
+            `(markdown-header-face-1 ((,class (:inherit bold :foreground ,head1))))
+            `(markdown-header-face-2 ((,class (:inherit bold :foreground ,head2))))
+            `(markdown-header-face-3 ((,class (:bold nil :foreground ,head3))))
             `(markdown-header-face-4 ((,class (:bold nil :foreground ,head4))))
             `(markdown-header-face-5 ((,class (:bold nil :foreground ,head1))))
             `(markdown-header-face-6 ((,class (:bold nil :foreground ,head2))))
@@ -646,9 +646,9 @@
             `(notmuch-tag-flagged ((,class (:foreground ,war))))
 
 ;;;;; org
-            `(org-level-1 ((,class (:inherit bold :foreground ,head1 :height ,(if yxl-theme-org-height 1.3 1.0) :background ,(when yxl-theme-org-highlight head1-bg)))))
-            `(org-level-2 ((,class (:inherit bold :foreground ,head2 :height ,(if yxl-theme-org-height 1.2 1.0) :background ,(when yxl-theme-org-highlight head2-bg)))))
-            `(org-level-3 ((,class (:bold nil :foreground ,head3 :height ,(if yxl-theme-org-height 1.1 1.0) :background ,(when yxl-theme-org-highlight head3-bg)))))
+            `(org-level-1 ((,class (:inherit bold :foreground ,head1 :background ,(when yxl-theme-org-highlight head1-bg)))))
+            `(org-level-2 ((,class (:inherit bold :foreground ,head2 :background ,(when yxl-theme-org-highlight head2-bg)))))
+            `(org-level-3 ((,class (:bold nil :foreground ,head3 :background ,(when yxl-theme-org-highlight head3-bg)))))
             `(org-level-4 ((,class (:bold nil :foreground ,head4 :background ,(when yxl-theme-org-highlight head4-bg)))))
             `(org-level-5 ((,class (:bold nil :foreground ,head1))))
             `(org-level-6 ((,class (:bold nil :foreground ,head2))))
