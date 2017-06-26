@@ -21,13 +21,18 @@
     (progn
       (spacemacs/set-leader-keys
         "dh" #'yxl-dash-search-docset
-        "dH" #'yxl-dash-search-docset-external-browser))
+        "dH" #'yxl-dash-search-docset-external-browser
+        "dq" #'yxl-dash-search-docset-qutebrowser))
     :config
     (progn
       (setq yxl-dash-docset-path "~/Dropbox/dash-docsets")
       (setq yxl-dash-browser-func 'w3m-goto-url-new-session)
       (setq counsel-dash-browser-func yxl-dash-browser-func)
-      (yxl-dash-activate-package-docsets yxl-dash-docset-path))))
+      (yxl-dash-activate-package-docsets yxl-dash-docset-path)
+      (defun yxl-dash-search-docset-qutebrowser ()
+        (interactive)
+        (let ((counsel-dash-browser-func 'browse-url-qutebrowser))
+          (yxl-dash-search-docset))))))
 
 (defun yxl-datascience/init-yxl-doc-portal ()
   (use-package yxl-doc-portal
