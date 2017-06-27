@@ -37,6 +37,7 @@
   (use-package yxl-open
     :config
     (progn
+      (setq browse-url-chromium-program "chromium-browser")
       (setq yxl-open-file-external-commands-linux
             '(("default" . (lambda (x) (browse-url x)))
               ("gvim" . (lambda (x) (yxl-open--linux-command "gvim" x)))
@@ -45,8 +46,9 @@
               ("zathura" . (lambda (x) (yxl-open--linux-command "zathura" x)))
               ("tad" . (lambda (x) (yxl-open--linux-command "tad" x)))
               ("vmd" . (lambda (x) (yxl-open--linux-command "vmd" x)))
-              ("browser" . (lambda (x) (yxl-open--linux-command "google-chrome" x)))
+              ("chrome" . (lambda (x) (browse-url-chrome x)))
               ("qutebrowser" . (lambda (x) (yxl-open--linux-command "qutebrowser" x)))
+              ("chromium" . (lambda (x) (browse-url-chromium x)))
               ("desktop" . (lambda (x) (yxl-open-in-desktop)))
               ("dired" . (lambda (x) (dired-jump t x)))
               ("directory in terminal" . (lambda (x) (yxl-open-in-terminal)))))
