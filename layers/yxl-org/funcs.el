@@ -71,7 +71,9 @@
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
     "bb" #'org-edit-src-code
     "bn" #'org-next-block
+    "bj" #'org-next-block
     "bp" #'org-previous-block
+    "bk" #'org-previous-block
     "mm" #'org-toggle-latex-fragment
     "r" #'yxl-org-refile-visible
     "R" #'yxl-org/refile-to-scratch)

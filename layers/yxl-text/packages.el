@@ -131,7 +131,9 @@
     (spacemacs/set-leader-keys-for-major-mode #'markdown-mode
       "bb" #'markdown-edit-code-block
       "bp" #'markdown-backward-block
+      "bk" #'markdown-backward-block
       "bn" #'markdown-forward-block
+      "bj" #'markdown-forward-block
       "oir" #'yxl-text/insert-r-block
       "oic" #'yxl-text/insert-code-block)))
 
