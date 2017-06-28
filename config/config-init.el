@@ -28,3 +28,6 @@
     (set-face-background 'default "unspecified-bg" frame)))
 (on-frame-open)
 (add-hook 'after-make-frame-functions 'on-frame-open)
+
+(push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
+(push '("ensime" . "melpa-stable") package-pinned-packages)
