@@ -16,7 +16,7 @@
     (define-key company-active-map (kbd "C-k") #'company-select-previous)
     (define-key company-active-map (kbd "C-n") #'company-select-next)
     (define-key company-active-map (kbd "C-p") #'company-select-previous)
-    (define-key company-active-map (kbd "C-l") nil)))
+    (define-key company-active-map (kbd "C-l") #'company-complete-selection)))
 
 (defun yxl-completion/post-init-helm ()
   (with-eval-after-load 'helm

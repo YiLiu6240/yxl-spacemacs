@@ -6,6 +6,9 @@
 (global-set-key (kbd "C-S-y") #'yas-insert-snippet)
 (global-set-key (kbd "C-h") #'delete-backward-char)
 
+(global-set-key (kbd "M--") (lambda () (interactive) (insert "<-")))
+(global-set-key (kbd "C-M--") (lambda () (interactive) (insert "=>")))
+
 (defun yas-or-company ()
   (interactive)
   (if company-mode
