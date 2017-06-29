@@ -677,7 +677,7 @@
             `(org-indent ((,class (:foreground ,bg1))))
             `(org-kbd ((,class (:inherit region :foreground ,base :box (:line-width 1 :style released-button)))))
             `(org-link ((,class (:foreground ,comment))))
-            `(org-meta-line ((,class (:foreground ,comment))))
+            `(org-meta-line ((,class (:foreground ,meta))))
             `(org-mode-line-clock-overrun ((,class (:foreground ,err))))
             `(org-priority ((,class (:foreground ,war :inherit bold))))
             `(org-quote ((,class (:inherit org-block :slant italic))))
