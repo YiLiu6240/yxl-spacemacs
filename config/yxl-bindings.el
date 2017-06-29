@@ -5,7 +5,14 @@
 (global-set-key (kbd "C-S-o") #'company-yasnippet)
 (global-set-key (kbd "C-S-y") #'yas-insert-snippet)
 (global-set-key (kbd "C-h") #'delete-backward-char)
-(global-set-key (kbd "M-<SPC>") #'yas-insert-snippet)
+
+(defun yas-or-company ()
+  (interactive)
+  (if company-mode
+      (call-interactively #'company-yasnippet)
+    (yas-insert-snippet)))
+
+(global-set-key (kbd "M-<SPC>") #'yas-or-company)
 (define-key isearch-mode-map "\C-h" #'isearch-delete-char)
 
 ;; overwrite stock bindings
