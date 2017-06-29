@@ -3,7 +3,8 @@
                           cc-mode
                           ob-ipython
                           graphviz-dot-mode
-                          bash-completion))
+                          bash-completion
+                          scala-mode))
 
 ;; TODO: wrong spec, dont use use-package
 (defun yxl-prog/init-prog-mode ()
@@ -71,3 +72,11 @@
     :init
     (progn
       (bash-completion-setup))))
+
+(defun yxl-prog/init-ob-scala ()
+  (use-package ob-scala))
+
+(defun yxl-prog/init-scala-mode ()
+  (with-eval-after-load 'scala-mode
+    (setq ensime-startup-notification nil)
+    (setq ensime-startup-snapshot-notification nil)))

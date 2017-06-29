@@ -100,9 +100,6 @@
 ;; calendar
 (setq calendar-week-start-day 1)
 
-;; scala
-(setq ensime-startup-notification nil)
-
 ;; --------
 ;; under REVIEW
 ;; --------

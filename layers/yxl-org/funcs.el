@@ -260,4 +260,5 @@
                                                            (ruby .t)
                                                            (sh .t)
                                                            (R .t)
-                                                           (ipython . t))))
+                                                           (ipython . t)
+                                                           (scala . t))))
