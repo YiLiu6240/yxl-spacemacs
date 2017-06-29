@@ -122,7 +122,7 @@
     (setq-default markdown-asymmetric-header t)
     (setq-default markdown-nested-imenu-heading-index t)
     (setq-default markdown-hide-urls nil)
-    (setq-default markdown-fontify-code-blocks-natively t)
+    (setq-default markdown-fontify-code-blocks-natively nil)
     (add-to-list 'markdown-code-lang-modes '("r" . R-mode))
     (add-to-list 'markdown-code-lang-modes '("r," . R-mode))
     (define-key markdown-mode-map (kbd "C-M-i") #'yxl-text/insert-r-block)
