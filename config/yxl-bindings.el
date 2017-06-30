@@ -6,8 +6,14 @@
 (global-set-key (kbd "C-S-y") #'yas-insert-snippet)
 (global-set-key (kbd "C-h") #'delete-backward-char)
 
-(global-set-key (kbd "M--") (lambda () (interactive) (insert "<-")))
-(global-set-key (kbd "C-M--") (lambda () (interactive) (insert "=>")))
+(global-set-key (kbd "M--") (lambda () (interactive)
+                              (if (equal (string (preceding-char)) " ")
+                                  (insert "<- ")
+                                (insert " <- "))))
+(global-set-key (kbd "C-M--") (lambda () (interactive)
+                                (if (equal (string (preceding-char)) " ")
+                                    (insert "=> ")
+                                  (insert " => "))))
 
 (defun yas-or-company ()
   (interactive)
