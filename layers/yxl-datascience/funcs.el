@@ -48,6 +48,7 @@
   (define-key ess-mode-map (kbd "C-c C-.") #'yxl-datascience/insert-pipe)
   (define-key ess-mode-map (kbd "C-<tab>") #'sp-indent-adjust-sexp)
   (define-key ess-mode-map (kbd "C-S-<tab>") #'sp-dedent-adjust-sexp)
+  (define-key ess-mode-map (kbd "C-S-M") (lambda () (interactive) (insert "%>%")))
   (evil-define-key 'normal inferior-ess-mode-map
     (kbd "C-d") #'evil-scroll-down)
   (define-key ess-mode-map (kbd "C-,") #'ess-eval-region-or-line-and-step))
