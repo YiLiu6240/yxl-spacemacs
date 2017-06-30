@@ -182,7 +182,9 @@
 
 (defun yxl-datascience/setup-rdired ()
   (defun yxl-datascience/rdired-config ()
-    (define-key ess-rdired-mode-map "." #'yxl-ess-rdired-hydra/body))
+    (define-key ess-rdired-mode-map "." #'yxl-ess-rdired-hydra/body)
+    (define-key ess-rdired-mode-map "a" #'yxl-ess-rdired-atpoint)
+    (define-key ess-rdired-mode-map "A" #'yxl-ess-rdired-atpoint-pop))
   (add-hook 'ess-rdired-mode-hook #'yxl-datascience/rdired-config)
   (defhydra yxl-ess-rdired-hydra (:color blue :hint nil :columns 4
                                          :pre (setq which-key-inhibit t)
