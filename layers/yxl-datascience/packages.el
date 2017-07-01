@@ -22,16 +22,16 @@
       (spacemacs/set-leader-keys
         "dh" #'yxl-dash-search-docset
         "dH" #'yxl-dash-search-docset-external-browser
-        "dq" #'yxl-dash-search-docset-qutebrowser))
+        "dm" #'yxl-dash-search-docset-chromium))
     :config
     (progn
       (setq yxl-dash-docset-path "~/Dropbox/dash-docsets")
       (setq yxl-dash-browser-func 'w3m-goto-url-new-session)
       (setq counsel-dash-browser-func yxl-dash-browser-func)
       (yxl-dash-activate-package-docsets yxl-dash-docset-path)
-      (defun yxl-dash-search-docset-qutebrowser ()
+      (defun yxl-dash-search-docset-chromium ()
         (interactive)
-        (let ((counsel-dash-browser-func 'browse-url-qutebrowser))
+        (let ((counsel-dash-browser-func #'browse-url-chromium))
           (yxl-dash-search-docset))))))
 
 (defun yxl-datascience/init-yxl-doc-portal ()
@@ -41,9 +41,14 @@
     :init
     (progn
       (spacemacs/set-leader-keys
-        "dp" #'yxl-doc-portal))
+        "dp" #'yxl-doc-portal
+        "dP" #'yxl-doc-portal-chromium))
     :config
     (progn
+      (defun yxl-doc-portal-chromium ()
+        (interactive)
+        (let ((browse-url-browser-function #'browse-url-chromium))
+          (yxl-doc-portal)))
       (setq yxl-dp-docs
             (delete-dups (sort (append yxl-dp-docs
                                        yxl-datascience-additional-docs)
