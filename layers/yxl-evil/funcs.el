@@ -21,7 +21,9 @@
 
     ;; normal and motion state:
     (define-key evil-normal-state-map (kbd "j") #'evil-next-visual-line)
+    (define-key evil-visual-state-map (kbd "j") #'evil-next-visual-line)
     (define-key evil-normal-state-map (kbd "k") #'evil-previous-visual-line)
+    (define-key evil-visual-state-map (kbd "k") #'evil-previous-visual-line)
     ;; "g" related commands
     ;; mark: repalce with evil-middle-of-visual-line
     (define-key evil-motion-state-map "gm" #'evil-goto-mark)
