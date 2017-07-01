@@ -664,7 +664,7 @@
             `(org-block-begin-line ((,class (:background ,cblk-ln-bg :foreground ,cblk-ln))))
             `(org-block-end-line ((,class (:inherit org-block-begin-line))))
             `(org-clock-overlay ((,class (:foreground ,comp))))
-            `(org-code ((,class (:foreground ,cyan))))
+            `(org-code ((,class (:foreground ,base-dim :background ,cblk-bg :weight bold))))
             `(org-column ((,class (:background ,highlight))))
             `(org-column-title ((,class (:background ,highlight))))
             `(org-date ((,class (:underline t :foreground ,comment :slant italic :height 0.8))))
