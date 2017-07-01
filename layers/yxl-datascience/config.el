@@ -16,6 +16,7 @@
     ("R - igraph" . "http://igraph.org/r/doc/00Index.html")
     ("R - cowplot" . "https://cran.r-project.org/web/packages/cowplot/")
     ("R - modelr" . "https://cran.r-project.org/web/packages/modelr/modelr.pdf")
+    ("R - GGally" . "http://ggobi.github.io/ggally/")
     ("R - tidyverse - dplyr" . "http://dplyr.tidyverse.org/reference/index.html")
     ("R - tidyverse - stringr" . "http://stringr.tidyverse.org/reference/index.html")
     ("R - tidyverse - purrr" . "http://purrr.tidyverse.org/reference/index.html")
