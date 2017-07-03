@@ -1,4 +1,4 @@
-(defun yxl-datascience/setup-generic ()
+(defun yxl-datascience/ess-setup-generic ()
   (setq ess-history-file nil)
   ;; no spaces around argument assignment
   (setq ess-R-argument-suffix " = ")
@@ -38,7 +38,7 @@
   (interactive)
   (insert "%>%"))
 
-(defun yxl-datascience/setup-bindings ()
+(defun yxl-datascience/ess-setup-bindings ()
   ;; move "<-" key to "C-c ="
   (setq ess-S-assign "<-")
   (setq ess-smart-S-assign-key (kbd "C-c ="))
@@ -49,16 +49,6 @@
   (define-key ess-mode-map (kbd "C-<tab>") #'sp-indent-adjust-sexp)
   (define-key ess-mode-map (kbd "C-S-<tab>") #'sp-dedent-adjust-sexp)
   (define-key ess-mode-map (kbd "C-S-M")
-    (lambda () (interactive)
-      (if (equal (string (preceding-char)) " ")
-          (insert "%>% ")
-        (insert " %>% "))))
-  (define-key markdown-mode-map (kbd "C-S-M")
-    (lambda () (interactive)
-      (if (equal (string (preceding-char)) " ")
-          (insert "%>% ")
-        (insert " %>% "))))
-  (define-key org-mode-map (kbd "C-S-M")
     (lambda () (interactive)
       (if (equal (string (preceding-char)) " ")
           (insert "%>% ")
@@ -76,7 +66,7 @@
   "Set `evil-shift-width' based on `ess-indent-offset'.")
 ;; (setq-local evil-shift-width ess-indent-offset)
 
-(defun yxl-datascience/setup-imenu ()
+(defun yxl-datascience/ess-setup-imenu ()
   (setq ess-imenu-S-generic-expression
         '(("Functions" "^\\(.+\\)[ \t\n]*=[ \t\n]*function[ ]*" 1)
           ("Functions" "^\\(.+\\)[ \t\n]*<-[ \t\n]*function[ ]*" 1)
@@ -92,7 +82,7 @@
           ("Outline" "^[ \t]*\\(# .+\\)====.*$" 1)
           ("FALSE block" "^\\(if (FALSE) {.*\\)$" 1))))
 
-(defun yxl-datascience/setup-lintr ()
+(defun yxl-datascience/ess-setup-lintr ()
   (with-eval-after-load 'flycheck
     (setq flycheck-lintr-linters
           (concat "with_defaults(assignment_linter=NULL, "
@@ -100,7 +90,7 @@
                   "commented_code_linter=NULL, "
                   "infix_spaces_linter=NULL)"))))
 
-(defun yxl-datascience/set-leader-keys (mode)
+(defun yxl-datascience/ess-set-leader-keys (mode)
   (spacemacs/set-leader-keys-for-major-mode mode
     ";" #'ess-execute
     "a" #'yxl-ess-atpoint
@@ -172,7 +162,7 @@
     "vp" #'ess-R-dv-pprint
     "vt" #'ess-R-dv-ctable))
 
-(defun yxl-datascience/declare-prefix (mode)
+(defun yxl-datascience/ess-declare-prefix (mode)
   (spacemacs/declare-prefix-for-mode mode "ma" "atpoint")
   (spacemacs/declare-prefix-for-mode mode "ms" "repl-interaction")
   (spacemacs/declare-prefix-for-mode mode "mh" "help")
@@ -182,7 +172,7 @@
   (spacemacs/declare-prefix-for-mode mode "mr" "roxygen")
   (spacemacs/declare-prefix-for-mode mode "mo" "user-defined"))
 
-(defun yxl-datascience/setup-ess-help ()
+(defun yxl-datascience/ess-setup-help ()
   (defun yxl-datascience/ess-help-config ()
     (define-key ess-help-mode-map "." #'yxl-ess-help-hydra/body))
   (add-hook 'ess-help-mode-hook #'yxl-datascience/ess-help-config)
@@ -195,7 +185,7 @@
     ("v" ess-display-vignettes "vignettes")
     ("w" ess-help-web-search "web-search")))
 
-(defun yxl-datascience/setup-rdired ()
+(defun yxl-datascience/ess-setup-rdired ()
   (defun yxl-datascience/rdired-config ()
     (define-key ess-rdired-mode-map "." #'yxl-ess-rdired-hydra/body)
     (define-key ess-rdired-mode-map "a" #'yxl-ess-rdired-atpoint)

@@ -5,6 +5,8 @@
                                  (yxl-ess :location site)
                                  (ess-goodies :location site)
                                  ess-view
+                                 markdown-mode
+                                 org-mode
                                  polymode
                                  python))
 
@@ -61,20 +63,20 @@
   (with-eval-after-load 'ess-site
     (advice-add 'ess-set-style
                 :after #'yxl-datascience/ess-set-style-advice)
-    (yxl-datascience/setup-generic)
-    (yxl-datascience/setup-bindings)
-    (yxl-datascience/setup-imenu)
-    (yxl-datascience/setup-rdired)
-    (yxl-datascience/setup-ess-help)
-    (yxl-datascience/setup-lintr)
+    (yxl-datascience/ess-setup-generic)
+    (yxl-datascience/ess-setup-bindings)
+    (yxl-datascience/ess-setup-imenu)
+    (yxl-datascience/ess-setup-rdired)
+    (yxl-datascience/ess-setup-help)
+    (yxl-datascience/ess-setup-lintr)
     (add-hook 'ess-mode-hook #'yxl-datascience/ess-hook)
     (add-hook 'R-mode-hook #'yxl-datascience/R-hook)
     (add-hook 'ess-mode-hook 'smartparens-mode)
     (add-hook 'ess-mode-hook 'fci-mode)
     (add-hook 'ess-mode-hook 'hl-todo-mode)
-    (mapcar #'yxl-datascience/set-leader-keys
+    (mapcar #'yxl-datascience/ess-set-leader-keys
             '(ess-mode ess-julia-mode inferior-ess-mode))
-    (mapcar #'yxl-datascience/declare-prefix
+    (mapcar #'yxl-datascience/ess-declare-prefix
             '(ess-mode ess-julia-mode inferior-ess-mode))
     (yxl-datascience/setup-julia-bindings)))
 
@@ -89,6 +91,24 @@
 (defun yxl-datascience/init-ess-view ()
   (use-package ess-view
     :after ess-site))
+
+(defun yxl-datascience/post-init-markdown-mode ()
+  (with-eval-after-load 'markdown-mode
+    (progn
+      (define-key markdown-mode-map (kbd "C-S-M")
+        (lambda () (interactive)
+          (if (equal (string (preceding-char)) " ")
+              (insert "%>% ")
+            (insert " %>% ")))))))
+
+(defun yxl-datascience/post-init-org-mode ()
+  (with-eval-after-load 'org
+    (progn
+      (define-key org-mode-map (kbd "C-S-M")
+        (lambda () (interactive)
+          (if (equal (string (preceding-char)) " ")
+              (insert "%>% ")
+            (insert " %>% ")))))))
 
 (defun yxl-datascience/init-polymode ()
   (use-package polymode
