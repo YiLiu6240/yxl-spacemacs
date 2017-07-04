@@ -114,9 +114,9 @@
     "sw" #'ess-set-working-directory
     "s:" #'ess-execute
     ;; R helpers
-    "hh" #'ess-display-help-on-object
+    "hh" #'ess-help
+    "hH" #'ess-display-help-on-object
     "hb" #'ess-display-help-in-browser
-    "hH" #'ess-describe-object-at-point
     "ha" #'ess-display-help-apropos
     "hp" #'ess-display-package-index
     "hv" #'ess-display-vignettes
