@@ -97,18 +97,14 @@
     (progn
       (define-key markdown-mode-map (kbd "C-S-M")
         (lambda () (interactive)
-          (if (equal (string (preceding-char)) " ")
-              (insert "%>% ")
-            (insert " %>% ")))))))
+          (yxl-insert-symbol "%>%"))))))
 
 (defun yxl-datascience/post-init-org-mode ()
   (with-eval-after-load 'org
     (progn
       (define-key org-mode-map (kbd "C-S-M")
         (lambda () (interactive)
-          (if (equal (string (preceding-char)) " ")
-              (insert "%>% ")
-            (insert " %>% ")))))))
+          (yxl-insert-symbol "%>%"))))))
 
 (defun yxl-datascience/init-polymode ()
   (use-package polymode
