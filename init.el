@@ -6,7 +6,7 @@
    dotspacemacs-enable-lazy-installation 'unused
    dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(el2markdown)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '(persp-mode
                                     smooth-scrolling
