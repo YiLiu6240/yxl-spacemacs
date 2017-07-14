@@ -62,6 +62,11 @@
 (add-to-list 'display-buffer-alist '("\\*PDF" display-buffer-at-bottom))
 (add-to-list 'display-buffer-alist '("\\*edit-indirect" display-buffer-at-bottom))
 
+(push '("^\*help.+\*$"
+        :regexp t
+        :dedicated t :position bottom :stick t :noselect t :height 0.4)
+      popwin:special-display-config)
+
 ;; yas
 ;; solve an known issue revolving evil visual and yasnippet
 ;; TODO: check if actually need that hook
