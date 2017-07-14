@@ -21,6 +21,7 @@
     ("R - tidyverse - stringr" . "http://stringr.tidyverse.org/reference/index.html")
     ("R - tidyverse - purrr" . "http://purrr.tidyverse.org/reference/index.html")
     ("R - TraMineR" . "http://traminer.unige.ch/doc/00Index.html")
+    ("R - stargazer" . "http://www.jakeruss.com/cheatsheets/stargazer/")
     ("Color - solarized" . "http://ethanschoonover.com/solarized")
     ("Color - gruvbox" . "https://github.com/morhetz/gruvbox")
     ("Color - material" . "https://material.io/guidelines/style/color.html#color-color-palette")
