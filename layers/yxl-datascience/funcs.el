@@ -18,7 +18,8 @@
                         (ess-indent-from-chain-start . t)
                         (ess-indent-with-fancy-comments)))
   (ess-add-style 'yxl-ess-style yxl-ess-style)
-  (setq ess-default-style 'yxl-ess-style)
+  ;; (setq ess-default-style 'yxl-ess-style)
+  (setq ess-default-style 'RStudio)
   (setq ess-fl-keyword:operators (cons "[-=+></%$!(::)]+" 'font-lock-constant-face))
   (setq ess-R-font-lock-keywords
         '((ess-R-fl-keyword:modifiers  . t)
