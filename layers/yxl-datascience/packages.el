@@ -59,6 +59,9 @@
                                        (str2 (car elem2)))
                                    (string-lessp str1 str2)))))))))
 
+(defun yxl-datascience/pre-init-ess ()
+  (setq-default ess-roxy-re "#+'"))
+
 (defun yxl-datascience/post-init-ess ()
   (with-eval-after-load 'ess-site
     (advice-add 'ess-set-style
