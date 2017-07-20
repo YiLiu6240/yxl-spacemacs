@@ -19,6 +19,10 @@
       (call-interactively #'company-yasnippet)
     (yas-insert-snippet)))
 
+(defun yxl-buffer-compilation ()
+  (interactive)
+  (switch-to-buffer "*compilation*"))
+
 (global-set-key (kbd "M-<SPC>") #'yas-or-company)
 (define-key isearch-mode-map "\C-h" #'isearch-delete-char)
 
@@ -31,6 +35,7 @@
   "aa" #'yxl-invoke-applications
   "bB" #'yxl-buffer-switch-same-major-mode
   "bb" #'yxl-buffer-switch
+  "bC" #'yxl-buffer-compilation
   "bh" #'yxl-utils/home
   ;; TODO: rm this with next spacemacs update
   "bM" #'view-echo-area-messages
