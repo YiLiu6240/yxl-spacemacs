@@ -20,6 +20,7 @@
     ("R - tidyverse - dplyr" . "http://dplyr.tidyverse.org/reference/index.html")
     ("R - tidyverse - stringr" . "http://stringr.tidyverse.org/reference/index.html")
     ("R - tidyverse - purrr" . "http://purrr.tidyverse.org/reference/index.html")
+    ("R - tidyverse - rlang" . "http://rlang.tidyverse.org/")
     ("R - TraMineR" . "http://traminer.unige.ch/doc/00Index.html")
     ("R - stargazer" . "http://www.jakeruss.com/cheatsheets/stargazer/")
     ("Color - solarized" . "http://ethanschoonover.com/solarized")
