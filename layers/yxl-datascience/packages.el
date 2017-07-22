@@ -107,6 +107,9 @@
     (progn
       (define-key org-mode-map (kbd "C-S-M")
         (lambda () (interactive)
+          (yxl-insert-symbol "%>%")))
+      (define-key org-mode-map (kbd "S-RET")
+        (lambda () (interactive)
           (yxl-insert-symbol "%>%"))))))
 
 (defun yxl-datascience/init-polymode ()
