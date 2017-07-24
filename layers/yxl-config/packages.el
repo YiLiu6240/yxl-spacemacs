@@ -95,7 +95,7 @@
     ;; magit speedup:
     ;; stop magit from generating diffs when doing commits, slow
     ;; use C-c C-d to show diff again
-    (remove-hook 'server-switch-hook 'magit-commit-diff)
+    ;; (remove-hook 'server-switch-hook 'magit-commit-diff)
     (add-hook 'magit-mode-hook #'visual-line-mode)
     (setq vc-handled-backends nil)
     (setq auto-revert-buffer-list-filter
