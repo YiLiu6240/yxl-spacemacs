@@ -44,9 +44,9 @@ Window Split:
 
 (defhydra yxl-hydra-ace-window (:color blue :hint nil :columns 4
                                        :inherit (yxl-hydra-common/heads))
-  ("m" ace-swap-window "ace: swap window")
+  ("s" ace-swap-window "ace: swap window")
   ("M" ace-maximize-window "ace: max window")
-  ("s" ace-select-window "ace: select window")
+  ("<SPC>" ace-select-window "ace: select window")
   ("d" ace-delete-window "ace: delete window")
   ("p" yxl-ace-window-push-window "ace: push window")
   ("f" yxl-ace-window-fetch-window "ace: fetch window"))
