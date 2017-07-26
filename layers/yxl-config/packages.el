@@ -138,7 +138,8 @@
 
 (defun yxl-config/post-init-neotree ()
   (with-eval-after-load 'neotree
-    (define-key neotree-mode-map "o" #'spacemacs/neotree-expand-or-open)))
+    (define-key neotree-mode-map "o" #'spacemacs/neotree-expand-or-open)
+    (define-key neotree-mode-map "O" #'neotree-enter-ace-window)))
 
 (defun yxl-config/post-init-graphviz ()
   (with-eval-after-load 'graphviz-dot-mode
