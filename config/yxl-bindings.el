@@ -9,9 +9,12 @@
 (global-set-key (kbd "M--") (lambda ()
                               (interactive)
                               (yxl-insert-symbol "<-")))
+
 (global-set-key (kbd "M-=") (lambda ()
                                 (interactive)
                                 (yxl-insert-symbol "=>")))
+
+(global-set-key (kbd "C-;") #'neotree-toggle)
 
 (defun yas-or-company ()
   (interactive)

@@ -137,9 +137,17 @@
     (yxl-config/setup-ibuffer-bindings)))
 
 (defun yxl-config/post-init-neotree ()
+  (defun yxl-neotree-enter-external ()
+    "Open with a program from a list of registered programs."
+    (interactive)
+    (neo-buffer--execute nil 'yxl-neo-open-file-external 'neo-open-dir))
+  (defun yxl-neo-open-file-external (full-path arg)
+    "Open with a program from a list of registered programs."
+    (yxl-open-file-external full-path))
   (with-eval-after-load 'neotree
     (define-key neotree-mode-map "o" #'spacemacs/neotree-expand-or-open)
-    (define-key neotree-mode-map "O" #'neotree-enter-ace-window)))
+    (define-key neotree-mode-map "O" #'neotree-enter-ace-window)
+    (define-key neotree-mode-map "x" #'yxl-neotree-enter-external)))
 
 (defun yxl-config/post-init-graphviz ()
   (with-eval-after-load 'graphviz-dot-mode
