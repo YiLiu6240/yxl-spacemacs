@@ -1,5 +1,6 @@
 (setq yxl-dired-packages '(dired
                            (yxl-dired :location site)
+                           helm-dired-history
                            peep-dired
                            image+
                            dired-quick-sort
@@ -44,6 +45,10 @@
         "OO" #'dired-find-file-other-window
         "Os" #'yxl-dired-open-aw-horz
         "Ov" #'yxl-dired-open-aw-vert))))
+
+(defun yxl-dired/init-helm-dired-history ()
+  (use-package helm-dired-history
+    :after dired))
 
 (defun yxl-dired/init-image+ ()
   (use-package image+
