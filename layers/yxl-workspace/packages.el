@@ -8,6 +8,9 @@
     :after (ace-window)
     :config
     (progn
+      (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l
+                         ?q ?w ?e ?r ?t ?y ?u ?i ?o ?p
+                         ?z ?x ?c ?v ?b ?n ?m))
       (with-eval-after-load 'counsel
         (ivy-add-actions 'counsel-find-file
                          '(("O" yxl-ace-window-open "dispatch to an ace window")

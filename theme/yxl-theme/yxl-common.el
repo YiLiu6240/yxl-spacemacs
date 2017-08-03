@@ -189,7 +189,7 @@
             `(italic ((,class (:foreground ,cyan :slant italic))))
 
 ;;;;; ace-window
-            `(aw-leading-char-face ((,class (:foreground ,keyword :weight bold))))
+            `(aw-leading-char-face ((,class (:foreground ,keyword :weight bold :height 3.0))))
 
 ;;;;; ahs
             `(ahs-face ((,class (:background ,highlight))))
