@@ -1,1 +1,1 @@
-(yxl-hydra-hotspot/body)
+(org-agenda nil "A")
