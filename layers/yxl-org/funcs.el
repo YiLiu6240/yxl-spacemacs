@@ -154,7 +154,7 @@
   (setq org-todo-keywords
         '((sequence
            "INBOX(i)"                   ;; ideas, undecided
-           "TODAY(T)"                       ;; needs to be done today
+           "DO(T)"                       ;; needs to be done today
            "TODO(t)"                        ;; needs to be done
            "NEXT(n)"                        ;; next in line
            "HOLD(H)"                        ;; put on hold for various reasons
@@ -166,7 +166,7 @@
            "|" "DONE(d)" "CANCELED(C)" "ABORT(A)" "FAILED(F)")))
   (setq org-todo-keyword-faces
         `(("INBOX" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
-          ("TODAY" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-warning-face :foreground)))
+          ("DO" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-warning-face :foreground)))
           ("TODO" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
           ("HOLD" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
           ("NEXT" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-constant-face :foreground)))

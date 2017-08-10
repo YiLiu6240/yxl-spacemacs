@@ -9,7 +9,7 @@
      ((agenda "Agenda" ((org-agenda-ndays 7)
                         (org-agenda-start-day "-2d")))
       (alltodo "" ((org-agenda-files (list yxl-file-org-scratch))))
-      (todo "TODAY|TODO"
+      (todo "DO|TODO"
             ((org-agenda-files yxl-org-agenda-files-life)))
       (todo "INBOX|QUICK|HAVE-A-LOOK"
             ((org-agenda-files yxl-org-agenda-files-life)))
@@ -20,7 +20,7 @@
                         (org-agenda-start-day "-7d")
                         (org-agenda-files yxl-org-agenda-files-life)
                         (org-agenda-repeating-timestamp-show-all t)))
-      (todo "TODAY"
+      (todo "DO"
             ((org-agenda-files yxl-org-agenda-files-life)))
       (todo "INBOX|QUICK|HAVE-A-LOOK"
             ((org-agenda-files yxl-org-agenda-files-life)))
@@ -29,7 +29,7 @@
       (todo "FOLLOW-UP|SOMEDAY"
             ((org-agenda-files yxl-org-agenda-files-life)))))
     ("1" "Work -- todo list"
-     ((todo "TODAY"
+     ((todo "DO"
             ((org-agenda-files yxl-org-agenda-files-work)))
       (todo "INBOX|QUICK|HAVE-A-LOOK"
             ((org-agenda-files yxl-org-agenda-files-work)))
@@ -42,7 +42,7 @@
                         (org-agenda-start-day "-7d")
                         (org-agenda-files yxl-org-agenda-files-work)
                         (org-agenda-repeating-timestamp-show-all t)))
-      (todo "TODAY"
+      (todo "DO"
             ((org-agenda-files yxl-org-agenda-files-work)))
       (todo "INBOX|QUICK|HAVE-A-LOOK"
             ((org-agenda-files yxl-org-agenda-files-work)))
@@ -55,7 +55,7 @@
                         (org-agenda-start-day "-7d")
                         (org-agenda-files yxl-org-agenda-files-work)
                         (org-agenda-repeating-timestamp-show-all t)))
-      (todo "TODAY"
+      (todo "DO"
             ((org-agenda-files yxl-org-agenda-files-work)))
       (todo "INBOX|QUICK|HAVE-A-LOOK"
             ((org-agenda-files yxl-org-agenda-files-work)))

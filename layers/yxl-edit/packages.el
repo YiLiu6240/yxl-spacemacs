@@ -66,7 +66,7 @@
   (with-eval-after-load 'hl-todo
     (setq-default hl-todo-keyword-faces
                   `(("HOLD" . (:weight bold :foreground ,(face-foreground 'font-lock-function-name-face)))
-                    ("TODAY" . (:weight bold :foreground ,(face-foreground 'font-lock-warning-face)))
+                    ("DO" . (:weight bold :foreground ,(face-foreground 'font-lock-warning-face)))
                     ("TODO" . (:weight bold :foreground ,(face-foreground 'font-lock-variable-name-face)))
                     ("NEXT" . (:weight bold :foreground ,(face-foreground 'font-lock-constant-face)))
                     ("PROG" . (:weight bold :foreground ,(face-foreground 'font-lock-function-name-face)))
