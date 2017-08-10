@@ -86,6 +86,7 @@
           ("Data" "^\\(.+\\)[ \t\n]-*<-[ \t\n]*\\(read\\|.*data\.frame\\).*(" 1)
           ("Outline" "^[ \t]*\\(# .+\\)----.*$" 1)
           ("Outline" "^[ \t]*\\(# .+\\)====.*$" 1)
+          ("Knitr-Outline" "^#' \\(#+ .+\\)$" 1)
           ("FALSE block" "^\\(if (FALSE) {.*\\)$" 1))))
 
 (defun yxl-datascience/ess-setup-lintr ()
