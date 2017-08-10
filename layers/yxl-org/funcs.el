@@ -227,7 +227,8 @@
 
 (defun yxl-org/setup-agenda ()
   ;; agenda file
-  (setq org-agenda-files yxl-env-org-files)
+  (setq org-agenda-files (append yxl-env-org-files
+                                 (directory-files "~/local-repo" t)))
   ;; agenda view: 1 month
   (setq org-agenda-span 'week)
   (setq org-agenda-format-date 'yxl-org-agenda-format-date-aligned)

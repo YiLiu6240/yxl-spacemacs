@@ -4,7 +4,13 @@
   (list yxl-file-org-scratch))
 
 (defvar yxl-org-agenda-commands
-  '(
+  '(("A" "Agenda Augmented"
+     ((agenda "Agenda" ((org-agenda-ndays 7)
+                        (org-agenda-start-day "-2d")))
+      (todo "DO")
+      (todo "TODO")
+      (todo "INBOX")
+      (todo "WIP")))
     ("0" "Quick Todo List"
      ((agenda "Agenda" ((org-agenda-ndays 7)
                         (org-agenda-start-day "-2d")))
