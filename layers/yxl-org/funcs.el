@@ -239,7 +239,14 @@
     "E" #'org-agenda-entry-text-mode
     "." #'spacemacs/org-agenda-transient-state/body)
   (dolist (agenda yxl-org-agenda-commands)
-    (add-to-list 'org-agenda-custom-commands agenda t)))
+    (add-to-list 'org-agenda-custom-commands agenda t))
+  (setq org-agenda-prefix-format
+        '((agenda . " %i %-12:c%?-12t%s")
+          (timeline . "  %s")
+          ;; (todo . " %i %-12:c %b")
+          (todo . " %(format \"%s/%s\" (file-name-nondirectory (directory-file-name (file-name-directory (buffer-file-name)))) (file-name-nondirectory (buffer-file-name))) ")
+          (tags . " %i %-12:c")
+          (search . " %i %-12:c"))))
 
 (defun yxl-org/setup-latex ()
   (setq org-preview-latex-image-directory ".ltximg/"))
