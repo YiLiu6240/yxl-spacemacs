@@ -165,14 +165,13 @@
            "SOMEDAY(s)"                     ;; not now
            "|" "DONE(d)" "CANCELED(C)" "ABORT(A)" "FAILED(F)")))
   (setq org-todo-keyword-faces
-        `(("INBOX" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
+        `(("INBOX" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-constant-face :foreground)))
           ("DO" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-warning-face :foreground)))
           ("TODO" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
           ("HOLD" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
           ("NEXT" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-constant-face :foreground)))
-          ("FOLLOW" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
-          ("PROJ" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-type-face :foreground)))
-          ("WIP" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-type-face :foreground)))
+          ("FOLLOW" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-builtin-face :foreground)))
+          ("WIP" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-builtin-face :foreground)))
           ("DONE" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-comment-face :foreground)))))
   (setq org-tag-faces
         `(("CTW" . (:weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
