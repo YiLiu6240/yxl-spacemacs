@@ -1,7 +1,5 @@
 (defun yxl-dired/general-config ()
-  (setq line-spacing 4)
-  (dired-hide-details-mode -1)
-  (dired-omit-mode nil))
+  (setq line-spacing 4))
 
 (defun yxl-dired/bindings-setup ()
   (define-key dired-mode-map "z" 'dired-zip-files)
