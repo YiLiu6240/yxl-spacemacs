@@ -77,6 +77,8 @@
   "qf" #'spacemacs/frame-killer
   "sJ" #'yxl-imenu-anywhere
   "tv" #'visual-fill-column-mode
+  "w0" #'delete-other-windows
+  "w1" #'delete-other-windows
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus
