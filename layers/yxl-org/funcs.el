@@ -158,10 +158,9 @@
            "TODO(t)"                        ;; needs to be done
            "NEXT(n)"                        ;; next in line
            "HOLD(H)"                        ;; put on hold for various reasons
-           "WIP(I)"
-           "PROJ(p)"
            "PLAN(P)"                        ;; still under planning
            "FOLLOW(f)"                   ;; follow-up results
+           "REVIEW(r)"
            "SOMEDAY(s)"                     ;; not now
            "|" "DONE(d)" "CANCELED(C)" "ABORT(A)" "FAILED(F)")))
   (setq org-todo-keyword-faces
