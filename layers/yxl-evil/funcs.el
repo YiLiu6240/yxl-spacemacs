@@ -113,6 +113,19 @@
     (kbd "C-p") #'comint-previous-input
     (kbd "C-n") #'comint-next-input))
 
+(defun evil-surround-str-block ()
+  "Read a string block, and surround the selection with this block."
+  (let ((str-block (read-from-minibuffer "" "")))
+    (cons (format "%s" (or str-block ""))
+          (format "%s" (or str-block "")))))
+
+(defun evil-surround-str-block-space ()
+  "Read a string block, and surround the selection with this block, padded
+with spaces."
+  (let ((str-block (read-from-minibuffer "" "")))
+    (cons (format "%s " (or str-block ""))
+          (format " %s" (or str-block "")))))
+
 (defun yxl-evil/evil-surround-pairs ()
   "press viw then press the trigger key"
   (push '(?g . ("{" . "}")) evil-surround-pairs-alist)
@@ -124,7 +137,9 @@
   (push '(?n . ("\\[" . "\\]")) evil-surround-pairs-alist)
   (push '(?N . ("\\[ " . " \\]")) evil-surround-pairs-alist)
   (push '(?k . ("$ " . " $")) evil-surround-pairs-alist)
-  (push '(?K . ("$" . "$")) evil-surround-pairs-alist))
+  (push '(?K . ("$" . "$")) evil-surround-pairs-alist)
+  (push '(?r . evil-surround-str-block) evil-surround-pairs-alist)
+  (push '(?R . evil-surround-str-block-space) evil-surround-pairs-alist))
 
 (defun yxl-evil/setup-evilified ()
   (when (boundp 'evil-evilified-state-map-original)
