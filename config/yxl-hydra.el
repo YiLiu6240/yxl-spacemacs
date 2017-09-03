@@ -186,7 +186,10 @@ Hotspot:
 
  [_att_/_atd_/_atD_]: timer:start/stop/down
 "
+
   ("," #'eval-expression "M-:")
+
+  ("<RET>" #'make-frame "make-frame")
   ("d" #'delete-frame  "delete-frame")
 
   ("Su" (lambda ()
