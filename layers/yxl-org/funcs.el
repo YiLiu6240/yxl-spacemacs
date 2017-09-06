@@ -50,7 +50,8 @@
   (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-sticky t)
   (setq org-highlight-latex-and-related '(latex script entities))
-  (setq org-blank-before-new-entry nil)
+  (setq org-blank-before-new-entry '((heading . auto)
+                                     (plain-list-item . auto)))
   (setq org-fontify-whole-heading-line t)
   (setq org-refile-use-outline-path t)
   (setq org-refile-targets '((nil :maxlevel . 1)
@@ -162,12 +163,12 @@
            "FOLLOW(f)"                   ;; follow-up results
            "REVIEW(r)"
            "SOMEDAY(s)"                     ;; not now
-           "|" "DONE(d)" "CANCELED(C)" "ABORT(A)" "FAILED(F)")))
+           "|" "DONE(d)" "ABORT(A)" "FAILED(F)")))
   (setq org-todo-keyword-faces
         `(("INBOX" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-constant-face :foreground)))
           ("DO" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-warning-face :foreground)))
           ("TODO" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
-          ("HOLD" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
+          ("HOLD" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-string-face :foreground)))
           ("NEXT" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-constant-face :foreground)))
           ("FOLLOW" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-builtin-face :foreground)))
           ("WIP" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-builtin-face :foreground)))
