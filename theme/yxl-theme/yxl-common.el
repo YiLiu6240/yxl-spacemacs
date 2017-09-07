@@ -612,6 +612,7 @@
             `(markdown-header-rule-face ((,class (:inherit bold :foreground ,comment))))
             `(markdown-hr-face ((,class (:foreground ,comment))))
             `(markdown-markup-face ((,class (:foreground ,comment))))
+            `(markdown-list-face ((,class (:inherit bold))))
             `(markdown-link-face ((,class (:inherit link))))
             `(markdown-bold-face ((,class (:weight bold))))
             `(markdown-italic-face ((,class (:slant italic))))
