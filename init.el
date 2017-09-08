@@ -74,7 +74,7 @@
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
 
      ;; major util modes
-     (elfeed :packages (not elfeed-org))
+     ;; (elfeed :packages (not elfeed-org))
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      (syntax-checking :variables

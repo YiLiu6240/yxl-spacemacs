@@ -2,7 +2,7 @@
                          helm-w3m
                          sx
                          elfeed
-                         (yxl-elfeed :location site)
+                         ;; (yxl-elfeed :location site)
                          (yxl-web :location site)
                          atomic-chrome
                          helm-chrome))
