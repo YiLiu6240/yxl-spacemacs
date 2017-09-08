@@ -235,9 +235,9 @@
   (setq org-agenda-span 'week)
   (setq org-agenda-format-date 'yxl-org-agenda-format-date-aligned)
   ;; org agenda time grid
-  (setq org-agenda-time-grid '((daily today)
-                               "----------------"
-                               (0900 1100 1300 1500 1700)))
+  ;; (setq org-agenda-time-grid '((daily today)
+  ;;                              "----------------"
+  ;;                              (0900 1100 1300 1500 1700)))
   (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
     "E" #'org-agenda-entry-text-mode
     "." #'spacemacs/org-agenda-transient-state/body)
