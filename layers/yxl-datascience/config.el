@@ -5,6 +5,7 @@
     ("Cpp - Armadillo" . "http://arma.sourceforge.net/docs.html")
     ("Python - strftime" . "http://strftime.org/")
     ("Python - string format" . "https://pyformat.info/")
+    ("EIN" . "http://millejoh.github.io/emacs-ipython-notebook/")
     ("GFM" . "https://guides.github.com/features/mastering-markdown/")
     ("org-babel" . "http://orgmode.org/manual/Specific-header-arguments.html")
     ("R - adv-r" . "http://adv-r.had.co.nz/")
