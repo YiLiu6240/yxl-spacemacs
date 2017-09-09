@@ -259,3 +259,7 @@
 (defun yxl-datascience/setup-julia-bindings ()
   (spacemacs/set-leader-keys-for-major-mode 'ess-julia-mode
     "<tab>" #'julia-latexsub-or-indent))
+
+(defun yxl-datascience/setup-ein ()
+  (spacemacs/set-leader-keys-for-major-mode 'ein:notebook-multilang-mode
+    "," #'ein:worksheet-execute-cell))

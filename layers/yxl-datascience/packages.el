@@ -8,7 +8,8 @@
                                  markdown-mode
                                  org-mode
                                  polymode
-                                 python))
+                                 python
+                                 ein))
 
 (defun yxl-datascience/init-counsel-dash ()
   (use-package counsel-dash
@@ -130,3 +131,7 @@
   (with-eval-after-load 'python
     (spacemacs/set-leader-keys-for-major-mode 'python-mode
       ";" #'python-shell-send-string)))
+
+(defun yxl-datascience/post-init-ein ()
+  (with-eval-after-load 'ein
+    (yxl-datascience/setup-ein)))
