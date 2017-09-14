@@ -44,7 +44,9 @@
   ;; open main org files
   (yxl-find-file-open-all yxl-env-project-files)
   ;; open scratch as sidebar
-  (yxl-find-file-popup yxl-file-org-scratch side-width)
+  (yxl-find-file-popup yxl-file-org-todo side-width)
+  (split-window-below-and-focus)
+  (find-file yxl-file-org-scratch)
   (split-window-below-and-focus)
   (find-file yxl-file-org-local)
   (evil-window-right 1))
