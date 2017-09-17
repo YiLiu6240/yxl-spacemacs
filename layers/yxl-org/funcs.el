@@ -161,6 +161,7 @@
            "DO(T)"                       ;; needs to be done today
            "TODO(t)"                        ;; needs to be done
            "NEXT(n)"                        ;; next in line
+           "WIP(I)"
            "HOLD(H)"                        ;; put on hold for various reasons
            "PLAN(P)"                        ;; still under planning
            "FOLLOW(f)"                   ;; follow-up results
