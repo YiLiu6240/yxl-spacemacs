@@ -31,7 +31,6 @@
 (setq yxl-file-org-todo (concat yxl-path-org-task "todo.org"))
 (setq yxl-file-org-log (concat yxl-path-org "logs/"))
 (setq yxl-file-org-scratch (concat yxl-path-org-task "scratch.org"))
-(setq yxl-file-org-local "~/scratch-local.org")
 
 (setq yxl-env-org-task-files (list yxl-file-org-scratch
                                    yxl-file-org-todo))
@@ -47,8 +46,6 @@
   (yxl-find-file-popup yxl-file-org-todo side-width)
   (split-window-below-and-focus)
   (find-file yxl-file-org-scratch)
-  (split-window-below-and-focus)
-  (find-file yxl-file-org-local)
   (evil-window-right 1))
 
 (defun yxl-env-update-org-files ()
