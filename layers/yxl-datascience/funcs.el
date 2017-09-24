@@ -87,6 +87,7 @@
           ("Outline" "^[ \t]*\\(# .+\\)----.*$" 1)
           ("Outline" "^[ \t]*\\(# .+\\)====.*$" 1)
           ("Knitr-Outline" "^#' \\(#+ .+\\)$" 1)
+          ("Knitr-chunk" "^#\\+ \\(.+\\)$" 1)
           ("FALSE block" "^\\(if (FALSE) {.*\\)$" 1))))
 
 (defun yxl-datascience/ess-setup-lintr ()
