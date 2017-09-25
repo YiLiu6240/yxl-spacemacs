@@ -38,10 +38,13 @@
   "aa" #'yxl-invoke-applications
   "bB" #'yxl-buffer-switch-same-major-mode
   "bb" #'yxl-buffer-switch
-  "bC" #'yxl-buffer-compilation
+  "boh" (lambda () (interactive)
+          (find-file "~"))
+  "bom" (lambda () (interactive)
+          (switch-to-buffer (get-buffer-create "*Messages*")))
+  "boc" #'yxl-buffer-compilation
   "bh" #'yxl-utils/home
   ;; TODO: rm this with next spacemacs update
-  "bM" #'view-echo-area-messages
   "bm" #'yxl-buffer-switch-same-major-mode
   "bx" #'kill-buffer-and-window
   "ff" #'yxl-find-file-counsel
