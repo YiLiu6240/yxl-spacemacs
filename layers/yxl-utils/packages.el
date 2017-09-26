@@ -7,7 +7,9 @@
                            (simple-todo :location site)
                            (scratch-pop :location site)
                            visual-fill-column
-                           (yxl-invoke-applications :location site)))
+                           (yxl-invoke-applications :location site)
+                           el2markdown
+                           emamux))
 
 (defun yxl-utils/init-yxl-utils ()
   (use-package yxl-utils
@@ -199,3 +201,11 @@
                     (let ((str1 (car elem1))
                           (str2 (car elem2)))
                       (string-lessp str1 str2))))))))
+
+(defun yxl-utils/init-el2markdown ()
+  (use-package el2markdown
+    :defer t))
+
+(defun yxl-utils/init-emamux ()
+  (use-package emamux
+    :defer t))
