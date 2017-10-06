@@ -3,7 +3,8 @@
                            peep-dired
                            image+
                            dired-quick-sort
-                           dired-subtree))
+                           dired-subtree
+                           dired-ranger))
 
 (defun yxl-dired/post-init-dired ()
   (use-package dired
@@ -100,3 +101,16 @@
     (progn
       (setq dired-subtree-use-backgrounds nil)
       (setq dired-subtree-line-prefix "    "))))
+
+(defun yxl-dired/init-dired-ranger ()
+  (use-package dired-ranger
+    :after dired
+    :config
+    (progn
+      (spacemacs/declare-prefix-for-mode 'dired-mode
+        "mr" "dired-ranger")
+      (spacemacs/set-leader-keys-for-major-mode 'dired-mode
+        "rc" #'dired-ranger-copy
+        "ry" #'dired-ranger-copy
+        "rx" #'dired-ranger-move
+        "rp" #'dired-ranger-paste))))
