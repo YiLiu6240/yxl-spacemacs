@@ -33,7 +33,7 @@
     "sD" #'yxl-dired/dired-sort-by-dir
     "td" #'yxl-dired-toggle-dwim-target
     "z"  #'yxl-dired-zip-files
-    "r"  #'revert-buffer
+    "R"  #'revert-buffer
     "h"  #'dired-hide-details-mode
     "H"  #'dired-omit-mode)
   (define-key dired-mode-map (kbd "C-c C-w") #'dired-toggle-read-only)
