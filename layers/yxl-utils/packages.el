@@ -57,7 +57,9 @@
               ("qutebrowser" . (lambda (x) (yxl-open--linux-command "qutebrowser" x)))
               ("chromium" . (lambda (x) (browse-url-chromium x)))
               ("desktop" . (lambda (x) (yxl-open-in-desktop)))
-              ("self exec" . (lambda (x) (shell-command (format "%s" x))))
+              ("self exec" . (lambda (x)
+                               (let ((dir-path (file-name-directory x)))
+                                (shell-command (format "cd %s && %s" dir-path x)))))
               ("dired" . (lambda (x) (dired-jump t x)))
               ("directory in terminal" . (lambda (x) (yxl-open-in-terminal)))))
       (setq yxl-open-file-external-commands-darwin
