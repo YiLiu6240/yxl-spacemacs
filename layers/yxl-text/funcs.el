@@ -76,7 +76,7 @@
   ;; extra line padding
   (add-hook 'LaTeX-mode-hook (lambda () (setq line-spacing 4)))
   (add-hook 'LaTeX-mode-hook (lambda () (setq yxl-line-width 100)))
-  (add-hook 'LaTeX-mode-hook #'visual-fill-column-mode)
+  ;; (add-hook 'LaTeX-mode-hook #'visual-fill-column-mode)
   ;; (add-hook 'LaTeX-mode-hook #'fci-mode)
   ;; (add-hook 'LaTeX-mode-hook (lambda () (auto-fill-mode -1)) t)
   (setq TeX-auto-local ".auto")
