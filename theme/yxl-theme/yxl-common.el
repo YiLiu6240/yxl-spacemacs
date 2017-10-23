@@ -104,7 +104,7 @@
             ;; meta, org's meta line
             (meta          (cond ((eq variant 'solar-dark) (if (true-color-p) "#6c71c4" "#689d6a")) ((eq variant 'gruv-dark) (if (true-color-p) "#689d6a" "#689d6a")) ((eq variant 'gruv-light) (if (true-color-p) "#427b58" "#427b58")) (t (if (true-color-p) "#6c71c4" "#df5f5f"))))
             ;; string
-            (str           (cond ((eq variant 'solar-dark) (if (true-color-p) "#2aa198" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#98971a" "#afaf00")) ((eq variant 'gruv-light) (if (true-color-p) "#79740e" "#79740e")) (t (if (true-color-p) "#2aa198" "#2aa198"))))
+            (str           (cond ((eq variant 'solar-dark) (if (true-color-p) "#2aa198" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#b8bb26" "#afaf00")) ((eq variant 'gruv-light) (if (true-color-p) "#79740e" "#79740e")) (t (if (true-color-p) "#2aa198" "#2aa198"))))
             ;; success
             (suc           (cond ((eq variant 'solar-dark) (if (true-color-p) "#86dc2f" "#98971a")) ((eq variant 'gruv-dark) (if (true-color-p) "#98971a" "#afaf00")) ((eq variant 'gruv-light) (if (true-color-p) "#98971a" "#98971a")) (t (if (true-color-p) "#86dc2f" "#00af00"))))
             ;; tooltip
