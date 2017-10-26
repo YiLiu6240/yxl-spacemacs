@@ -35,11 +35,6 @@
     :after dired
     :config
     (progn
-      (spacemacs/set-leader-keys-for-major-mode 'dired-mode
-        "oo" #'yxl-dired-open-aw
-        "oO" #'dired-find-file-other-window
-        "os" #'yxl-dired-open-aw-horz
-        "ov" #'yxl-dired-open-aw-vert)
       (evilified-state-evilify dired-mode dired-mode-map
         "Oo" #'yxl-dired-open-aw
         "OO" #'dired-find-file-other-window
@@ -105,12 +100,4 @@
 (defun yxl-dired/init-dired-ranger ()
   (use-package dired-ranger
     :after dired
-    :config
-    (progn
-      (spacemacs/declare-prefix-for-mode 'dired-mode
-        "mr" "dired-ranger")
-      (spacemacs/set-leader-keys-for-major-mode 'dired-mode
-        "rc" #'dired-ranger-copy
-        "ry" #'dired-ranger-copy
-        "rx" #'dired-ranger-move
-        "rp" #'dired-ranger-paste))))
+    :config))
