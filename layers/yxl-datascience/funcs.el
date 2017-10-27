@@ -261,6 +261,74 @@
   (spacemacs/set-leader-keys-for-major-mode 'ess-julia-mode
     "<tab>" #'julia-latexsub-or-indent))
 
-(defun yxl-datascience/setup-ein ()
-  (spacemacs/set-leader-keys-for-major-mode 'ein:notebook-multilang-mode
-    "," #'ein:worksheet-execute-cell))
+(defun yxl-datascience/setup-jupyter-leader-keys ()
+  ;; keybindings for ipython notebook traceback mode
+  (spacemacs/set-leader-keys-for-major-mode 'ein:traceback-mode
+    "RET" 'ein:tb-jump-to-source-at-point-command
+    "n" 'ein:tb-next-item
+    "p" 'ein:tb-prev-item
+    "q" 'bury-buffer))
+
+(defun yxl-datascience/setup-jupyter-hydra ()
+  (defhydra yxl-datascince/jupyter-hydra (:color blue :hint nil
+                                                 :pre (setq which-key-inhibit t)
+                                                 :post (setq which-key-inhibit nil))
+    "
+Jupyter Notebook Hydra
+
+ Operations on Cells^^^^^^            On Worksheets^^^^                Other
+ ----------------------------^^^^^^   ------------------------^^^^     ----------------------------------^^^^
+ [_k_/_j_]^^     select prev/next     [_h_/_l_]     select prev/next   [_t_]^^         toggle output
+ [_K_/_J_]^^     move up/down         [_H_/_L_]     move left/right    [_C-l_/_C-S-l_] clear/clear all output
+ [_C-k_/_C-j_]^^ merge above/below    [_w1_.._w9_]  open [1st..last]   [_C-o_]^^       open console
+ [_O_/_o_]^^     insert above/below   [_w+_/_w-_]   create/delete      [_C-s_/_C-r_]   save/rename notebook
+ [_y_/_p_/_d_]   copy/paste           ^^^^                             [_x_]^^         close notebook
+ [_RET_/_C-m_]^^^^    execute          ^^^^                             [_q_]^^     quit transient-state
+"
+    ("q" nil)
+    ("h" ein:notebook-worksheet-open-prev-or-last)
+    ("j" ein:worksheet-goto-next-input :color red)
+    ("k" ein:worksheet-goto-prev-input :color red)
+    ("l" ein:notebook-worksheet-open-next-or-first)
+    ("H" ein:notebook-worksheet-move-prev)
+    ("J" ein:worksheet-move-cell-down :color red)
+    ("K" ein:worksheet-move-cell-up :color red)
+    ("L" ein:notebook-worksheet-move-next)
+    ("t" ein:worksheet-toggle-output :color red)
+    ("d" ein:worksheet-kill-cell)
+    ("R" ein:worksheet-rename-sheet)
+    ("y" ein:worksheet-copy-cell)
+    ("p" ein:worksheet-yank-cell)
+    ("o" ein:worksheet-insert-cell-below)
+    ("O" ein:worksheet-insert-cell-above)
+    ("RET" ein:worksheet-execute-cell-and-goto-next)
+    ("C-m" ein:worksheet-execute-cell-and-goto-next)
+    ;; Output
+    ("C-l" ein:worksheet-clear-output)
+    ("C-S-l" ein:worksheet-clear-all-output)
+    ;;Console
+    ("C-o" ein:console-open)
+    ;; Merge cells
+    ("C-k" ein:worksheet-merge-cell)
+    ("C-j" spacemacs/ein:worksheet-merge-cell-next)
+    ;; Notebook
+    ("C-s" ein:notebook-save-notebook-command)
+    ("C-r" ein:notebook-rename-command)
+
+    ("bb" ein:edit-cell-content "Edit cell content")
+
+    ("w1" ein:notebook-worksheet-open-1th)
+    ("w2" ein:notebook-worksheet-open-2th)
+    ("w3" ein:notebook-worksheet-open-3th)
+    ("w4" ein:notebook-worksheet-open-4th)
+    ("w5" ein:notebook-worksheet-open-5th)
+    ("w6" ein:notebook-worksheet-open-6th)
+    ("w7" ein:notebook-worksheet-open-7th)
+    ("w8" ein:notebook-worksheet-open-8th)
+    ("w9" ein:notebook-worksheet-open-last)
+    ("w+" ein:notebook-worksheet-insert-next)
+    ("w-" ein:notebook-worksheet-delete)
+
+    ("cu" ein:worksheet-change-cell-type "cell: change type")
+
+    ("x" ein:notebook-close)))

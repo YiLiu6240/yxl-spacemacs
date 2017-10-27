@@ -27,7 +27,6 @@
 
      emacs-lisp
      python
-     ipython-notebook
      vimscript
      yaml
      extra-langs

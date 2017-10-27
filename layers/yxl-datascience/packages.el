@@ -132,6 +132,77 @@
     (spacemacs/set-leader-keys-for-major-mode 'python-mode
       ";" #'python-shell-send-string)))
 
-(defun yxl-datascience/post-init-ein ()
-  (with-eval-after-load 'ein
-    (yxl-datascience/setup-ein)))
+(defun yxl-datascience/init-ein ()
+  (use-package ein
+    :defer t
+    :commands ein:notebooklist-open
+    :init
+    (progn
+      (spacemacs/set-leader-keys "ajn" 'ein:notebooklist-open)
+      (spacemacs/set-leader-keys "ajN" 'ein:notebooklist-login)
+      (spacemacs/declare-prefix "aj" "jupyter-notebook")
+      (with-eval-after-load 'ein-notebooklist
+        (evilified-state-evilify-map ein:notebooklist-mode-map
+          :mode ein:notebooklist-mode
+          :bindings
+          (kbd "o") 'spacemacs/ace-buffer-links)
+        (define-key ein:notebooklist-mode-map "o" 'spacemacs/ace-buffer-links)))
+    :config
+    (progn
+      (defun spacemacs/ein:worksheet-merge-cell-next ()
+        (interactive)
+        (ein:worksheet-merge-cell
+         (ein:worksheet--get-ws-or-error) (ein:worksheet-get-current-cell) t t))
+      (defun spacemacs//concat-leader (key)
+        (if dotspacemacs-major-mode-leader-key
+            (concat dotspacemacs-major-mode-leader-key key)
+          (concat "," key)))
+      ;; keybindings mirror ipython web interface behavior
+      (evil-define-key 'insert ein:notebook-multilang-mode-map
+        (kbd "<C-return>") 'ein:worksheet-execute-cell
+        (kbd "<S-return>") 'ein:worksheet-execute-cell-and-goto-next)
+      (evil-define-key 'normal ein:notebook-multilang-mode-map
+        ;; keybindings mirror ipython web interface behavior
+        (kbd "<C-return>") 'ein:worksheet-execute-cell
+        (kbd "<S-return>") 'ein:worksheet-execute-cell-and-goto-next
+        "gj" 'ein:worksheet-goto-next-input
+        "gk" 'ein:worksheet-goto-prev-input)
+      (yxl-datascience/setup-jupyter-leader-keys)
+      (yxl-datascience/setup-jupyter-hydra)
+      (require 'ein-multilang)
+      (define-key ein:notebook-multilang-mode-map (kbd "M-j")
+        'ein:worksheet-move-cell-down)
+      (define-key ein:notebook-multilang-mode-map (kbd "M-k")
+        'ein:worksheet-move-cell-up)
+      (evil-define-key 'normal ein:notebook-multilang-mode-map
+        (kbd ",") 'yxl-datascince/jupyter-hydra/body)
+      (defun ein:notebook-save-notebook-override (notebook
+                                                  retry
+                                                  &optional callback cbargs)
+        (let ((content (ein:content-from-notebook notebook)))
+          (ein:events-trigger (ein:$notebook-events notebook)
+                              'notebook_saving.Notebook)
+          (ein:content-save content
+                            #'ein:notebook-save-notebook-success
+                            (list notebook callback cbargs)
+                            #'ein:notebook-save-notebook-error
+                            (list notebook))))
+      (advice-add 'ein:notebook-save-notebook
+                  :override #'ein:notebook-save-notebook-override)
+      (require 'ein-cell-edit)
+      (defun ein:edit-cell-exit-override ()
+        "Close the EIN source edit buffer, saving contents back to the
+original notebook cell, unless being called via
+`ein:edit-cell-abort'."
+        (interactive)
+        (let ((edit-buffer (current-buffer))
+              (ws ein:src--ws)
+              (cell ein:src--cell))
+          (ein:remove-overlay)
+          (when ein:src--allow-write-back
+            (ein:edit-cell-save))
+          (kill-buffer-and-window)))
+      (advice-add 'ein:edit-cell-exit
+                  :override #'ein:edit-cell-exit-override)
+      (add-hook 'ein:notebook-multilang-mode-hook
+                #'smartparens-mode))))
