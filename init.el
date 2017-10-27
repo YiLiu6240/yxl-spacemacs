@@ -132,8 +132,9 @@
    dotspacemacs-elpa-subdirectory nil
    dotspacemacs-editing-style 'vim
    dotspacemacs-verbose-loading nil
-   dotspacemacs-startup-banner (concat dotspacemacs-directory
-                                       "assets/emacs-china-icon-small.png")
+   ;; dotspacemacs-startup-banner (concat dotspacemacs-directory
+   ;;                                     "assets/emacs-china-icon-small.png")
+   dotspacemacs-startup-banner 0
    dotspacemacs-startup-lists nil
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'fundamental-mode
