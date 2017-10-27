@@ -1,3 +1,7 @@
+;; hydra colors:
+;; - red: continue
+;; - blue: stop
+
 (defhydra yxl-hydra-common (:color blue :hint nil)
   ("." nil "quit")
   ("q" nil "quit"))
