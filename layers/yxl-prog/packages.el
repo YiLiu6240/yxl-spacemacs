@@ -12,7 +12,7 @@
     :defer t
     :init
     (progn
-      (add-hook 'prog-mode-hook 'fci-mode)
+      ;; (add-hook 'prog-mode-hook 'fci-mode)
       (add-hook 'prog-mode-hook 'hl-todo-mode)
       (setq-default lua-indent-level 4)
       (setq-default c-basic-offset 4)

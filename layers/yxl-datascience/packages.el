@@ -76,7 +76,7 @@
     (add-hook 'ess-mode-hook #'yxl-datascience/ess-hook)
     (add-hook 'R-mode-hook #'yxl-datascience/R-hook)
     (add-hook 'ess-mode-hook 'smartparens-mode)
-    (add-hook 'ess-mode-hook 'fci-mode)
+    ;; (add-hook 'ess-mode-hook 'fci-mode)
     (add-hook 'ess-mode-hook 'hl-todo-mode)
     (mapcar #'yxl-datascience/ess-set-leader-keys
             '(ess-mode ess-julia-mode inferior-ess-mode))
