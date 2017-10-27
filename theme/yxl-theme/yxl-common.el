@@ -306,7 +306,7 @@
             `(ediff-odd-diff-C ((,class(:background ,bg4))))
 
 ;;;;; ein
-            `(ein:cell-input-area((,class (:background ,bg2))))
+            `(ein:cell-input-area((,class (:background ,cblk-bg))))
             `(ein:cell-input-prompt ((,class (:foreground ,suc))))
             `(ein:cell-output-prompt ((,class (:foreground ,err))))
             `(ein:notification-tab-normal ((,class (:foreground ,keyword))))
