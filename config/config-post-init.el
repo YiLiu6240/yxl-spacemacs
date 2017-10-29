@@ -86,7 +86,7 @@
 (setq spacemacs-useless-buffers-regexp
       '("*\.\+" "TAGS"))
 (setq spacemacs-useful-buffers-regexp
-      '("\\*scratch\\*" "\\*R:*" "\\*julia:*"))
+      '("\\*scratch\\*" "\\*R:*" "\\*julia:*" "\\*ein:*"))
 
 ;; proselint
 (with-eval-after-load 'flycheck
