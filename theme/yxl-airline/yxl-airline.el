@@ -132,7 +132,7 @@
                                                 (magit-get-current-branch))
                                        (powerline-raw (concat " " (magit-get-current-branch) " " pl-sep) center-face 'lr))
                                      ;; Eyebrowse current tab/window config
-                                     (powerline-raw (concat " " (modeline-get-eyebrowse-tag-current) " " pl-sep) center-face 'lr)
+                                     ;; (powerline-raw (concat " " (modeline-get-eyebrowse-tag-current) " " pl-sep) center-face 'lr)
                                      ;; selection info
                                      (when (or mark-active
                                                (and (bound-and-true-p evil-local-mode)
