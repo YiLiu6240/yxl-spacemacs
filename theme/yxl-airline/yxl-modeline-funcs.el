@@ -96,6 +96,14 @@ Supports both Emacs and Evil cursor conventions."
            (str (concat curr-str "/" (int-to-string config-len))))
       str)))
 
+(defun modeline-font-frame-scales ()
+  (let* ((font-scale (or (when (featurep 'face-remap)
+                           text-scale-mode-amount)
+                         0.0))
+         (frame-scale (or (frame-parameter nil 'zoomed) 0))
+         (scale (format "%s/%s" frame-scale font-scale)))
+    scale))
+
 (defun modeline-get-state-symbol (state)
   (let ((evil-symbol-alist '(("normal" . "N")
                              ("insert" . "I")
