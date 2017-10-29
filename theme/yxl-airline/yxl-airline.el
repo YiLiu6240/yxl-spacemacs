@@ -68,9 +68,10 @@
                                                 (eq evil-visual-selection 'line))
                                          nil))
                           (current-evil-state-string (if (featurep 'evil)
-                                                         (upcase (concat (symbol-name evil-state)
-                                                                         (cond (visual-block "-BLOCK")
-                                                                               (visual-line "-LINE"))))
+                                                         ;; (upcase (concat (symbol-name evil-state)
+                                                         ;;                 (cond (visual-block "-BLOCK")
+                                                         ;;                       (visual-line "-LINE"))))
+                                                       (modeline-get-state-symbol (format "%s" evil-state))
                                                        nil))
 
                           (outer-face
