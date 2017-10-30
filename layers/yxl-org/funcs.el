@@ -141,12 +141,14 @@
 (defun yxl-org/setup-capture ()
   (setq org-capture-templates
         `(;; generalised
+          ("q" "scratch: checkbox" checkitem (file+headline yxl-file-org-scratch "Next")
+           "-  %?\n")
+          ("t" "scratch: today" checkitem (file+headline yxl-file-org-scratch "Today")
+           "- [ ]  %?\n")
           ("i" "general: inbox" entry (file+headline yxl-file-org-todo "Capture")
            "* INBOX %?\n  %i\n")
           ("c" "general: inbox" entry (file+headline yxl-file-org-todo "Capture")
            "* INBOX %?\n  %i\n")
-          ("t" "general: todo" entry (file+headline yxl-file-org-todo "Capture")
-           "* TODO %?\n  %i\n")
           ("j" "work: jobs" entry (file+headline ,(concat yxl-path-org "projects/jobs.org") "Posts")
            "* %?\n** desc \n:PROPERTIES:\n:VISIBILITY: folded\n:END:\n %i\n")
           ;; note and log
