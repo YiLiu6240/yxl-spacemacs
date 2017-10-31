@@ -82,6 +82,8 @@
     (evil-set-initial-state 'occur-mode 'evilified)
     (setq my-todo-occur-regex
           "\\<\\(FIXME\\|TODO\\|BUG\\|ISSUE\\|DOING\\|NEXT\\)")
+    (append projectile-globally-ignored-file-suffixes '(".html"))
+    (append projectile-globally-ignored-files '("*.html"))
     (defun my/todo-occur ()
       (interactive)
       (if (projectile-project-p)
