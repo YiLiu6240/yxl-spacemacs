@@ -15,7 +15,8 @@
                                     winum
                                     org-bullets
                                     tern
-                                    ess-smart-equals)
+                                    ess-smart-equals
+                                    neotree)
    dotspacemacs-install-packages 'used-only
    dotspacemacs-configuration-layers
    '(yxl-spacemacs

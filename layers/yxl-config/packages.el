@@ -6,7 +6,7 @@
                             projectile
                             magit
                             ibuffer
-                            neotree
+                            ;; neotree
                             graphviz
                             deft))
 
