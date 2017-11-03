@@ -30,9 +30,9 @@
 
 (setq yxl-file-org-todo (concat yxl-path-org-task "todo.org"))
 (setq yxl-file-org-log (concat yxl-path-org "logs/"))
-(setq yxl-file-org-scratch (concat yxl-path-org-task "scratch.org"))
+(setq yxl-file-org-quick (concat yxl-path-org-task "quick.org"))
 
-(setq yxl-env-org-task-files (list yxl-file-org-scratch
+(setq yxl-env-org-task-files (list yxl-file-org-quick
                                    yxl-file-org-todo))
 
 (defun yxl-env-project-view (&optional same-frame side-width)
@@ -45,7 +45,7 @@
   ;; open scratch as sidebar
   (yxl-find-file-popup yxl-file-org-todo side-width)
   (split-window-below-and-focus)
-  (find-file yxl-file-org-scratch)
+  (find-file yxl-file-org-quick)
   (evil-window-right 1))
 
 (defun yxl-env-update-org-files ()

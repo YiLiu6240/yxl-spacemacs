@@ -12,7 +12,7 @@
 
 (defun yxl-org/refile-to-scratch ()
   (interactive)
-  (let ((org-refile-targets '((yxl-file-org-scratch :maxlevel . 1)
+  (let ((org-refile-targets '((yxl-file-org-quick :maxlevel . 1)
                               (nil :maxlevel . 1))))
     (org-refile)))
 
@@ -141,9 +141,9 @@
 (defun yxl-org/setup-capture ()
   (setq org-capture-templates
         `(;; generalised
-          ("q" "scratch: checkbox" checkitem (file+headline yxl-file-org-scratch "Next")
+          ("q" "scratch: checkbox" checkitem (file+headline yxl-file-org-quick "Next")
            "-  %?\n")
-          ("t" "scratch: today" checkitem (file+headline yxl-file-org-scratch "Today")
+          ("t" "scratch: today" checkitem (file+headline yxl-file-org-quick "Today")
            "- [ ]  %?\n")
           ("i" "general: inbox" entry (file+headline yxl-file-org-todo "Capture")
            "* INBOX %?\n  %i\n")

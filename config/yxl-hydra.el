@@ -85,7 +85,7 @@ Directory:
 File:
 "
   ("1" (yxl-find-file-stay yxl-file-org-todo) "todo.org")
-  ("0" (yxl-find-file-stay yxl-file-org-scratch) "scratch.org")
+  ("0" (yxl-find-file-stay yxl-file-org-quick) "quick.org")
   ("b" (yxl-find-file-stay yxl-file-bib) "bib file")
   ("n" (yxl-find-file-stay yxl-file-note-master) "note file")
   ("e" (yxl-find-file-stay "~/Dropbox/inbox/scratch.el") "scratch.el")
@@ -117,7 +117,7 @@ Hotspot:
  | [_oO_]: Org: open all files    | ^^                                  |
 
  | [_ia_]: append: to *scratch*   | ^^                                  |
- | [_is_]: append: to scratch.org | ^^                                  |
+ | [_is_]: append: to quick.org   | ^^                                  |
 "
 
   ("h" (yxl-frame-select-or-set "Frame-h"))
@@ -129,11 +129,11 @@ Hotspot:
   ;; - 0 - 5: open them in "sidebar"
   ;; - C-u / Meta + 0 - 5: open them in current window
   ;; - Shift + 0 - 5: open them in bottom popup
-  ("0" (yxl-find-file-popup yxl-file-org-scratch))
-  ("M-0" (find-file yxl-file-org-scratch))
+  ("0" (yxl-find-file-popup yxl-file-org-quick))
+  ("M-0" (find-file yxl-file-org-quick))
   ("1" (yxl-find-file-popup yxl-file-org-todo))
   ("M-1" (find-file yxl-file-org-todo))
-  (")" (popwin:popup-buffer (find-file-noselect yxl-file-org-scratch)
+  (")" (popwin:popup-buffer (find-file-noselect yxl-file-org-quick)
                             :stick t
                             :height 0.4
                             :position 'bottom))
@@ -156,7 +156,7 @@ Hotspot:
   ("gs" yxl-helm-shortcuts)
   ("gr" yxl-helm-reading-list)
 
-  ("is" (yxl-append-to-scratch yxl-file-org-scratch))
+  ("is" (yxl-append-to-scratch yxl-file-org-quick))
   ("ia" yxl-append-to-scratch))
 
 (defhydra yxl-hydra-system (:color blue :hint nil

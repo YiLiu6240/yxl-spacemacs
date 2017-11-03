@@ -1,7 +1,7 @@
 ;; TODO: find a better way to organize these
 (defvar yxl-org-agenda-files-life (list yxl-file-org-todo))
 (defvar yxl-org-agenda-files-work
-  (list yxl-file-org-scratch))
+  (list yxl-file-org-quick))
 
 (defvar yxl-org-agenda-commands
   '(("A" "Agenda Augmented"
@@ -14,7 +14,7 @@
     ("0" "Quick Todo List"
      ((agenda "Agenda" ((org-agenda-ndays 7)
                         (org-agenda-start-day "-2d")))
-      (alltodo "" ((org-agenda-files (list yxl-file-org-scratch))))
+      (alltodo "" ((org-agenda-files (list yxl-file-org-quick))))
       (todo "DO|TODO"
             ((org-agenda-files yxl-org-agenda-files-life)))
       (todo "INBOX|QUICK|HAVE-A-LOOK"
