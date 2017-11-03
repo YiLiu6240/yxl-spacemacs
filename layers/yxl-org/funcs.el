@@ -152,7 +152,7 @@
           ("j" "work: jobs" entry (file+headline ,(concat yxl-path-org "projects/jobs.org") "Posts")
            "* %?\n** desc \n:PROPERTIES:\n:VISIBILITY: folded\n:END:\n %i\n")
           ;; note and log
-          ("n" "quick note" item (file+headline yxl-file-note-master "Quick Notes"))
+          ("n" "quick note" item (file+headline yxl-file-note-sync "Quick Notes"))
           ("l" "logs" entry (file+datetree yxl-file-org-log)
            "* %?\n  -- %U\n  %i\n"))))
 

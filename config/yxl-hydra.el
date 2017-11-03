@@ -87,7 +87,7 @@ File:
   ("1" (yxl-find-file-stay yxl-file-org-todo) "todo.org")
   ("0" (yxl-find-file-stay yxl-file-org-quick) "quick.org")
   ("b" (yxl-find-file-stay yxl-file-bib) "bib file")
-  ("n" (yxl-find-file-stay yxl-file-note-master) "note file")
+  ("n" (yxl-find-file-stay yxl-file-note-sync) "note file")
   ("e" (yxl-find-file-stay "~/Dropbox/inbox/scratch.el") "scratch.el")
   ("sf" (yxl-find-file-stay yxl-file-sites-local) "sites: local")
   ("sw" (yxl-find-file-stay yxl-file-sites-web) "sites: web")
