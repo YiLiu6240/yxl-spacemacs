@@ -17,6 +17,7 @@
 
 (setq yxl-file-bib (concat yxl-path-paper-pwd "yxl_bib/yxl_bib_master.bib"))
 (setq yxl-file-note-sync "~/Dropbox/org/note.org")
+(setq yxl-file-note-local "~/local-repo/local-notes.org")
 (setq yxl-file-sites-local (concat yxl-path-sync
                                           "inbox/yxl-sites-local.txt"))
 (setq yxl-file-sites-web (concat yxl-path-sync
