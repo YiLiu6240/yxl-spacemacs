@@ -257,7 +257,8 @@ Hotspot:
   ("0" spacemacs/zoom-frm-unzoom "reset")
   ("1" (yxl-ui-frame-zoom-state 4) "profile 1")
   ("2" (yxl-ui-frame-zoom-state 6) "profile 2")
-  ("3" (yxl-ui-frame-zoom-state 8) "profile 3"))
+  ("3" (yxl-ui-frame-zoom-state 8) "profile 3")
+  ("4" (yxl-ui-frame-zoom-state 12) "profile 4"))
 
 (defhydra yxl-hydra-sessions (:color blue :hint nil :columns 4
                                      :pre (setq which-key-inhibit t)
