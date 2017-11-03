@@ -221,44 +221,15 @@ Hotspot:
   ("atd" mode-line-timer-stop)
   ("atD" mode-line-timer-done))
 
-(defun yxl-ui-frame-zoom-in (&optional x)
-  "zoom in frame by `x', but keep the same pixel size"
-  (interactive)
-  (let ((zoom-factor (or x 1)))
-    (spacemacs//zoom-frm-do zoom-factor)
-    (spacemacs//zoom-frm-powerline-reset)))
-
-(defun yxl-ui-frame-zoom-out (&optional x)
-  "zoom in frame by `x', but keep the same pixel size"
-  (interactive)
-  (let ((zoom-factor (- (or x 1))))
-    (spacemacs//zoom-frm-do zoom-factor)
-    (spacemacs//zoom-frm-powerline-reset)))
-
-(defun yxl-ui-frame-zoom-state (&optional state)
-  "zoom frame to `x', but keep the same pixel size"
-  (let* ((state (or state 0))
-         (fm (cdr (assoc 'fullscreen (frame-parameters))))
-         (fwp (* (frame-char-width) (frame-width)))
-         (fhp (* (frame-char-height) (frame-height)))
-         (frame-scale (or (frame-parameter nil 'zoomed) 0)))
-    (unless (eq frame-scale 0)
-      (zoom-frm-unzoom))
-    (dotimes (i state) (zoom-frm-in))
-    (set-frame-size nil fwp fhp t)
-    (when (equal fm 'maximized)
-      (toggle-frame-maximized))
-    (powerline-reset)))
-
 (defhydra yxl-hydra-frame-size (:color red :hint nil)
-  ("+" yxl-ui-frame-zoom-in "zoom-in")
-  ("=" yxl-ui-frame-zoom-in "zoom-in")
-  ("-" yxl-ui-frame-zoom-out "zoom-out")
+  ("+" yxl-utils/frame-zoom-in "zoom-in")
+  ("=" yxl-utils/frame-zoom-in "zoom-in")
+  ("-" yxl-utils/frame-zoom-out "zoom-out")
   ("0" spacemacs/zoom-frm-unzoom "reset")
-  ("1" (yxl-ui-frame-zoom-state 4) "profile 1")
-  ("2" (yxl-ui-frame-zoom-state 6) "profile 2")
-  ("3" (yxl-ui-frame-zoom-state 8) "profile 3")
-  ("4" (yxl-ui-frame-zoom-state 12) "profile 4"))
+  ("1" (yxl-utils/frame-zoom-state 4) "profile 1")
+  ("2" (yxl-utils/frame-zoom-state 6) "profile 2")
+  ("3" (yxl-utils/frame-zoom-state 8) "profile 3")
+  ("4" (yxl-utils/frame-zoom-state 12) "profile 4"))
 
 (defhydra yxl-hydra-sessions (:color blue :hint nil :columns 4
                                      :pre (setq which-key-inhibit t)
