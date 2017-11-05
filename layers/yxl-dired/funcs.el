@@ -50,7 +50,10 @@
       ("t" dired-toggle-marks)
       ("%" dired-mark-files-regexp))
     (defhydra yxl-dired/hydra-main
-      (:color pink :inherit (yxl-dired/hydra-common/heads) :hint nil :columns 4)
+      (:color pink :inherit (yxl-dired/hydra-common/heads)
+              :pre (setq which-key-inhibit t)
+              :post (setq which-key-inhibit nil)
+              :hint nil :columns 4)
       ("q" nil "quit" :color blue)
       ("T" yxl-dired/hydra-toggle/body "+toggle" :color blue)
       ("*" yxl-dired/hydra-mark/body "+mark" :color blue)
