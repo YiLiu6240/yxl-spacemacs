@@ -17,6 +17,9 @@
 (global-set-key (kbd "C-\\") #'yxl-dired-popup)
 (global-set-key (kbd "C-s") #'save-buffer)
 
+(global-set-key (kbd "M-<SPC>") #'yas-or-company)
+(define-key isearch-mode-map "\C-h" #'isearch-delete-char)
+
 (defun yas-or-company ()
   (interactive)
   (if company-mode
@@ -27,8 +30,33 @@
   (interactive)
   (switch-to-buffer "*compilation*"))
 
-(global-set-key (kbd "M-<SPC>") #'yas-or-company)
-(define-key isearch-mode-map "\C-h" #'isearch-delete-char)
+(defun yxl-buffer-messages ()
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*Messages*")))
+
+(defun yxl-buffer-home-dir ()
+  (interactive)
+  (find-file "~"))
+
+(defun yxl-buffer-org-quick ()
+  (interactive)
+  (find-file yxl-file-org-quick))
+
+(defun yxl-buffer-org-todo ()
+  (interactive)
+  (find-file yxl-file-org-todo))
+
+(defun yxl-buffer-org-log ()
+  (interactive)
+  (find-file yxl-file-org-log))
+
+(defun yxl-buffer-note-local ()
+  (interactive)
+  (find-file yxl-file-note-local))
+
+(defun yxl-buffer-note-sync ()
+  (interactive)
+  (find-file yxl-file-note-sync))
 
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
@@ -39,11 +67,19 @@
   "aa" #'yxl-invoke-applications
   "bB" #'yxl-buffer-switch-same-major-mode
   "bb" #'yxl-buffer-switch
-  "boh" (lambda () (interactive)
-          (find-file "~"))
-  "bom" (lambda () (interactive)
-          (switch-to-buffer (get-buffer-create "*Messages*")))
+  "bob" #'ibuffer
   "boc" #'yxl-buffer-compilation
+  "boC" #'clone-indirect-buffer-other-window
+  "boD" #'delete-other-windows
+  "boh" #'yxl-buffer-home-dir
+  "bol" #'yxl-buffer-org-log
+  "bom" #'yxl-buffer-messages
+  "boi" #'yxl-buffer-note-local
+  "boI" #'yxl-buffer-note-sync
+  "bon" #'yxl-buffer-inherit
+  "bor" #'revert-buffer
+  "boo" #'yxl-buffer-org-quick
+  "boO" #'yxl-buffer-org-todo
   "bh" #'yxl-utils/home
   ;; TODO: rm this with next spacemacs update
   "bm" #'yxl-buffer-switch-same-major-mode
@@ -117,14 +153,6 @@
   "oP" #'yxl-project-open
   "ot" #'ivy-todo
   "ow" #'yxl-hydra-window/body)
-
-(spacemacs/declare-prefix "ob" "buffer")
-(spacemacs/set-leader-keys
-  "obb" #'ibuffer
-  "obc" #'clone-indirect-buffer-other-window
-  "obd" #'delete-other-windows
-  "obn" #'yxl-buffer-inherit
-  "obr" #'revert-buffer)
 
 (spacemacs/declare-prefix "oc" "cite")
 (spacemacs/set-leader-keys
