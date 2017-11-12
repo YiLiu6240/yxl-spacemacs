@@ -94,7 +94,7 @@ region selection and step one line."
 (defun yxl-prog/init-ob-scala ()
   (use-package ob-scala))
 
-(defun yxl-prog/init-scala-mode ()
+(defun yxl-prog/post-init-scala-mode ()
   (with-eval-after-load 'scala-mode
     (setq ensime-startup-notification nil)
     (setq ensime-startup-snapshot-notification nil)))

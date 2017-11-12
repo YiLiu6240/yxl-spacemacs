@@ -4,7 +4,7 @@
                            (yxl-open :location site)
                            (general-goodies :location site)
                            find-file-in-project
-                           (simple-todo :location site)
+                           ;; (simple-todo :location site)
                            (scratch-pop :location site)
                            visual-fill-column
                            (yxl-invoke-applications :location site)
