@@ -157,25 +157,6 @@
         (if dotspacemacs-major-mode-leader-key
             (concat dotspacemacs-major-mode-leader-key key)
           (concat "," key)))
-      ;; keybindings mirror ipython web interface behavior
-      (evil-define-key 'insert ein:notebook-multilang-mode-map
-        (kbd "<C-return>") 'ein:worksheet-execute-cell
-        (kbd "<S-return>") 'ein:worksheet-execute-cell-and-goto-next)
-      (evil-define-key 'normal ein:notebook-multilang-mode-map
-        ;; keybindings mirror ipython web interface behavior
-        (kbd "<C-return>") 'ein:worksheet-execute-cell
-        (kbd "<S-return>") 'ein:worksheet-execute-cell-and-goto-next
-        "gj" 'ein:worksheet-goto-next-input
-        "gk" 'ein:worksheet-goto-prev-input)
-      (yxl-datascience/setup-jupyter-leader-keys)
-      (yxl-datascience/setup-jupyter-hydra)
-      (require 'ein-multilang)
-      (define-key ein:notebook-multilang-mode-map (kbd "M-j")
-        'ein:worksheet-move-cell-down)
-      (define-key ein:notebook-multilang-mode-map (kbd "M-k")
-        'ein:worksheet-move-cell-up)
-      (evil-define-key 'normal ein:notebook-multilang-mode-map
-        (kbd ",") 'yxl-datascince/jupyter-hydra/body)
       (defun ein:notebook-save-notebook-override (notebook
                                                   retry
                                                   &optional callback cbargs)
@@ -205,4 +186,15 @@ original notebook cell, unless being called via
       (advice-add 'ein:edit-cell-exit
                   :override #'ein:edit-cell-exit-override)
       (add-hook 'ein:notebook-multilang-mode-hook
-                #'smartparens-mode))))
+                #'smartparens-mode))
+    (defun ein:worksheet-insert-cell-below-and-edit ()
+      (interactive)
+      (call-interactively #'ein:worksheet-insert-cell-below)
+      (call-interactively #'ein:edit-cell-contents))
+    (defun ein:edit-cell-save-and-execute-and-exit ()
+      (interactive)
+      (call-interactively #'ein:edit-cell-save-and-execute)
+      (call-interactively #'ein:edit-cell-exit))
+    (yxl-datascience/setup-jupyter-bindings)
+    (yxl-datascience/setup-jupyter-leader-keys)
+    (yxl-datascience/setup-jupyter-hydra)))

@@ -29,7 +29,8 @@
 (defun yxl-evil/post-init-evil-surround ()
   (with-eval-after-load 'evil-surround
     (add-hook 'prog-mode-hook #'yxl-evil/evil-surround-pairs)
-    (add-hook 'text-mode-hook #'yxl-evil/evil-surround-pairs)))
+    (add-hook 'text-mode-hook #'yxl-evil/evil-surround-pairs)
+    (add-hook 'ein:notebook-multilang-mode-hook #'yxl-evil/evil-surround-pairs)))
 
 (defun yxl-evil/init-evil-textobj-column ()
   (use-package evil-textobj-column))
