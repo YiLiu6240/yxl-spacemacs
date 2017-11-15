@@ -19,13 +19,15 @@
   (use-package yxl-dash
     :after counsel-dash
     :commands (yxl-dash-search-docset
-               yxl-dash-search-docset-external-browser)
+               yxl-dash-search-docset-external-browser
+               yxl-dash-search-docset-chromium)
     :init
     (progn
       (spacemacs/set-leader-keys
-        "dh" #'yxl-dash-search-docset
-        "dH" #'yxl-dash-search-docset-external-browser
-        "dm" #'yxl-dash-search-docset-chromium))
+        "dH" #'yxl-dash-search-docset
+        "dh" #'yxl-dash-search-docset-external-browser
+        "dm" #'yxl-dash-search-docset-chromium
+        "dr" #'counsel-dash-reset-connections))
     :config
     (progn
       (setq yxl-dash-docset-path "~/Dropbox/dash-docsets")
