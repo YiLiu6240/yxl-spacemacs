@@ -126,6 +126,12 @@ with spaces."
     (cons (format "%s " (or str-block ""))
           (format " %s" (or str-block "")))))
 
+(defun yxl-evil-surround-function-print ()
+  "Read a functionname from the minibuffer and wrap selection in function call"
+  (let ((fname "print"))
+    (cons (format "%s(" (or fname ""))
+          ")")))
+
 (defun yxl-evil/evil-surround-pairs ()
   "press viw then press the trigger key"
   (push '(?g . ("{" . "}")) evil-surround-pairs-alist)
@@ -138,6 +144,7 @@ with spaces."
   (push '(?N . ("\\[ " . " \\]")) evil-surround-pairs-alist)
   (push '(?k . ("$ " . " $")) evil-surround-pairs-alist)
   (push '(?K . ("$" . "$")) evil-surround-pairs-alist)
+  (push '(?F . yxl-evil-surround-function-print) evil-surround-pairs-alist)
   (push '(?r . evil-surround-str-block) evil-surround-pairs-alist)
   (push '(?R . evil-surround-str-block-space) evil-surround-pairs-alist))
 

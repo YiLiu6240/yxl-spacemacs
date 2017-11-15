@@ -1,5 +1,6 @@
 (setq yxl-prog-packages '((prog-mode :location built-in)
                           python
+                          ess
                           cc-mode
                           ob-ipython
                           graphviz-dot-mode
@@ -41,7 +42,11 @@ region selection and step one line."
               (python-shell-send-region (point) end)))
           (forward-line 1))))
     (define-key python-mode-map (kbd "C-,")
-      #'python-shell-send-region-or-line-and-step)))
+      #'python-shell-send-region-or-line-and-step)
+    (define-key python-mode-map (kbd "C-c f")
+      #'yxl-prog/evil-wrap-line-f)
+    (define-key python-mode-map (kbd "C-c F")
+      #'yxl-prog/evil-wrap-line-f-print)))
   ;; (add-hook 'python-mode-hook 'evil-visual-mark-mode)
   ;; (add-hook 'python-mode-hook (lambda () (modify-syntax-entry ?_ "w")))
 
@@ -63,6 +68,13 @@ region selection and step one line."
     ;;  'python-mode-hook
     ;;  (lambda ()
     ;;    (setq imenu-create-index-function 'yxl-python-imenu)))))
+
+(defun yxl-prog/post-init-ess ()
+  (with-eval-after-load 'ess-site
+    (define-key ess-mode-map (kbd "C-c f")
+      #'yxl-prog/evil-wrap-line-f)
+    (define-key ess-mode-map (kbd "C-c F")
+      #'yxl-prog/evil-wrap-line-f-print)))
 
 (defun yxl-prog/post-init-cc-mode ()
   (with-eval-after-load 'cc-mode))
