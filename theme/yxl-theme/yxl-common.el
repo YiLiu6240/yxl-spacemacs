@@ -200,6 +200,7 @@
 
 ;;;;; auto-complete
             `(ac-completion-face ((,class (:background ,ttip-bg :foreground ,ttip))))
+            `(ac-selection-face ((,class (:inherit company-tooltip-selection))))
 
 ;;;;; avy
             `(avy-lead-face   ((,class (:background ,bg2 :foreground ,magenta))))
@@ -266,9 +267,9 @@
             `(diff-indicator-added   ((,class :background nil :foreground ,green)))
             `(diff-indicator-changed ((,class :background nil :foreground ,keyword)))
             `(diff-indicator-removed ((,class :background nil :foreground ,red)))
-            `(diff-refine-added      ((,class :background ,green :foreground ,bg4)))
-            `(diff-refine-changed    ((,class :background ,keyword :foreground ,bg4)))
-            `(diff-refine-removed    ((,class :background ,red :foreground ,bg4)))
+            `(diff-refine-added      ((,class :background ,green-bg :foreground ,bg1)))
+            `(diff-refine-changed    ((,class :background ,keyword :foreground ,bg1)))
+            `(diff-refine-removed    ((,class :background ,red-bg :foreground ,bg1)))
             `(diff-removed           ((,class :background nil :foreground ,red)))
 
 ;;;;; diff-hl
@@ -573,8 +574,8 @@
             `(magit-branch-local ((,class (:background ,blue-bg :foreground ,blue :inherit bold))))
             `(magit-branch-remote ((,class (:background ,aqua-bg :foreground ,aqua :inherit bold))))
             `(magit-diff-context-highlight ((,class (:background ,bg2 :foreground ,base))))
-            `(magit-diff-file-header ((,class (:background ,comment-bg :foreground ,func))))
-            `(magit-diff-file-heading ((,class (:background ,comment-bg :foreground ,func))))
+            `(magit-diff-file-header ((,class (:background ,cblk-ln-bg :foreground ,func))))
+            `(magit-diff-file-heading ((,class (:background ,cblk-ln-bg :foreground ,func))))
             `(magit-diff-file-heading-highlight ((,class (:inherit magit-diff-file-heading))))
             `(magit-diff-hunk-header ((,class (:background ,ttip-bg :foreground ,ttip))))
             `(magit-diff-hunk-heading ((,class (:background ,ttip-bg :foreground ,ttip))))
@@ -685,7 +686,7 @@
             `(org-scheduled ((,class (:foreground ,comp))))
             `(org-scheduled-today ((,class (:foreground ,func :height ,(if yxl-theme-org-height 1.2 1.0)))))
             `(org-sexp-date ((,class (:foreground ,base))))
-            `(org-table ((,class (:foreground ,base :background ,head1-bg))))
+            `(org-table ((,class (:foreground ,base :background ,cblk-bg))))
             `(org-time-grid ((,class (:foreground ,str))))
             `(org-todo ((,class (:foreground ,str :weight bold :slant italic :height 0.8))))
             `(org-done ((,class (:foreground ,comment :weight bold :slant italic :height 0.8))))
