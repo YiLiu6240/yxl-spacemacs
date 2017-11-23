@@ -16,6 +16,12 @@
                               (nil :maxlevel . 1))))
     (org-refile)))
 
+(defun yxl-org/insert-source-block ()
+  (interactive)
+  (insert "#+begin_src \n\n#+end_src")
+  (forward-line -2)
+  (end-of-line))
+
 (defun yxl-org/agenda-view ()
   (interactive)
   (delete-other-windows)
@@ -70,6 +76,7 @@
     "b" nil
     "m" nil)
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
+    "bi" #'yxl-org/insert-source-block
     "bb" #'org-edit-src-code
     "bn" #'org-next-block
     "bj" #'org-next-block
