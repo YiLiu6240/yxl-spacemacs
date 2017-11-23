@@ -20,13 +20,15 @@
     :after counsel-dash
     :commands (yxl-dash-search-docset
                yxl-dash-search-docset-external-browser
-               yxl-dash-search-docset-chromium)
+               yxl-dash-search-docset-chromium
+               yxl-dash-search-docset-firefox)
     :init
     (progn
       (spacemacs/set-leader-keys
         "dH" #'yxl-dash-search-docset
         "dh" #'yxl-dash-search-docset-external-browser
         "dm" #'yxl-dash-search-docset-chromium
+        "df" #'yxl-dash-search-docset-firefox
         "dr" #'counsel-dash-reset-connections))
     :config
     (progn
@@ -34,6 +36,10 @@
       (setq yxl-dash-browser-func 'w3m-goto-url-new-session)
       (setq counsel-dash-browser-func yxl-dash-browser-func)
       (yxl-dash-activate-package-docsets yxl-dash-docset-path)
+      (defun yxl-dash-search-docset-firefox ()
+        (interactive)
+        (let ((counsel-dash-browser-func #'browse-url-firefox))
+          (yxl-dash-search-docset)))
       (defun yxl-dash-search-docset-chromium ()
         (interactive)
         (let ((counsel-dash-browser-func #'browse-url-chromium))
