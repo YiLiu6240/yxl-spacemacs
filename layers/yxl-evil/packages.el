@@ -11,6 +11,8 @@
 
 (defun yxl-evil/post-init-evil ()
   (with-eval-after-load 'evil
+    (setq evil-split-window-below t)
+    (setq evil-vsplit-window-right t)
     (yxl-evil/setup-evil-main)
     (yxl-evil/setup-evil-personal)
     (yxl-evil/setup-evil-misc)
