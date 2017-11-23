@@ -56,6 +56,7 @@
               ("chrome" . (lambda (x) (browse-url-chrome x)))
               ("qutebrowser" . (lambda (x) (yxl-open--linux-command "qutebrowser" x)))
               ("chromium" . (lambda (x) (browse-url-chromium x)))
+              ("firefox" . (lambda (x) (browse-url-firefox x)))
               ("desktop" . (lambda (x) (yxl-open-in-desktop)))
               ("self exec" . (lambda (x)
                                (let ((dir-path (file-name-directory x)))
