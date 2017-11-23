@@ -261,9 +261,21 @@
   (spacemacs/set-leader-keys-for-major-mode 'ess-julia-mode
     "<tab>" #'julia-latexsub-or-indent))
 
+(defun yxl-datascience/jupyter-help ()
+  "Normal invoke calls `ein:pytools-request-help'.
+When invoking with a prefix arg, manually input func."
+  (interactive)
+  (if current-prefix-arg
+      (progn
+        (let ((func (read-string "Enter func: ")))
+          (ein:pytools-request-help (ein:get-kernel-or-error) func)))
+    (ein:pytools-request-help (ein:get-kernel-or-error) (ein:object-at-point-or-error))))
+
 (defun yxl-datascience/setup-jupyter-bindings ()
   (require 'ein-notebook)
   (require 'ein-multilang)
+  (define-key ein:notebook-mode-map
+    (kbd "C-c C-h") #'yxl-datascience/jupyter-help)
   (evil-define-key 'normal ein:notebook-multilang-mode-map
     (kbd ",") #'yxl-datascince/jupyter-hydra/body)
   (evil-define-key 'insert ein:notebook-multilang-mode-map
