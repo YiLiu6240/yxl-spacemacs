@@ -1,0 +1,6 @@
+#+title: Email layer
+
+* Useful resources and sample configurations
+
+- https://wiki.archlinux.org/index.php/OfflineIMAP#Gmail_configuration
+- http://cachestocaches.com/2017/3/complete-guide-email-emacs-using-mu-and-/

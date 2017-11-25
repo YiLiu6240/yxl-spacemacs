@@ -122,6 +122,8 @@
      yxl-web
      yxl-completion
      yxl-ui
+     (yxl-email :variables
+                mu4e-installation-path "/usr/share/emacs/site-lisp/mu4e")
      yxl-misc)))
 
 (defun dotspacemacs/init ()
