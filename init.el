@@ -53,7 +53,7 @@
      ;; note takings
      (deft :variables
        deft-directory "~/Dropbox/org/notes")
-     (org :packages (not evil-org)
+     (org :packages (not evil-org org-projectile)
           :variables org-enable-reveal-js-support t)
 
      ;; markup langs
@@ -135,20 +135,13 @@
    ;; dotspacemacs-startup-banner (concat dotspacemacs-directory
    ;;                                     "assets/emacs-china-icon-small.png")
    dotspacemacs-startup-banner 0
-   dotspacemacs-startup-lists '(projects)
+   dotspacemacs-startup-lists nil
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'fundamental-mode
    dotspacemacs-themes '(yxl-gruv-dark
                          yxl-gruv-light
                          yxl-solar-dark
-                         spacegray
-                         sanityinc-tomorrow-night
-                         gruvbox
-                         spacemacs-dark
-                         solarized-dark
-                         monokai
-                         spacemacs-light
-                         solarized-light)
+                         sanityinc-tomorrow-night)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font `(,(cond ((eq system-type 'windows-nt)
                                        "hack")
