@@ -632,6 +632,7 @@
             `(mu4e-header-key-face ((,class (:foreground ,head2 :inherit bold))))
             `(mu4e-view-url-number-face ((,class (:foreground ,comp))))
             `(mu4e-unread-face ((,class (:foreground ,yellow :inherit bold))))
+            `(mu4e-highlight-face ((,class (:foreground ,keyword :inherit bold))))
 
 ;;;;; neotree
             `(neo-dir-link-face ((,class (:foreground ,keyword :inherit bold))))
