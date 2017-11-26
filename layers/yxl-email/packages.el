@@ -17,10 +17,16 @@
       (add-hook 'mu4e-compose-pre-hook 'yxl-email/mu4e-set-account)
       (setq message-kill-buffer-on-exit t)
       (setq mu4e-context-policy 'pick-first)
-      (setq mu4e-confirm-quit nil)))
+      (setq mu4e-confirm-quit nil)
+      (setq mu4e-enable-notifications t)))
   (with-eval-after-load 'mu4e-alert
     (progn
-      (mu4e-alert-set-default-style 'notifications))))
+      (mu4e-alert-set-default-style 'notifications)
+      (cond
+       ((eq system-type 'gnu/linux)
+        (mu4e-alert-set-default-style 'libnotify))
+       ((eq system-type 'darwin)
+        (mu4e-alert-set-default-style 'notifier))))))
 
 (defun yxl-email/init-mu4e ()
   (use-package mu4e
