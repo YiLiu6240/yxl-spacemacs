@@ -24,6 +24,13 @@
     (kbd "J") #'mu4e~headers-jump-to-maildir))
 
 (defun yxl-email/mu4e-setup-leader-keys ()
+  (spacemacs/declare-prefix-for-mode 'mu4e-main-mode
+    "mu" "update")
+  (spacemacs/set-leader-keys-for-major-mode 'mu4e-main-mode
+    "uu" #'mu4e-maildirs-extension-force-update
+    "uU" #'mu4e-update-mail-and-index
+    "uq" #'yxl-email/mu4e-offlineimap-quick
+    "J" #'mu4e~headers-jump-to-maildir)
   (spacemacs/set-leader-keys-for-major-mode 'mu4e-compose-mode
     dotspacemacs-major-mode-leader-key 'message-send-and-exit
     "c" #'message-send-and-exit
