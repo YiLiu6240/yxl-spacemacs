@@ -11,6 +11,12 @@
   (find-file yxl-file-org-log)
   (calendar))
 
+(defun yxl-org/toggle-org-src-fontify-natively ()
+  "Toggle `org-src-fontify-natively'. Remember to reload the related buffer(s)."
+  (interactive)
+  (setq org-src-fontify-natively (not org-src-fontify-natively))
+  (message (format "org-src-fontify-natively: %s" org-src-fontify-natively)))
+
 (defun yxl-org/refile-to-scratch ()
   (interactive)
   (let ((org-refile-targets '((yxl-file-org-quick :maxlevel . 1)
