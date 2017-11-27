@@ -19,3 +19,9 @@
                   (set (car var) (cadr var)))
               account-vars)
       (error "No email account found"))))
+
+(defun yxl-email/mu4e-offlineimap-quick ()
+  "Use `offlineimap -o -q' as the command to update mail."
+  (interactive)
+  (let ((mu4e-get-mail-command "offlineimap -o -q"))
+    (call-interactively #'mu4e-update-mail-and-index)))
