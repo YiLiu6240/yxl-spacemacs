@@ -30,7 +30,7 @@
 (setq yxl-file-ivy-views (concat yxl-path-sync "inbox/yxl-ivy-views.txt"))
 
 (setq yxl-file-org-todo (concat yxl-path-org-task "todo.org"))
-(setq yxl-file-org-log (concat yxl-path-org "logs/"))
+(setq yxl-file-org-log (concat yxl-path-org "logs/logs-master.md"))
 (setq yxl-file-org-quick (concat yxl-path-org-task "quick.org"))
 
 (setq yxl-env-org-task-files (list yxl-file-org-quick

@@ -8,7 +8,8 @@
 
 (defun my-org-log ()
   (interactive)
-  (find-file yxl-file-org-log))
+  (find-file yxl-file-org-log)
+  (calendar))
 
 (defun yxl-org/refile-to-scratch ()
   (interactive)
