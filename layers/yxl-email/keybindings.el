@@ -12,15 +12,15 @@
     mu4e-headers-mode-map
     :mode mu4e-headers-mode
     :bindings
-    (kbd "C-j") #'mu4e-headers-next
-    (kbd "C-k") #'mu4e-headers-prev
+    (kbd "C-S-j") #'mu4e-headers-next
+    (kbd "C-S-k") #'mu4e-headers-prev
     (kbd "J") #'mu4e~headers-jump-to-maildir)
   (evilified-state-evilify-map
     mu4e-view-mode-map
     :mode mu4e-view-mode
     :bindings
-    (kbd "C-j") #'mu4e-view-headers-next
-    (kbd "C-k") #'mu4e-view-headers-prev
+    (kbd "C-S-j") #'mu4e-view-headers-next
+    (kbd "C-S-k") #'mu4e-view-headers-prev
     (kbd "J") #'mu4e~headers-jump-to-maildir))
 
 (defun yxl-email/mu4e-setup-leader-keys ()
