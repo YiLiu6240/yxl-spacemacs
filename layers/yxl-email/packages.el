@@ -8,8 +8,7 @@
   (with-eval-after-load 'mu4e
     (progn
       ;; Load external personal configs
-      (load (concat yxl-path-personal "yxl-emacs-mu4e.el"))
-      (add-hook 'mu4e-compose-pre-hook 'yxl-email/mu4e-set-account))))
+      (load (concat yxl-path-personal "yxl-emacs-mu4e.el")))))
 
 (defun yxl-email/init-mu4e ()
   (use-package mu4e
@@ -31,6 +30,14 @@
       (setq mu4e-context-policy 'pick-first)
       (setq mu4e-confirm-quit nil)
       (setq mu4e-enable-notifications t)
+      (setq mu4e-headers-date-format "%a %Y-%m-%d %H:%M")
+      (setq mu4e-headers-fields
+            '((:human-date . 20)
+              (:flags . 6)
+              (:mailing-list . 10)
+              (:from . 22)
+              (:subject)))
+      (add-hook 'mu4e-compose-mode-hook (lambda () (auto-fill-mode -1)))
       (add-to-list 'mu4e-view-actions
                    '("View in browser" . mu4e-action-view-in-browser) t))))
 

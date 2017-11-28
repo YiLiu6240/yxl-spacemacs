@@ -26,6 +26,13 @@
   (let ((mu4e-get-mail-command "offlineimap -o -q"))
     (call-interactively #'mu4e-update-mail-and-index)))
 
+(defun yxl-email/mu4e-offlineimap-quick-profile ()
+  "Use `offlineimap -o -q -a <profile>' as the command to update mail.
+<profile> uses the variable `offlineimap-profile'."
+  (interactive)
+  (let ((mu4e-get-mail-command (format "offlineimap -o -q -a %s" offlineimap-profile)))
+    (call-interactively #'mu4e-update-mail-and-index)))
+
 (defun yxl-email/mu4e-view-detach-to-win-or-frame (&optional toframe focusnew)
   "Detach the current mu4e-view buffer from header to a new
 splitted window or a new frame.
