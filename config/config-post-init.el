@@ -134,3 +134,6 @@
 
 ;; force prefer-coding-system
 (prefer-coding-system 'utf-8-unix)
+
+(evilified-state-evilify-map special-mode-map
+  :mode special-mode)
