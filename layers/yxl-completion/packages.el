@@ -66,6 +66,7 @@
 (defun yxl-completion/post-init-counsel ()
   (with-eval-after-load 'counsel
     (define-key counsel-find-file-map (kbd "C-h") (kbd "DEL"))
+    (define-key counsel-find-file-map (kbd "C-w") (kbd "DEL"))
     (ivy-add-actions 'counsel-find-file
                      '(("x" yxl-open-file-external "open in external program"))))
   (with-eval-after-load 'counsel-projectile

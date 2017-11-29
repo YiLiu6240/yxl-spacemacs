@@ -116,7 +116,8 @@
   "p C-g" nil
   "qf" #'spacemacs/frame-killer
   "sJ" #'yxl-imenu-anywhere
-  "tv" #'visual-fill-column-mode
+  "tv" #'visual-line-mode
+  "tV" #'visual-fill-column-mode
   "w0" #'delete-other-windows
   "w1" #'delete-other-windows
   "ws" #'split-window-below-and-focus
