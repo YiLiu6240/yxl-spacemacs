@@ -67,9 +67,11 @@
     (progn
       ;; (add-hook 'w3m-mode-hook (lambda () (setq yxl-line-width 100)))
       ;; (add-hook 'w3m-mode-hook #'yxl-big-text-mode)
-      (setq-default w3m-user-agent (concat "Mozilla/5.0 (Linux; U; Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40)"
-                                           " AppleWebKit/533.1 (KHTML, like Gecko)"
-                                           " Version/4.0 Mobile Safari/533."))
+      (setq-default w3m-user-agent
+                    (concat "Mozilla/5.0 (Linux; U;"
+                            " Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40)"
+                            " AppleWebKit/533.1 (KHTML, like Gecko)"
+                            " Version/4.0 Mobile Safari/533."))
       (setq w3m-home-page "http://www.google.com")
       (setq w3m-default-display-inline-images nil)
       (setq w3m-default-toggle-inline-images t)
