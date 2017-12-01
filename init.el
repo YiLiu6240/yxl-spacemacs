@@ -123,7 +123,9 @@
      yxl-completion
      yxl-ui
      (yxl-email :variables
-                mu4e-installation-path "/usr/share/emacs/site-lisp/mu4e")
+                mu4e-installation-path "/usr/share/emacs/site-lisp/mu4e"
+                yxl-email-personal-config-file (concat yxl-path-personal
+                                                       "yxl-emacs-mu4e.el"))
      yxl-misc)))
 
 (defun dotspacemacs/init ()

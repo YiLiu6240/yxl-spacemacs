@@ -4,12 +4,6 @@
         mu4e-maildirs-extension
         org))
 
-(defun yxl-email/post-init-mu4e ()
-  (with-eval-after-load 'mu4e
-    (progn
-      ;; Load external personal configs
-      (load (concat yxl-path-personal "yxl-emacs-mu4e.el")))))
-
 (defun yxl-email/init-mu4e ()
   (use-package mu4e
     :commands (mu4e mu4e-compose-new)
@@ -39,7 +33,9 @@
               (:subject)))
       (add-hook 'mu4e-compose-mode-hook (lambda () (auto-fill-mode -1)))
       (add-to-list 'mu4e-view-actions
-                   '("View in browser" . mu4e-action-view-in-browser) t))))
+                   '("View in browser" . mu4e-action-view-in-browser) t)
+      (when yxl-email-personal-config-file
+        (load yxl-email-personal-config-file)))))
 
 (defun yxl-email/init-mu4e-alert ()
   (use-package mu4e-alert

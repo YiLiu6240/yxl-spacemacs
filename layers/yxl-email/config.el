@@ -24,5 +24,8 @@
 (defvar mu4e-enable-mode-line nil
   "If non-nil, enable display of unread emails in mode-line.")
 
+(defvar yxl-email-personal-config-file nil
+  "Full filname to the personal email config file.")
+
 (when mu4e-installation-path
   (push mu4e-installation-path load-path))
