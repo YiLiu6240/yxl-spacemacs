@@ -1,8 +1,6 @@
 (setq yxl-web-packages '(w3m
                          helm-w3m
                          sx
-                         elfeed
-                         ;; (yxl-elfeed :location site)
                          (yxl-web :location site)
                          atomic-chrome
                          helm-chrome))
@@ -95,30 +93,6 @@
                ("u" . sx-tab-unanswered-my-tags)
                ("a" . sx-ask)
                ("s" . sx-search))))
-
-(defun yxl-web/post-init-elfeed ()
-  (with-eval-after-load 'elfeed
-    (add-hook 'elfeed-search-mode-hook #'yxl-web/elfeed-search-mode-config)
-    (add-hook 'elfeed-show-mode-hook #'yxl-web/elfeed-show-mode-config)
-    (add-hook 'elfeed-search-mode-hook #'yxl-big-text-mode)
-    (add-hook 'elfeed-show-mode-hook #'yxl-big-text-mode)
-    (setq elfeed-db-directory "~/Dropbox/rss/.elfeed")
-    (setq elfeed-goodies/powerline-default-separator 'nil)
-    (setq elfeed-goodies/entry-pane-position 'bottom)
-    (setq elfeed-goodies/entry-pane-size 0.85)
-    (yxl-web/elfeed-bindings)
-    (yxl-web/elfeed-hydra-setup)
-    (spacemacs/set-leader-keys "af" #'yxl-web/invoke-elfeed)))
-
-(defun yxl-web/init-yxl-elfeed ()
-  (use-package yxl-elfeed
-    :defer t
-    :after (elfeed)
-    :config
-    (progn
-      (yxl-elfeed-patch)
-      (setq elfeed-feeds yxl-personal-elfeed-feeds)
-      (setq yxl-elfeed-score-alist yxl-personal-elfeed-score-alist))))
 
 (defun yxl-web/init-yxl-web ()
   (use-package yxl-web))

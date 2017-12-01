@@ -126,7 +126,8 @@
                 yxl-email-personal-config-file (concat yxl-path-personal
                                                        "yxl-emacs-mu4e.el"))
      (yxl-elfeed :variables
-                 elfeed-enable-web-interface t)
+                 elfeed-enable-web-interface t
+                 yxl-elfeed-db-directory "~/Dropbox/rss/.elfeed")
      yxl-misc)))
 
 (defun dotspacemacs/init ()

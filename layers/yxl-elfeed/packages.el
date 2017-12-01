@@ -1,44 +1,39 @@
-(setq elfeed-packages
-      '(elfeed
-        elfeed-goodies
-        elfeed-web
-        ))
+(setq yxl-elfeed-packages '(elfeed
+                            elfeed-goodies
+                            elfeed-web
+                            (yxl-elfeed :location site)))
 
-(defun elfeed/init-elfeed ()
+(defun yxl-elfeed/init-elfeed ()
   (use-package elfeed
     :defer t
-    :init (spacemacs/set-leader-keys "af" 'elfeed)
+    :init (spacemacs/set-leader-keys "af" #'yxl-elfeed/invoke-elfeed)
+    :commands (yxl-elfeed/invoke-elfeed)
     :config
     (progn
-      (evilified-state-evilify-map elfeed-search-mode-map
-        :mode elfeed-search-mode
-        :eval-after-load elfeed-search
-        :bindings
-        "c"  'elfeed-db-compact
-        "gr" 'elfeed-update
-        "gR" 'elfeed-search-update--force
-        "gu" 'elfeed-unjam
-        "o"  'elfeed-load-opml
-        "q"  'quit-window
-        "w"  'elfeed-web-start
-        "W"  'elfeed-web-stop)
-      (evilified-state-evilify-map elfeed-show-mode-map
-        :mode elfeed-show-mode
-        :eval-after-load elfeed-show
-        :bindings
-        "q" 'quit-window
-        (kbd "C-j") 'elfeed-show-next
-        (kbd "C-k") 'elfeed-show-prev))))
+      (yxl-elfeed/setup-general-keybindings)
+      (yxl-elfeed/setup-evilify-keybindings)
+      (yxl-elfeed/setup-hydra)
+      (add-hook 'elfeed-search-mode-hook #'yxl-elfeed/elfeed-search-mode-hook-config)
+      (add-hook 'elfeed-show-mode-hook #'yxl-elfeed/elfeed-show-mode-hook-config)
+      (add-hook 'elfeed-search-mode-hook #'yxl-big-text-mode)
+      (add-hook 'elfeed-show-mode-hook #'yxl-big-text-mode)
+      (setq elfeed-db-directory yxl-elfeed-db-directory)
+      (setq elfeed-goodies/powerline-default-separator 'nil)
+      (setq elfeed-goodies/entry-pane-position 'bottom)
+      (setq elfeed-goodies/entry-pane-size 0.85))))
 
-(defun elfeed/init-elfeed-goodies ()
+(defun yxl-elfeed/init-elfeed-goodies ()
   (use-package elfeed-goodies
     :commands elfeed-goodies/setup
-    :init (spacemacs|use-package-add-hook elfeed
-            :post-config (progn
-                           (elfeed-goodies/setup)
-                           (evil-define-key 'evilified elfeed-show-mode-map "o" 'elfeed-goodies/show-ace-link)))))
+    :init
+    (spacemacs|use-package-add-hook elfeed
+      :post-config
+      (progn
+        (elfeed-goodies/setup)
+        (evil-define-key 'evilified elfeed-show-mode-map
+          "o" 'elfeed-goodies/show-ace-link)))))
 
-(defun elfeed/init-elfeed-web ()
+(defun yxl-elfeed/init-elfeed-web ()
   (use-package elfeed-web
     :defer t
     :commands elfeed-web-stop
@@ -47,3 +42,13 @@
             ;; hack to force elfeed feature to be required before elfeed-search
             (require 'elfeed)
             (elfeed-web-start))))
+
+(defun yxl-elfeed/init-yxl-elfeed ()
+  (use-package yxl-elfeed
+    :defer t
+    :after (elfeed)
+    :config
+    (progn
+      (yxl-elfeed-patch)
+      (setq elfeed-feeds yxl-personal-elfeed-feeds)
+      (setq yxl-elfeed-score-alist yxl-personal-elfeed-score-alist))))
