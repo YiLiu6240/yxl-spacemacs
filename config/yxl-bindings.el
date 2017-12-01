@@ -1,6 +1,5 @@
 ;; mac: use super+3 as "#"
 (global-set-key (kbd "s-3") (lambda () (interactive) (insert "#")))
-;; (global-set-key (kbd "C-S-p") #'helm-M-x)
 (global-set-key (kbd "C-S-p") #'counsel-M-x)
 (global-set-key (kbd "C-S-o") #'company-yasnippet)
 (global-set-key (kbd "C-S-y") #'yas-insert-snippet)
