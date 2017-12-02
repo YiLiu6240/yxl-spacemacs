@@ -57,6 +57,13 @@
   (interactive)
   (find-file yxl-file-note-sync))
 
+(defun visual-fill-column-toggle-center-text ()
+  (interactive)
+  (setq visual-fill-column-center-text
+        (not visual-fill-column-center-text))
+  (message (format "visual-fill-column-center-text: %s"
+                   visual-fill-column-center-text)))
+
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
   ;; workaround
@@ -117,6 +124,7 @@
   "sJ" #'yxl-imenu-anywhere
   "tv" #'visual-line-mode
   "tV" #'visual-fill-column-mode
+  "t C-v" #'visual-fill-column-toggle-center-text
   "w0" #'delete-other-windows
   "w1" #'delete-other-windows
   "ws" #'split-window-below-and-focus
