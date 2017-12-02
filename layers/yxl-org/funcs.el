@@ -9,6 +9,8 @@
 (defun my-org-log ()
   (interactive)
   (find-file yxl-file-org-log)
+  (visual-fill-column-mode t)
+  (setq visual-fill-column-center-text t)
   (calendar))
 
 (defun yxl-org/toggle-org-src-fontify-natively ()
