@@ -11,22 +11,22 @@
     :mode mu4e-main-mode
     :bindings
     (kbd "b") #'mu4e-headers-search-bookmark
-    (kbd "J") #'mu4e~headers-jump-to-maildir)
+    (kbd "a") #'mu4e~headers-jump-to-maildir)
   (evilified-state-evilify-map
     mu4e-headers-mode-map
     :mode mu4e-headers-mode
     :bindings
     (kbd "b") #'mu4e-headers-search-bookmark
-    (kbd "C-S-j") #'mu4e-headers-next
-    (kbd "C-S-k") #'mu4e-headers-prev
-    (kbd "J") #'mu4e~headers-jump-to-maildir)
+    (kbd "J") #'mu4e-headers-next
+    (kbd "K") #'mu4e-headers-prev
+    (kbd "a") #'mu4e~headers-jump-to-maildir)
   (evilified-state-evilify-map
     mu4e-view-mode-map
     :mode mu4e-view-mode
     :bindings
-    (kbd "C-S-j") #'mu4e-view-headers-next
-    (kbd "C-S-k") #'mu4e-view-headers-prev
-    (kbd "J") #'mu4e~headers-jump-to-maildir))
+    (kbd "J") #'mu4e-view-headers-next
+    (kbd "K") #'mu4e-view-headers-prev
+    (kbd "a") #'mu4e~headers-jump-to-maildir))
 
 (defun yxl-email/mu4e-setup-leader-keys ()
   (spacemacs/declare-prefix-for-mode 'mu4e-main-mode
@@ -37,7 +37,7 @@
     "uq" #'yxl-email/mu4e-offlineimap-quick
     "up" #'yxl-email/mu4e-offlineimap-quick-profile
     ";" #'mu4e-context-switch
-    "J" #'mu4e~headers-jump-to-maildir)
+    "a" #'mu4e~headers-jump-to-maildir)
   (spacemacs/declare-prefix-for-mode 'mu4e-headers-mode
     "mu" "update")
   (spacemacs/set-leader-keys-for-major-mode 'mu4e-headers-mode
@@ -49,7 +49,7 @@
     "R" #'mu4e-compose-reply
     "F" #'mu4e-compose-forward
     ";" #'mu4e-context-switch
-    "J" #'mu4e~headers-jump-to-maildir)
+    "a" #'mu4e~headers-jump-to-maildir)
   (spacemacs/set-leader-keys-for-major-mode 'mu4e-compose-mode
     dotspacemacs-major-mode-leader-key 'message-send-and-exit
     "c" #'message-send-and-exit
