@@ -47,6 +47,7 @@
     "d"  #'elfeed-unjam
     "s"  #'yxl-elfeed-helm-search
     "S"  #'elfeed-search-set-filter
+    "C-s"  #'yxl-elfeed/default-tag-filter
     "x"  #'elfeed-search-browse-url
     "y"  #'elfeed-search-yank
     "v"  #'set-mark-command

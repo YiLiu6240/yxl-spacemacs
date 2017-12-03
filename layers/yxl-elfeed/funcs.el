@@ -46,3 +46,8 @@ otherwise invoke elfeed as usual."
 (defun yxl-elfeed/show-tag-unread ()
   (interactive)
   (elfeed-show-tag 'unread))
+
+(defun yxl-elfeed/default-tag-filter ()
+  "Restore the default tag filter state."
+  (interactive)
+  (elfeed--read-tag (default-value 'elfeed-search-filter)))
