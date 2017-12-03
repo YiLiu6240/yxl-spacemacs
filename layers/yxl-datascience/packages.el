@@ -35,15 +35,7 @@
       (setq yxl-dash-docset-path "~/Dropbox/dash-docsets")
       (setq yxl-dash-browser-func 'w3m-goto-url-new-session)
       (setq counsel-dash-browser-func yxl-dash-browser-func)
-      (yxl-dash-activate-package-docsets yxl-dash-docset-path)
-      (defun yxl-dash-search-docset-firefox ()
-        (interactive)
-        (let ((counsel-dash-browser-func #'browse-url-firefox))
-          (yxl-dash-search-docset)))
-      (defun yxl-dash-search-docset-chromium ()
-        (interactive)
-        (let ((counsel-dash-browser-func #'browse-url-chromium))
-          (yxl-dash-search-docset))))))
+      (yxl-dash-activate-package-docsets yxl-dash-docset-path))))
 
 (defun yxl-datascience/init-yxl-doc-portal ()
   (use-package yxl-doc-portal
@@ -56,10 +48,6 @@
         "dP" #'yxl-doc-portal-chromium))
     :config
     (progn
-      (defun yxl-doc-portal-chromium ()
-        (interactive)
-        (let ((browse-url-browser-function #'browse-url-chromium))
-          (yxl-doc-portal)))
       (setq yxl-dp-docs
             (delete-dups (sort (append yxl-dp-docs
                                        yxl-datascience-additional-docs)
@@ -73,12 +61,10 @@
 
 (defun yxl-datascience/post-init-ess ()
   (with-eval-after-load 'ess-site
-    (advice-add 'ess-set-style
-                :after #'yxl-datascience/ess-set-style-advice)
-    (yxl-datascience/ess-setup-generic)
-    (yxl-datascience/ess-setup-bindings)
+    (yxl-datascience/ess-setup-keybindings)
     (yxl-datascience/ess-setup-imenu)
     (yxl-datascience/ess-setup-rdired)
+    (yxl-datascience/setup-ess-rdired-hydra)
     (yxl-datascience/ess-setup-help)
     (yxl-datascience/ess-setup-lintr)
     (add-hook 'ess-mode-hook #'yxl-datascience/ess-hook)
@@ -90,7 +76,45 @@
             '(ess-mode ess-julia-mode inferior-ess-mode))
     (mapcar #'yxl-datascience/ess-declare-prefix
             '(ess-mode ess-julia-mode inferior-ess-mode))
-    (yxl-datascience/setup-julia-bindings)))
+    (yxl-datascience/setup-julia-keybindings)
+    (setq spacemacs-useful-buffers-regexp
+          (append spacemacs-useful-buffers-regexp '("\\*R:*" "\\*julia:*")))
+    (setq ess-history-file nil)
+    ;; no spaces around argument assignment
+    (setq ess-R-argument-suffix " = ")
+    (setq ess-eval-visibly 'nowait)
+    (setq ess-execute-in-process-buffer t)
+    (setq ess-ask-for-ess-directory nil)
+    (setq yxl-ess-style '((ess-indent-offset . 2)
+                          (ess-offset-arguments . open-delim)
+                          (ess-offset-arguments-newline . prev-call)
+                          (ess-offset-block . prev-line)
+                          (ess-offset-continued . straight)
+                          (ess-align-nested-calls "ifelse")
+                          (ess-align-arguments-in-calls "function[    ]*(")
+                          (ess-align-continuations-in-calls . t)
+                          (ess-align-blocks control-flow)
+                          (ess-indent-from-lhs arguments fun-decl-opening)
+                          (ess-indent-from-chain-start . t)
+                          (ess-indent-with-fancy-comments)))
+    (ess-add-style 'yxl-ess-style yxl-ess-style)
+    ;; (setq ess-default-style 'yxl-ess-style)
+    (setq ess-default-style 'RStudio)
+    (setq ess-fl-keyword:operators (cons "[-=+></%$!(::)]+"
+                                         'font-lock-constant-face))
+    (setq ess-R-font-lock-keywords
+          '((ess-R-fl-keyword:modifiers  . t)
+            (ess-R-fl-keyword:fun-defs   . t)
+            (ess-R-fl-keyword:keywords   . t)
+            (ess-R-fl-keyword:assign-ops . t)
+            (ess-R-fl-keyword:constants  . t)
+            (ess-fl-keyword:fun-calls . t)
+            (ess-fl-keyword:numbers . t)
+            (ess-fl-keyword:operators . t)
+            (ess-fl-keyword:delimiters . t)
+            (ess-fl-keyword:= . t)
+            (ess-R-fl-keyword:F&T . t)
+            (ess-R-fl-keyword:%op% . t)))))
 
 (defun yxl-datascience/init-yxl-ess ()
   (use-package yxl-ess
@@ -146,63 +170,26 @@
     :commands ein:notebooklist-open
     :init
     (progn
-      (spacemacs/set-leader-keys "ajn" 'ein:notebooklist-open)
-      (spacemacs/set-leader-keys "ajN" 'ein:notebooklist-login)
-      (spacemacs/declare-prefix "aj" "jupyter-notebook")
-      (with-eval-after-load 'ein-notebooklist
-        (evilified-state-evilify-map ein:notebooklist-mode-map
-          :mode ein:notebooklist-mode
-          :bindings
-          (kbd "o") 'spacemacs/ace-buffer-links)
-        (define-key ein:notebooklist-mode-map "o" 'spacemacs/ace-buffer-links)))
+      (spacemacs/set-leader-keys "ajn" #'ein:notebooklist-open)
+      (spacemacs/set-leader-keys "ajN" #'ein:notebooklist-login)
+      (spacemacs/declare-prefix "aj" "jupyter-notebook"))
     :config
     (progn
-      (defun spacemacs/ein:worksheet-merge-cell-next ()
-        (interactive)
-        (ein:worksheet-merge-cell
-         (ein:worksheet--get-ws-or-error) (ein:worksheet-get-current-cell) t t))
-      (defun spacemacs//concat-leader (key)
-        (if dotspacemacs-major-mode-leader-key
-            (concat dotspacemacs-major-mode-leader-key key)
-          (concat "," key)))
-      (defun ein:notebook-save-notebook-override (notebook
-                                                  retry
-                                                  &optional callback cbargs)
-        (let ((content (ein:content-from-notebook notebook)))
-          (ein:events-trigger (ein:$notebook-events notebook)
-                              'notebook_saving.Notebook)
-          (ein:content-save content
-                            #'ein:notebook-save-notebook-success
-                            (list notebook callback cbargs)
-                            #'ein:notebook-save-notebook-error
-                            (list notebook))))
+      (require 'ein-cell-edit)
+      (require 'ein-notebook)
+      (require 'ein-multilang)
+      (setq spacemacs-useful-buffers-regexp
+            (append spacemacs-useful-buffers-regexp '("\\*ein:*")))
+      (setq ein:completion-backend 'ein:use-company-backend)
       (advice-add 'ein:notebook-save-notebook
                   :override #'ein:notebook-save-notebook-override)
-      (require 'ein-cell-edit)
-      (defun ein:edit-cell-exit-override ()
-        "Close the EIN source edit buffer, saving contents back to the
-original notebook cell, unless being called via
-`ein:edit-cell-abort'."
-        (interactive)
-        (let ((edit-buffer (current-buffer))
-              (ws ein:src--ws)
-              (cell ein:src--cell))
-          (ein:remove-overlay)
-          (when ein:src--allow-write-back
-            (ein:edit-cell-save))
-          (kill-buffer-and-window)))
+      (add-hook 'ein:notebook-multilang-mode-hook
+                #'smartparens-mode)
       (advice-add 'ein:edit-cell-exit
                   :override #'ein:edit-cell-exit-override)
-      (add-hook 'ein:notebook-multilang-mode-hook
-                #'smartparens-mode))
-    (defun ein:worksheet-insert-cell-below-and-edit ()
-      (interactive)
-      (call-interactively #'ein:worksheet-insert-cell-below)
-      (call-interactively #'ein:edit-cell-contents))
-    (defun ein:edit-cell-save-and-execute-and-exit ()
-      (interactive)
-      (call-interactively #'ein:edit-cell-save-and-execute)
-      (call-interactively #'ein:edit-cell-exit))
-    (yxl-datascience/setup-jupyter-bindings)
-    (yxl-datascience/setup-jupyter-leader-keys)
-    (yxl-datascience/setup-jupyter-hydra)))
+      ;; no idea why we have to enforce evilified state on pager to work
+      (add-hook 'ein:pager-mode-hook #'evil-evilified-state)
+      (yxl-datascience/setup-jupyter-keybindings)
+      (yxl-datascience/setup-jupyter-evilified-keybindings)
+      (yxl-datascience/setup-jupyter-leader-keys)
+      (yxl-datascience/setup-jupyter-hydra))))

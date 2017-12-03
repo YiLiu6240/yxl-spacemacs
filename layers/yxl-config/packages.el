@@ -1,5 +1,4 @@
 (setq yxl-config-packages '(pdf-tools
-                            ess
                             python
                             imenu-list
                             hippie-exp
@@ -23,23 +22,6 @@
       (run-with-idle-timer 0 nil #'run-window-configuration-change-hook))
     (advice-add 'window-state-put :after #'window-state-put-workaround)
     (yxl-pdf-view-bindings)))
-
-(defun yxl-config/post-init-ess ()
-  (with-eval-after-load 'ess-mode
-    (evil-define-key 'insert comint-mode-map
-      (kbd "C-j") #'windmove-down
-      (kbd "C-k") #'windmove-up
-      (kbd "C-p") #'comint-previous-input
-      (kbd "C-n") #'comint-next-input)
-    (evil-define-key 'normal comint-mode-map
-      (kbd "C-j") #'windmove-down
-      (kbd "C-k") #'windmove-up
-      (kbd "C-p") #'comint-previous-input
-      (kbd "C-n") #'comint-next-input)
-    (with-eval-after-load 'ess-mode
-      (evil-set-initial-state 'ess-rdired-mode 'evilified))
-    (with-eval-after-load 'ess-help
-      (evil-set-initial-state 'ess-help-mode 'evilified))))
 
 (defun yxl-config/post-init-python ()
   (with-eval-after-load 'python
