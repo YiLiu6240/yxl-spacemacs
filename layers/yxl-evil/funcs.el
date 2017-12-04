@@ -151,6 +151,9 @@ with spaces."
 (defun yxl-evil/setup-evilified ()
   (when (boundp 'evil-evilified-state-map-original)
     (progn
+
+      (define-key evil-evilified-state-map-original (kbd "o") (kbd "RET"))
+
       (define-key evil-evilified-state-map-original "w" #'evil-forward-word-begin)
       (define-key evil-evilified-state-map-original "e" #'evil-forward-word-end)
       (define-key evil-evilified-state-map-original "b" #'evil-backward-word-begin)
@@ -161,10 +164,6 @@ with spaces."
 
       (define-key evil-evilified-state-map-original "gg" #'evil-goto-first-line)
       (define-key evil-evilified-state-map-original "G"  #'evil-goto-line)
-      (define-key evil-evilified-state-map-original "gT" #'eyebrowse-prev-window-config)
-      (define-key evil-evilified-state-map-original "gt" #'eyebrowse-next-window-config)
-      (define-key evil-evilified-state-map-original (kbd "g C-h") #'eyebrowse-prev-window-config)
-      (define-key evil-evilified-state-map-original (kbd "g C-l") #'eyebrowse-next-window-config)
 
       (define-key evil-evilified-state-map-original "\C-w" 'evil-window-map)
 
@@ -178,6 +177,9 @@ with spaces."
       (define-key evil-evilified-state-map-original (kbd "zt") #'evil-scroll-line-to-top)
 
       (define-key evil-evilified-state-map-original "-" #'dired-jump)
+
+      (define-key evil-evilified-state-map-original "}" 'evil-forward-paragraph)
+      (define-key evil-evilified-state-map-original "{" 'evil-backward-paragraph)
 
       (define-key evil-evilified-state-map-original
         (kbd dotspacemacs-ex-command-key) #'evil-ex))))
