@@ -4,7 +4,8 @@
                            image+
                            dired-quick-sort
                            dired-subtree
-                           dired-ranger))
+                           dired-ranger
+                           dired-sidebar))
 
 (defun yxl-dired/post-init-dired ()
   (use-package dired
@@ -101,3 +102,15 @@
   (use-package dired-ranger
     :after dired
     :config))
+
+(defun yxl-dired/init-dired-sidebar ()
+  (use-package dired-sidebar
+    :bind (("C-\\" . dired-sidebar-toggle-sidebar))
+    :ensure t
+    :commands (dired-sidebar-toggle-sidebar)
+    :config
+    (progn
+      (add-hook 'dired-sidebar-mode-hook
+                #'yxl-dired/dired-sidebar-keybinding-override)
+      (setq dired-sidebar-use-term-integration t)
+      (setq dired-sidebar-use-all-the-icons nil))))
