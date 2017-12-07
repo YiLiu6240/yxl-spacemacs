@@ -13,7 +13,6 @@
                                 (interactive)
                                 (yxl-insert-symbol "=>")))
 
-(global-set-key (kbd "C-\\") #'yxl-dired-popup)
 (global-set-key (kbd "C-s") #'save-buffer)
 
 (global-set-key (kbd "M-<SPC>") #'yas-or-company)

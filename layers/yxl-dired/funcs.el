@@ -6,9 +6,12 @@
   (define-key dired-mode-map "." 'yxl-dired/hydra-main/body)
   (define-key dired-mode-map "," 'yxl-dired/hydra-main/body)
   (define-key dired-mode-map (kbd "C-c \.") 'yxl-dired/hydra-main/body)
-  (evilified-state-evilify dired-mode dired-mode-map
-    "o" #'dired-find-file
+  (evilified-state-evilify-map dired-mode-map
+    :mode dired-mode
+    :bindings
+    "o" (kbd "RET")
     "q" #'yxl-dired-delete-window
+    "-" #'dired-jump
     ;; from vinegar layer
     "0" #'dired-back-to-start-of-files
     "=" #'vinegar/dired-diff
