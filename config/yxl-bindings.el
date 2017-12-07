@@ -64,6 +64,11 @@
   (message (format "visual-fill-column-center-text: %s"
                    visual-fill-column-center-text)))
 
+(defun spacemacs/find-dotfile-follow-symlink ()
+  "Edit the `dotfile', in the current window."
+  (interactive)
+  (find-file-existing (file-truename (dotspacemacs/location))))
+
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
   ;; workaround
@@ -90,6 +95,7 @@
   ;; TODO: rm this with next spacemacs update
   "bm" #'yxl-buffer-switch-same-major-mode
   "bx" #'kill-buffer-and-window
+  "fed" #'spacemacs/find-dotfile-follow-symlink
   "ff" #'yxl-find-file-counsel
   "fF" #'find-file-in-current-directory
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
