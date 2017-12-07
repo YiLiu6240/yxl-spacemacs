@@ -16,9 +16,9 @@ otherwise invoke elfeed as usual."
   (setq shr-inhibit-images t)
   (setq line-spacing 4)
   (setq yxl-line-width 100)
-  (visual-line-mode t)
+  (setq visual-fill-column-center-text t)
   (visual-fill-column-mode t)
-  (setq visual-fill-column-center-text t))
+  (visual-line-mode t))
 
 (defun yxl-elfeed/elfeed-search-browse-url-w3m ()
   "inject w3m to be the browser function"
