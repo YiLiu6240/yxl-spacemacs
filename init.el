@@ -155,10 +155,10 @@
                                        "hack")
                                       ((eq system-type 'darwin)
                                        "hack")
-                                      (t "hack"))
+                                      (t "Sarasa Mono Sc"))
                                :size ,(cond ((eq system-type 'darwin) 12)
                                             ((eq system-type 'windows-nt) 12)
-                                            (t 12))
+                                            (t 14))
                                :weight normal
                                :width normal
                                :powerline-scale 1.3)
