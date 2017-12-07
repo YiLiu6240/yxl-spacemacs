@@ -44,7 +44,6 @@
 
 (defun yxl-elfeed/init-yxl-elfeed ()
   (use-package yxl-elfeed
-    :defer t
     :after (elfeed)
     :config
     (progn
