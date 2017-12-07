@@ -9,6 +9,7 @@
 (defun my-org-log ()
   (interactive)
   (find-file yxl-file-org-log)
+  (focus-mode t)
   (visual-fill-column-mode t)
   (setq visual-fill-column-center-text t)
   (calendar))
