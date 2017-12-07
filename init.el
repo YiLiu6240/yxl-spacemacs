@@ -233,7 +233,7 @@
   ;; add hook so that modeline colors are set correctly after theme change
   (add-hook 'spacemacs-post-theme-change-hook #'yxl-airline-theme-set-colors)
   (load-file (concat dotspacemacs-directory "config/config-post-init.el"))
-  (load-file (concat dotspacemacs-directory "config/yxl-bindings.el"))
+  (load-file (concat dotspacemacs-directory "config/yxl-keybindings.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-hydra.el"))
   (load-file (concat dotspacemacs-directory "config/hack-post-init.el"))
   (load-file (concat dotspacemacs-directory "config/config-last.el")))
