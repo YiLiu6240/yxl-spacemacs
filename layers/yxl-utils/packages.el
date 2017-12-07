@@ -9,7 +9,8 @@
                            visual-fill-column
                            (yxl-invoke-applications :location site)
                            el2markdown
-                           emamux))
+                           emamux
+                           focus))
 
 (defun yxl-utils/init-yxl-utils ()
   (use-package yxl-utils
@@ -211,4 +212,8 @@
 
 (defun yxl-utils/init-emamux ()
   (use-package emamux
+    :defer t))
+
+(defun yxl-utils/init-focus ()
+  (use-package focus
     :defer t))
