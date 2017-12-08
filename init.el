@@ -16,6 +16,8 @@
                                     org-bullets
                                     tern
                                     ess-smart-equals
+                                    ess-R-object-popup
+                                    wolfram-mode
                                     neotree)
    dotspacemacs-install-packages 'used-only
    dotspacemacs-configuration-layers
