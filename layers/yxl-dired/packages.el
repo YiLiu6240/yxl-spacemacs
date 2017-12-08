@@ -36,7 +36,7 @@
     :after dired
     :config
     (progn
-      (evilified-state-evilify dired-mode dired-mode-map
+      (evil-define-key 'evilified dired-mode-map
         "Oo" #'yxl-dired-open-aw
         "OO" #'dired-find-file-other-window
         "Os" #'yxl-dired-open-aw-horz
@@ -105,7 +105,7 @@
 
 (defun yxl-dired/init-dired-sidebar ()
   (use-package dired-sidebar
-    :bind (("C-\\" . dired-sidebar-toggle-sidebar))
+    :bind (("C-c C-t" . dired-sidebar-toggle-sidebar))
     :init
     (progn
       (spacemacs/set-leader-keys "ft" #'dired-sidebar-toggle-sidebar))
