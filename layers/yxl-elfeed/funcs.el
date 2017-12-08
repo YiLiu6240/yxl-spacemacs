@@ -15,7 +15,7 @@ otherwise invoke elfeed as usual."
 (defun yxl-elfeed/elfeed-show-mode-hook-config ()
   (setq shr-inhibit-images t)
   (setq line-spacing 4)
-  (setq yxl-line-width 100)
+  (setq visual-fill-column-width 120)
   (setq visual-fill-column-center-text t)
   (visual-fill-column-mode t)
   (visual-line-mode t))
@@ -51,3 +51,8 @@ otherwise invoke elfeed as usual."
   "Restore the default tag filter state."
   (interactive)
   (elfeed--read-tag (default-value 'elfeed-search-filter)))
+
+(defun yxl-elfeed/view-elfeed-log ()
+  "Open log buffer."
+  (interactive)
+  (pop-to-buffer "*elfeed-log*"))

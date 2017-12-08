@@ -11,17 +11,17 @@
     :mode elfeed-search-mode
     :eval-after-load elfeed-search
     :bindings
+    "q" #'quit-window
     "*" #'elfeed-toggle-star
-    "o" #'elfeed-search-show-entry
-    "O" #'yxl-elfeed/elfeed-search-browse-url-w3m
-    "x" #'elfeed-search-browse-url
     "m" #'yxl-elfeed-mark-as-read
     "M" #'yxl-elfeed-mark-as-unread
-    "q" #'quit-window
     "+" #'yxl-elfeed-add-tag
     "-" #'yxl-elfeed-rm-tag
+    "o" #'elfeed-search-show-entry
+    "O" #'yxl-elfeed/elfeed-search-browse-url-w3m
     "s" #'yxl-elfeed-helm-search
-    "S" #'elfeed-search-set-filter)
+    "S" #'elfeed-search-set-filter
+    "x" #'elfeed-search-browse-url)
   (evilified-state-evilify-map elfeed-show-mode-map
     :mode elfeed-show-mode
     :eval-after-load elfeed-show
@@ -45,6 +45,7 @@
     "a"  #'elfeed-search-update--force
     "A"  #'elfeed-update
     "d"  #'elfeed-unjam
+    "L"  #'yxl-elfeed/view-elfeed-log
     "s"  #'yxl-elfeed-helm-search
     "S"  #'elfeed-search-set-filter
     "C-s"  #'yxl-elfeed/default-tag-filter
