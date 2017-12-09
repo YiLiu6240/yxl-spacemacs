@@ -52,6 +52,11 @@
               ("subl" . (lambda (x) (yxl-open--linux-command "subl" x)))
               ("atom" . (lambda (x) (yxl-open--linux-command "atom" x)))
               ("zathura" . (lambda (x) (yxl-open--linux-command "zathura" x)))
+              ("zathura-light" . (lambda (x)
+                                   (shell-command (format "%s %s %s"
+                                                          "zathura"
+                                                          "-c ~/dotfiles/zathura-light"
+                                                          x))))
               ("tad" . (lambda (x) (yxl-open--linux-command "tad" x)))
               ("vmd" . (lambda (x) (yxl-open--linux-command "vmd" x)))
               ("chrome" . (lambda (x) (browse-url-chrome x)))
