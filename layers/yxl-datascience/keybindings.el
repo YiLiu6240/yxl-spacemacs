@@ -120,7 +120,7 @@
   (spacemacs/declare-prefix-for-mode mode "mr" "roxygen")
   (spacemacs/declare-prefix-for-mode mode "mo" "user-defined"))
 
-(defun yxl-datascience/setup-ess-help-hydra ()
+(defun yxl-datascience/setup-ess-hydra ()
   (defhydra yxl-ess-help-hydra (:color blue :hint nil :columns 4
                                        :pre (setq which-key-inhibit t)
                                        :post (setq which-key-inhibit nil))
@@ -128,9 +128,7 @@
     ("b" ess-display-help-in-browser "help-in-browser")
     ("p" ess-display-package-index "package index")
     ("v" ess-display-vignettes "vignettes")
-    ("w" ess-help-web-search "web-search")))
-
-(defun yxl-datascience/setup-ess-rdired-hydra ()
+    ("w" ess-help-web-search "web-search"))
   (defhydra yxl-ess-rdired-hydra (:color blue :hint nil :columns 4
                                          :pre (setq which-key-inhibit t)
                                          :post (setq which-key-inhibit nil))
