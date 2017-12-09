@@ -53,7 +53,7 @@
               ("atom" . (lambda (x) (yxl-open--linux-command "atom" x)))
               ("zathura" . (lambda (x) (yxl-open--linux-command "zathura" x)))
               ("zathura-light" . (lambda (x)
-                                   (shell-command (format "%s %s %s"
+                                   (shell-command (format "%s %s %s & disown"
                                                           "zathura"
                                                           "-c ~/dotfiles/zathura-light"
                                                           x))))
