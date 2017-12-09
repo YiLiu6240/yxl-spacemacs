@@ -17,11 +17,6 @@
 
 (defun yxl-datascience/init-yxl-dash ()
   (use-package yxl-dash
-    :after counsel-dash
-    :commands (yxl-dash-search-docset
-               yxl-dash-search-docset-external-browser
-               yxl-dash-search-docset-chromium
-               yxl-dash-search-docset-firefox)
     :init
     (progn
       (spacemacs/set-leader-keys
@@ -30,8 +25,14 @@
         "dm" #'yxl-dash-search-docset-chromium
         "df" #'yxl-dash-search-docset-firefox
         "dr" #'counsel-dash-reset-connections))
+    :commands (yxl-dash-search-docset
+               yxl-dash-search-docset-external-browser
+               yxl-dash-search-docset-chromium
+               yxl-dash-search-docset-firefox
+               yxl-dash-search-docset-helm)
     :config
     (progn
+      (require 'counsel-dash)
       (setq yxl-dash-docset-path "~/Dropbox/dash-docsets")
       (setq yxl-dash-browser-func 'w3m-goto-url-new-session)
       (setq counsel-dash-browser-func yxl-dash-browser-func)
