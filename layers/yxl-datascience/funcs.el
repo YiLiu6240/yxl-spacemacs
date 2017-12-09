@@ -17,6 +17,20 @@
   (let ((browse-url-browser-function #'browse-url-chromium))
     (yxl-doc-portal)))
 
+(defun yxl-dash-search-docset-helm ()
+  "Use helm to select docstring first, becasue ivy uses mini-buffer
+and in some situtations it will cause problems."
+  (interactive)
+  (helm-autoresize-mode t)
+  (let* ((helm-autoresize-max-height 80)
+         (helm-dash-common-docsets
+          (list (helm :sources (helm-build-sync-source "docset"
+                                 :candidates (helm-dash-installed-docsets))
+                      :prompt "which docset to use: "
+                      :buffer "*helm-dash-choose-docset"))))
+    ;; Nevertheless helm is slow AF, so for the proper part, still use counsel
+    (counsel-dash)))
+
 (defun yxl-datascience/R-hook ())
 
 (defun yxl-datascience/ess-hook ()
