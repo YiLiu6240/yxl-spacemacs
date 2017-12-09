@@ -28,3 +28,6 @@
     ("Color - gruvbox" . "https://github.com/morhetz/gruvbox")
     ("Color - material" . "https://material.io/guidelines/style/color.html#color-color-palette")
     ("Color - hexrgb" . "https://www.webpagefx.com/web-design/hex-to-rgb/")))
+
+(defvar yxl-datascience-docset-path "~/.docsets"
+  "Path to dash docsets.")

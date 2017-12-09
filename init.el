@@ -118,7 +118,8 @@
      yxl-workspace
      yxl-config
      yxl-dired
-     yxl-datascience
+     (yxl-datascience :variables
+                      yxl-datascience-docset-path "~/Dropbox/dash-docsets")
      yxl-org
      yxl-web
      yxl-completion

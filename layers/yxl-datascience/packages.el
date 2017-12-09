@@ -33,7 +33,7 @@
     :config
     (progn
       (require 'counsel-dash)
-      (setq yxl-dash-docset-path "~/Dropbox/dash-docsets")
+      (setq yxl-dash-docset-path yxl-datascience-docset-path)
       (setq yxl-dash-browser-func 'w3m-goto-url-new-session)
       (setq counsel-dash-browser-func yxl-dash-browser-func)
       (yxl-dash-activate-package-docsets yxl-dash-docset-path))))
