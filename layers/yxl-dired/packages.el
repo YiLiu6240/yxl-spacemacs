@@ -105,7 +105,7 @@
 
 (defun yxl-dired/init-dired-sidebar ()
   (use-package dired-sidebar
-    :bind (("C-c C-t" . dired-sidebar-toggle-sidebar))
+    :bind (("C-c C-/" . dired-sidebar-toggle-sidebar))
     :init
     (progn
       (spacemacs/set-leader-keys "ft" #'dired-sidebar-toggle-sidebar))
