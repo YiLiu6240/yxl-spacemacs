@@ -77,6 +77,7 @@
   "aa" #'yxl-invoke-applications
   "bB" #'yxl-buffer-switch-same-major-mode
   "bb" #'yxl-buffer-switch
+  "bh" #'yxl-utils/home
   "bob" #'ibuffer
   "boc" #'yxl-buffer-compilation
   "boC" #'clone-indirect-buffer-other-window
@@ -87,12 +88,11 @@
   "boi" #'yxl-buffer-note-local
   "boI" #'yxl-buffer-note-sync
   "bon" #'yxl-buffer-inherit
-  "bor" #'revert-buffer
   "boo" #'yxl-buffer-org-quick
   "boO" #'yxl-buffer-org-todo
-  "bh" #'yxl-utils/home
   ;; TODO: rm this with next spacemacs update
   "bm" #'yxl-buffer-switch-same-major-mode
+  "br" #'revert-buffer
   "bx" #'kill-buffer-and-window
   "fed" #'spacemacs/find-dotfile-follow-symlink
   "ff" #'yxl-find-file-counsel
