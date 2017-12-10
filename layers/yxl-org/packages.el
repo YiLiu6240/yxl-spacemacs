@@ -14,7 +14,9 @@
   ;; inject my own configs
   (with-eval-after-load 'org
     (yxl-org/setup-general)
-    (yxl-org/setup-bindings)
+    (yxl-org/setup-keybindings)
+    (yxl-org/setup-leader-keys)
+    (yxl-org/setup-hydra)
     (yxl-org/setup-capture)
     (yxl-org/setup-keywords)
     (add-hook 'org-font-lock-set-keywords-hook
