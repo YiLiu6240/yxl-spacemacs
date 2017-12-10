@@ -6,7 +6,10 @@
 (defun yxl-elfeed/init-elfeed ()
   (use-package elfeed
     :defer t
-    :init (spacemacs/set-leader-keys "af" #'elfeed)
+    :init
+    (progn
+       (spacemacs/set-leader-keys "af" #'elfeed)
+       (setq-default elfeed-search-filter "@6-months-ago +unread -jobs"))
     :config
     (progn
       (yxl-elfeed/setup-general-keybindings)
