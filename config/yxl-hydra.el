@@ -67,7 +67,7 @@ Directory:
   ("G" (yxl-find-dir yxl-path-local) "local-repo")
   ("h" (yxl-find-dir yxl-path-sync) "dropbox")
   ("H" (yxl-find-dir yxl-path-projects) "projects")
-  ("o" (find-file yxl-path-org) "org")
+  ("o" (yxl-find-dir yxl-path-org) "org")
   ("c" (yxl-find-dir yxl-path-code-pwd) "code")
   ("C" (yxl-find-dir yxl-path-code-master-pwd) "code-master")
   ("p" (yxl-find-dir yxl-path-paper-pwd) "papers")
