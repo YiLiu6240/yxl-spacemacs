@@ -10,7 +10,8 @@
                            (yxl-invoke-applications :location site)
                            el2markdown
                            emamux
-                           focus))
+                           focus
+                           helpful))
 
 (defun yxl-utils/init-yxl-utils ()
   (use-package yxl-utils
@@ -221,4 +222,8 @@
 
 (defun yxl-utils/init-focus ()
   (use-package focus
+    :defer t))
+
+(defun yxl-utils/init-helpful ()
+  (use-package helpful
     :defer t))
