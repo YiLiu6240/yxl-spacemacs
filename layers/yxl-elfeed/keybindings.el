@@ -27,7 +27,7 @@
     :eval-after-load elfeed-show
     :bindings
     "q"           #'delete-window
-    "O"           #'yxl-elfeed/elfeed-show-visit-w3m
+    "O"           #'yxl-elfeed/show-visit-w3m
     "x"           #'elfeed-show-visit
     "u"           #'elfeed-show-visit
     "J"           #'elfeed-show-next
