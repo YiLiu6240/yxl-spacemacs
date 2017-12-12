@@ -1,5 +1,10 @@
 (defun yxl-org/setup-keybindings ()
   (define-key org-mode-map (kbd "C-M-i") #'yxl-org/insert-source-block)
+  (define-key org-mode-map
+    (kbd "S-RET") (lambda nil (interactive)
+                    (if (equal (string (preceding-char)) " ")
+                        (insert "%>% ")
+                      (insert " %>% "))))
   (evil-define-key 'normal org-mode-map
     "t" 'org-todo
     "_" 'projectile-dired
@@ -82,5 +87,5 @@ yxl-org/hydra:
 "
     ("." nil "quit")
     ("i" org-indent-mode (if (and (featurep 'org-indent-mode) org-indent-mode) "[x]" "[ ]") :color red)
-    ("ss" yxl-org/toggle-org-src-fontify-natively
+    ("ss" ((yxl-org/toggle-org-src-fontify-natively) (revert-buffer))
      (if org-src-fontify-natively "[x]" "[ ]") :color red)))
