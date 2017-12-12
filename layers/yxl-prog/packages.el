@@ -5,7 +5,8 @@
                           ob-ipython
                           graphviz-dot-mode
                           bash-completion
-                          scala-mode))
+                          scala-mode
+                          suggest))
 
 ;; TODO: wrong spec, dont use use-package
 (defun yxl-prog/init-prog-mode ()
@@ -110,3 +111,7 @@ region selection and step one line."
   (with-eval-after-load 'scala-mode
     (setq ensime-startup-notification nil)
     (setq ensime-startup-snapshot-notification nil)))
+
+(defun yxl-prog/init-suggest ()
+  (use-package suggest
+    :defer t))
