@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: babel-graphics
+# --
+#+begin_src $1 :results graphics :file images/$2.png
+$0
+#+end_src
