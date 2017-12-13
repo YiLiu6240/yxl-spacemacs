@@ -49,6 +49,8 @@
     "F" #'mu4e-compose-forward
     ";" #'mu4e-context-switch
     "a" #'mu4e~headers-jump-to-maildir)
+  (spacemacs/set-leader-keys-for-major-mode 'mu4e-view-mode
+    "a" #'mu4e-view-action)
   (spacemacs/set-leader-keys-for-major-mode 'mu4e-compose-mode
     dotspacemacs-major-mode-leader-key 'message-send-and-exit
     "c" #'message-send-and-exit
