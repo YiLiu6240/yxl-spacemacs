@@ -1,5 +1,7 @@
 (defun yxl-org/setup-keybindings ()
-  (define-key org-mode-map (kbd "C-M-i") #'yxl-org/insert-source-block)
+  (define-key org-mode-map (kbd "C-M-o") #'yxl-org/insert-source-block)
+  (define-key org-mode-map (kbd "C-c f") #'yxl-prog/evil-wrap-line-f)
+  (define-key org-mode-map (kbd "C-c F") #'yxl-prog/evil-wrap-line-f-print)
   (define-key org-mode-map
     (kbd "S-RET") (lambda nil (interactive)
                     (if (equal (string (preceding-char)) " ")
