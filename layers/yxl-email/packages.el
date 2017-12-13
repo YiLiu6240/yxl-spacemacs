@@ -9,7 +9,7 @@
     :commands (mu4e mu4e-compose-new)
     :init
     (progn
-      (spacemacs/set-leader-keys "a M" 'mu4e))
+      (spacemacs/set-leader-keys "a m" 'mu4e))
     :config
     (progn
       (yxl-email/mu4e-setup-general-keybindings)
