@@ -89,5 +89,6 @@ yxl-org/hydra:
 "
     ("." nil "quit")
     ("i" org-indent-mode (if (and (featurep 'org-indent-mode) org-indent-mode) "[x]" "[ ]") :color red)
-    ("ss" ((yxl-org/toggle-org-src-fontify-natively) (revert-buffer))
+    ("ss" (lambda () (interactive)
+            (yxl-org/toggle-org-src-fontify-natively) (revert-buffer nil t))
      (if org-src-fontify-natively "[x]" "[ ]") :color red)))
