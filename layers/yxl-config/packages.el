@@ -139,4 +139,18 @@
 
 (defun yxl-config/post-init-deft ()
   (with-eval-after-load 'deft
-    (evil-define-key 'insert deft-mode-map (kbd "C-h") #'deft-filter-decrement)))
+    (progn
+      (evil-define-key 'insert deft-mode-map (kbd "C-h") #'deft-filter-decrement)
+      (defun deft-open-file-at-point (&optional arg)
+        "Interactive version of `def-open-file'."
+        (interactive)
+        (let ((file (deft-filename-at-point)))
+          (when file
+            (deft-open-file file nil arg))))
+      (spacemacs/set-leader-keys-for-major-mode 'deft-mode
+        "d" #'deft-delete-file
+        "i" #'deft-toggle-incremental-search
+        "n" #'deft-new-file
+        "o" #'deft-open-file-at-point
+        "O" #'deft-open-file-other-window
+        "r" #'deft-rename-file))))
