@@ -8,6 +8,11 @@ otherwise invoke elfeed as usual."
         (elfeed-update))
     (elfeed)))
 
+(defun yxl-elfeed/db-save ()
+  "Interactive version of `elfeed-db-save'."
+  (interactive)
+  (elfeed-db-save))
+
 (defun yxl-elfeed/elfeed-search-mode-hook-config ()
   (setq shr-inhibit-images t)
   (setq line-spacing 4))

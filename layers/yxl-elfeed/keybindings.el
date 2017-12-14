@@ -57,8 +57,9 @@
     "*"  #'elfeed-toggle-star
     "+"  #'yxl-elfeed-add-tag
     "-"  #'yxl-elfeed-rm-tag
-    "w"  #'elfeed-web-start
-    "W"  #'elfeed-web-stop
+    "w"  #'yxl-elfeed/db-save
+    "tw"  #'elfeed-web-start
+    "tW"  #'elfeed-web-stop
     "tm" #'elfeed-toggle-shr-inhibit-images)
   (spacemacs/declare-prefix-for-mode 'elfeed-show-mode
     "t" "toggle")
