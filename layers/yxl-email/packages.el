@@ -6,10 +6,20 @@
 
 (defun yxl-email/init-mu4e ()
   (use-package mu4e
-    :commands (mu4e mu4e-compose-new)
+    :commands (mu4e
+               mu4e-compose-new
+               mu4e-update-mail-and-index
+               yxl-email/mu4e-offlineimap-quiet
+               yxl-email/mu4e-offlineimap-quick)
     :init
     (progn
-      (spacemacs/set-leader-keys "a m" 'mu4e))
+      (spacemacs/declare-prefix "am" "email")
+      (spacemacs/set-leader-keys
+        "a m m" #'mu4e
+        "a m u" #'mu4e-update-mail-and-index
+        "a m c" #'mu4e-compose-new
+        "a m q" #'yxl-email/mu4e-offlineimap-quiet
+        "a m Q" #'yxl-email/mu4e-offlineimap-quick))
     :config
     (progn
       (yxl-email/mu4e-setup-general-keybindings)
@@ -31,6 +41,18 @@
               (:mailing-list . 10)
               (:from . 22)
               (:subject)))
+      (setq mu4e-bookmarks
+            `(("flag:unread AND NOT flag:trashed" "Unread messages" ?u)
+              ("date:today..now" "Today's messages" ?t)
+              ("date:7d..now" "Last 7 days" ?w)
+              ("mime:image/*" "Messages with images" ?p)
+              ("flag:flagged" "Flagged messages" ?f)
+              (,(mapconcat 'identity
+                           (mapcar
+                            (lambda (maildir)
+                              (concat "maildir:" (car maildir)))
+                            mu4e-maildir-shortcuts) " OR ")
+               "All inboxes" ?i)))
       (add-hook 'mu4e-compose-mode-hook (lambda () (auto-fill-mode -1)))
       (add-to-list 'mu4e-view-actions
                    '("View in browser" . mu4e-action-view-in-browser) t)

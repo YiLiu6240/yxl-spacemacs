@@ -31,9 +31,10 @@
   (spacemacs/declare-prefix-for-mode 'mu4e-main-mode
     "mu" "update")
   (spacemacs/set-leader-keys-for-major-mode 'mu4e-main-mode
-    "uu" #'mu4e-maildirs-extension-force-update
-    "uU" #'mu4e-update-mail-and-index
-    "uq" #'yxl-email/mu4e-offlineimap-quick
+    "uu" #'mu4e-update-mail-and-index
+    "uU" #'mu4e-maildirs-extension-force-update
+    "uq" #'yxl-email/mu4e-offlineimap-quiet
+    "uQ" #'yxl-email/mu4e-offlineimap-quick
     "up" #'yxl-email/mu4e-offlineimap-quick-profile
     ";" #'mu4e-context-switch
     "a" #'mu4e~headers-jump-to-maildir)
@@ -48,7 +49,8 @@
     "R" #'mu4e-compose-reply
     "F" #'mu4e-compose-forward
     ";" #'mu4e-context-switch
-    "a" #'mu4e~headers-jump-to-maildir)
+    "a" #'mu4e~headers-jump-to-maildir
+    "t" #'mu4e-headers-mark-subthread)
   (spacemacs/set-leader-keys-for-major-mode 'mu4e-view-mode
     "a" #'mu4e-view-action)
   (spacemacs/set-leader-keys-for-major-mode 'mu4e-compose-mode

@@ -26,6 +26,12 @@
   (let ((mu4e-get-mail-command "offlineimap -o -q"))
     (call-interactively #'mu4e-update-mail-and-index)))
 
+(defun yxl-email/mu4e-offlineimap-quiet ()
+  "Use `offlineimap -o -q' as the command to update mail."
+  (interactive)
+  (let ((mu4e-get-mail-command "offlineimap -o -q -u quiet"))
+    (call-interactively #'mu4e-update-mail-and-index)))
+
 (defun yxl-email/mu4e-offlineimap-quick-profile ()
   "Use `offlineimap -o -q -a <profile>' as the command to update mail.
 <profile> uses the variable `offlineimap-profile'."
