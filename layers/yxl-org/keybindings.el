@@ -1,12 +1,21 @@
 (defun yxl-org/setup-keybindings ()
   (define-key org-mode-map (kbd "C-M-o") #'yxl-org/insert-source-block)
-  (define-key org-mode-map (kbd "C-c f") #'yxl-prog/evil-wrap-line-f)
-  (define-key org-mode-map (kbd "C-c F") #'yxl-prog/evil-wrap-line-f-print)
   (define-key org-mode-map
-    (kbd "S-RET") (lambda nil (interactive)
-                    (if (equal (string (preceding-char)) " ")
-                        (insert "%>% ")
-                      (insert " %>% "))))
+    (kbd "C-c f") #'yxl-prog/evil-wrap-line-f-print)
+  (define-key org-mode-map
+    (kbd "C-c F") #'yxl-prog/evil-wrap-line-f)
+  (define-key org-read-date-minibuffer-local-map
+    (kbd "M-K") (lambda () (interactive)
+                  (org-eval-in-calendar '(calendar-backward-week 1))))
+  (define-key org-read-date-minibuffer-local-map
+    (kbd "M-J") (lambda () (interactive)
+                  (org-eval-in-calendar '(calendar-forward-week 1))))
+  (define-key org-read-date-minibuffer-local-map
+    (kbd "M-H") (lambda () (interactive)
+                  (org-eval-in-calendar '(calendar-backward-day 1))))
+  (define-key org-read-date-minibuffer-local-map
+    (kbd "M-L") (lambda () (interactive)
+                  (org-eval-in-calendar '(calendar-forward-day 1))))
   (evil-define-key 'normal org-mode-map
     "t" 'org-todo
     "_" 'projectile-dired
@@ -78,18 +87,24 @@
   (spacemacs/declare-prefix-for-mode 'org-mode "m" "math"))
 
 (defun yxl-org/setup-hydra ()
-  (defhydra yxl-org/general-hydra (:color blue
+  (defhydra yxl-org/general-hydra (:color red
                                           :pre (setq which-key-inhibit t)
                                           :post (setq which-key-inhibit nil))
     "
 yxl-org/hydra:
 --------
-[_i_]: ?i? org-indent-mode
+[_c_]: ?c? company-mode [_i_]: ?i? org-indent-mode
+[_or_]: ?or? yxl-org/ob-R-helper-mode [_op_]: ?op? yxl-org/ob-python-helper-mode
 [_ss_]: ?ss? org-src-fontify-natively
 --------
 "
     ("." nil "quit")
-    ("i" org-indent-mode (if (and (featurep 'org-indent-mode) org-indent-mode) "[x]" "[ ]") :color red)
+    ("i" org-indent-mode
+     (if (bound-and-true-p org-indent-mode) "[x]" "[ ]"))
+    ("c" company-mode
+     (if (bound-and-true-p company-mode) "[x]" "[ ]"))
+    ("or" yxl-org/ob-R-helper-mode (if yxl-org/ob-R-helper-mode "[x]" "[ ]"))
+    ("op" yxl-org/ob-ipython-helper-mode (if yxl-org/ob-ipython-helper-mode "[x]" "[ ]"))
     ("ss" (lambda () (interactive)
             (yxl-org/toggle-org-src-fontify-natively) (revert-buffer nil t))
-     (if org-src-fontify-natively "[x]" "[ ]") :color red)))
+     (if org-src-fontify-natively "[x]" "[ ]"))))

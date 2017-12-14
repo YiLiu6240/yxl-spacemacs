@@ -244,3 +244,35 @@ overridden by a prefix arg)."
   "The interactive version of `org-babel-show-result-all'"
   (interactive)
   (org-babel-show-result-all))
+
+(defun yxl-org/setup-minor-modes ()
+  (define-minor-mode yxl-org/ob-ipython-helper-mode
+    "Helper configs in org-mode with ob-ipython"
+    :keymap
+    (let ((map (make-sparse-keymap)))
+      (define-key map
+        (kbd "C-c h") #'ob-ipython-inspect)
+      map)
+    (add-to-list 'company-backends-org-mode 'company-ob-ipython))
+  (define-minor-mode yxl-org/ob-R-helper-mode
+    "Helper configs in org-mode with ob-ipython"
+    :keymap
+    (let ((map (make-sparse-keymap)))
+      (define-key map
+        (kbd "M--") (lambda nil (interactive)
+                      (if (equal (string (preceding-char)) " ")
+                          (insert "<- ")
+                        (insert " <- "))))
+      (define-key map
+        (kbd "M--") (lambda nil (interactive)
+                      (if (equal (string (preceding-char)) " ")
+                          (insert "=> ")
+                        (insert " => "))))
+      (define-key map
+        (kbd "S-RET") (lambda nil (interactive)
+                        (if (equal (string (preceding-char)) " ")
+                            (insert "%>% ")
+                          (insert " %>% "))))
+      (define-key map
+        (kbd "C-c h") #'ess-help)
+      map)))

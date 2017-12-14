@@ -22,7 +22,8 @@
     (add-hook 'org-font-lock-set-keywords-hook
               #'yxl-org/setup-extra-fontlock)
     (yxl-org/setup-latex)
-    (yxl-org/setup-babel))
+    (yxl-org/setup-babel)
+    (yxl-org/setup-minor-modes))
   (with-eval-after-load 'org-agenda
     (yxl-org/setup-agenda)))
 

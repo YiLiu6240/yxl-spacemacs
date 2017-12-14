@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: ob-ipython-session
+# --
+#+begin_src ipython :session :results output drawer
+$0
+#+end_src

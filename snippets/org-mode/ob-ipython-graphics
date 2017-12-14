@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: ob-ipython-graphics
+# --
+#+begin_src ipython :session :results raw drawer :ipyfile images/$1.png
+$0
+#+end_src
