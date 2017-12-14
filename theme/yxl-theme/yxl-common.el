@@ -670,7 +670,7 @@
             `(org-code ((,class (:foreground ,base-dim :background ,cblk-bg :weight bold))))
             `(org-column ((,class (:background ,highlight))))
             `(org-column-title ((,class (:background ,highlight))))
-            `(org-date ((,class (:underline t :foreground ,comment :slant italic :height 0.8))))
+            `(org-date ((,class (:underline t :foreground ,comment))))
             `(org-date-selected ((,class (:background ,func :foreground ,bg1))))
             `(org-document-info-keyword ((,class (:inherit org-meta-line))))
             `(org-document-title ((,class (:foreground ,func :inherit bold :height ,(if yxl-theme-org-height 1.4 1.0) :underline nil))))

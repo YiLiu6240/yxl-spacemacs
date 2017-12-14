@@ -11,8 +11,7 @@
   (find-file yxl-file-org-log)
   (focus-mode t)
   (visual-fill-column-mode t)
-  (setq visual-fill-column-center-text t)
-  (calendar))
+  (setq visual-fill-column-center-text t))
 
 (defun yxl-org/toggle-org-src-fontify-natively ()
   "Toggle `org-src-fontify-natively'. Remember to reload the related buffer(s)."

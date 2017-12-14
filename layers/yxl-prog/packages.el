@@ -45,9 +45,9 @@ region selection and step one line."
     (define-key python-mode-map (kbd "C-,")
       #'python-shell-send-region-or-line-and-step)
     (define-key python-mode-map (kbd "C-c f")
-      #'yxl-prog/evil-wrap-line-f)
+      #'yxl-prog/evil-wrap-line-f-print)
     (define-key python-mode-map (kbd "C-c F")
-      #'yxl-prog/evil-wrap-line-f-print)))
+      #'yxl-prog/evil-wrap-line-f)))
   ;; (add-hook 'python-mode-hook 'evil-visual-mark-mode)
   ;; (add-hook 'python-mode-hook (lambda () (modify-syntax-entry ?_ "w")))
 
