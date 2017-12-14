@@ -192,25 +192,7 @@
     :commands (yxl-invoke-applications)
     :config
     (progn
-      (setq yxl-ia-list
-            (sort (delete-dups (append yxl-ia-list
-                                       '(("calendar" . calendar)
-                                         ("org-agenda" . org-agenda)
-                                         ("org-capture" . org-capture)
-                                         ("elfeed" . elfeed)
-                                         ("w3m" . w3m)
-                                         ("cfw-calendar" . cfw-calendar)
-                                         ("def" . deft)
-                                         ("counsel-dash" . counsel-dash)
-                                         ("helm-github-stars" . helm-github-stars)
-                                         ("helm-chrome-bookmarks" . helm-chrome-bookmarks)
-                                         ("helm-bibtex" . helm-bibtex)
-                                         ("gscholar-bibtex" . gscholar-bibtex)
-                                         ("helm-google-suggest" . helm-google-suggest))))
-                  (lambda (elem1 elem2)
-                    (let ((str1 (car elem1))
-                          (str2 (car elem2)))
-                      (string-lessp str1 str2))))))))
+      (setq yxl-ia-list yxl-applications))))
 
 (defun yxl-utils/init-el2markdown ()
   (use-package el2markdown
