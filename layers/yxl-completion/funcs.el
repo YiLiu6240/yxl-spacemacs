@@ -21,3 +21,19 @@
   (interactive)
   (with-helm-alive-p
     (helm-quit-and-execute-action 'helm-buffer-switch-to-new-window-h)))
+
+(defun helm-display-window-vertical (buffer)
+  (let ((display-buffer-alist
+         (list '("*.*helm.**"
+                 (display-buffer-in-side-window)
+                 (inhibit-same-window . t)
+                 (side . left)
+                 (window-width . 0.3)
+                 (window-height . 0.4))))
+        (helm-split-window-default-side 'left))
+    (helm-default-display-buffer buffer)))
+
+(defun helm-find-files-vertical ()
+  (interactive)
+  (let ((helm-display-function #'helm-display-window-vertical))
+    (call-interactively #'helm-find-files)))

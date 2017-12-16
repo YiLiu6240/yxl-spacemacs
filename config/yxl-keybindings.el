@@ -88,7 +88,7 @@
   "bx" #'kill-buffer-and-window
   "fed" #'spacemacs/find-dotfile-follow-symlink
   "ff" #'yxl-find-file-counsel
-  "fF" #'find-file-in-current-directory
+  "fh" #'helm-find-files-vertical
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "fO" #'spacemacs/open-file-or-directory-in-external-app ; with C-u open in desktop
   "fo" #'yxl-open-file-external
