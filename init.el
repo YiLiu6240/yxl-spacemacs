@@ -18,7 +18,8 @@
                                     ess-smart-equals
                                     ess-R-object-popup
                                     wolfram-mode
-                                    neotree)
+                                    neotree
+                                    vi-tilde-fringe)
    dotspacemacs-install-packages 'used-only
    dotspacemacs-configuration-layers
    '(yxl-spacemacs
