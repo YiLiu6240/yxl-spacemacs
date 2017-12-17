@@ -4,8 +4,8 @@
                            image+
                            dired-quick-sort
                            dired-subtree
-                           dired-ranger
-                           dired-sidebar))
+                           dired-ranger))
+                           ;; dired-sidebar))
 
 (defun yxl-dired/post-init-dired ()
   (use-package dired
@@ -106,9 +106,6 @@
 (defun yxl-dired/init-dired-sidebar ()
   (use-package dired-sidebar
     :bind (("C-c C-/" . dired-sidebar-toggle-sidebar))
-    :init
-    (progn
-      (spacemacs/set-leader-keys "ft" #'dired-sidebar-toggle-sidebar))
     :ensure t
     :commands (dired-sidebar-toggle-sidebar)
     :config
