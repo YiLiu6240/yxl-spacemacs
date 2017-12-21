@@ -130,6 +130,7 @@
                   ("gscholar-bibtex" . gscholar-bibtex)
                   ("helm-google-suggest" . helm-google-suggest)))
      yxl-edit
+     (yxl-clojure)
      yxl-evil
      yxl-prog
      yxl-text
