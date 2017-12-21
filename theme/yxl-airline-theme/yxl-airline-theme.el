@@ -14,7 +14,7 @@ url: https://github.com/mkaito/base16-emacs")
          ;; color when the specified evil state is active
          (color-state-fg "#ebdbb2") ;; general state fg
          (color-normal-bg "#7c6f64")
-         (color-insert-bg "#00695c")
+         (color-insert-bg "#427b58")
          (color-visual-bg "#af3a03")
          (color-replace-bg "#cc241d")
          (color-emacs-bg "#8f3f71")
