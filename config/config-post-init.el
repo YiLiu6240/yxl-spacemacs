@@ -30,7 +30,7 @@
 (setq-default evil-escape-excluded-major-modes '(magit-mode))
 
 ;; yas
-(setq-default yas-snippet-dirs (expand-file-name "snippets" dotspacemacs-directory))
+(add-to-list 'yas-snippet-dirs (expand-file-name "snippets" dotspacemacs-directory))
 
 ;; indent
 (setq-default tab-width 4)
