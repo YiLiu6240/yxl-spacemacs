@@ -683,7 +683,7 @@
             `(org-meta-line ((,class (:foreground ,comment))))
             `(org-mode-line-clock-overrun ((,class (:foreground ,err))))
             `(org-priority ((,class (:foreground ,war :inherit bold))))
-            `(org-quote ((,class (:inherit ,cblk :slant italic))))
+            `(org-quote ((,class (:foreground ,cblk :slant italic))))
             `(org-scheduled ((,class (:foreground ,comp))))
             `(org-scheduled-today ((,class (:foreground ,func :height ,(if yxl-theme-org-height 1.2 1.0)))))
             `(org-sexp-date ((,class (:foreground ,base))))
