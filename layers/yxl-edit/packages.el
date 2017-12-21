@@ -12,16 +12,19 @@
 (defun yxl-edit/init-parinfer ()
   (use-package parinfer
     :defer t
-    :diminish parinfer-mode
     :init
     (progn
-      (add-hook 'emacs-lisp-mode-hook 'parinfer-mode)
-      (add-hook 'clojure-mode-hook 'parinfer-mode)
-      (add-hook 'common-lisp-mode-hook 'parinfer-mode)
-      (add-hook 'scheme-mode-hook 'parinfer-mode)
-      (add-hook 'lisp-mode-hook 'parinfer-mode)
+      (dolist (hook '(emacs-lisp-mode-hook
+                      clojure-mode-hook
+                      clojurec-mode-hook
+                      clojurescript-mode-hook
+                      clojurex-mode-hook
+                      common-lisp-mode-hook
+                      scheme-mode-hook
+                      lisp-mode-hook))
+        (add-hook hook 'parinfer-mode))
       (spacemacs|add-toggle parinfer-indent
-        :evil-leader "tP"
+        :evil-leader "tPP"
         :documentation "Enable Parinfer Indent Mode."
         :if (bound-and-true-p parinfer-mode)
         :status (eq parinfer--mode 'indent)
@@ -32,14 +35,28 @@
 (defun yxl-edit/init-lispy ()
   (use-package lispy
     :defer t
+    :init
+    (progn
+      (dolist (hook '(emacs-lisp-mode-hook
+                      clojure-mode-hook
+                      clojurec-mode-hook
+                      clojurescript-mode-hook
+                      clojurex-mode-hook
+                      common-lisp-mode-hook
+                      scheme-mode-hook
+                      lisp-mode-hook))
+        (add-hook hook 'lispy-mode)))
     :config
     (progn
-      (define-key emacs-lisp-mode-map
-        (kbd "C-<tab>") 'lispy-indent-adjust-parens)
-      (define-key emacs-lisp-mode-map
-        (kbd "C-S-<tab>") 'lispy-dedent-adjust-parens)
-      (define-key emacs-lisp-mode-map
-        (kbd "<C-iso-lefttab>") 'lispy-dedent-adjust-parens)
+      (yxl-edit/setup-lispy-bindings-for-map emacs-lisp-mode-map)
+      (with-eval-after-load 'clojure-mode
+        (yxl-edit/setup-lispy-bindings-for-map clojure-mode-map))
+      (with-eval-after-load 'clojurerc-mode
+        (yxl-edit/setup-lispy-bindings-for-map clojurerc-mode-map))
+      (with-eval-after-load 'clojurescript-mode
+        (yxl-edit/setup-lispy-bindings-for-map clojurescript-mode-map))
+      (with-eval-after-load 'clojurex-mode
+        (yxl-edit/setup-lispy-bindings-for-map clojurex-mode-map))
       (define-key lispy-mode-map (kbd "C-2") 'lispy-describe-inline)
       (define-key lispy-mode-map (kbd "C-3") 'lispy-arglist-inline))))
       ;; (define-key lispy-mode-map (kbd "C-k") 'lispy-splice)

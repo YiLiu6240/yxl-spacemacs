@@ -122,6 +122,7 @@
   "tv" #'visual-line-mode
   "tV" #'visual-fill-column-mode
   "t C-v" #'visual-fill-column-toggle-center-text
+  "tPp" #'parinfer-toggle-mode
   "w0" #'delete-other-windows
   "w1" #'delete-other-windows
   "ws" #'split-window-below-and-focus
