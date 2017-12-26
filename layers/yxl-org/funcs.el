@@ -66,8 +66,6 @@ overridden by a prefix arg)."
   (setq org-startup-truncated nil)
   (setq org-startup-indented nil)
   (setq org-odd-levels-only nil)
-  ;; highlight code-block
-  (setq org-src-fontify-natively t)
   ;; do not add timestamp when closing todos
   (setq org-log-done nil)
   ;; start display tags after col 60
@@ -224,7 +222,7 @@ overridden by a prefix arg)."
   (setq-default org-export-babel-evaluate nil)
   (setq org-confirm-babel-evaluate nil)
   (setq org-src-preserve-indentation t)
-  (setq org-src-fontify-natively nil)
+  (setq org-src-fontify-natively t)
   (setq org-src-tab-acts-natively t)
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
   (add-hook 'org-mode-hook 'org-display-inline-images))
@@ -253,7 +251,7 @@ overridden by a prefix arg)."
                           (insert "<- ")
                         (insert " <- "))))
       (define-key map
-        (kbd "M--") (lambda nil (interactive)
+        (kbd "M-=") (lambda nil (interactive)
                       (if (equal (string (preceding-char)) " ")
                           (insert "=> ")
                         (insert " => "))))
@@ -264,4 +262,13 @@ overridden by a prefix arg)."
                           (insert " %>% "))))
       (define-key map
         (kbd "C-c h") #'ess-help)
+      map))
+  (define-minor-mode yxl-prog/ob-clojure-helper-mode
+    "Helper configs in org-mode with ob-clojure"
+    :keymap
+    (let ((map (make-sparse-keymap)))
+      (define-key map
+        (kbd "C-c f") #'yxl-prog/evil-wrap-line-f-lisp-print)
+      (define-key map
+        (kbd "C-c F") #'yxl-prog/evil-wrap-line-f-lisp)
       map)))

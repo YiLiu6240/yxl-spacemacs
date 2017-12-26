@@ -1,12 +1,13 @@
 (defun yxl-org/setup-keybindings ()
-  (define-key org-mode-map (kbd "C-M-o") #'yxl-org/insert-source-block)
+  (define-key org-mode-map
+    (kbd "C-M-o") #'yxl-org/insert-source-block)
+  (define-key org-read-date-minibuffer-local-map
+    (kbd "M-K") (lambda () (interactive)
+                  (org-eval-in-calendar '(calendar-backward-week 1))))
   (define-key org-mode-map
     (kbd "C-c f") #'yxl-prog/evil-wrap-line-f-print)
   (define-key org-mode-map
     (kbd "C-c F") #'yxl-prog/evil-wrap-line-f)
-  (define-key org-read-date-minibuffer-local-map
-    (kbd "M-K") (lambda () (interactive)
-                  (org-eval-in-calendar '(calendar-backward-week 1))))
   (define-key org-read-date-minibuffer-local-map
     (kbd "M-J") (lambda () (interactive)
                   (org-eval-in-calendar '(calendar-forward-week 1))))
@@ -95,6 +96,7 @@ yxl-org/hydra:
 --------
 [_c_]: ?c? company-mode [_i_]: ?i? org-indent-mode
 [_or_]: ?or? yxl-org/ob-R-helper-mode [_op_]: ?op? yxl-org/ob-python-helper-mode
+[_oc_]: ?oc? yxl-org/ob-clojure-helper-mode
 [_ss_]: ?ss? org-src-fontify-natively
 --------
 "
@@ -105,6 +107,7 @@ yxl-org/hydra:
      (if (bound-and-true-p company-mode) "[x]" "[ ]"))
     ("or" yxl-org/ob-R-helper-mode (if yxl-org/ob-R-helper-mode "[x]" "[ ]"))
     ("op" yxl-org/ob-ipython-helper-mode (if yxl-org/ob-ipython-helper-mode "[x]" "[ ]"))
+    ("oc" yxl-org/ob-clojure-helper-mode (if yxl-org/ob-ipython-helper-mode "[x]" "[ ]"))
     ("ss" (lambda () (interactive)
             (yxl-org/toggle-org-src-fontify-natively) (revert-buffer nil t))
      (if org-src-fontify-natively "[x]" "[ ]"))))
