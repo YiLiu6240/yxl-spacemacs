@@ -92,8 +92,9 @@
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "fO" #'spacemacs/open-file-or-directory-in-external-app ; with C-u open in desktop
   "fo" #'yxl-open-file-external
-  "fp" #'counsel-projectile-find-file
-  "fP" #'find-file-in-project-truename
+  "fp" #'counsel-projectile-find-file   ; respects .projectile subprojects
+  "fP" #'counsel-git                    ; treats the git repo as the whole porject
+  "f C-p" #'find-file-in-project-truename ; does not respect gitignore, thus can find ignored files
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
   "dd" #'yxl-dired-ivy-switch-buffer
