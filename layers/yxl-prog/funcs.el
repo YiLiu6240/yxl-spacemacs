@@ -12,3 +12,20 @@
   (back-to-indentation)
   ;; NOTE: this is conditional on ?F is set to `yxl-evil-surround-function-print'
   (evil-surround-region (region-beginning) (region-end) t ?F))
+
+(defun yxl-prog/evil-wrap-line-f-lisp (&optional fname)
+  (interactive)
+  (end-of-line)
+  (call-interactively #'set-mark-command)
+  (back-to-indentation)
+  (let* ((f (or fname
+                (read-from-minibuffer "Function name: " "")))
+         (surround-f (lambda ()
+                       (cons (format "(%s " (or f ""))
+                             ")")))
+         (evil-surround-pairs-alist `((?x . ,surround-f))))
+    (evil-surround-region (region-beginning) (region-end) t ?x)))
+
+(defun yxl-prog/evil-wrap-line-f-lisp-print ()
+  (interactive)
+  (yxl-prog/evil-wrap-line-f-lisp "println"))
