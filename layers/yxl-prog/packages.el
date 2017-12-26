@@ -1,4 +1,5 @@
 (setq yxl-prog-packages '((prog-mode :location built-in)
+                          org
                           python
                           ess
                           cc-mode
@@ -23,6 +24,15 @@
                 (lambda ()
                   (setq-local indent-tabs-mode t)
                   (setq-local tab-width 4))))))
+
+(defun yxl-prog/pre-init-org ()
+  (spacemacs|use-package-add-hook org
+    :post-config
+    (progn
+      (add-to-list 'org-babel-load-languages '(scala . t))
+      (add-to-list 'org-babel-load-languages '(R . t))
+      (add-to-list 'org-babel-load-languages '(ipython . t))
+      (add-to-list 'org-babel-load-languages '(python . t)))))
 
 (defun yxl-prog/post-init-python ()
   (with-eval-after-load 'python

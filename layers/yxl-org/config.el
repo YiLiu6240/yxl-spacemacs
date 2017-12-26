@@ -3,6 +3,9 @@
 (defvar yxl-org-agenda-files-work
   (list yxl-file-org-quick))
 
+(defvar yxl-org-babel-languages '((emacs-lisp . t))
+  "Languages to be loaded in org-babel.")
+
 (defvar yxl-org-agenda-commands
   '(("A" "Agenda Augmented"
      ((agenda "Agenda" ((org-agenda-ndays 7)

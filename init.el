@@ -139,7 +139,14 @@
      yxl-dired
      (yxl-datascience :variables
                       yxl-datascience-docset-path "~/Dropbox/dash-docsets")
-     yxl-org
+     (yxl-org :variables
+              yxl-org-babel-languages '((dot . t)
+                                        (latex .t)
+                                        (python .t)
+                                        (sh .t)
+                                        (R .t)
+                                        (ipython . t)
+                                        (scala . t)))
      yxl-web
      yxl-completion
      yxl-ui

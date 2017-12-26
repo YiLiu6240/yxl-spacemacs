@@ -5,6 +5,14 @@
                          ivy-todo
                          (org-recipes :location site)))
 
+(defun yxl-org/pre-init-org ()
+  (spacemacs|use-package-add-hook org
+    :post-config
+    (when yxl-org-babel-languages
+      (mapc (lambda (lang)
+              (add-to-list 'org-babel-load-languages lang))
+            yxl-org-babel-languages))))
+
 (defun yxl-org/post-init-org ()
   ;; misc settings
   (with-eval-after-load 'org
