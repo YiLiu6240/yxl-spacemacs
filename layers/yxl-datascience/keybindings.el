@@ -8,6 +8,16 @@
   (define-key ess-mode-map (kbd "C-c C-.") #'yxl-datascience/insert-pipe)
   (define-key ess-mode-map (kbd "C-<tab>") #'sp-indent-adjust-sexp)
   (define-key ess-mode-map (kbd "C-S-<tab>") #'sp-dedent-adjust-sexp)
+  (define-key ess-mode-map
+    (kbd "M--") (lambda nil (interactive)
+                  (if (equal (string (preceding-char)) " ")
+                      (insert "<- ")
+                    (insert " <- "))))
+  (define-key inferior-ess-mode-map
+    (kbd "M--") (lambda nil (interactive)
+                  (if (equal (string (preceding-char)) " ")
+                      (insert "=> ")
+                    (insert " => "))))
   (define-key ess-mode-map (kbd "C-S-M")
     (lambda () (interactive)
       (if (equal (string (preceding-char)) " ")
