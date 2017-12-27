@@ -1,3 +1,9 @@
+(defun yxl-clojure/setup-clojure-keybindings ()
+  (define-key clojure-mode-map
+    (kbd "C-c f") #'yxl-prog/evil-wrap-line-f-lisp-print)
+  (define-key clojure-mode-map
+    (kbd "C-c F") #'yxl-prog/evil-wrap-line-f-lisp))
+
 (defun yxl-clojure/setup-cider-leader-keys ()
   ;; cider-repl-mode only
   (spacemacs/set-leader-keys-for-major-mode 'cider-repl-mode

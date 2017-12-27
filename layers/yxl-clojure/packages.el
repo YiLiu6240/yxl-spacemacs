@@ -50,6 +50,7 @@
       (evil-set-initial-state 'cider-stacktrace-mode 'motion)
       (evil-set-initial-state 'cider-popup-buffer-mode 'motion)
       (add-hook 'cider--debug-mode-hook 'spacemacs/cider-debug-setup)
+      (yxl-clojure/setup-clojure-keybindings)
       (yxl-clojure/setup-cider-leader-keys)
       (yxl-clojure/setup-cider-evilified-keybindings)
 
