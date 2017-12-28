@@ -1,5 +1,6 @@
 (setq yxl-org-packages '(org
                          (yxl-org :location site)
+                         (org-goodies :location local)
                          (org-display-inline-images-with-background :location site)
                          org-gcal
                          ivy-todo
@@ -38,10 +39,13 @@
 (defun yxl-org/init-yxl-org ()
   (use-package yxl-org
     :after (org)
-    :commands (yxl-org-open-all-task-files)
     :config
     (progn
       (setq yxl-org-task-files yxl-env-org-files))))
+
+(defun yxl-org/init-org-goodies ()
+  (use-package org-goodies
+    :commands (org-goodies-export-agenda)))
 
 (defun yxl-org/init-org-display-inline-images-with-background ()
   (use-package org-display-inline-images-with-background
