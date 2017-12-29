@@ -263,6 +263,8 @@ overridden by a prefix arg)."
       (define-key map
         (kbd "C-c h") #'ess-help)
       map)
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode
+      "hh" #'ess-help))
   (define-minor-mode yxl-org/ob-clojure-helper-mode
     "Helper configs in org-mode with ob-clojure"
     :keymap
@@ -271,7 +273,10 @@ overridden by a prefix arg)."
         (kbd "C-c f") #'yxl-prog/evil-wrap-line-f-lisp-print)
       (define-key map
         (kbd "C-c F") #'yxl-prog/evil-wrap-line-f-lisp)
-      map)))
+      map)
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode
+      "hh" #'cider-doc)))
+
 (defun yxl-org/load-ob-helper ()
   "Detect and load a ob helper.
 The helper is set in the format of
