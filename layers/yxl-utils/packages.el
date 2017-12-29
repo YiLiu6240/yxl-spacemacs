@@ -14,12 +14,7 @@
                            helpful))
 
 (defun yxl-utils/init-yxl-utils ()
-  (use-package yxl-utils
-    :config
-    (progn
-      (setq yxl-buffer-boring-buffer-regexp-list
-            '("\\` " "\\`\\*helm" "\\`\\*Echo Area" "\\`\\*Minibuf"
-              "*spacemacs*")))))
+  (use-package yxl-utils))
 
 (defun yxl-utils/init-yxl-project ()
   (use-package yxl-project

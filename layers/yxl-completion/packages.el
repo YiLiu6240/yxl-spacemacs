@@ -116,7 +116,4 @@
 
 (defun yxl-completion/init-helm-github-stars ()
   (use-package helm-github-stars
-    :defer t
-    :config
-    (progn
-      (setq helm-github-stars-username "YiLiu6240"))))
+    :defer t))
