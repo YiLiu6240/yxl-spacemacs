@@ -148,6 +148,9 @@
     (kbd "T")   'cider-test-run-ns-tests)
   (evil-define-key 'normal cider-repl-mode-map
     (kbd "C-n") 'cider-repl-next-input
+    (kbd "C-p") 'cider-repl-previous-input)
+  (evil-define-key 'insert cider-repl-mode-map
+    (kbd "C-n") 'cider-repl-next-input
     (kbd "C-p") 'cider-repl-previous-input))
 
 (defun yxl-clojure/setup-sayid-leader-keys ()
