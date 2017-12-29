@@ -89,7 +89,7 @@
       ("rc" dired-ranger-copy "dired-ranger-copy")
       ("ry" dired-ranger-copy "dired-ranger-copy")
       ("rx" dired-ranger-move "dired-ranger-move")
-      ("rp" dired-ranger-move "dired-ranger-paste")
+      ("rp" dired-ranger-paste "dired-ranger-paste")
       ("Oo" yxl-dired-open-aw "dired-open-aw")
       ("OO" dired-find-file-other-window "dired-open-other-window")
       ("Os" yxl-dired-open-aw-horz "dired-open-aw-horz")
