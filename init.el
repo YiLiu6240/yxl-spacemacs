@@ -168,7 +168,9 @@
      (yxl-completion :variables
                      helm-github-stars-username "YiLiu6240")
      yxl-ui
-     (yxl-email :variables
+     (yxl-email :packages
+                (not (mu4e-alert))
+                :variables
                 mu4e-installation-path "/usr/share/emacs/site-lisp/mu4e"
                 yxl-email-personal-config-file (concat yxl-path-personal
                                                        "yxl-emacs-mu4e.el"))
