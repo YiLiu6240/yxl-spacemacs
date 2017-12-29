@@ -5,7 +5,8 @@
                                 counsel
                                 (yxl-helm-pdf-occur :location site)
                                 (yxl-ivy-views :location site)
-                                helm-github-stars))
+                                helm-github-stars
+                                yasnippet-snippets))
 
 (defun yxl-completion/post-init-company ()
   (with-eval-after-load 'company
@@ -117,3 +118,7 @@
 (defun yxl-completion/init-helm-github-stars ()
   (use-package helm-github-stars
     :defer t))
+
+(defun yxl-completion/init-yasnippet-snippets ()
+  (use-package yasnippet-snippets
+    :after (yasnippet)))
