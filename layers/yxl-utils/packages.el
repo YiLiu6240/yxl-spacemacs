@@ -53,11 +53,13 @@
               ("subl" . (lambda (x) (yxl-open--linux-command "subl" x)))
               ("atom" . (lambda (x) (yxl-open--linux-command "atom" x)))
               ("zathura" . (lambda (x) (yxl-open--linux-command "zathura" x)))
-              ("zathura-light" . (lambda (x)
-                                   (shell-command (format "%s %s \"%s\" & disown"
-                                                          "zathura"
-                                                          "-c ~/dotfiles/zathura-light"
-                                                          x))))
+              ("zathura-light" .
+               (lambda (x)
+                 (call-process-shell-command
+                  "zathura" nil 0 nil
+                  (format "%s \"%s\""
+                          "-c ~/dotfiles/zathura-light"
+                          x))))
               ("tad" . (lambda (x) (yxl-open--linux-command "tad" x)))
               ("vmd" . (lambda (x) (yxl-open--linux-command "vmd" x)))
               ("chrome" . (lambda (x) (browse-url-chrome x)))
@@ -67,7 +69,7 @@
               ("desktop" . (lambda (x) (yxl-open-in-desktop)))
               ("self exec" . (lambda (x)
                                (let ((dir-path (file-name-directory x)))
-                                (shell-command (format "cd %s && %s" dir-path x)))))
+                                 (shell-command (format "cd %s && %s" dir-path x)))))
               ("dired" . (lambda (x) (dired-jump t x)))
               ("directory in terminal" . (lambda (x) (yxl-open-in-terminal)))))
       (setq yxl-open-file-external-commands-darwin
