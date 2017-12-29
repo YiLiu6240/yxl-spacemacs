@@ -262,8 +262,8 @@ overridden by a prefix arg)."
                           (insert " %>% "))))
       (define-key map
         (kbd "C-c h") #'ess-help)
-      map))
-  (define-minor-mode yxl-prog/ob-clojure-helper-mode
+      map)
+  (define-minor-mode yxl-org/ob-clojure-helper-mode
     "Helper configs in org-mode with ob-clojure"
     :keymap
     (let ((map (make-sparse-keymap)))
