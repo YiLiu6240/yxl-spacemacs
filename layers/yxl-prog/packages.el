@@ -99,7 +99,8 @@ region selection and step one line."
                                "record") company-keywords-alist)))
 
 (defun yxl-prog/init-ob-ipython ()
-  (use-package ob-ipython))
+  (use-package ob-ipython
+    :after (org)))
 ;; TODO: defer this
 ;; :defer t
 ;; :commands (org-babel-ipython-initiate-session
@@ -115,7 +116,8 @@ region selection and step one line."
       (bash-completion-setup))))
 
 (defun yxl-prog/init-ob-scala ()
-  (use-package ob-scala))
+  (use-package ob-scala
+    :after (org)))
 
 (defun yxl-prog/post-init-scala-mode ()
   (with-eval-after-load 'scala-mode

@@ -18,6 +18,11 @@
 
 (defun yxl-utils/init-yxl-project ()
   (use-package yxl-project
+    :commands (yxl-project-helm
+               yxl-project-shell-popup
+               yxl-project-cite
+               yxl-project-select
+               yxl-project-popup)
     :config
     (progn
       (setq yxl-project-list `(,yxl-path-dotfiles
