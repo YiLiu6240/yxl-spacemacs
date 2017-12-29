@@ -272,3 +272,19 @@ overridden by a prefix arg)."
       (define-key map
         (kbd "C-c F") #'yxl-prog/evil-wrap-line-f-lisp)
       map)))
+(defun yxl-org/load-ob-helper ()
+  "Detect and load a ob helper.
+The helper is set in the format of
+
+#+property: ob-helper 'yxl-org/ob-R-helper-mode
+
+in the file head.
+The rationale of loading a helper in this way instead of using
+file local variables is purely for aesthetic reasons."
+  (let ((ob-helper (cdr (assoc "ob-helper" org-file-properties))))
+    (when ob-helper
+      (if (fboundp (intern ob-helper))
+          (progn
+            (message (format "ob-helper: %s" ob-helper))
+            (funcall (intern ob-helper)))
+        (warn (format "helper mode %s not found." ob-helper))))))
