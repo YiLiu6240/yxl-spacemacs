@@ -24,7 +24,7 @@
                       lisp-mode-hook))
         (add-hook hook 'parinfer-mode))
       (spacemacs|add-toggle parinfer-indent
-        :evil-leader "tPP"
+        :evil-leader "tpP"
         :documentation "Enable Parinfer Indent Mode."
         :if (bound-and-true-p parinfer-mode)
         :status (eq parinfer--mode 'indent)
