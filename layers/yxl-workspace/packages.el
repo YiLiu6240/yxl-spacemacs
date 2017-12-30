@@ -1,5 +1,4 @@
-(setq yxl-workspace-packages '(
-                               ;; eyebrowse
+(setq yxl-workspace-packages '(eyebrowse
                                (yxl-ace-window :location site)
                                (yxl-session :location site)
                                buffer-move))

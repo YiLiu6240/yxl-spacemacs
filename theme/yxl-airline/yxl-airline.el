@@ -132,8 +132,6 @@
                                      (when (and (featurep 'magit)
                                                 (magit-get-current-branch))
                                        (powerline-raw (concat " " (magit-get-current-branch) " " pl-sep) center-face 'lr))
-                                     ;; Eyebrowse current tab/window config
-                                     ;; (powerline-raw (concat " " (modeline-get-eyebrowse-tag-current) " " pl-sep) center-face 'lr)
                                      (powerline-raw (concat " " (modeline-font-frame-scales) " " pl-sep) center-face 'lr)
                                      ;; selection info
                                      (when (or mark-active
@@ -161,6 +159,9 @@
                                      (when (and (boundp 'which-function-mode) which-function-mode)
                                        (powerline-raw which-func-format center-face 'l))
                                      (powerline-raw " " center-face 'lr)
+                                     ;; Eyebrowse current tab/window config
+                                     (when (boundp 'eyebrowse-mode)
+                                       (powerline-raw (concat " " (eyebrowse-mode-line-indicator) " " pl-sep) center-face 'lr))
                                      ;; process
                                      (powerline-process center-face 'lr)
                                      (powerline-raw (concat " " pl-sep " " (modeline-buffer-encoding)) center-face 'lr)
