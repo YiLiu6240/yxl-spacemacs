@@ -59,10 +59,10 @@
           :variables org-enable-reveal-js-support t)
 
      ;; markup langs
+     ;; markdown: need vmd from npm: npm install -g vmd
      (markdown :packages (not mmm-mode)
                :variables markdown-live-preview-engine 'vmd)
-     ;; markdown: need vmd from npm: npm install -g vmd
-     pandoc
+     (pandoc :packages (not ox-pandoc))
      (latex :variables
             latex-build-command "LatexMk"
             latex-enable-auto-fill nil
