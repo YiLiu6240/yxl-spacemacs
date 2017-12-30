@@ -122,7 +122,17 @@ region selection and step one line."
 (defun yxl-prog/post-init-scala-mode ()
   (with-eval-after-load 'scala-mode
     (setq ensime-startup-notification nil)
-    (setq ensime-startup-snapshot-notification nil)))
+    (setq ensime-startup-snapshot-notification nil)
+    (define-key scala-mode-map
+      (kbd "M--") (lambda nil (interactive)
+                    (if (equal (string (preceding-char)) " ")
+                        (insert "<- ")
+                      (insert " <- "))))
+    (define-key scala-mode-map
+      (kbd "M-=") (lambda nil (interactive)
+                    (if (equal (string (preceding-char)) " ")
+                        (insert "=> ")
+                      (insert " => "))))))
 
 (defun yxl-prog/init-suggest ()
   (use-package suggest
