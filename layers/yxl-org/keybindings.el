@@ -4,10 +4,6 @@
   (define-key org-read-date-minibuffer-local-map
     (kbd "M-K") (lambda () (interactive)
                   (org-eval-in-calendar '(calendar-backward-week 1))))
-  (define-key org-mode-map
-    (kbd "C-c f") #'yxl-prog/evil-wrap-line-f-print)
-  (define-key org-mode-map
-    (kbd "C-c F") #'yxl-prog/evil-wrap-line-f)
   (define-key org-read-date-minibuffer-local-map
     (kbd "M-J") (lambda () (interactive)
                   (org-eval-in-calendar '(calendar-forward-week 1))))

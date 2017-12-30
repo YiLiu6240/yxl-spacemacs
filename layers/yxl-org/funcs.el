@@ -224,8 +224,18 @@ overridden by a prefix arg)."
   (setq org-src-preserve-indentation t)
   (setq org-src-fontify-natively t)
   (setq org-src-tab-acts-natively t)
+  (define-key org-src-mode-map
+    (kbd "C-c f") #'yxl-prog/evil-wrap-line-f-print)
+  (define-key org-src-mode-map
+    (kbd "C-c F") #'yxl-prog/evil-wrap-line-f)
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
-  (add-hook 'org-mode-hook 'org-display-inline-images))
+  (add-hook 'org-mode-hook 'org-display-inline-images)
+  ;; Force going to normal state after finishing source block edit
+  (with-eval-after-load 'org-src
+    (spacemacs/set-leader-keys-for-minor-mode 'org-src-mode
+      "." #'yxl-org/edit-src-exit-and-execute)
+    (advice-add 'org-edit-src-exit :after (lambda nil (evil-normal-state)))
+    (advice-add 'org-edit-src-abort :after (lambda nil (evil-normal-state)))))
 
 (defun yxl-org/babel-result-show-all ()
   "The interactive version of `org-babel-show-result-all'"
@@ -242,7 +252,7 @@ overridden by a prefix arg)."
       map)
     (add-to-list 'company-backends-org-mode 'company-ob-ipython))
   (define-minor-mode yxl-org/ob-R-helper-mode
-    "Helper configs in org-mode with ob-ipython"
+    "Helper configs in org-mode with ob-R"
     :keymap
     (let ((map (make-sparse-keymap)))
       (define-key map
@@ -265,6 +275,26 @@ overridden by a prefix arg)."
       map)
     (spacemacs/set-leader-keys-for-major-mode 'org-mode
       "hh" #'ess-help))
+  (define-minor-mode yxl-org/ob-scala-helper-mode
+    "Helper configs in org-mode with ob-scala"
+    :keymap
+    (let ((map (make-sparse-keymap)))
+      (define-key map
+        (kbd "M--") (lambda nil (interactive)
+                      (if (equal (string (preceding-char)) " ")
+                          (insert "<- ")
+                        (insert " <- "))))
+      (define-key map
+        (kbd "M-_") (lambda nil (interactive)
+                      (if (equal (string (preceding-char)) " ")
+                          (insert "-> ")
+                        (insert " -> "))))
+      (define-key map
+        (kbd "M-=") (lambda nil (interactive)
+                      (if (equal (string (preceding-char)) " ")
+                          (insert "=> ")
+                        (insert " => "))))
+      map))
   (define-minor-mode yxl-org/ob-clojure-helper-mode
     "Helper configs in org-mode with ob-clojure"
     :keymap
@@ -293,3 +323,9 @@ file local variables is purely for aesthetic reasons."
             (message (format "ob-helper: %s" ob-helper))
             (funcall (intern ob-helper)))
         (warn (format "helper mode %s not found." ob-helper))))))
+
+(defun yxl-org/edit-src-exit-and-execute ()
+  "Finish source block and execute it."
+  (interactive)
+  (org-edit-src-exit)
+  (org-ctrl-c-ctrl-c))
