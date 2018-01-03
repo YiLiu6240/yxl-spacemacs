@@ -25,6 +25,7 @@
       (yxl-email/mu4e-setup-general-keybindings)
       (yxl-email/mu4e-setup-evilified-keybindings)
       (yxl-email/mu4e-setup-leader-keys)
+      (setq mu4e-hide-index-messages t)
       (setq mu4e-completing-read-function 'completing-read)
       (setq mu4e-update-interval nil)
       (setq mu4e-compose-signature-auto-include nil)
