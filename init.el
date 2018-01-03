@@ -109,42 +109,7 @@
      calfw
      ov-highlighter
      yxl-pdf-tools
-     (yxl-utils :variables
-                yxl-buffer-boring-buffer-regexp-list '("\\` "
-                                                       "\\`\\*helm"
-                                                       "\\`\\*Echo Area"
-                                                       "\\`\\*Minibuf"
-                                                       "*spacemacs*")
-                yxl-buffer-inherit-whitelist '(latex-mode
-                                               markdown-mode
-                                               org-mode
-                                               R-mode
-                                               ess-julia-mode
-                                               python-mode
-                                               emacs-lisp-mode
-                                               scala-mode
-                                               clojure-mode)
-                yxl-buffer-inherit-special-alist '((ess-mode . R-mode)
-                                                   (inferior-ess-mode . R-mode))
-                yxl-applications '(("calendar" . calendar)
-                                   ("org-agenda" . org-agenda)
-                                   ("org-capture" . org-capture)
-                                   ("w3m" . w3m)
-                                   ("cfw-calendar" . cfw-calendar)
-                                   ("rss: elfeed" . elfeed)
-                                   ("note: deft" . spacemacs/deft)
-                                   ("email: mu4e" . mu4e)
-                                   ("my-org-log" . my-org-log)
-                                   ("my-org-quick" .
-                                    (lambda () (find-file yxl-file-org-quick)))
-                                   ("my-org-todo" .
-                                    (lambda () (find-file yxl-file-org-todo)))
-                                   ("counsel-dash" . counsel-dash)
-                                   ("helm-github-stars" . helm-github-stars)
-                                   ("helm-chrome-bookmarks" . helm-chrome-bookmarks)
-                                   ("helm-bibtex" . helm-bibtex)
-                                   ("gscholar-bibtex" . gscholar-bibtex)
-                                   ("helm-google-suggest" . helm-google-suggest)))
+     yxl-utils
      yxl-edit
      (yxl-clojure)
      yxl-evil

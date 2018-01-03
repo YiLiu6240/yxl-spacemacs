@@ -14,7 +14,24 @@
                            helpful))
 
 (defun yxl-utils/init-yxl-utils ()
-  (use-package yxl-utils))
+  (use-package yxl-utils
+    :config
+    (setq yxl-buffer-boring-buffer-regexp-list '("\\` "
+                                                 "\\`\\*helm"
+                                                 "\\`\\*Echo Area"
+                                                 "\\`\\*Minibuf"
+                                                 "*spacemacs*"))
+    (setq yxl-buffer-inherit-whitelist '(latex-mode
+                                         markdown-mode
+                                         org-mode
+                                         R-mode
+                                         ess-julia-mode
+                                         python-mode
+                                         emacs-lisp-mode
+                                         scala-mode
+                                         clojure-mode))
+    (setq yxl-buffer-inherit-special-alist '((ess-mode . R-mode)
+                                             (inferior-ess-mode . R-mode)))))
 
 (defun yxl-utils/init-yxl-project ()
   (use-package yxl-project
@@ -169,7 +186,7 @@
 ;;     (progn
 ;;       (spacemacs/set-leader-keys "ot1" #'yxl-set-simple-todo-task1)
 ;;       (spacemacs/set-leader-keys "ot2" #'yxl-set-simple-todo-task2)
-;;       (spacemacs/set-leader-keys "ot3" #'yxl-set-simple-todo-task3))))
+;;       (spacemacs/set-leader-keys "ot3)))" #'yxl-set-simple-todo-task3))))
 
 (defun yxl-utils/init-scratch-pop ()
   (use-package scratch-pop
@@ -194,7 +211,25 @@
     :commands (yxl-invoke-applications)
     :config
     (progn
-      (setq yxl-ia-list yxl-applications))))
+      (setq yxl-ia-list '(("calendar" . calendar)
+                          ("org-agenda" . org-agenda)
+                          ("org-capture" . org-capture)
+                          ("w3m" . w3m)
+                          ("cfw-calendar" . cfw-calendar)
+                          ("rss: elfeed" . elfeed)
+                          ("note: deft" . spacemacs/deft)
+                          ("email: mu4e" . mu4e)
+                          ("my-org-log" . my-org-log)
+                          ("my-org-quick" .
+                           (lambda () (find-file yxl-file-org-quick)))
+                          ("my-org-todo" .
+                           (lambda () (find-file yxl-file-org-todo)))
+                          ("counsel-dash" . counsel-dash)
+                          ("helm-github-stars" . helm-github-stars)
+                          ("helm-chrome-bookmarks" . helm-chrome-bookmarks)
+                          ("helm-bibtex" . helm-bibtex)
+                          ("gscholar-bibtex" . gscholar-bibtex)
+                          ("helm-google-suggest" . helm-google-suggest))))))
 
 (defun yxl-utils/init-el2markdown ()
   (use-package el2markdown
