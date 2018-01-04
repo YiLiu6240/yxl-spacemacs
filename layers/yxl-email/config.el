@@ -27,5 +27,12 @@
 (defvar yxl-email-personal-config-file nil
   "Full filname to the personal email config file.")
 
+(defvar yxl-email-account-alist nil
+  "Alist of account detail to be passed into
+`yxl-email/mu4e-set-account', in the format of
+'((\"Account 1\" (prop1 . value1) (prop2 . value2))
+  (\"Account 2\") (prop1 . value1))
+")
+
 (when mu4e-installation-path
   (push mu4e-installation-path load-path))

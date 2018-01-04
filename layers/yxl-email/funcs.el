@@ -1,6 +1,6 @@
 (defun yxl-email/mu4e-set-account ()
   "Set the account for composing a message."
-  (let* ((account-alist yxl-email/account-alist)  ;; this is set externally
+  (let* ((account-alist yxl-email-account-alist)  ;; this is set externally
          (account
           (if mu4e-compose-parent-message
               (let ((maildir (mu4e-message-field

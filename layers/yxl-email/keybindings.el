@@ -44,6 +44,7 @@
     "uu" #'mu4e-maildirs-extension-force-update
     "uU" #'mu4e-update-mail-and-index
     "uq" #'yxl-email/mu4e-offlineimap-quick
+    "ua" #'yxl-email/mu4e-offlineimap-quick-profile
     "up" #'yxl-email/mu4e-offlineimap-quick-profile
     "C" #'mu4e-compose-new
     "R" #'mu4e-compose-reply
