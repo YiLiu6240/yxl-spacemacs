@@ -1,5 +1,6 @@
 (require 'org)
 (require 'org-agenda)
+(require 'noflet)
 
 (defvar org-goodies-agenda-file "~/.org-agenda"
   "File to which we export agenda")
@@ -23,5 +24,16 @@ Source: https://www.reddit.com/r/emacs/comments/7mec6e/orgmode_view_agenda_in_de
         (let ((result (buffer-string)))
           (with-temp-file file (insert result)))))
     (set-window-configuration wins)))
+
+(defun make-capture-frame ()
+  "Create a new frame and run org-capture.
+
+Source: https://stackoverflow.com/questions/15253005/in-emacs-org-mode-how-do-i-get-org-capture-to-open-in-a-full-sized-window"
+  (interactive)
+  (make-frame '((name . "capture")))
+  (select-frame-by-name "capture")
+  (delete-other-windows)
+  (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
+    (org-capture)))
 
 (provide 'org-goodies)
