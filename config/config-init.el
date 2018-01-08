@@ -22,6 +22,9 @@
     ;; http://emacs.stackexchange.com/questions/13314/install-pdf-tools-on-emacs-macosx
     (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo"))
 
+(if (eq system-type 'gnu/linux)
+    (setenv "LC_CTYPE" "zh_CN.UTF-8"))
+
 (defun on-frame-open (&optional frame)
   "If the FRAME created in terminal don't load background color."
   (unless (display-graphic-p frame)
