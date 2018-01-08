@@ -101,7 +101,7 @@ overridden by a prefix arg)."
 (defun yxl-org/setup-capture ()
   (setq org-capture-templates
         `(;; generalised
-          ("q" "scratch: checkbox" checkitem (file+headline yxl-file-org-quick "Next")
+          ("g" "scratch: checkbox" checkitem (file+headline yxl-file-org-quick "Next")
            "-  %?\n")
           ("t" "scratch: today" checkitem (file+headline yxl-file-org-quick "Today")
            "- [ ]  %?\n")

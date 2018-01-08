@@ -46,7 +46,7 @@
 
 (defun yxl-org/init-org-goodies ()
   (use-package org-goodies
-    :commands (org-goodies-export-agenda)))
+    :after (org)))
 
 (defun yxl-org/init-org-display-inline-images-with-background ()
   (use-package org-display-inline-images-with-background
