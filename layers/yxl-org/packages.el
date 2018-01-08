@@ -27,8 +27,6 @@
     (yxl-org/setup-keybindings)
     (yxl-org/setup-leader-keys)
     (yxl-org/setup-hydra)
-    (yxl-org/setup-capture)
-    (yxl-org/setup-keywords)
     (add-hook 'org-font-lock-set-keywords-hook
               #'yxl-org/setup-extra-fontlock)
     (yxl-org/setup-latex)

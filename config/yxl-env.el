@@ -35,6 +35,17 @@
 
 (setq yxl-env-org-task-files (list yxl-file-org-quick
                                    yxl-file-org-todo))
+(setq yxl-env-project-files
+      (append
+       (directory-files (concat yxl-path-org "projects/")
+                        t "^proj_.+\\.org")
+       ;; only find files that begins with "log_"
+       (directory-files (concat yxl-path-org "logs/")
+                        t "^log_.+\\.org")))
+(setq yxl-env-org-files (append yxl-env-org-task-files
+                                yxl-env-project-files))
+(setq org-agenda-files yxl-env-org-files)
+(setq yxl-hhs-org-files yxl-env-org-files)
 
 (defun yxl-env-project-view (&optional same-frame side-width)
   (interactive)
@@ -48,21 +59,3 @@
   (split-window-below-and-focus)
   (find-file yxl-file-org-quick)
   (evil-window-right 1))
-
-(defun yxl-env-update-org-files ()
-  ;; update org-related variables (and variables dependent on them) that are
-  ;; dynamically set.
-  (interactive)
-  (setq yxl-env-project-files
-        (append
-         (directory-files (concat yxl-path-org "projects/")
-                          t "^proj_.+\\.org")
-         ;; only find files that begins with "log_"
-         (directory-files (concat yxl-path-org "logs/")
-                          t "^log_.+\\.org")))
-  (setq yxl-env-org-files (append yxl-env-org-task-files
-                                  yxl-env-project-files))
-  (setq org-agenda-files yxl-env-org-files)
-  (setq yxl-hhs-org-files yxl-env-org-files))
-
-(yxl-env-update-org-files)

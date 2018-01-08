@@ -1,3 +1,4 @@
+;; TODO: update namings of these
 (defun my-org-agenda-work ()
   (interactive)
   (org-agenda nil "1"))
@@ -81,91 +82,22 @@ overridden by a prefix arg)."
   (setq org-refile-use-outline-path t)
   (setq org-refile-targets '((nil :maxlevel . 1)
                              (yxl-env-org-task-files :maxlevel . 1)))
+  (setq org-enforce-todo-checkbox-dependencies t)
+  (setq org-enforce-todo-dependencies t)
+  (setq org-cycle-separator-lines 1)
   (setq org-file-apps '((auto-mode . emacs)
                         ("\\.mm\\'" . default)
                         ("\\.x?html?\\'" . default)
                         ("\\.pdf\\'" . (lambda (path str)
                                          (yxl-open-file-external path)))
                         (t . (lambda (path str)
-                               (yxl-open-file-external path)))))
-  (setq org-reveal-root
-        (format "file:///%s"
-                (expand-file-name "~/dotfiles/external/reveal.js/"))))
+                               (yxl-open-file-external path))))))
 
 (defun yxl-org/org-mode-hook ()
   (setq evil-auto-indent nil))
   ;; (setq line-spacing 4)
   ;; NOTE: buggy, disable for now
   ;; (yxl-org-format-task-files)
-
-(defun yxl-org/setup-capture ()
-  (setq org-capture-templates
-        `(;; generalised
-          ("g" "scratch: checkbox" checkitem (file+headline yxl-file-org-quick "Next")
-           "-  %?\n")
-          ("t" "scratch: today" checkitem (file+headline yxl-file-org-quick "Today")
-           "- [ ]  %?\n")
-          ("i" "general: inbox" entry (file+headline yxl-file-org-todo "Capture")
-           "* INBOX %?\n  %i\n")
-          ("c" "general: inbox" entry (file+headline yxl-file-org-todo "Capture")
-           "* INBOX %?\n  %i\n")
-          ("j" "work: jobs" entry (file+headline ,(concat yxl-path-org "projects/jobs.org") "Posts")
-           "* %?\n** desc \n:PROPERTIES:\n:VISIBILITY: folded\n:END:\n %i\n")
-          ;; note and log
-          ("n" "quick note" item (file+headline yxl-file-note-sync "Quick Notes"))
-          ("l" "logs" entry (file+datetree yxl-file-org-log)
-           "* %?\n  -- %U\n  %i\n"))))
-
-(defun yxl-org/setup-keywords ()
-  (setq org-todo-keywords
-        '((sequence
-           "INBOX(i)"                   ;; ideas, undecided
-           "DO(T)"                       ;; needs to be done today
-           "TODO(t)"                        ;; needs to be done
-           "NEXT(n)"                        ;; next in line
-           "WIP(I)"
-           "HOLD(H)"                        ;; put on hold for various reasons
-           "PLAN(P)"                        ;; still under planning
-           "FOLLOW(f)"                   ;; follow-up results
-           "REVIEW(r)"
-           "SOMEDAY(s)"                     ;; not now
-           "|" "DONE(d)" "ABORT(A)" "FAILED(F)")))
-  (setq org-todo-keyword-faces
-        `(("INBOX" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-constant-face :foreground)))
-          ("DO" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-warning-face :foreground)))
-          ("TODO" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
-          ("HOLD" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-string-face :foreground)))
-          ("NEXT" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-constant-face :foreground)))
-          ("FOLLOW" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-builtin-face :foreground)))
-          ("WIP" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-builtin-face :foreground)))
-          ("DONE" . (:height 0.8 :slant italic :weight bold :foreground ,(face-attribute 'font-lock-comment-face :foreground)))))
-  (setq org-tag-faces
-        `(("CTW" . (:weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
-          ("WORK" . (:weight bold :foreground ,(face-attribute 'font-lock-function-name-face :foreground)))
-          ("HOME" . (:weight bold :foreground ,(face-attribute 'font-lock-constant-face :foreground)))
-          ("HAVE_A_LOOK" . (:weight bold :foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
-          ("MAJOR" . (:weight bold :foreground ,(face-attribute 'font-lock-warning-face :foreground)))
-          ("MID" . (:weight bold :foreground ,(face-attribute 'font-lock-variable-name-face :foreground)))
-          ("MINOR" . (:weight bold :foreground ,(face-attribute 'font-lock-string-face :foreground)))
-          ("00" . (:weight bold :foreground "#deab0e"))
-          ("25" . (:weight bold :foreground "#b58900"))
-          ("50" . (:weight bold :foreground "#b58900"))
-          ("75" . (:weight bold :foreground "#926e00"))
-          ("95" . (:weight bold :foreground "#926e00"))))
-  (setq org-tag-persistent-alist
-        '((:startgroup . "group")
-          ("CTW") ("WORK") ("HOME")
-          (:endgroup . nil)
-          ("WIN") ("MAC") ("LINUX")
-          (:startgroup . "effort")
-          ("MAJOR") ("MID") ("MINOR")
-          (:endgroup . nil)
-          (:startgroup . "progress")
-          ("00" . ?0) ("25" . ?2) ("50" . ?5) ("75" . ?7) ("95" . ?9)
-          (:endgroup . nil)
-          (:startgroup . "actions")
-          ("ISSUES") ("HAVE_A_LOOK") ("THINK") ("REFACTOR")
-          (:endgroup . nil))))
 
 (defun yxl-org/setup-extra-fontlock ()
   ;; source: https://github.com/hlissner/.emacs.d/blob/master/modules/lang/org/config.el
@@ -204,8 +136,6 @@ overridden by a prefix arg)."
   (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
     "E" #'org-agenda-entry-text-mode
     "." #'spacemacs/org-agenda-transient-state/body)
-  (dolist (agenda yxl-org-agenda-commands)
-    (add-to-list 'org-agenda-custom-commands agenda t))
   (setq org-agenda-prefix-format
         '((agenda . " %i %-12:c%?-12t%s")
           (timeline . "  %s")
