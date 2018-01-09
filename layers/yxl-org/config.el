@@ -35,8 +35,7 @@
 
 (setq org-agenda-custom-commands
       '(("A" "Agenda Augmented"
-         ((agenda "Agenda" ((org-agenda-ndays 7)
-                            (org-agenda-start-day "-2d")))
+         ((agenda "Agenda" ((org-agenda-ndays 7)))
           (todo "DO|TODO")
           (todo "INBOX|QUICK|HAVE-A-LOOK")
           (todo "NEXT|WIP|PLAN")))
