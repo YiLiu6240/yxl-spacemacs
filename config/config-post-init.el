@@ -45,6 +45,9 @@
 (add-to-list 'auto-mode-alist '("\\.sublime-settings$" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.sublime-keymap$" . json-mode))
 
+;; shell & comint
+(setq comint-scroll-to-bottom-on-output nil)
+
 ;; (which-function-mode 1)
 (setq which-func-unknown "--")
 
