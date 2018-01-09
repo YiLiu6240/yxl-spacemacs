@@ -153,6 +153,7 @@ overridden by a prefix arg)."
   (setq org-src-preserve-indentation t)
   (setq org-src-fontify-natively t)
   (setq org-src-tab-acts-natively t)
+  (setq org-src-window-setup 'current-window)
   (define-key org-src-mode-map
     (kbd "C-c f") #'yxl-prog/evil-wrap-line-f-print)
   (define-key org-src-mode-map
