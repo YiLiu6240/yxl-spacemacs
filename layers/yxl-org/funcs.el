@@ -153,7 +153,8 @@ overridden by a prefix arg)."
   (setq org-src-preserve-indentation t)
   (setq org-src-fontify-natively t)
   (setq org-src-tab-acts-natively t)
-  (setq org-src-window-setup 'current-window)
+  (setq org-src-window-setup 'other-window)
+  (add-to-list 'display-buffer-alist '("\\*Org Src" display-buffer-at-bottom))
   (define-key org-src-mode-map
     (kbd "C-c f") #'yxl-prog/evil-wrap-line-f-print)
   (define-key org-src-mode-map
@@ -179,6 +180,10 @@ overridden by a prefix arg)."
     (let ((map (make-sparse-keymap)))
       (define-key map
         (kbd "C-c h") #'ob-ipython-inspect)
+      (define-key map (kbd "C-c f")
+        #'yxl-prog/evil-wrap-line-f-print)
+      (define-key map (kbd "C-c F")
+        #'yxl-prog/evil-wrap-line-f)
       map)
     (add-to-list 'company-backends-org-mode 'company-ob-ipython))
   (define-minor-mode yxl-org/ob-R-helper-mode
@@ -200,6 +205,10 @@ overridden by a prefix arg)."
                         (if (equal (string (preceding-char)) " ")
                             (insert "%>% ")
                           (insert " %>% "))))
+      (define-key map (kbd "C-c f")
+        #'yxl-prog/evil-wrap-line-f-print)
+      (define-key map (kbd "C-c F")
+        #'yxl-prog/evil-wrap-line-f)
       (define-key map
         (kbd "C-c h") #'ess-help)
       map)
@@ -224,6 +233,10 @@ overridden by a prefix arg)."
                       (if (equal (string (preceding-char)) " ")
                           (insert "=> ")
                         (insert " => "))))
+      (define-key map (kbd "C-c f")
+        #'yxl-prog/evil-wrap-line-f-print)
+      (define-key map (kbd "C-c F")
+        #'yxl-prog/evil-wrap-line-f)
       map))
   (define-minor-mode yxl-org/ob-clojure-helper-mode
     "Helper configs in org-mode with ob-clojure"
