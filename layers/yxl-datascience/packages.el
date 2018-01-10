@@ -163,7 +163,9 @@
 (defun yxl-datascience/post-init-python ()
   (with-eval-after-load 'python
     (spacemacs/set-leader-keys-for-major-mode 'python-mode
-      ";" #'python-shell-send-string)))
+      ";" #'python-shell-send-string
+      "ss" #'python-shell-send-string
+      "sS" #'python-shell-send-string-print)))
 
 (defun yxl-datascience/init-ein ()
   (use-package ein

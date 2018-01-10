@@ -36,22 +36,6 @@
 
 (defun yxl-prog/post-init-python ()
   (with-eval-after-load 'python
-    (defun python-shell-send-region-or-line-and-step ()
-      "When a region is selected, send region using `python-shell-send-region',
-otherwise select the current line and send region. After that, deactivate
-region selection and step one line."
-      (interactive)
-      (if (use-region-p)
-          (progn
-            (python-shell-send-region (region-beginning) (region-end))
-            (deactivate-mark))
-        (progn
-          (save-excursion
-            (end-of-line)
-            (let ((end (point)))
-              (beginning-of-line)
-              (python-shell-send-region (point) end)))
-          (forward-line 1))))
     (define-key python-mode-map (kbd "C-,")
       #'python-shell-send-region-or-line-and-step)
     (define-key python-mode-map (kbd "C-c f")
