@@ -36,9 +36,16 @@
 (setq org-agenda-custom-commands
       '(("A" "Agenda Augmented"
          ((agenda "Agenda" ((org-agenda-ndays 7)))
-          (todo "DO|TODO")
-          (todo "INBOX|QUICK|HAVE-A-LOOK")
-          (todo "NEXT|WIP|PLAN")))
+          (todo "DO|TODO"
+                ((org-agenda-todo-ignore-scheduled t)))
+          (todo "INBOX|QUICK|HAVE-A-LOOK"
+                ((org-agenda-todo-ignore-scheduled t)))
+          (todo "NEXT|WIP|PLAN"
+                ((org-agenda-todo-ignore-scheduled t)))
+          (todo ""
+                ((org-agenda-overriding-header "Scheduled")
+                 (org-agenda-skip-function
+                  '(org-agenda-skip-entry-if 'notscheduled))))))
         ("0" "Agenda with general tasks"
          ((alltodo "" ((org-agenda-files (list yxl-file-org-quick))))
           (todo "DO|TODO"
