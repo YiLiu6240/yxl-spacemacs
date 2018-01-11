@@ -1,6 +1,8 @@
 (defun yxl-org/setup-keybindings ()
   (define-key org-mode-map
     (kbd "C-M-o") #'yxl-org/insert-source-block)
+  (define-key org-mode-map
+    (kbd "C-M-S-o") #'yxl-org/insert-source-block-and-edit)
   (define-key org-read-date-minibuffer-local-map
     (kbd "M-K") (lambda () (interactive)
                   (org-eval-in-calendar '(calendar-backward-week 1))))

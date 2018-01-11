@@ -44,6 +44,12 @@ overridden by a prefix arg)."
         (forward-line -2)
         (end-of-line)))))
 
+(defun yxl-org/insert-source-block-and-edit ()
+  "Insert an org source block then invoke `'."
+  (interactive)
+  (yxl-org/insert-source-block)
+  (org-edit-src-code))
+
 (defun yxl-org/agenda-view ()
   (interactive)
   (delete-other-windows)
