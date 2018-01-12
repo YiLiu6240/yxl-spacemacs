@@ -1,7 +1,8 @@
 (setq yxl-elfeed-packages '(elfeed
                             elfeed-goodies
                             elfeed-web
-                            (yxl-elfeed :location site)))
+                            (yxl-elfeed :location site)
+                            (elfeed-hack :location local)))
 
 (defun yxl-elfeed/init-elfeed ()
   (use-package elfeed
@@ -47,7 +48,8 @@
 
 (defun yxl-elfeed/init-yxl-elfeed ()
   (use-package yxl-elfeed
-    :after (elfeed)
-    :config
-    (progn
-      (yxl-elfeed-patch))))
+    :after (elfeed)))
+
+(defun yxl-elfeed/init-elfeed-hack ()
+  (use-package elfeed-hack
+    :after (elfeed)))
