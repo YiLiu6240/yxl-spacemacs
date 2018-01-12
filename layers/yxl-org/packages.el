@@ -23,6 +23,10 @@
     (add-hook 'org-mode-hook 'yxl-org/load-ob-helper))
   ;; inject my own configs
   (with-eval-after-load 'org
+    ;; load org-capture at once, when we want to capture we
+    ;; don't want to wait for org-capture to load again.
+    (require 'org-agenda)
+    (require 'org-capture)
     (yxl-org/setup-general)
     (yxl-org/setup-keybindings)
     (yxl-org/setup-leader-keys)
