@@ -36,6 +36,9 @@
 
 (defun yxl-prog/post-init-python ()
   (with-eval-after-load 'python
+    ;; See
+    ;; https://github.com/jorgenschaefer/elpy/issues/887
+    (setq python-shell-completion-native-enable nil)
     (define-key python-mode-map (kbd "C-,")
       #'python-shell-send-region-or-line-and-step)
     (define-key python-mode-map (kbd "C-c f")
