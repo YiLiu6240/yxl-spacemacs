@@ -698,7 +698,7 @@
             `(org-verbatim ((,class (:foreground ,keyword))))
             `(org-verse ((,class (:inherit org-block :slant italic))))
             `(org-warning ((,class (:foreground ,err))))
-            `(org-special-keyword ((,class (:foreground ,var :slant italic))))
+            `(org-special-keyword ((,class (:foreground ,comment :slant italic :height 0.8))))
             `(org-tag ((,class (:foreground ,keyword))))
             `(org-list-dt ((,class (:foreground ,var :inherit bold))))
             `(org-latex-and-related ((,class (:foreground ,type))))
