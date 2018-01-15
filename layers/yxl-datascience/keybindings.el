@@ -48,7 +48,7 @@
       (evil-set-initial-state 'ess-help-mode 'evilified))))
 
 
-(defun yxl-datascience/ess-set-leader-keys (mode)
+(defun yxl-datascience/ess-set-leader-keys-for-mode (mode)
   (spacemacs/set-leader-keys-for-major-mode mode
     ";" #'ess-execute
     "a" #'yxl-ess-atpoint
@@ -120,7 +120,7 @@
     "vp" #'ess-R-dv-pprint
     "vt" #'ess-R-dv-ctable))
 
-(defun yxl-datascience/ess-declare-prefix (mode)
+(defun yxl-datascience/ess-declare-prefix-for-mode (mode)
   (spacemacs/declare-prefix-for-mode mode "ma" "atpoint")
   (spacemacs/declare-prefix-for-mode mode "ms" "repl-interaction")
   (spacemacs/declare-prefix-for-mode mode "mh" "help")

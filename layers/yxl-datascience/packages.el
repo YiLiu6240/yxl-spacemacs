@@ -73,9 +73,9 @@
     (add-hook 'ess-mode-hook 'smartparens-mode)
     ;; (add-hook 'ess-mode-hook 'fci-mode)
     (add-hook 'ess-mode-hook 'hl-todo-mode)
-    (mapcar #'yxl-datascience/ess-set-leader-keys
+    (mapcar #'yxl-datascience/ess-set-leader-keys-for-mode
             '(ess-mode ess-julia-mode inferior-ess-mode))
-    (mapcar #'yxl-datascience/ess-declare-prefix
+    (mapcar #'yxl-datascience/ess-declare-prefix-for-mode
             '(ess-mode ess-julia-mode inferior-ess-mode))
     (yxl-datascience/setup-julia-keybindings)
     (setq spacemacs-useful-buffers-regexp
