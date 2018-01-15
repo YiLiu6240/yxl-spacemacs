@@ -11,7 +11,8 @@
                            el2markdown
                            emamux
                            focus
-                           helpful))
+                           helpful
+                           define-word))
 
 (defun yxl-utils/init-yxl-utils ()
   (use-package yxl-utils
@@ -246,3 +247,8 @@
 (defun yxl-utils/init-helpful ()
   (use-package helpful
     :defer t))
+
+(defun yxl-utils/init-define-word ()
+  (use-package define-word
+    :defer t
+    :init (spacemacs/set-leader-keys "xD" #'define-word)))
