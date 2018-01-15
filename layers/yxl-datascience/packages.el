@@ -65,7 +65,6 @@
     (yxl-datascience/ess-setup-keybindings)
     (yxl-datascience/ess-setup-imenu)
     (yxl-datascience/ess-setup-rdired)
-    (yxl-datascience/setup-ess-hydra)
     (yxl-datascience/ess-setup-help)
     (yxl-datascience/ess-setup-lintr)
     (add-hook 'ess-mode-hook #'yxl-datascience/ess-hook)

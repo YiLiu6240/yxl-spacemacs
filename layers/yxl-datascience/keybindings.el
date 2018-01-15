@@ -130,35 +130,6 @@
   (spacemacs/declare-prefix-for-mode mode "mr" "roxygen")
   (spacemacs/declare-prefix-for-mode mode "mo" "user-defined"))
 
-(defun yxl-datascience/setup-ess-hydra ()
-  (defhydra yxl-ess-help-hydra (:color blue :hint nil :columns 4
-                                       :pre (setq which-key-inhibit t)
-                                       :post (setq which-key-inhibit nil))
-    ("h" ess-display-help-on-object "help")
-    ("b" ess-display-help-in-browser "help-in-browser")
-    ("p" ess-display-package-index "package index")
-    ("v" ess-display-vignettes "vignettes")
-    ("w" ess-help-web-search "web-search"))
-  (defhydra yxl-ess-rdired-hydra (:color blue :hint nil :columns 4
-                                         :pre (setq which-key-inhibit t)
-                                         :post (setq which-key-inhibit nil))
-    ("s" yxl-ess-rdired-str "str")
-    ("S" ess-rdired-sort "sort")
-    ;; view in REPL
-    ("vv" ess-rdired-view "view")
-    ;; view in its own buffer
-    ("vp" ess-R-dv-pprint "dv:pprint")
-    ("vd" ess-view-inspect-df "ess-view:inspect-df")
-    ("vt" ess-R-dv-ctable "dv:ctable")
-    ("g" revert-buffer "revert")
-    ("a" yxl-ess-rdired-atpoint "useful-funcs")
-    ("A" yxl-ess-rdired-atpoint-pop "useful-funcs:pop")
-    ("p" ess-rdired-plot "plot")
-    ("y" ess-rdired-type "mode(.)")
-    ("d" ess-rdired-delete "delete")
-    ("u" ess-rdired-undelete "undelete")
-    ("x" ess-rdired-expunge "expunge")))
-
 (defun yxl-datascience/setup-julia-keybindings ()
   (spacemacs/set-leader-keys-for-major-mode 'ess-julia-mode
     "<tab>" #'julia-latexsub-or-indent))

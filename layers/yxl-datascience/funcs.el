@@ -64,16 +64,78 @@ and in some situtations it will cause problems."
                   "infix_spaces_linter=NULL)"))))
 
 (defun yxl-datascience/ess-setup-help ()
-  (defun yxl-datascience/ess-help-config ()
-    (define-key ess-help-mode-map "." #'yxl-ess-help-hydra/body))
-  (add-hook 'ess-help-mode-hook #'yxl-datascience/ess-help-config))
+  ;; TODO: replace this following upstream changes
+  (defun ess-help-mode-hack ()
+;;; Largely ripped from more-mode.el,
+;;; originally by Wolfgang Rupprecht wolfgang@mgm.mit.edu
+    "Mode for viewing ESS help files.
+Use SPC and DEL to page back and forth through the file.
+Use `n'  and `p' to move to next and previous section,
+    `s' to jump to a particular section;   `s ?' for help.
+Use `q' to return to your ESS session; `x' to kill this buffer first.
+The usual commands for evaluating ESS source are available.
+Other keybindings are as follows:
+\\{ess-help-mode-map}
+
+A Hack to allow spacemacs leader-keys by replacing run-hooks with run-mode-hooks.
+TODO: replace this following upstream changes."
+    (interactive)
+    (setq major-mode 'ess-help-mode)
+    (setq mode-name "ESS Help")
+    (use-local-map ess-help-mode-map)
+
+;;; Keep <tabs> out of the code.
+    (make-local-variable 'indent-tabs-mode)
+    (setq indent-tabs-mode nil)
+
+    (if ess-mode-syntax-table ;;set in advance by ess-setq-local
+        (set-syntax-table ess-mode-syntax-table))
+
+    (require 'easymenu)
+    (easy-menu-define ess-help-mode-menu-map ess-help-mode-map
+      "Menu keymap for ess-help mode." ess-help-mode-menu)
+    (easy-menu-add ess-help-mode-menu-map ess-help-mode-map)
+
+    ;; Add the keys for navigating among sections; this is done
+    ;; dynamically since different languages (e.g. S vs R) have different
+    ;; section headings.
+
+    (setq ess-help-sec-map (make-sparse-keymap))
+    (setq-local show-trailing-whitespace nil)
+
+    (dolist (pair ess-help-sec-keys-alist)
+      (define-key ess-help-sec-map (char-to-string (car pair))
+        'ess-skip-to-help-section))
+    (define-key ess-help-sec-map "?" 'ess-describe-sec-map)
+    (define-key ess-help-sec-map ">" 'end-of-buffer)
+    (define-key ess-help-sec-map "<" 'beginning-of-buffer)
+    (define-key ess-help-mode-map "s" ess-help-sec-map)
+
+    (run-mode-hooks 'ess-help-mode-hook))
+  (with-eval-after-load 'ess-help
+    (advice-add 'ess-help-mode :override #'ess-help-mode-hack))
+  (spacemacs/set-leader-keys-for-major-mode 'ess-help-mode
+    "h" #'ess-help
+    "b" #'ess-display-help-in-browser
+    "p" #'ess-display-package-index
+    "v" #'ess-display-vignettes
+    "w" #'ess-help-web-search))
 
 (defun yxl-datascience/ess-setup-rdired ()
-  (defun yxl-datascience/rdired-config ()
-    (define-key ess-rdired-mode-map "." #'yxl-ess-rdired-hydra/body)
-    (define-key ess-rdired-mode-map "a" #'yxl-ess-rdired-atpoint)
-    (define-key ess-rdired-mode-map "A" #'yxl-ess-rdired-atpoint-pop))
-  (add-hook 'ess-rdired-mode-hook #'yxl-datascience/rdired-config)
+  (spacemacs/set-leader-keys-for-major-mode 'ess-rdired-mode
+    "a" #'yxl-ess-rdired-atpoint
+    "s" #'yxl-ess-rdired-str
+    "S" #'ess-rdired-sort
+    "vv" #'ess-redired-view
+    "vp" #'ess-R-dv-pprint
+    "vd" #'ess-view-inspect-df
+    "vt" #'ess-R-dv-ctable
+    "g" #'revert-buffer
+    "p" #'ess-rdired-plot
+    "y" #'ess-rdired-type
+    "d" #'ess-rdired-delete
+    "u" #'ess-rdired-undelete
+    "x" #'ess-redired-expunge)
   (setq ess-rdired-objects "{.rdired.objects <- function(objs) {
   if (length(objs)==0) {
     \"No objects to view!\"
@@ -122,7 +184,6 @@ When invoking with a prefix arg, manually input func."
         (let ((func (read-string "Enter func: ")))
           (ein:pytools-request-help (ein:get-kernel-or-error) func)))
     (ein:pytools-request-help (ein:get-kernel-or-error) (ein:object-at-point-or-error))))
-
 
 (defun spacemacs/ein:worksheet-merge-cell-next ()
   (interactive)
