@@ -165,7 +165,7 @@ overridden by a prefix arg)."
     (kbd "C-c f") #'yxl-prog/evil-wrap-line-f-print)
   (define-key org-src-mode-map
     (kbd "C-c F") #'yxl-prog/evil-wrap-line-f)
-  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
+  ;; (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
   (add-hook 'org-mode-hook 'org-display-inline-images)
   ;; Force going to normal state after finishing source block edit
   (with-eval-after-load 'org-src
