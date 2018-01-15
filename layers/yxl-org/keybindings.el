@@ -92,20 +92,18 @@
     "
 yxl-org/hydra:
 --------
-[_c_]: ?c? company-mode [_i_]: ?i? org-indent-mode
-[_or_]: ?or? yxl-org/ob-R-helper-mode [_op_]: ?op? yxl-org/ob-python-helper-mode
-[_oc_]: ?oc? yxl-org/ob-clojure-helper-mode
-[_ss_]: ?ss? org-src-fontify-natively
+ [_c_]: ^?c? company-mode             |
+[_ii_]: ?ii? org-indent-mode          | [_ip_]: ?ip? org-toggle-inline-images
+[_ss_]: ?ss? org-src-fontify-natively |
 --------
 "
     ("." nil "quit")
-    ("i" org-indent-mode
+    ("ii" org-indent-mode
      (if (bound-and-true-p org-indent-mode) "[x]" "[ ]"))
+    ("ip" org-toggle-inline-images
+     (if org-inline-image-overlays "[x]" "[ ]"))
     ("c" company-mode
      (if (bound-and-true-p company-mode) "[x]" "[ ]"))
-    ("or" yxl-org/ob-R-helper-mode (if yxl-org/ob-R-helper-mode "[x]" "[ ]"))
-    ("op" yxl-org/ob-ipython-helper-mode (if yxl-org/ob-ipython-helper-mode "[x]" "[ ]"))
-    ("oc" yxl-org/ob-clojure-helper-mode (if yxl-org/ob-ipython-helper-mode "[x]" "[ ]"))
     ("ss" (lambda () (interactive)
             (yxl-org/toggle-org-src-fontify-natively) (revert-buffer nil t))
      (if org-src-fontify-natively "[x]" "[ ]"))))
