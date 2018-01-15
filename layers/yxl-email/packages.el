@@ -82,7 +82,8 @@
     :init (with-eval-after-load 'mu4e (mu4e-maildirs-extension-load))
     :config
     (progn
-      (setq mu4e-maildirs-extension-toggle-maildir-key (kbd "<tab>")))))
+      (setq mu4e-maildirs-extension-toggle-maildir-key (kbd "<tab>"))
+      (setq mu4e-maildirs-extension-default-collapse-level 0))))
 
 (defun yxl-email/pre-init-org ()
   ;; load org-mu4e when org is actually loaded
