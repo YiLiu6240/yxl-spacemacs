@@ -80,8 +80,8 @@
     "mm" #'org-toggle-latex-fragment
     "r" #'yxl-org-refile-visible
     "R" #'yxl-org/refile-to-scratch
-    "." #'org-time-stamp
-    "C-." #'yxl-org/general-hydra/body)
+    "C-." #'org-time-stamp
+    "." #'yxl-org/general-hydra/body)
   (spacemacs/declare-prefix-for-mode 'org-mode "b" "src-block")
   (spacemacs/declare-prefix-for-mode 'org-mode "m" "math"))
 
