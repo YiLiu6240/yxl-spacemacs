@@ -12,6 +12,22 @@
     ;; (forward-line)
     (elfeed-show-entry entry)))
 
+(defun elfeed-show-next-hack ()
+  "Show the next item in the elfeed-search buffer."
+  (interactive)
+  (funcall elfeed-show-entry-delete)
+  (with-current-buffer (elfeed-search-buffer)
+    (forward-line 1)
+    (call-interactively #'elfeed-search-show-entry)))
+
+(defun elfeed-show-prev-hack ()
+  "Show the previous item in the elfeed-search buffer."
+  (interactive)
+  (funcall elfeed-show-entry-delete)
+  (with-current-buffer (elfeed-search-buffer)
+    (forward-line -1)
+    (call-interactively #'elfeed-search-show-entry)))
+
 (defun search-header/draw-wide-hack (separator-left separator-right search-filter stats db-time)
   (let* ((update (format-time-string "%Y-%m-%d %H:%M:%S %z" db-time))
          (lhs (list
@@ -127,6 +143,8 @@
 
 
 (advice-add #'elfeed-search-show-entry :override #'elfeed-search-show-entry-hack)
+(advice-add #'elfeed-show-next :override #'elfeed-show-next-hack)
+(advice-add #'elfeed-show-prev :override #'elfeed-show-prev-hack)
 
 (advice-add #'search-header/draw-wide :override #'search-header/draw-wide-hack)
 (advice-add #'elfeed-goodies/entry-header-line :override #'elfeed-goodies/entry-header-line-hack)
