@@ -35,7 +35,7 @@
 
 (setq org-agenda-custom-commands
       '(("A" "Agenda Augmented"
-         ((agenda "Agenda" ((org-agenda-ndays 7)))
+         ((agenda "Agenda" ((org-agenda-span 7)))
           (todo "DO|TODO"
                 ((org-agenda-todo-ignore-scheduled t)))
           (todo "INBOX|QUICK|HAVE-A-LOOK"
@@ -44,6 +44,40 @@
                 ((org-agenda-todo-ignore-scheduled t)))
           (todo ""
                 ((org-agenda-overriding-header "Scheduled")
+                 (org-agenda-skip-function
+                  '(org-agenda-skip-entry-if 'notscheduled))))))
+        ("w" "Agenda projects"
+         ((agenda "Agenda" ((org-agenda-span 7)
+                            (org-agenda-files yxl-env-project-files)))
+          (todo "DO|TODO"
+                ((org-agenda-todo-ignore-scheduled t)
+                 (org-agenda-files yxl-env-project-files)))
+          (todo "INBOX|QUICK|HAVE-A-LOOK"
+                ((org-agenda-todo-ignore-scheduled t)
+                 (org-agenda-files yxl-env-project-files)))
+          (todo "NEXT|WIP|PLAN"
+                ((org-agenda-todo-ignore-scheduled t)
+                 (org-agenda-files yxl-env-project-files)))
+          (todo ""
+                ((org-agenda-overriding-header "Scheduled")
+                 (org-agenda-files yxl-env-project-files)
+                 (org-agenda-skip-function
+                  '(org-agenda-skip-entry-if 'notscheduled))))))
+        ("p" "Agenda personal"
+         ((agenda "Agenda" ((org-agenda-span 7)
+                            (org-agenda-files yxl-env-org-task-files)))
+          (todo "DO|TODO"
+                ((org-agenda-todo-ignore-scheduled t)
+                 (org-agenda-files yxl-env-org-task-files)))
+          (todo "INBOX|QUICK|HAVE-A-LOOK"
+                ((org-agenda-todo-ignore-scheduled t)
+                 (org-agenda-files yxl-env-org-task-files)))
+          (todo "NEXT|WIP|PLAN"
+                ((org-agenda-todo-ignore-scheduled t)
+                 (org-agenda-files yxl-env-org-task-files)))
+          (todo ""
+                ((org-agenda-overriding-header "Scheduled")
+                 (org-agenda-files yxl-env-org-task-files)
                  (org-agenda-skip-function
                   '(org-agenda-skip-entry-if 'notscheduled))))))
         ("0" "Agenda with general tasks"

@@ -79,8 +79,6 @@ overridden by a prefix arg)."
   ;; (setq org-fast-tag-selection-single-key t)
   (setq org-insert-heading-respect-content t)
   (setq org-hide-emphasis-markers nil)
-  (setq org-agenda-window-setup 'current-window)
-  (setq org-agenda-sticky t)
   (setq org-highlight-latex-and-related '(latex script entities))
   (setq org-blank-before-new-entry '((heading . auto)
                                      (plain-list-item . auto)))
@@ -135,10 +133,10 @@ overridden by a prefix arg)."
   ;; agenda view: 1 month
   (setq org-agenda-span 'week)
   (setq org-agenda-format-date 'yxl-org-agenda-format-date-aligned)
+  (setq org-agenda-window-setup 'current-window)
+  (setq org-agenda-sticky t)
+  (setq org-agenda-start-on-weekday nil)
   ;; org agenda time grid
-  ;; (setq org-agenda-time-grid '((daily today)
-  ;;                              "----------------"
-  ;;                              (0900 1100 1300 1500 1700)))
   (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
     "E" #'org-agenda-entry-text-mode
     "." #'spacemacs/org-agenda-transient-state/body)
