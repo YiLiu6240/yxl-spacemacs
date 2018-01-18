@@ -86,10 +86,14 @@
 (add-hook 'spacemacs-buffer-mode-hook
           (lambda () (define-key spacemacs-buffer-mode-map
                        "o" 'widget-button-press)))
-(setq spacemacs-useless-buffers-regexp
-      '("*\.\+" "TAGS"))
-(setq spacemacs-useful-buffers-regexp
-      '("\\*scratch\\*" "\\*Org"))
+
+;; Boring/useful buffers
+(let ((useless-buf '("*\.\+" "TAGS")))
+  (mapc (lambda (elem) (add-to-list 'spacemacs-useless-buffers-regexp elem))
+        useless-buf))
+(let ((useful-buf '("\\*scratch\\*" "\\*Org")))
+  (mapc (lambda (elem) (add-to-list 'spacemacs-useful-buffers-regexp elem))
+        useful-buf))
 
 ;; proselint
 (with-eval-after-load 'flycheck
