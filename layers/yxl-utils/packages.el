@@ -207,30 +207,7 @@
     :defer t))
 
 (defun yxl-utils/init-yxl-invoke-applications ()
-  (use-package yxl-invoke-applications
-    :defer t
-    :commands (yxl-invoke-applications)
-    :config
-    (progn
-      (setq yxl-ia-list '(("calendar" . calendar)
-                          ("org-agenda" . org-agenda)
-                          ("org-capture" . org-capture)
-                          ("w3m" . w3m)
-                          ("cfw-calendar" . cfw-calendar)
-                          ("rss: elfeed" . elfeed)
-                          ("note: deft" . spacemacs/deft)
-                          ("email: mu4e" . mu4e)
-                          ("my-org-log" . my-org-log)
-                          ("my-org-quick" .
-                           (lambda () (find-file yxl-file-org-quick)))
-                          ("my-org-todo" .
-                           (lambda () (find-file yxl-file-org-todo)))
-                          ("counsel-dash" . counsel-dash)
-                          ("helm-github-stars" . helm-github-stars)
-                          ("helm-chrome-bookmarks" . helm-chrome-bookmarks)
-                          ("helm-bibtex" . helm-bibtex)
-                          ("gscholar-bibtex" . gscholar-bibtex)
-                          ("helm-google-suggest" . helm-google-suggest))))))
+  (use-package yxl-invoke-applications))
 
 (defun yxl-utils/init-el2markdown ()
   (use-package el2markdown
