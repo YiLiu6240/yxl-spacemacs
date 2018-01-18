@@ -83,6 +83,7 @@ overridden by a prefix arg)."
   (setq org-blank-before-new-entry '((heading . auto)
                                      (plain-list-item . auto)))
   (setq org-fontify-whole-heading-line t)
+  (setq org-fontify-quote-and-verse-blocks t)
   (setq org-refile-use-outline-path t)
   (setq org-refile-targets '((nil :maxlevel . 1)
                              (yxl-env-org-task-files :maxlevel . 1)))
