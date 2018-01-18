@@ -57,6 +57,7 @@
       (add-hook 'mu4e-compose-mode-hook (lambda () (auto-fill-mode -1)))
       (add-to-list 'mu4e-view-actions
                    '("View in browser" . mu4e-action-view-in-browser) t)
+      (setq mu4e-html2text-command "w3m -dump -T text/html -cols 72 -o display_link_number=true -o auto_image=false -o display_image=true -o ignore_null_img_alt=true")
       (when yxl-email-personal-config-file
         (load yxl-email-personal-config-file)))))
 
