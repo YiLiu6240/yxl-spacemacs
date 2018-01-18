@@ -14,32 +14,6 @@
       (spacemacs/set-leader-keys
         "awb" 'helm-w3m-bookmarks))))
 
-(defun v/w3m-open-site (site)
-  "Opens site in new w3m session with 'http://' appended"
-  (interactive
-   (list (read-string "Enter website address (default: google.com):"
-                      nil nil "google.com" nil)))
-  (w3m-goto-url
-   (concat "http://" site)))
-
-(defun v/w3m-open-site-new-session (site)
-  "Opens site in new w3m session with 'http://' appended"
-  (interactive
-   (list (read-string "Enter website address (default: google.com):"
-                      nil nil "google.com" nil)))
-  (w3m-goto-url-new-session
-   (concat "http://" site)))
-
-(defun w3m-hackernews ()
-  (interactive)
-  (w3m-goto-url-new-session "http://news.ycombinator.com"))
-
-(defun w3m-reddit (subreddit)
-  (interactive (list
-                (read-string "Enter subreddit (default: emacs):"
-                             nil nil "emacs" nil)))
-  (w3m-goto-url-new-session (format "http://m.reddit.com/r/%s" subreddit)))
-
 (defun yxl-web/init-w3m()
   "Initializes w3m and adds keybindings for its exposed functionalities."
   (use-package w3m

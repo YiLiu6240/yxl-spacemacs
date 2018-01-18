@@ -1,3 +1,31 @@
+(defun w3m-reddit (subreddit)
+  (interactive (list
+                (read-string "Enter subreddit (default: emacs):"
+                             nil nil "emacs" nil)))
+  (w3m-goto-url-new-session (format "http://m.reddit.com/r/%s" subreddit)))
+
+
+(defun v/w3m-open-site (site)
+  "Opens site in new w3m session with 'http://' appended"
+  (interactive
+   (list (read-string "Enter website address (default: google.com):"
+                      nil nil "google.com" nil)))
+  (w3m-goto-url
+   (concat "http://" site)))
+
+(defun v/w3m-open-site-new-session (site)
+  "Opens site in new w3m session with 'http://' appended"
+  (interactive
+   (list (read-string "Enter website address (default: google.com):"
+                      nil nil "google.com" nil)))
+  (w3m-goto-url-new-session
+   (concat "http://" site)))
+
+(defun w3m-hackernews ()
+  (interactive)
+  (w3m-goto-url-new-session "http://news.ycombinator.com"))
+
+
 (defun yxl-web/w3m-open-external ()
   (interactive)
   (browse-url w3m-current-url))
