@@ -1,9 +1,37 @@
-(setq yxl-web-packages '(w3m
+;; Various web services
+
+(setq yxl-web-packages '(hackernews
+                         w3m
                          helm-w3m
                          sx
                          (yxl-web :location site)
                          atomic-chrome
                          helm-chrome))
+
+(defun yxl-web/init-hackernews ()
+  (use-package hackernews
+    :config
+    (progn
+      (add-to-list 'spacemacs-useful-buffers-regexp "\\*hackernews")
+      (add-to-list 'yxl-ia-list '("hackernews" . hackernews))
+      (setq hackernews-internal-browser-function #'w3m-browse-url)
+      (setq hackernews-items-per-page 50)
+      (evilified-state-evilify-map hackernews-mode-map
+        :mode hackernews-mode
+        :bindings
+        (kbd "f") #'hackernews-switch-feed
+        (kbd "r") #'hackernews-reload
+        (kbd "m") #'hackernews-load-more-stories
+        (kbd "n") #'hackernews-next-item
+        (kbd "p") #'hackernews-previous-item
+        (kbd "x") #'push-button
+        (kbd "\t") #'hackernews-next-comment
+        (kbd "<backtab>") #'hackernews-previous-comment)
+      (spacemacs/set-leader-keys-for-major-mode 'hackernews-mode
+        "t" #'hackernews-button-browse-internal
+        "r" #'hackernews-reload
+        "m" #'hackernews-load-more-stories
+        "f" #'hackernews-switch-feed))))
 
 (defun yxl-web/init-helm-w3m ()
   "Initializes helm-w3m and adds keybindings for its exposed functionalities."
