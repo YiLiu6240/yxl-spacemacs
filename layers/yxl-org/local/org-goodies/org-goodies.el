@@ -36,4 +36,22 @@ Source: https://stackoverflow.com/questions/15253005/in-emacs-org-mode-how-do-i-
   (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
     (org-capture)))
 
+(defun hot-expand (str &optional mod header)
+  "Expand org template.
+
+STR is a structure template string recognised by org like <s. MOD is a
+string with additional parameters to add the begin line of the
+structure element. HEADER string includes more parameters that are
+prepended to the element after the #+HEADER: tag."
+  (let (text)
+    (when (region-active-p)
+      (setq text (buffer-substring (region-beginning) (region-end)))
+      (delete-region (region-beginning) (region-end))
+      (deactivate-mark))
+    (when header (insert "#+HEADER: " header) (forward-line))
+    (insert str)
+    (org-try-structure-completion)
+    (when mod (insert mod) (forward-line))
+    (when text (insert text))))
+
 (provide 'org-goodies)

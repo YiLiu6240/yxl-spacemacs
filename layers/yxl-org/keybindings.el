@@ -86,6 +86,36 @@
   (spacemacs/declare-prefix-for-mode 'org-mode "m" "math"))
 
 (defun yxl-org/setup-hydra ()
+  (define-key org-mode-map "<"
+    (lambda () (interactive)
+      (if (or (region-active-p) (looking-back "^"))
+          (yxl-org/template-hydra/body)
+        (self-insert-command 1))))
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode
+    "i<" #'yxl-org/template-hydra/body)
+  ;; TODO: Can we dynamically set this according to org templates
+  ;;       based on some macro magic (from Zamansky's elfeed example)?
+  (defhydra yxl-org/template-hydra (:color blue :hint nil)
+    ;; Source: https://github.com/abo-abo/hydra/wiki/Org-mode-block-templates
+    ("s" (hot-expand "<s") "src")
+    ("E" (hot-expand "<e") "Example")
+    ("q" (hot-expand "<q") "quote")
+    ("v" (hot-expand "<v") "verse")
+    ("n" (hot-expand "<not") "note")
+    ("c" (hot-expand "<c") "center")
+    ("l" (hot-expand "<l") "latex")
+    ("h" (hot-expand "<h") "html")
+    ("a" (hot-expand "<a") "ascii")
+    ("L" (hot-expand "<L") "LaTeX")
+    ("i" (hot-expand "<i") "index")
+    ("e" (hot-expand "<s" "emacs-lisp") "emacs-lisp")
+    ("p" (hot-expand "<s" "perl") "perl")
+    ("u" (hot-expand "<s" "plantuml :file CHANGE.png") "plant_u_ml")
+    ("P" (hot-expand "<s" "perl" ":results output :exports both :shebang \"#!/usr/bin/env perl\"\n") "Perl tangled")
+    ("I" (hot-expand "<I") "INCLUDE")
+    ("H" (hot-expand "<H") "HTML")
+    ("A" (hot-expand "<A") "ASCII")
+    ("<" self-insert-command "ins"))
   (defhydra yxl-org/general-hydra (:color red
                                           :pre (setq which-key-inhibit t)
                                           :post (setq which-key-inhibit nil))
