@@ -3,6 +3,9 @@
 (defun yxl-misc/init-nov ()
   (use-package nov
     :defer t
+    :init
+    (progn
+      (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))
     :config
     (progn
       (add-hook 'nov-mode-hook
@@ -12,16 +15,22 @@
                   (setq visual-fill-column-width 120)
                   (visual-fill-column-mode t)
                   (visual-line-mode t)))
-      (define-key nov-mode-map "." #'nov-hydra/body)
-      (define-key nov-mode-map "J" #'nov-next-document)
-      (define-key nov-mode-map "K" #'nov-previous-document)
-      (defhydra nov-hydra (:color blue :hint nil :columns 4
-                                  :pre (setq which-key-inhibit t)
-                                  :post (setq which-key-inhibit nil))
-        ("g" nov-render-document "nov-render-document")
-        ("J" nov-next-document "nov-next-document")
-        ("K" nov-previous-document "nov-previous-document")
-        ("m" nov-display-metadata "nov-display-metadata")
-        ("V" nov-view-content-source "nov-view-content-source")
-        ("v" nov-view-source "nov-view-source")
-        ("t" nov-goto-toc "nov-goto-toc")))))
+      (evilified-state-evilify-map nov-mode-map
+        :mode nov-mode
+        :bindings
+        "r" #'nov-render-document
+        "J" #'nov-next-document
+        "K" #'nov-previous-document
+        "m" #'nov-display-metadata
+        "V" #'nov-view-content-source
+        "v" #'nov-view-source
+        "t" #'nov-goto-toc)
+      (spacemacs/set-leader-keys-for-major-mode 'nov-mode
+        "g" #'nov-render-document
+        "r" #'nov-render-document
+        "J" #'nov-next-document
+        "K" #'nov-previous-document
+        "m" #'nov-display-metadata
+        "V" #'nov-view-content-source
+        "v" #'nov-view-source
+        "t" #'nov-goto-toc))))

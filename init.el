@@ -18,7 +18,9 @@
                                     ess-smart-equals
                                     ess-R-object-popup
                                     wolfram-mode
-                                    vi-tilde-fringe)
+                                    vi-tilde-fringe
+                                    ;; open-junk-file is buggy and we never use it
+                                    open-junk-file)
    dotspacemacs-install-packages 'used-only
    dotspacemacs-configuration-layers
    '(yxl-spacemacs
