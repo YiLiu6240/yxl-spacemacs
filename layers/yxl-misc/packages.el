@@ -1,4 +1,5 @@
-(setq yxl-misc-packages '(nov))
+(setq yxl-misc-packages '(nov
+                          (counsel-books :location local)))
 
 (defun yxl-misc/init-nov ()
   (use-package nov
@@ -34,3 +35,12 @@
         "V" #'nov-view-content-source
         "v" #'nov-view-source
         "t" #'nov-goto-toc))))
+
+(defun yxl-misc/init-counsel-books ()
+  (use-package counsel-books
+    :commands (counsel-books)
+    :init
+    (progn
+      (spacemacs/set-leader-keys
+        "ab" #'counsel-books)
+      (add-to-list 'yxl-ia-list '("counsel-books" . counsel-books)))))
