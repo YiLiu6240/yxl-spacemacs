@@ -75,7 +75,7 @@
                                                        nil))
 
                           (outer-face
-                           (if (powerline-selected-window-active)
+                           (if active
                                (if (featurep 'evil)
                                    (cond ((eq evil-state (intern "normal"))  'airline-normal-outer)
                                          ((eq evil-state (intern "insert"))  'airline-insert-outer)
@@ -87,7 +87,7 @@
                              'powerline-inactive1))
 
                           (inner-face
-                           (if (powerline-selected-window-active)
+                           (if active
                                (if (featurep 'evil)
                                    (cond ((eq evil-state (intern "normal")) 'airline-normal-inner)
                                          ((eq evil-state (intern "insert")) 'airline-insert-inner)
@@ -99,7 +99,7 @@
                              'powerline-inactive2))
 
                           (center-face
-                           (if (powerline-selected-window-active)
+                           (if active
                                (if (featurep 'evil)
                                    (cond ((eq evil-state (intern "normal")) 'airline-normal-center)
                                          ((eq evil-state (intern "insert")) 'airline-insert-center)
@@ -110,7 +110,7 @@
                                  'airline-normal-center)
                              'airline-inactive3))
 
-                          (pl-sep (powerline-raw "|" center-face 'lr))
+                          (pl-sep (powerline-raw "|" 'font-lock-comment-face 'lr))
 
                           ;; Left Hand Side
                           (lhs-mode (list
@@ -160,8 +160,8 @@
                                        (powerline-raw which-func-format center-face 'l))
                                      (powerline-raw " " center-face 'lr)
                                      ;; Eyebrowse current tab/window config
-                                     (when (boundp 'eyebrowse-mode)
-                                       (powerline-raw (concat " " (eyebrowse-mode-line-indicator) " " pl-sep) center-face 'lr))
+                                     (when (and active (boundp 'eyebrowse-mode))
+                                       (powerline-raw (concat " " (eyebrowse-mode-line-indicator) " ") center-face 'lr))
                                      ;; process
                                      (powerline-process center-face 'lr)
                                      (powerline-raw (concat " " pl-sep " " (modeline-buffer-encoding)) center-face 'lr)
