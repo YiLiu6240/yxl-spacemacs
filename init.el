@@ -16,7 +16,6 @@
                                     org-bullets
                                     tern
                                     ess-smart-equals
-                                    ess-R-object-popup
                                     wolfram-mode
                                     vi-tilde-fringe
                                     ;; open-junk-file is buggy and we never use it
@@ -26,7 +25,7 @@
    '(yxl-spacemacs
 
      ;; prog langs
-     (ess :packages (not (org ess-smart-equals))
+     (ess :packages (not (org ess-smart-equals ess-R-object-popup))
           :variables
           ess-enable-smart-equals nil)
 

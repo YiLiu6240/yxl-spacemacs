@@ -74,8 +74,9 @@
     ;; R helpers
     "hh" #'ess-help
     "hH" #'ess-display-help-on-object
-    "hb" #'ess-display-help-in-browser
     "ha" #'ess-display-help-apropos
+    "hb" #'ess-display-help-in-browser
+    "hi" #'ess-R-object-popup
     "hp" #'ess-display-package-index
     "hv" #'ess-display-vignettes
     "hw" #'ess-help-web-search

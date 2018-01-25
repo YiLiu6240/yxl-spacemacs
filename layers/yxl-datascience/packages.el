@@ -2,6 +2,7 @@
                                  (yxl-dash :location site)
                                  (yxl-doc-portal :location site)
                                  ess
+                                 (ess-R-object-popup :location local)
                                  (yxl-ess :location site)
                                  (ess-goodies :location site)
                                  ess-view
@@ -59,6 +60,10 @@
 
 (defun yxl-datascience/pre-init-ess ()
   (setq-default ess-roxy-re "#+'"))
+
+(defun yxl-datascience/init-ess-R-object-popup ()
+  (use-package ess-R-object-popup
+    :after (ess-site)))
 
 (defun yxl-datascience/post-init-ess ()
   (with-eval-after-load 'ess-site
