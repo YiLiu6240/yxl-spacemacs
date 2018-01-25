@@ -88,12 +88,6 @@
 (defun yxl-prog/init-ob-ipython ()
   (use-package ob-ipython
     :after (org)))
-;; TODO: defer this
-;; :defer t
-;; :commands (org-babel-ipython-initiate-session
-;;            org-babel-load-session:ipython
-;;            org-babel-prep-session:ipython
-;;            org-babel-execute:ipython)))
 
 (defun yxl-prog/init-bash-completion ()
   (use-package bash-completion

@@ -7,7 +7,7 @@
                                  (ess-goodies :location site)
                                  ess-view
                                  markdown-mode
-                                 org-mode
+                                 org
                                  polymode
                                  python
                                  ein))
@@ -140,15 +140,9 @@
         (lambda () (interactive)
           (yxl-insert-symbol "%>%"))))))
 
-(defun yxl-datascience/post-init-org-mode ()
+(defun yxl-datascience/post-init-org ()
   (with-eval-after-load 'org
-    (progn
-      (define-key org-mode-map (kbd "C-S-M")
-        (lambda () (interactive)
-          (yxl-insert-symbol "%>%")))
-      (define-key org-mode-map (kbd "S-RET")
-        (lambda () (interactive)
-          (yxl-insert-symbol "%>%"))))))
+    (progn)))
 
 (defun yxl-datascience/init-polymode ()
   (use-package polymode
