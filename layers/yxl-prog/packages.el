@@ -3,7 +3,8 @@
                           python
                           ess
                           cc-mode
-                          ob-ipython
+                          (ob-ipython :location local)
+                          (ob-ipython-goodies :location local)
                           graphviz-dot-mode
                           bash-completion
                           scala-mode
@@ -88,6 +89,10 @@
 (defun yxl-prog/init-ob-ipython ()
   (use-package ob-ipython
     :after (org)))
+
+(defun yxl-prog/init-ob-ipython-goodies ()
+  (use-package ob-ipython-goodies
+    :after (ob-ipython)))
 
 (defun yxl-prog/init-bash-completion ()
   (use-package bash-completion

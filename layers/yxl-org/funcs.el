@@ -185,6 +185,8 @@ overridden by a prefix arg)."
     (let ((map (make-sparse-keymap)))
       (define-key map
         (kbd "C-c h") #'ob-ipython-inspect)
+      (define-key map
+        (kbd "C-c k") #'ob-ipython-signature-function)
       (define-key map (kbd "C-c f")
         #'yxl-prog/evil-wrap-line-f-print)
       (define-key map (kbd "C-c F")

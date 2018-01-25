@@ -1,6 +1,7 @@
 (setq yxl-org-packages '(org
                          (yxl-org :location site)
                          (org-goodies :location local)
+                         (org-babel-goodies :location local)
                          (org-display-inline-images-with-background :location site)
                          org-gcal
                          ivy-todo
@@ -44,6 +45,10 @@
 
 (defun yxl-org/init-org-goodies ()
   (use-package org-goodies
+    :after (org)))
+
+(defun yxl-org/init-org-babel-goodies ()
+  (use-package org-babel-goodies
     :after (org)))
 
 (defun yxl-org/init-org-display-inline-images-with-background ()

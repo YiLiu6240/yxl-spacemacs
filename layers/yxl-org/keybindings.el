@@ -71,7 +71,8 @@
     "bj" #'org-next-block
     "bp" #'org-previous-block
     "bk" #'org-previous-block
-    "bs" #'org-babel-switch-to-session
+    "bs" #'org-babel-split-src-block
+    "bS" #'org-babel-switch-to-session
     "bt" #'org-babel-result-hide-all
     "bT" #'yxl-org/babel-result-show-all
     "hi" #'org-insert-heading-respect-content
