@@ -4,6 +4,7 @@
 (global-set-key (kbd "C-S-o") #'company-yasnippet)
 (global-set-key (kbd "C-S-y") #'yas-insert-snippet)
 (global-set-key (kbd "C-h") #'delete-backward-char)
+(global-set-key (kbd "M-q") #'spacemacs/toggle-truncate-lines)
 
 (global-set-key (kbd "C-s") #'save-buffer)
 
