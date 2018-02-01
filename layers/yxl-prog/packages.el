@@ -88,7 +88,20 @@
 
 (defun yxl-prog/init-ob-ipython ()
   (use-package ob-ipython
-    :after (org)))
+    :after (org)
+    :config
+    (progn
+      (mapcar
+       (lambda (mode)
+         (spacemacs/declare-prefix-for-mode mode
+           "mo" "ob-ipython"))
+       '(python-mode inferior-python-mode))
+      (mapcar
+       (lambda (mode)
+         (spacemacs/set-leader-keys-for-major-mode mode
+           "oh" #'ob-ipython-inspect
+           "ok" #'ob-ipython-signature-function))
+       '(python-mode inferior-python-mode)))))
 
 (defun yxl-prog/init-ob-ipython-goodies ()
   (use-package ob-ipython-goodies
