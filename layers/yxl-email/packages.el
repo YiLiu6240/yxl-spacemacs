@@ -45,6 +45,7 @@
       (setq mu4e-bookmarks
             `(("flag:unread AND NOT flag:trashed" "Unread messages" ?u)
               ("date:today..now" "Today's messages" ?t)
+              ("date:3d..now" "Last 3 days" ?y)
               ("date:7d..now" "Last 7 days" ?w)
               ("mime:image/*" "Messages with images" ?p)
               ("flag:flagged" "Flagged messages" ?f)
