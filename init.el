@@ -167,12 +167,12 @@
                          sanityinc-tomorrow-night)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font `(,(cond ((eq system-type 'windows-nt)
-                                       "hack")
+                                       "Sarasa Mono Sc")
                                       ((eq system-type 'darwin)
                                        "hack")
                                       (t "Sarasa Mono Sc"))
                                :size ,(cond ((eq system-type 'darwin) 12)
-                                            ((eq system-type 'windows-nt) 12)
+                                            ((eq system-type 'windows-nt) 30)
                                             (t 14))
                                :weight normal
                                :width normal

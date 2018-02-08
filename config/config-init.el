@@ -15,8 +15,9 @@
       ;; use external ls
       ;; use `where' as equivalent of `which'
       (setq ls-lisp-use-insert-directory-program t)
-      (setq insert-directory-program "c:/tools/msys64/usr/bin/ls")
+      (setq insert-directory-program "c:/Program Files/Git/usr/bin/ls")
       (setenv "PATH" (concat "C:\\tools\\msys64\\mingw64\\bin;" (getenv "PATH")))))
+
 (if (eq system-type 'darwin)
     ;; osx setup of pdf-tools
     ;; http://emacs.stackexchange.com/questions/13314/install-pdf-tools-on-emacs-macosx
