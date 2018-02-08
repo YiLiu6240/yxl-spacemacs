@@ -39,9 +39,9 @@
       (setq mu4e-headers-fields
             '((:human-date . 20)
               (:flags . 6)
-              (:mailing-list . 10)
               (:from . 22)
-              (:subject)))
+              (:subject)
+              (:mailing-list . 10)))
       (setq mu4e-bookmarks
             `(("flag:unread AND NOT flag:trashed" "Unread messages" ?u)
               ("date:today..now" "Today's messages" ?t)
