@@ -35,6 +35,12 @@
           yxl-theme-custom-colors))
 
 (defun create-yxl-theme (variant theme-name)
+  (let ((bg-mode (cond ((eq variant 'solar-light) 'light)
+                       ((eq variant 'solar-dark) 'dark)
+                       ((eq variant 'gruv-light) 'light)
+                       ((eq variant 'gruv-dark) 'dark)
+                       (t 'light))))
+    (setq frame-background-mode bg-mode))
   (dyn-let ((class '((class color) (min-colors 89))) ;;                      ~~ dark ~~                                                  ~~ gruv ~~                                  ~~ light ~~
             ;;                                                              GUI       TER                                               GUI       TER                               GUI       TER
             ;; generic
@@ -54,7 +60,7 @@
             ;; comment bg
             (comment-bg    (cond ((eq variant 'solar-dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv-dark) (if (true-color-p) "#282828" "#282828")) ((eq variant 'gruv-light) (if (true-color-p) "#282828" "#282828")) (t (if (true-color-p) "#fcf4dc" "#ffffff"))))
             ;; bg1: main background
-            (bg1           (cond ((eq variant 'solar-dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv-dark) (if (true-color-p) "#282828" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#fbf1c7" "#fbf1c7")) (t (if (true-color-p) "#fcf4dc" "#ffffff"))))
+            (bg1           (cond ((eq variant 'solar-dark) (if (true-color-p) "#15262c" "#282828")) ((eq variant 'gruv-dark) (if (true-color-p) "#282828" "#262626")) ((eq variant 'gruv-light) (if (true-color-p) "#f2e5bc" "#f2e5bc")) (t (if (true-color-p) "#fcf4dc" "#ffffff"))))
             ;; current line highlight
             (bg2           (cond ((eq variant 'solar-dark) (if (true-color-p) "#132b34" "#3c3836")) ((eq variant 'gruv-dark) (if (true-color-p) "#3c3836" "#3a3a3a")) ((eq variant 'gruv-light) (if (true-color-p) "#ebdbb2" "#ebdbb2")) (t (if (true-color-p) "#e9e2cb" "#e4e4e4"))))
             ;; darker shade of bg1

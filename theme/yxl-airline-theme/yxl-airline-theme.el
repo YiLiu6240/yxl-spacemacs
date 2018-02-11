@@ -6,18 +6,19 @@ url: https://github.com/mkaito/base16-emacs")
 (defun yxl-airline-theme-set-colors ()
   ;; based on gruvbox
   ;; TODO: set these colors according to the current theme fg/bg colors?
-  (let* ((color-active-fg "#d5c4a1") ;; active modeline fg, should be dimmer than default fg
-         (color-inactive-fg "#928374") ;; inactive modeline fg, even dimmer
-         (color-bg "#32302f") ;; modeline bg, should be lighter than default bg
-         (color-bg-alt "#504945") ;; modeline bg, a more "highlighted" version
-         (color-border "#504945") ;; border color for the modeline
+  (let* ((light-p (eq frame-background-mode 'light))                ; default to a dark theme
+         (color-active-fg (if light-p "#504945" "#d5c4a1")) ;; active modeline fg, should be dimmer than default fg
+         (color-inactive-fg (if light-p "#928374" "#928374")) ;; inactive modeline fg, even dimmer
+         (color-bg (if light-p "#bdae93" "#32302f")) ;; modeline bg, should be lighter than default bg
+         (color-bg-alt (if light-p "#928374" "#504945")) ;; modeline bg, a more "highlighted" version
+         (color-border (if light-p "#504945" "#504945")) ;; border color for the modeline
          ;; color when the specified evil state is active
-         (color-state-fg "#ebdbb2") ;; general state fg
-         (color-normal-bg "#7c6f64")
-         (color-insert-bg "#427b58")
-         (color-visual-bg "#af3a03")
-         (color-replace-bg "#cc241d")
-         (color-emacs-bg "#8f3f71")
+         (color-state-fg (if light-p "#ebdbb2" "#ebdbb2")) ;; general state fg
+         (color-normal-bg (if light-p "#7c6f64" "#7c6f64"))
+         (color-insert-bg (if light-p "#427b58" "#427b58"))
+         (color-visual-bg (if light-p "#af3a03" "#af3a03"))
+         (color-replace-bg (if light-p "#cc241d" "#cc241d"))
+         (color-emacs-bg (if light-p "#8f3f71" "#8f3f71"))
 
          (normal-outer-foreground  color-state-fg) (normal-outer-background  color-normal-bg)
          (normal-inner-foreground  color-active-fg) (normal-inner-background  color-bg-alt)
