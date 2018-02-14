@@ -68,9 +68,8 @@
     ;; ex:
     ;; ":" and ";"
     (define-key evil-motion-state-map (kbd dotspacemacs-ex-command-key) 'evil-ex)
-    (if (equal dotspacemacs-ex-command-key ";")
-        (progn
-          (define-key evil-motion-state-map (kbd ":") 'evil-repeat-find-char)))
+    ;; only bind ";" as ":" under normal mode
+    (define-key evil-normal-state-map (kbd ";") 'evil-ex)
 
     ;; misc:
     ;; (define-key evil-motion-state-map (kbd "C-S-p") #'helm-M-x)
