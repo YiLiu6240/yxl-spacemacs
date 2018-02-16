@@ -72,8 +72,8 @@
 
      ;; editing
      (vinegar :packages (not dired))
-     (evil-snipe :variables
-                 evil-snipe-enable-alternate-f-and-t-behaviors t)
+     ;; (evil-snipe :variables
+     ;;             evil-snipe-enable-alternate-f-and-t-behaviors t)
 
      ;; major util modes
      (spell-checking :variables
