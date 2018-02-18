@@ -81,7 +81,7 @@
                  (org-agenda-skip-function
                   '(org-agenda-skip-entry-if 'notscheduled))))))
         ("0" "Agenda with general tasks"
-         ((alltodo "" ((org-agenda-files (list yxl-file-org-quick))))
+         ((alltodo "" ((org-agenda-files (list yxl-file-org-checkbox))))
           (todo "DO|TODO"
                 ((org-agenda-files yxl-env-org-task-files)))
           (todo "INBOX|QUICK|HAVE-A-LOOK"
@@ -91,9 +91,9 @@
 
 (setq org-capture-templates
       `(;; scratch
-        ("c" "scratch: checkbox" checkitem (file+headline yxl-file-org-quick "Next")
+        ("c" "scratch: checkbox" checkitem (file+headline yxl-file-org-checkbox "Next")
          "-  %?\n")
-        ("t" "scratch: today" checkitem (file+headline yxl-file-org-quick "Today")
+        ("t" "scratch: today" checkitem (file+headline yxl-file-org-checkbox "Today")
          "- [ ]  %?\n")
         ;; general
         ("i" "general: inbox" entry (file+headline yxl-file-org-todo "Capture")

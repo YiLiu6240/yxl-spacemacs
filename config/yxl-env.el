@@ -31,9 +31,9 @@
 
 (setq yxl-file-org-todo (concat yxl-path-org-task "todo.org"))
 (setq yxl-file-org-log (concat yxl-path-org "logs/logs-master.org"))
-(setq yxl-file-org-quick (concat yxl-path-org-task "quick.org"))
+(setq yxl-file-org-checkbox (concat yxl-path-org-task "checkbox.org"))
 
-(setq yxl-env-org-task-files (list yxl-file-org-quick
+(setq yxl-env-org-task-files (list yxl-file-org-checkbox
                                    yxl-file-org-todo))
 (setq yxl-env-project-files
       (append
@@ -56,8 +56,8 @@
                     ("note: deft" . spacemacs/deft)
                     ("email: mu4e" . mu4e)
                     ("my-org-log" . my-org-log)
-                    ("my-org-quick" .
-                     (lambda () (find-file yxl-file-org-quick)))
+                    ("my-org-checkbox" .
+                     (lambda () (find-file yxl-file-org-checkbox)))
                     ("my-org-todo" .
                      (lambda () (find-file yxl-file-org-todo)))
                     ("counsel-dash" . counsel-dash)
@@ -77,5 +77,5 @@
   ;; open scratch as sidebar
   (yxl-find-file-popup yxl-file-org-todo side-width)
   (split-window-below-and-focus)
-  (find-file yxl-file-org-quick)
+  (find-file yxl-file-org-checkbox)
   (evil-window-right 1))

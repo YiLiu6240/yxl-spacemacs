@@ -21,7 +21,7 @@
 
 (defun yxl-org/refile-to-scratch ()
   (interactive)
-  (let ((org-refile-targets '((yxl-file-org-quick :maxlevel . 1)
+  (let ((org-refile-targets '((yxl-file-org-checkbox :maxlevel . 1)
                               (nil :maxlevel . 1))))
     (org-refile)))
 

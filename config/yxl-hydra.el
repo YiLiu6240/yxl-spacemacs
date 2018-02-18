@@ -85,7 +85,7 @@ Directory:
 File:
 "
   ("1" (yxl-find-file-stay yxl-file-org-todo) "todo.org")
-  ("0" (yxl-find-file-stay yxl-file-org-quick) "quick.org")
+  ("0" (yxl-find-file-stay yxl-file-org-checkbox) "checkbox.org")
   ("b" (yxl-find-file-stay yxl-file-bib) "bib file")
   ("n" (yxl-find-file-stay yxl-file-note-sync) "note file")
   ("e" (yxl-find-file-stay "~/Dropbox/inbox/scratch.el") "scratch.el")
@@ -102,22 +102,22 @@ File:
 
 Hotspot:
 
- | [_h_]: Frame: h                | [_0_]: Org: scratch                 |
- | [_j_]: Frame: j                | [_1_]: Org: todo                    |
- | [_k_]: Frame: k                | ^^                                  |
- | [_l_]: Frame: l                | ^^                                  |
+ | [_h_]: Frame: h                  | [_0_]: Org: scratch                 |
+ | [_j_]: Frame: j                  | [_1_]: Org: todo                    |
+ | [_k_]: Frame: k                  | ^^                                  |
+ | [_l_]: Frame: l                  | ^^                                  |
 
- | [_cK_]: calendar               | [_gg_]: Helm: my hotspot            |
- | [_ck_]: cfw-calendar           | ^^                                  |
- | [_cc_]: Org: capture           | [_go_]: Helm: my org files          |
- | [_oa_]: Org: agenda: life      | [_gs_]: Helm: my local/web shortcuts|
- | [_oA_]: Org: agenda: work      | ^^                                  |
- | [_ol_]: Org: log               | [_gr_]: Helm: my reading list       |
- | [_oo_]: Org: project view      | ^^                                  |
- | [_oO_]: Org: open all files    | ^^                                  |
+ | [_cK_]: calendar                 | [_gg_]: Helm: my hotspot            |
+ | [_ck_]: cfw-calendar             | ^^                                  |
+ | [_cc_]: Org: capture             | [_go_]: Helm: my org files          |
+ | [_oa_]: Org: agenda: life        | [_gs_]: Helm: my local/web shortcuts|
+ | [_oA_]: Org: agenda: work        | ^^                                  |
+ | [_ol_]: Org: log                 | [_gr_]: Helm: my reading list       |
+ | [_oo_]: Org: project view        | ^^                                  |
+ | [_oO_]: Org: open all files      | ^^                                  |
 
- | [_ia_]: append: to *scratch*   | ^^                                  |
- | [_is_]: append: to quick.org   | ^^                                  |
+ | [_ia_]: append: to *scratch*     | ^^                                  |
+ | [_is_]: append: to checkbox.org  | ^^                                  |
 "
 
   ("h" (yxl-frame-select-or-set "Frame-h"))
@@ -129,11 +129,11 @@ Hotspot:
   ;; - 0 - 5: open them in "sidebar"
   ;; - C-u / Meta + 0 - 5: open them in current window
   ;; - Shift + 0 - 5: open them in bottom popup
-  ("0" (yxl-find-file-popup yxl-file-org-quick))
-  ("M-0" (find-file yxl-file-org-quick))
+  ("0" (yxl-find-file-popup yxl-file-org-checkbox))
+  ("M-0" (find-file yxl-file-org-checkbox))
   ("1" (yxl-find-file-popup yxl-file-org-todo))
   ("M-1" (find-file yxl-file-org-todo))
-  (")" (popwin:popup-buffer (find-file-noselect yxl-file-org-quick)
+  (")" (popwin:popup-buffer (find-file-noselect yxl-file-org-checkbox)
                             :stick t
                             :height 0.4
                             :position 'bottom))
@@ -156,7 +156,7 @@ Hotspot:
   ("gs" yxl-helm-shortcuts)
   ("gr" yxl-helm-reading-list)
 
-  ("is" (yxl-append-to-scratch yxl-file-org-quick))
+  ("is" (yxl-append-to-scratch yxl-file-org-checkbox))
   ("ia" yxl-append-to-scratch))
 
 (defhydra yxl-hydra-system (:color blue :hint nil

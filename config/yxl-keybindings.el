@@ -29,9 +29,9 @@
   (interactive)
   (find-file "~"))
 
-(defun yxl-buffer-org-quick ()
+(defun yxl-buffer-org-checkbox ()
   (interactive)
-  (find-file yxl-file-org-quick))
+  (find-file yxl-file-org-checkbox))
 
 (defun yxl-buffer-org-todo ()
   (interactive)
@@ -81,7 +81,7 @@
   "boi" #'yxl-buffer-note-local
   "boI" #'yxl-buffer-note-sync
   "bon" #'yxl-buffer-inherit
-  "boo" #'yxl-buffer-org-quick
+  "boo" #'yxl-buffer-org-checkbox
   "boO" #'yxl-buffer-org-todo
   ;; TODO: rm this with next spacemacs update
   "bm" #'yxl-buffer-switch-same-major-mode

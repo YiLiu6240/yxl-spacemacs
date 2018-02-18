@@ -76,7 +76,7 @@
     :defer t
     :config
     (progn
-      (setq ivy-todo-file (expand-file-name "quick.org" yxl-path-org))
+      (setq ivy-todo-file (expand-file-name "checkbox.org" yxl-path-org))
       (setq ivy-todo-guess-list nil)
       (setq ivy-todo-headline '("quick-todo"
                                 "inbox"))
