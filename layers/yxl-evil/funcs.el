@@ -181,7 +181,9 @@ with spaces."
       (define-key evil-evilified-state-map-original "{" 'evil-backward-paragraph)
 
       (define-key evil-evilified-state-map-original
-        (kbd dotspacemacs-ex-command-key) #'evil-ex))))
+        (kbd dotspacemacs-ex-command-key) #'evil-ex)
+      (define-key evil-evilified-state-map-original
+        (kbd ";") #'evil-ex))))
 
 (defun yxl-evil/setup-evilified-personal ()
   (when (boundp 'evil-evilified-state-map-original)
