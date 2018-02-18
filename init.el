@@ -8,7 +8,7 @@
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-additional-packages '()
    dotspacemacs-frozen-packages '()
-   dotspacemacs-excluded-packages '(persp-mode
+   dotspacemacs-excluded-packages `(persp-mode
                                     smooth-scrolling
                                     spaceline
                                     window-numbering
@@ -19,10 +19,12 @@
                                     wolfram-mode
                                     vi-tilde-fringe
                                     ;; open-junk-file is buggy and we never use it
+                                    ,(when (spacemacs/system-is-mswindows)
+                                       'projectile)
                                     open-junk-file)
-   dotspacemacs-install-packages 'used-only
+   dotspacemacs-install-packages 'used-but-keep-unused
    dotspacemacs-configuration-layers
-   '(yxl-spacemacs
+   `(yxl-spacemacs
 
      ;; prog langs
      (ess :packages (not (org ess-smart-equals ess-R-object-popup))
@@ -92,8 +94,7 @@
                       :disabled-for  ; layer name
                       org
                       markdown)
-     (git :variables
-          git-magit-status-fullscreen t)
+     ,(unless (spacemacs/system-is-mswindows) 'git)
      github
 
      ;; minor utils modes
