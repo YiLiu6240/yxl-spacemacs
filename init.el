@@ -18,6 +18,8 @@
                                     ess-smart-equals
                                     wolfram-mode
                                     vi-tilde-fringe
+                                    ,(when (spacemacs/system-is-mswindows)
+                                       'projectile)
                                     ;; open-junk-file is buggy and we never use it
                                     ,(when (spacemacs/system-is-mswindows)
                                        'projectile)
