@@ -105,12 +105,11 @@
   ";" #'counsel-M-x
   "o-" #'yxl-dired-popup
   "o <SPC>" #'delete-other-windows
-  "of" #'yxl-hydra-find-file/body
+  "of" #'yxl-ivy-find-file
   "og" #'yxl-helm-hotspot
   "oy" #'copy-file-name-to-clipboard
   "oo" #'yxl-hydra-hotspot/body
-  "op" #'yxl-hydra-find-dir/body
-  "oP" #'yxl-project-open
+  "op" #'yxl-ivy-find-project
   "ot" #'ivy-todo
   "ow" #'yxl-hydra-window/body)
 

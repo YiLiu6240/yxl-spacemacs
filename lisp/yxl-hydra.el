@@ -55,45 +55,6 @@ Window Split:
   ("p" yxl-ace-window-push-window "ace: push window")
   ("f" yxl-ace-window-fetch-window "ace: fetch window"))
 
-(defhydra yxl-hydra-find-dir (:color blue :hint nil :columns 4
-                                     :inherit (yxl-hydra-common/heads))
-  "
-Directory:
-"
-  ("d" (yxl-find-dir "~/Downloads/Desktop") "desktop")
-  ("D" (yxl-find-dir yxl-path-dotfiles) "dotfiles")
-  ("e" (yxl-find-dir "~/.emacs.d") ".emacs.d")
-  ("g" (yxl-find-dir yxl-path-downloads) "downloads")
-  ("G" (yxl-find-dir yxl-path-local) "local-repo")
-  ("h" (yxl-find-dir yxl-path-sync) "dropbox")
-  ("H" (yxl-find-dir yxl-path-projects) "projects")
-  ("o" (yxl-find-dir yxl-path-org) "org")
-  ("c" (yxl-find-dir yxl-path-code-pwd) "code")
-  ("C" (yxl-find-dir yxl-path-code-master-pwd) "code-master")
-  ("p" (yxl-find-dir yxl-path-paper-pwd) "papers")
-  ("j" (yxl-find-dir yxl-path-journal-pwd) "journals")
-  ("J" (yxl-find-dir yxl-path-journal-more-pwd) "Journals")
-  ("b" (yxl-find-dir yxl-path-book-reference) "books")
-  ("s" (yxl-find-dir (concat yxl-path-local
-                             "yxl_datascience")) "datascience"))
-
-(defhydra yxl-hydra-find-file (:color blue :columns 4
-                                      :pre (setq which-key-inhibit t)
-                                      :post (setq which-key-inhibit nil)
-                                      :inherit (yxl-hydra-common/heads))
-  "
-File:
-"
-  ("1" (yxl-find-file-stay yxl-file-org-todo) "todo.org")
-  ("0" (yxl-find-file-stay yxl-file-org-checkbox) "checkbox.org")
-  ("b" (yxl-find-file-stay yxl-file-bib) "bib file")
-  ("n" (yxl-find-file-stay yxl-file-note-sync) "note file")
-  ("e" (yxl-find-file-stay "~/Dropbox/inbox/scratch.el") "scratch.el")
-  ("sf" (yxl-find-file-stay yxl-file-sites-local) "sites: local")
-  ("sw" (yxl-find-file-stay yxl-file-sites-web) "sites: web")
-  ("rf" (yxl-find-file-stay yxl-file-reading-list-files) "reading-list: files")
-  ("rw" (yxl-find-file-stay yxl-file-reading-list-webpages) "reading-list: webpages"))
-
 (defhydra yxl-hydra-hotspot (:color blue :hint nil
                                     :pre (setq which-key-inhibit t)
                                     :post (setq which-key-inhibit nil)

@@ -79,3 +79,9 @@
   (split-window-below-and-focus)
   (find-file yxl-file-org-checkbox)
   (evil-window-right 1))
+
+(defvar yxl-env-projects '()
+  "Project paths")
+
+(defvar yxl-env-files '()
+  "Files of interest")

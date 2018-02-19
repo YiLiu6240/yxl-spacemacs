@@ -63,3 +63,16 @@ one normal checkbox buffer."
   "Edit the `dotfile', in the current window."
   (interactive)
   (find-file-existing (file-truename (dotspacemacs/location))))
+
+(defun yxl-ivy-find-project ()
+  (interactive)
+  (ivy-read "Switch to project: "
+            yxl-env-projects
+            ;; add a prefix-arg to visit directly
+            :action #'yxl-find-dir))
+
+(defun yxl-ivy-find-file ()
+  (interactive)
+  (ivy-read "Find file: "
+            yxl-env-files
+            :action #'yxl-find-file-stay))
