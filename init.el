@@ -229,7 +229,13 @@
 
 (defun dotspacemacs/user-init ()
   ;; load path
+  ;; Project structure:
+  ;; - config: ideally only configuration code, i.e. no defun
+  ;; - lisp: self funcs and routines, global to the project
+  ;; - site-lisp: 3rd-party original / self-modified modules
+  ;; - theme: colorschemes and ui stuff
   (add-to-list 'load-path (concat dotspacemacs-directory "config"))
+  (add-to-list 'load-path (concat dotspacemacs-directory "lisp"))
   (add-to-list 'load-path (concat dotspacemacs-directory "site-lisp"))
   (add-to-list 'load-path (concat dotspacemacs-directory "theme/yxl-theme"))
   (add-to-list 'load-path (concat dotspacemacs-directory "theme/yxl-airline"))
@@ -254,7 +260,8 @@
   ;; add hook so that modeline colors are set correctly after theme change
   (add-hook 'spacemacs-post-theme-change-hook #'yxl-airline-theme-set-colors)
   (load-file (concat dotspacemacs-directory "config/config-post-init.el"))
+  (load-file (concat dotspacemacs-directory "lisp/yxl-hydra.el"))
+  (load-file (concat dotspacemacs-directory "lisp/general.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-keybindings.el"))
-  (load-file (concat dotspacemacs-directory "config/yxl-hydra.el"))
   (load-file (concat dotspacemacs-directory "config/hack-post-init.el"))
   (load-file (concat dotspacemacs-directory "config/config-last.el")))
