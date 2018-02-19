@@ -209,10 +209,11 @@
             `(ac-selection-face ((,class (:inherit company-tooltip-selection))))
 
 ;;;;; avy
-            `(avy-lead-face   ((,class (:background ,bg2 :foreground ,magenta))))
-            `(avy-lead-face-0 ((,class (:background ,bg2 :foreground ,blue))))
-            `(avy-lead-face-1 ((,class (:background ,bg2 :foreground ,magenta))))
-            `(avy-lead-face-2 ((,class (:background ,bg2 :foreground ,blue))))
+            `(avy-lead-face   ((,class (:foreground ,keyword))))
+            `(avy-lead-face-0 ((,class (:foreground ,mat))))
+            `(avy-lead-face-1 ((,class (:foreground ,func))))
+            `(avy-lead-face-2 ((,class (:foreground ,mat))))
+            `(avy-background-face ((,class (:foreground ,base-dim))))
 
 ;;;;; bm
             `(bm-face ((,class (:background "#245361" :foreground ,base))))
