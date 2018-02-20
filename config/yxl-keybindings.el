@@ -16,7 +16,7 @@
   ;; workaround
   "," #'eval-expression
   "'" #'yxl-shell-invoke
-  "<SPC>" #'yxl-hydra-ace-window/body
+  "<SPC>" #'yxl-hydra-space/body
   "aa" #'yxl-invoke-applications
   "bB" #'yxl-buffer-switch-same-major-mode
   "bb" #'yxl-buffer-switch

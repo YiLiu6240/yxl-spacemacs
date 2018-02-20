@@ -46,14 +46,36 @@ Window Split:
   ("wc" yxl-window-center-margins "center margin")
   ("ww" yxl-window-change-width "adjust width"))
 
-(defhydra yxl-hydra-ace-window (:color blue :hint nil :columns 4
-                                       :inherit (yxl-hydra-common/heads))
-  ("s" ace-swap-window "ace: swap window")
-  ("M" ace-maximize-window "ace: max window")
-  ("<SPC>" ace-select-window "ace: select window")
-  ("d" ace-delete-window "ace: delete window")
-  ("p" yxl-ace-window-push-window "ace: push window")
-  ("f" yxl-ace-window-fetch-window "ace: fetch window"))
+(defhydra yxl-hydra-space (:color blue :hint nil :columns 4
+                                  :inherit (yxl-hydra-common/heads)
+                                  :pre (setq which-key-inhibit t)
+                                  :post (setq which-key-init nil))
+  "
+
+ace-window:
+
+ | [_ww_]: select   | [_ws_]: swap        | [_wM_]: max       |
+ | [_wd_]: delete   | [_wp_]: push        | [_wf_]: fetch     |
+
+---------------------------------------------------------------
+
+avy:
+
+ | [_jb_]: pop-mark | [_jj_]: goto-char-2 | [_jl_]: goto-line |
+ | [_ju_]: goto-url | [_jw_]: goto-word   | [_xo_]: open-url  |
+"
+  ("ws" ace-swap-window)
+  ("wM" ace-maximize-window)
+  ("ww" ace-select-window)
+  ("wd" ace-delete-window)
+  ("wp" yxl-ace-window-push-window)
+  ("wf" yxl-ace-window-fetch-window)
+  ("jb" avy-pop-mark)
+  ("jj" evil-avy-goto-char-2)
+  ("jl" evil-avy-goto-line)
+  ("ju" spacemacs/avy-goto-url)
+  ("jw" evil-avy-goto-word-or-subword-1)
+  ("xo" spacemacs/avy-open-url))
 
 (defhydra yxl-hydra-hotspot (:color blue :hint nil
                                     :pre (setq which-key-inhibit t)
