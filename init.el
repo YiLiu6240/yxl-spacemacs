@@ -94,8 +94,13 @@
                       :disabled-for  ; layer name
                       org
                       markdown)
-     ,(unless (spacemacs/system-is-mswindows) 'git)
-     github
+     ,(unless (spacemacs/system-is-mswindows)
+        'version-control)
+     ,(unless (spacemacs/system-is-mswindows)
+        '(git :variables
+              git-magit-status-fullscreen t))
+     ,(unless (spacemacs/system-is-mswindows)
+        'github)
 
      ;; minor utils modes
      nlinum
