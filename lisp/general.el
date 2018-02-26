@@ -76,3 +76,11 @@ one normal checkbox buffer."
   (ivy-read "Find file: "
             yxl-env-files
             :action #'yxl-find-file-stay))
+
+(defun comint-toggle-scroll-to-bottom ()
+    "Toggle the value of `comint-scroll-to-bottom-on-output'."
+  (interactive)
+  (setq-local comint-scroll-to-bottom-on-output
+              (not comint-scroll-to-bottom-on-output))
+  (message "comint-scroll-to-bottom-on-output: %s"
+           comint-scroll-to-bottom-on-output))
