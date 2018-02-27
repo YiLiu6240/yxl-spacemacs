@@ -125,6 +125,14 @@ with spaces."
     (cons (format "%s " (or str-block ""))
           (format " %s" (or str-block "")))))
 
+(defun evil-surround-str-block-pair ()
+  "Read a string block, and surround the selection with this block, padded
+with spaces."
+  (let ((str-block-left (read-from-minibuffer "left-pair: " ""))
+        (str-block-right (read-from-minibuffer "right-pair: " "")))
+    (cons (format "%s" (or str-block-left ""))
+          (format "%s" (or str-block-right "")))))
+
 (defun yxl-evil-surround-function-print ()
   "Read a functionname from the minibuffer and wrap selection in function call"
   (let ((fname "print"))
@@ -145,7 +153,8 @@ with spaces."
   (push '(?K . ("$" . "$")) evil-surround-pairs-alist)
   (push '(?F . yxl-evil-surround-function-print) evil-surround-pairs-alist)
   (push '(?r . evil-surround-str-block) evil-surround-pairs-alist)
-  (push '(?R . evil-surround-str-block-space) evil-surround-pairs-alist))
+  (push '(?R . evil-surround-str-block-space) evil-surround-pairs-alist)
+  (push '(?e . evil-surround-str-block-pair) evil-surround-pairs-alist))
 
 (defun yxl-evil/setup-evilified ()
   (when (boundp 'evil-evilified-state-map-original)
