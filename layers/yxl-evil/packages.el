@@ -26,7 +26,11 @@
 
 (defun yxl-evil/init-yxl-evil ()
   (use-package yxl-evil
-    :after evil))
+    :after evil
+    :config
+    (progn
+      (define-key evil-motion-state-map
+        "zz" 'yxl-evil-scroll-line-to-golden-ratio))))
 
 (defun yxl-evil/post-init-evil-surround ()
   (with-eval-after-load 'evil-surround
