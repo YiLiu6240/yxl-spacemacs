@@ -110,11 +110,15 @@
 (setq calendar-week-start-day 1)
 
 ;; --------
-;; under REVIEW
+;; origami
 ;; --------
 
-;; (add-hook 'lua-mode-hook (lambda () (setq-local origami-fold-style 'triple-braces)))
-(add-hook 'bibtex-mode-hook (lambda () (setq-local origami-fold-style 'triple-braces)))
+(add-to-list 'origami-parser-alist
+             `(conf-space-mode . ,(origami-markers-parser "{{{" "}}}")))
+(add-to-list 'origami-parser-alist
+             `(lua-mode . ,(origami-markers-parser "{{{" "}}}")))
+(add-to-list 'origami-parser-alist
+             `(bibtex-mode . ,(origami-markers-parser "{{{" "}}}")))
 (setq-default origami-show-fold-header nil)
 
 ;; --------
