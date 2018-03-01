@@ -84,3 +84,13 @@ one normal checkbox buffer."
               (not comint-scroll-to-bottom-on-output))
   (message "comint-scroll-to-bottom-on-output: %s"
            comint-scroll-to-bottom-on-output))
+
+(defun rofi-helper-write-projects (&optional file)
+  "Write projects from `projectile-known-projects' to FILE."
+  (let ((fn (or file "/tmp/rofi-projectile-projects"))
+        (f (lambda (project-name)
+             (write-region (concat project-name "\n")
+                           nil fn 'append))))
+    ;; empty fn
+    (write-region "" nil fn)
+    (mapc f projectile-known-projects)))
