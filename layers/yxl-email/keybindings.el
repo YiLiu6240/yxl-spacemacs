@@ -29,8 +29,10 @@
 
 (defun yxl-email/mu4e-setup-leader-keys ()
   (spacemacs/declare-prefix-for-mode 'mu4e-main-mode
-    "mu" "update")
+    "mu" "update"
+    "mh" "help")
   (spacemacs/set-leader-keys-for-major-mode 'mu4e-main-mode
+    "hh" #'mu4e-display-manual
     "uu" #'mu4e-update-mail-and-index
     "uU" #'mu4e-maildirs-extension-force-update
     "uq" #'yxl-email/mu4e-offlineimap-quiet
