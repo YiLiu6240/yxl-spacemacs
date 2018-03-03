@@ -52,6 +52,6 @@ prepended to the element after the #+HEADER: tag."
     (insert str)
     (org-try-structure-completion)
     (when mod (insert mod) (forward-line))
-    (when text (insert text))))
+    (when text (insert (string-trim text)))))
 
 (provide 'org-goodies)

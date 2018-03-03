@@ -98,7 +98,7 @@
   ;;       based on some macro magic (from Zamansky's elfeed example)?
   (defhydra yxl-org/template-hydra (:color blue :hint nil)
     ;; Source: https://github.com/abo-abo/hydra/wiki/Org-mode-block-templates
-    ("s" (hot-expand "<s") "src")
+    ("s" (hot-expand "<s" "") "src")
     ("E" (hot-expand "<e") "Example")
     ("q" (hot-expand "<q") "quote")
     ("v" (hot-expand "<v") "verse")
