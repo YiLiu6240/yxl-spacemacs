@@ -19,7 +19,8 @@
   "<SPC>" #'yxl-hydra-space/body
   "aa" #'yxl-invoke-applications
   "bB" #'yxl-buffer-switch-same-major-mode
-  "bb" #'yxl-buffer-switch
+  ;; "bb" #'yxl-buffer-switch
+  "bb" #'ivy-switch-buffer
   "bh" #'yxl-utils/home
   "bob" #'ibuffer
   "boc" #'yxl-buffer-compilation

@@ -3,6 +3,7 @@
                                 (yxl-helm-hotspot :location site)
                                 ivy
                                 counsel
+                                ivy-rich
                                 (yxl-helm-pdf-occur :location site)
                                 (yxl-ivy-views :location site)
                                 helm-github-stars
@@ -101,6 +102,15 @@
                                      (lambda () (find-file (projectile-project-root)))))
                                 (projectile-switch-project-by-name dir arg)))
                         "open")))))
+
+(defun yxl-completion/init-ivy-rich ()
+  (use-package ivy-rich
+    :after ivy
+    :config
+    (progn
+      (ivy-set-display-transformer
+       'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
+      (setq ivy-rich-path-style 'abbrev))))
 
 (defun yxl-completion/init-yxl-ivy-views ()
   (use-package yxl-ivy-views
