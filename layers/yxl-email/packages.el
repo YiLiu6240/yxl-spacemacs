@@ -56,8 +56,11 @@
                             mu4e-maildir-shortcuts) " OR ")
                "All inboxes" ?i)))
       (add-hook 'mu4e-compose-mode-hook (lambda () (auto-fill-mode -1)))
-      (add-to-list 'mu4e-view-actions
-                   '("View in browser" . mu4e-action-view-in-browser) t)
+      ;; Changes: removedj view as pdf, add view in browser
+      (setq mu4e-view-actions
+            '(("capture message"  . mu4e-action-capture-message)
+              ("show this thread" . mu4e-action-show-thread)
+              ("view in browser" . mu4e-action-view-in-browser)))
       (setq mu4e-html2text-command "w3m -T text/html")
       (when yxl-email-personal-config-file
         (load yxl-email-personal-config-file)))))
