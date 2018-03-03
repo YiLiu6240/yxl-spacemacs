@@ -94,3 +94,13 @@ one normal checkbox buffer."
     ;; empty fn
     (write-region "" nil fn)
     (mapc f projectile-known-projects)))
+
+(defun rofi-helper-write-recentf (&optional file)
+  "Write projects from `recentf-list' to FILE."
+  (let ((fn (or file "/tmp/rofi-recentf"))
+        (f (lambda (project-name)
+             (write-region (concat project-name "\n")
+                           nil fn 'append))))
+    ;; empty fn
+    (write-region "" nil fn)
+    (mapc f recentf-list)))
