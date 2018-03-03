@@ -28,9 +28,8 @@
     (kbd "a") #'mu4e~headers-jump-to-maildir))
 
 (defun yxl-email/mu4e-setup-leader-keys ()
-  (spacemacs/declare-prefix-for-mode 'mu4e-main-mode
-    "mu" "update"
-    "mh" "help")
+  (spacemacs/declare-prefix-for-mode 'mu4e-main-mode "mu" "update")
+  (spacemacs/declare-prefix-for-mode 'mu4e-main-mode "mh" "help")
   (spacemacs/set-leader-keys-for-major-mode 'mu4e-main-mode
     "hh" #'mu4e-display-manual
     "uu" #'mu4e-update-mail-and-index
@@ -40,8 +39,7 @@
     "up" #'yxl-email/mu4e-offlineimap-quick-profile
     ";" #'mu4e-context-switch
     "a" #'mu4e~headers-jump-to-maildir)
-  (spacemacs/declare-prefix-for-mode 'mu4e-headers-mode
-    "mu" "update")
+  (spacemacs/declare-prefix-for-mode 'mu4e-headers-mode "mu" "update")
   (spacemacs/set-leader-keys-for-major-mode 'mu4e-headers-mode
     "uu" #'mu4e-maildirs-extension-force-update
     "uU" #'mu4e-update-mail-and-index
