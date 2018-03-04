@@ -74,8 +74,7 @@
     (ivy-add-actions 'counsel-find-file
                      '(("x" yxl-open-file-external "open in external program")))
     ;; TODO: remove this following Spacemacs updates
-    ;; NOTE: this would not work with the NEWEST counsel version; ...
-    (defvaralias 'counsel--git-grep-dir 'counsel--git-dir))
+    (yxl-completion/counsel-patch))
   (with-eval-after-load 'counsel-projectile
     (ivy-add-actions 'counsel-projectile-find-file
                      '(("d" (lambda (x) (dired-jump nil (projectile-expand-root x)))
