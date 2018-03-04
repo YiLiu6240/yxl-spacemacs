@@ -76,6 +76,7 @@
   "tv" #'visual-line-mode
   "tV" #'visual-fill-column-mode
   "t C-v" #'visual-fill-column-toggle-center-text
+  "tb" #'yxl-web-switch-browser
   "tp" nil
   "tpp" #'parinfer-toggle-mode
   "tP" #'spacemacs/toggle-smartparens
