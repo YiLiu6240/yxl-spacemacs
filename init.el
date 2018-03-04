@@ -128,7 +128,9 @@
      yxl-config
      yxl-dired
      (yxl-datascience :variables
-                      yxl-datascience-docset-path "~/Dropbox/dash-docsets")
+                      yxl-datascience-docset-path "~/Dropbox/dash-docsets"
+                      :packages
+                      (not ein))
      (yxl-org :variables
               yxl-org-babel-languages '((dot . t)
                                         (latex .t)
