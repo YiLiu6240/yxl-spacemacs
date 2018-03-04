@@ -22,12 +22,12 @@
     (progn
       (spacemacs/set-leader-keys
         "dH" #'yxl-dash-search-docset
-        "dh" #'yxl-dash-search-docset-external-browser
+        "dh" #'yxl-dash-search-docset-default-browser
         "dm" #'yxl-dash-search-docset-chromium
         "df" #'yxl-dash-search-docset-firefox
         "dr" #'counsel-dash-reset-connections))
     :commands (yxl-dash-search-docset
-               yxl-dash-search-docset-external-browser
+               yxl-dash-search-docset-default-browser
                yxl-dash-search-docset-chromium
                yxl-dash-search-docset-firefox
                yxl-dash-search-docset-helm)
