@@ -41,6 +41,7 @@
   "fed" #'spacemacs/find-dotfile-follow-symlink
   "ff" #'yxl-find-file-counsel
   "fh" #'helm-find-files-vertical
+  "fJ" #'dired-jump-split
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "fO" #'spacemacs/open-file-or-directory-in-external-app ; with C-u open in desktop
   "fo" #'yxl-open-file-external

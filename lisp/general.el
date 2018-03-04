@@ -104,3 +104,10 @@ one normal checkbox buffer."
     ;; empty fn
     (write-region "" nil fn)
     (mapc f recentf-list)))
+
+(defun dired-jump-split ()
+  "Split window below, focus, then invoke dired-jump."
+  (interactive)
+  (split-window-below)
+  (windmove-down)
+  (dired-jump))
