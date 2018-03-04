@@ -111,8 +111,6 @@
       (setq gscholar-bibtex-database-file yxl-file-bib))))
 
 (defun yxl-text/post-init-markdown-mode ()
-  (when (configuration-layer/layer-usedp 'markdown)
-    (setq auto-mode-alist (cons '("\\.text$" . markdown-mode) auto-mode-alist)))
   (with-eval-after-load 'markdown-mode
     (add-hook 'markdown-mode-hook 'outline-minor-mode)
     (add-hook 'markdown-mode-hook
