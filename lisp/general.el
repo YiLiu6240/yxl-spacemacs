@@ -111,3 +111,18 @@ one normal checkbox buffer."
   (split-window-below)
   (windmove-down)
   (dired-jump))
+
+(defun emacs-anywhere ()
+  "Source:
+https://github.com/zachcurry/emacs-anywhere/blob/master/emacs_anywhere.el"
+  (interactive)
+  ;; Currently only linux
+  (let ((ea-on-delete (lambda (frame)
+                        (call-process-region
+                         (point-min) (point-max)
+                         "xclip" nil 0 nil "-i" "-selection" "clipboard")))
+        (ea-hook (lambda ()
+                   (add-hook 'delete-frame-functions ea-on-delete))))
+    (funcall ea-hook)
+    (switch-to-buffer "*Emacs Anywhere*")
+    (select-frame-set-input-focus (selected-frame))))
