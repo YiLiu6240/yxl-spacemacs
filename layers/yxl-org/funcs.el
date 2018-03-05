@@ -150,7 +150,12 @@ overridden by a prefix arg)."
           (search . " %i %-12:c"))))
 
 (defun yxl-org/setup-latex ()
-  (setq org-preview-latex-image-directory ".ltximg/"))
+  (setq org-preview-latex-image-directory ".ltximg/")
+  ;; Making latex formulae BIGGER
+  ;; https://stackoverflow.com/questions/11272236/how-to-make-formule-bigger-in-org-mode-of-emacs
+  (setq org-format-latex-options
+        (plist-put (default-value 'org-format-latex-options)
+                   :scale 2.0)))
 
 (defun yxl-org/setup-babel ()
   (setq-default org-export-babel-evaluate nil)
