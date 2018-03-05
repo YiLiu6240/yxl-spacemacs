@@ -508,6 +508,16 @@
 ;;;;; iedit
             `(iedit-occurrence ((,class (:inherit highlight :foreground ,mat))))
 
+;;;;; imenu-list
+            `(imenu-list-entry-face-0 ((,class (:foreground ,head1))))
+            `(imenu-list-entry-subalist-face-0 ((,class (:foreground ,head1 :underline t))))
+            `(imenu-list-entry-face-1 ((,class (:foreground ,head2))))
+            `(imenu-list-entry-subalist-face-1 ((,class (:foreground ,head2 :underline t))))
+            `(imenu-list-entry-face-2 ((,class (:foreground ,head3))))
+            `(imenu-list-entry-subalist-face-2 ((,class (:foreground ,head3 :underline t))))
+            `(imenu-list-entry-face-3 ((,class (:foreground ,head4))))
+            `(imenu-list-entry-subalist-face-3 ((,class (:foreground ,head4 :underline t))))
+
 ;;;;; info
             `(info-header-xref ((,class (:foreground ,func :underline t))))
             `(info-menu ((,class (:foreground ,suc))))
