@@ -80,6 +80,7 @@
     "hy" #'org-insert-todo-subheading
     "mm" #'org-toggle-latex-fragment
     "mM" #'org-preview-latex-fragment
+    "otl" #'org-toggle-link-display
     "r" #'yxl-org-refile-visible
     "R" #'yxl-org/refile-to-scratch
     "C-." #'org-time-stamp

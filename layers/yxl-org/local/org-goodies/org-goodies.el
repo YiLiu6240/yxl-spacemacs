@@ -54,4 +54,16 @@ prepended to the element after the #+HEADER: tag."
     (when mod (insert mod) (forward-line))
     (when text (insert (string-trim text)))))
 
+(defun org-toggle-link-display ()
+  "Toggle the literal or descriptive display of links.
+Source: https://emacs.stackexchange.com/questions/5387/show-org-mode-hyperlink-as-plain-text/5390"
+  (interactive)
+  (if org-descriptive-links
+      (progn (org-remove-from-invisibility-spec '(org-link))
+             (org-restart-font-lock)
+             (setq org-descriptive-links nil))
+    (progn (add-to-invisibility-spec '(org-link))
+           (org-restart-font-lock)
+           (setq org-descriptive-links t))))
+
 (provide 'org-goodies)

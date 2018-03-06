@@ -90,6 +90,8 @@ overridden by a prefix arg)."
   (setq org-enforce-todo-checkbox-dependencies t)
   (setq org-enforce-todo-dependencies t)
   (setq org-cycle-separator-lines 1)
+  ;; Do not hide links by default
+  (setq org-descriptive-links nil)
   (setq org-file-apps '((auto-mode . emacs)
                         ("\\.mm\\'" . default)
                         ("\\.x?html?\\'" . default)
