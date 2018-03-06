@@ -122,6 +122,12 @@
 (setq-default origami-show-fold-header nil)
 
 ;; --------
+;; imenu
+;; --------
+(setq imenu-list-position 'left)
+(setq imenu-list-focus-after-activation nil)
+
+;; --------
 ;; misc configs
 ;; --------
 (setq-default bookmark-default-file "~/Dropbox/inbox/helm-bookmark")

@@ -34,6 +34,7 @@
   "bon" #'yxl-buffer-inherit
   "boo" #'yxl-buffer-org-checkbox
   "boO" #'yxl-buffer-org-todo
+  "bi" #'imenu-list-smart-toggle
   ;; TODO: rm this with next spacemacs update
   "bm" #'yxl-buffer-switch-same-major-mode
   "br" #'revert-buffer
@@ -72,6 +73,7 @@
   "pG" #'projectile-regenerate-tags
   "p C-g" nil
   "qf" #'spacemacs/frame-killer
+  "sj" #'helm-semantic-or-imenu
   "sJ" #'yxl-imenu-anywhere
   "tv" #'visual-line-mode
   "tV" #'visual-fill-column-mode
