@@ -230,3 +230,38 @@ Hotspot:
   ("Ss2" yxl-session-save-2 "desktop: profile2, save")
   ("Sl2" yxl-session-load-2 "desktop: profile2, load")
   ("b" helm-bookmarks "helm: bookmarks"))
+
+
+;; Pseudo-hydras
+
+(defun yxl-hydra-projects ()
+  (interactive)
+  (funcall
+   (eval
+    `(defhydra foobar (:color teal :columns 2
+                              :pre (setq which-key-inhibit t)
+                              :post (setq which-key-inhibit nil))
+       "
+projects and folders
+"
+       ,@(mapcar (lambda (x)
+                   (let ((path (car x))
+                         (key (cdr x)))
+                     (list key (append '(yxl-find-dir) (list path)) path)))
+                 yxl-env-projects-alist)))))
+
+(defun yxl-hydra-files ()
+  (interactive)
+  (funcall
+   (eval
+    `(defhydra foobar (:color teal :columns 2
+                              :pre (setq which-key-inhibit t)
+                              :post (setq which-key-inhibit nil))
+       "
+Files
+"
+       ,@(mapcar (lambda (x)
+                   (let ((path (car x))
+                         (key (cdr x)))
+                     (list key (append '(yxl-find-file-stay) (list path)) path)))
+                 yxl-env-files-alist)))))

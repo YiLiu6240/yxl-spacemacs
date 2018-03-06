@@ -64,19 +64,6 @@ one normal checkbox buffer."
   (interactive)
   (find-file-existing (file-truename (dotspacemacs/location))))
 
-(defun yxl-ivy-find-project ()
-  (interactive)
-  (ivy-read "Switch to project: "
-            yxl-env-projects
-            ;; add a prefix-arg to visit directly
-            :action #'yxl-find-dir))
-
-(defun yxl-ivy-find-file ()
-  (interactive)
-  (ivy-read "Find file: "
-            yxl-env-files
-            :action #'yxl-find-file-stay))
-
 (defun comint-toggle-scroll-to-bottom ()
     "Toggle the value of `comint-scroll-to-bottom-on-output'."
   (interactive)

@@ -110,11 +110,11 @@
   ";" #'counsel-M-x
   "o-" #'yxl-dired-popup
   "o <SPC>" #'delete-other-windows
-  "of" #'yxl-ivy-find-file
+  "of" #'yxl-hydra-files
   "og" #'yxl-helm-hotspot
   "oy" #'copy-file-name-to-clipboard
   "oo" #'yxl-hydra-hotspot/body
-  "op" #'yxl-ivy-find-project
+  "op" #'yxl-hydra-projects
   "ot" #'ivy-todo
   "ow" #'yxl-hydra-window/body)
 

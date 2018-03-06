@@ -80,8 +80,12 @@
   (find-file yxl-file-org-checkbox)
   (evil-window-right 1))
 
-(defvar yxl-env-projects '()
-  "Project paths")
+(defvar yxl-env-projects-alist '()
+  "Project paths.
+Alist in the form of (PATH . key) as (\"~/Downloads\" . \"D\")
+to be pass to `yxl-hydra-projects'")
 
-(defvar yxl-env-files '()
-  "Files of interest")
+(defvar yxl-env-files-alist '()
+  "Files of interest.
+Alist of the same format to `yxl-env-projects-alist'
+to be passed to `yxl-hydra-files.'")
