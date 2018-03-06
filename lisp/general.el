@@ -20,19 +20,19 @@
   (interactive)
   (find-file yxl-file-org-checkbox))
 
-(defun yxl-buffer-sticky-checkbox ()
-  "Visit a indirect buffer of the checkbox.
+(defun yxl-buffer-sticky-i3-window (file)
+  "Visit a indirect buffer of FILE as a sticky i3 window.
 Useful when we need two instances (one sticky note, and
-one normal checkbox buffer."
+one normal buffer."
   (interactive)
-  (let* ((checkbox-name (file-name-nondirectory yxl-file-org-checkbox))
-         (sticky-name (concat "*sitcky*" checkbox-name))
-         (checkbox-buf (find-file-noselect yxl-file-org-checkbox))
+  (let* ((filename (file-name-nondirectory file))
+         (sticky-name (concat "*sitcky*" filename))
+         (buf (find-file-noselect file))
          (sticky-buf (get-buffer sticky-name)))
     (if sticky-buf
         (switch-to-buffer sticky-buf)
       (progn
-        (switch-to-buffer (make-indirect-buffer checkbox-buf sticky-name t))
+        (switch-to-buffer (make-indirect-buffer buf sticky-name t))
         (text-scale-set 0)
         (spacemacs/toggle-mode-line-off)))))
 
