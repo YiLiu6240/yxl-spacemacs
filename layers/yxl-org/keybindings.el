@@ -127,6 +127,7 @@ yxl-org/hydra:
 --------
  [_c_]: ^?c? company-mode             |
 [_ii_]: ?ii? org-indent-mode          | [_ip_]: ?ip? org-toggle-inline-images
+ [_l_]: ^?l? org-toggle-link-display  |
 [_ss_]: ?ss? org-src-fontify-natively |
 --------
 "
@@ -135,6 +136,8 @@ yxl-org/hydra:
      (if (bound-and-true-p org-indent-mode) "[x]" "[ ]"))
     ("ip" org-toggle-inline-images
      (if org-inline-image-overlays "[x]" "[ ]"))
+    ("l" org-toggle-link-display
+     (if org-descriptive-links "[x]" "[ ]"))
     ("c" company-mode
      (if (bound-and-true-p company-mode) "[x]" "[ ]"))
     ("ss" (lambda () (interactive)
