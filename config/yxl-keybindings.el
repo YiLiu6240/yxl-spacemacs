@@ -73,8 +73,9 @@
   "pG" #'projectile-regenerate-tags
   "p C-g" nil
   "qf" #'spacemacs/frame-killer
-  "sj" #'helm-semantic-or-imenu
-  "sJ" #'yxl-imenu-anywhere
+  "sj" #'counsel-semantic-or-imenu
+  "sJ" #'helm-semantic-or-imenu
+  "s C-j" #'yxl-imenu-anywhere
   "tv" #'visual-line-mode
   "tV" #'visual-fill-column-mode
   "t C-v" #'visual-fill-column-toggle-center-text
