@@ -15,6 +15,7 @@ url: https://github.com/mkaito/base16-emacs")
          ;; color when the specified evil state is active
          (color-state-fg (if light-p "#ebdbb2" "#ebdbb2")) ;; general state fg
          (color-normal-bg (if light-p "#7c6f64" "#7c6f64"))
+         (color-evilified-bg (if light-p "#d65d0e" "#fe8019"))
          (color-insert-bg (if light-p "#427b58" "#427b58"))
          (color-visual-bg (if light-p "#af3a03" "#af3a03"))
          (color-replace-bg (if light-p "#cc241d" "#cc241d"))
@@ -50,6 +51,7 @@ url: https://github.com/mkaito/base16-emacs")
       (progn
         (setq evil-emacs-state-cursor   emacs-outer-background)
         (setq evil-normal-state-cursor  normal-outer-background)
+        (setq evil-evilified-state-cursor  color-evilified-bg)
         (setq evil-insert-state-cursor  `(bar ,insert-outer-background))
         (setq evil-replace-state-cursor replace-outer-background)
         (setq evil-visual-state-cursor  visual-outer-background)))))
