@@ -242,13 +242,17 @@ Hotspot:
                               :pre (setq which-key-inhibit t)
                               :post (setq which-key-inhibit nil))
        "
-projects and folders
+Projects and folders
 "
        ,@(mapcar (lambda (x)
                    (let ((path (car x))
                          (key (cdr x)))
                      (list key (append '(yxl-find-dir) (list path)) path)))
-                 yxl-env-projects-alist)))))
+                 yxl-env-projects-alist)
+       ("." (ivy-read "Projects and folders: "
+                      yxl-env-projects-alist
+                      :action (lambda (x) (yxl-find-dir (car x))))
+        "ivy-read")))))
 
 (defun yxl-hydra-files ()
   (interactive)
@@ -264,4 +268,8 @@ Files
                    (let ((path (car x))
                          (key (cdr x)))
                      (list key (append '(yxl-find-file-stay) (list path)) path)))
-                 yxl-env-files-alist)))))
+                 yxl-env-files-alist)
+       ("." (ivy-read "Files: "
+                      yxl-env-files-alist
+                      :action (lambda (x) (yxl-find-file-stay (car x))))
+        "ivy-read")))))
