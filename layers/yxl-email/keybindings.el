@@ -10,7 +10,8 @@
     :mode mu4e-main-mode
     :bindings
     (kbd "b") #'mu4e-headers-search-bookmark
-    (kbd "a") #'mu4e~headers-jump-to-maildir)
+    (kbd "a") #'mu4e~headers-jump-to-maildir
+    (kbd "c") #'mu4e-context-switch)
   (evilified-state-evilify-map
     mu4e-headers-mode-map
     :mode mu4e-headers-mode
@@ -37,7 +38,7 @@
     "uq" #'yxl-email/mu4e-offlineimap-quiet
     "uQ" #'yxl-email/mu4e-offlineimap-quick
     "up" #'yxl-email/mu4e-offlineimap-quick-profile
-    ";" #'mu4e-context-switch
+    "c" #'mu4e-context-switch
     "a" #'mu4e~headers-jump-to-maildir)
   (spacemacs/declare-prefix-for-mode 'mu4e-headers-mode "mu" "update")
   (spacemacs/set-leader-keys-for-major-mode 'mu4e-headers-mode
