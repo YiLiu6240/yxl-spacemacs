@@ -214,6 +214,36 @@ Hotspot:
   ("3" (yxl-utils/frame-zoom-state 8) "profile 3")
   ("4" (yxl-utils/frame-zoom-state 12) "profile 4"))
 
+(defhydra yxl-hydra-visual-line (:color amaranth :hint nil
+                                        :pre (setq which-key-inhibit t)
+                                        :post (setq which-key-inhibit nil))
+  "
+visual-line:
+------------
+[_vv_]: ?vv? visual-line-mode
+[_vf_]: ?vf? visual-fill-column-mode
+[_vc_]: ?vc? visual-fill-column-center-tex
+[_v._]: visual-fill-column-width: ?v.?
+------------
+"
+  ("vv" visual-line-mode
+   (if visual-line-mode "[x]" "[ ]"))
+  ("vf" (if visual-fill-column-mode
+            (progn (visual-fill-column-mode -1))
+          (progn (visual-fill-column-mode 1)
+                 (visual-line-mode 1)))
+   (if (bound-and-true-p visual-fill-column-mode) "[x]" "[ ]"))
+  ("vc" (progn (setq visual-fill-column-center-text
+                     (not visual-fill-column-center-text))
+               (visual-fill-column-mode 1) (visual-line-mode 1))
+   (if (bound-and-true-p visual-fill-column-center-text) "[x]" "[ ]"))
+  ("v." (let ((width (read-from-minibuffer "width: " "")))
+          (setq-local visual-fill-column-width (string-to-number width))
+          (visual-fill-column-mode 1) (visual-line-mode 1))
+   (if (bound-and-true-p visual-fill-column-width)
+       visual-fill-column-width nil))
+  ("q" nil "quit"))
+
 (defhydra yxl-hydra-sessions (:color blue :hint nil :columns 4
                                      :pre (setq which-key-inhibit t)
                                      :post (setq which-key-inhibit nil)

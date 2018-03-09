@@ -76,9 +76,7 @@
   "sj" #'counsel-semantic-or-imenu
   "sJ" #'helm-semantic-or-imenu
   "s C-j" #'yxl-imenu-anywhere
-  "tv" #'visual-line-mode
-  "tV" #'visual-fill-column-mode
-  "t C-v" #'visual-fill-column-toggle-center-text
+  "tv" #'yxl-hydra-visual-line/body
   "tb" #'yxl-web-switch-browser
   "tp" nil
   "tpp" #'parinfer-toggle-mode

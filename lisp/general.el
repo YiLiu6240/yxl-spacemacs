@@ -52,13 +52,6 @@ one normal buffer."
   (interactive)
   (find-file yxl-file-note-sync))
 
-(defun visual-fill-column-toggle-center-text ()
-  (interactive)
-  (setq visual-fill-column-center-text
-        (not visual-fill-column-center-text))
-  (message (format "visual-fill-column-center-text: %s"
-                   visual-fill-column-center-text)))
-
 (defun spacemacs/find-dotfile-follow-symlink ()
   "Edit the `dotfile', in the current window."
   (interactive)
