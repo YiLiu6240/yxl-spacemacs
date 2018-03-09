@@ -39,6 +39,7 @@
       (setq mu4e-headers-fields
             '((:human-date . 20)
               (:flags . 6)
+              (:maildir . 10)
               (:from . 22)
               (:subject)
               (:mailing-list . 10)))
