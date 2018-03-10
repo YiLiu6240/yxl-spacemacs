@@ -155,6 +155,7 @@ overridden by a prefix arg)."
   (setq org-preview-latex-image-directory ".ltximg/")
   ;; Making latex formulae BIGGER
   ;; https://stackoverflow.com/questions/11272236/how-to-make-formule-bigger-in-org-mode-of-emacs
+  (setq org-preview-latex-default-process 'dvisvgm)
   (setq org-format-latex-options
         (plist-put (default-value 'org-format-latex-options)
                    :scale 2.0)))
