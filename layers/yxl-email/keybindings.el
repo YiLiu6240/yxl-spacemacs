@@ -2,6 +2,8 @@
   (global-set-key (kbd "C-x m") 'mu4e-compose-new)
   (define-key mu4e-headers-mode-map
     "o" #'mu4e-headers-view-message)
+  (define-key mu4e-headers-mode-map
+    "_" #'mu4e-headers-mark-for-unflag)
   (define-key mu4e-view-mode-map
     "\'" #'yxl-email/mu4e-view-detach-to-win-or-frame))
 
