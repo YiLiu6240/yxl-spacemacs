@@ -66,25 +66,19 @@ Source: https://emacs.stackexchange.com/questions/5387/show-org-mode-hyperlink-a
            (org-restart-font-lock)
            (setq org-descriptive-links t))))
 
-(defun yxl-org-move-region-to-heading (&optional heading)
+(defun yxl-org-refile-region-to-heading (&optional heading)
   "Move current region to a user-selected heading or programmatically to HEADING represented by a marker.
 Source: https://emacs.stackexchange.com/questions/36482/refile-selected-text-to-bottom-of-header-org-mode"
-  (interactive
-   ;; FIXME: until we solve the markerp problem
-   ;;        we have to limit refile targets to current buffer
-   (let ((org-refile-targets nil))
-     (list
-      (nth 3 (org-refile-get-location "Move region to: ")))))
-  (let* ((target-marker heading))
+  (interactive)
+  (let* ((heading (org-refile-get-location "Move region to: "))
+         (target-pos (nth 3 heading))
+         (target-buf (find-file-noselect (nth 1 heading))))
     (atomic-change-group
       (kill-region (region-beginning) (region-end))
-      ;; FIXME target-marker fails markerp
-      ;; (set-buffer (marker-buffer target-marker))
-      (goto-char target-marker)
-      (org-back-to-heading t)
-      (outline-next-heading)
-      (insert "\n")
-      (yank)
-      (insert "\n"))))
+      (with-current-buffer target-buf
+        (goto-char target-pos)
+        (org-back-to-heading t)
+        (outline-next-heading)
+        (yank)))))
 
 (provide 'org-goodies)
