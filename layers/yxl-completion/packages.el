@@ -54,7 +54,6 @@
 (defun yxl-completion/post-init-ivy ()
   ;; remove the "^" element in search
   (with-eval-after-load 'ivy
-    (setq ivy-initial-inputs-alist nil)
     ;; C-' conflicts with eyebrowse
     (define-key ivy-minibuffer-map (kbd "C-v") 'ivy-avy)
     (setq ivy-height 30)
