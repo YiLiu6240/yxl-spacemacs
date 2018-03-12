@@ -106,3 +106,10 @@ https://github.com/zachcurry/emacs-anywhere/blob/master/emacs_anywhere.el"
     (funcall ea-hook)
     (switch-to-buffer "*Emacs Anywhere*")
     (select-frame-set-input-focus (selected-frame))))
+
+(defun yxl-magit-toggle-fullscreen ()
+  (interactive)
+  (if (eq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
+      (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
+    (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
+  (message "magit-display-buffer-function %s" magit-display-buffer-function))
