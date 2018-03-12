@@ -1,3 +1,16 @@
+;; Formal variable def
+(defvar yxl-env-freq-projects-alist '()
+  "Project paths.
+Alist in the form of (PATH . key) as (\"~/Downloads\" . \"D\")
+to be pass to `yxl-hydra-projects'")
+
+(defvar yxl-env-freq-files-alist '()
+  "Files of interest.
+Alist of the same format to `yxl-env-freq-projects-alist'
+to be passed to `yxl-hydra-files.'")
+
+;; Informal variable def
+
 (setq yxl-path-dotfiles "~/dotfiles/")
 (setq yxl-path-sync "~/Dropbox/")  ;; sync location for repos
 (setq yxl-path-local "~/local-repo/")  ;; local location for repos
@@ -79,13 +92,3 @@
   (split-window-below-and-focus)
   (find-file yxl-file-org-checkbox)
   (evil-window-right 1))
-
-(defvar yxl-env-projects-alist '()
-  "Project paths.
-Alist in the form of (PATH . key) as (\"~/Downloads\" . \"D\")
-to be pass to `yxl-hydra-projects'")
-
-(defvar yxl-env-files-alist '()
-  "Files of interest.
-Alist of the same format to `yxl-env-projects-alist'
-to be passed to `yxl-hydra-files.'")

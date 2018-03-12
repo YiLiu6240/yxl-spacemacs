@@ -282,9 +282,9 @@ Projects and folders
                    (let ((path (car x))
                          (key (cdr x)))
                      (list key (append '(yxl-find-dir) (list path)) path)))
-                 yxl-env-projects-alist)
+                 yxl-env-freq-projects-alist)
        ("." (ivy-read "Projects and folders: "
-                      yxl-env-projects-alist
+                      yxl-env-freq-projects-alist
                       :action (lambda (x) (yxl-find-dir (car x))))
         "ivy-read")))))
 
@@ -304,6 +304,6 @@ Files
                      (list key (append '(yxl-find-file-stay) (list path)) path)))
                  yxl-env-files-alist)
        ("." (ivy-read "Files: "
-                      yxl-env-files-alist
+                      yxl-env-freq-files-alist
                       :action (lambda (x) (yxl-find-file-stay (car x))))
         "ivy-read")))))
