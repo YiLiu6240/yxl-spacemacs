@@ -42,5 +42,4 @@
     :init
     (progn
       (spacemacs/set-leader-keys
-        "ab" #'counsel-books)
-      (add-to-list 'yxl-ia-list '("counsel-books" . counsel-books)))))
+        "ab" #'counsel-books))))

@@ -13,7 +13,6 @@
     :config
     (progn
       (add-to-list 'spacemacs-useful-buffers-regexp "\\*hackernews")
-      (add-to-list 'yxl-ia-list '("hackernews" . hackernews))
       (setq hackernews-internal-browser-function #'w3m-browse-url)
       (setq hackernews-items-per-page 50)
       (evilified-state-evilify-map hackernews-mode-map
