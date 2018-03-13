@@ -1,3 +1,76 @@
+;; --------
+;; Personal configs
+;; --------
+(setq yxl-env-org-todo (concat org-directory "tasks/todo.org"))
+(setq yxl-env-org-log (concat org-directory "logs/logs-master.org"))
+(setq yxl-env-org-checkbox (concat "~/Dropbox/org/tasks/" "checkbox.org"))
+(setq yxl-env-note-local "~/local-repo/local-notes.org")
+(setq yxl-env-note-sync "~/Dropbox/org/note.org")
+
+(setq org-agenda-files
+      (append
+       (list yxl-env-org-checkbox yxl-env-org-todo)
+       (directory-files (concat org-directory "projects/")
+                        t "^proj_.+\\.org")
+       (directory-files (concat org-directory "logs/")
+                        t "^log_.+\\.org")
+       (directory-files "~/local-repo" t)))
+
+(setq ivy-todo-file "~/Dropbox/org/tasks/todo.org")
+;; HACK workaround a bug in org-recipes
+(setq org-wiki-location
+      (expand-file-name (concat org-directory
+                                "recipes/")))
+(setq org-recipes-file-list
+      (directory-files (expand-file-name (concat org-directory
+                                                 "recipes/"))
+                       t "^.+\\.org"))
+(setq org-capture-templates
+      '(("c" "checkbox: inbox" checkitem (file+headline yxl-env-org-checkbox "Checkbox")
+         "-  %?\n")
+        ("t" "checkbox: todo" checkitem (file+headline yxl-env-org-checkbox "Checkbox")
+         "- [ ]  %?\n")
+        ("i" "general: inbox" entry (file+headline yxl-env-org-todo "Capture")
+         "* INBOX %?\n  %i\n")))
+(setq org-refile-targets '((nil :maxlevel . 1)
+                           (yxl-env-org-task-files :maxlevel . 1)))
+
+(setq yxl-ivy-views-storage-location "~/Dropbox/inbox/yxl-ivy-views.txt")
+
+(setq helm-github-stars-username "YiLiu6240")
+(setq yxl-hhs-org-files org-agenda-files)
+(setq yxl-hhs-file-local-list "~/Dropbox/inbox/yxl-sites-local.txt")
+(setq yxl-hhs-file-web-list "~/Dropbox/inbox/yxl-sites-web.txt")
+(setq yxl-hhs-file-reading-list-local
+      "~/Dropbox/inbox/yxl-reading-list-files.txt")
+(setq yxl-hhs-file-reading-list-webpages
+      "~/Dropbox/inbox/yxl-reading-list-webpages.txt")
+(setq yxl-ia-list '(("calendar" . calendar)
+                    ("counsel-books" . counsel-books)
+                    ("hackernews" . hackernews)
+                    ("org-agenda" . org-agenda)
+                    ("org-capture" . org-capture)
+                    ("w3m" . w3m)
+                    ("cfw-calendar" . cfw-calendar)
+                    ("rss: elfeed" . elfeed)
+                    ("note: deft" . spacemacs/deft)
+                    ("email: mu4e" . mu4e)
+                    ("counsel-dash" . counsel-dash)
+                    ("helm-github-stars" . helm-github-stars)
+                    ("helm-chrome-bookmarks" . helm-chrome-bookmarks)
+                    ("helm-bibtex" . helm-bibtex)
+                    ("gscholar-bibtex" . gscholar-bibtex)
+                    ("helm-google-suggest" . helm-google-suggest)))
+
+(setq org-ref-bibliography-notes "~/Dropbox/bib/bib_notes.org")
+(setq bibtex-completion-notes-path "~/Dropbox/bib/bib_notes.org")
+(setq biblio-download-directory "~/Dropbox/bib/general")
+(setq bibtex-completion-library-path '("~/Dropbox/bib/general"
+                                       "~/Dropbox/bib/topic_tmp"))
+(setq gscholar-bibtex-database-file yxl-env-bib)
+;; --------
+;; General
+;; --------
 ;; emacs general
 (setq-default menu-bar-mode nil)
 (setq scroll-margin 1)
@@ -128,7 +201,14 @@
 (setq imenu-list-focus-after-activation nil)
 
 ;; --------
+;; Bibliography
+;; --------
+(setq org-ref-default-bibliography yxl-env-bib)
+(setq bibtex-completion-bibliography yxl-env-bib)
+
+;; --------
 ;; misc configs
+;; TODO: need to clean this up
 ;; --------
 (setq-default bookmark-default-file "~/Dropbox/inbox/helm-bookmark")
 

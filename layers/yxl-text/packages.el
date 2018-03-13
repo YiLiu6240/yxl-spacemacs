@@ -77,17 +77,10 @@
         "om" #'magic-latex-buffer))))
 
 (defun yxl-text/post-init-org-ref ()
-  (setq org-ref-default-bibliography yxl-file-bib)
   (setq org-ref-pdf-directory nil)
-  (setq org-ref-bibliography-notes "~/Dropbox/bib/bib_notes.org")
-  (setq bibtex-completion-bibliography yxl-file-bib)
   (setq bibtex-completion-cite-prompt-for-optional-arguments nil)
   (setq bibtex-completion-cite-default-command "citet")
   (setq bibtex-completion-cite-default-as-initial-input t)
-  (setq bibtex-completion-notes-path "~/Dropbox/bib/bib_notes.org")
-  (setq biblio-download-directory "~/Dropbox/bib/general")
-  (setq bibtex-completion-library-path '("~/Dropbox/bib/general"
-                                         "~/Dropbox/bib/topic_tmp"))
   (setq helm-bibtex-full-frame nil)
   (setq bibtex-completion-additional-search-fields '(keywords author title year journal chapter booktitle))
   (setq bibtex-completion-display-formats
@@ -107,8 +100,7 @@
       (setq gscholar-bibtex-default-source "Google Scholar")
       (gscholar-bibtex-source-on-off :off "IEEE Xplore")
       (gscholar-bibtex-source-on-off :off "ACM Digital Library")
-      (gscholar-bibtex-source-on-off :off "DBLP")
-      (setq gscholar-bibtex-database-file yxl-file-bib))))
+      (gscholar-bibtex-source-on-off :off "DBLP"))))
 
 (defun yxl-text/post-init-markdown-mode ()
   (with-eval-after-load 'markdown-mode

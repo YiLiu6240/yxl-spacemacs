@@ -36,8 +36,3 @@ Accepts C-u arg to delete all other windows."
     (when (equal fm 'maximized)
       (toggle-frame-maximized))
     (powerline-reset)))
-
-(defun yxl-utils/goto-note-local ()
-  ""
-  (interactive)
-  (find-file yxl-file-note-local))

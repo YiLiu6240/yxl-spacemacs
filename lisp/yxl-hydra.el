@@ -96,7 +96,6 @@ Hotspot:
  | [_oa_]: Org: agenda: life        | [_gs_]: Helm: my local/web shortcuts|
  | [_oA_]: Org: agenda: work        | ^^                                  |
  | [_ol_]: Org: log                 | [_gr_]: Helm: my reading list       |
- | [_oo_]: Org: project view        | ^^                                  |
  | [_oO_]: Org: open all files      | ^^                                  |
 
  | [_ia_]: append: to *scratch*     | ^^                                  |
@@ -112,15 +111,15 @@ Hotspot:
   ;; - 0 - 5: open them in "sidebar"
   ;; - C-u / Meta + 0 - 5: open them in current window
   ;; - Shift + 0 - 5: open them in bottom popup
-  ("0" (yxl-find-file-popup yxl-file-org-checkbox))
-  ("M-0" (find-file yxl-file-org-checkbox))
-  ("1" (yxl-find-file-popup yxl-file-org-todo))
-  ("M-1" (find-file yxl-file-org-todo))
-  (")" (popwin:popup-buffer (find-file-noselect yxl-file-org-checkbox)
+  ("0" (yxl-find-file-popup yxl-env-org-checkbox))
+  ("M-0" (find-file yxl-env-org-checkbox))
+  ("1" (yxl-find-file-popup yxl-env-org-todo))
+  ("M-1" (find-file yxl-env-org-todo))
+  (")" (popwin:popup-buffer (find-file-noselect yxl-env-org-checkbox)
                             :stick t
                             :height 0.4
                             :position 'bottom))
-  ("!" (popwin:popup-buffer (find-file-noselect yxl-file-org-todo)
+  ("!" (popwin:popup-buffer (find-file-noselect yxl-env-org-todo)
                             :stick t
                             :height 0.4
                             :position 'bottom))
@@ -128,7 +127,6 @@ Hotspot:
   ("ck" cfw-open-calendar)
 
   ("cc" org-capture)
-  ("oo" yxl-env-project-view)
   ("oO" yxl-org-open-all-task-files)
   ("oa" my-org-agenda-life)
   ("oA" my-org-agenda-work)
@@ -139,7 +137,7 @@ Hotspot:
   ("gs" yxl-helm-shortcuts)
   ("gr" yxl-helm-reading-list)
 
-  ("is" (yxl-append-to-scratch yxl-file-org-checkbox))
+  ("is" (yxl-append-to-scratch yxl-env-org-checkbox))
   ("ia" yxl-append-to-scratch))
 
 (defhydra yxl-hydra-system (:color blue :hint nil
@@ -302,7 +300,7 @@ Files
                    (let ((path (car x))
                          (key (cdr x)))
                      (list key (append '(yxl-find-file-stay) (list path)) path)))
-                 yxl-env-files-alist)
+                 yxl-env-freq-files-alist)
        ("." (ivy-read "Files: "
                       yxl-env-freq-files-alist
                       :action (lambda (x) (yxl-find-file-stay (car x))))

@@ -3,7 +3,6 @@
 
 
 
-;; NOTE: Org variables are dependent on variables set in "yxl-env.el"
 (setq org-todo-keywords
       '((sequence
          "INBOX(i)"   ; ideas, undecided
@@ -33,13 +32,6 @@
         ("ISSUES") ("HAVE_A_LOOK") ("THINK") ("REFACTOR")
         (:endgroup . nil)))
 
-(setq org-capture-templates
-      '(("c" "checkbox: inbox" checkitem (file+headline yxl-file-org-checkbox "Checkbox")
-         "-  %?\n")
-        ("t" "checkbox: todo" checkitem (file+headline yxl-file-org-checkbox "Checkbox")
-         "- [ ]  %?\n")
-        ("i" "general: inbox" entry (file+headline yxl-file-org-todo "Capture")
-         "* INBOX %?\n  %i\n")))
 
 
 (setq org-todo-keyword-faces

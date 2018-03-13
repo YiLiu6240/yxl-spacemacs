@@ -118,23 +118,7 @@
      calfw
      ov-highlighter
      yxl-pdf-tools
-     (yxl-utils :variables
-                yxl-ia-list '(("calendar" . calendar)
-                              ("counsel-books" . counsel-books)
-                              ("hackernews" . hackernews)
-                              ("org-agenda" . org-agenda)
-                              ("org-capture" . org-capture)
-                              ("w3m" . w3m)
-                              ("cfw-calendar" . cfw-calendar)
-                              ("rss: elfeed" . elfeed)
-                              ("note: deft" . spacemacs/deft)
-                              ("email: mu4e" . mu4e)
-                              ("counsel-dash" . counsel-dash)
-                              ("helm-github-stars" . helm-github-stars)
-                              ("helm-chrome-bookmarks" . helm-chrome-bookmarks)
-                              ("helm-bibtex" . helm-bibtex)
-                              ("gscholar-bibtex" . gscholar-bibtex)
-                              ("helm-google-suggest" . helm-google-suggest)))
+     (yxl-utils)
      yxl-edit
      (yxl-clojure)
      yxl-evil
@@ -156,17 +140,8 @@
                                         (ipython . t)
                                         (scala . t)))
      yxl-web
-     (yxl-completion :variables
-                     helm-github-stars-username "YiLiu6240"
-                     yxl-hhs-org-files org-agenda-files
-                     yxl-hhs-file-local-list
-                     "~/Dropbox/inbox/yxl-sites-local.txt"
-                     yxl-hhs-file-web-list
-                     "~/Dropbox/inbox/yxl-sites-web.txt"
-                     yxl-hhs-file-reading-list-local
-                     "~/Dropbox/inbox/yxl-reading-list-files.txt"
-                     yxl-hhs-file-reading-list-webpages
-                     "~/Dropbox/inbox/yxl-reading-list-webpages.txt")
+     (yxl-completion)
+
      yxl-ui
      (yxl-email :packages
                 (not mu4e-alert)
@@ -257,6 +232,9 @@
    dotspacemacs-whitespace-cleanup 'trailing))
 
 (defun dotspacemacs/user-init ()
+  (setq yxl-path-dotfiles "~/dotfiles/")
+  (setq yxl-path-personal "~/dotfiles/personal/")
+  (setq org-directory "~/Dropbox/org/")
   ;; load path
   ;; Project structure:
   ;; - config: ideally only configuration code, i.e. no defun

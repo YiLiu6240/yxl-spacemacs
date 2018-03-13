@@ -42,7 +42,7 @@
     :after (org)
     :config
     (progn
-      (setq yxl-org-task-files yxl-env-org-files))))
+      (setq yxl-org-task-files org-agenda-files))))
 
 (defun yxl-org/init-org-goodies ()
   (use-package org-goodies
@@ -77,7 +77,6 @@
     :defer t
     :config
     (progn
-      (setq ivy-todo-file (expand-file-name "checkbox.org" yxl-path-org))
       (setq ivy-todo-guess-list nil)
       (setq ivy-todo-headline '("quick-todo"
                                 "inbox"))
@@ -99,10 +98,6 @@
     :config
     (progn
       (require 'helm)
-      (setq org-recipes-file-list
-            (directory-files (expand-file-name (concat yxl-path-org
-                                                       "recipes/"))
-                             t "^.+\\.org"))
       (defun org-recipes-goto-recipe ()
         (interactive)
         (with-helm-alive-p
@@ -121,8 +116,4 @@
       (define-key org-recipes-map
         (kbd "C-o") #'org-recipes-goto-recipe-below)
       (define-key org-recipes-map
-        (kbd "RET") #'org-recipes-insert)
-      ;; HACK workaround a bug in org-recipes
-      (setq org-wiki-location
-            (expand-file-name (concat yxl-path-org
-                                      "recipes/"))))))
+        (kbd "RET") #'org-recipes-insert))))

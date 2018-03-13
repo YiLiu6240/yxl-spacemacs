@@ -18,7 +18,7 @@
 
 (defun yxl-buffer-org-checkbox ()
   (interactive)
-  (find-file yxl-file-org-checkbox))
+  (find-file yxl-env-org-checkbox))
 
 (defun yxl-buffer-sticky-i3-window (file)
   "Visit a indirect buffer of FILE as a sticky i3 window.
@@ -38,19 +38,19 @@ one normal buffer."
 
 (defun yxl-buffer-org-todo ()
   (interactive)
-  (find-file yxl-file-org-todo))
+  (find-file yxl-env-org-todo))
 
 (defun yxl-buffer-org-log ()
   (interactive)
-  (find-file yxl-file-org-log))
+  (find-file yxl-env-org-log))
 
 (defun yxl-buffer-note-local ()
   (interactive)
-  (find-file yxl-file-note-local))
+  (find-file yxl-env-note-local))
 
 (defun yxl-buffer-note-sync ()
   (interactive)
-  (find-file yxl-file-note-sync))
+  (find-file yxl-env-note-sync))
 
 (defun spacemacs/find-dotfile-follow-symlink ()
   "Edit the `dotfile', in the current window."
@@ -113,3 +113,15 @@ https://github.com/zachcurry/emacs-anywhere/blob/master/emacs_anywhere.el"
       (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
     (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
   (message "magit-display-buffer-function %s" magit-display-buffer-function))
+
+(defun my-org-log ()
+  (interactive)
+  (find-file yxl-env-org-log)
+  (visual-fill-column-mode t)
+  (setq visual-fill-column-center-text t))
+
+(defun yxl-org-refile-to-scratch ()
+  (interactive)
+  (let ((org-refile-targets '((yxl-env-org-checkbox :maxlevel . 1)
+                              (nil :maxlevel . 1))))
+    (org-refile)))

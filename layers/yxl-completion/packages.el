@@ -110,10 +110,7 @@
     :commands (yxl-ivy-push-view
                yxl-ivy-views-load
                yxl-ivy-views-save
-               yxl-ivy-views-switch)
-    :config
-    (progn
-      (setq yxl-ivy-views-storage-location yxl-file-ivy-views))))
+               yxl-ivy-views-switch)))
 
 (defun yxl-completion/init-yxl-helm-pdf-occur ()
   (use-package yxl-helm-pdf-occur

@@ -1,29 +1,3 @@
-;; ;; TODO: move the find related functions to yxl, or to new layer yxl-proj
-;; (defun yxl-text/find-TeX-master ()
-;;   "in order to set TeX-master, create a `.dir-locals.el' which contains
-;; in the project root directory. "
-;;   (interactive)
-;;   ;; TODO: should detect if TeX-master is a string
-;;   (if (not (eq t TeX-master))
-;;       (find-file TeX-master)
-;;     (message "TeX-master not set")))
-
-;; (defun yxl-text/find-project-outline ()
-;;   (interactive)
-;;   (if (not (eq nil yxl-text-outline-file))
-;;       (find-file yxl-text-outline-file)
-;;     (yxl-text/find-TeX-master)))
-
-;; (defun yxl-text/find-project-root ()
-;;   "goto these location in order:
-;; master-dir, projectile-project-root, ~/Downloads"
-;;   (interactive)
-;;   (if (not (eq nil master-dir))
-;;       (find-file master-dir)
-;;     (if (not (eq nil (projectile-project-root)))
-;;         (find-file (projectile-project-root))
-;;       (find-file yxl-path-local))))
-
 (defun yxl-text/highlight-todos ()
   ;; hl-todo-mode only highlights in comments
   ;; this is useful in main text

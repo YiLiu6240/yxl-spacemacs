@@ -81,7 +81,7 @@
     "otl" #'org-toggle-link-display
     "otm" #'org-toggle-latex-fragment
     "r" #'yxl-org-refile-visible
-    "R" #'yxl-org/refile-to-scratch
+    "R" #'yxl-org-refile-to-scratch
     "C-." #'org-time-stamp
     "." #'yxl-org/general-hydra/body)
   (spacemacs/declare-prefix-for-mode 'org-mode "b" "src-block")

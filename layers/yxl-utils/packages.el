@@ -40,22 +40,7 @@
                yxl-project-shell-popup
                yxl-project-cite
                yxl-project-select
-               yxl-project-popup)
-    :config
-    (progn
-      (setq yxl-project-list `(,yxl-path-dotfiles
-                               ,yxl-path-downloads
-                               "~/.emacs.d"
-                               ,yxl-path-local
-                               ,yxl-path-sync
-                               ,yxl-path-projects
-                               ,yxl-path-org
-                               ,yxl-path-code-pwd
-                               ,yxl-path-paper-pwd
-                               ,yxl-path-journal-pwd
-                               ,yxl-path-book-reference
-                               ,(concat yxl-path-local "yxl_datascience")))
-      (setq yxl-project-todo-global yxl-file-org-todo))))
+               yxl-project-popup)))
 
 (defun yxl-utils/init-yxl-window ()
   (use-package yxl-window))

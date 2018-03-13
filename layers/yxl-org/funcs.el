@@ -7,23 +7,11 @@
   (interactive)
   (org-agenda nil "0"))
 
-(defun my-org-log ()
-  (interactive)
-  (find-file yxl-file-org-log)
-  (visual-fill-column-mode t)
-  (setq visual-fill-column-center-text t))
-
 (defun yxl-org/toggle-org-src-fontify-natively ()
   "Toggle `org-src-fontify-natively'. Remember to reload the related buffer(s)."
   (interactive)
   (setq org-src-fontify-natively (not org-src-fontify-natively))
   (message (format "org-src-fontify-natively: %s" org-src-fontify-natively)))
-
-(defun yxl-org/refile-to-scratch ()
-  (interactive)
-  (let ((org-refile-targets '((yxl-file-org-checkbox :maxlevel . 1)
-                              (nil :maxlevel . 1))))
-    (org-refile)))
 
 (defun yxl-org/insert-source-block ()
   "Insert an org source block.
@@ -59,7 +47,6 @@ overridden by a prefix arg)."
   (org-todo-list))
 
 (defun yxl-org/setup-general ()
-  (setq org-directory 'yxl-path-org)
   ;; disable middle split
   (setq org-M-RET-may-split-line nil)
   ;; org title bullets
@@ -85,8 +72,6 @@ overridden by a prefix arg)."
   (setq org-fontify-whole-heading-line t)
   (setq org-fontify-quote-and-verse-blocks t)
   (setq org-refile-use-outline-path t)
-  (setq org-refile-targets '((nil :maxlevel . 1)
-                             (yxl-env-org-task-files :maxlevel . 1)))
   (setq org-enforce-todo-checkbox-dependencies t)
   (setq org-enforce-todo-dependencies t)
   (setq org-cycle-separator-lines 1)
@@ -131,8 +116,6 @@ overridden by a prefix arg)."
 
 (defun yxl-org/setup-agenda ()
   ;; agenda file
-  (setq org-agenda-files (append yxl-env-org-files
-                                 (directory-files "~/local-repo" t)))
   ;; agenda view: 1 month
   (setq org-agenda-span 'week)
   (setq org-agenda-format-date 'yxl-org-agenda-format-date-aligned)

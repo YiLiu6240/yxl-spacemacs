@@ -5,4 +5,4 @@
               (find-file "~/Downloads/")))
 
 ;; Simply load the most frequently used org file
-(find-file yxl-file-org-checkbox)
+(find-file yxl-env-org-checkbox)

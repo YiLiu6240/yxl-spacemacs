@@ -1,4 +1,3 @@
-;; Formal variable def
 (defvar yxl-env-freq-projects-alist '()
   "Project paths.
 Alist in the form of (PATH . key) as (\"~/Downloads\" . \"D\")
@@ -9,86 +8,20 @@ to be pass to `yxl-hydra-projects'")
 Alist of the same format to `yxl-env-freq-projects-alist'
 to be passed to `yxl-hydra-files.'")
 
-;; Informal variable def
+(defvar yxl-env-org-todo nil
+  "Master todo file.")
 
-(setq yxl-path-dotfiles "~/dotfiles/")
-(setq yxl-path-sync "~/Dropbox/")  ;; sync location for repos
-(setq yxl-path-local "~/local-repo/")  ;; local location for repos
-(setq yxl-path-personal "~/dotfiles/personal/")  ;; location for personal files
-(setq yxl-path-downloads "~/Downloads/")
-(setq yxl-path-org "~/Dropbox/org/")
-(setq yxl-path-org-task "~/Dropbox/org/tasks/")
-(setq yxl-path-projects (concat yxl-path-local "yxl_projects"))
+(defvar yxl-env-org-checkbox nil
+  "Master checkbox file.")
 
-(setq yxl-path-code-pwd (concat yxl-path-local "c3_pwd/"))
-(setq yxl-path-code-master-pwd (concat yxl-path-local "yxl_ctw_code/"))
-(setq yxl-path-paper-pwd (concat yxl-path-local "yxl_ctw_paper/"))
-(setq yxl-path-journal-pwd (concat yxl-path-sync "journal_yxl/ctw"))
-(setq yxl-path-journal-more-pwd (concat yxl-path-sync "journal_yxl"))
+(defvar yxl-env-org-log nil
+  "Master log file.")
 
-(setq yxl-path-book-reference (concat yxl-path-sync "books-text"))
+(defvar yxl-env-bib nil
+  "Master bibliography file.")
 
-(setq yxl-file-bib (concat yxl-path-paper-pwd "yxl_bib/yxl_bib_master.bib"))
-(setq yxl-file-note-sync "~/Dropbox/org/note.org")
-(setq yxl-file-note-local "~/local-repo/local-notes.org")
-(setq yxl-file-sites-local (concat yxl-path-sync
-                                          "inbox/yxl-sites-local.txt"))
-(setq yxl-file-sites-web (concat yxl-path-sync
-                                 "inbox/yxl-sites-web.txt"))
-(setq yxl-file-reading-list-files (concat yxl-path-sync
-                                          "inbox/yxl-reading-list-files.txt"))
-(setq yxl-file-reading-list-webpages (concat yxl-path-sync
-                                             "inbox/yxl-reading-list-webpages.txt"))
+(defvar yxl-env-note-local nil
+  "Local note file.")
 
-(setq yxl-file-ivy-views (concat yxl-path-sync "inbox/yxl-ivy-views.txt"))
-
-(setq yxl-file-org-todo (concat yxl-path-org-task "todo.org"))
-(setq yxl-file-org-log (concat yxl-path-org "logs/logs-master.org"))
-(setq yxl-file-org-checkbox (concat yxl-path-org-task "checkbox.org"))
-
-(setq yxl-env-org-task-files (list yxl-file-org-checkbox
-                                   yxl-file-org-todo))
-(setq yxl-env-project-files
-      (append
-       (directory-files (concat yxl-path-org "projects/")
-                        t "^proj_.+\\.org")
-       ;; only find files that begins with "log_"
-       (directory-files (concat yxl-path-org "logs/")
-                        t "^log_.+\\.org")))
-(setq yxl-env-org-files (append yxl-env-org-task-files
-                                yxl-env-project-files))
-(setq org-agenda-files yxl-env-org-files)
-(setq yxl-hhs-org-files yxl-env-org-files)
-
-(setq yxl-ia-list '(("calendar" . calendar)
-                    ("org-agenda" . org-agenda)
-                    ("org-capture" . org-capture)
-                    ("w3m" . w3m)
-                    ("cfw-calendar" . cfw-calendar)
-                    ("rss: elfeed" . elfeed)
-                    ("note: deft" . spacemacs/deft)
-                    ("email: mu4e" . mu4e)
-                    ("my-org-log" . my-org-log)
-                    ("my-org-checkbox" .
-                     (lambda () (find-file yxl-file-org-checkbox)))
-                    ("my-org-todo" .
-                     (lambda () (find-file yxl-file-org-todo)))
-                    ("counsel-dash" . counsel-dash)
-                    ("helm-github-stars" . helm-github-stars)
-                    ("helm-chrome-bookmarks" . helm-chrome-bookmarks)
-                    ("helm-bibtex" . helm-bibtex)
-                    ("gscholar-bibtex" . gscholar-bibtex)
-                    ("helm-google-suggest" . helm-google-suggest)))
-
-(defun yxl-env-project-view (&optional same-frame side-width)
-  (interactive)
-  (unless same-frame
-    (make-frame))
-  (delete-other-windows)
-  ;; open main org files
-  (yxl-find-file-open-all yxl-env-project-files)
-  ;; open scratch as sidebar
-  (yxl-find-file-popup yxl-file-org-todo side-width)
-  (split-window-below-and-focus)
-  (find-file yxl-file-org-checkbox)
-  (evil-window-right 1))
+(defvar yxl-env-note-sync nil
+  "Synchronised note file.")
