@@ -1,5 +1,5 @@
 ;; --------
-;; Personal configs
+;; Personal variable configs
 ;; --------
 (setq yxl-env-org-todo (concat org-directory "tasks/todo.org"))
 (setq yxl-env-org-log (concat org-directory "logs/logs-master.org"))
@@ -68,6 +68,8 @@
 (setq bibtex-completion-library-path '("~/Dropbox/bib/general"
                                        "~/Dropbox/bib/topic_tmp"))
 (setq gscholar-bibtex-database-file yxl-env-bib)
+(setq-default bookmark-default-file "~/Dropbox/inbox/helm-bookmark")
+
 ;; --------
 ;; General
 ;; --------
@@ -86,23 +88,22 @@
 (setq-default fci-rule-color (face-attribute 'highlight :background))
 (setq neo-window-width 20)
 
+;; --------
 ;; evil escape
+;; --------
 (setq-default evil-escape-key-sequence "jk")
 ;; only use "jk" in insert state
-(setq-default evil-escape-excluded-states '(visual
-                                            evilified
-                                            normal
-                                            motion
-                                            emacs
-                                            replace
-                                            hybrid
-                                            lisp
-                                            iedit
-                                            iedit-insert))
+(setq-default evil-escape-excluded-states
+              '(visual evilified
+                normal motion
+                emacs replace hybrid
+                lisp iedit iedit-insert))
 (setq-default evil-escape-delay 1)
 (setq-default evil-escape-excluded-major-modes '(magit-mode))
 
+;; --------
 ;; yas
+;; --------
 (add-to-list 'yas-snippet-dirs (expand-file-name "snippets" dotspacemacs-directory))
 
 ;; indent
@@ -110,20 +111,15 @@
 (setq-default evil-shift-width 4)
 (setq-default indent-tabs-mode nil)
 
-;; mode list
+;; --------
+;; auto mode list
+;; --------
 (add-to-list 'auto-mode-alist '("\\.todo$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.inbox$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.Rmd$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.tex$" . latex-mode))
 (add-to-list 'auto-mode-alist '("\\.sublime-settings$" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.sublime-keymap$" . json-mode))
-
-;; (which-function-mode 1)
-(setq which-func-unknown "--")
-
-;; misc stuff
-(setq-default require-final-newline t)
-(setq-default auto-revert-interval 60)
 
 ;; display-buffer-alist
 (add-to-list 'display-buffer-alist '("\\*R" display-buffer-same-window))
@@ -147,10 +143,6 @@
 ;;   (add-hook 'snippet-mode-hook
 ;;             (lambda ()
 ;;               (setq mode-require-final-newline nil))))
-
-;; ;; deft
-;; (setq deft-extensions '("md" "txt" "org"))
-;; (setq deft-directory "~/Dropbox/notes")
 
 ;; spacemacs buffer
 (add-hook 'spacemacs-buffer-mode-hook
@@ -207,10 +199,12 @@
 (setq bibtex-completion-bibliography yxl-env-bib)
 
 ;; --------
-;; misc configs
+;; Misc. configs
 ;; TODO: need to clean this up
 ;; --------
-(setq-default bookmark-default-file "~/Dropbox/inbox/helm-bookmark")
+;; misc stuff
+(setq-default require-final-newline t)
+(setq-default auto-revert-interval 60)
 
 ;; tramp bug, from zilongshanren
 (setq-default tramp-ssh-controlmaster-options
@@ -228,6 +222,9 @@
 
 ;; force prefer-coding-system
 (prefer-coding-system 'utf-8-unix)
+
+;; (which-function-mode 1)
+(setq which-func-unknown "--")
 
 (evilified-state-evilify-map special-mode-map
   :mode special-mode)

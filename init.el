@@ -8,22 +8,17 @@
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-additional-packages '()
    dotspacemacs-frozen-packages '()
-   dotspacemacs-excluded-packages `(persp-mode
-                                    smooth-scrolling
-                                    spaceline
-                                    window-numbering
-                                    winum
-                                    org-bullets
-                                    tern
-                                    ess-smart-equals
-                                    wolfram-mode
-                                    vi-tilde-fringe
-                                    ,(when (spacemacs/system-is-mswindows)
-                                       'projectile)
-                                    ;; open-junk-file is buggy and we never use it
-                                    ,(when (spacemacs/system-is-mswindows)
-                                       'projectile)
-                                    open-junk-file)
+   dotspacemacs-excluded-packages
+   `(persp-mode smooth-scrolling spaceline
+     window-numbering winum org-bullets
+     tern ess-smart-equals wolfram-mode
+     vi-tilde-fringe
+     ,(when (spacemacs/system-is-mswindows)
+        'projectile)
+     ;; open-junk-file is buggy and we never use it
+     ,(when (spacemacs/system-is-mswindows)
+        'projectile)
+     open-junk-file)
    dotspacemacs-install-packages 'used-but-keep-unused
    dotspacemacs-configuration-layers
    `(yxl-spacemacs
@@ -76,8 +71,6 @@
 
      ;; editing
      (vinegar :packages (not dired))
-     ;; (evil-snipe :variables
-     ;;             evil-snipe-enable-alternate-f-and-t-behaviors t)
 
      ;; major util modes
      (spell-checking :variables
@@ -93,7 +86,7 @@
                       auto-completion-enable-sort-by-usage nil
                       ;; completion tool tip, nil, buggy in evil
                       auto-completion-enable-help-tooltip nil
-                      :disabled-for  ; layer name
+                      :disabled-for     ; layer name
                       org
                       markdown)
      ,(unless (spacemacs/system-is-mswindows)
@@ -247,8 +240,10 @@
   (add-to-list 'load-path (concat dotspacemacs-directory "theme/yxl-theme"))
   (add-to-list 'load-path (concat dotspacemacs-directory "theme/yxl-airline"))
   (add-to-list 'load-path (concat dotspacemacs-directory "theme/yxl-airline-theme"))
-  (add-to-list 'custom-theme-load-path (concat dotspacemacs-directory "theme/yxl-theme"))
-  (add-to-list 'custom-theme-load-path (concat dotspacemacs-directory "theme/yxl-airline-theme"))
+  (add-to-list 'custom-theme-load-path
+               (concat dotspacemacs-directory "theme/yxl-theme"))
+  (add-to-list 'custom-theme-load-path
+               (concat dotspacemacs-directory "theme/yxl-airline-theme"))
   ;; my env
   (load-file (concat dotspacemacs-directory "config/yxl-env.el"))
   (add-to-list 'load-path (concat yxl-path-dotfiles "yxl-emacs-goodies"))
