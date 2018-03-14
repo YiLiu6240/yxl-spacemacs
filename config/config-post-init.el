@@ -14,7 +14,7 @@
                         t "^proj_.+\\.org")
        (directory-files (concat org-directory "logs/")
                         t "^log_.+\\.org")
-       (directory-files "~/local-repo" t)))
+       (directory-files "~/local-repo" t ".org")))
 
 (setq ivy-todo-file "~/Dropbox/org/tasks/todo.org")
 ;; HACK workaround a bug in org-recipes

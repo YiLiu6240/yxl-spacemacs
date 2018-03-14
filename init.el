@@ -251,7 +251,6 @@
   ;; init stage config
   (load-file (concat dotspacemacs-directory "config/config-init.el"))
   (load-file (concat dotspacemacs-directory "config/hack.el"))
-  ;; (load-file (concat dotspacemacs-directory "config/yxl-spacemacs-home.el"))
   (load-file (concat yxl-path-personal "yxl-personal.el"))
   ;; custom.el
   (setq-default custom-file (expand-file-name "custom.el" dotspacemacs-directory))
