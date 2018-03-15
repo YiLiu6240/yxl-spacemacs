@@ -6,16 +6,25 @@ url: https://github.com/mkaito/base16-emacs")
 (defun yxl-airline-theme-set-colors ()
   ;; based on gruvbox
   ;; TODO: set these colors according to the current theme fg/bg colors?
-  (let* ((light-p (eq frame-background-mode 'light))                ; default to a dark theme
-         (color-active-fg (if light-p "#504945" "#d5c4a1")) ;; active modeline fg, should be dimmer than default fg
-         (color-inactive-fg (if light-p "#928374" "#928374")) ;; inactive modeline fg, even dimmer
-         (color-bg (if light-p "#bdae93" "#32302f")) ;; modeline bg, should be lighter than default bg
-         (color-bg-alt (if light-p "#928374" "#504945")) ;; modeline bg, a more "highlighted" version
-         (color-border (if light-p "#504945" "#504945")) ;; border color for the modeline
+  (let* ((light-p (eq frame-background-mode 'light))
+         ;; active modeline fg, should be dimmer than default fg
+         (color-active-fg (if light-p "#504945" "#d5c4a1"))
+         ;; inactive modeline fg, even dimmer
+         (color-inactive-fg (if light-p "#928374" "#928374"))
+         ;; modeline bg, should be lighter than default bg
+         (color-bg (if light-p "#bdae93" "#32302f"))
+         ;; modeline bg, a more "highlighted" version
+         (color-bg-alt (if light-p "#928374" "#504945"))
+         ;; border color for the modeline
+         (color-border (if light-p "#504945" "#504945"))
          ;; color when the specified evil state is active
-         (color-state-fg (if light-p "#ebdbb2" "#ebdbb2")) ;; general state fg
+         ;; general state fg
+         (color-state-fg (if light-p "#ebdbb2" "#ebdbb2"))
          (color-normal-bg (if light-p "#7c6f64" "#7c6f64"))
-         (color-evilified-bg (if light-p "#d65d0e" "#fe8019"))
+         ;; principle:
+         ;; evilified should have a slightly lighter bg than normal bg in dark scheme
+         ;;            darker bg in light scheme
+         (color-evilified-bg (if light-p "#504945" "#a89984"))
          (color-insert-bg (if light-p "#427b58" "#427b58"))
          (color-visual-bg (if light-p "#af3a03" "#af3a03"))
          (color-replace-bg (if light-p "#cc241d" "#cc241d"))
