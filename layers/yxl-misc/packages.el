@@ -1,5 +1,17 @@
+;;; yxl-misc/packages.el --- Layer for miscellaneous packages.
+
+;;; Commentary:
+
+;; Miscellaneous packages:
+;; - nov
+;; - counsel-books
+;; - el2markdown
+
+;;; Code:
+
 (setq yxl-misc-packages '(nov
-                          (counsel-books :location local)))
+                          (counsel-books :location local)
+                          el2markdown))
 
 (defun yxl-misc/init-nov ()
   (use-package nov
@@ -43,3 +55,7 @@
     (progn
       (spacemacs/set-leader-keys
         "ab" #'counsel-books))))
+
+(defun yxl-misc/init-el2markdown ()
+  (use-package el2markdown
+    :defer t))

@@ -8,7 +8,6 @@
                            (scratch-pop :location site)
                            visual-fill-column
                            (yxl-invoke-applications :location site)
-                           el2org
                            emamux
                            focus
                            helpful
@@ -193,10 +192,6 @@
 
 (defun yxl-utils/init-yxl-invoke-applications ()
   (use-package yxl-invoke-applications))
-
-(defun yxl-utils/init-el2org ()
-  (use-package el2org
-    :defer t))
 
 (defun yxl-utils/init-emamux ()
   (use-package emamux
