@@ -60,7 +60,8 @@
                     ("helm-chrome-bookmarks" . helm-chrome-bookmarks)
                     ("helm-bibtex" . helm-bibtex)
                     ("gscholar-bibtex" . gscholar-bibtex)
-                    ("helm-google-suggest" . helm-google-suggest)))
+                    ("helm-google-suggest" . helm-google-suggest)
+                    ("academic-phrases" . academic-phrases)))
 
 (setq org-ref-bibliography-notes "~/Dropbox/bib/bib_notes.org")
 (setq bibtex-completion-notes-path "~/Dropbox/bib/bib_notes.org")

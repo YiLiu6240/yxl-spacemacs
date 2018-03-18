@@ -9,7 +9,8 @@
                           writegood-mode
                           bing-dict
                           synonyms
-                          helm-dictionary))
+                          helm-dictionary
+                          academic-phrases))
 
 (defun yxl-text/init-text-mode ()
   (use-package text-mode
@@ -156,3 +157,7 @@
     :config
     (progn
       (setq helm-dictionary-database "~/Dropbox/dict/english-chinese.xdxf"))))
+
+(defun yxl-text/init-academic-phrases ()
+  (use-package academic-phrases
+    :defer t))
