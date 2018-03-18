@@ -11,7 +11,8 @@
                            emamux
                            focus
                            helpful
-                           define-word))
+                           define-word
+                           (hexrgb :location local)))
 
 (defun yxl-utils/init-yxl-utils ()
   (use-package yxl-utils
@@ -209,3 +210,27 @@
   (use-package define-word
     :defer t
     :init (spacemacs/set-leader-keys "xD" #'define-word)))
+
+(defun yxl-utils/init-hexrgb ()
+  (use-package hexrgb
+    :commands (hexrgb-rgb-to-hex
+               hexrgb-hex-to-rgb
+               convert-rgb-to-hex
+               convert-hex-to-rgb)
+    :config
+    (progn
+      (defun convert-rgb-to-hex (red green blue)
+        "Usage: (convert-rgb-to-hex 235 219 178) => \"#EBDBB2\""
+        (apply #'hexrgb-rgb-to-hex
+               (append
+                (mapcar
+                 (lambda (x)
+                   (/ (float x) (float 255)))
+                 (list red green blue))
+                (list 2))))
+      (defun convert-hex-to-rgb (hex)
+        "Useage (convert-hex-to-rgb \"#ebdbb2\") => c(235 219 178)"
+        (mapcar
+         (lambda (x)
+           (round (* (float x) (float 255))))
+         (hexrgb-hex-to-rgb hex))))))
