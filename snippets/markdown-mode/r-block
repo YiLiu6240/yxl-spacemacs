@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: r-block
-# --
-\`\`\`{r}
-$0
-\`\`\`

@@ -1,4 +1,0 @@
-# -*- mode: snippet -*-
-# name: src-header
-# --
-#+property: src-header ${1:language} :session :results output drawer

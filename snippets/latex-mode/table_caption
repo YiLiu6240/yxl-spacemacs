@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: table caption
-# key: tcap
-# --
-\caption[${1:title}]{%
-  \textbf{$1} \\
-  \footnotesize{
-    ${2:descption}
-  }}

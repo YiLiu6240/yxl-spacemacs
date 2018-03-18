@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: subscript and superscript
-# key: s
-# binding: C-c C-/
-# --
-_{$1}^{$2}
