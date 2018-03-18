@@ -1,8 +1,6 @@
 ;; mac: use super+3 as "#"
 (global-set-key (kbd "s-3") (lambda () (interactive) (insert "#")))
 (global-set-key (kbd "C-S-p") #'counsel-M-x)
-(global-set-key (kbd "C-S-o") #'company-yasnippet)
-(global-set-key (kbd "C-S-y") #'yas-insert-snippet)
 (global-set-key (kbd "C-h") #'delete-backward-char)
 (global-set-key (kbd "M-q") #'spacemacs/toggle-truncate-lines)
 
@@ -46,8 +44,8 @@
   "fY" #'yxl-show-and-copy-buffer-filename-in-projectile
   "fO" #'spacemacs/open-file-or-directory-in-external-app ; with C-u open in desktop
   "fo" #'yxl-open-file-external
-  "fp" #'counsel-projectile-find-file   ; respects .projectile subprojects
-  "fP" #'counsel-git                    ; treats the git repo as the whole porject
+  "fp" #'counsel-projectile-find-file ; respects .projectile subprojects
+  "fP" #'counsel-git                  ; treats the git repo as the whole porject
   "f C-p" #'find-file-in-project-truename ; does not respect gitignore, thus can find ignored files
   "bY" #'yxl-buffer-store-name
   "bP" #'yxl-buffer-visit-stored-buffer
@@ -56,6 +54,8 @@
   "i <SPC>" #'yxl-evil-insert-newline-around
   "ii" #'yxl-evil-insert-space
   "ia" #'yxl-evil-apend-space
+  "is" #'yas-insert-snippet
+  "i <tab>" #'company-complete
   "jj" #'evil-avy-goto-char-2
   "l" #'spacemacs/workspaces-transient-state/body
   "LY" #'yxl-workspace/record-config

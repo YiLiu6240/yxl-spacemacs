@@ -105,7 +105,7 @@
 ;; --------
 ;; yas
 ;; --------
-(add-to-list 'yas-snippet-dirs (expand-file-name "snippets" dotspacemacs-directory))
+(add-to-list 'yas-snippet-dirs "~/dotfiles/yasnippets")
 
 ;; indent
 (setq-default tab-width 4)
