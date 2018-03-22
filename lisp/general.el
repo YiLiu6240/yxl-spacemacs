@@ -98,3 +98,8 @@ https://github.com/zachcurry/emacs-anywhere/blob/master/emacs_anywhere.el"
   (let ((org-refile-targets '((yxl-env-org-checkbox :maxlevel . 1)
                               (nil :maxlevel . 1))))
     (org-refile)))
+
+(defun transform-square-brackets-to-round-ones(string-to-transform)
+  "Transforms [ into ( and ] into ), other chars left unchanged."
+  (concat
+   (mapcar #'(lambda (c) (if (equal c ?[ ?\( (if (equal c ?) ?\) c) string-to-transform]))))))

@@ -31,7 +31,11 @@
         ("t" "checkbox: todo" checkitem (file+headline yxl-env-org-checkbox "Checkbox")
          "- [ ]  %?\n")
         ("i" "general: inbox" entry (file+headline yxl-env-org-todo "Capture")
-         "* INBOX %?\n  %i\n")))
+         "* INBOX %?\n  %i\n")
+        ("p" "Protocol" entry (file+headline yxl-env-org-todo "Capture")
+         "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
+        ("L" "Protocol Link" entry (file+headline yxl-env-org-todo "Capture")
+         "* %? [[%:link][%(transform-square-brackets-to-round-ones \"%:description\")]]\n")))
 (setq org-refile-targets '((nil :maxlevel . 1)
                            (yxl-env-org-task-files :maxlevel . 1)))
 
