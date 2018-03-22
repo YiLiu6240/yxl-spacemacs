@@ -1,5 +1,9 @@
 (defun yxl-email/mu4e-setup-general-keybindings ()
   (global-set-key (kbd "C-x m") 'mu4e-compose-new)
+  (define-key mu4e-main-mode-map
+    "q" #'bury-buffer)
+  (define-key mu4e-main-mode-map
+    "Q" #'mu4e-quit)
   (define-key mu4e-headers-mode-map
     "o" #'mu4e-headers-view-message)
   (define-key mu4e-headers-mode-map
