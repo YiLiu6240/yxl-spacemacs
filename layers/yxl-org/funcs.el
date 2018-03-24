@@ -86,7 +86,9 @@ overridden by a prefix arg)."
                                (yxl-open-file-external path))))))
 
 (defun yxl-org/org-mode-hook ()
-  (setq evil-auto-indent nil))
+  (setq evil-auto-indent nil)
+  ;; show-smarparens-mode will freeze emacs
+  (show-smartparens-mode -1))
   ;; (setq line-spacing 4)
   ;; NOTE: buggy, disable for now
   ;; (yxl-org-format-task-files)

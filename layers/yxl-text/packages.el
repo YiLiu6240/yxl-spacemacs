@@ -109,6 +109,9 @@
     (add-hook 'markdown-mode-hook
               (lambda ()
                 (setq markdown-command "pandoc")))
+    (add-hook 'markdown-mode-hook
+              (lambda ()
+                (show-smartparens-mode -1)))
     ;; (add-hook 'markdown-mode-hook #'yxl-text/highlight-todos)
     (setq-default markdown-asymmetric-header t)
     (setq-default markdown-nested-imenu-heading-index t)
