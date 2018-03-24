@@ -6,12 +6,6 @@
   ("." nil "quit")
   ("q" nil "quit"))
 
-(defhydra yxl-hydra-access (:color blue :hint nil
-                                   :inherit (yxl-hydra-common/heads))
-  ("+" make-frame "make-frame")
-  ("-" yxl-dired-popup "dired-popup")
-  ("s" yxl-hydra-sessions/body "sessions"))
-
 (defhydra yxl-hydra-window (:color blue :hint nil
                                    :pre (setq which-key-inhibit t)
                                    :post (setq which-key-inhibit nil)
@@ -79,8 +73,7 @@ avy:
 
 (defhydra yxl-hydra-hotspot (:color blue :hint nil
                                     :pre (setq which-key-inhibit t)
-                                    :post (setq which-key-inhibit nil)
-                                    :inherit (yxl-hydra-access/heads))
+                                    :post (setq which-key-inhibit nil))
   "
 
 Hotspot:
@@ -142,8 +135,7 @@ Hotspot:
 
 (defhydra yxl-hydra-system (:color blue :hint nil
                                    :pre (setq which-key-inhibit t)
-                                   :post (setq which-key-inhibit nil)
-                                   :inherit (yxl-hydra-access/heads))
+                                   :post (setq which-key-inhibit nil))
   "
 # File:
 - location: %(if buffer-file-name buffer-file-name default-directory)
@@ -172,11 +164,14 @@ Hotspot:
  [_att_/_atd_/_atD_]: timer:start/stop/down
 "
 
+  ("." make-frame "make-frame")
   ("," #'set-frame-name "set-frame-name")
 
   ("<RET>" #'make-frame "make-frame")
   ("d" #'delete-frame  "delete-frame")
 
+  ("-" yxl-dired-popup "dired-popup")
+  ("s" yxl-hydra-sessions/body "sessions")
   ("Su" (lambda ()
           (interactive)
           (spacemacs/home)
