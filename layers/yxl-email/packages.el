@@ -2,6 +2,7 @@
       '((mu4e :location site)
         mu4e-alert
         mu4e-maildirs-extension
+        helm-mu
         org))
 
 (defun yxl-email/init-mu4e ()
@@ -90,6 +91,14 @@
     (progn
       (setq mu4e-maildirs-extension-toggle-maildir-key (kbd "<tab>"))
       (setq mu4e-maildirs-extension-default-collapse-level 0))))
+
+(defun yxl-email/init-helm-mu ()
+  (use-package helm-mu
+    :defer t
+    :config
+    (progn
+      (define-key helm-mu-map (kbd "C-w") #'spacemacs/backward-kill-word-or-region)
+      (define-key helm-mu-map (kbd "C-h") (kbd "DEL")))))
 
 (defun yxl-email/pre-init-org ()
   ;; load org-mu4e when org is actually loaded
