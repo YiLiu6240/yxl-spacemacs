@@ -107,6 +107,10 @@
      better-defaults
      imenu-list
 
+     ;; fun
+     (twitter :variables
+              twittering-use-master-password t)
+
      ;; my private layers
      calfw
      ov-highlighter
