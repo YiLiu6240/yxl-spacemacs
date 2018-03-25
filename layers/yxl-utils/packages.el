@@ -12,7 +12,8 @@
                            focus
                            helpful
                            define-word
-                           (hexrgb :location local)))
+                           (hexrgb :location local)
+                           (magit-org-todos)))
 
 (defun yxl-utils/init-yxl-utils ()
   (use-package yxl-utils
@@ -234,3 +235,12 @@
          (lambda (x)
            (round (* (float x) (float 255))))
          (hexrgb-hex-to-rgb hex))))))
+
+(defun yxl-utils/init-magit-org-todos ()
+  (use-package magit-org-todos
+    :after magit
+    :init
+    (progn
+      (setq magit-org-todos-filename "TODO.org"))
+    :config
+    (magit-org-todos-autoinsert)))
