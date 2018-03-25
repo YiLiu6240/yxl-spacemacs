@@ -65,6 +65,10 @@
     (define-key evil-motion-state-map "\\a" #'scratch-pop)
     (define-key evil-motion-state-map "\\t" #'scratch-pop-top)
 
+    ;; window
+    (define-key evil-window-map "p" #'yxl-ace-window-push-window)
+    (define-key evil-window-map "f" #'yxl-ace-window-fetch-window)
+
     ;; ex:
     ;; ":" and ";"
     (define-key evil-motion-state-map (kbd dotspacemacs-ex-command-key) 'evil-ex)
