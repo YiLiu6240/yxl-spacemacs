@@ -224,9 +224,6 @@ visual-line:
   ("vf" (if visual-fill-column-mode
             (progn (visual-fill-column-mode -1))
           (progn
-            ;; FIXME
-            ;; autoload not working in this case
-            (require 'visual-fill-column)
             (visual-fill-column-mode 1)
             (visual-line-mode 1)))
    (if (bound-and-true-p visual-fill-column-mode) "[x]" "[ ]"))

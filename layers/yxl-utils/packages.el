@@ -189,8 +189,7 @@
           (scratch-pop))))))
 
 (defun yxl-utils/init-visual-fill-column ()
-  (use-package visual-fill-column
-    :defer t))
+  (use-package visual-fill-column))
 
 (defun yxl-utils/init-yxl-invoke-applications ()
   (use-package yxl-invoke-applications))
