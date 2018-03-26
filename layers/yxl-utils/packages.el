@@ -245,4 +245,23 @@
     (progn
       (setq magit-org-todos-filename "TODO.org"))
     :config
-    (magit-org-todos-autoinsert)))
+    (progn
+      (defun magit-insert-standup-commits (&optional collapse)
+        "Insert section showing recent commits. From yesterday to today."
+        (let* ((range "--since=yesterday.midnight"))
+          (magit-insert-section (recent range collapse)
+            (magit-insert-heading "Standup")
+            (magit-insert-log range
+                              (cons (format "-n%d" magit-log-section-commit-count)
+                                    (--remove (string-prefix-p "-n" it)
+                                              magit-log-section-arguments))))))
+      (magit-add-section-hook
+       'magit-status-sections-hook
+       'magit-insert-standup-commits
+       'magit-insert-staged-changes
+       t)
+      (magit-add-section-hook
+       'magit-status-sections-hook
+       'magit-org-todos-insert-org-todos
+       'magit-insert-staged-changes
+       t))))
