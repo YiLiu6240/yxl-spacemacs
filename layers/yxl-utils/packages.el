@@ -200,7 +200,11 @@
 
 (defun yxl-utils/init-focus ()
   (use-package focus
-    :defer t))
+    :defer t
+    :config
+    (progn
+      (setq focus-mode-to-thing '((prog-mode . defun)
+                                  (text-mode . line))))))
 
 (defun yxl-utils/init-helpful ()
   (use-package helpful
