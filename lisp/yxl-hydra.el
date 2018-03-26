@@ -216,6 +216,7 @@ visual-line:
 [_vv_]: ?vv? visual-line-mode
 [_vf_]: ?vf? visual-fill-column-mode
 [_vc_]: ?vc? visual-fill-column-center-tex
+[_vF_]: ?vF? focus-mode
 [_v._]: visual-fill-column-width: ?v.?
 ------------
 "
@@ -231,6 +232,10 @@ visual-line:
                      (not visual-fill-column-center-text))
                (visual-fill-column-mode 1) (visual-line-mode 1))
    (if (bound-and-true-p visual-fill-column-center-text) "[x]" "[ ]"))
+  ("vF" (if focus-mode
+            (focus-mode -1)
+          (focus-mode 1))
+   (if (bound-and-true-p focus-mode) "[x]" "[ ]"))
   ("v." (let ((width (read-from-minibuffer "width: " "")))
           (setq-local visual-fill-column-width (string-to-number width))
           (visual-fill-column-mode 1) (visual-line-mode 1))

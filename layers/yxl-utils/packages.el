@@ -200,7 +200,6 @@
 
 (defun yxl-utils/init-focus ()
   (use-package focus
-    :defer t
     :config
     (progn
       (setq focus-mode-to-thing '((prog-mode . defun)
