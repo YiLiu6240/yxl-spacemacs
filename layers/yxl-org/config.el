@@ -15,6 +15,7 @@
          "FOLLOW(f)"  ; follow-up results
          "REVIEW(r)"
          "SOMEDAY(s)" ; not now
+         "PROJ(p)"       ; Its a project, not an action
          "|" "DONE(d)" "ABORT(A)" "FAILED(F)")))
 
 (setq org-tag-persistent-alist

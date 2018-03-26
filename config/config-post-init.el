@@ -1,3 +1,5 @@
+;; TODO:
+;; - Simplify these
 ;; --------
 ;; Personal variable configs
 ;; --------
@@ -7,7 +9,10 @@
 (setq yxl-env-note-local "~/local-repo/local-notes.org")
 (setq yxl-env-note-sync "~/Dropbox/org/note.org")
 
-(setq org-agenda-files
+;; org-agenda-files
+(setq org-agenda-files nil)
+(mapc (lambda (elem)
+        (add-to-list 'org-agenda-files (expand-file-name elem) t))
       (append
        (list yxl-env-org-checkbox yxl-env-org-todo)
        (directory-files (concat org-directory "projects/")
@@ -15,6 +20,12 @@
        (directory-files (concat org-directory "logs/")
                         t "^log_.+\\.org")
        (directory-files "~/local-repo" t ".org")))
+;; any TODO.org in `yxl-env-freq-projects-alist'
+(mapc (lambda (alist)
+        (mapc (lambda (elem)
+                (add-to-list 'org-agenda-files elem t))
+              (directory-files (car alist) t "^TODO.org")))
+      yxl-env-freq-projects-alist)
 
 (setq ivy-todo-file "~/Dropbox/org/tasks/todo.org")
 ;; HACK workaround a bug in org-recipes

@@ -255,7 +255,7 @@
   ;; init stage config
   (load-file (concat dotspacemacs-directory "config/config-init.el"))
   (load-file (concat dotspacemacs-directory "config/hack.el"))
-  (load-file (concat yxl-path-personal "yxl-personal.el"))
+  (load-file (concat yxl-path-personal "personal-init.el"))
   ;; custom.el
   (setq-default custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (load custom-file 'no-error 'no-message))
@@ -265,6 +265,7 @@
   ;; add hook so that modeline colors are set correctly after theme change
   (add-hook 'spacemacs-post-theme-change-hook #'yxl-airline-theme-set-colors)
   (load-file (concat dotspacemacs-directory "config/config-post-init.el"))
+  (load-file (concat yxl-path-personal "personal-config.el"))
   (load-file (concat dotspacemacs-directory "lisp/yxl-hydra.el"))
   (load-file (concat dotspacemacs-directory "lisp/general.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-keybindings.el"))

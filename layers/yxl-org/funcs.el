@@ -132,7 +132,7 @@ overridden by a prefix arg)."
         '((agenda . " %i %-12:c%?-12t%s")
           (timeline . "  %s")
           ;; (todo . " %i %-12:c %b")
-          (todo . " %(format \"%s/%s\" (file-name-nondirectory (directory-file-name (file-name-directory (buffer-file-name)))) (file-name-nondirectory (buffer-file-name))) ")
+          (todo . " %-12:(format \"%s/%s\" (file-name-nondirectory (directory-file-name (file-name-directory (buffer-file-name)))) (file-name-nondirectory (buffer-file-name))):%b ")
           (tags . " %i %-12:c")
           (search . " %i %-12:c"))))
 
