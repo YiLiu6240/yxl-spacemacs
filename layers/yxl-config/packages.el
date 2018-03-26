@@ -106,8 +106,6 @@
     (evil-define-key 'normal magit-mode-map (kbd "C-j") #'windmove-down)
     (evil-define-key 'normal magit-mode-map (kbd "C-k") #'windmove-up)
     (evil-define-key 'normal magit-mode-map (kbd "C-l") #'windmove-right)
-    (evil-define-key 'normal magit-mode-map "H" #'eyebrowse-prev-window-config)
-    (evil-define-key 'normal magit-mode-map "L" #'eyebrowse-next-window-config)
     (define-key magit-status-mode-map (kbd "C-M-1") #'magit-jump-to-unstaged)
     (define-key magit-status-mode-map (kbd "C-M-2") #'magit-jump-to-untracked)
     (define-key magit-status-mode-map (kbd "C-M-3") #'magit-jump-to-staged)
