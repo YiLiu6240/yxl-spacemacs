@@ -67,6 +67,7 @@
     "sF" #'ess-eval-function-and-go
     "sp" #'ess-eval-paragraph
     "sP" #'ess-eval-pipe-through-line
+    "ss" #'ess-switch-to-ESS
     "sU" #'ess-install-library
     "su" #'ess-load-library
     "sw" #'ess-set-working-directory
