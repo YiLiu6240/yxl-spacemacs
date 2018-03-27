@@ -43,7 +43,7 @@ Window Split:
 (defhydra yxl-hydra-space (:color blue :hint nil :columns 4
                                   :inherit (yxl-hydra-common/heads)
                                   :pre (setq which-key-inhibit t)
-                                  :post (setq which-key-init nil))
+                                  :post (setq which-key-inhibit nil))
   "
 
 ace-window:
