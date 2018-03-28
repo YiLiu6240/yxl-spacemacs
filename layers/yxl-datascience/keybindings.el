@@ -65,7 +65,7 @@
     "sT" nil
     "sf" #'ess-eval-function
     "sF" #'ess-eval-function-and-go
-    "sp" #'ess-eval-paragraph
+    "sp" #'ess-eval-paragraph-and-step
     "sP" #'ess-eval-pipe-through-line
     "ss" #'ess-switch-to-ESS
     "sU" #'ess-install-library
