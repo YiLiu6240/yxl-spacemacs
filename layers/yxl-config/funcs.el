@@ -250,15 +250,3 @@ spacemacs home buffer"
     ("/" ibuffer-filter-disable "disable")
     ("b" hydra-ibuffer-main/body "back" :color blue))
   (define-key ibuffer-mode-map "." #'hydra-ibuffer-main/body))
-
-(defun magit-toggle-commit-show-diff ()
-  (interactive)
-  (setq magit-commit-show-diff (not magit-commit-show-diff))
-  (message (format "magit-commit-show-diff: %s" magit-commit-show-diff)))
-
-(defun magit-toggle-fullscreen ()
-  (interactive)
-  (if (eq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
-      (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
-    (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
-  (message "magit-display-buffer-function %s" magit-display-buffer-function))

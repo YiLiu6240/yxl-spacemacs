@@ -113,6 +113,8 @@
      ;; my private layers
      calfw
      ov-highlighter
+     ,(unless (spacemacs/system-is-mswindows)
+        'yxl-git)
      yxl-pdf-tools
      (yxl-utils)
      yxl-edit

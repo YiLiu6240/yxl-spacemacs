@@ -12,8 +12,7 @@
                            focus
                            helpful
                            define-word
-                           (hexrgb :location local)
-                           (magit-org-todos)))
+                           (hexrgb :location local)))
 
 (defun yxl-utils/init-yxl-utils ()
   (use-package yxl-utils
@@ -237,31 +236,3 @@
          (lambda (x)
            (round (* (float x) (float 255))))
          (hexrgb-hex-to-rgb hex))))))
-
-(defun yxl-utils/init-magit-org-todos ()
-  (use-package magit-org-todos
-    :after magit
-    :init
-    (progn
-      (setq magit-org-todos-filename "TODO.org"))
-    :config
-    (progn
-      (defun magit-insert-standup-commits (&optional collapse)
-        "Insert section showing recent commits. From yesterday to today."
-        (let* ((range "--since=yesterday.midnight"))
-          (magit-insert-section (recent range collapse)
-            (magit-insert-heading "Standup")
-            (magit-insert-log range
-                              (cons (format "-n%d" magit-log-section-commit-count)
-                                    (--remove (string-prefix-p "-n" it)
-                                              magit-log-section-arguments))))))
-      (magit-add-section-hook
-       'magit-status-sections-hook
-       'magit-insert-standup-commits
-       'magit-insert-staged-changes
-       t)
-      (magit-add-section-hook
-       'magit-status-sections-hook
-       'magit-org-todos-insert-org-todos
-       'magit-insert-staged-changes
-       t))))
