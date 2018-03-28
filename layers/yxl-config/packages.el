@@ -68,14 +68,12 @@
   (with-eval-after-load 'projectile
     ;; inherit from zilongshanren
     (evil-set-initial-state 'occur-mode 'evilified)
-    (setq my-todo-occur-regex
-          "\\<\\(FIXME\\|TODO\\|BUG\\|ISSUE\\|DOING\\|NEXT\\)")
     (add-to-list 'projectile-globally-ignored-file-suffixes ".html")
     (add-to-list 'projectile-globally-ignored-files "*.html")
     (defun my/todo-occur ()
       (interactive)
       (if (projectile-project-p)
-          (multi-occur (projectile-project-buffers) my-todo-occur-regex)
+          (multi-occur (projectile-project-buffers) hl-todo-regexp)
         (occur my-todo-occur-regex)))
     (spacemacs/declare-prefix "p/" "TODO-occur")
     (spacemacs/set-leader-keys "p/t" #'my/todo-occur)))
