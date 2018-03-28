@@ -92,8 +92,7 @@
      ,(unless (spacemacs/system-is-mswindows)
         'version-control)
      ,(unless (spacemacs/system-is-mswindows)
-        '(git :variables
-              git-magit-status-fullscreen t))
+        '(git))
      ,(unless (spacemacs/system-is-mswindows)
         'github)
 
