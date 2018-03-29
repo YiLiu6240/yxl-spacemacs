@@ -1,7 +1,8 @@
 (setq yxl-git-packages '(magit
                          git-gutter
                          git-timemachine
-                         magit-org-todos))
+                         magit-org-todos
+                         (magit-todo-status :location site)))
 
 (defun yxl-git/post-init-magit ()
   (with-eval-after-load 'magit
@@ -108,4 +109,15 @@
        'magit-status-sections-hook
        'magit-org-todos-insert-org-todos
        'magit-insert-staged-changes
+       t))))
+
+(defun yxl-git/init-magit-todo-status ()
+  (use-package magit-todo-status
+    :after magit
+    :config
+    (progn
+      (magit-add-section-hook
+       'magit-status-sections-hook
+       'magit-todo-status-insert-items
+       nil
        t))))
