@@ -41,8 +41,8 @@
          "-  %?\n")
         ("t" "checkbox: todo" checkitem (file+headline yxl-env-org-checkbox "Checkbox")
          "- [ ]  %?\n")
-        ("i" "general: inbox" entry (file+headline yxl-env-org-todo "Capture")
-         "* INBOX %?\n  %i\n")))
+        ("i" "general: inbox" checkitem (file+headline yxl-env-org-todo "Capture")
+         "- %?\n  %i\n")))
 (setq org-refile-targets '((nil :maxlevel . 1)
                            (yxl-env-org-task-files :maxlevel . 1)))
 
