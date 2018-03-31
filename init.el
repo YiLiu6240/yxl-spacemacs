@@ -9,16 +9,23 @@
    dotspacemacs-additional-packages '(toml-mode)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
-   `(persp-mode smooth-scrolling spaceline
-     window-numbering winum org-bullets
-     tern ess-smart-equals wolfram-mode
+   `(persp-mode
+     smooth-scrolling
+     spaceline
+     window-numbering
+     winum
+     org-bullets
+     tern
+     ess-smart-equals
+     wolfram-mode
      vi-tilde-fringe
      ,(when (spacemacs/system-is-mswindows)
         'projectile)
      ;; open-junk-file is buggy and we never use it
      ,(when (spacemacs/system-is-mswindows)
         'projectile)
-     open-junk-file)
+     open-junk-file
+     neotree)
    dotspacemacs-install-packages 'used-but-keep-unused
    dotspacemacs-configuration-layers
    `(yxl-spacemacs
@@ -113,6 +120,7 @@
      ;; my private layers
      calfw
      ov-highlighter
+     yxl-treemacs
      ,(unless (spacemacs/system-is-mswindows)
         'yxl-git)
      yxl-pdf-tools
