@@ -28,8 +28,26 @@
      neotree)
    dotspacemacs-install-packages 'used-but-keep-unused
    dotspacemacs-configuration-layers
-   `(;; Exclude some of the spacemacs base layers
-     yxl-spacemacs-base
+   `(
+     ;; NOTE: These layers are not loaded
+     ;;       - spacemacs-layouts (persp, eyebrowse)
+     ;;       NOTE: counsel-projectile is loaded by spacemacs-layouts
+     ;;             which should not have been
+     ;;       - spacemacs-modeline (spaceline)
+     ;;       TODO: enable spacemacs purpose
+     ;;       - spacemacs-purpose
+     spacemacs-completion
+     spacemacs-defaults
+     spacemacs-editing-visual
+     spacemacs-editing
+     spacemacs-evil
+     spacemacs-language
+     spacemacs-misc
+     spacemacs-navigation
+     spacemacs-org
+     spacemacs-project
+     ;; spacemacs-purpose
+     spacemacs-visual
 
      ;; prog langs
      (ess :packages (not (org ess-smart-equals ess-R-object-popup))
