@@ -140,23 +140,29 @@
               twittering-use-master-password t)
 
      ;; my private layers
+     ;; +3rd-parties
      calfw
      ov-highlighter
+     ;; +utils
      ,(unless (spacemacs/system-is-mswindows)
         'yxl-git)
      yxl-pdf-tools
      (yxl-utils)
+     yxl-dired
+     yxl-config
+     (yxl-completion)
+     yxl-misc
+     ;; +edit
      yxl-edit
      yxl-evil
+     ;; ui
+     yxl-workspace
+     yxl-ui
+     ;; +lang
      yxl-prog
      yxl-text
-     yxl-workspace
-     yxl-config
-     yxl-dired
      (yxl-datascience :variables
-                      yxl-datascience-docset-path "~/Dropbox/dash-docsets"
-                      :packages
-                      (not ein))
+                      yxl-datascience-docset-path "~/Dropbox/dash-docsets")
      (yxl-org :variables
               yxl-org-babel-languages '((dot . t)
                                         (latex .t)
@@ -165,10 +171,8 @@
                                         (R .t)
                                         (ipython . t)
                                         (scala . t)))
+     ;; +webservice
      yxl-web
-     (yxl-completion)
-
-     yxl-ui
      (yxl-email :packages
                 (not mu4e-alert)
                 :variables
@@ -179,8 +183,7 @@
                  elfeed-enable-web-interface t
                  yxl-elfeed-db-directory "~/Dropbox/rss/.elfeed"
                  yxl-elfeed-personal-config-file (concat yxl-path-personal
-                                                         "yxl-elfeed-configs.el"))
-     yxl-misc)))
+                                                         "yxl-elfeed-configs.el")))))
 
 (defun dotspacemacs/init ()
   (setq-default

@@ -45,28 +45,12 @@
     (define-key python-mode-map (kbd "C-c f")
       #'yxl-prog/evil-wrap-line-f-print)
     (define-key python-mode-map (kbd "C-c F")
-      #'yxl-prog/evil-wrap-line-f)))
-  ;; (add-hook 'python-mode-hook 'evil-visual-mark-mode)
-  ;; (add-hook 'python-mode-hook (lambda () (modify-syntax-entry ?_ "w")))
-
-  ;; python imenu hack ----
-  ;; http://stackoverflow.com/questions/21644876/imenu-does-not-work-for-python-mode-or-c-mode
-  ;; (with-eval-after-load 'python
-  ;;   (defvar yxl-python-imenu-expression
-  ;;     '(("Class" "^class \\(.+\\):$" 1)
-  ;;       ("Function" "^def \\(.+\\)\(" 1)
-  ;;       ("Outline" "^\\(## .+\\)$" 1)
-  ;;       ("Outline" "^\\(### .+\\)$" 1)))
-
-  ;;   (defun yxl-python-imenu ()
-  ;;     "set python imenu items to customized item list"
-  ;;     (interactive)
-  ;;     (imenu--generic-function yxl-python-imenu-expression))
-
-    ;; (add-hook
-    ;;  'python-mode-hook
-    ;;  (lambda ()
-    ;;    (setq imenu-create-index-function 'yxl-python-imenu)))))
+      #'yxl-prog/evil-wrap-line-f)
+    ;; ----
+    (spacemacs/set-leader-keys-for-major-mode 'python-mode
+      ";" #'python-shell-send-string
+      "ss" #'python-shell-send-string
+      "sS" #'python-shell-send-string-print)))
 
 (defun yxl-prog/post-init-ess ()
   (with-eval-after-load 'ess-site

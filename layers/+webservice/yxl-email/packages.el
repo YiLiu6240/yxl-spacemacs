@@ -1,9 +1,8 @@
-(setq yxl-email-packages
-      '((mu4e :location site)
-        mu4e-alert
-        mu4e-maildirs-extension
-        helm-mu
-        org))
+(setq yxl-email-packages '((mu4e :location site)
+                           mu4e-alert
+                           mu4e-maildirs-extension
+                           helm-mu
+                           org))
 
 (defun yxl-email/init-mu4e ()
   (use-package mu4e

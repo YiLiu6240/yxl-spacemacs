@@ -8,9 +8,8 @@
                                  ess-view
                                  markdown-mode
                                  org
-                                 polymode
-                                 python
-                                 ein))
+                                 polymode))
+
 
 (defun yxl-datascience/init-counsel-dash ()
   (use-package counsel-dash
@@ -156,40 +155,3 @@
         (require 'poly-markdown)
         (R-mode)
         (poly-markdown+r-mode)))))
-
-(defun yxl-datascience/post-init-python ()
-  (with-eval-after-load 'python
-    (spacemacs/set-leader-keys-for-major-mode 'python-mode
-      ";" #'python-shell-send-string
-      "ss" #'python-shell-send-string
-      "sS" #'python-shell-send-string-print)))
-
-(defun yxl-datascience/init-ein ()
-  (use-package ein
-    :defer t
-    :commands ein:notebooklist-open
-    :init
-    (progn
-      (spacemacs/set-leader-keys "ajn" #'ein:notebooklist-open)
-      (spacemacs/set-leader-keys "ajN" #'ein:notebooklist-login)
-      (spacemacs/declare-prefix "aj" "jupyter-notebook"))
-    :config
-    (progn
-      (require 'ein-cell-edit)
-      (require 'ein-notebook)
-      (require 'ein-multilang)
-      (setq spacemacs-useful-buffers-regexp
-            (append spacemacs-useful-buffers-regexp '("\\*ein:*")))
-      (setq ein:completion-backend 'ein:use-company-backend)
-      (advice-add 'ein:notebook-save-notebook
-                  :override #'ein:notebook-save-notebook-override)
-      (add-hook 'ein:notebook-multilang-mode-hook
-                #'smartparens-mode)
-      (advice-add 'ein:edit-cell-exit
-                  :override #'ein:edit-cell-exit-override)
-      ;; no idea why we have to enforce evilified state on pager to work
-      (add-hook 'ein:pager-mode-hook #'evil-evilified-state)
-      (yxl-datascience/setup-jupyter-keybindings)
-      (yxl-datascience/setup-jupyter-evilified-keybindings)
-      (yxl-datascience/setup-jupyter-leader-keys)
-      (yxl-datascience/setup-jupyter-hydra))))
