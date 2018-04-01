@@ -106,7 +106,7 @@ enabled."
     (let ((indent-width (zilongshanren/display-mode-indent-width)))
       (format "%s" indent-width)))
 
-  ;; TODO: temporary measures
+  ;; NOTE: temporary measures
   (defun spaceline--pdfview-page-number ()
     (format "(%d/%d)"
             (pdf-view-current-page)

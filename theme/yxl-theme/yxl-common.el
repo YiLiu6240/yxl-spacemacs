@@ -300,7 +300,6 @@
                                  ((eq variant 'gruv-dark) (if (true-color-p) "#076678" "#076678"))
                                  ((eq variant 'gruv-light) (if (true-color-p) "#83a598" "#83a598"))
                                  ((eq variant 'solar-light) (if (true-color-p) "#edf1ed" "#d7d7ff"))))
-            ;; TODO: add violet
             (magenta       (cond ((eq variant 'solar-dark) (if (true-color-p) "#d33682" "#b16286"))
                                  ((eq variant 'gruv-dark) (if (true-color-p) "#b16286" "#d787af"))
                                  ((eq variant 'gruv-light) (if (true-color-p) "#8f3f71" "#8f3f71"))
