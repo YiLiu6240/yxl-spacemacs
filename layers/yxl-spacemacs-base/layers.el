@@ -1,5 +1,7 @@
 ;; NOTE: These layers are not loaded
 ;;       - spacemacs-layouts (persp, eyebrowse)
+;;       NOTE: counsel-projectile is loaded by spacemacs-layouts
+;;             which should not have been
 ;;       - spacemacs-modeline (spaceline)
 ;;       TODO: enable spacemacs purpose
 ;;       - spacemacs-purpose

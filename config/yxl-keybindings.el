@@ -33,8 +33,8 @@
   "boo" #'yxl-buffer-org-checkbox
   "boO" #'yxl-buffer-org-todo
   "bi" #'imenu-list-smart-toggle
-  ;; TODO: rm this with next spacemacs update
   "bm" #'yxl-buffer-switch-same-major-mode
+  "bM" #'spacemacs/switch-to-messages-buffer
   "br" #'revert-buffer
   "bx" #'kill-buffer-and-window
   "fed" #'spacemacs/find-dotfile-follow-symlink

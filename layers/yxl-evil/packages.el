@@ -4,10 +4,7 @@
                           evil-surround
                           evil-textobj-column
                           evil-mc
-                          evil-evilified-state
-                          (evil-lion :location (recipe
-                                                :fetcher github
-                                                :repo "edkolev/evil-lion"))))
+                          evil-evilified-state))
 
 (defun yxl-evil/post-init-evil ()
   (with-eval-after-load 'evil
@@ -49,12 +46,3 @@
             (defun bb/clear-anzu ()
               (interactive)
               (setq anzu--state nil))))
-
-(defun yxl-evil/init-evil-lion ()
-  (use-package evil-lion
-    :ensure t
-    :config
-    (progn
-      (setq evil-lion-left-align-key (kbd "ga"))
-      (setq evil-lion-left-align-key (kbd "gA"))
-      (evil-lion-mode))))

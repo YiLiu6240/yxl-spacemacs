@@ -3,7 +3,6 @@
                           (bibtex :location built-in)
                           org-ref
                           gscholar-bibtex
-                          magic-latex-buffer
                           markdown-mode
                           edit-indirect
                           writegood-mode

@@ -3,11 +3,10 @@
                                 (yxl-helm-hotspot :location site)
                                 ivy
                                 counsel
-                                ivy-rich
+                                counsel-projectile
                                 (yxl-helm-pdf-occur :location site)
                                 (yxl-ivy-views :location site)
-                                helm-github-stars
-                                yasnippet-snippets))
+                                helm-github-stars))
 
 (defun yxl-completion/post-init-company ()
   (with-eval-after-load 'company
@@ -64,9 +63,7 @@
     (define-key counsel-find-file-map (kbd "C-h") (kbd "DEL"))
     (define-key counsel-find-file-map (kbd "C-w") (kbd "DEL"))
     (ivy-add-actions 'counsel-find-file
-                     '(("x" yxl-open-file-external "open in external program")))
-    ;; TODO: remove this following Spacemacs updates
-    (yxl-completion/counsel-patch))
+                     '(("x" yxl-open-file-external "open in external program"))))
   (with-eval-after-load 'counsel-projectile
     (ivy-add-actions 'counsel-projectile-find-file
                      '(("d" (lambda (x) (dired-jump nil (projectile-expand-root x)))
@@ -94,14 +91,11 @@
                                 (projectile-switch-project-by-name dir arg)))
                         "open")))))
 
-(defun yxl-completion/init-ivy-rich ()
-  (use-package ivy-rich
-    :after ivy
-    :config
-    (progn
-      (ivy-set-display-transformer
-       'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
-      (setq ivy-rich-path-style 'abbrev))))
+;; NOTE: this substitutes for the loading of counsel-projectile
+;;       in spacemacs-layouts package
+(defun yxl-completion/init-counsel-projectile ()
+  (use-package counsel-projectile
+    :defer t))
 
 (defun yxl-completion/init-yxl-ivy-views ()
   (use-package yxl-ivy-views
@@ -121,7 +115,3 @@
 (defun yxl-completion/init-helm-github-stars ()
   (use-package helm-github-stars
     :defer t))
-
-(defun yxl-completion/init-yasnippet-snippets ()
-  (use-package yasnippet-snippets
-    :after (yasnippet)))

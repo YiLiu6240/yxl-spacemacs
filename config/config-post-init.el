@@ -3,21 +3,23 @@
 ;; --------
 ;; Personal variable configs
 ;; --------
-(setq yxl-env-org-todo (concat org-directory "tasks/todo.org"))
-(setq yxl-env-org-log (concat org-directory "logs/logs-master.org"))
+(setq yxl-env-org-directory "~/Dropbox/org/")
+(with-eval-after-load 'org
+  (setq org-directory yxl-env-org-directory))
+(setq yxl-env-org-todo (concat yxl-env-org-directory "tasks/todo.org"))
+(setq yxl-env-org-log (concat yxl-env-org-directory "logs/logs-master.org"))
 (setq yxl-env-org-checkbox (concat "~/Dropbox/org/tasks/" "checkbox.org"))
 (setq yxl-env-note-local "~/local-repo/local-notes.org")
 (setq yxl-env-note-sync "~/Dropbox/org/note.org")
-
 ;; org-agenda-files
 (setq org-agenda-files nil)
 (mapc (lambda (elem)
         (add-to-list 'org-agenda-files (expand-file-name elem) t))
       (append
        (list yxl-env-org-checkbox yxl-env-org-todo)
-       (directory-files (concat org-directory "projects/")
+       (directory-files (concat yxl-env-org-directory "projects/")
                         t "^proj_.+\\.org")
-       (directory-files (concat org-directory "logs/")
+       (directory-files (concat yxl-env-org-directory "logs/")
                         t "^log_.+\\.org")
        (directory-files "~/local-repo" t ".org")))
 ;; any TODO.org in `yxl-env-freq-projects-alist'
@@ -26,14 +28,12 @@
                 (add-to-list 'org-agenda-files elem t))
               (directory-files (car alist) t "^TODO.org")))
       yxl-env-freq-projects-alist)
-
 (setq ivy-todo-file "~/Dropbox/org/tasks/todo.org")
 ;; HACK workaround a bug in org-recipes
 (setq org-wiki-location
-      (expand-file-name (concat org-directory
-                                "recipes/")))
+      (expand-file-name (concat yxl-env-org-directory)))
 (setq org-recipes-file-list
-      (directory-files (expand-file-name (concat org-directory
+      (directory-files (expand-file-name (concat yxl-env-org-directory
                                                  "recipes/"))
                        t "^.+\\.org"))
 (setq org-capture-templates
@@ -47,8 +47,6 @@
                            (yxl-env-org-task-files :maxlevel . 1)))
 
 (setq yxl-ivy-views-storage-location "~/Dropbox/inbox/yxl-ivy-views.txt")
-
-(setq helm-github-stars-username "YiLiu6240")
 (setq yxl-hhs-org-files org-agenda-files)
 (setq yxl-hhs-file-local-list "~/Dropbox/inbox/yxl-sites-local.txt")
 (setq yxl-hhs-file-web-list "~/Dropbox/inbox/yxl-sites-web.txt")
@@ -56,6 +54,7 @@
       "~/Dropbox/inbox/yxl-reading-list-files.txt")
 (setq yxl-hhs-file-reading-list-webpages
       "~/Dropbox/inbox/yxl-reading-list-webpages.txt")
+(setq helm-github-stars-username "YiLiu6240")
 (setq yxl-ia-list '(("calendar" . calendar)
                     ("counsel-books" . counsel-books)
                     ("hackernews" . hackernews)
@@ -73,7 +72,6 @@
                     ("gscholar-bibtex" . gscholar-bibtex)
                     ("helm-google-suggest" . helm-google-suggest)
                     ("academic-phrases" . academic-phrases)))
-
 (setq org-ref-bibliography-notes "~/Dropbox/bib/bib_notes.org")
 (setq bibtex-completion-notes-path "~/Dropbox/bib/bib_notes.org")
 (setq biblio-download-directory "~/Dropbox/bib/general")
@@ -105,11 +103,18 @@
 ;; --------
 (setq-default evil-escape-key-sequence "jk")
 ;; only use "jk" in insert state
-(setq-default evil-escape-excluded-states
-              '(visual evilified
-                normal motion
-                emacs replace hybrid
-                lisp iedit iedit-insert))
+(setq evil-escape-excluded-states '(visual
+                                    evilified
+                                    normal
+                                    motion
+                                    emacs
+                                    replace
+                                    hybrid
+                                    lisp
+                                    iedit
+                                    iedit-insert))
+(with-eval-after-load 'treemacs
+  (add-to-list 'evil-escape-excluded-states 'treemacs))
 (setq-default evil-escape-delay 1)
 (setq-default evil-escape-excluded-major-modes '(magit-mode))
 

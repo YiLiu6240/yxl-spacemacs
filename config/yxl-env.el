@@ -8,6 +8,11 @@ to be pass to `yxl-hydra-projects'")
 Alist of the same format to `yxl-env-freq-projects-alist'
 to be passed to `yxl-hydra-files.'")
 
+;; TODO: update this when the org-directory bug
+;;       has been fixed
+(defvar yxl-env-org-directory "~/org/"
+  "Org directory.")
+
 (defvar yxl-env-org-todo nil
   "Master todo file.")
 

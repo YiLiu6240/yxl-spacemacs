@@ -11,7 +11,6 @@
                            emamux
                            focus
                            helpful
-                           define-word
                            (hexrgb :location local)))
 
 (defun yxl-utils/init-yxl-utils ()
@@ -207,11 +206,6 @@
 (defun yxl-utils/init-helpful ()
   (use-package helpful
     :defer t))
-
-(defun yxl-utils/init-define-word ()
-  (use-package define-word
-    :defer t
-    :init (spacemacs/set-leader-keys "xD" #'define-word)))
 
 (defun yxl-utils/init-hexrgb ()
   (use-package hexrgb

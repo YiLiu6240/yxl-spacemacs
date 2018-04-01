@@ -1,6 +1,4 @@
-(setq yxl-edit-packages '(parinfer
-                          lispy
-                          editorconfig
+(setq yxl-edit-packages '(lispy
                           smartparens
                           imenu-anywhere
                           hl-todo
@@ -8,29 +6,6 @@
                           (narrow-indirect :location site)
                           langtool
                           flyspell))
-
-(defun yxl-edit/init-parinfer ()
-  (use-package parinfer
-    :defer t
-    :init
-    (progn
-      (dolist (hook '(emacs-lisp-mode-hook
-                      clojure-mode-hook
-                      clojurec-mode-hook
-                      clojurescript-mode-hook
-                      clojurex-mode-hook
-                      common-lisp-mode-hook
-                      scheme-mode-hook
-                      lisp-mode-hook))
-        (add-hook hook 'parinfer-mode))
-      (spacemacs|add-toggle parinfer-indent
-        :evil-leader "tpP"
-        :documentation "Enable Parinfer Indent Mode."
-        :if (bound-and-true-p parinfer-mode)
-        :status (eq parinfer--mode 'indent)
-        :on (parinfer-toggle-mode)
-        :off (parinfer-toggle-mode))
-      (setq parinfer-extensions '(defaults pretty-parens evil lispy smart-tab smart-yank)))))
 
 (defun yxl-edit/init-lispy ()
   (use-package lispy
@@ -61,12 +36,6 @@
       (define-key lispy-mode-map (kbd "C-3") 'lispy-arglist-inline))))
       ;; (define-key lispy-mode-map (kbd "C-k") 'lispy-splice)
       ;; (define-key lispy-mode-map (kbd "C-3") 'lispy-mark-symbol)
-
-(defun yxl-edit/init-editorconfig ()
-  (use-package editorconfig
-    :ensure t
-    :config
-    (editorconfig-mode 1)))
 
 (defun yxl-edit/pre-init-smartparens ()
   (spacemacs|use-package-add-hook smartparens
