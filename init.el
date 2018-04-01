@@ -28,7 +28,8 @@
      neotree)
    dotspacemacs-install-packages 'used-but-keep-unused
    dotspacemacs-configuration-layers
-   `(yxl-spacemacs
+   `(;; Exclude some of the spacemacs base layers
+     yxl-spacemacs-base
 
      ;; prog langs
      (ess :packages (not (org ess-smart-equals ess-R-object-popup))
