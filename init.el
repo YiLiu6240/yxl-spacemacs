@@ -1,5 +1,7 @@
 ;; -*- mode: emacs-lisp -*-
 
+;; MAYBE: python: enable lsp
+
 (defun dotspacemacs/layers ()
   (setq-default
    dotspacemacs-distribution 'spacemacs-base
@@ -34,7 +36,7 @@
      ;;       NOTE: counsel-projectile is loaded by spacemacs-layouts
      ;;             which should not have been
      ;;       - spacemacs-modeline (spaceline)
-     ;;       TODO: enable spacemacs purpose
+     ;;       MAYBE: enable spacemacs purpose
      ;;       - spacemacs-purpose
      spacemacs-completion
      spacemacs-defaults
@@ -260,7 +262,7 @@
    dotspacemacs-highlight-delimiters 'current
    dotspacemacs-enable-server t
    dotspacemacs-persistent-server nil
-   ;; TODO: favor rg when we are sufficiently confident in it
+   ;; MAYBE: favor rg when we are sufficiently confident in it
    dotspacemacs-search-tools '("ag" "rg" "pt" "ack" "grep")
    dotspacemacs-frame-title-format "%I@%S"
    dotspacemacs-icon-title-format nil

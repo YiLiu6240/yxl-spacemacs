@@ -116,7 +116,10 @@
     :after magit
     :config
     (progn
-      (setq magit-todo-status-ignore-regexp ":\\(exclude\\)*.html :\\(exclude\\)*.csv :\\(exclude\\)*.csv.gz :\\(exclude\\)*.ipynb")
+      (setq magit-todo-status-keyword-regexp
+            "\\<\\(FIXME\\|TODO\\|BUG\\|ISSUE\\|WIP\\|NEXT\\|FOLLOW\\|REVIEW\\|MAYBE\\):")
+      (setq magit-todo-status-ignore-regexp
+            ":\\(exclude\\)*.html :\\(exclude\\)*.csv :\\(exclude\\)*.csv.gz :\\(exclude\\)*.ipynb")
       (magit-add-section-hook
        'magit-status-sections-hook
        'magit-todo-status-insert-items
