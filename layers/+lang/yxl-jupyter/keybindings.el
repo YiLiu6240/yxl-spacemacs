@@ -1,10 +1,10 @@
-(defun yxl-jupyter/setup-jupyter-keybindings ()
+(defun yxl-jupyter/setup-general-keybindings ()
   (with-eval-after-load 'ein-notebooklist
     (define-key ein:notebooklist-mode-map
       "o" 'spacemacs/ace-buffer-links))
   (with-eval-after-load 'ein-notebook
     (define-key ein:notebook-mode-map
-      (kbd "C-c C-h") #'yxl-jupyter/jupyter-help))
+      (kbd "C-c C-h") #'yxl-jupyter/help))
   (with-eval-after-load 'ein-multilang
     (evil-define-key 'insert ein:notebook-multilang-mode-map
       (kbd "<C-return>") #'ein:worksheet-execute-cell
@@ -22,7 +22,7 @@
     (define-key ein:edit-cell-mode-map
       (kbd "<C-return>") #'ein:edit-cell-save-and-execute-and-exit)))
 
-(defun yxl-jupyter/setup-jupyter-evilified-keybindings ()
+(defun yxl-jupyter/setup-evilified-keybindings ()
   (evilified-state-evilify-map ein:pager-mode-map
     :mode ein:pager-mode
     :eval-after-load ein-pager
@@ -34,7 +34,7 @@
     :bindings
     (kbd "O") #'spacemacs/ace-buffer-links))
 
-(defun yxl-jupyter/setup-jupyter-leader-keys ()
+(defun yxl-jupyter/setup-leader-keys ()
   (spacemacs/declare-prefix-for-mode 'ein:notebook-multilang-mode
     "mw" "worksheet")
   (spacemacs/declare-prefix-for-mode 'ein:notebook-multilang-mode
@@ -86,7 +86,7 @@
     "p" 'ein:tb-prev-item
     "q" 'bury-buffer))
 
-(defun yxl-jupyter/setup-jupyter-hydra ()
+(defun yxl-jupyter/setup-hydra ()
   (defhydra yxl-jupyter/jupyter-hydra (:color blue :hint nil
                                                   :pre (setq which-key-inhibit t)
                                                   :post (setq which-key-inhibit nil))

@@ -50,10 +50,6 @@
      spacemacs-visual
 
      ;; prog langs
-     (ess :packages (not (org ess-smart-equals ess-R-object-popup))
-          :variables
-          ess-enable-smart-equals nil)
-
      emacs-lisp
      python
      vimscript
@@ -161,8 +157,10 @@
      ;; +lang
      yxl-prog
      yxl-text
-     (yxl-datascience :variables
-                      yxl-datascience-docset-path "~/Dropbox/dash-docsets")
+     yxl-ess
+     ;; yxl-jupyter
+     (yxl-docs :variables
+               yxl-docs-docset-path "~/Dropbox/dash-docsets")
      (yxl-org :variables
               yxl-org-babel-languages '((dot . t)
                                         (latex .t)

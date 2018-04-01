@@ -25,7 +25,7 @@
       ;; no idea why we have to enforce evilified state on pager to work
       (with-eval-after-load 'ein-pager
         (add-hook 'ein:pager-mode-hook #'evil-evilified-state))
-      (yxl-jupyter/setup-jupyter-keybindings)
-      (yxl-jupyter/setup-jupyter-evilified-keybindings)
-      (yxl-jupyter/setup-jupyter-leader-keys)
-      (yxl-jupyter/setup-jupyter-hydra))))
+      (yxl-jupyter/setup-general-keybindings)
+      (yxl-jupyter/setup-evilified-keybindings)
+      (yxl-jupyter/setup-leader-keys)
+      (yxl-jupyter/setup-hydra))))
