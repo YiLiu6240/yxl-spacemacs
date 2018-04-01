@@ -4,7 +4,6 @@
                            (yxl-open :location site)
                            (general-goodies :location site)
                            find-file-in-project
-                           ;; (simple-todo :location site)
                            (scratch-pop :location site)
                            visual-fill-column
                            (yxl-invoke-applications :location site)
@@ -164,14 +163,6 @@
                                   "*/.cask/*"
                                   ;; Python
                                   "*.pyc")))))
-
-;; (defun yxl-utils/init-simple-todo ()
-;;   (use-package simple-todo
-;;     :init
-;;     (progn
-;;       (spacemacs/set-leader-keys "ot1" #'yxl-set-simple-todo-task1)
-;;       (spacemacs/set-leader-keys "ot2" #'yxl-set-simple-todo-task2)
-;;       (spacemacs/set-leader-keys "ot3)))" #'yxl-set-simple-todo-task3))))
 
 (defun yxl-utils/init-scratch-pop ()
   (use-package scratch-pop
