@@ -8,7 +8,7 @@
                           edit-indirect
                           writegood-mode
                           bing-dict
-                          synonyms
+                          (synonyms :location site)
                           helm-dictionary
                           academic-phrases))
 

@@ -5,7 +5,7 @@
                           imenu-anywhere
                           hl-todo
                           (hi-lock :location built-in)
-                          narrow-indirect
+                          (narrow-indirect :location site)
                           langtool
                           flyspell))
 
