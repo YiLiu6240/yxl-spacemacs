@@ -308,7 +308,7 @@
   (load-file (concat yxl-path-personal "personal-config.el"))
   (load-file (concat dotspacemacs-directory "lisp/yxl-hydra.el"))
   (load-file (concat dotspacemacs-directory "lisp/general.el"))
-  (load-file (concat dotspacemacs-directory "config/yxl-keybindings.el"))
+  (load-file (concat dotspacemacs-directory "config/yxl-global-keybindings.el"))
   (load-file (concat dotspacemacs-directory "config/hack-post-init.el"))
   (load-file (concat dotspacemacs-directory "config/config-last.el")))
 
