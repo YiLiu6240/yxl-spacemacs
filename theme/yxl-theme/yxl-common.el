@@ -86,7 +86,7 @@
                                  ((eq variant 'solar-light) (if (true-color-p) "#fcf4dc" "#ffffff"))))
             ;; current line highlight
             (bg2           (cond ((eq variant 'solar-dark) (if (true-color-p) "#132b34" "#3c3836"))
-                                 ((eq variant 'gruv-dark) (if (true-color-p) "#3c3836" "#3a3a3a"))
+                                 ((eq variant 'gruv-dark) (if (true-color-p) "#32302f" "#32302f"))
                                  ((eq variant 'gruv-light) (if (true-color-p) "#bdae93" "#ebdbb2"))
                                  ((eq variant 'solar-light) (if (true-color-p) "#e9e2cb" "#e4e4e4"))))
             ;; darker shade of bg1
@@ -101,7 +101,7 @@
                                  ((eq variant 'solar-light) (if (true-color-p) "#e9e2cb" "#bcbcbc"))))
             ;; mode line border color
             (border        (cond ((eq variant 'solar-dark) (if (true-color-p) "#073642" "#504945"))
-                                 ((eq variant 'gruv-dark) (if (true-color-p) "#504945" "#504945"))
+                                 ((eq variant 'gruv-dark) (if (true-color-p) "#3c3836" "#3c3836"))
                                  ((eq variant 'gruv-light) (if (true-color-p) "#7c6f64" "#7c6f64"))
                                  ((eq variant 'solar-light) (if (true-color-p) "#708183" "#b3b9be"))))
             ;; code block fg
@@ -355,7 +355,7 @@
             `(secondary-selection ((,class (:background ,bg3))))
             `(success ((,class (:foreground ,suc))))
             `(tooltip ((,class (:background ,ttip-sl :foreground ,base :bold nil :italic nil :underline nil))))
-            `(vertical-border ((,class (:foreground ,bg4))))
+            `(vertical-border ((,class (:foreground ,border))))
             `(warning ((,class (:foreground ,war))))
             `(bold ((,class (:foreground ,orange :weight bold))))
             `(bold-italic ((,class (:foreground ,cyan :slant italic :weight bold))))
@@ -970,6 +970,9 @@
             `(term-color-red ((,class (:foreground ,red))))
             `(term-color-white ((,class (:foreground ,base))))
             `(term-color-yellow ((,class (:foreground ,yellow))))
+
+;;;;; treemacs
+            `(treemacs-header-face ((,class (:inherit ,font-lock-keyword-face))))
 
 ;;;;; vi-tilde-fringe
             `(vi-tilde-fringe-face ((,class (:foreground ,comment))))

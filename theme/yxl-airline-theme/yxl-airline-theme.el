@@ -16,7 +16,7 @@ url: https://github.com/mkaito/base16-emacs")
          ;; modeline bg, a more "highlighted" version
          (color-bg-alt (if light-p "#928374" "#504945"))
          ;; border color for the modeline
-         (color-border (if light-p "#504945" "#504945"))
+         (color-border (if light-p "#504945" "#3c3836"))
          ;; color when the specified evil state is active
          ;; general state fg
          (color-state-fg (if light-p "#ebdbb2" "#ebdbb2"))

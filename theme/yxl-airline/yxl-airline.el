@@ -110,7 +110,7 @@
                                  'airline-normal-center)
                              'airline-inactive3))
 
-                          (pl-sep (powerline-raw "|" 'font-lock-comment-face 'lr))
+                          (pl-sep (powerline-raw " " 'font-lock-comment-face 'lr))
 
                           ;; Left Hand Side
                           (lhs-mode (list
