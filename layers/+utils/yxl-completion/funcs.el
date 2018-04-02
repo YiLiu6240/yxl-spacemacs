@@ -37,3 +37,16 @@
   (interactive)
   (let ((helm-display-function #'helm-display-window-vertical))
     (call-interactively #'helm-find-files)))
+
+(defun yxl-counsel-projectile-switch-project (&optional arg)
+  (interactive "P")
+  (ivy-read (projectile-prepend-project-name "Switch to project: ")
+            projectile-known-projects
+            :preselect (and (projectile-project-p)
+                            (abbreviate-file-name (projectile-project-root)))
+            :action (lambda (dir)
+                      (let ((projectile-switch-project-action
+                             (lambda () (find-file (projectile-project-root)))))
+                        (projectile-switch-project-by-name dir arg)))
+            :require-match t
+            :caller 'counsel-projectile-switch-project))

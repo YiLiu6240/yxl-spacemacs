@@ -102,6 +102,7 @@
                      spell-checking-enable-by-default nil)
      (syntax-checking :variables
                       syntax-checking-enable-by-default nil)
+     (helm :can-shadow nil)
      (ivy :variables
           ivy-enable-advanced-buffer-information t)
      (auto-completion :variables
