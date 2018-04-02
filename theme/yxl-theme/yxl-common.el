@@ -338,7 +338,7 @@
             `(font-lock-type-face ((,class (:foreground ,type))))
             `(font-lock-variable-name-face ((,class (:foreground ,var :inherit bold))))
             `(font-lock-warning-face ((,class (:foreground ,war))))
-            `(fringe ((,class (:foreground ,comment))))
+            `(fringe ((,class (:foreground ,lnum))))
             `(header-line ((,class :background ,bg4)))
             `(highlight ((,class (:foreground ,base :background ,highlight))))
             `(hl-line ((,class (:background ,bg2))))
