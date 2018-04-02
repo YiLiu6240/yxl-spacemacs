@@ -1,7 +1,5 @@
 ;; -*- mode: emacs-lisp -*-
 
-;; MAYBE: python: enable lsp
-
 (defun dotspacemacs/layers ()
   (setq-default
    dotspacemacs-distribution 'spacemacs-base
@@ -143,10 +141,11 @@
      calfw
      ov-highlighter
      ;; +utils
+     yxl-base
      ,(unless (spacemacs/system-is-mswindows)
         'yxl-git)
      yxl-pdf-tools
-     (yxl-utils)
+     yxl-utils
      yxl-dired
      yxl-config
      (yxl-completion)
@@ -292,7 +291,6 @@
   (add-to-list 'custom-theme-load-path
                (concat dotspacemacs-directory "theme/yxl-airline-theme"))
   ;; my env
-  (load-file (concat dotspacemacs-directory "config/yxl-env.el"))
   (add-to-list 'load-path (concat yxl-path-dotfiles "yxl-emacs-goodies"))
   (add-to-list 'load-path (concat yxl-path-dotfiles "yxl-emacs-datascience-goodies"))
   ;; init stage config
@@ -307,7 +305,6 @@
   (add-hook 'spacemacs-post-theme-change-hook #'yxl-airline-theme-set-colors)
   (load-file (concat dotspacemacs-directory "config/config-post-init.el"))
   (load-file (concat yxl-path-personal "personal-config.el"))
-  (load-file (concat dotspacemacs-directory "lisp/yxl-hydra.el"))
   (load-file (concat dotspacemacs-directory "lisp/general.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-global-keybindings.el"))
   (load-file (concat dotspacemacs-directory "config/hack-post-init.el"))

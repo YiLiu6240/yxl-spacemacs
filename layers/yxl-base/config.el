@@ -1,32 +1,32 @@
-(defvar yxl-env-freq-projects-alist '()
+(defvar yxl-base-freq-projects-alist '()
   "Project paths.
 Alist in the form of (PATH . key) as (\"~/Downloads\" . \"D\")
 to be pass to `yxl-hydra-projects'")
 
-(defvar yxl-env-freq-files-alist '()
+(defvar yxl-base-freq-files-alist '()
   "Files of interest.
-Alist of the same format to `yxl-env-freq-projects-alist'
+Alist of the same format to `yxl-base-freq-projects-alist'
 to be passed to `yxl-hydra-files.'")
 
 ;; FOLLOW: update this when the org-directory bug
 ;;         has been fixed
-(defvar yxl-env-org-directory "~/org/"
+(defvar yxl-base-org-directory "~/org/"
   "Org directory.")
 
-(defvar yxl-env-org-todo nil
+(defvar yxl-base-org-todo nil
   "Master todo file.")
 
-(defvar yxl-env-org-checkbox nil
+(defvar yxl-base-org-checkbox nil
   "Master checkbox file.")
 
-(defvar yxl-env-org-log nil
+(defvar yxl-base-org-log nil
   "Master log file.")
 
-(defvar yxl-env-bib nil
+(defvar yxl-base-bib nil
   "Master bibliography file.")
 
-(defvar yxl-env-note-local nil
+(defvar yxl-base-note-local nil
   "Local note file.")
 
-(defvar yxl-env-note-sync nil
+(defvar yxl-base-note-sync nil
   "Synchronised note file.")

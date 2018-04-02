@@ -104,15 +104,15 @@ Hotspot:
   ;; - 0 - 5: open them in "sidebar"
   ;; - C-u / Meta + 0 - 5: open them in current window
   ;; - Shift + 0 - 5: open them in bottom popup
-  ("0" (yxl-find-file-popup yxl-env-org-checkbox))
-  ("M-0" (find-file yxl-env-org-checkbox))
-  ("1" (yxl-find-file-popup yxl-env-org-todo))
-  ("M-1" (find-file yxl-env-org-todo))
-  (")" (popwin:popup-buffer (find-file-noselect yxl-env-org-checkbox)
+  ("0" (yxl-find-file-popup yxl-base-org-checkbox))
+  ("M-0" (find-file yxl-base-org-checkbox))
+  ("1" (yxl-find-file-popup yxl-base-org-todo))
+  ("M-1" (find-file yxl-base-org-todo))
+  (")" (popwin:popup-buffer (find-file-noselect yxl-base-org-checkbox)
                             :stick t
                             :height 0.4
                             :position 'bottom))
-  ("!" (popwin:popup-buffer (find-file-noselect yxl-env-org-todo)
+  ("!" (popwin:popup-buffer (find-file-noselect yxl-base-org-todo)
                             :stick t
                             :height 0.4
                             :position 'bottom))
@@ -130,7 +130,7 @@ Hotspot:
   ("gs" yxl-helm-shortcuts)
   ("gr" yxl-helm-reading-list)
 
-  ("is" (yxl-append-to-scratch yxl-env-org-checkbox))
+  ("is" (yxl-append-to-scratch yxl-base-org-checkbox))
   ("ia" yxl-append-to-scratch))
 
 (defhydra yxl-hydra-system (:color blue :hint nil
@@ -198,14 +198,14 @@ Hotspot:
   ("atD" mode-line-timer-done))
 
 (defhydra yxl-hydra-frame-size (:color red :hint nil)
-  ("+" yxl-utils/frame-zoom-in "zoom-in")
-  ("=" yxl-utils/frame-zoom-in "zoom-in")
-  ("-" yxl-utils/frame-zoom-out "zoom-out")
+  ("+" yxl-ui/frame-zoom-in "zoom-in")
+  ("=" yxl-ui/frame-zoom-in "zoom-in")
+  ("-" yxl-ui/frame-zoom-out "zoom-out")
   ("0" spacemacs/zoom-frm-unzoom "reset")
-  ("1" (yxl-utils/frame-zoom-state 4) "profile 1")
-  ("2" (yxl-utils/frame-zoom-state 6) "profile 2")
-  ("3" (yxl-utils/frame-zoom-state 8) "profile 3")
-  ("4" (yxl-utils/frame-zoom-state 12) "profile 4"))
+  ("1" (yxl-ui/frame-zoom-state 4) "profile 1")
+  ("2" (yxl-ui/frame-zoom-state 6) "profile 2")
+  ("3" (yxl-ui/frame-zoom-state 8) "profile 3")
+  ("4" (yxl-ui/frame-zoom-state 12) "profile 4"))
 
 (defhydra yxl-hydra-visual-line (:color amaranth :hint nil
                                         :pre (setq which-key-inhibit t)
@@ -277,9 +277,9 @@ Projects and folders
                    (let ((path (car x))
                          (key (cdr x)))
                      (list key (append '(yxl-find-dir) (list path)) path)))
-                 yxl-env-freq-projects-alist)
+                 yxl-base-freq-projects-alist)
        ("." (ivy-read "Projects and folders: "
-                      yxl-env-freq-projects-alist
+                      yxl-base-freq-projects-alist
                       :action (lambda (x) (yxl-find-dir (car x))))
         "ivy-read")))))
 
@@ -297,8 +297,8 @@ Files
                    (let ((path (car x))
                          (key (cdr x)))
                      (list key (append '(yxl-find-file-stay) (list path)) path)))
-                 yxl-env-freq-files-alist)
+                 yxl-base-freq-files-alist)
        ("." (ivy-read "Files: "
-                      yxl-env-freq-files-alist
+                      yxl-base-freq-files-alist
                       :action (lambda (x) (yxl-find-file-stay (car x))))
         "ivy-read")))))

@@ -25,7 +25,7 @@
   "bB" #'yxl-buffer-switch-same-major-mode
   ;; "bb" #'yxl-buffer-switch
   "bb" #'ivy-switch-buffer
-  "bh" #'yxl-utils/home
+  "bh" #'yxl-base/home
   "bob" #'ibuffer
   "boc" #'yxl-buffer-compilation
   "boC" #'clone-indirect-buffer-other-window

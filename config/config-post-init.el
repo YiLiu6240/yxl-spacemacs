@@ -3,48 +3,48 @@
 ;; --------
 ;; Personal variable configs
 ;; --------
-(setq yxl-env-org-directory "~/Dropbox/org/")
+(setq yxl-base-org-directory "~/Dropbox/org/")
 (with-eval-after-load 'org
-  (setq org-directory yxl-env-org-directory))
-(setq yxl-env-org-todo (concat yxl-env-org-directory "tasks/todo.org"))
-(setq yxl-env-org-log (concat yxl-env-org-directory "logs/logs-master.org"))
-(setq yxl-env-org-checkbox (concat "~/Dropbox/org/tasks/" "checkbox.org"))
-(setq yxl-env-note-local "~/local-repo/local-notes.org")
-(setq yxl-env-note-sync "~/Dropbox/org/note.org")
+  (setq org-directory yxl-base-org-directory))
+(setq yxl-base-org-todo (concat yxl-base-org-directory "tasks/todo.org"))
+(setq yxl-base-org-log (concat yxl-base-org-directory "logs/logs-master.org"))
+(setq yxl-base-org-checkbox (concat "~/Dropbox/org/tasks/" "checkbox.org"))
+(setq yxl-base-note-local "~/local-repo/local-notes.org")
+(setq yxl-base-note-sync "~/Dropbox/org/note.org")
 ;; org-agenda-files
 (setq org-agenda-files nil)
 (mapc (lambda (elem)
         (add-to-list 'org-agenda-files (expand-file-name elem) t))
       (append
-       (list yxl-env-org-checkbox yxl-env-org-todo)
-       (directory-files (concat yxl-env-org-directory "projects/")
+       (list yxl-base-org-checkbox yxl-base-org-todo)
+       (directory-files (concat yxl-base-org-directory "projects/")
                         t "^proj_.+\\.org")
-       (directory-files (concat yxl-env-org-directory "logs/")
+       (directory-files (concat yxl-base-org-directory "logs/")
                         t "^log_.+\\.org")
        (directory-files "~/local-repo" t ".org")))
-;; any TODO.org in `yxl-env-freq-projects-alist'
+;; any TODO.org in `yxl-base-freq-projects-alist'
 (mapc (lambda (alist)
         (mapc (lambda (elem)
                 (add-to-list 'org-agenda-files elem t))
               (directory-files (car alist) t "^TODO.org")))
-      yxl-env-freq-projects-alist)
+      yxl-base-freq-projects-alist)
 (setq ivy-todo-file "~/Dropbox/org/tasks/todo.org")
 ;; HACK workaround a bug in org-recipes
 (setq org-wiki-location
-      (expand-file-name (concat yxl-env-org-directory)))
+      (expand-file-name (concat yxl-base-org-directory)))
 (setq org-recipes-file-list
-      (directory-files (expand-file-name (concat yxl-env-org-directory
+      (directory-files (expand-file-name (concat yxl-base-org-directory
                                                  "recipes/"))
                        t "^.+\\.org"))
 (setq org-capture-templates
-      '(("c" "checkbox: inbox" checkitem (file+headline yxl-env-org-checkbox "Checkbox")
+      '(("c" "checkbox: inbox" checkitem (file+headline yxl-base-org-checkbox "Checkbox")
          "-  %?\n")
-        ("t" "checkbox: todo" checkitem (file+headline yxl-env-org-checkbox "Checkbox")
+        ("t" "checkbox: todo" checkitem (file+headline yxl-base-org-checkbox "Checkbox")
          "- [ ]  %?\n")
-        ("i" "general: inbox" checkitem (file+headline yxl-env-org-todo "Capture")
+        ("i" "general: inbox" checkitem (file+headline yxl-base-org-todo "Capture")
          "- %?\n  %i\n")))
 (setq org-refile-targets '((nil :maxlevel . 1)
-                           (yxl-env-org-task-files :maxlevel . 1)))
+                           (yxl-base-org-task-files :maxlevel . 1)))
 
 (setq yxl-ivy-views-storage-location "~/Dropbox/inbox/yxl-ivy-views.txt")
 (setq yxl-hhs-org-files org-agenda-files)
@@ -77,7 +77,7 @@
 (setq biblio-download-directory "~/Dropbox/bib/general")
 (setq bibtex-completion-library-path '("~/Dropbox/bib/general"
                                        "~/Dropbox/bib/topic_tmp"))
-(setq gscholar-bibtex-database-file yxl-env-bib)
+(setq gscholar-bibtex-database-file yxl-base-bib)
 (setq-default bookmark-default-file "~/Dropbox/inbox/helm-bookmark")
 
 ;; --------
@@ -212,8 +212,8 @@
 ;; --------
 ;; Bibliography
 ;; --------
-(setq org-ref-default-bibliography yxl-env-bib)
-(setq bibtex-completion-bibliography yxl-env-bib)
+(setq org-ref-default-bibliography yxl-base-bib)
+(setq bibtex-completion-bibliography yxl-base-bib)
 
 ;; --------
 ;; IDE

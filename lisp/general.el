@@ -18,7 +18,7 @@
 
 (defun yxl-buffer-org-checkbox ()
   (interactive)
-  (find-file yxl-env-org-checkbox))
+  (find-file yxl-base-org-checkbox))
 
 (defun yxl-buffer-sticky-i3-window (file)
   "Visit a indirect buffer of FILE as a sticky i3 window.
@@ -38,19 +38,19 @@ one normal buffer."
 
 (defun yxl-buffer-org-todo ()
   (interactive)
-  (find-file yxl-env-org-todo))
+  (find-file yxl-base-org-todo))
 
 (defun yxl-buffer-org-log ()
   (interactive)
-  (find-file yxl-env-org-log))
+  (find-file yxl-base-org-log))
 
 (defun yxl-buffer-note-local ()
   (interactive)
-  (find-file yxl-env-note-local))
+  (find-file yxl-base-note-local))
 
 (defun yxl-buffer-note-sync ()
   (interactive)
-  (find-file yxl-env-note-sync))
+  (find-file yxl-base-note-sync))
 
 (defun spacemacs/find-dotfile-follow-symlink ()
   "Edit the `dotfile', in the current window."
@@ -89,12 +89,12 @@ https://github.com/zachcurry/emacs-anywhere/blob/master/emacs_anywhere.el"
 
 (defun my-org-log ()
   (interactive)
-  (find-file yxl-env-org-log)
+  (find-file yxl-base-org-log)
   (visual-fill-column-mode t)
   (setq visual-fill-column-center-text t))
 
 (defun yxl-org-refile-to-scratch ()
   (interactive)
-  (let ((org-refile-targets '((yxl-env-org-checkbox :maxlevel . 1)
+  (let ((org-refile-targets '((yxl-base-org-checkbox :maxlevel . 1)
                               (nil :maxlevel . 1))))
     (org-refile)))
