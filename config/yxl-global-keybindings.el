@@ -9,6 +9,12 @@
 (global-set-key (kbd "M-<SPC>") #'yas-or-company)
 (define-key isearch-mode-map "\C-h" #'isearch-delete-char)
 
+;; Mouse wheel zooming
+;; wheel down
+(global-set-key (kbd "<C-mouse-5>") #'spacemacs/scale-down-font)
+;; wheel up
+(global-set-key (kbd "<C-mouse-4>") #'spacemacs/scale-up-font)
+
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
   ;; workaround
