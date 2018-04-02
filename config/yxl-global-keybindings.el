@@ -42,7 +42,10 @@
   "bm" #'yxl-buffer-switch-same-major-mode
   "bM" #'spacemacs/switch-to-messages-buffer
   "br" #'revert-buffer
+  "bY" #'yxl-buffer-store-name
+  "bP" #'yxl-buffer-visit-stored-buffer
   "bx" #'kill-buffer-and-window
+  "dd" #'yxl-dired-ivy-switch-buffer
   "fed" #'spacemacs/find-dotfile-follow-symlink
   "ff" #'yxl-find-file-counsel
   "fh" #'helm-find-files-vertical
@@ -53,9 +56,7 @@
   "fp" #'counsel-projectile-find-file ; respects .projectile subprojects
   "fP" #'counsel-git                  ; treats the git repo as the whole porject
   "f C-p" #'find-file-in-project-truename ; does not respect gitignore, thus can find ignored files
-  "bY" #'yxl-buffer-store-name
-  "bP" #'yxl-buffer-visit-stored-buffer
-  "dd" #'yxl-dired-ivy-switch-buffer
+  "g C-s" #'magit-status-fullscreen
   "hdF" #'counsel-faces
   "i <SPC>" #'yxl-evil-insert-newline-around
   "ii" #'yxl-evil-insert-space

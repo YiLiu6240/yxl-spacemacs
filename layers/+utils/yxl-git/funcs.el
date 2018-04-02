@@ -10,6 +10,11 @@
     (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
   (message "magit-display-buffer-function %s" magit-display-buffer-function))
 
+(defun magit-status-fullscreen ()
+  (interactive)
+  (let ((magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
+    (magit-status)))
+
 (defun magit-insert-standup-commits (&optional collapse)
   "Insert section showing recent commits. From yesterday to today."
   (let* ((range "--since=yesterday.midnight"))
