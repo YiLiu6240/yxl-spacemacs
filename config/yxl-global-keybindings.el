@@ -72,12 +72,13 @@
   "p'" nil
   "pc" #'yxl-project-cite
   "pC" #'projectile-compile-project
+  "pG" #'projectile-regenerate-tags
+  "p C-g" nil
   "pO" #'yxl-project-select
   "po" #'yxl-project-popup
   "pm" #'helm-make-projectile
   "pM" #'helm-make
-  "pG" #'projectile-regenerate-tags
-  "p C-g" nil
+  "pt" #'treemacs-projectile-toggle
   "qf" #'spacemacs/frame-killer
   "sj" #'counsel-semantic-or-imenu
   "sJ" #'helm-semantic-or-imenu
