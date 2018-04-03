@@ -102,7 +102,8 @@
                       syntax-checking-enable-by-default nil)
      (helm :can-shadow nil)
      (ivy :variables
-          ivy-enable-advanced-buffer-information t)
+          ;; ivy-rich is slow
+          ivy-enable-advanced-buffer-information nil)
      (auto-completion :variables
                       ;; use tab to complete
                       ;; return key enters new line
