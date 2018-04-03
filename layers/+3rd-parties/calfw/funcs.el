@@ -3,7 +3,7 @@
   (cfw:open-calendar-buffer
    :contents-sources
    (list
-    (cfw:org-create-source (face-foreground 'font-lock-type-face)))))
+    (cfw:org-create-source (face-foreground 'org-level-3)))))
 
 (defun cfw/most-recent-date ()
   (interactive)
