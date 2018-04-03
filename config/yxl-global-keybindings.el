@@ -15,6 +15,14 @@
 ;; wheel up
 (global-set-key (kbd "<C-mouse-4>") #'spacemacs/scale-up-font)
 
+;; Evil hacks
+;; Bind RETURN to find files in the current directory
+(define-key evil-motion-state-map (kbd "RET") #'yxl-find-file-counsel)
+;; Bind C-/ to sidebar
+(define-key evil-motion-state-map (kbd "C-/") #'treemacs-toggle)
+;; Bind C-; to ibuffer
+(define-key evil-motion-state-map (kbd "C-;") #'ibuffer)
+
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
   ;; workaround
