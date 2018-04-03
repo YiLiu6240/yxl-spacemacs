@@ -51,6 +51,13 @@
         ("k" "calendar: today" entry
          (file+headline yxl-base-org-calendar "Items")
          "** %? <%(org-read-date nil nil \"+1d\")>\n")))
+(with-eval-after-load 'calfw-org
+  (add-to-list 'org-capture-templates
+               '("K" "calendar: cfw" entry
+                 (file+headline yxl-base-org-calendar "Items")
+                 "** %? <%(cfw/most-recent-date)>\n")
+               t))
+
 (setq org-refile-targets '((nil :maxlevel . 1)
                            (yxl-base-org-task-files :maxlevel . 1)))
 
@@ -69,7 +76,7 @@
                     ("org-agenda" . org-agenda)
                     ("org-capture" . org-capture)
                     ("w3m" . w3m)
-                    ("cfw-calendar" . cfw-calendar)
+                    ("cfw/open-calendar" . cfw/open-calendar)
                     ("rss: elfeed" . elfeed)
                     ("note: deft" . spacemacs/deft)
                     ("email: mu4e" . mu4e)

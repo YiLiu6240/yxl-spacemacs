@@ -1,26 +1,20 @@
-;; source:
-;;   https://www.emacswiki.org/emacs/Calfw
-;;   https://github.com/kiwanami/emacs-calfw
+(setq calfw-packages '(calfw
+                       calfw-org))
 
-(defvar calfw-packages '(calfw)
-  "List of all packages to install and/or initialize. Built-in packages
-which require an initialization must be listed explicitly in the list.")
-
-(defun calfw/init-calfw()
+(defun calfw/init-calfw ()
   (use-package calfw
-    :defer t
-    :commands (cfw-open-calendar)
+    :commands (cfw/open-calendar
+               cfw:open-calendar-buffer
+               cfw/most-recent-date)
     :config
     (progn
       (evil-set-initial-state 'cfw:calendar-mode 'evilified)
-      ;; (require 'calfw-cal)
-      ;; (require 'calfw-ical)
-      (require 'calfw-org)
-      (defun cfw-open-calendar()
-        (interactive)
-        (cfw:open-calendar-buffer
-         :contents-sources
-         (list
-          (cfw:org-create-source (face-attribute 'default :foreground)))))
-
       (calendar-set-date-style 'iso))))
+
+(defun calfw/init-calfw-org ()
+  (use-package calfw-org
+    :after (calfw)
+    :config
+    (progn
+      (setq cfw:org-face-agenda-item-foreground-color
+            (face-foreground 'font-lock-type-face)))))

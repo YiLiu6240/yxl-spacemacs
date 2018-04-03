@@ -3,6 +3,8 @@
    :mode cfw:calendar-mode
    :bindings
 
+   "c" #'org-capture
+
    "f" #'cfw:navi-next-day-command
    "b" #'cfw:navi-previous-day-command
    "n" #'cfw:navi-next-week-command
@@ -18,10 +20,10 @@
    "H" #'cfw:navi-goto-week-begin-command
    "L" #'cfw:navi-goto-week-end-command
 
-   "K"   #'cfw:navi-previous-month-command
-   "J"   #'cfw:navi-next-month-command
-   "<"   #'cfw:navi-previous-month-command
-   ">"   #'cfw:navi-next-month-command
+   "K" #'cfw:navi-previous-month-command
+   "J" #'cfw:navi-next-month-command
+   "<" #'cfw:navi-previous-month-command
+   ">" #'cfw:navi-next-month-command
 
    "g" #'cfw:navi-goto-date-command
    "t" #'cfw:navi-goto-today-command
@@ -30,6 +32,7 @@
 
    "r" #'cfw:refresh-calendar-buffer
    "o" #'cfw:show-details-command
+   (kbd "RET") #'cfw:show-details-command
    "O" #'cfw:org-open-agenda-day
 
    "D" #'cfw:change-view-day
@@ -43,11 +46,12 @@
  (evilified-state-evilify-map cfw:details-mode-map
    :mode cfw:details-mode
    :bindings
-   "q"       #'cfw:details-kill-buffer-command
-   "o"       #'cfw:details-kill-buffer-command
-   "l"       #'cfw:details-navi-next-command
-   "h"       #'cfw:details-navi-prev-command
-   (kbd "TAB")     #'cfw:details-navi-next-item-command))
+   "c" #'org-capture
+   "q" #'cfw:details-kill-buffer-command
+   "o" #'cfw:details-kill-buffer-command
+   "l" #'cfw:details-navi-next-command
+   "h" #'cfw:details-navi-prev-command
+   (kbd "TAB") #'cfw:details-navi-next-item-command))
 
 (defhydra cfw-calendar-hydra (:color red :hint nil)
   "
@@ -76,10 +80,10 @@
   ("H" cfw:navi-goto-week-begin-command)
   ("L" cfw:navi-goto-week-end-command)
 
-  ("K"   cfw:navi-previous-month-command)
-  ("J"   cfw:navi-next-month-command)
-  ("<"   cfw:navi-previous-month-command)
-  (">"   cfw:navi-next-month-command)
+  ("K" cfw:navi-previous-month-command)
+  ("J" cfw:navi-next-month-command)
+  ("<" cfw:navi-previous-month-command)
+  (">" cfw:navi-next-month-command)
 
   ("g" cfw:navi-goto-date-command)
   ("t" cfw:navi-goto-today-command)
