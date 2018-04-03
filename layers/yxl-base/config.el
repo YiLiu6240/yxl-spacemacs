@@ -22,6 +22,9 @@ to be passed to `yxl-hydra-files.'")
 (defvar yxl-base-org-log nil
   "Master log file.")
 
+(defvar yxl-base-org-calendar nil
+  "Master calendar file.")
+
 (defvar yxl-base-bib nil
   "Master bibliography file.")
 

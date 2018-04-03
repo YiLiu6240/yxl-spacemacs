@@ -9,6 +9,7 @@
 (setq yxl-base-org-todo (concat yxl-base-org-directory "tasks/todo.org"))
 (setq yxl-base-org-log (concat yxl-base-org-directory "logs/logs-master.org"))
 (setq yxl-base-org-checkbox (concat "~/Dropbox/org/tasks/" "checkbox.org"))
+(setq yxl-base-org-calendar (concat "~/Dropbox/org/tasks/" "calendar.org"))
 (setq yxl-base-note-local "~/local-repo/local-notes.org")
 (setq yxl-base-note-sync "~/Dropbox/org/note.org")
 ;; org-agenda-files
@@ -16,7 +17,7 @@
 (mapc (lambda (elem)
         (add-to-list 'org-agenda-files (expand-file-name elem) t))
       (append
-       (list yxl-base-org-checkbox yxl-base-org-todo)
+       (list yxl-base-org-checkbox yxl-base-org-todo yxl-base-org-calendar)
        (directory-files (concat yxl-base-org-directory "projects/")
                         t "^proj_.+\\.org")
        (directory-files (concat yxl-base-org-directory "logs/")
@@ -36,13 +37,20 @@
       (directory-files (expand-file-name (concat yxl-base-org-directory
                                                  "recipes/"))
                        t "^.+\\.org"))
+;; org capture template
 (setq org-capture-templates
-      '(("c" "checkbox: inbox" checkitem (file+headline yxl-base-org-checkbox "Checkbox")
+      '(("c" "checkbox: inbox" checkitem
+         (file+headline yxl-base-org-checkbox "Checkbox")
          "-  %?\n")
-        ("t" "checkbox: todo" checkitem (file+headline yxl-base-org-checkbox "Checkbox")
+        ("t" "checkbox: todo" checkitem
+         (file+headline yxl-base-org-checkbox "Checkbox")
          "- [ ]  %?\n")
-        ("i" "general: inbox" checkitem (file+headline yxl-base-org-todo "Capture")
-         "- %?\n  %i\n")))
+        ("i" "general: inbox" checkitem
+         (file+headline yxl-base-org-todo "Capture")
+         "- %?\n  %i\n")
+        ("k" "calendar: today" entry
+         (file+headline yxl-base-org-calendar "Items")
+         "** %? <%(org-read-date nil nil \"+1d\")>\n")))
 (setq org-refile-targets '((nil :maxlevel . 1)
                            (yxl-base-org-task-files :maxlevel . 1)))
 
