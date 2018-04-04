@@ -177,14 +177,10 @@
      (yxl-email :packages
                 (not mu4e-alert)
                 :variables
-                mu4e-installation-path "/usr/share/emacs/site-lisp/mu4e"
-                yxl-email-personal-config-file (concat yxl-path-personal
-                                                       "yxl-emacs-mu4e.el"))
+                mu4e-installation-path "/usr/share/emacs/site-lisp/mu4e")
      (yxl-elfeed :variables
                  elfeed-enable-web-interface t
-                 yxl-elfeed-db-directory "~/Dropbox/rss/.elfeed"
-                 yxl-elfeed-personal-config-file (concat yxl-path-personal
-                                                         "yxl-elfeed-configs.el")))))
+                 yxl-elfeed-db-directory "~/Dropbox/rss/.elfeed"))))
 
 (defun dotspacemacs/init ()
   (setq-default

@@ -62,9 +62,7 @@
             '(("capture message"  . mu4e-action-capture-message)
               ("show this thread" . mu4e-action-show-thread)
               ("view in browser" . mu4e-action-view-in-browser)))
-      (setq mu4e-html2text-command "w3m -T text/html")
-      (when yxl-email-personal-config-file
-        (load yxl-email-personal-config-file)))))
+      (setq mu4e-html2text-command "w3m -T text/html"))))
 
 (defun yxl-email/init-mu4e-alert ()
   (use-package mu4e-alert

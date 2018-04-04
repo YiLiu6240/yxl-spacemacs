@@ -27,9 +27,7 @@
       (setq spacemacs-useful-buffers-regexp
             (append spacemacs-useful-buffers-regexp '("\\*elfeed-search\\*")))
       (when yxl-elfeed-db-directory
-        (setq elfeed-db-directory yxl-elfeed-db-directory))
-      (when yxl-elfeed-personal-config-file
-        (load yxl-elfeed-personal-config-file)))))
+        (setq elfeed-db-directory yxl-elfeed-db-directory)))))
 
 (defun yxl-elfeed/init-elfeed-goodies ()
   (use-package elfeed-goodies
