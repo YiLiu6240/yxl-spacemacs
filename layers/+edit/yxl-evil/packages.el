@@ -10,16 +10,23 @@
   (with-eval-after-load 'evil
     (setq evil-split-window-below t)
     (setq evil-vsplit-window-right t)
-    (yxl-evil/setup-evil-main)
-    (yxl-evil/setup-evil-personal)
-    (yxl-evil/setup-evil-misc)
     ;; TODO: check if this causes trouble
-    (setq evil-move-beyond-eol nil)))
+    (setq evil-move-beyond-eol nil)
+    ;; stay in normal mode when switch to wdired-mode
+    (delete 'wdired-mode evil-insert-state-modes)
+    (yxl-evil//setup-evil-general)
+    (yxl-evil//setup-evil-insert-state)
+    (yxl-evil//setup-evil-c-hjkl)
+    (yxl-evil//setup-evil-text-objects)
+    (yxl-evil//setup-evil-hacks)
+    (with-eval-after-load 'eyebrowse
+      (yxl-evil//setup-evil-eyebrowse))))
 
 (defun yxl-evil/post-init-evil-evilified-state ()
   (with-eval-after-load 'evil-evilified-state
-    (yxl-evil/setup-evilified)
-    (yxl-evil/setup-evilified-personal)))
+    (yxl-evil//setup-evilified-general)
+    (yxl-evil//setup-evilified-c-hjkl)
+    (yxl-evil//setup-evilified-hacks)))
 
 (defun yxl-evil/init-yxl-evil ()
   (use-package yxl-evil
@@ -31,9 +38,9 @@
 
 (defun yxl-evil/post-init-evil-surround ()
   (with-eval-after-load 'evil-surround
-    (add-hook 'prog-mode-hook #'yxl-evil/evil-surround-pairs)
-    (add-hook 'text-mode-hook #'yxl-evil/evil-surround-pairs)
-    (add-hook 'ein:notebook-multilang-mode-hook #'yxl-evil/evil-surround-pairs)))
+    (add-hook 'prog-mode-hook #'yxl-evil//evil-surround-pairs)
+    (add-hook 'text-mode-hook #'yxl-evil//evil-surround-pairs)
+    (add-hook 'ein:notebook-multilang-mode-hook #'yxl-evil//evil-surround-pairs)))
 
 (defun yxl-evil/init-evil-textobj-column ()
   (use-package evil-textobj-column))

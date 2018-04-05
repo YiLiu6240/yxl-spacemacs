@@ -10,7 +10,7 @@
   (end-of-line)
   (call-interactively #'set-mark-command)
   (back-to-indentation)
-  ;; NOTE: this is conditional on ?F is set to `yxl-evil-surround-function-print'
+  ;; NOTE: this is conditional on ?F is set to `yxl-evil/surround-function-print'
   (evil-surround-region (region-beginning) (region-end) t ?F))
 
 (defun yxl-prog/evil-wrap-line-f-lisp (&optional fname)
