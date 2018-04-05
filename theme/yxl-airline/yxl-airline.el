@@ -121,7 +121,7 @@
                                          (powerline-raw (format " %s " (winum-get-number)) outer-face)
                                        (powerline-raw (format " %s " current-evil-state-string) outer-face))
                                      ;; Buffer ID
-                                     (powerline-raw (concat "  " (buffer-id-short 100)) inner-face 'lr)
+                                     (powerline-raw (concat " " (buffer-id-short 100)) inner-face 'lr)
                                      ;; Modified string
                                      (powerline-raw " %* " inner-face 'lr)
                                      (powerline-raw (modeline-window-dedication) inner-face 'lr)))
@@ -129,10 +129,9 @@
                           (lhs-rest (list
                                      (powerline-raw " " center-face 'lr)
                                      ;; magit
-                                     (when (and (featurep 'magit)
-                                                (magit-get-current-branch))
+                                     (when (featurep 'magit)
                                        (powerline-raw (concat " " (magit-get-current-branch) " " pl-sep) center-face 'lr))
-                                     (powerline-raw (concat " " (modeline-font-frame-scales) " " pl-sep) center-face 'lr)
+                                     (powerline-raw (concat (modeline-font-frame-scales) pl-sep) center-face 'lr)
                                      ;; selection info
                                      (when (or mark-active
                                                (and (bound-and-true-p evil-local-mode)
