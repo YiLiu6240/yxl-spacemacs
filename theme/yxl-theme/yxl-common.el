@@ -72,7 +72,7 @@
             ;; comment
             (comment       (cond ((eq variant 'solar-dark) (if (true-color-p) "#586e75" "#7c6f64"))
                                  ((eq variant 'gruv-dark) (if (true-color-p) "#928374" "#928374"))
-                                 ((eq variant 'gruv-light) (if (true-color-p) "#795548" "#928374"))
+                                 ((eq variant 'gruv-light) (if (true-color-p) "#928374" "#928374"))
                                  ((eq variant 'solar-light) (if (true-color-p) "#81908f" "#008787"))))
             ;; comment bg
             (comment-bg    (cond ((eq variant 'solar-dark) (if (true-color-p) "#15262c" "#282828"))
