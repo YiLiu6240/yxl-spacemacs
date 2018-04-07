@@ -1,4 +1,4 @@
-(defun yxl-org/setup-keybindings ()
+(defun yxl-org//setup-keybindings ()
   (define-key org-mode-map
     (kbd "C-M-o") #'yxl-org/insert-source-block)
   (define-key org-mode-map
@@ -60,7 +60,7 @@
                                (org-metaright))))))
         '(normal insert)))
 
-(defun yxl-org/setup-leader-keys ()
+(defun yxl-org//setup-leader-keys ()
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
     "b" nil
     "m" nil)
@@ -87,7 +87,7 @@
   (spacemacs/declare-prefix-for-mode 'org-mode "b" "src-block")
   (spacemacs/declare-prefix-for-mode 'org-mode "m" "math"))
 
-(defun yxl-org/setup-hydra ()
+(defun yxl-org//setup-hydra ()
   (define-key org-mode-map "<"
     (lambda () (interactive)
       (if (or (region-active-p) (looking-back "^"))

@@ -25,17 +25,17 @@
     (add-hook 'org-mode-hook 'yxl-org/load-ob-helper))
   ;; inject my own configs
   (with-eval-after-load 'org
-    (yxl-org/setup-general)
-    (yxl-org/setup-keybindings)
-    (yxl-org/setup-leader-keys)
-    (yxl-org/setup-hydra)
+    (yxl-org//setup-general)
+    (yxl-org//setup-keybindings)
+    (yxl-org//setup-leader-keys)
+    (yxl-org//setup-hydra)
     (add-hook 'org-font-lock-set-keywords-hook
-              #'yxl-org/setup-extra-fontlock)
-    (yxl-org/setup-latex)
-    (yxl-org/setup-babel)
-    (yxl-org/setup-minor-modes))
+              #'yxl-org//setup-extra-fontlock)
+    (yxl-org//setup-latex)
+    (yxl-org//setup-babel)
+    (yxl-org//setup-minor-modes))
   (with-eval-after-load 'org-agenda
-    (yxl-org/setup-agenda)))
+    (yxl-org//setup-agenda)))
 
 (defun yxl-org/init-yxl-org ()
   (use-package yxl-org

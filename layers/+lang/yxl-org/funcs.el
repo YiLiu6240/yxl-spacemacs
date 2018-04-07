@@ -46,7 +46,7 @@ overridden by a prefix arg)."
   (call-interactively 'other-window)
   (org-todo-list))
 
-(defun yxl-org/setup-general ()
+(defun yxl-org//setup-general ()
   ;; disable middle split
   (setq org-M-RET-may-split-line nil)
   ;; org title bullets
@@ -93,7 +93,7 @@ overridden by a prefix arg)."
   ;; NOTE: buggy, disable for now
   ;; (yxl-org-format-task-files)
 
-(defun yxl-org/setup-extra-fontlock ()
+(defun yxl-org//setup-extra-fontlock ()
   ;; source: https://github.com/hlissner/.emacs.d/blob/master/modules/lang/org/config.el
   (setq org-font-lock-extra-keywords
         (delete '("\\[\\([0-9]*%\\)\\]\\|\\[\\([0-9]*\\)/\\([0-9]*\\)\\]"
@@ -116,7 +116,7 @@ overridden by a prefix arg)."
            ("\\s-\\(#[^ \n]+\\)" 1 'org-tag)
            ("\\s-\\(@[^ \n]+\\)" 1 'org-special-keyword))))
 
-(defun yxl-org/setup-agenda ()
+(defun yxl-org//setup-agenda ()
   ;; agenda file
   ;; agenda view: 1 month
   (setq org-agenda-span 'week)
@@ -136,7 +136,7 @@ overridden by a prefix arg)."
           (tags . " %i %-12:c")
           (search . " %i %-12:c"))))
 
-(defun yxl-org/setup-latex ()
+(defun yxl-org//setup-latex ()
   (setq org-preview-latex-image-directory ".ltximg/")
   ;; Making latex formulae BIGGER
   ;; https://stackoverflow.com/questions/11272236/how-to-make-formule-bigger-in-org-mode-of-emacs
@@ -145,7 +145,7 @@ overridden by a prefix arg)."
         (plist-put (default-value 'org-format-latex-options)
                    :scale 2.0)))
 
-(defun yxl-org/setup-babel ()
+(defun yxl-org//setup-babel ()
   (setq-default org-export-babel-evaluate nil)
   (setq org-confirm-babel-evaluate nil)
   (setq org-src-preserve-indentation t)
@@ -171,7 +171,7 @@ overridden by a prefix arg)."
   (interactive)
   (org-babel-show-result-all))
 
-(defun yxl-org/setup-minor-modes ()
+(defun yxl-org//setup-minor-modes ()
   (define-minor-mode yxl-org/ob-ipython-helper-mode
     "Helper configs in org-mode with ob-ipython"
     :keymap
