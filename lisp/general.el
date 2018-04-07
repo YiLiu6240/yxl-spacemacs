@@ -8,18 +8,6 @@
   (interactive)
   (switch-to-buffer "*compilation*"))
 
-(defun yxl-buffer-messages ()
-  (interactive)
-  (switch-to-buffer (get-buffer-create "*Messages*")))
-
-(defun yxl-buffer-home-dir ()
-  (interactive)
-  (find-file "~"))
-
-(defun yxl-buffer-org-checkbox ()
-  (interactive)
-  (find-file yxl-base-org-checkbox))
-
 (defun yxl-buffer-sticky-i3-window (file)
   "Visit a indirect buffer of FILE as a sticky i3 window.
 Useful when we need two instances (one sticky note, and
@@ -35,22 +23,6 @@ one normal buffer."
         (switch-to-buffer (make-indirect-buffer buf sticky-name t))
         (text-scale-set 0)
         (spacemacs/toggle-mode-line-off)))))
-
-(defun yxl-buffer-org-todo ()
-  (interactive)
-  (find-file yxl-base-org-todo))
-
-(defun yxl-buffer-org-log ()
-  (interactive)
-  (find-file yxl-base-org-log))
-
-(defun yxl-buffer-note-local ()
-  (interactive)
-  (find-file yxl-base-note-local))
-
-(defun yxl-buffer-note-sync ()
-  (interactive)
-  (find-file yxl-base-note-sync))
 
 (defun spacemacs/find-dotfile-follow-symlink ()
   "Edit the `dotfile', in the current window."

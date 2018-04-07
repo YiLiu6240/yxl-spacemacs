@@ -22,22 +22,15 @@
   "'" #'yxl-shell-invoke
   "<SPC>" #'yxl-hydra-space/body
   "aa" #'yxl-invoke-applications
+  "ac" #'cfw/open-calendar
+  "aC" #'calc-dispatch
   "bB" #'yxl-buffer-switch-same-major-mode
   ;; "bb" #'yxl-buffer-switch
   "bb" #'ivy-switch-buffer
   "bh" #'yxl-base/home
   "bob" #'ibuffer
-  "boc" #'yxl-buffer-compilation
-  "boC" #'clone-indirect-buffer-other-window
-  "boD" #'delete-other-windows
-  "boh" #'yxl-buffer-home-dir
-  "bol" #'yxl-buffer-org-log
-  "bom" #'yxl-buffer-messages
-  "boi" #'yxl-buffer-note-local
-  "boI" #'yxl-buffer-note-sync
-  "bon" #'yxl-buffer-inherit
-  "boo" #'yxl-buffer-org-checkbox
-  "boO" #'yxl-buffer-org-todo
+  "bc" #'yxl-buffer-compilation
+  "bC" #'clone-indirect-buffer-other-window
   "bi" #'imenu-list-smart-toggle
   "bm" #'yxl-buffer-switch-same-major-mode
   "bM" #'spacemacs/switch-to-messages-buffer
