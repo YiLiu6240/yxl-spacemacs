@@ -8,8 +8,8 @@
   (setq org-directory yxl-base-org-directory))
 (setq yxl-base-org-todo (concat yxl-base-org-directory "tasks/todo.org"))
 (setq yxl-base-org-log (concat yxl-base-org-directory "logs/logs-master.org"))
-(setq yxl-base-org-checkbox (concat "~/Dropbox/org/tasks/" "checkbox.org"))
-(setq yxl-base-org-calendar (concat "~/Dropbox/org/tasks/" "calendar.org"))
+(setq yxl-base-org-today (concat yxl-base-org-directory "tasks/today.org"))
+(setq yxl-base-org-calendar (concat yxl-base-org-directory "tasks/calendar.org"))
 (setq yxl-base-note-local "~/local-repo/local-notes.org")
 (setq yxl-base-note-sync "~/Dropbox/org/note.org")
 ;; org-agenda-files
@@ -17,7 +17,7 @@
 (mapc (lambda (elem)
         (add-to-list 'org-agenda-files (expand-file-name elem) t))
       (append
-       (list yxl-base-org-checkbox yxl-base-org-todo yxl-base-org-calendar)
+       (list yxl-base-org-today yxl-base-org-todo yxl-base-org-calendar)
        (directory-files (concat yxl-base-org-directory "projects/")
                         t "^proj_.+\\.org")
        (directory-files (concat yxl-base-org-directory "logs/")
@@ -39,15 +39,15 @@
                        t "^.+\\.org"))
 ;; org capture template
 (setq org-capture-templates
-      '(("c" "checkbox: inbox" checkitem
-         (file+headline yxl-base-org-checkbox "Checkbox")
-         "-  %?\n")
-        ("t" "checkbox: todo" checkitem
-         (file+headline yxl-base-org-checkbox "Checkbox")
-         "- [ ]  %?\n")
+      '(("c" "today: today" entry
+         (file+headline yxl-base-org-today "Today")
+         "** TODO %?\n")
+        ("t" "today: later" entry
+         (file+headline yxl-base-org-today "Later")
+         "** %?\n")
         ("i" "general: inbox" checkitem
          (file+headline yxl-base-org-todo "Capture")
-         "- %?\n  %i\n")
+         "** %?\n  %i\n")
         ("k" "calendar: today" entry
          (file+headline yxl-base-org-calendar "Items")
          "** %? <%(org-read-date nil nil \"+1d\")>\n")))

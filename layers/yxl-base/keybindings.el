@@ -104,11 +104,11 @@ Hotspot:
   ;; - 0 - 5: open them in "sidebar"
   ;; - C-u / Meta + 0 - 5: open them in current window
   ;; - Shift + 0 - 5: open them in bottom popup
-  ("0" (yxl-find-file-popup yxl-base-org-checkbox))
-  ("M-0" (find-file yxl-base-org-checkbox))
+  ("0" (yxl-find-file-popup yxl-base-org-today))
+  ("M-0" (find-file yxl-base-org-today))
   ("1" (yxl-find-file-popup yxl-base-org-todo))
   ("M-1" (find-file yxl-base-org-todo))
-  (")" (popwin:popup-buffer (find-file-noselect yxl-base-org-checkbox)
+  (")" (popwin:popup-buffer (find-file-noselect yxl-base-org-today)
                             :stick t
                             :height 0.4
                             :position 'bottom))
@@ -130,7 +130,7 @@ Hotspot:
   ("gs" yxl-helm-shortcuts)
   ("gr" yxl-helm-reading-list)
 
-  ("is" (yxl-append-to-scratch yxl-base-org-checkbox))
+  ("is" (yxl-append-to-scratch yxl-base-org-today))
   ("ia" yxl-append-to-scratch))
 
 (defhydra yxl-hydra-system (:color blue :hint nil

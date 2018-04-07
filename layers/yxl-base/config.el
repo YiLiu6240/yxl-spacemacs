@@ -16,7 +16,7 @@ to be passed to `yxl-hydra-files.'")
 (defvar yxl-base-org-todo nil
   "Master todo file.")
 
-(defvar yxl-base-org-checkbox nil
+(defvar yxl-base-org-today nil
   "Master checkbox file.")
 
 (defvar yxl-base-org-log nil
