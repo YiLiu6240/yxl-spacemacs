@@ -71,4 +71,27 @@ https://github.com/zachcurry/emacs-anywhere/blob/master/emacs_anywhere.el"
                               (nil :maxlevel . 1))))
     (org-refile)))
 
+(defun yxl-spacemacs-dashboard ()
+  "The dashboard."
+  (interactive)
+  ;; Actions defer based on frame ratio
+  (let* ((ratio-baseline 2.0)
+         (frame-ratio (/ (float (frame-width)) (float (frame-height)))))
+    (delete-other-windows)
+    (if (< frame-ratio ratio-baseline)
+        ;; vertical setup
+        (progn
+          (cfw/open-calendar)
+          (split-window-below-and-focus)
+          (org-todo-list)
+          (with-current-buffer cfw:calendar-buffer-name
+            (call-interactively 'cfw:refresh-calendar-buffer)))
+      ;; horizontal setup
+      (progn
+        (cfw/open-calendar)
+        (split-window-right-and-focus)
+        (org-todo-list)
+        (with-current-buffer cfw:calendar-buffer-name
+          (call-interactively 'cfw:refresh-calendar-buffer))))))
+
 (provide 'general)

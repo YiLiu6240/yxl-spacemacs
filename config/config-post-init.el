@@ -317,5 +317,4 @@
                         (lambda (&optional refresh)
                           (interactive)
                           (find-file "~/Downloads/")))
-            ;; Simply load the most frequently used org file
-            (find-file yxl-base-org-today)))
+            (yxl-spacemacs-dashboard)))

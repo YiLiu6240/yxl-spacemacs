@@ -28,6 +28,7 @@
   ;; "bb" #'yxl-buffer-switch
   "bb" #'ivy-switch-buffer
   "bh" #'yxl-base/home
+  "bH" #'yxl-spacemacs-dashboard
   "bob" #'ibuffer
   "bc" #'yxl-buffer-compilation
   "bC" #'clone-indirect-buffer-other-window
