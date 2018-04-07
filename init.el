@@ -292,19 +292,15 @@
   (add-to-list 'load-path (concat yxl-path-dotfiles "yxl-emacs-datascience-goodies"))
   ;; init stage config
   (load-file (concat dotspacemacs-directory "config/config-init.el"))
-  (load-file (concat dotspacemacs-directory "config/hack.el"))
   (load-file (concat yxl-path-personal "personal-init.el"))
   (load custom-file 'no-error 'no-message))
 
 (defun dotspacemacs/user-config ()
+  (defvar yxl-spacemacs-last-hook '()
+    "Things to do after spacemacs has been fully loaded.")
   (load-theme 'yxl-airline t)
-  ;; add hook so that modeline colors are set correctly after theme change
-  (add-hook 'spacemacs-post-theme-change-hook #'yxl-airline-theme-set-colors)
   (load-file (concat dotspacemacs-directory "config/config-post-init.el"))
-  (load-file (concat yxl-path-personal "personal-config.el"))
-  (load-file (concat dotspacemacs-directory "lisp/general.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-global-keybindings.el"))
-  (load-file (concat dotspacemacs-directory "config/hack-post-init.el"))
-  (load-file (concat dotspacemacs-directory "config/config-last.el")))
+  (run-hooks 'yxl-spacemacs-last-hook))
 
 (defun dotspacemacs/emacs-custom-settings ())

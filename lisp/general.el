@@ -70,3 +70,5 @@ https://github.com/zachcurry/emacs-anywhere/blob/master/emacs_anywhere.el"
   (let ((org-refile-targets '((yxl-base-org-today :maxlevel . 1)
                               (nil :maxlevel . 1))))
     (org-refile)))
+
+(provide 'general)

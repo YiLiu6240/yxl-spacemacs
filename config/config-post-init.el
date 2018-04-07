@@ -1,3 +1,5 @@
+(require 'general)
+
 ;; TODO:
 ;; - Simplify these
 ;; --------
@@ -286,6 +288,12 @@
                 (advice-remove 'fci-mode #'fci-mode-override-advice)
                 result)))
 
+;; override spacemacs popwin
+(delete '("^\*WoMan.+\*$" :regexp t :position bottom)
+        popwin:special-display-config)
+;; (delete '("*Help*" :dedicated t :position bottom :stick t :noselect t :height 0.4)
+;;       popwin:special-display-config)
+
 ;; force prefer-coding-system
 (prefer-coding-system 'utf-8-unix)
 
@@ -294,3 +302,20 @@
 
 (evilified-state-evilify-map special-mode-map
   :mode special-mode)
+
+;; ----------------
+;; Last things to do
+;; ----------------
+(add-hook 'yxl-spacemacs-last-hook
+          (lambda ()
+            ;; add hook so that modeline colors are set correctly after theme change
+            (add-hook 'spacemacs-post-theme-change-hook #'yxl-airline-theme-set-colors)
+            (load-file (concat yxl-path-personal "personal-config.el"))
+            ;; Override spacemacs home to be goto ~/Downloads/
+            (advice-add 'spacemacs-buffer/goto-buffer
+                        :override
+                        (lambda (&optional refresh)
+                          (interactive)
+                          (find-file "~/Downloads/")))
+            ;; Simply load the most frequently used org file
+            (find-file yxl-base-org-today)))
