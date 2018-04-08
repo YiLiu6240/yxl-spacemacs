@@ -30,6 +30,7 @@
   "bh" #'yxl-base/home
   "bH" #'yxl-spacemacs-dashboard
   "bob" #'ibuffer
+  "bon" #'yxl-buffer-inherit
   "bc" #'yxl-buffer-compilation
   "bC" #'clone-indirect-buffer-other-window
   "bi" #'imenu-list-smart-toggle
