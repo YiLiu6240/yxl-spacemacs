@@ -236,6 +236,11 @@ spacemacs home buffer"
     ("s" ibuffer-do-sort-by-size "size")
     ("f" ibuffer-do-sort-by-filename/process "filename")
     ("m" ibuffer-do-sort-by-major-mode "mode")
+    ("p" (ibuffer-projectile-set-filter-groups) "by project enable")
+    ("P" (progn
+           (spacemacs//ibuffer-create-buffs-group)
+           (ibuffer-update nil t))
+     "by project disable")
     ("b" hydra-ibuffer-main/body "back" :color blue))
   (defhydra hydra-ibuffer-filter (:color amaranth :columns 4)
     "Filter"
