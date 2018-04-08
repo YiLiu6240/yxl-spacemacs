@@ -56,6 +56,8 @@ with spaces."
     ;; navigation
     (define-key evil-motion-state-map "{" 'yxl-evil-backward-paragraph)
     (define-key evil-motion-state-map "}" 'yxl-evil-forward-paragraph)
+    (define-key evil-motion-state-map "j" 'evil-next-visual-line)
+    (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
 
     ;; ex:
     ;; ":" and ";"
