@@ -58,6 +58,8 @@ with spaces."
     (define-key evil-motion-state-map "}" 'yxl-evil-forward-paragraph)
     (define-key evil-motion-state-map "j" 'evil-next-visual-line)
     (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
+    (define-key evil-motion-state-map "gh" #'evil-first-non-blank)
+    (define-key evil-motion-state-map "gl" #'evil-last-non-blank)
 
     ;; ex:
     ;; ":" and ";"
