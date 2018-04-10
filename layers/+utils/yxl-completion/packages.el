@@ -2,7 +2,6 @@
 ;;       in spacemacs-layouts package
 ;; TODO: post-init-helm is not working
 (setq yxl-completion-packages '(company
-                                (yxl-helm-hotspot :location site)
                                 ivy
                                 counsel
                                 counsel-projectile
@@ -13,14 +12,6 @@
 (defun yxl-completion/post-init-company ()
   (with-eval-after-load 'company
     (yxl-completion//setup-company)))
-
-(defun yxl-completion/init-yxl-helm-hotspot ()
-  (use-package yxl-helm-hotspot
-    :after 'helm
-    :commands (yxl-helm-hotspot
-               yxl-helm-shortcuts
-               yxl-helm-org-files
-               yxl-helm-reading-list)))
 
 (defun yxl-completion/post-init-ivy ()
   (with-eval-after-load 'ivy
