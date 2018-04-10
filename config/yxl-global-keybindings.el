@@ -18,7 +18,7 @@
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
   ;; workaround
-  "," #'eval-expression
+  "," #'yxl-hydra-hotspot/body
   "'" #'yxl-shell-invoke
   "<SPC>" #'yxl-hydra-space/body
   "aa" #'yxl-invoke-applications

@@ -73,65 +73,44 @@ avy:
 
 (defhydra yxl-hydra-hotspot (:color blue :hint nil
                                     :pre (setq which-key-inhibit t)
-                                    :post (setq which-key-inhibit nil))
+                                    :post (setq which-key-inhibit nil)
+                                    :columns 4)
   "
-
 Hotspot:
 
- | [_h_]: Frame: h                  | [_0_]: Org: scratch                 |
- | [_j_]: Frame: j                  | [_1_]: Org: todo                    |
- | [_k_]: Frame: k                  | ^^                                  |
- | [_l_]: Frame: l                  | ^^                                  |
+Orgmode:
+ | [_oo_]: ivy-read agenda    | [_oO_]: open all files     | ^^                 |
+ | [_oc_]: capture            | [_ol_]: org-store-link     | ^^                 |
+ | [_oa_]: my-org-agenda-life | [_oA_]: my-org-agenda-work | [_oL_]: my-org-log |
 
- | [_cK_]: calendar                 | [_gg_]: Helm: my hotspot            |
- | [_ck_]: cfw-calendar             | ^^                                  |
- | [_cc_]: Org: capture             | [_go_]: Helm: my org files          |
- | [_oa_]: Org: agenda: life        | [_gs_]: Helm: my local/web shortcuts|
- | [_oA_]: Org: agenda: work        | ^^                                  |
- | [_ol_]: Org: log                 | [_gr_]: Helm: my reading list       |
- | [_oO_]: Org: open all files      | ^^                                  |
+Projects and files:
+ | [_op_]: projects           | [_of_]: files              | ^^                 |
 
- | [_ia_]: append: to *scratch*     | ^^                                  |
- | [_is_]: append: to checkbox.org  | ^^                                  |
-"
+Applications:
+ | [_aa_]: invoke apps        | [_ac_]: cfw                | [_aC_]: calendar   |
 
-  ("h" (yxl-frame-select-or-set "Frame-h"))
-  ("j" (yxl-frame-select-or-set "Frame-j"))
-  ("k" (yxl-frame-select-or-set "Frame-k"))
-  ("l" (yxl-frame-select-or-set "Frame-l"))
+Rest:"
 
-  ;; org files opening logic
-  ;; - 0 - 5: open them in "sidebar"
-  ;; - C-u / Meta + 0 - 5: open them in current window
-  ;; - Shift + 0 - 5: open them in bottom popup
-  ("0" (yxl-find-file-popup yxl-base-org-today))
-  ("M-0" (find-file yxl-base-org-today))
-  ("1" (yxl-find-file-popup yxl-base-org-todo))
-  ("M-1" (find-file yxl-base-org-todo))
-  (")" (popwin:popup-buffer (find-file-noselect yxl-base-org-today)
-                            :stick t
-                            :height 0.4
-                            :position 'bottom))
-  ("!" (popwin:popup-buffer (find-file-noselect yxl-base-org-todo)
-                            :stick t
-                            :height 0.4
-                            :position 'bottom))
-  ("cK" calendar)
-  ("ck" cfw-open-calendar)
-
-  ("cc" org-capture)
+  ("oo" (ivy-read "org-agenda-files:"
+                  (org-agenda-files)
+                  :action (lambda (file)
+                            (find-file file))))
   ("oO" yxl-org-open-all-task-files)
+  ("oc" org-capture)
+  ("ol" org-store-link)
   ("oa" my-org-agenda-life)
   ("oA" my-org-agenda-work)
-  ("ol" my-org-log)
+  ("oL" my-org-log)
 
-  ("gg" yxl-helm-hotspot)
-  ("go" yxl-helm-org-files)
-  ("gs" yxl-helm-shortcuts)
-  ("gr" yxl-helm-reading-list)
+  ("op" yxl-hydra-projects)
+  ("of" yxl-hydra-files)
 
-  ("is" (yxl-append-to-scratch yxl-base-org-today))
-  ("ia" yxl-append-to-scratch))
+  ("aa" yxl-invoke-applications)
+  ("ac" cfw-open-calendar)
+  ("aC" calendar)
+
+  ("is" (yxl-append-to-scratch yxl-base-org-today) "Append to org today")
+  ("ia" yxl-append-to-scratch "Append to scratch buffer"))
 
 (defhydra yxl-hydra-system (:color blue :hint nil
                                    :pre (setq which-key-inhibit t)
@@ -165,9 +144,10 @@ Hotspot:
 "
 
   ("." make-frame "make-frame")
+  ("<RET>" make-frame "make-frame")
   ("," #'set-frame-name "set-frame-name")
+  (";" eval-expression "eval-expression")
 
-  ("<RET>" #'make-frame "make-frame")
   ("d" #'delete-frame  "delete-frame")
 
   ("-" yxl-dired-popup "dired-popup")
