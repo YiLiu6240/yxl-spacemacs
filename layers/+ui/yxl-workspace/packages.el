@@ -14,8 +14,26 @@
       (with-eval-after-load 'counsel
         (ivy-add-actions 'counsel-find-file
                          '(("O" yxl-ace-window-open "dispatch to an ace window")
-                           ("s" yxl-ace-window-open-horz "split horz, ace window")
-                           ("v" yxl-ace-window-open-vert "split horz, ace window")))))))
+                           ("s" (lambda (file)
+                                  (split-window-below)
+                                  (windmove-down)
+                                  (find-file file))
+                            "split below")
+                           ("S" (lambda (file)
+                                  (split-window-below)
+                                  (find-file file))
+                            "split above")
+                           ("v" (lambda (file)
+                                  (split-window-right)
+                                  (windmove-right)
+                                  (find-file file))
+                            "split right")
+                           ("V" (lambda (file)
+                                  (split-window-right)
+                                  (find-file file))
+                            "split left")
+                           ("C-s" yxl-ace-window-open-horz "split horz, ace window")
+                           ("C-v" yxl-ace-window-open-vert "split vert, ace window")))))))
 
 (defun yxl-workspace/init-buffer-move ()
   (use-package buffer-move
