@@ -83,8 +83,7 @@ with spaces."
   (define-key evil-insert-state-map (kbd "C-a") #'beginning-of-line-text)
   (define-key evil-insert-state-map (kbd "C-e") #'end-of-line)
   (define-key evil-insert-state-map (kbd "C-p") #'previous-line)
-  (define-key evil-insert-state-map (kbd "C-n") #'next-line)
-  (define-key evil-inner-text-objects-map "q" #'evil-indent-chains))
+  (define-key evil-insert-state-map (kbd "C-n") #'next-line))
 
 (defun yxl-evil//setup-evil-c-hjkl ()
   (define-key evil-motion-state-map (kbd "C-h") #'evil-window-left)
@@ -115,7 +114,8 @@ with spaces."
   (define-key evil-inner-text-objects-map "y" #'evil-inner-single-quote)
   (define-key evil-inner-text-objects-map "c" #'yxl-evil-indent-chains)
   (define-key evil-inner-text-objects-map "k" #'evil-textobj-column-word)
-  (define-key evil-inner-text-objects-map "K" #'evil-textobj-column-WORD))
+  (define-key evil-inner-text-objects-map "K" #'evil-textobj-column-WORD)
+  (define-key evil-inner-text-objects-map "q" #'evil-indent-chains))
 
 (defun yxl-evil//setup-evil-eyebrowse ()
   (define-key evil-motion-state-map "gt" #'eyebrowse-next-window-config)
