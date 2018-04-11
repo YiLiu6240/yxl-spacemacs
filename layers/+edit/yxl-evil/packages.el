@@ -18,15 +18,13 @@
     (yxl-evil//setup-evil-insert-state)
     (yxl-evil//setup-evil-c-hjkl)
     (yxl-evil//setup-evil-text-objects)
-    (yxl-evil//setup-evil-hacks)
     (with-eval-after-load 'eyebrowse
       (yxl-evil//setup-evil-eyebrowse))))
 
 (defun yxl-evil/post-init-evil-evilified-state ()
   (with-eval-after-load 'evil-evilified-state
     (yxl-evil//setup-evilified-general)
-    (yxl-evil//setup-evilified-c-hjkl)
-    (yxl-evil//setup-evilified-hacks)))
+    (yxl-evil//setup-evilified-c-hjkl)))
 
 (defun yxl-evil/init-yxl-evil ()
   (use-package yxl-evil

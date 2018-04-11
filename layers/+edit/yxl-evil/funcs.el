@@ -117,11 +117,6 @@ with spaces."
   (define-key evil-inner-text-objects-map "k" #'evil-textobj-column-word)
   (define-key evil-inner-text-objects-map "K" #'evil-textobj-column-WORD))
 
-(defun yxl-evil//setup-evil-hacks ()
-  (define-key evil-motion-state-map (kbd "C-;") #'yxl-find-file-counsel)
-  (define-key evil-motion-state-map (kbd "C-:") #'ibuffer)
-  (define-key evil-motion-state-map (kbd "C-/") #'treemacs-toggle))
-
 (defun yxl-evil//setup-evil-eyebrowse ()
   (define-key evil-motion-state-map "gt" #'eyebrowse-next-window-config)
   (define-key evil-motion-state-map "gT" #'eyebrowse-prev-window-config)
@@ -169,10 +164,3 @@ with spaces."
       (define-key map (kbd "C-j") #'evil-window-down)
       (define-key map (kbd "C-k") #'evil-window-up)
       (define-key map (kbd "C-l") #'evil-window-right))))
-
-(defun yxl-evil//setup-evilified-hacks ()
-  (when (boundp 'evil-evilified-state-map-original)
-    (let ((map evil-evilified-state-map-original))
-      (define-key map (kbd "C-;") #'yxl-find-file-counsel)
-      (define-key map (kbd "C-:") #'ibuffer)
-      (define-key map (kbd "C-/") #'treemacs-toggle))))

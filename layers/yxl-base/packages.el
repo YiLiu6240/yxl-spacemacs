@@ -1,8 +1,13 @@
-(setq yxl-base-packages '((yxl-utils :location site)
+(setq yxl-base-packages '(evil
+                          (yxl-utils :location site)
                           (yxl-project :location site)
                           (yxl-window :location site)
                           (yxl-open :location site)
                           (general-goodies :location site)))
+
+(defun yxl-base/post-init-evil ()
+  (add-to-list 'spacemacs-post-user-config-hook
+               #'yxl-base//setup-evil-hack t))
 
 (defun yxl-base/init-yxl-utils ()
   (use-package yxl-utils
