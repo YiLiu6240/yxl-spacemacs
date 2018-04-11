@@ -296,8 +296,6 @@
   (load custom-file 'no-error 'no-message))
 
 (defun dotspacemacs/user-config ()
-  (defvar yxl-spacemacs-last-hook '()
-    "Things to do after spacemacs has been fully loaded.")
   (load-theme 'yxl-airline t)
   (load-file (concat dotspacemacs-directory "config/config-post-init.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-global-keybindings.el"))

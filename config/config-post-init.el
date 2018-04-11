@@ -306,7 +306,7 @@
 ;; ----------------
 ;; Last things to do
 ;; ----------------
-(add-hook 'yxl-spacemacs-last-hook
+(add-hook 'spacemacs-post-user-config-hook
           (lambda ()
             ;; add hook so that modeline colors are set correctly after theme change
             (add-hook 'spacemacs-post-theme-change-hook #'yxl-airline-theme-set-colors)
@@ -317,4 +317,5 @@
                         (lambda (&optional refresh)
                           (interactive)
                           (find-file "~/Downloads/")))
-            (yxl-spacemacs-dashboard)))
+            (yxl-spacemacs-dashboard))
+          t)
