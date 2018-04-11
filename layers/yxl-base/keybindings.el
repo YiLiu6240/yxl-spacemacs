@@ -106,7 +106,7 @@ Rest:"
   ("of" yxl-hydra-files)
 
   ("aa" yxl-invoke-applications)
-  ("ac" cfw-open-calendar)
+  ("ac" cfw/open-calendar)
   ("aC" calendar)
 
   ("is" (yxl-append-to-scratch yxl-base-org-today) "Append to org today")

@@ -17,8 +17,8 @@
 
 ;; overwrite stock bindings
 (spacemacs/set-leader-keys
-  ;; workaround
   "," #'yxl-hydra-hotspot/body
+  "." #'yxl-hydra-system/body
   "'" #'yxl-shell-invoke
   "<SPC>" #'yxl-hydra-space/body
   "aa" #'yxl-invoke-applications
@@ -103,9 +103,6 @@
   "xa}" 'spacemacs/align-repeat-right-curly-brace
   "xa[" 'spacemacs/align-repeat-left-square-brace
   "xa]" 'spacemacs/align-repeat-right-square-brace)
-
-(spacemacs/set-leader-keys
-  "." #'yxl-hydra-system/body)
 
 (spacemacs/declare-prefix "o" "user-own")
 (spacemacs/set-leader-keys
