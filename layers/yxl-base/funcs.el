@@ -14,8 +14,14 @@ Accepts C-u arg to delete all other windows."
     (dolist (map `(,evil-normal-state-map
                    ,evil-motion-state-map
                    ,evil-evilified-state-map-original))
-      (define-key map (kbd "C-,") #'yxl-hydra-hotspot/body)
-      (define-key map (kbd "C-.") #'yxl-hydra-system/body)
+      ;; C - ,: always refer to the local-leader s s, which defaults to
+      ;;        eval in repl (specific to major mode)
+      (define-key map (kbd "C-,")
+        (kbd (concat dotspacemacs-major-mode-leader-key " ss")))
+      ;; C - .: personal hydra; C - S - .: system hydra
+      (define-key map (kbd "C-.") #'yxl-hydra-hotspot/body)
+      (define-key map (kbd "C->") #'yxl-hydra-system/body)
+      ;; C - ;: find file; C - S - ;: ibuffer
       (define-key map (kbd "C-;") #'yxl-find-file-counsel)
       (define-key map (kbd "C-:") #'ibuffer)
       (define-key map (kbd "C-/") #'treemacs-toggle))))

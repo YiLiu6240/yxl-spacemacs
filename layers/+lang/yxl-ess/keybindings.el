@@ -109,8 +109,7 @@
       "sa" #'ess-switch-process
       "sb" 'ess-eval-buffer
       "sB" 'ess-eval-buffer-and-go
-      "sd" 'ess-eval-region-or-line-and-step
-      "sD" 'ess-eval-function-or-paragraph-and-step
+      "sd" 'ess-eval-function-or-paragraph-and-step
       "sf" #'ess-eval-function
       "sF" #'ess-eval-function-and-go
       "si" 'spacemacs/ess-start-repl
@@ -120,7 +119,8 @@
       "sP" #'ess-eval-pipe-through-line
       "sr" 'ess-eval-region
       "sR" 'ess-eval-region-and-go
-      "ss" 'ess-switch-to-inferior-or-script-buffer
+      "ss" 'ess-eval-region-or-line-and-step
+      "s C-s" 'ess-switch-to-inferior-or-script-buffer
       "sU" #'ess-install-library
       "su" #'ess-load-library
       "sw" #'ess-set-working-directory
