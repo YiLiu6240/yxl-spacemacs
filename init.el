@@ -277,19 +277,20 @@
   ;; - lisp: self funcs and routines, global to the project
   ;; - site-lisp: 3rd-party original / self-modified modules
   ;; - theme: colorschemes and ui stuff
-  (add-to-list 'load-path (concat dotspacemacs-directory "config"))
-  (add-to-list 'load-path (concat dotspacemacs-directory "lisp"))
-  (add-to-list 'load-path (concat dotspacemacs-directory "site-lisp"))
-  (add-to-list 'load-path (concat dotspacemacs-directory "theme/yxl-theme"))
-  (add-to-list 'load-path (concat dotspacemacs-directory "theme/yxl-airline"))
-  (add-to-list 'load-path (concat dotspacemacs-directory "theme/yxl-airline-theme"))
-  (add-to-list 'custom-theme-load-path
-               (concat dotspacemacs-directory "theme/yxl-theme"))
-  (add-to-list 'custom-theme-load-path
-               (concat dotspacemacs-directory "theme/yxl-airline-theme"))
-  ;; my env
-  (add-to-list 'load-path (concat yxl-path-dotfiles "yxl-emacs-goodies"))
-  (add-to-list 'load-path (concat yxl-path-dotfiles "yxl-emacs-datascience-goodies"))
+  (dolist (path
+           `(,(concat dotspacemacs-directory "config")
+             ,(concat dotspacemacs-directory "lisp")
+             ,(concat dotspacemacs-directory "site-lisp")
+             ,(concat dotspacemacs-directory "theme/yxl-theme")
+             ,(concat dotspacemacs-directory "theme/yxl-airline")
+             ,(concat dotspacemacs-directory "theme/yxl-airline-theme")
+             ,(concat yxl-path-dotfiles "yxl-emacs-goodies")
+             ,(concat yxl-path-dotfiles "yxl-emacs-datascience-goodies")))
+    (add-to-list 'load-path path))
+  (dolist (path
+           `(,(concat dotspacemacs-directory "theme/yxl-theme")
+             ,(concat dotspacemacs-directory "theme/yxl-airline-theme")))
+    (add-to-list 'custom-theme-load-path path))
   ;; init stage config
   (load-file (concat dotspacemacs-directory "config/config-init.el"))
   (load-file (concat yxl-path-personal "personal-init.el"))
@@ -298,7 +299,6 @@
 (defun dotspacemacs/user-config ()
   (load-theme 'yxl-airline t)
   (load-file (concat dotspacemacs-directory "config/config-post-init.el"))
-  (load-file (concat dotspacemacs-directory "config/yxl-global-keybindings.el"))
-  (run-hooks 'yxl-spacemacs-last-hook))
+  (load-file (concat dotspacemacs-directory "config/yxl-global-keybindings.el")))
 
 (defun dotspacemacs/emacs-custom-settings ())

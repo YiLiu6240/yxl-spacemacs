@@ -14,6 +14,7 @@
 (setq yxl-base-org-calendar (concat yxl-base-org-directory "tasks/calendar.org"))
 (setq yxl-base-note-local "~/local-repo/local-notes.org")
 (setq yxl-base-note-sync "~/Dropbox/org/note.org")
+
 ;; org-agenda-files
 (setq org-agenda-files nil)
 (mapc (lambda (elem)
