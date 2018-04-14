@@ -8,7 +8,8 @@
                           graphviz-dot-mode
                           bash-completion
                           scala-mode
-                          suggest))
+                          suggest
+                          (sh-script :location built-in)))
 
 ;; TODO: wrong spec, dont use use-package
 (defun yxl-prog/init-prog-mode ()
@@ -120,3 +121,9 @@
 (defun yxl-prog/init-suggest ()
   (use-package suggest
     :defer t))
+
+(defun yxl-prog/post-init-sh-script ()
+  (with-eval-after-load 'sh-script
+    (spacemacs/set-leader-keys-for-major-mode 'sh-mode
+      "ss" #'sh-send-line-or-region
+      "sS" #'sh-send-line-or-region-and-step)))

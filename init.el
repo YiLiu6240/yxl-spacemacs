@@ -72,6 +72,7 @@
             shell-default-height 60
             shell-default-position 'bottom
             shell-default-full-span t)
+     shell-scripts
 
      ;; note takings
      (deft :variables deft-directory "~/Dropbox/org/notes")

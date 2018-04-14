@@ -25,9 +25,11 @@
                                          python-mode
                                          emacs-lisp-mode
                                          scala-mode
-                                         clojure-mode))
+                                         clojure-mode
+                                         sh-mode))
     (setq yxl-buffer-inherit-special-alist '((ess-mode . R-mode)
-                                             (inferior-ess-mode . R-mode)))))
+                                             (inferior-ess-mode . R-mode)
+                                             (shell-mode . sh-mode)))))
 
 (defun yxl-base/init-yxl-project ()
   (use-package yxl-project
