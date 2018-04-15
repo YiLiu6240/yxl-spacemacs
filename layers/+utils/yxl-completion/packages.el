@@ -26,11 +26,10 @@
 
 (defun yxl-completion/init-counsel-projectile ()
   (use-package counsel-projectile
-    :defer t))
-
-(defun yxl-completion/post-inist-counsel-projectile ()
-  (with-eval-after-load 'counsel-projectile
-    (yxl-completion//setup-counsel-projectile)))
+    :defer t
+    :config
+    (progn
+      (yxl-completion//setup-counsel-projectile))))
 
 (defun yxl-completion/init-yxl-ivy-views ()
   (use-package yxl-ivy-views
