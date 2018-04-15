@@ -57,6 +57,7 @@
                             mu4e-maildir-shortcuts) " OR ")
                "All inboxes" ?i)))
       (add-hook 'mu4e-compose-mode-hook (lambda () (auto-fill-mode -1)))
+      (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
       ;; Changes: removedj view as pdf, add view in browser
       (setq mu4e-view-actions
             '(("capture message"  . mu4e-action-capture-message)
