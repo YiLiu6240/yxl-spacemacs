@@ -50,6 +50,12 @@
       (setq yxl-open-file-external-commands-linux
             '(("default" . (lambda (x) (browse-url x)))
               ("gvim" . (lambda (x) (yxl-open--linux-command "gvim" x)))
+              ("emacsclient" .
+               (lambda (x) (yxl-open--linux-command "emacsclient" x)))
+              ("emacsclient -c" .
+               (lambda (x) (call-process-shell-command
+                            "emacsclient" nil 0 nil
+                            (format "%s \"%s\"" "-c" x))))
               ("subl" . (lambda (x) (yxl-open--linux-command "subl" x)))
               ("atom" . (lambda (x) (yxl-open--linux-command "atom" x)))
               ("zathura" . (lambda (x) (yxl-open--linux-command "zathura" x)))
