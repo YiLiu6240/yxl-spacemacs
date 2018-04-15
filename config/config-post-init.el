@@ -26,12 +26,6 @@
        (directory-files (concat yxl-base-org-directory "logs/")
                         t "^log_.+\\.org")
        (directory-files "~/local-repo" t ".org")))
-;; any TODO.org in `yxl-base-freq-projects-alist'
-(mapc (lambda (alist)
-        (mapc (lambda (elem)
-                (add-to-list 'org-agenda-files elem t))
-              (directory-files (car alist) t "^TODO.org")))
-      yxl-base-freq-projects-alist)
 (setq ivy-todo-file "~/Dropbox/org/tasks/todo.org")
 ;; HACK workaround a bug in org-recipes
 (setq org-wiki-location
@@ -312,6 +306,12 @@
             ;; add hook so that modeline colors are set correctly after theme change
             (add-hook 'spacemacs-post-theme-change-hook #'yxl-airline-theme-set-colors)
             (load-file (concat yxl-path-personal "personal-config.el"))
+            ;; Update any TODO.org in `yxl-base-freq-projects-alist'
+            (mapc (lambda (alist)
+                    (mapc (lambda (elem)
+                            (add-to-list 'org-agenda-files elem t))
+                          (directory-files (car alist) t "^TODO.org")))
+                  yxl-base-freq-projects-alist)
             ;; Override spacemacs home to be goto ~/Downloads/
             (advice-add 'spacemacs-buffer/goto-buffer
                         :override
