@@ -51,11 +51,13 @@
   "fp" #'counsel-projectile-find-file ; respects .projectile subprojects
   "fP" #'counsel-git                  ; treats the git repo as the whole porject
   "f C-p" #'find-file-in-project-truename ; does not respect gitignore, thus can find ignored files
-  "g C-s" #'magit-status-fullscreen
+  "g S" #'magit-status-fullscreen
+  "g C-s" #'magit-stage-file
   "hdF" #'counsel-faces
   "i <SPC>" #'yxl-evil-insert-newline-around
   "ii" #'yxl-evil-insert-space
-  "ia" #'yxl-evil-apend-space
+  "ia" #'yxl-evil-append-space
+  "iI" #'yxl-evil-insert-space-around
   "is" #'yas-insert-snippet
   "i <tab>" #'company-complete
   "jj" #'evil-avy-goto-char-2
