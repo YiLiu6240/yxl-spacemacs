@@ -130,8 +130,7 @@
                                      (powerline-raw " " center-face 'lr)
                                      ;; magit
                                      (when (featurep 'magit)
-                                       (powerline-raw (concat " " (magit-get-current-branch) " " pl-sep) center-face 'lr))
-                                     (powerline-raw (concat (modeline-font-frame-scales) pl-sep) center-face 'lr)
+                                       (powerline-raw (concat pl-sep (magit-get-current-branch) pl-sep) center-face 'lr))
                                      ;; selection info
                                      (when (or mark-active
                                                (and (bound-and-true-p evil-local-mode)
@@ -163,7 +162,8 @@
                                        (powerline-raw (concat " " (eyebrowse-mode-line-indicator) " ") center-face 'lr))
                                      ;; process
                                      (powerline-process center-face 'lr)
-                                     (powerline-raw (concat " " pl-sep " " (modeline-buffer-encoding)) center-face 'lr)
+                                     (powerline-raw (concat pl-sep (modeline-font-frame-scales) pl-sep) center-face 'lr)
+                                     (powerline-raw (concat pl-sep (modeline-buffer-encoding) pl-sep) center-face 'lr)
                                      ;; Major Mode
                                      (powerline-raw " " inner-face 'lr)
                                      (powerline-major-mode inner-face 'lr)
