@@ -81,7 +81,6 @@
   "sj" #'counsel-semantic-or-imenu
   "sJ" #'helm-semantic-or-imenu
   "s C-j" #'yxl-imenu-anywhere
-  "tv" #'yxl-hydra-visual-line/body
   "tb" #'yxl-web-switch-browser
   "tp" nil
   "tpp" #'parinfer-toggle-mode

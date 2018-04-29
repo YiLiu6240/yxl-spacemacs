@@ -136,7 +136,7 @@ Rest:"
 --------
  [_Su_]: update Spacemacs ^^^^ [_SU_]: update packages [_SR_]: roll back packages
 
- [_f_]: +font-size ^^^^        [_F_]: +Frame-size      [_T_]: +Transparency
+ [_f_]: +font-size ^^^^        [_F_]: +Frame-size      [_d_]:  +display-format      [_T_]: +Transparency
 
  [_tw_]: switch browser  ^^^^  [_tb_]: big text
 
@@ -148,7 +148,7 @@ Rest:"
   ("," #'set-frame-name "set-frame-name")
   (";" eval-expression "eval-expression")
 
-  ("d" #'delete-frame  "delete-frame")
+  ("D" #'delete-frame  "delete-frame")
 
   ("-" yxl-dired-popup "dired-popup")
   ("s" yxl-hydra-sessions/body "sessions")
@@ -167,6 +167,7 @@ Rest:"
 
   ("f" #'spacemacs/scale-font-transient-state/body)
   ("F" #'yxl-hydra-frame-size/body)
+  ("d" #'yxl-hydra-display-format/body)
   ("T" #'spacemacs/scale-transparency-transient-state/spacemacs/toggle-transparency)
 
   ("tw" yxl-web-switch-browser)
@@ -187,38 +188,48 @@ Rest:"
   ("3" (yxl-ui/frame-zoom-state 8) "profile 3")
   ("4" (yxl-ui/frame-zoom-state 12) "profile 4"))
 
-(defhydra yxl-hydra-visual-line (:color amaranth :hint nil
-                                        :pre (setq which-key-inhibit t)
-                                        :post (setq which-key-inhibit nil))
+(defhydra yxl-hydra-display-format (:color red :hint nil
+                                           :pre (setq which-key-inhibit t)
+                                           :post (setq which-key-inhibit nil))
   "
-visual-line:
+Display format:
+line-spacing: %(or line-spacing 0)
 ------------
-[_vv_]: ?vv? visual-line-mode
-[_vf_]: ?vf? visual-fill-column-mode
-[_vc_]: ?vc? visual-fill-column-center-tex
-[_vF_]: ?vF? focus-mode
-[_v._]: visual-fill-column-width: ?v.?
+[_v_]: ?v? visual-line-mode
+[_f_]: ?f? visual-fill-column-mode
+[_c_]: ?c? visual-fill-column-center-tex
+[_F_]: ?F? focus-mode
+[_j_/_k_]: Decrease / Increase line-spacing
+[_._]: visual-fill-column-width: ?.?
 ------------
 "
-  ("vv" visual-line-mode
+  ("v" visual-line-mode
    (if visual-line-mode "[x]" "[ ]"))
-  ("vf" (if visual-fill-column-mode
-            (progn (visual-fill-column-mode -1))
-          (progn
-            (visual-fill-column-mode 1)
-            (visual-line-mode 1)))
+  ("f" (if visual-fill-column-mode
+           (progn (visual-fill-column-mode -1))
+         (progn
+           (visual-fill-column-mode 1)
+           (visual-line-mode 1)))
    (if (bound-and-true-p visual-fill-column-mode) "[x]" "[ ]"))
-  ("vc" (progn (setq visual-fill-column-center-text
-                     (not visual-fill-column-center-text))
-               (visual-fill-column-mode 1) (visual-line-mode 1))
+  ("c" (progn (setq visual-fill-column-center-text
+                    (not visual-fill-column-center-text))
+         (visual-fill-column-mode 1) (visual-line-mode 1))
    (if (bound-and-true-p visual-fill-column-center-text) "[x]" "[ ]"))
-  ("vF" (if focus-mode
-            (focus-mode -1)
-          (focus-mode 1))
+  ("F" (if focus-mode
+           (focus-mode -1)
+         (focus-mode 1))
    (if (bound-and-true-p focus-mode) "[x]" "[ ]"))
-  ("v." (let ((width (read-from-minibuffer "width: " "")))
-          (setq-local visual-fill-column-width (string-to-number width))
-          (visual-fill-column-mode 1) (visual-line-mode 1))
+  ("k" (if line-spacing
+           (setq line-spacing (1+ line-spacing))
+         (setq line-spacing 1)))
+  ("j" (if line-spacing
+            (if (= 0 line-spacing)
+                (setq line-spacing nil)
+              (setq line-spacing (1- line-spacing)))
+          (setq line-spacing 0)))
+  ("." (let ((width (read-from-minibuffer "width: " "")))
+         (setq-local visual-fill-column-width (string-to-number width))
+         (visual-fill-column-mode 1) (visual-line-mode 1))
    (if (bound-and-true-p visual-fill-column-width)
        visual-fill-column-width nil))
   ("q" nil "quit"))
