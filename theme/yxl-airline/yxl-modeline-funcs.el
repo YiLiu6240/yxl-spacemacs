@@ -96,12 +96,19 @@ Supports both Emacs and Evil cursor conventions."
            (str (concat curr-str "/" (int-to-string config-len))))
       str)))
 
-(defun modeline-font-frame-scales ()
+(defun modeline-content-params ()
   (let* ((font-scale (or (when (featurep 'face-remap)
                            text-scale-mode-amount)
                          0.0))
          (frame-scale (or (frame-parameter nil 'zoomed) 0))
-         (scale (format "%s/%s" frame-scale font-scale)))
+         (scale (format "f%s/F%s/s%s%s"
+                        font-scale frame-scale
+                        (or line-spacing 0)
+                        (if visual-fill-column-mode
+                            (format "/V%s%s"
+                                    (or visual-fill-column-width fill-column)
+                                    (if visual-fill-column-center-text "C" ""))
+                          ""))))
     scale))
 
 (defun modeline-get-state-symbol (state)
