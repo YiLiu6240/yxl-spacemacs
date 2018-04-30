@@ -95,6 +95,9 @@
 (defun yxl-ess/post-init-markdown-mode ()
   (with-eval-after-load 'markdown-mode
     (progn
+      (define-key markdown-mode-map (kbd "M--")
+        (lambda () (interactive)
+          (yxl-insert-symbol "<-")))
       (define-key markdown-mode-map (kbd "C-S-M")
         (lambda () (interactive)
           (yxl-insert-symbol "%>%"))))))

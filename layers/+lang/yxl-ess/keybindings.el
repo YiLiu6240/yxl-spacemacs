@@ -12,26 +12,13 @@
   (define-key ess-doc-map "h" 'ess-display-help-on-object)
   (define-key ess-doc-map "p" 'ess-R-dv-pprint)
   (define-key ess-doc-map "t" 'ess-R-dv-ctable)
-  (define-key ess-mode-map
-    (kbd "M--") (lambda () (interactive)
-                  (if (equal (string (preceding-char)) " ")
-                      (insert "<- ")
-                    (insert " <- "))))
-  (define-key inferior-ess-mode-map
-    (kbd "M--") (lambda () (interactive)
-                  (if (equal (string (preceding-char)) " ")
-                      (insert "<- ")
-                    (insert " <- "))))
-  (define-key ess-mode-map
-    (kbd "C-S-M") (lambda () (interactive)
-                    (if (equal (string (preceding-char)) " ")
-                        (insert "%>% ")
-                      (insert " %>% "))))
-  (define-key inferior-ess-mode-map
-    (kbd "C-S-M") (lambda () (interactive)
-                    (if (equal (string (preceding-char)) " ")
-                        (insert "%>% ")
-                      (insert " %>% "))))
+  (dolist (map `(,ess-mode-map ,inferior-ess-mode-map))
+    (define-key map
+      (kbd "M--") (lambda () (interactive)
+                    (yxl-insert-symbol "<-")))
+    (define-key map
+      (kbd "C-S-M") (lambda () (interactive)
+                      (yxl-insert-symbol "%>%"))))
   (evil-define-key 'normal inferior-ess-mode-map
     (kbd "C-d") #'evil-scroll-down)
   (define-key ess-mode-map (kbd "C-,") #'ess-eval-region-or-line-and-step)
