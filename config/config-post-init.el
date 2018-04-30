@@ -8,9 +8,9 @@
 (setq yxl-base-org-directory "~/Dropbox/org/")
 (with-eval-after-load 'org
   (setq org-directory yxl-base-org-directory))
-(setq yxl-base-org-todo (concat yxl-base-org-directory "tasks/todo.org"))
+(setq yxl-base-org-todo-work (concat yxl-base-org-directory "tasks/todo-work.org"))
 (setq yxl-base-org-log (concat yxl-base-org-directory "logs/logs-master.org"))
-(setq yxl-base-org-today (concat yxl-base-org-directory "tasks/today.org"))
+(setq yxl-base-org-todo-life (concat yxl-base-org-directory "tasks/todo-life.org"))
 (setq yxl-base-org-calendar (concat yxl-base-org-directory "tasks/calendar.org"))
 (setq yxl-base-note-local "~/local-repo/local-notes.org")
 (setq yxl-base-note-sync "~/Dropbox/org/note.org")
@@ -20,7 +20,7 @@
 (mapc (lambda (elem)
         (add-to-list 'org-agenda-files (expand-file-name elem) t))
       (append
-       (list yxl-base-org-today yxl-base-org-todo yxl-base-org-calendar)
+       (list yxl-base-org-todo-life yxl-base-org-todo-work yxl-base-org-calendar)
        (directory-files (concat yxl-base-org-directory "projects/")
                         t "^proj_.+\\.org")
        (directory-files (concat yxl-base-org-directory "logs/")
@@ -37,13 +37,13 @@
 ;; org capture template
 (setq org-capture-templates
       '(("c" "today: today" entry
-         (file+headline yxl-base-org-today "Today")
+         (file+headline yxl-base-org-todo-life "Today")
          "** TODO %?\n")
         ("t" "today: later" entry
-         (file+headline yxl-base-org-today "Later")
+         (file+headline yxl-base-org-todo-life "Later")
          "** %?\n")
         ("i" "general: inbox" checkitem
-         (file+headline yxl-base-org-todo "Capture")
+         (file+headline yxl-base-org-todo-work "Capture")
          "** %?\n  %i\n")
         ("k" "calendar: today" entry
          (file+headline yxl-base-org-calendar "Items")

@@ -109,7 +109,7 @@ Rest:"
   ("ac" cfw/open-calendar)
   ("aC" calendar)
 
-  ("is" (yxl-append-to-scratch yxl-base-org-today) "Append to org today")
+  ("is" (yxl-append-to-scratch yxl-base-org-todo-life) "Append to org today")
   ("ia" yxl-append-to-scratch "Append to scratch buffer"))
 
 (defhydra yxl-hydra-system (:color blue :hint nil

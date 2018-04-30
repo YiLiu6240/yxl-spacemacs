@@ -13,11 +13,11 @@ to be passed to `yxl-hydra-files.'")
 (defvar yxl-base-org-directory "~/org/"
   "Org directory.")
 
-(defvar yxl-base-org-todo nil
-  "Master todo file.")
+(defvar yxl-base-org-todo-work nil
+  "Todo file for work.")
 
-(defvar yxl-base-org-today nil
-  "Master checkbox file.")
+(defvar yxl-base-org-todo-life nil
+  "Todo file for life.")
 
 (defvar yxl-base-org-log nil
   "Master log file.")
