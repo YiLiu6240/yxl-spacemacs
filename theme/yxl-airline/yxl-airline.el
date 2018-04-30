@@ -142,8 +142,6 @@
                                      ;; pdf pages
                                      (when (eq 'pdf-view-mode major-mode)
                                        (powerline-raw (concat " " (modeline-pdfview-page-number) " " pl-sep) center-face 'lr))
-                                     ;; window-buffer params
-                                     (powerline-raw (concat pl-sep (modeline-content-params) pl-sep) center-face 'lr)
                                      ;; flycheck
                                      (when (bound-and-true-p flycheck-mode)
                                        (powerline-raw (concat " " (modeline-flycheck) " ") center-face 'lr))))
