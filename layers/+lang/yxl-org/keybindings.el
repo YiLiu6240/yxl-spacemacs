@@ -80,7 +80,8 @@
     "hy" #'org-insert-todo-subheading
     "otl" #'org-toggle-link-display
     "otm" #'org-toggle-latex-fragment
-    "r" #'yxl-org-refile-visible
+    "rr" #'yxl-org-refile-visible
+    "rt" #'yxl-org-refile-visible-to-top
     "R" #'yxl-org-refile-to-scratch
     "." #'org-time-stamp
     "C-." #'yxl-org/general-hydra/body)
