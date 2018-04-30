@@ -139,8 +139,6 @@ Rest:"
  [_f_]: +font-size ^^^^        [_F_]: +Frame-size      [_d_]:  +display-format      [_T_]: +Transparency
 
  [_tw_]: switch browser  ^^^^  [_tb_]: big text
-
- [_att_/_atd_/_atD_]: timer:start/stop/down
 "
 
   ("." make-frame "make-frame")
@@ -151,7 +149,6 @@ Rest:"
   ("D" #'delete-frame  "delete-frame")
 
   ("-" yxl-dired-popup "dired-popup")
-  ("s" yxl-hydra-sessions/body "sessions")
   ("Su" (lambda ()
           (interactive)
           (spacemacs/home)
@@ -172,11 +169,7 @@ Rest:"
 
   ("tw" yxl-web-switch-browser)
   ("tm" menu-bar-mode)
-  ("tb" yxl-big-text-mode)
-
-  ("att" mode-line-timer-start)
-  ("atd" mode-line-timer-stop)
-  ("atD" mode-line-timer-done))
+  ("tb" yxl-big-text-mode))
 
 (defhydra yxl-hydra-frame-size (:color red :hint nil)
   ("+" yxl-ui/frame-zoom-in "zoom-in")
