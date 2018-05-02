@@ -5,6 +5,8 @@
   (define-key mu4e-main-mode-map
     "Q" #'mu4e-quit)
   (define-key mu4e-headers-mode-map
+    (kbd "RET") #'mu4e-headers-view-message-sensibly)
+  (define-key mu4e-headers-mode-map
     "o" #'mu4e-headers-view-message)
   (define-key mu4e-headers-mode-map
     "_" #'mu4e-headers-mark-for-unflag)

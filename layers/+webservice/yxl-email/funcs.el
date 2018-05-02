@@ -1,3 +1,14 @@
+(defun mu4e-headers-view-message-sensibly ()
+  (interactive)
+  ;; If current window width is less than 1.5 of the value of
+  ;; `mu4e-headers-visible-columns', then split horizontally,
+  ;; otherwise split vertically
+  (let ((mu4e-split-view (if (< (window-total-width)
+                                (* 1.5 mu4e-headers-visible-columns))
+                             'horizontal
+                           'vertical)))
+    (mu4e-headers-view-message)))
+
 (defun yxl-email/mu4e-set-account ()
   "Set the account for composing a message."
   (let* ((account-alist yxl-email-account-alist)  ;; this is set externally
