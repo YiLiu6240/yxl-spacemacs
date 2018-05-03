@@ -134,11 +134,10 @@ Rest:"
 - browser-func: %`browse-url-browser-function
 
 --------
- [_Su_]: update Spacemacs ^^^^ [_SU_]: update packages [_SR_]: roll back packages
-
- [_sf_]: +font-size ^^^^        [_sF_]: +Frame-size      [_d_]:  +display-format      [_T_]: +Transparency
-
- [_tw_]: switch browser  ^^^^  [_tb_]: big text
+ | [_Su_]: update Spacemacs | [_SU_]: update packages | [_SR_]: roll back packages
+ | [_d_]:  +display-format  |
+ | [_tw_]: switch browser   | [_tb_]: big text
+--------
 "
 
   ("." make-frame "make-frame")
@@ -165,7 +164,6 @@ Rest:"
   ("sf" #'spacemacs/scale-font-transient-state/body)
   ("sF" #'yxl-hydra-frame-size/body)
   ("d" #'yxl-hydra-display-format/body)
-  ("T" #'spacemacs/scale-transparency-transient-state/spacemacs/toggle-transparency)
 
   ("tw" yxl-web-switch-browser)
   ("tm" menu-bar-mode)
@@ -181,7 +179,7 @@ Rest:"
   ("3" (yxl-ui/frame-zoom-state 8) "profile 3")
   ("4" (yxl-ui/frame-zoom-state 12) "profile 4"))
 
-(defhydra yxl-hydra-display-format (:color red :hint nil
+(defhydra yxl-hydra-display-format (:color amaranth :hint nil
                                            :pre (setq which-key-inhibit t)
                                            :post (setq which-key-inhibit nil))
   "
@@ -196,7 +194,10 @@ frame-scale: %(or (frame-parameter nil 'zoomed) 0)
 [_c_]: ?c? visual-fill-column-center-tex
 [_C_]: ?C? focus-mode
 [_j_/_k_]: Decrease / Increase line-spacing
-[_sf_/_sF_]: font-scale / Frame-scale
+[_J_/_K_]: Decrease / Increase font size
+[_-_/_=_]: Decrease / Increase frame scale
+[_sf_/_sF_]: +font-scale / Frame-scale
+[_T_]: +Transparency
 [_._]: visual-fill-column-width
 ------------
 "
@@ -224,8 +225,14 @@ frame-scale: %(or (frame-parameter nil 'zoomed) 0)
                 (setq line-spacing nil)
               (setq line-spacing (1- line-spacing)))
           (setq line-spacing 0)))
+  ("K" spacemacs/scale-up-font)
+  ("J" spacemacs/scale-down-font)
+  ("+" yxl-ui/frame-zoom-in)
+  ("=" yxl-ui/frame-zoom-in)
+  ("-" yxl-ui/frame-zoom-out)
   ("sf" (spacemacs/scale-font-transient-state/body) :color blue)
   ("sF" (yxl-hydra-frame-size/body) :color blue)
+  ("T" #'spacemacs/scale-transparency-transient-state/spacemacs/toggle-transparency)
   ("." (let ((width (read-from-minibuffer "width: " "")))
          (setq-local visual-fill-column-width (string-to-number width))
          (visual-fill-column-mode 1) (visual-line-mode 1))
