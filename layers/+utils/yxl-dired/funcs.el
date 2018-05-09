@@ -9,7 +9,7 @@
   (evilified-state-evilify-map dired-mode-map
     :mode dired-mode
     :bindings
-    "o" (kbd "RET")
+    "o" #'dired-find-file
     "q" #'yxl-dired-delete-window
     "-" #'dired-jump
     ;; from vinegar layer
