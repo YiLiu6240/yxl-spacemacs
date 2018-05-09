@@ -94,4 +94,13 @@ https://github.com/zachcurry/emacs-anywhere/blob/master/emacs_anywhere.el"
         (with-current-buffer cfw:calendar-buffer-name
           (call-interactively 'cfw:refresh-calendar-buffer))))))
 
+(defun fuck-stargazer ()
+  (interactive)
+  (evil-ex-substitute (point-min) (point-max)
+                      '("^\\( *\\\\\\\\\\\[-1.8ex\\\]\\)\\(.*\\)")
+                      "\\1\n\\2" "/g")
+  ;; gg=G
+  (evil-indent (point-min) (point-max))
+  (align (point-min) (point-max)))
+
 (provide 'general)
