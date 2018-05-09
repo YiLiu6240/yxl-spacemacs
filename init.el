@@ -89,7 +89,7 @@
             latex-enable-auto-fill nil
             latex-enable-folding t
             ;; Enable magic-latex-buffer
-            latex-enable-magic t)
+            latex-enable-magic nil)
      bibtex
 
      ;; editing
