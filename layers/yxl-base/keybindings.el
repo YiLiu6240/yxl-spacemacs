@@ -142,10 +142,10 @@ Rest:"
 
   ("." make-frame "make-frame")
   ("<RET>" make-frame "make-frame")
-  ("," #'set-frame-name "set-frame-name")
+  ("," set-frame-name "set-frame-name")
   (";" eval-expression "eval-expression")
 
-  ("D" #'delete-frame  "delete-frame")
+  ("<delete>" delete-frame  "delete-frame")
 
   ("-" yxl-dired-popup "dired-popup")
   ("Su" (lambda ()
