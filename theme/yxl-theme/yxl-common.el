@@ -10,10 +10,16 @@
   :type 'boolean
   :group 'yxl-theme)
 
-(defcustom yxl-theme-org-height t
+(defcustom yxl-theme-varying-height nil
   "Use varying text heights for org headings."
   :type 'boolean
   :group 'yxl-theme)
+
+(defun yxl-theme-toggle-varying-height ()
+  (interactive)
+  (setq yxl-theme-varying-height (not yxl-theme-varying-height))
+  (message "yxl-theme-varying-height: %s" yxl-theme-varying-height)
+  (load-theme (car (last custom-enabled-themes)) t))
 
 (defcustom yxl-theme-org-highlight nil
   "Highlight org headings."
@@ -718,13 +724,17 @@
             `(font-latex-match-reference-keywords ((,class (:foreground ,const))))
             `(font-latex-match-variable-keywords ((,class (:foreground ,var))))
             ;; part
-            `(font-latex-sectioning-0-face ((,class (:inherit font-latex-sectioning-1-face))))
+            `(font-latex-sectioning-0-face ((,class (:inherit font-latex-sectioning-1-face
+                                                              :height ,(if yxl-theme-varying-height 1.3 1.0)))))
             ;; chapter
-            `(font-latex-sectioning-1-face ((,class (:inherit font-latex-sectioning-1-face))))
+            `(font-latex-sectioning-1-face ((,class (:inherit font-latex-sectioning-1-face
+                                                              :height ,(if yxl-theme-varying-height 1.3 1.0)))))
             ;; section
-            `(font-latex-sectioning-2-face ((,class (:foreground ,head1, :weight bold))))
+            `(font-latex-sectioning-2-face ((,class (:foreground ,head1, :weight bold
+                                                                 :height ,(if yxl-theme-varying-height 1.2 1.0)))))
             ;; subsection
-            `(font-latex-sectioning-3-face ((,class (:foreground ,head2 :weight bold))))
+            `(font-latex-sectioning-3-face ((,class (:foreground ,head2 :weight bold
+                                                                 :height ,(if yxl-theme-varying-height 1.1 1.0)))))
             ;; subsubsection
             `(font-latex-sectioning-4-face ((,class (:foreground ,head3 :weight bold))))
             ;; paragraph
@@ -788,9 +798,12 @@
             `(Man-underline ((,class (:foreground ,comp :underline t))))
 
 ;;;;; markdown
-            `(markdown-header-face-1 ((,class (:inherit bold :foreground ,head1))))
-            `(markdown-header-face-2 ((,class (:inherit bold :foreground ,head2))))
-            `(markdown-header-face-3 ((,class (:bold nil :foreground ,head3))))
+            `(markdown-header-face-1 ((,class (:inherit bold :foreground ,head1
+                                                        :height ,(if yxl-theme-varying-height 1.3 1.0)))))
+            `(markdown-header-face-2 ((,class (:inherit bold :foreground ,head2
+                                                        :height ,(if yxl-theme-varying-height 1.2 1.0)))))
+            `(markdown-header-face-3 ((,class (:bold nil :foreground ,head3
+                                                     :height ,(if yxl-theme-varying-height 1.1 1.0)))))
             `(markdown-header-face-4 ((,class (:bold nil :foreground ,head4))))
             `(markdown-header-face-5 ((,class (:bold nil :foreground ,head1))))
             `(markdown-header-face-6 ((,class (:bold nil :foreground ,head2))))
@@ -833,19 +846,22 @@
             `(notmuch-tag-flagged ((,class (:foreground ,war))))
 
 ;;;;; org
-            `(org-level-1 ((,class (:inherit bold :foreground ,head1 :background ,(when yxl-theme-org-highlight head1-bg)))))
-            `(org-level-2 ((,class (:inherit bold :foreground ,head2 :background ,(when yxl-theme-org-highlight head2-bg)))))
-            `(org-level-3 ((,class (:bold nil :foreground ,head3 :background ,(when yxl-theme-org-highlight head3-bg)))))
+            `(org-level-1 ((,class (:inherit bold :foreground ,head1 :background ,(when yxl-theme-org-highlight head1-bg)
+                                             :height ,(if yxl-theme-varying-height 1.3 1.0)))))
+            `(org-level-2 ((,class (:inherit bold :foreground ,head2 :background ,(when yxl-theme-org-highlight head2-bg)
+                                             :height ,(if yxl-theme-varying-height 1.2 1.0)))))
+            `(org-level-3 ((,class (:bold nil :foreground ,head3 :background ,(when yxl-theme-org-highlight head3-bg)
+                                          :height ,(if yxl-theme-varying-height 1.1 1.0)))))
             `(org-level-4 ((,class (:bold nil :foreground ,head4 :background ,(when yxl-theme-org-highlight head4-bg)))))
             `(org-level-5 ((,class (:bold nil :foreground ,head1))))
             `(org-level-6 ((,class (:bold nil :foreground ,head2))))
             `(org-level-7 ((,class (:bold nil :foreground ,head3))))
             `(org-level-8 ((,class (:bold nil :foreground ,head4))))
             `(org-agenda-clocking ((,class (:background ,highlight :foreground ,comp))))
-            `(org-agenda-date ((,class (:foreground ,var :height ,(if yxl-theme-org-height 1.1 1.0)))))
-            `(org-agenda-date-today ((,class (:foreground ,keyword :slant italic :inherit bold :height ,(if yxl-theme-org-height 1.3 1.0)))))
+            `(org-agenda-date ((,class (:foreground ,var :height ,(if yxl-theme-varying-height 1.1 1.0)))))
+            `(org-agenda-date-today ((,class (:foreground ,keyword :slant italic :inherit bold :height ,(if yxl-theme-varying-height 1.3 1.0)))))
             `(org-agenda-date-weekend ((,class (:inherit bold :foreground ,var))))
-            `(org-agenda-done ((,class (:foreground ,suc :height ,(if yxl-theme-org-height 1.2 1.0)))))
+            `(org-agenda-done ((,class (:foreground ,suc :height ,(if yxl-theme-varying-height 1.2 1.0)))))
             `(org-agenda-structure ((,class (:inherit bold :foreground ,comp))))
             `(org-block ((,class (:background ,cblk-bg))))
             `(org-block-begin-line ((,class (:background ,cblk-ln-bg :foreground ,cblk-ln))))
@@ -857,7 +873,7 @@
             `(org-date ((,class (:underline t :foreground ,comment))))
             `(org-date-selected ((,class (:background ,func :foreground ,bg1))))
             `(org-document-info-keyword ((,class (:inherit org-meta-line))))
-            `(org-document-title ((,class (:foreground ,func :inherit bold :height ,(if yxl-theme-org-height 1.4 1.0) :underline nil))))
+            `(org-document-title ((,class (:foreground ,func :inherit bold :height ,(if yxl-theme-varying-height 1.4 1.0) :underline nil))))
             `(org-ellipsis ((,class (:foreground ,keyword))))
             `(org-footnote  ((,class (:underline t :foreground ,base))))
             `(org-hide ((,class (:foreground ,bg1))))
@@ -869,7 +885,7 @@
             `(org-priority ((,class (:foreground ,war :inherit bold))))
             `(org-quote ((,class (:foreground ,cblk :slant italic))))
             `(org-scheduled ((,class (:foreground ,comp))))
-            `(org-scheduled-today ((,class (:foreground ,func :height ,(if yxl-theme-org-height 1.2 1.0)))))
+            `(org-scheduled-today ((,class (:foreground ,func :height ,(if yxl-theme-varying-height 1.2 1.0)))))
             `(org-sexp-date ((,class (:foreground ,base))))
             `(org-table ((,class (:foreground ,base :background ,cblk-bg))))
             `(org-time-grid ((,class (:foreground ,str))))
