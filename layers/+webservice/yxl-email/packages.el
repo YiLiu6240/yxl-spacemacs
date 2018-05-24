@@ -60,6 +60,8 @@
                "All inboxes" ?i)))
       (add-hook 'mu4e-compose-mode-hook (lambda () (auto-fill-mode -1)))
       (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
+      (advice-add #'mu4e-headers-view-message :around
+                  #'mu4e-split-view-dynamically)
       ;; Changes: removedj view as pdf, add view in browser
       (setq mu4e-view-actions
             '(("capture message"  . mu4e-action-capture-message)
