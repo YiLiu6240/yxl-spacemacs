@@ -19,7 +19,8 @@
   (interactive)
   (setq yxl-theme-varying-height (not yxl-theme-varying-height))
   (message "yxl-theme-varying-height: %s" yxl-theme-varying-height)
-  (load-theme (car (last custom-enabled-themes)) t))
+  (dolist (theme custom-enabled-themes)
+    (load-theme theme t)))
 
 (defcustom yxl-theme-org-highlight nil
   "Highlight org headings."
