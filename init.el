@@ -169,7 +169,7 @@
               yxl-org-babel-languages '((dot . t)
                                         (latex .t)
                                         (python .t)
-                                        (sh .t)
+                                        (shell .t)
                                         (R .t)
                                         (ipython . t)
                                         (scala . t)))
