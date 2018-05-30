@@ -63,6 +63,7 @@
      clojure
      scala
      javascript
+     typescript
      html
      graphviz
      csv
