@@ -18,6 +18,7 @@
     (yxl-evil//setup-evil-insert-state)
     (yxl-evil//setup-evil-c-hjkl)
     (yxl-evil//setup-evil-text-objects)
+    (evil-ex-define-cmd "Evimrc" #'evil-Evimrc)
     (with-eval-after-load 'eyebrowse
       (yxl-evil//setup-evil-eyebrowse))))
 

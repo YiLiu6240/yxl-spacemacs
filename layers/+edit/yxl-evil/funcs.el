@@ -25,6 +25,11 @@ with spaces."
     (cons (format "%s(" (or fname ""))
           ")")))
 
+(defun evil-Evimrc ()
+  "edit my vimrc."
+  (interactive)
+  (find-file "~/.vimrc"))
+
 (defun yxl-evil//evil-surround-pairs ()
   "press viw then press the trigger key"
   (push '(?g . ("{" . "}")) evil-surround-pairs-alist)
