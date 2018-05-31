@@ -136,8 +136,8 @@
 (add-to-list 'yas-snippet-dirs "~/dotfiles/yasnippets")
 
 ;; indent
-(setq-default tab-width 4)
-(setq-default evil-shift-width 4)
+;; (setq-default tab-width 4)
+(setq-default evil-shift-width 2)
 (setq-default indent-tabs-mode nil)
 
 ;; --------
