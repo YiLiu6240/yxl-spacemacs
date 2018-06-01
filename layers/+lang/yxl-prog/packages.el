@@ -19,8 +19,8 @@
     (progn
       ;; (add-hook 'prog-mode-hook 'fci-mode)
       (add-hook 'prog-mode-hook 'hl-todo-mode)
-      (setq-default lua-indent-level 4)
-      (setq-default c-basic-offset 4)
+      (setq-default lua-indent-level 2)
+      (setq-default c-basic-offset 2)
 
       (add-hook 'makefile-mode-hook
                 (lambda ()
