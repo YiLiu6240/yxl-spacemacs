@@ -17,6 +17,9 @@
       (kbd "M--") (lambda () (interactive)
                     (yxl-insert-symbol "<-")))
     (define-key map
+      (kbd "M-.") (lambda () (interactive)
+                      (yxl-insert-symbol "%>%")))
+    (define-key map
       (kbd "C-S-M") (lambda () (interactive)
                       (yxl-insert-symbol "%>%"))))
   (evil-define-key 'normal inferior-ess-mode-map
