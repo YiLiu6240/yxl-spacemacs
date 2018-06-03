@@ -262,7 +262,7 @@
    dotspacemacs-enable-server t
    dotspacemacs-persistent-server nil
    ;; MAYBE: favor rg when we are sufficiently confident in it
-   dotspacemacs-search-tools '("ag" "rg" "pt" "ack" "grep")
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
    dotspacemacs-frame-title-format "%I: %b"
    dotspacemacs-icon-title-format nil
    dotspacemacs-whitespace-cleanup 'trailing
