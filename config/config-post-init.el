@@ -109,6 +109,7 @@
 (setq neo-show-updir-line t)
 (setq-default fci-rule-color (face-attribute 'highlight :background))
 (setq neo-window-width 20)
+(global-hl-line-mode -1)
 
 ;; --------
 ;; evil escape
