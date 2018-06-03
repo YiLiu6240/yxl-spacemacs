@@ -10,6 +10,7 @@
     :mode dired-mode
     :bindings
     "o" #'dired-find-file
+    "O" #'yxl-dired-open-aw
     "q" #'yxl-dired-delete-window
     "-" #'dired-jump
     ;; from vinegar layer
