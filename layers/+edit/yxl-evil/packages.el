@@ -18,12 +18,6 @@
     (yxl-evil//setup-evil-insert-state)
     (yxl-evil//setup-evil-c-hjkl)
     (yxl-evil//setup-evil-text-objects)
-    (add-hook 'evil-insert-state-entry-hook
-              (lambda () (unless (display-graphic-p)
-                           (send-string-to-terminal "\033[5 q"))))
-    (add-hook 'evil-normal-state-entry-hook
-              (lambda () (unless (display-graphic-p)
-                           (send-string-to-terminal "\033[0 q"))))
     (evil-ex-define-cmd "Evimrc" #'evil-Evimrc)
     (with-eval-after-load 'eyebrowse
       (yxl-evil//setup-evil-eyebrowse))))

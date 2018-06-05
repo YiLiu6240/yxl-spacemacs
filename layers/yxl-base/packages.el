@@ -3,7 +3,8 @@
                           (yxl-project :location site)
                           (yxl-window :location site)
                           (yxl-open :location site)
-                          (general-goodies :location site)))
+                          (general-goodies :location site)
+                          (yxl-tmux-helper :location local)))
 
 (defun yxl-base/post-init-evil ()
   (add-to-list 'spacemacs-post-user-config-hook
@@ -91,3 +92,8 @@
 
 (defun yxl-base/init-general-goodies ()
   (use-package general-goodies))
+
+(defun yxl-base/init-yxl-tmux-helper ()
+  (use-package yxl-tmux-helper
+    :config
+    (yxl-tmux-helper-setup)))
