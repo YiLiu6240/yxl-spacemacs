@@ -1,6 +1,5 @@
 (setq yxl-base-packages '(evil
                           (yxl-utils :location site)
-                          (yxl-project :location site)
                           (yxl-window :location site)
                           (yxl-open :location site)
                           (general-goodies :location site)
@@ -31,14 +30,6 @@
     (setq yxl-buffer-inherit-special-alist '((ess-mode . R-mode)
                                              (inferior-ess-mode . R-mode)
                                              (shell-mode . sh-mode)))))
-
-(defun yxl-base/init-yxl-project ()
-  (use-package yxl-project
-    :commands (yxl-project-helm
-               yxl-project-shell-popup
-               yxl-project-cite
-               yxl-project-select
-               yxl-project-popup)))
 
 (defun yxl-base/init-yxl-window ()
   (use-package yxl-window))
