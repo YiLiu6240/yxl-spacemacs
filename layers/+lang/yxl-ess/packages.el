@@ -1,5 +1,4 @@
 (setq yxl-ess-packages '(ess
-                         ess-R-data-view
                          (ess-R-object-popup :location local)
                          (yxl-ess :location site)
                          (ess-goodies :location site)
@@ -71,10 +70,6 @@
       (yxl-ess/setup-ess-help-leader-keys)
       (yxl-ess/setup-leader-keys)
       (yxl-ess/setup-julia-keybindings))))
-
-(defun ess/init-ess-R-data-view ()
-  (use-package ess-R-data-view
-    :after (ess-site)))
 
 (defun yxl-ess/init-ess-R-object-popup ()
   (use-package ess-R-object-popup
