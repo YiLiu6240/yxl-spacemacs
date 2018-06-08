@@ -129,7 +129,7 @@
                           (lhs-rest (list
                                      (powerline-raw " " center-face 'lr)
                                      ;; magit
-                                     (when (featurep 'magit)
+                                     (when (and (not (spacemacs/system-is-mswindows)) (featurep 'magit))
                                        (powerline-raw (concat pl-sep (magit-get-current-branch) pl-sep) center-face 'lr))
                                      ;; selection info
                                      (when (or mark-active
