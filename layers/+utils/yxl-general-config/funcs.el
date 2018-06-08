@@ -162,7 +162,7 @@ spacemacs home buffer"
       (spacemacs/home)
     (delete-window)))
 
-(defun yxl-config/setup-ibuffer-bindings ()
+(defun yxl-general-config/setup-ibuffer-bindings ()
   ;; https://github.com/abo-abo/hydra/wiki/Ibuffer
   (defhydra hydra-ibuffer-main (:color pink :hint nil)
     "

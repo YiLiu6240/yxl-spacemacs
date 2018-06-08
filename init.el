@@ -150,7 +150,7 @@
      yxl-pdf-tools
      yxl-utils
      yxl-dired
-     yxl-config
+     yxl-general-config
      (yxl-completion)
      yxl-misc
      ;; +edit
