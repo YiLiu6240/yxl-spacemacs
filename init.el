@@ -152,6 +152,7 @@
      yxl-dired
      yxl-general-config
      (yxl-completion)
+     yxl-project
      yxl-misc
      ;; +edit
      yxl-edit
