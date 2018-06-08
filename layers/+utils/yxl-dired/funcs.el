@@ -43,7 +43,7 @@
  | _t_ toggle      | ^^           | ^^              | ^^
  | _%_ regexp      | ^^           | ^^              | ^^
     "
-      ("q" yxl-dired/hydra-main/body :color blue "../")
+      ("q" yxl-dired/hydra-main/body "../" :color blue)
       ("m" dired-mark)
       ("*" dired-mark-executables)
       ("@" dired-mark-symlinks)
