@@ -753,6 +753,10 @@
 ;;;;; linum-relative
             `(linum-relative-current-face ((,class (:foreground ,comp))))
 
+;;;;; line-number
+            `(line-number ((,class (:foreground ,lnum :background ,bg1))))
+            `(line-number-current-line ((,class (:foreground ,comp :background ,bg1))))
+
 ;;;;; magit
             `(magit-blame-culprit ((,class :background ,cblk-ln-bg :foreground ,yellow)))
             `(magit-blame-header  ((,class :background ,cblk-ln-bg :foreground ,green)))
