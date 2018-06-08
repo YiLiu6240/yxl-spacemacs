@@ -307,6 +307,10 @@
                                  ((eq variant 'gruv-dark) (if (true-color-p) "#076678" "#076678"))
                                  ((eq variant 'gruv-light) (if (true-color-p) "#83a598" "#83a598"))
                                  ((eq variant 'solar-light) (if (true-color-p) "#edf1ed" "#d7d7ff"))))
+            (blue-bg-s       (cond ((eq variant 'solar-dark) (if (true-color-p) "#293239" "#076678"))
+                                   ((eq variant 'gruv-dark) (if (true-color-p) "#076678" "#076678"))
+                                   ((eq variant 'gruv-light) (if (true-color-p) "#83a598" "#83a598"))
+                                   ((eq variant 'solar-light) (if (true-color-p) "#edf1ed" "#d7d7ff"))))
             (magenta       (cond ((eq variant 'solar-dark) (if (true-color-p) "#d33682" "#b16286"))
                                  ((eq variant 'gruv-dark) (if (true-color-p) "#b16286" "#d787af"))
                                  ((eq variant 'gruv-light) (if (true-color-p) "#8f3f71" "#8f3f71"))
@@ -351,8 +355,6 @@
             `(hl-line ((,class (:background ,bg2))))
             `(isearch ((,class (:foreground ,bg1 :background ,mat))))
             `(lazy-highlight ((,class (:background ,blue-bg :weight normal))))
-            ;; `(link ((,class (:foreground ,comment :underline t))))
-            ;; `(link-visited ((,class (:foreground ,comp :underline t))))
             `(link ((,class (:foreground ,comment))))
             `(link-visited ((,class (:foreground ,comp))))
             `(match ((,class (:foreground ,mat :weight bold))))
@@ -360,6 +362,7 @@
             `(page-break-lines ((,class (:foreground ,act2))))
             `(region ((,class (:background ,highlight))))
             `(secondary-selection ((,class (:background ,bg3))))
+            `(shadow ((,class (:foreground ,base-dim))))
             `(success ((,class (:foreground ,suc))))
             `(tooltip ((,class (:background ,ttip-sl :foreground ,base :bold nil :italic nil :underline nil))))
             `(vertical-border ((,class (:foreground ,border))))
@@ -395,6 +398,26 @@
             `(bm-persistent-face ((,class (:background "#d26937" :foreground "#0732642"))))
             `(bm-fringe-persistent-face ((,class (:background "#d26937" :foreground "#073642"))))
 
+;;;;; calfw
+            `(cfw:face-title ((t (:foreground ,head1 :weight bold :height 2.0))))
+            `(cfw:face-header ((t (:foreground ,head2 :weight bold))))
+            `(cfw:face-sunday ((t :foreground ,head3 :background ,bg2 :weight bold)))
+            `(cfw:face-saturday ((t :foreground ,head3 :background ,bg2 :weight bold)))
+            `(cfw:face-holiday ((t :foreground ,head4 :background ,bg2 :weight bold)))
+            `(cfw:face-grid ((t :foreground ,bg2)))
+            `(cfw:face-default-content ((t :foreground ,base)))
+            `(cfw:face-periods ((t :foreground ,keyword)))
+            `(cfw:face-day-title ((t :background ,bg2)))
+            `(cfw:face-today-title ((t :foreground ,suc :background ,bg2 :weight bold)))
+            `(cfw:face-default-day ((t :weight bold :inherit cfw:face-day-title)))
+            `(cfw:face-annotation ((t :foreground "RosyBrown" :inherit cfw:face-day-title)))
+            `(cfw:face-disable ((t :foreground "DarkGray" :inherit cfw:face-day-title)))
+            `(cfw:face-today ((t :background ,highlight :weight bold)))
+            `(cfw:face-select ((t :background ,highlight)))
+            `(cfw:face-toolbar ((t :foreground ,bg1 :background ,bg1)))
+            `(cfw:face-toolbar-button-off ((t :foreground ,comment :weight bold)))
+            `(cfw:face-toolbar-button-on ((t :foreground ,base :weight bold)))
+
 ;;;;; cider
             `(cider-enlightened ((,class (:background nil :box (:color ,yellow :line-width -1 :style nil) :foreground ,yellow))))
             `(cider-enlightened-local ((,class (:foreground ,yellow))))
@@ -420,26 +443,6 @@
             `(company-tooltip-common-selection ((,class (:inherit company-tooltip-selection :weight bold :underline nil))))
             `(company-tooltip-mouse ((,class (:inherit highlight))))
             `(company-tooltip-search ((,class (:inherit match))))
-
-;;;;; calfw
-            `(cfw:face-title ((t (:foreground ,head1 :weight bold :height 2.0))))
-            `(cfw:face-header ((t (:foreground ,head2 :weight bold))))
-            `(cfw:face-sunday ((t :foreground ,head3 :background ,bg2 :weight bold)))
-            `(cfw:face-saturday ((t :foreground ,head3 :background ,bg2 :weight bold)))
-            `(cfw:face-holiday ((t :foreground ,head4 :background ,bg2 :weight bold)))
-            `(cfw:face-grid ((t :foreground ,bg2)))
-            `(cfw:face-default-content ((t :foreground ,base)))
-            `(cfw:face-periods ((t :foreground ,keyword)))
-            `(cfw:face-day-title ((t :background ,bg2)))
-            `(cfw:face-today-title ((t :foreground ,suc :background ,bg2 :weight bold)))
-            `(cfw:face-default-day ((t :weight bold :inherit cfw:face-day-title)))
-            `(cfw:face-annotation ((t :foreground "RosyBrown" :inherit cfw:face-day-title)))
-            `(cfw:face-disable ((t :foreground "DarkGray" :inherit cfw:face-day-title)))
-            `(cfw:face-today ((t :background ,highlight :weight bold)))
-            `(cfw:face-select ((t :background ,highlight)))
-            `(cfw:face-toolbar ((t :foreground ,bg1 :background ,bg1)))
-            `(cfw:face-toolbar-button-off ((t :foreground ,comment :weight bold)))
-            `(cfw:face-toolbar-button-on ((t :foreground ,base :weight bold)))
 
 ;;;;; diff
             `(diff-added             ((,class :background nil :foreground ,green)))
@@ -541,6 +544,26 @@
             `(evil-ex-substitute-replacement ((,class (:background ,green-bg :foreground ,green))))
             `(evil-search-highlight-persist-highlight-face ((,class (:background ,green-bg :foreground ,base-light))))
 
+;;;;; evil-goggles
+            `(evil-goggles--pulse-face ((,class (:background ,yellow-bg :foreground ,yellow))))
+            `(evil-goggles-change-face ((,class (:background ,blue-bg-s :foreground ,blue))))
+            `(evil-goggles-commentary-face ((,class (:background ,aqua-bg :foreground ,aqua))))
+            `(evil-goggles-delete-face ((,class (:background ,red-bg-s :foreground ,red))))
+            `(evil-goggles-fill-and-move-face ((,class (:background ,green-bg-s :foreground ,green))))
+            `(evil-goggles-indent-face ((,class (:background ,green-bg-s :foreground ,green))))
+            `(evil-goggles-join-face ((,class (:background ,green-bg-s :foreground ,green))))
+            `(evil-goggles-nerd-commenter-face ((,class (:background ,aqua-bg :foreground ,aqua))))
+            `(evil-goggles-paste-face ((,class (:background ,green-bg-s :foreground ,green))))
+            `(evil-goggles-record-macro-face ((,class (:background ,blue-bg-s :foreground ,blue))))
+            `(evil-goggles-replace-with-register-face ((,class (:background ,yellow-bg :foreground ,yellow))))
+            `(evil-goggles-set-marker-face ((,class (:background ,blue-bg-s :foreground ,blue))))
+            `(evil-goggles-shift-face ((,class (:background ,blue-bg-s :foreground ,blue))))
+            `(evil-goggles-surround-face ((,class (:background ,blue-bg-s :foreground ,blue))))
+            `(evil-goggles-yank-face ((,class (:background ,blue-bg-s :foreground ,blue))))
+            `(evil-goggles-undo-redo-add-face ((,class (:background ,green-bg-s :foreground ,green))))
+            `(evil-goggles-undo-redo-change-face ((,class (:background ,blue-bg-s :foreground ,blue))))
+            `(evil-goggles-undo-redo-remove-face ((,class (:background ,red-bg-s :foreground ,red))))
+
 ;;;;; evil-snipe
             `(evil-snipe-first-match-face ((,class (:inherit isearch :foreground ,base-light))))
             `(evil-snipe--match-face ((,class (:inherit region))))
@@ -568,6 +591,25 @@
               ((,(append '((supports :underline (:style line))) class)
                 (:underline (:style line :color ,war)))
                (,class (:foreground ,base :background ,war :inherit bold :underline t))))
+
+;;;;; flymake
+           `(flymake-error ((,(append '((supports :underline (:style line))) class)
+                             (:underline (:style line :color ,err)))
+                            (,class (:foreground ,base :background ,err :inherit bold :underline t))))
+           `(flymake-note ((,(append '((supports :underline (:style line))) class)
+                            (:underline (:style wave :color ,keyword)))
+                           (,class (:foreground ,base :background ,keyword :inherit bold :underline t))))
+           `(flymake-warning ((,(append '((supports :underline (:style line))) class)
+                               (:underline (:style line :color ,war)))
+                              (,class (:foreground ,base :background ,war :inherit bold :underline t))))
+
+;;;;; flyspell
+           `(flyspell-incorrect ((,(append '((supports :underline (:style line))) class)
+                                  (:underline (:style wave :color ,war)))
+                                 (,class (:foreground ,base :background ,war :inherit bold :underline t))))
+           `(flyspell-duplicate ((,(append '((supports :underline (:style line))) class)
+                                  (:underline (:style wave :color ,keyword)))
+                                 (,class (:foreground ,base :background ,keyword :inherit bold :underline t))))
 
 ;;;;; jabber
             `(jabber-activity-face ((,class (:inherit bold :foreground ,red))))
@@ -828,13 +870,32 @@
             `(mode-line-buffer-id ((,class (:inherit bold :foreground ,func))))
 
 ;;;;; mu4e
-            `(mu4e-cited-1-face ((,class (:foreground ,base))))
-            `(mu4e-cited-7-face ((,class (:foreground ,base))))
+            `(mu4e-attach-number-face ((,class (:foreground ,var))))
+            `(mu4e-cited-1-face ((,class (:foreground ,head1))))
+            `(mu4e-cited-2-face ((,class (:foreground ,head2))))
+            `(mu4e-cited-3-face ((,class (:foreground ,head3))))
+            `(mu4e-cited-4-face ((,class (:foreground ,head4))))
+            `(mu4e-cited-5-face ((,class (:foreground ,head1))))
+            `(mu4e-cited-6-face ((,class (:foreground ,head2))))
+            `(mu4e-cited-7-face ((,class (:foreground ,head3))))
+            `(mu4e-contact-face ((,class (:foreground ,func))))
+            `(mu4e-draft-face ((,class (:foreground ,var))))
+            `(mu4e-flagged-face ((,class (:foreground ,yellow :inherit bold))))
+            `(mu4e-header-key-face ((,class (:foreground ,meta :inherit bold))))
+            `(mu4e-header-title-face ((,class (:foreground ,keyword :inherit bold))))
             `(mu4e-header-marks-face ((,class (:foreground ,comp))))
-            `(mu4e-header-key-face ((,class (:foreground ,head2 :inherit bold))))
+            `(mu4e-header-value-face ((,class (:foreground ,keyword :inherit bold))))
+            `(mu4e-header-highlight-face ((,class (:background ,highlight))))
+            `(mu4e-highlight-face ((,class (:foreground ,comp))))
+            `(mu4e-title-face ((,class (:foreground ,head2 :inherit bold))))
+            `(mu4e-replied-face ((,class (:foreground ,green))))
+            `(mu4e-modeline-face ((,class (:foreground ,yellow))))
+            `(mu4e-special-header-value-face ((,class (:foreground ,green))))
+            `(mu4e-unread-face ((,class (:foreground ,head1 :inherit bold))))
             `(mu4e-view-url-number-face ((,class (:foreground ,comp))))
-            `(mu4e-unread-face ((,class (:foreground ,yellow :inherit bold))))
-            `(mu4e-highlight-face ((,class (:foreground ,keyword :inherit bold))))
+
+;;;;; mu4e-maildirs
+            `(mu4e-maildirs-extension-maildir-hl-face ((,class (:foreground ,head1 :inherit bold))))
 
 ;;;;; neotree
             `(neo-dir-link-face ((,class (:foreground ,keyword :inherit bold))))
@@ -851,6 +912,33 @@
             `(notmuch-tag-flagged ((,class (:foreground ,war))))
 
 ;;;;; org
+            `(org-agenda-clocking ((,class (:background ,highlight :foreground ,comp))))
+            `(org-agenda-date ((,class (:foreground ,var :height ,(if yxl-theme-varying-height 1.1 1.0)))))
+            `(org-agenda-date-today ((,class (:foreground ,keyword :slant italic :inherit bold :height ,(if yxl-theme-varying-height 1.3 1.0)))))
+            `(org-agenda-date-weekend ((,class (:inherit bold :foreground ,var))))
+            `(org-agenda-done ((,class (:foreground ,suc :height ,(if yxl-theme-varying-height 1.2 1.0)))))
+            `(org-agenda-structure ((,class (:inherit bold :foreground ,comp))))
+            `(org-block ((,class (:background ,cblk-bg))))
+            `(org-block-begin-line ((,class (:background ,cblk-ln-bg :foreground ,cblk-ln))))
+            `(org-block-end-line ((,class (:inherit org-block-begin-line))))
+            `(org-checkbox ((,class (:inherit org-todo))))
+            `(org-checkbox-statistics-todo ((,class (:inherit org-todo))))
+            `(org-checkbox-statistics-done ((,class (:inherit org-done))))
+            `(org-clock-overlay ((,class (:foreground ,comp))))
+            `(org-code ((,class (:foreground ,base-dim :background ,cblk-bg :weight bold))))
+            `(org-column ((,class (:background ,highlight))))
+            `(org-column-title ((,class (:background ,highlight))))
+            `(org-date ((,class (:underline t :foreground ,comment))))
+            `(org-date-selected ((,class (:background ,func :foreground ,bg1))))
+            `(org-document-info-keyword ((,class (:inherit org-meta-line))))
+            `(org-document-title ((,class (:foreground ,func :inherit bold :height ,(if yxl-theme-varying-height 1.4 1.0) :underline nil))))
+            `(org-done ((,class (:foreground ,comment :weight bold :slant italic :height 0.8))))
+            `(org-ellipsis ((,class (:foreground ,keyword))))
+            `(org-footnote  ((,class (:underline t :foreground ,base))))
+            `(org-hide ((,class (:foreground ,bg1))))
+            `(org-indent ((,class (:foreground ,bg1))))
+            `(org-kbd ((,class (:inherit region :foreground ,base :box (:line-width 1 :style released-button)))))
+            `(org-latex-and-related ((,class (:foreground ,type))))
             `(org-level-1 ((,class (:inherit bold :foreground ,head1 :background ,(when yxl-theme-org-highlight head1-bg)
                                              :height ,(if yxl-theme-varying-height 1.3 1.0)))))
             `(org-level-2 ((,class (:inherit bold :foreground ,head2 :background ,(when yxl-theme-org-highlight head2-bg)
@@ -862,29 +950,8 @@
             `(org-level-6 ((,class (:bold nil :foreground ,head2))))
             `(org-level-7 ((,class (:bold nil :foreground ,head3))))
             `(org-level-8 ((,class (:bold nil :foreground ,head4))))
-            `(org-agenda-clocking ((,class (:background ,highlight :foreground ,comp))))
-            `(org-agenda-date ((,class (:foreground ,var :height ,(if yxl-theme-varying-height 1.1 1.0)))))
-            `(org-agenda-date-today ((,class (:foreground ,keyword :slant italic :inherit bold :height ,(if yxl-theme-varying-height 1.3 1.0)))))
-            `(org-agenda-date-weekend ((,class (:inherit bold :foreground ,var))))
-            `(org-agenda-done ((,class (:foreground ,suc :height ,(if yxl-theme-varying-height 1.2 1.0)))))
-            `(org-agenda-structure ((,class (:inherit bold :foreground ,comp))))
-            `(org-block ((,class (:background ,cblk-bg))))
-            `(org-block-begin-line ((,class (:background ,cblk-ln-bg :foreground ,cblk-ln))))
-            `(org-block-end-line ((,class (:inherit org-block-begin-line))))
-            `(org-clock-overlay ((,class (:foreground ,comp))))
-            `(org-code ((,class (:foreground ,base-dim :background ,cblk-bg :weight bold))))
-            `(org-column ((,class (:background ,highlight))))
-            `(org-column-title ((,class (:background ,highlight))))
-            `(org-date ((,class (:underline t :foreground ,comment))))
-            `(org-date-selected ((,class (:background ,func :foreground ,bg1))))
-            `(org-document-info-keyword ((,class (:inherit org-meta-line))))
-            `(org-document-title ((,class (:foreground ,func :inherit bold :height ,(if yxl-theme-varying-height 1.4 1.0) :underline nil))))
-            `(org-ellipsis ((,class (:foreground ,keyword))))
-            `(org-footnote  ((,class (:underline t :foreground ,base))))
-            `(org-hide ((,class (:foreground ,bg1))))
-            `(org-indent ((,class (:foreground ,bg1))))
-            `(org-kbd ((,class (:inherit region :foreground ,base :box (:line-width 1 :style released-button)))))
             `(org-link ((,class (:foreground ,comment))))
+            `(org-list-dt ((,class (:foreground ,var :inherit bold))))
             `(org-meta-line ((,class (:foreground ,comment))))
             `(org-mode-line-clock-overrun ((,class (:foreground ,err))))
             `(org-priority ((,class (:foreground ,war :inherit bold))))
@@ -895,18 +962,12 @@
             `(org-table ((,class (:foreground ,base :background ,cblk-bg))))
             `(org-time-grid ((,class (:foreground ,str))))
             `(org-todo ((,class (:foreground ,str :weight bold :slant italic :height 0.8))))
-            `(org-done ((,class (:foreground ,comment :weight bold :slant italic :height 0.8))))
             `(org-headline-done ((,class (:foreground ,comment :inherit org-level-4))))
-            `(org-checkbox ((,class (:inherit org-todo))))
-            `(org-checkbox-statistics-todo ((,class (:inherit org-todo))))
-            `(org-checkbox-statistics-done ((,class (:inherit org-done))))
             `(org-verbatim ((,class (:foreground ,keyword))))
             `(org-verse ((,class (:inherit org-block :slant italic))))
             `(org-warning ((,class (:foreground ,err))))
             `(org-special-keyword ((,class (:foreground ,comment))))
             `(org-tag ((,class (:foreground ,keyword))))
-            `(org-list-dt ((,class (:foreground ,var :inherit bold))))
-            `(org-latex-and-related ((,class (:foreground ,type))))
 
 ;;;;; perspective
             `(persp-selected-face ((,class (:inherit bold :foreground ,func))))
@@ -944,6 +1005,14 @@
             `(rainbow-delimiters-unmatched-face ((,class :foreground ,err :overline t)))
             `(rainbow-delimiters-mismatched-face ((,class :foreground ,err :overline t)))
 
+;;;;; rcirc
+            `(rcirc-bright-nick ((,class (:background ,aqua-bg :foreground ,cyan))))
+            `(rcirc-dim-nick ((,class (:foreground ,base-dim))))
+            `(rcirc-keyword ((,class (:background ,green-bg-s :foreground ,green))))
+            `(rcirc-timestamp ((,class (:foreground ,keyword))))
+            `(rcirc-track-keyword ((,class (:background ,green :foreground ,bg1))))
+            `(rcirc-url ((,class (:inherit link))))
+
 ;;;;; shm
             `(shm-current-face ((,class (:background ,green-bg-s))))
             `(shm-quarantine-face ((,class (:background ,red-bg-s))))
@@ -951,10 +1020,20 @@
 ;;;;; show-paren
             `(show-paren-match ((,class (:background ,green-bg-s))))
             `(show-paren-mismatch ((,class (:background ,red-bg-s))))
+            `(show-paren-mismatch ((,class (:foreground ,err :inherit bold :underline t))))
 
 ;;;;; smartparens
             `(sp-pair-overlay-face ((,class (:background ,highlight :foreground nil))))
             `(sp-show-pair-match-face ((,class (:foreground ,mat :inherit bold :underline t))))
+
+;;;;; smerge
+            `(smerge-base ((,class (:background ,yellow-bg))))
+            `(smerge-markers ((,class (:background ,ttip-bg :foreground ,ttip))))
+            `(smerge-mine ((,class (:background ,red-bg))))
+            `(smerge-other ((,class (:background ,green-bg))))
+            `(smerge-refined-added ((,class (:background ,green-bg-s :foreground ,green))))
+            `(smerge-refined-changed ((,class (:background ,blue-bg-s :foreground ,blue))))
+            `(smerge-refined-removed ((,class (:background ,red-bg-s :foreground ,red))))
 
 ;;;;; spaceline
             `(spaceline-python-venv ((,class (:foreground ,comp))))
@@ -991,6 +1070,10 @@
             `(term-color-red ((,class (:foreground ,red))))
             `(term-color-white ((,class (:foreground ,base))))
             `(term-color-yellow ((,class (:foreground ,yellow))))
+
+
+;;;;; tide
+            `(tide-hl-identifier-face ((,class (:foreground ,yellow :background ,yellow-bg))))
 
 ;;;;; treemacs
             `(treemacs-header-face ((,class (:inherit ,font-lock-keyword-face))))
@@ -1034,7 +1117,7 @@
             `(whitespace-tab ((,class (:background nil))))
             `(whitespace-trailing ((,class (:background ,err :foreground ,war))))
 
-;;;;; whitespace-mode
+;;;;; w3m-mode
             `(w3m-anchor ((t (:foreground ,keyword))))
             `(w3m-arrived-anchor ((t (:foreground ,const))))
             `(w3m-session-select ((t (:foreground ,comment))))
