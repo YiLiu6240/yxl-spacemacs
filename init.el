@@ -193,7 +193,12 @@
    dotspacemacs-verify-spacelpa-archives nil
    dotspacemacs-check-for-update nil
    dotspacemacs-elpa-subdirectory 'emacs-version
-   dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style '(vim :variables
+                                    vim-style-visual-feedback nil
+                                    vim-style-remap-Y-to-y$ t
+                                    vim-style-retain-visual-state-on-shift t
+                                    vim-style-visual-line-move-text nil
+                                    vim-style-ex-substitute-global nil)
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner 0
    dotspacemacs-startup-lists '((projects . 5)
@@ -225,10 +230,6 @@
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
    dotspacemacs-distinguish-gui-tab t
-   dotspacemacs-remap-Y-to-y$ t
-   dotspacemacs-retain-visual-state-on-shift t
-   dotspacemacs-visual-line-move-text t
-   dotspacemacs-ex-substitute-global nil
    dotspacemacs-default-layout-name "Default"
    dotspacemacs-display-default-layout nil
    dotspacemacs-auto-resume-layouts nil
