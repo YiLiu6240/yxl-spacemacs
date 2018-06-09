@@ -53,6 +53,8 @@
     (setq flycheck-lintr-linters
           (concat "with_defaults(assignment_linter=NULL, "
                   "object_name_linter=NULL, "
+                  "object_usage_linter=NULL, "
+                  "camel_case_linter=NULL, "
                   "commented_code_linter=NULL, "
                   "infix_spaces_linter=NULL)"))))
 
