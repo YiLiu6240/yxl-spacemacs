@@ -304,15 +304,11 @@
 ;; ----------------
 (add-hook 'spacemacs-post-user-config-hook
           (lambda ()
-            ;; add hook so that modeline colors are set correctly after theme change
-            (add-hook 'spacemacs-post-theme-change-hook #'yxl-airline-theme-set-colors)
+            ;; add hook so that modeline colors are set correctly
+            ;; after theme change
+            (add-hook 'spacemacs-post-theme-change-hook
+                      #'yxl-airline-theme-set-colors)
             (load-file (concat yxl-path-personal "personal-config.el"))
-            ;; Update any TODO.org in `yxl-base-freq-projects-alist'
-            (mapc (lambda (alist)
-                    (mapc (lambda (elem)
-                            (add-to-list 'org-agenda-files elem t))
-                          (directory-files (car alist) t "^TODO.org")))
-                  yxl-base-freq-projects-alist)
             ;; Override spacemacs home to be goto ~/Downloads/
             (advice-add 'spacemacs-buffer/goto-buffer
                         :override
@@ -321,3 +317,12 @@
                           (find-file "~/Downloads/")))
             (yxl-spacemacs-dashboard))
           t)
+
+(add-hook 'spacemacs-post-user-config-hook
+          ;; Update any TODO.org in `yxl-base-freq-projects-alist'
+          (lambda ()
+            (mapc (lambda (alist)
+                    (mapc (lambda (elem)
+                            (add-to-list 'org-agenda-files elem t))
+                          (directory-files (car alist) t "^TODO.org")))
+                  yxl-base-freq-projects-alist)))
