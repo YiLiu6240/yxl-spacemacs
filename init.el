@@ -117,10 +117,8 @@
                       :disabled-for     ; layer name
                       org
                       markdown)
-     ,(unless (spacemacs/system-is-mswindows)
-        'version-control)
-     ,(unless (spacemacs/system-is-mswindows)
-        '(git))
+     version-control
+     git
      ,(unless (spacemacs/system-is-mswindows)
         'github)
      treemacs
