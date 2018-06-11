@@ -15,6 +15,8 @@
   (setq ess-execute-in-process-buffer t)
   (setq ess-ask-for-ess-directory nil)
   (setq ess-default-style 'RStudio)
+  (setq ess-use-flymake nil)
+  (setq ess-use-auto-complete nil)
   (setq ess-fl-keyword:operators (cons "[-=+></%$!(::)]+"
                                        'font-lock-constant-face))
   (setq ess-R-font-lock-keywords
