@@ -24,7 +24,7 @@
   "aa" #'yxl-invoke-applications
   "ac" #'cfw/open-calendar
   "aC" #'calc-dispatch
-  "bB" #'yxl-buffer-switch-same-major-mode
+  "bB" #'ibuffer
   ;; "bb" #'yxl-buffer-switch
   "bb" #'ivy-switch-buffer
   "bh" #'yxl-base/home
@@ -82,6 +82,8 @@
   "sJ" #'helm-semantic-or-imenu
   "s C-j" #'yxl-imenu-anywhere
   "tb" #'yxl-web-switch-browser
+  "tg" #'spacemacs/toggle-version-control-margin-globally
+  "tG" #'spacemacs/toggle-golden-ratio
   "tp" nil
   "tpp" #'parinfer-toggle-mode
   "tP" #'spacemacs/toggle-smartparens
