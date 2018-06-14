@@ -153,6 +153,8 @@
                                      ;; erc
                                      (when (boundp 'erc-modified-channels-object)
                                        (powerline-raw erc-modified-channels-object center-face 'r))
+                                     (when (bound-and-true-p company-candidates)
+                                       (powerline-raw company-lighter center-face 'lr))
                                      ;; Current Function (which-function-mode)
                                      (when (and (boundp 'which-function-mode) which-function-mode)
                                        (powerline-raw which-func-format center-face 'l))
