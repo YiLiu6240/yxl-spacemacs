@@ -32,7 +32,6 @@
     (evil-set-initial-state 'reftex-select-label-mode 'evilified)
     (yxl-text/setup-latex-general)
     (yxl-text/setup-latex-custom)
-    (yxl-text/setup-latex-pairs)
     (yxl-text/setup-latex-reftex)
     (spacemacs/set-leader-keys-for-major-mode 'latex-mode
       "oa" #'yxl-text/latex-align-buffer)
@@ -41,6 +40,10 @@
                       (lambda ()
                         (interactive)
                         (yas-expand-snippet "_{$1}^{$2}")))))
+
+(defun yxl-text/post-init-evil-surround ()
+  (with-eval-after-load 'evil-surround
+    (yxl-text/setup-latex-pairs)))
 
 (defun yxl-text/init-bibtex ()
   (use-package bibtex
