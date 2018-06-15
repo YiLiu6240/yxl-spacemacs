@@ -17,8 +17,7 @@
      'magit-insert-staged-changes
      t)
     (setq vc-handled-backends nil)
-    (setq auto-revert-buffer-list-filter
-          'magit-auto-revert-repository-buffers-p)
+    (setq auto-revert-buffer-list-filter nil)
     (setq magit-refresh-status-buffer nil)
     ;; other configs
     (setq magit-log-arguments '("-n15" "--graph" "--decorate" "--follow"))
