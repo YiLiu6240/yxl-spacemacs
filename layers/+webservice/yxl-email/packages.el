@@ -67,7 +67,9 @@
             '(("capture message"  . mu4e-action-capture-message)
               ("show this thread" . mu4e-action-show-thread)
               ("view in browser" . mu4e-action-view-in-browser)))
-      (setq mu4e-html2text-command "w3m -T text/html"))))
+      (setq mu4e-html2text-command "iconv -c -t utf-8 | pandoc -f html -t plain")
+      (setq mu4e-completing-read-function #'ivy-completing-read)
+      (setq mu4e-headers-show-threads nil))))
 
 (defun yxl-email/init-mu4e-alert ()
   (use-package mu4e-alert
