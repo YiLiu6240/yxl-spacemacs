@@ -1,6 +1,20 @@
 (defun yxl-dired/general-config ()
   (setq line-spacing 4))
 
+(defun yxl-dired/open-split-or-aw ()
+  "If there is only one window in the current frame, open file at point in a split;
+else open file at point using ace-window.
+
+With a C-u prefix, always open using ace-window.
+"
+  (interactive)
+  (if (or (> (count-windows) 1)
+          current-prefix-arg)
+      (call-interactively #'yxl-dired-open-aw)
+    (progn
+      (split-window-sensibly)
+      (dired-find-file))))
+
 (defun yxl-dired/bindings-setup ()
   (define-key dired-mode-map "z" 'dired-zip-files)
   (define-key dired-mode-map "." 'yxl-dired/hydra-main/body)
@@ -10,7 +24,7 @@
     :mode dired-mode
     :bindings
     "o" #'dired-find-file
-    "O" #'yxl-dired-open-aw
+    "O" #'yxl-dired/open-split-or-aw
     "q" #'yxl-dired-delete-window
     "-" #'dired-jump
     ;; from vinegar layer
