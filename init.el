@@ -50,8 +50,10 @@
      spacemacs-visual
 
      ;; prog langs
+     lsp
      emacs-lisp
-     python
+     (python :variables
+             python-backend 'lsp)
      vimscript
      yaml
      windows-scripts

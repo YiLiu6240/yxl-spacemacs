@@ -36,6 +36,9 @@
       (add-to-list 'org-babel-load-languages '(ipython . t))
       (add-to-list 'org-babel-load-languages '(python . t)))))
 
+;; (defun yxl-prog/pre-init-python ()
+;;   (add-to-list 'exec-path (expand-file-name "~/anaconda3/bin")))
+
 (defun yxl-prog/post-init-python ()
   (with-eval-after-load 'python
     ;; See
