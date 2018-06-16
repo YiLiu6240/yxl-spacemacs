@@ -2,6 +2,7 @@
                          (ess-R-object-popup :location local)
                          (yxl-ess :location site)
                          (ess-goodies :location site)
+                         (lsp-r :location local)
                          ess-view
                          markdown-mode
                          polymode))
@@ -101,6 +102,11 @@
 (defun yxl-ess/post-init-org ()
   (with-eval-after-load 'org
     (progn)))
+
+(defun yxl-ess/init-lsp-r ()
+  (use-package lsp-r
+    :init (add-hook 'R-mode-hook 'lsp-R-enable)
+    :after ess-site))
 
 (defun yxl-ess/init-polymode ()
   (use-package polymode
