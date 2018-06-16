@@ -89,6 +89,9 @@
   "tP" #'spacemacs/toggle-smartparens
   "w0" #'delete-other-windows
   "w1" #'delete-other-windows
+  "w2" #'yxl-workspace/layout-double-columns
+  "w3" #'yxl-workspace/layout-triple-columns
+  "w4" #'yxl-workspace/layout-grid
   "ws" #'split-window-below-and-focus
   "wS" #'split-window-below
   "wv" #'split-window-right-and-focus

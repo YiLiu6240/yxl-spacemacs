@@ -1,5 +1,29 @@
 (defvar yxl-workspace-stored-config nil)
 
+(defun yxl-workspace/layout-grid ()
+  " Set the layout to a 2x2 grid. "
+  (interactive)
+  (delete-other-windows)
+  (split-window-right)
+  (split-window-below)
+  (windmove-right)
+  (split-window-below)
+  (windmove-left)
+  (balance-windows))
+
+(defun yxl-workspace/layout-triple-columns ()
+  " Set the layout to triple columns. "
+  (interactive)
+  (delete-other-windows)
+  (dotimes (i 2) (split-window-right))
+  (balance-windows))
+
+(defun yxl-workspace/layout-double-columns ()
+  " Set the layout to double columns. "
+  (interactive)
+  (delete-other-windows)
+  (split-window-right))
+
 (spacemacs|define-transient-state window-manipulation
   :title "Window Manipulation Transient State"
   :doc (concat "
