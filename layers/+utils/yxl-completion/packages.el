@@ -7,6 +7,7 @@
                                 counsel-projectile
                                 (yxl-helm-pdf-occur :location site)
                                 (yxl-ivy-views :location site)
+                                (counsel-gitgrep :location local)
                                 helm-github-stars))
 
 (defun yxl-completion/post-init-company ()
@@ -49,3 +50,8 @@
 (defun yxl-completion/init-helm-github-stars ()
   (use-package helm-github-stars
     :defer t))
+
+(defun yxl-completion/init-counsel-gitgrep ()
+  (use-package counsel-gitgrep
+    :commands (counsel-gitgrep-yank-line
+               counsel-gitgrep-revlist-yank-line)))
