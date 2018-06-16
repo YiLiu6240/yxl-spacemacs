@@ -177,7 +177,7 @@
      (yxl-email :packages
                 (not mu4e-alert)
                 :variables
-                mu4e-installation-path "/usr/share/emacs/site-lisp/mu4e")
+                mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e")
      (yxl-elfeed :variables
                  elfeed-enable-web-interface t
                  yxl-elfeed-db-directory "~/Dropbox/rss/.elfeed"))))
