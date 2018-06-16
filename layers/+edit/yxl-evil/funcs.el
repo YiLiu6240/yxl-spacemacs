@@ -28,7 +28,7 @@ with spaces."
 (defun evil-Evimrc ()
   "edit my vimrc."
   (interactive)
-  (find-file "~/.vimrc"))
+  (find-file (file-truename "~/.vimrc")))
 
 (defun yxl-evil//evil-surround-pairs ()
   "press viw then press the trigger key"
