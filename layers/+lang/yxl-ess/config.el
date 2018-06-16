@@ -1,5 +1,4 @@
 (defun yxl-ess/setup-general-configs ()
-  (ess-toggle-underscore nil)
   ;; Follow Hadley Wickham's R style guide
   (setq ess-first-continued-statement-offset 2)
   (setq ess-continued-statement-offset 0)

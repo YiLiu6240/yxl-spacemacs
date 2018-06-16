@@ -1,10 +1,4 @@
 (defun yxl-ess/setup-general-keybindings ()
-  ;; move "<-" key to "C-c ="
-  (setq ess-S-assign "<-")
-  (setq ess-smart-S-assign-key (kbd "C-c ="))
-  (ess-toggle-S-assign nil)
-  (ess-toggle-S-assign nil)
-
   (define-key ess-mode-map (kbd "C-c C-.") #'yxl-ess/insert-pipe)
   (define-key ess-mode-map (kbd "C-<tab>") #'sp-indent-adjust-sexp)
   (define-key ess-mode-map (kbd "C-S-<tab>") #'sp-dedent-adjust-sexp)

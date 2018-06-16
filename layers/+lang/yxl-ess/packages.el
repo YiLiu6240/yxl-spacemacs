@@ -51,7 +51,8 @@
     (add-hook 'inferior-ess-mode-hook
               'spacemacs//ess-fix-read-only-inferior-ess-mode)
     (when (configuration-layer/package-used-p 'company)
-      (add-hook 'ess-mode-hook 'company-mode)))
+      (add-hook 'ess-mode-hook 'company-mode))
+    (setq ess-smart-S-assign-key nil))
   :config
   (progn
     (with-eval-after-load 'ess-site
