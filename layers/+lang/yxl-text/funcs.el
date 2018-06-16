@@ -85,8 +85,9 @@
   "smartparens and evil-surround"
   (add-hook 'LaTeX-mode-hook
             (lambda ()
-              (push '(?z . ("``" . "''")) evil-surround-pairs-alist)
-              (push '(?\" . ("``" . "''")) evil-surround-pairs-alist)))
+              (dolist (key '((?z . ("``" . "''"))
+                             (?\" . ("``" . "''"))))
+                (add-to-list 'evil-surround-pairs-alist key))))
 
   (with-eval-after-load 'smartparens
     ;; REVIEW: why latex-mode work, but not LaTeX-mode ?
