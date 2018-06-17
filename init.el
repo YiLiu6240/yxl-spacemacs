@@ -161,7 +161,7 @@
      yxl-prog
      yxl-text
      (yxl-ess :variables
-              yxl-ess-enable-lsp ,(not (spacemacs/system-is-mswindows)))
+              yxl-ess-enable-lsp nil)
      ;; yxl-jupyter
      (yxl-docs :variables
                yxl-docs-docset-path "~/Dropbox/dash-docsets")
