@@ -50,10 +50,13 @@
      spacemacs-visual
 
      ;; prog langs
-     lsp
      emacs-lisp
-     (python :variables
-             python-backend 'lsp)
+     ,(unless (spacemacs/system-is-mswindows)
+        lsp)
+     ,(if (spacemacs/system-is-mswindows)
+          `(python)
+        `(python :variables
+                 python-backend 'lsp))
      vimscript
      yaml
      windows-scripts
@@ -162,7 +165,8 @@
      ;; +lang
      yxl-prog
      yxl-text
-     yxl-ess
+     (yxl-ess :variables
+              yxl-ess-enable-lsp ,(not (spacemacs/system-is-mswindows)))
      ;; yxl-jupyter
      (yxl-docs :variables
                yxl-docs-docset-path "~/Dropbox/dash-docsets")
@@ -176,10 +180,11 @@
                                         (scala . t)))
      ;; +webservice
      yxl-web
-     (yxl-email :packages
-                (not mu4e-alert)
-                :variables
-                mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e")
+     ,(unless (spacemacs/system-is-mswindows)
+        ,(yxl-email :packages
+                    (not mu4e-alert)
+                    :variables
+                    mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e"))
      (yxl-elfeed :variables
                  elfeed-enable-web-interface t
                  yxl-elfeed-db-directory "~/Dropbox/rss/.elfeed"))))

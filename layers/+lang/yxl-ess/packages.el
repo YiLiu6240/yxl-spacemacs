@@ -2,7 +2,8 @@
                          (ess-R-object-popup :location local)
                          (yxl-ess :location site)
                          (ess-goodies :location site)
-                         (lsp-r :location local)
+                         (lsp-r :location local
+                                :toggle yxl-ess-enable-lsp)
                          ess-view
                          markdown-mode
                          polymode))
@@ -105,6 +106,7 @@
 
 (defun yxl-ess/init-lsp-r ()
   (use-package lsp-r
+    :if yxl-ess-enable-lsp
     :init (add-hook 'R-mode-hook 'lsp-R-enable)
     :after ess-site))
 

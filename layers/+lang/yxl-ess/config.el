@@ -1,3 +1,6 @@
+(defvar yxl-ess-enable-lsp nil
+  "Enable language server protocol for ess.")
+
 (defun yxl-ess/setup-general-configs ()
   ;; Follow Hadley Wickham's R style guide
   (setq ess-first-continued-statement-offset 2)
