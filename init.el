@@ -47,7 +47,7 @@
      ;; prog langs
      emacs-lisp
      ,(unless (spacemacs/system-is-mswindows)
-        lsp)
+        'lsp)
      ,(if (spacemacs/system-is-mswindows)
           `(python)
         `(python :variables
@@ -176,7 +176,7 @@
      ;; +webservice
      yxl-web
      ,(unless (spacemacs/system-is-mswindows)
-        ,(yxl-email :packages
+        `(yxl-email :packages
                     (not mu4e-alert)
                     :variables
                     mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e"))
