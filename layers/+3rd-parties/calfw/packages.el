@@ -1,5 +1,6 @@
 (setq calfw-packages '(calfw
-                       calfw-org))
+                       calfw-org
+                       calfw-ical))
 
 (defun calfw/init-calfw ()
   (use-package calfw
@@ -18,3 +19,7 @@
     (progn
       (setq cfw:org-face-agenda-item-foreground-color
             (face-foreground 'font-lock-type-face)))))
+
+(defun calfw/init-calfw-ical ()
+  (use-package calfw-ical
+    :after (calfw)))
