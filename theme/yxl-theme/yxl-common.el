@@ -766,6 +766,8 @@
             `(font-latex-italic-face ((,class (:foreground ,keyword :italic t))))
             `(font-latex-match-reference-keywords ((,class (:foreground ,const))))
             `(font-latex-match-variable-keywords ((,class (:foreground ,var))))
+            `(font-latex-slide-title-face ((,class (:foregorund ,head1 :weight bold
+                                                                :height ,(if yxl-theme-varying-height 1.2 1.0)))))
             ;; part
             `(font-latex-sectioning-0-face ((,class (:inherit font-latex-sectioning-1-face
                                                               :height ,(if yxl-theme-varying-height 1.3 1.0)))))
