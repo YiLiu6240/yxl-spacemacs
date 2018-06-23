@@ -51,7 +51,7 @@
      ,(if (spacemacs/system-is-mswindows)
           `(python)
         `(python :variables
-                 python-backend 'lsp))
+                 python-backend 'anaconda))
      vimscript
      yaml
      windows-scripts
