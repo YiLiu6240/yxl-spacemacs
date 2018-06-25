@@ -4,7 +4,8 @@
                           evil-surround
                           evil-textobj-column
                           evil-mc
-                          evil-evilified-state))
+                          evil-evilified-state
+                          evil-lion))
 
 (defun yxl-evil/post-init-evil ()
   (with-eval-after-load 'evil
@@ -52,3 +53,10 @@
             (defun bb/clear-anzu ()
               (interactive)
               (setq anzu--state nil))))
+
+(defun yxl-evil/post-init-evil-lion ()
+  (with-eval-after-load 'evil-lion
+    (define-key evil-normal-state-map (kbd "g a") #'evil-lion-left)
+    (define-key evil-visual-state-map (kbd "g a") #'evil-lion-left)
+    (define-key evil-normal-state-map (kbd "g A") #'evil-lion-right)
+    (define-key evil-visual-state-map (kbd "g A") #'evil-lion-right)))
