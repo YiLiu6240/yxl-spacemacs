@@ -77,7 +77,8 @@
 
      ;; note takings
      (deft :variables deft-directory "~/Dropbox/org/notes")
-     (org :variables
+     (org :packages (not ox-reveal)
+          :variables
           org-enable-reveal-js-support t)
 
      ;; markup langs
