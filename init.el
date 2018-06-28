@@ -46,12 +46,9 @@
 
      ;; prog langs
      emacs-lisp
-     ,(unless (spacemacs/system-is-mswindows)
-        'lsp)
-     ,(if (spacemacs/system-is-mswindows)
-          `(python)
-        `(python :variables
-                 python-backend 'anaconda))
+     ;; ,(unless (spacemacs/system-is-mswindows)
+     ;;    'lsp)
+     python
      vimscript
      yaml
      windows-scripts
