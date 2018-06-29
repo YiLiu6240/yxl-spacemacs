@@ -59,6 +59,7 @@
     (yxl-ess//setup-imenu)
     (yxl-ess//setup-lintr)
     (add-hook 'ess-mode-hook #'yxl-ess//ess-hook)
+    (spacemacs|define-jump-handlers ess-mode 'xref-find-definitions)
     (yxl-ess//setup-ess-mode-keybindings)
     (yxl-ess//setup-leader-keys))
   (with-eval-after-load 'ess-r-mode

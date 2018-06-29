@@ -64,6 +64,7 @@
     (spacemacs/declare-prefix-for-mode mode "mc" "noweb")
     (spacemacs/declare-prefix-for-mode mode "md" "dev")
     (spacemacs/declare-prefix-for-mode mode "mD" "developer")
+    (spacemacs/declare-prefix-for-mode mode "mg" "xref")
     (spacemacs/declare-prefix-for-mode mode "mh" "help")
     (spacemacs/declare-prefix-for-mode mode "mr" "extra")
     (spacemacs/declare-prefix-for-mode mode "ms" "repl")
