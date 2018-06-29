@@ -302,20 +302,23 @@
 ;; ----------------
 ;; Last things to do
 ;; ----------------
+
 (add-hook 'spacemacs-post-user-config-hook
           (lambda ()
             ;; add hook so that modeline colors are set correctly
             ;; after theme change
             (add-hook 'spacemacs-post-theme-change-hook
                       #'yxl-airline-theme-set-colors)
-            (load-file (concat yxl-path-personal "personal-config.el"))
-            ;; Override spacemacs home to be goto ~/Downloads/
+            (load-file (concat yxl-path-personal "personal-config.el")))
+          t)
+
+(add-hook 'spacemacs-post-user-config-hook
+          (lambda ()
             (advice-add 'spacemacs-buffer/goto-buffer
                         :override
                         (lambda (&optional refresh)
                           (interactive)
-                          (find-file "~/Downloads/")))
-            (yxl-spacemacs-dashboard))
+                          (find-file "~/Downloads/"))))
           t)
 
 (add-hook 'spacemacs-post-user-config-hook
