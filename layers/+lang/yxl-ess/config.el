@@ -1,22 +1,15 @@
 (defvar yxl-ess-enable-lsp nil
   "Enable language server protocol for ess.")
 
-(defun yxl-ess/setup-general-configs ()
+(defun yxl-ess//setup-general-configs ()
   ;; Follow Hadley Wickham's R style guide
-  (setq ess-first-continued-statement-offset 2)
-  (setq ess-continued-statement-offset 0)
-  (setq ess-expression-offset 2)
-  (setq ess-nuke-trailing-whitespace-p t)
-  (setq ess-default-style 'DEFAULT)
-  (setq spacemacs-useful-buffers-regexp
-        (append spacemacs-useful-buffers-regexp '("\\*R:*" "\\*julia:*")))
+  (setq ess-default-style 'RStudio)
+  ;; (setq ess-nuke-trailing-whitespace-p t)
   (setq ess-history-file nil)
-  ;; no spaces around argument assignment
   (setq ess-R-argument-suffix " = ")
   (setq ess-eval-visibly 'nowait)
   (setq ess-execute-in-process-buffer t)
   (setq ess-ask-for-ess-directory nil)
-  (setq ess-default-style 'RStudio)
   (setq ess-use-flymake nil)
   (setq ess-use-auto-complete nil)
   (setq ess-fl-keyword:operators (cons "[-=+></%$!(::)]+"
@@ -34,7 +27,7 @@
           (ess-fl-keyword:= . t)
           (ess-R-fl-keyword:F&T . t))))
 
-(defun yxl-ess/setup-imenu ()
+(defun yxl-ess//setup-imenu ()
   (setq ess-imenu-S-generic-expression
         '(("Functions" "^\\(.+\\)[ \t\n]*=[ \t\n]*function[ ]*" 1)
           ("Functions" "^\\(.+\\)[ \t\n]*<-[ \t\n]*function[ ]*" 1)
@@ -52,7 +45,7 @@
           ("Knitr-chunk" "^#\\+ \\(.+\\)$" 1)
           ("FALSE block" "^\\(if (FALSE) {.*\\)$" 1))))
 
-(defun yxl-ess/setup-lintr ()
+(defun yxl-ess//setup-lintr ()
   (with-eval-after-load 'flycheck
     (setq flycheck-lintr-linters
           (concat "with_defaults(assignment_linter=NULL, "
@@ -62,7 +55,7 @@
                   "commented_code_linter=NULL, "
                   "infix_spaces_linter=NULL)"))))
 
-(defun yxl-ess/setup-rdired ()
+(defun yxl-ess//setup-rdired ()
   (setq ess-rdired-objects "{.rdired.objects <- function(objs) {
   if (length(objs)==0) {
     \"No objects to view!\"

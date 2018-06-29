@@ -2,9 +2,9 @@
   (interactive)
   (insert "%>%"))
 
-(defun yxl-ess/R-hook ())
+(defun yxl-ess//R-hook ())
 
-(defun yxl-ess/ess-hook ()
+(defun yxl-ess//ess-hook ()
   (setq-local comment-add 0))
 
 (defun spacemacs/ess-start-repl ()

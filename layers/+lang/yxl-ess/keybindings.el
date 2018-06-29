@@ -1,11 +1,9 @@
-(defun yxl-ess/setup-general-keybindings ()
+(defun yxl-ess//setup-ess-mode-keybindings ()
   (define-key ess-mode-map (kbd "C-c C-.") #'yxl-ess/insert-pipe)
   (define-key ess-mode-map (kbd "C-<tab>") #'sp-indent-adjust-sexp)
   (define-key ess-mode-map (kbd "C-S-<tab>") #'sp-dedent-adjust-sexp)
-  (define-key ess-mode-map (kbd "<s-return>") 'ess-eval-line)
-  (define-key ess-doc-map "h" 'ess-display-help-on-object)
-  (define-key ess-doc-map "p" 'ess-R-dv-pprint)
-  (define-key ess-doc-map "t" 'ess-R-dv-ctable)
+  (define-key ess-mode-map (kbd "<s-return>") #'ess-eval-line)
+  (define-key ess-mode-map (kbd "C-,") #'ess-eval-region-or-line-and-step)
   (dolist (map `(,ess-mode-map ,inferior-ess-mode-map))
     (define-key map
       (kbd "M--") (lambda () (interactive)
@@ -18,24 +16,48 @@
                       (yxl-insert-symbol "%>%"))))
   (evil-define-key 'normal inferior-ess-mode-map
     (kbd "C-d") #'evil-scroll-down)
-  (define-key ess-mode-map (kbd "C-,") #'ess-eval-region-or-line-and-step)
-  (with-eval-after-load 'ess-mode
-    (evil-define-key 'insert comint-mode-map
-      (kbd "C-j") #'windmove-down
-      (kbd "C-k") #'windmove-up
-      (kbd "C-p") #'comint-previous-input
-      (kbd "C-n") #'comint-next-input)
-    (evil-define-key 'normal comint-mode-map
-      (kbd "C-j") #'windmove-down
-      (kbd "C-k") #'windmove-up
-      (kbd "C-p") #'comint-previous-input
-      (kbd "C-n") #'comint-next-input)
-    (with-eval-after-load 'ess-mode
-      (evil-set-initial-state 'ess-rdired-mode 'evilified))
-    (with-eval-after-load 'ess-help
-      (evil-set-initial-state 'ess-help-mode 'evilified))))
+  (evil-define-key 'insert comint-mode-map
+    (kbd "C-j") #'windmove-down
+    (kbd "C-k") #'windmove-up
+    (kbd "C-p") #'comint-previous-input
+    (kbd "C-n") #'comint-next-input)
+  (evil-define-key 'normal comint-mode-map
+    (kbd "C-j") #'windmove-down
+    (kbd "C-k") #'windmove-up
+    (kbd "C-p") #'comint-previous-input
+    (kbd "C-n") #'comint-next-input)
+  (with-eval-after-load 'ess-rdired))
 
-(defun yxl-ess/setup-leader-keys ()
+(defun yxl-ess//setup-ess-help-keybindings ()
+  (evil-set-initial-state 'ess-help-mode 'evilified)
+  (define-key ess-doc-map "h" #'ess-display-help-on-object)
+  (define-key ess-doc-map "p" #'ess-R-dv-pprint)
+  (define-key ess-doc-map "t" #'ess-R-dv-ctable)
+  (spacemacs/set-leader-keys-for-major-mode 'ess-help-mode
+    "h" #'ess-help
+    "b" #'ess-display-help-in-browser
+    "p" #'ess-display-package-index
+    "v" #'ess-display-vignettes
+    "w" #'ess-help-web-search))
+
+(defun yxll-ess//setup-ess-rdired-keybindings ()
+  (evil-set-initial-state 'ess-rdired-mode 'evilified)
+  (spacemacs/set-leader-keys-for-major-mode 'ess-rdired-mode
+    "a" #'yxl-ess-rdired-atpoint
+    "s" #'yxl-ess-rdired-str
+    "S" #'ess-rdired-sort
+    "vv" #'ess-redired-view
+    "vp" #'ess-R-dv-pprint
+    "vd" #'ess-view-inspect-df
+    "vt" #'ess-R-dv-ctable
+    "g" #'revert-buffer
+    "p" #'ess-rdired-plot
+    "y" #'ess-rdired-type
+    "d" #'ess-rdired-delete
+    "u" #'ess-rdired-undelete
+    "x" #'ess-redired-expunge))
+
+(defun yxl-ess//setup-leader-keys ()
   (dolist (mode '(ess-mode ess-julia-mode inferior-ess-mode))
     (spacemacs/declare-prefix-for-mode mode "ma" "atpoint")
     (spacemacs/declare-prefix-for-mode mode "mb" "debugging")
@@ -123,30 +145,6 @@
       ;; w
       "w" 'ess-r-package-dev-map)))
 
-(defun yxl-ess/setup-julia-keybindings ()
+(defun yxl-ess//setup-julia-keybindings ()
   (spacemacs/set-leader-keys-for-major-mode 'ess-julia-mode
     "<tab>" #'julia-latexsub-or-indent))
-
-(defun yxl-ess/setup-ess-rdired-leader-keys ()
-  (spacemacs/set-leader-keys-for-major-mode 'ess-rdired-mode
-    "a" #'yxl-ess-rdired-atpoint
-    "s" #'yxl-ess-rdired-str
-    "S" #'ess-rdired-sort
-    "vv" #'ess-redired-view
-    "vp" #'ess-R-dv-pprint
-    "vd" #'ess-view-inspect-df
-    "vt" #'ess-R-dv-ctable
-    "g" #'revert-buffer
-    "p" #'ess-rdired-plot
-    "y" #'ess-rdired-type
-    "d" #'ess-rdired-delete
-    "u" #'ess-rdired-undelete
-    "x" #'ess-redired-expunge))
-
-(defun yxl-ess/setup-ess-help-leader-keys ()
-  (spacemacs/set-leader-keys-for-major-mode 'ess-help-mode
-    "h" #'ess-help
-    "b" #'ess-display-help-in-browser
-    "p" #'ess-display-package-index
-    "v" #'ess-display-vignettes
-    "w" #'ess-help-web-search))
