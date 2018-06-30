@@ -24,7 +24,10 @@ With a C-u prefix, always open using ace-window.
     :mode dired-mode
     :bindings
     "o" #'dired-find-file
-    "O" #'yxl-dired/open-split-or-aw
+    "O" nil
+    "OO" #'yxl-dired/open-split-or-aw
+    "OS" #'yxl-dired-open-aw-horz
+    "OV" #'yxl-dired-open-aw-vert
     "q" #'yxl-dired-delete-window
     "-" #'dired-jump
     ;; from vinegar layer
@@ -105,10 +108,9 @@ With a C-u prefix, always open using ace-window.
       ("ry" dired-ranger-copy "dired-ranger-copy")
       ("rx" dired-ranger-move "dired-ranger-move")
       ("rp" dired-ranger-paste "dired-ranger-paste")
-      ("Oo" yxl-dired-open-aw "dired-open-aw")
-      ("OO" dired-find-file-other-window "dired-open-other-window")
-      ("Os" yxl-dired-open-aw-horz "dired-open-aw-horz")
-      ("Ov" yxl-dired-open-aw-vert "dired-open-aw-vert")
+      ("OO" yxl-dired/open-split-or-aw "dired-open-aw")
+      ("OS" yxl-dired-open-aw-horz "dired-open-aw-horz")
+      ("OV" yxl-dired-open-aw-vert "dired-open-aw-vert")
       ("_" xah-dired-rename-space-to-underscore "rename: _")
       ("-" xah-dired-rename-space-to-hyphen "rename: -")
       ("+" dired-create-directory "mkdir"))
