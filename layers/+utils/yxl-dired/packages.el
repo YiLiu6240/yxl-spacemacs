@@ -1,4 +1,4 @@
-(setq yxl-dired-packages '(dired
+(setq yxl-dired-packages '((dired :location built-in)
                            (yxl-dired :location site)
                            peep-dired
                            image+
@@ -8,9 +8,7 @@
                            ;; dired-sidebar))
 
 (defun yxl-dired/post-init-dired ()
-  (use-package dired
-    :defer t
-    :config
+  (with-eval-after-load 'dired
     (progn
       ;; use homebrew coreutils in darwin
       ;; http://qiita.com/maangie/items/5a80ae50c13d14368a72
@@ -19,12 +17,17 @@
       (with-eval-after-load 'dired-aux
         (add-to-list 'dired-compress-file-suffixes
                      '("\\.zip\\'" ".zip" "unzip")))
+      ;; Switches:
+      ;;   -l: long format
+      ;;   -a: show hidden
+      ;;   -h: human readable
+      ;;   -H: follow symlinks
       (setq dired-listing-switches (cond ((eq system-type 'darwin)
-                                          "-l -a -h")
+                                          "-l -a -h -H")
                                          ((eq system-type 'windows-nt)
-                                          "-l -a -h")
+                                          "-l -a -h -H")
                                          (t
-                                          "-lah --time-style=iso --group-directories-first")))
+                                          "-lHah --time-style=iso --group-directories-first")))
       (setq dired-recursive-copies 'always)
       (add-hook 'dired-mode-hook #'spacemacs/toggle-truncate-lines-on)
       ;; (add-hook 'dired-mode-hook #'dired-hide-details-mode)
