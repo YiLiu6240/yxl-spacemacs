@@ -321,6 +321,8 @@
                           (find-file "~/Downloads/"))))
           t)
 
+(setq initial-buffer-choice "~/Downloads/")
+
 (add-hook 'spacemacs-post-user-config-hook
           ;; Update any TODO.org in `yxl-base-freq-projects-alist'
           (lambda ()
