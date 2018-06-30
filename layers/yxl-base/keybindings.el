@@ -48,8 +48,8 @@ Window Split:
 
 ace-window:
 
- | [_ww_]: select   | [_ws_]: swap        | [_wM_]: max       |
- | [_wd_]: delete   | [_wp_]: push        | [_wf_]: fetch     |
+ | [_ww_]: select   | [_ws_]: swap        | [_wp_/_wPS_/_wPV_]: push       |
+ | [_wd_]: delete   | [_wM_]: max         | [_wf_/_wFS_/_wFV_]: fetch      |
 
 ---------------------------------------------------------------
 
@@ -64,6 +64,11 @@ avy:
   ("wd" ace-delete-window)
   ("wp" yxl-ace-window-push-window)
   ("wf" yxl-ace-window-fetch-window)
+  ("wPS" yxl-ace-window-push-window-horz)
+  ("wPV" yxl-ace-window-push-window-vert)
+  ("wf" yxl-ace-window-fetch-window)
+  ("wFS" yxl-ace-window-fetch-window-horz)
+  ("wFV" yxl-ace-window-fetch-window-vert)
   ("jb" avy-pop-mark)
   ("jj" evil-avy-goto-char-2)
   ("jl" evil-avy-goto-line)
