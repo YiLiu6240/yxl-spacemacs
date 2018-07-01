@@ -60,7 +60,6 @@
                             mu4e-maildir-shortcuts) " OR ")
                "All inboxes" ?i)))
       (add-hook 'mu4e-compose-mode-hook (lambda () (auto-fill-mode -1)))
-      (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
       (advice-add #'mu4e-headers-view-message :around
                   #'mu4e-split-view-dynamically)
       ;; Changes: removedj view as pdf, add view in browser
@@ -68,7 +67,9 @@
             '(("capture message"  . mu4e-action-capture-message)
               ("show this thread" . mu4e-action-show-thread)
               ("view in browser" . mu4e-action-view-in-browser)))
-      (setq mu4e-html2text-command "iconv -c -t utf-8 | pandoc -f html -t plain")
+      (yxl-email/mu4e-set-html2text-command-to-shr2text)
+      (setq shr-color-visible-luminance-min 90)
+      (setq shr-color-visible-distance-min 20)
       (setq mu4e-completing-read-function #'ivy-completing-read)
       (setq mu4e-headers-show-threads nil))))
 

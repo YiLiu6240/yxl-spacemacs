@@ -78,3 +78,22 @@ Source: https://github.com/djcb/mu/issues/905"
         (if toframe
             (select-frame frm)
           (select-window new-win))))))
+
+(defun yxl-email/mu4e-set-html2text-command-to-shr2text ()
+  (interactive)
+  (setq mu4e-html2text-command #'mu4e-shr2text)
+  (remove-hook 'mu4e-view-mode-hook 'visual-line-mode)
+  (add-hook 'mu4e-view-mode-hook (lambda () (toggle-truncate-lines t)))
+  (message "mu4e-html2text-command: %s" mu4e-html2text-command))
+
+(defun yxl-email/mu4e-set-html2text-command-to-pandoc ()
+  (interactive)
+  (setq mu4e-html2text-command "iconv -c -t utf-8 | pandoc -f html -t plain --normalize --columns=120")
+  (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
+  (message "mu4e-html2text-command: %s" mu4e-html2text-command))
+
+(defun yxl-email/mu4e-set-html2text-command-to-html2markdown ()
+  (interactive)
+  (setq mu4e-html2text-command "iconv -c -t utf-8 | html2markdown --body-width=0 | sed \"s/&nbsp_place_holder;//g; /^$/d\"")
+  (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
+  (message "mu4e-html2text-command: %s" mu4e-html2text-command))
