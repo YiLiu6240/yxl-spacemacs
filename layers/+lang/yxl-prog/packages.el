@@ -11,15 +11,16 @@
                           suggest
                           (sh-script :location built-in)))
 
-;; TODO: wrong spec, dont use use-package
-(defun yxl-prog/post-init-prog-mode ()
-  (with-eval-after-load 'prog-mode
+(defun yxl-prog/init-prog-mode ()
+  (use-package prog-mode
+    :config
     (progn
       ;; (add-hook 'prog-mode-hook 'fci-mode)
       (add-hook 'prog-mode-hook 'hl-todo-mode)
-      (setq lua-indent-level 2)
-      (setq c-basic-offset 2)
-      (setq css-indent-offset 2)
+      (setq-default standard-indent 2)
+      (setq-default lua-indent-level 2)
+      (setq-default c-basic-offset 2)
+      (setq-default css-indent-offset 2)
 
       (add-hook 'makefile-mode-hook
                 (lambda ()
