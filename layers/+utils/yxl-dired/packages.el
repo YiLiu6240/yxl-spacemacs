@@ -36,14 +36,7 @@
 
 (defun yxl-dired/init-yxl-dired ()
   (use-package yxl-dired
-    :after dired
-    :config
-    (progn
-      (evil-define-key 'evilified dired-mode-map
-        "Oo" #'yxl-dired-open-aw
-        "OO" #'dired-find-file-other-window
-        "Os" #'yxl-dired-open-aw-horz
-        "Ov" #'yxl-dired-open-aw-vert))))
+    :after dired))
 
 (defun yxl-dired/init-image+ ()
   (use-package image+
