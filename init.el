@@ -120,6 +120,7 @@
      ,(unless (spacemacs/system-is-mswindows)
         'github)
      treemacs
+     docker
 
      ;; minor utils modes
      colors
