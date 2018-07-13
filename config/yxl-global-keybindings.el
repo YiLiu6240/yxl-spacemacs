@@ -84,6 +84,7 @@
   "tb" #'yxl-web-switch-browser
   "tg" #'spacemacs/toggle-version-control-margin-globally
   "tG" #'spacemacs/toggle-golden-ratio
+  "tmm" #'spacemacs/toggle-mode-line
   "tp" nil
   "tpp" #'parinfer-toggle-mode
   "tP" #'spacemacs/toggle-smartparens
