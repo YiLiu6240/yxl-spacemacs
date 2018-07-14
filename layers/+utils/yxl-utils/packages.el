@@ -4,7 +4,8 @@
                            emamux
                            focus
                            helpful
-                           (hexrgb :location site)))
+                           (hexrgb :location site)
+                           (helm-system-packages)))
 
 (defun yxl-utils/init-find-file-in-project ()
   (use-package find-file-in-project
@@ -127,3 +128,7 @@
          (lambda (x)
            (round (* (float x) (float 255))))
          (hexrgb-hex-to-rgb hex))))))
+
+(defun yxl-utils/init-helm-system-packages ()
+  (use-package helm-system-packages
+    :defer t))
