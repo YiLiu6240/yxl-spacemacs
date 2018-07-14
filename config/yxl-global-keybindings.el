@@ -78,6 +78,8 @@
   "pM" #'helm-make
   "pt" #'treemacs-projectile-toggle
   "qf" #'spacemacs/frame-killer
+  "sgy" #'counsel-gitgrep-yank-line
+  "sgY" #'counsel-gitgrep-revlist-yank-line
   "sj" #'counsel-semantic-or-imenu
   "sJ" #'helm-semantic-or-imenu
   "s C-j" #'yxl-imenu-anywhere

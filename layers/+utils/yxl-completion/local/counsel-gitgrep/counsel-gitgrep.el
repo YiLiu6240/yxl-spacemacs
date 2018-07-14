@@ -64,8 +64,7 @@ If INSERT-LINE is not nil, insert the line grepped"
          (cmd-local (concat "git rev-list --all"
                             " | "
                             "xargs git --no-pager grep --no-color \"%s\""
-                            (format " -- %s"
-                                    (file-name-nondirectory (buffer-file-name)))
+                            (format " -- %s" default-directory)
                             " | "
                             "sed 's/^[^:]*://'"
                             " | "
