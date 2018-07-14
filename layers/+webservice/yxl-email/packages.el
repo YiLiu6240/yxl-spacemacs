@@ -2,8 +2,7 @@
                            mu4e-alert
                            mu4e-maildirs-extension
                            helm-mu
-                           org
-                           (counsel-mu4e :location local)))
+                           org))
 
 (defun yxl-email/init-mu4e ()
   (use-package mu4e
@@ -109,27 +108,13 @@
 (defun yxl-email/init-helm-mu ()
   (use-package helm-mu
     :defer t
-    :config
+    :init
     (progn
-      (define-key helm-mu-map (kbd "C-w") #'spacemacs/backward-kill-word-or-region)
-      (define-key helm-mu-map (kbd "C-h") (kbd "DEL")))))
+      (spacemacs/set-leader-keys
+        "amf" #'helm-mu))))
 
 (defun yxl-email/pre-init-org ()
   ;; load org-mu4e when org is actually loaded
   (with-eval-after-load 'org
     (require 'org-mu4e nil 'noerror)
     (require 'org-notmuch nil 'noerror)))
-
-(defun yxl-email/init-counsel-mu4e ()
-  (use-package counsel-mu4e
-    :after mu4e
-    :init
-    (progn
-      (spacemacs/set-leader-keys
-        "amf" #'counsel-mu4e))
-    :config
-    (progn
-      ;; Something that is extremely unlikely to be used
-      (setq counsel-mu4e-delimiter "<<<_<--<_-_>-->_>>>")
-      (setq counsel-mu4e-flags (concat "-n 500 --skip-dups "
-                                       "--sortfield=date --reverse ")))))
