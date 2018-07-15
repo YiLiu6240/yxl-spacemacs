@@ -1078,7 +1078,12 @@
             `(tide-hl-identifier-face ((,class (:foreground ,yellow :background ,yellow-bg))))
 
 ;;;;; treemacs
-            `(treemacs-header-face ((,class (:inherit ,font-lock-keyword-face))))
+            `(treemacs-root-face ((,class (:inherit ,font-lock-keyword-face :weight bold :height 1.2))))
+            `(treemacs-git-added-face ((,class (:foreground ,green))))
+            `(treemacs-git-conflict-face ((,class (:foreground ,red))))
+            `(treemacs-git-ignored-face ((,class (:foreground ,comment))))
+            `(treemacs-git-modified-face ((,class (:foreground ,blue))))
+            `(treemacs-git-untracked-face ((,class (:foreground ,aqua))))
 
 ;;;;; vi-tilde-fringe
             `(vi-tilde-fringe-face ((,class (:foreground ,comment))))
