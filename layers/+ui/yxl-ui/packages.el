@@ -30,6 +30,7 @@
 (defun yxl-ui/post-init-treemacs ()
   (setq treemacs-no-png-images t)
   (setq treemacs-width 20)
+  (setq treemacs-indentation 0)
   (with-eval-after-load 'treemacs
-    (define-key treemacs-mode-map
-      "x" #'yxl-treemacs-visit-node-external)))
+    (define-key treemacs-mode-map "x" #'yxl-treemacs-visit-node-external)
+    (define-key treemacs-mode-map "i" #'treemacs-TAB-action)))
