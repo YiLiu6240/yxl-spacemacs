@@ -50,3 +50,9 @@
                         (projectile-switch-project-by-name dir arg)))
             :require-match t
             :caller 'counsel-projectile-switch-project))
+
+(defun yxl-completion/company-quickhelp-toggle ()
+  "Toggle company quickhelp."
+  (interactive)
+  (or (x-hide-tip)
+      (call-interactively #'company-quickhelp-manual-begin)))

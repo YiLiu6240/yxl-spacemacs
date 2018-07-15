@@ -8,7 +8,10 @@
   (define-key company-active-map (kbd "C-k") #'company-select-previous)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous)
-  (define-key company-active-map (kbd "C-l") #'company-complete-selection))
+  (define-key company-active-map (kbd "C-l") #'company-complete-selection)
+  ;; company tooltip toggle
+  (define-key company-active-map (kbd "M-h") #'yxl-completion/company-quickhelp-toggle)
+  (define-key company-active-map (kbd "M-l") #'x-hide-tip))
 
 (defun yxl-completion//setup-helm ()
   (setq helm-mini-default-sources '(helm-source-buffers-list))
