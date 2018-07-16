@@ -54,7 +54,7 @@
       (when (configuration-layer/package-used-p 'company)
         (add-hook 'ess-mode-hook 'company-mode))
       (setq ess-smart-S-assign-key nil)))
-  (with-eval-after-load 'ess-mode
+  (with-eval-after-load 'ess
     (yxl-ess//setup-general-configs)
     (yxl-ess//setup-imenu)
     (yxl-ess//setup-lintr)
