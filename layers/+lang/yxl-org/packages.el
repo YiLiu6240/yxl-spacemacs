@@ -19,7 +19,6 @@
   ;; misc settings
   (with-eval-after-load 'org
     (add-hook 'org-mode-hook 'smartparens-mode)
-    (add-hook 'org-mode-hook 'highlight-numbers-mode)
     ;; (add-hook 'org-mode-hook 'org-bullets-mode)
     (add-hook 'org-mode-hook 'yxl-org/org-mode-hook)
     (add-hook 'org-mode-hook 'yxl-org/load-ob-helper))
