@@ -118,7 +118,8 @@
      git
      ,(unless (spacemacs/system-is-mswindows)
         'github)
-     treemacs
+     (treemacs :variables
+               treemacs-use-git-mode nil)
      docker
 
      ;; minor utils modes
