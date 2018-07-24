@@ -22,12 +22,13 @@
       ;;   -a: show hidden
       ;;   -h: human readable
       ;;   -H: follow symlinks
-      (setq dired-listing-switches (cond ((eq system-type 'darwin)
-                                          "-a -l -L-h -H ")
-                                         ((eq system-type 'windows-nt)
-                                          "-a -l -L-h -H ")
-                                         (t
-                                          "-alLhH --time-style=iso --group-directories-first")))
+      (setq dired-listing-switches
+            (cond ((eq system-type 'darwin)
+                   "-a -l -L -h -H ")
+                  ((eq system-type 'windows-nt)
+                   "-a -l -L --human-readable -H ")
+                  (t
+                   "-alLhH --time-style=iso --group-directories-first")))
       (setq dired-recursive-copies 'always)
       (add-hook 'dired-mode-hook #'spacemacs/toggle-truncate-lines-on)
       ;; (add-hook 'dired-mode-hook #'dired-hide-details-mode)
