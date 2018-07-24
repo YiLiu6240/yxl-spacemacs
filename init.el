@@ -103,7 +103,7 @@
      (helm :can-shadow nil)
      (ivy :variables
           ;; ivy-rich is slow
-          ivy-enable-advanced-buffer-information nil)
+          ivy-enable-advanced-buffer-information t)
      (auto-completion :variables
                       ;; use tab to complete
                       ;; return key enters new line
