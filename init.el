@@ -114,7 +114,8 @@
                       :disabled-for     ; layer name
                       org
                       markdown)
-     version-control
+     (version-control :variables
+                      version-control-diff-tool 'git-gutter)
      git
      ,(unless (spacemacs/system-is-mswindows)
         'github)
