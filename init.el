@@ -47,7 +47,8 @@
      emacs-lisp
      ;; ,(unless (spacemacs/system-is-mswindows)
      ;;    'lsp)
-     python
+     ;; python
+     yxl-elpy
      vimscript
      yaml
      windows-scripts
