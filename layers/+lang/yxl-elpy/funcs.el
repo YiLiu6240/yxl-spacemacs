@@ -114,3 +114,11 @@ This works around https://github.com/pyenv/pyenv-which-ext
   (if (bound-and-true-p semantic-mode)
       (semantic-create-imenu-index)
     (python-imenu-create-index)))
+
+(defun python-shell-send-string-print (string &optional process msg)
+  "Wrap STRING with print() before sending it to
+`python-shell-send-string'."
+  (interactive
+   (list (read-string "Python command: ") nil t))
+  (let ((wrapped-string (concat "print(" string ")")))
+    (python-shell-send-string wrapped-string process msg)))

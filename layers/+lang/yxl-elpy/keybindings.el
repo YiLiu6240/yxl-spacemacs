@@ -7,6 +7,7 @@
   (spacemacs/declare-prefix-for-mode 'python-mode "mn" "notebook")
   (spacemacs/set-leader-keys-for-major-mode 'python-mode
     "'"  'spacemacs/python-start-or-switch-repl
+    ";" #'python-shell-send-string
     "cc" 'spacemacs/python-execute-file
     "cC" 'spacemacs/python-execute-file-focus
     "hh" 'elpy-doc

@@ -30,31 +30,6 @@
   (interactive)
   (yxl-prog/evil-wrap-line-f-lisp "println"))
 
-(defun python-shell-send-region-or-line-and-step ()
-  "When a region is selected, send region using `python-shell-send-region',
-otherwise select the current line and send region. After that, deactivate
-region selection and step one line."
-  (interactive)
-  (if (use-region-p)
-      (progn
-        (python-shell-send-region (region-beginning) (region-end))
-        (deactivate-mark))
-    (progn
-      (save-excursion
-        (end-of-line)
-        (let ((end (point)))
-          (beginning-of-line)
-          (python-shell-send-region (point) end)))
-      (forward-line 1))))
-
-(defun python-shell-send-string-print (string &optional process msg)
-  "Wrap STRING with print() before sending it to
-`python-shell-send-string'."
-  (interactive
-   (list (read-string "Python command: ") nil t))
-  (let ((wrapped-string (concat "print(" string ")")))
-    (python-shell-send-string wrapped-string process msg)))
-
 (defun sh-send-line-or-region (&optional step)
   ;; https://stackoverflow.com/questions/6286579/emacs-shell-mode-how-to-send-region-to-shell?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
   (interactive ())

@@ -47,12 +47,7 @@
     (define-key python-mode-map (kbd "C-c f")
       #'yxl-prog/evil-wrap-line-f-print)
     (define-key python-mode-map (kbd "C-c F")
-      #'yxl-prog/evil-wrap-line-f)
-    ;; ----
-    (spacemacs/set-leader-keys-for-major-mode 'python-mode
-      ";" #'python-shell-send-string
-      "ss" #'python-shell-send-region-or-line-and-step
-      "sS" #'python-shell-send-string-print)))
+      #'yxl-prog/evil-wrap-line-f)))
 
 (defun yxl-prog/post-init-ess ()
   (with-eval-after-load 'ess-site
