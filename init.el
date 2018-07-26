@@ -3,8 +3,8 @@
 (defun dotspacemacs/layers ()
   (setq-default
    dotspacemacs-distribution 'spacemacs-base
-   dotspacemacs-enable-lazy-installation 'unused
-   dotspacemacs-ask-for-lazy-installation t
+   dotspacemacs-enable-lazy-installation nil
+   dotspacemacs-ask-for-lazy-installation nil
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-additional-packages '(toml-mode)
    dotspacemacs-frozen-packages '()
@@ -23,8 +23,7 @@
      neotree)
    dotspacemacs-install-packages 'used-but-keep-unused
    dotspacemacs-configuration-layers
-   `(
-     ;; NOTE: These layers are not loaded
+   `(;; NOTE: These layers are not loaded
      ;;       - spacemacs-layouts (persp, eyebrowse)
      ;;       NOTE: counsel-projectile is loaded by spacemacs-layouts
      ;;             which should not have been
