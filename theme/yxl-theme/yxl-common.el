@@ -385,6 +385,9 @@
             `(ac-completion-face ((,class (:background ,ttip-bg :foreground ,ttip))))
             `(ac-selection-face ((,class (:inherit company-tooltip-selection))))
 
+;;;;; auto-dim-other-buffers
+            `(auto-dim-other-buffers-face ((,class (:foreground ,base-dim))))
+
 ;;;;; avy
             `(avy-lead-face   ((,class (:foreground ,keyword))))
             `(avy-lead-face-0 ((,class (:foreground ,mat))))
