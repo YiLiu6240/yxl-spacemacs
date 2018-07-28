@@ -17,6 +17,7 @@
     (progn
       ;; (add-hook 'prog-mode-hook 'fci-mode)
       (add-hook 'prog-mode-hook 'hl-todo-mode)
+      (add-hook 'prog-mode-hook #'spacemacs/toggle-line-numbers-on)
       (setq-default standard-indent 2)
       (setq-default lua-indent-level 2)
       (setq-default c-basic-offset 2)
