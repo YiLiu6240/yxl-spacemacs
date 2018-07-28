@@ -35,3 +35,5 @@
 
 (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer-elpa-archives)
 (push '("ensime" . "melpa-stable") package-pinned-packages)
+
+(setq save-abbrevs 'silent)
