@@ -21,6 +21,7 @@
       (setq-default standard-indent 2)
       (setq-default lua-indent-level 2)
       (setq-default c-basic-offset 2)
+      (setq-default sh-basic-offset 2)
       (setq-default css-indent-offset 2)
 
       (add-hook 'makefile-mode-hook
