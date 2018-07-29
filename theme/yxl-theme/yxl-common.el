@@ -375,8 +375,8 @@
             `(aw-leading-char-face ((,class (:foreground ,keyword :weight bold :height 3.0))))
 
 ;;;;; ahs
-            `(ahs-face ((,class (:background ,highlight))))
-            `(ahs-plugin-whole-buffer-face ((,class (:background ,mat :foreground ,bg1))))
+            `(ahs-face ((,class (:underline t))))
+            `(ahs-plugin-whole-buffer-face ((,class (:underline (:color ,mat)))))
 
 ;;;;; anzu-mode
             `(anzu-mode-line ((,class (:foreground ,yellow :inherit bold))))
