@@ -79,7 +79,13 @@
               ("browser" . (lambda (x) (yxl-open--darwin-command "open -a \"Google Chrome\"" x)))
               ("desktop" . (lambda (x) (yxl-open-in-desktop)))
               ("dired" . (lambda (x) (dired-jump t x)))
-              ("directory in terminal" . (lambda (x) (yxl-open-in-terminal))))))))
+              ("directory in terminal" . (lambda (x) (yxl-open-in-terminal)))))
+      (setq yxl-open-file-external-commands-windows
+            '(("open" . (lambda (x) (yxl-open--windows-command "open" x)))
+              ("browse" . (lambda (x) (browse-url x)))
+              ("desktop" . (lambda (x)
+                             (yxl-open--windows-command
+                              "open" (file-name-directory (expand-file-name x))))))))))
 
 (defun yxl-base/init-general-goodies ()
   (use-package general-goodies))
