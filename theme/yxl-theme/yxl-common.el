@@ -596,23 +596,23 @@
                (,class (:foreground ,base :background ,war :inherit bold :underline t))))
 
 ;;;;; flymake
-           `(flymake-error ((,(append '((supports :underline (:style line))) class)
-                             (:underline (:style line :color ,err)))
-                            (,class (:foreground ,base :background ,err :inherit bold :underline t))))
-           `(flymake-note ((,(append '((supports :underline (:style line))) class)
-                            (:underline (:style wave :color ,keyword)))
-                           (,class (:foreground ,base :background ,keyword :inherit bold :underline t))))
-           `(flymake-warning ((,(append '((supports :underline (:style line))) class)
-                               (:underline (:style line :color ,war)))
-                              (,class (:foreground ,base :background ,war :inherit bold :underline t))))
+            `(flymake-error ((,(append '((supports :underline (:style line))) class)
+                              (:underline (:style line :color ,err)))
+                             (,class (:foreground ,base :background ,err :inherit bold :underline t))))
+            `(flymake-note ((,(append '((supports :underline (:style line))) class)
+                             (:underline (:style wave :color ,keyword)))
+                            (,class (:foreground ,base :background ,keyword :inherit bold :underline t))))
+            `(flymake-warning ((,(append '((supports :underline (:style line))) class)
+                                (:underline (:style line :color ,war)))
+                               (,class (:foreground ,base :background ,war :inherit bold :underline t))))
 
 ;;;;; flyspell
-           `(flyspell-incorrect ((,(append '((supports :underline (:style line))) class)
-                                  (:underline (:style wave :color ,war)))
-                                 (,class (:foreground ,base :background ,war :inherit bold :underline t))))
-           `(flyspell-duplicate ((,(append '((supports :underline (:style line))) class)
-                                  (:underline (:style wave :color ,keyword)))
-                                 (,class (:foreground ,base :background ,keyword :inherit bold :underline t))))
+            `(flyspell-incorrect ((,(append '((supports :underline (:style line))) class)
+                                   (:underline (:style wave :color ,war)))
+                                  (,class (:foreground ,base :background ,war :inherit bold :underline t))))
+            `(flyspell-duplicate ((,(append '((supports :underline (:style line))) class)
+                                   (:underline (:style wave :color ,keyword)))
+                                  (,class (:foreground ,base :background ,keyword :inherit bold :underline t))))
 
 ;;;;; jabber
             `(jabber-activity-face ((,class (:inherit bold :foreground ,red))))
