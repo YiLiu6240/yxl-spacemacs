@@ -870,8 +870,8 @@
             `(markdown-inline-code-face ((,class (:foreground ,base-dim :background ,cblk-bg :weight bold))))
 
 ;;;;; mode-line
-            `(mode-line           ((,class (:foreground ,base :background ,act1 :box (:color ,border :line-width 1)))))
-            `(mode-line-inactive  ((,class (:foreground ,base :background ,bg1  :box (:color ,border :line-width 1)))))
+            `(mode-line           ((,class (:foreground ,base :background ,act2))))
+            `(mode-line-inactive  ((,class (:foreground ,comment :background ,bg1))))
             `(mode-line-buffer-id ((,class (:inherit bold :foreground ,func))))
 
 ;;;;; mu4e
