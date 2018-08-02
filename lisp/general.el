@@ -103,4 +103,13 @@ https://github.com/zachcurry/emacs-anywhere/blob/master/emacs_anywhere.el"
   (evil-indent (point-min) (point-max))
   (align (point-min) (point-max)))
 
+(define-minor-mode nl2-mode
+  "Highlight two successive newlines."
+  :global t
+  :lighter " nl2"
+  (let ((pattern "\\(^\\s-*$\\)\n"))
+    (if nl2-mode
+        (highlight-regexp pattern 'hi-yellow)
+      (unhighlight-regexp pattern))))
+
 (provide 'general)
