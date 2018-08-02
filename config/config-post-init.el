@@ -305,10 +305,6 @@
 
 (add-hook 'spacemacs-post-user-config-hook
           (lambda ()
-            ;; add hook so that modeline colors are set correctly
-            ;; after theme change
-            (add-hook 'spacemacs-post-theme-change-hook
-                      #'yxl-airline-theme-set-colors)
             (load-file (concat yxl-path-personal "personal-config.el")))
           t)
 

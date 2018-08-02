@@ -300,7 +300,12 @@
   (load custom-file 'no-error 'no-message))
 
 (defun dotspacemacs/user-config ()
-  (load-theme 'yxl-airline t)
+  ;; (load-theme 'yxl-airline t)
+  ;; add hook so that modeline colors are set correctly
+  ;; after theme change
+  ;; (add-hook 'spacemacs-post-theme-change-hook
+  ;;           #'yxl-airline-theme-set-colors)
+
   (load-file (concat dotspacemacs-directory "config/config-post-init.el"))
   (load-file (concat dotspacemacs-directory "config/yxl-global-keybindings.el")))
 
