@@ -464,6 +464,9 @@
             `(diff-hl-delete ((,class :background ,red-bg :foreground ,red)))
             `(diff-hl-insert ((,class :background ,green-bg :foreground ,green)))
 
+;;;;; doom-modeline
+            `(doom-modeline-bar ((,class (:inherit mode-line-highlight))))
+
 ;;;;; dired
             `(dired-directory ((,class (:foreground ,func :weight normal))))
             `(dired-flagged ((,class (:foreground ,red))))
@@ -873,6 +876,7 @@
             `(mode-line           ((,class (:foreground ,base :background ,act2))))
             `(mode-line-inactive  ((,class (:foreground ,comment :background ,bg1))))
             `(mode-line-buffer-id ((,class (:inherit bold :foreground ,func))))
+            `(mode-line-highlight ((,class (:background ,keyword :foreground ,bg1))))
 
 ;;;;; mu4e
             `(mu4e-attach-number-face ((,class (:foreground ,var))))
