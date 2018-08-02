@@ -128,10 +128,8 @@
 
                           (lhs-rest (list
                                      (powerline-raw " " center-face 'lr)
-                                     ;; ;; magit
-                                     ;; (unless (spacemacs/system-is-mswindows)
-                                     ;;   (when (featurep 'magit)
-                                     ;;     (powerline-raw (concat pl-sep (magit-get-current-branch) pl-sep) center-face 'lr)))
+                                     ;; vc
+                                     (powerline-raw (concat pl-sep (modeline-get-vc) pl-sep) center-face 'lr)
                                      ;; selection info
                                      (when (or mark-active
                                                (and (bound-and-true-p evil-local-mode)

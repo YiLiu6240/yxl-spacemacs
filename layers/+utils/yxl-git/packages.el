@@ -16,7 +16,7 @@
      'magit-insert-standup-commits
      'magit-insert-staged-changes
      t)
-    (setq vc-handled-backends nil)
+    ;; (setq vc-handled-backends nil)
     (setq auto-revert-buffer-list-filter nil)
     (setq magit-refresh-status-buffer nil)
     ;; other configs

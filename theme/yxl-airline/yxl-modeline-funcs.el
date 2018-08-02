@@ -126,9 +126,19 @@ Supports both Emacs and Evil cursor conventions."
     (cdr (assoc state evil-symbol-alist))))
 
 (defun modeline-get-vc ()
-  (if (featurep 'magit)
-      (magit-get-current-branch)
-    " "))
+  (when vc-mode
+    (powerline-raw
+     (s-trim (concat vc-mode
+                     (when (buffer-file-name)
+                       (pcase (vc-state (buffer-file-name))
+                         (`up-to-date " ")
+                         (`edited " Mod")
+                         (`added " Add")
+                         (`unregistered " ??")
+                         (`removed " Del")
+                         (`needs-merge " Con")
+                         (`needs-update " Upd")
+                         (`ignored " Ign"))))))))
 
 (defun modeline-buffer-encoding ()
   "https://github.com/hlissner/.emacs.d/blob/master/modules/ui/doom-modeline/config.el"
