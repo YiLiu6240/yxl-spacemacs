@@ -37,3 +37,6 @@
 (push '("ensime" . "melpa-stable") package-pinned-packages)
 
 (setq save-abbrevs 'silent)
+
+(setq yxl-theme-org-highlight t)
+(setq yxl-theme-varying-height t)
