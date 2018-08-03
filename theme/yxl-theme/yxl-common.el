@@ -16,6 +16,7 @@
   :group 'yxl-theme)
 
 (defun yxl-theme-toggle-varying-height ()
+  "Toggle varying height for markup headers."
   (interactive)
   (setq yxl-theme-varying-height (not yxl-theme-varying-height))
   (message "yxl-theme-varying-height: %s" yxl-theme-varying-height)
@@ -23,9 +24,17 @@
     (load-theme theme t)))
 
 (defcustom yxl-theme-org-highlight nil
-  "Highlight org headings."
+  "Highlight markup headings."
   :type 'boolean
   :group 'yxl-theme)
+
+(defun yxl-theme-toggle-org-highlight ()
+  "Toggle highlight of org headings."
+  (interactive)
+  (setq yxl-theme-org-highlight (not yxl-theme-org-highlight))
+  (message "yxl-theme-org-highlight: %s" yxl-theme-org-highlight)
+  (dolist (theme custom-enabled-themes)
+    (load-theme theme t)))
 
 (defcustom yxl-theme-custom-colors nil
   "Specify a list of custom colors"
@@ -162,7 +171,7 @@
                                  ((eq variant 'gruv-light) "#076678")
                                  ((eq variant 'solar-light) "#33859e")))
             (head1-bg      (cond ((eq variant 'solar-dark) "#132b34")
-                                 ((eq variant 'gruv-dark) "#32302f")
+                                 ((eq variant 'gruv-dark) "#1d2021")
                                  ((eq variant 'gruv-light) "#262626")
                                  ((eq variant 'solar-light) "#edf1ed")))
             ;; org lv2 heading
@@ -854,6 +863,7 @@
 
 ;;;;; markdown
             `(markdown-header-face-1 ((,class (:inherit bold :foreground ,head1
+                                                        :background ,(when yxl-theme-org-highlight head1-bg)
                                                         :height ,(if yxl-theme-varying-height 1.3 1.0)))))
             `(markdown-header-face-2 ((,class (:inherit bold :foreground ,head2
                                                         :height ,(if yxl-theme-varying-height 1.2 1.0)))))
@@ -950,11 +960,11 @@
             `(org-latex-and-related ((,class (:foreground ,type))))
             `(org-level-1 ((,class (:inherit bold :foreground ,head1 :background ,(when yxl-theme-org-highlight head1-bg)
                                              :height ,(if yxl-theme-varying-height 1.3 1.0)))))
-            `(org-level-2 ((,class (:inherit bold :foreground ,head2 :background ,(when yxl-theme-org-highlight head2-bg)
+            `(org-level-2 ((,class (:inherit bold :foreground ,head2
                                              :height ,(if yxl-theme-varying-height 1.2 1.0)))))
-            `(org-level-3 ((,class (:bold nil :foreground ,head3 :background ,(when yxl-theme-org-highlight head3-bg)
+            `(org-level-3 ((,class (:bold nil :foreground ,head3
                                           :height ,(if yxl-theme-varying-height 1.1 1.0)))))
-            `(org-level-4 ((,class (:bold nil :foreground ,head4 :background ,(when yxl-theme-org-highlight head4-bg)))))
+            `(org-level-4 ((,class (:bold nil :foreground ,head4))))
             `(org-level-5 ((,class (:bold nil :foreground ,head1))))
             `(org-level-6 ((,class (:bold nil :foreground ,head2))))
             `(org-level-7 ((,class (:bold nil :foreground ,head3))))
