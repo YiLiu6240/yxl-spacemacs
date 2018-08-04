@@ -959,7 +959,8 @@
             `(org-kbd ((,class (:inherit region :foreground ,base :box (:line-width 1 :style released-button)))))
             `(org-latex-and-related ((,class (:foreground ,type))))
             `(org-level-1 ((,class (:inherit bold :foreground ,head1 :background ,(when yxl-theme-org-highlight head1-bg)
-                                             :height ,(if yxl-theme-varying-height 1.3 1.0)))))
+                                             :height ,(if yxl-theme-varying-height 1.3 1.0)
+                                             :box (:color ,border)))))
             `(org-level-2 ((,class (:inherit bold :foreground ,head2
                                              :height ,(if yxl-theme-varying-height 1.2 1.0)))))
             `(org-level-3 ((,class (:bold nil :foreground ,head3
