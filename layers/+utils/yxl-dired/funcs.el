@@ -165,3 +165,51 @@ With a C-u prefix, always open using ace-window.
   (interactive)
   (setq -arg "-Al --si --time-style long-iso --group-directories-first")
   (dired-sort-other -arg))
+
+(defun dired-ranger-Downloads-paste (arg)
+  "Hack `dired-ranger-paste' to paste to \"~/Downloads/\".
+There is no need to call `dired-ranger-copy' first."
+  (interactive "P")
+  (call-interactively #'dired-ranger-copy)
+  (let* ((index (if (numberp arg) arg 0))
+         (data (ring-ref dired-ranger-copy-ring index))
+         (files (cdr data))
+         (target-directory (expand-file-name "~/Downloads/"))
+         (copied-files 0))
+    (--each files (when (file-exists-p it)
+                    (if (file-directory-p it)
+                        (copy-directory it target-directory)
+                      (condition-case err
+                          (copy-file it target-directory 0)
+                        (file-already-exists nil)))
+                    (cl-incf copied-files)))
+    (dired-ranger--revert-target ?P target-directory files)
+    (unless arg (ring-remove dired-ranger-copy-ring 0))
+    (message (format "Pasted %d/%d item%s from copy ring."
+                     copied-files
+                     (length files)
+                     (if (> (length files) 1) "s" "")))))
+
+(defun dired-ranger-Downloads-move (arg)
+  (interactive "P")
+  (call-interactively #'dired-ranger-copy)
+  (let* ((index (if (numberp arg) arg 0))
+         (data (ring-ref dired-ranger-copy-ring index))
+         (buffers (car data))
+         (files (cdr data))
+         (target-directory (expand-file-name "~/Downloads/"))
+         (copied-files 0))
+    (--each files (when (file-exists-p it)
+                    (condition-case err
+                        (rename-file it target-directory 0)
+                      (file-already-exists nil))
+                    (cl-incf copied-files)))
+    (dired-ranger--revert-target ?M target-directory files)
+    (--each buffers
+      (when (buffer-live-p it)
+        (with-current-buffer it (revert-buffer))))
+    (unless arg (ring-remove dired-ranger-copy-ring 0))
+    (message (format "Moved %d/%d item%s from copy ring."
+                     copied-files
+                     (length files)
+                     (if (> (length files) 1) "s" "")))))
