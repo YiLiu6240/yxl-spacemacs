@@ -1,8 +1,9 @@
 (setq yxl-ui-packages '(airline-themes
-                        (yxl-airline :location site)
                         neotree
                         treemacs
-                        doom-modeline))
+                        (yxl-airline :location site
+                                     :toggle (eq yxl-ui-modeline 'yxl-airline))
+                        (doom-modeline :toggle (eq yxl-ui-modeline 'doom-modeline))))
 
 (defun yxl-ui/init-airline-themes ()
   (use-package airline-themes
@@ -13,7 +14,22 @@
       (setq airline-display-directory nil))))
 
 (defun yxl-ui/init-yxl-airline ()
-  (use-package yxl-airline))
+  (use-package yxl-airline
+    :if (eq yxl-ui-modeline 'yxl-airline)
+    :hook (spacemacs-post-user-config . (lambda () (load-theme 'yxl-airline t)))
+    :config
+    (progn
+      (add-hook 'spacemacs-post-theme-change-hook
+                #'yxl-airline-theme-set-colors))))
+
+(defun yxl-ui/init-doom-modeline ()
+  (use-package doom-modeline
+    :defer t
+    :if (eq yxl-ui-modeline 'doom-modeline)
+    :hook (after-init . doom-modeline-init)
+    :config
+    (progn
+      (setq doom-modeline-height 25))))
 
 (defun yxl-ui/post-init-neotree ()
   (defun yxl-neotree-enter-external ()
@@ -35,12 +51,3 @@
   (with-eval-after-load 'treemacs
     (define-key treemacs-mode-map "x" #'yxl-treemacs-visit-node-external)
     (define-key treemacs-mode-map "i" #'treemacs-TAB-action)))
-
-(defun yxl-ui/init-doom-modeline ()
-  (use-package doom-modeline
-    :ensure t
-    :defer t
-    :hook (after-init . doom-modeline-init)
-    :config
-    (progn
-      (setq doom-modeline-height 25))))
