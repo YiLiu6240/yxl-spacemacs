@@ -172,7 +172,7 @@
                                  ((eq variant 'solar-light) "#33859e")))
             (head1-bg      (cond ((eq variant 'solar-dark) "#132b34")
                                  ((eq variant 'gruv-dark) "#1d2021")
-                                 ((eq variant 'gruv-light) "#262626")
+                                 ((eq variant 'gruv-light) "#bdae93")
                                  ((eq variant 'solar-light) "#edf1ed")))
             ;; org lv2 heading
             (head2         (cond ((eq variant 'solar-dark) "#2aa889")
