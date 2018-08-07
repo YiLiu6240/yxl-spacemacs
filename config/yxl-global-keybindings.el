@@ -85,6 +85,7 @@
   "tg" #'spacemacs/toggle-version-control-margin-globally
   "tG" #'spacemacs/toggle-golden-ratio
   "tmm" #'spacemacs/toggle-mode-line
+  "tv" #'visual-line-mode
   "tp" nil
   "tpp" #'parinfer-toggle-mode
   "tP" #'spacemacs/toggle-smartparens
