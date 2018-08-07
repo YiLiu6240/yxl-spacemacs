@@ -58,10 +58,9 @@
                             mu4e-maildir-shortcuts) " OR ")
                "All inboxes" ?i)))
       ;; ---- indexing ----
-      ;; don't do a full cleanup check
-      (setq mu4e-index-cleanup nil)
-      ;; don't consider up-to-date dirs
-      (setq mu4e-index-lazy-check t)
+      ;; Better be safe
+      (setq mu4e-index-cleanup t)
+      (setq mu4e-index-lazy-check nil)
       ;; ---- others ----
       (setq mu4e-completing-read-function 'completing-read)
       (setq mu4e-update-interval 900)
