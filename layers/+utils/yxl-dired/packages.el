@@ -28,7 +28,7 @@
                   ((eq system-type 'windows-nt)
                    "-a -l -L --human-readable -H ")
                   (t
-                   "-alLhH --time-style=iso --group-directories-first")))
+                   "-alLhH --time-style=long-iso --group-directories-first")))
       (setq dired-recursive-copies 'always)
       (add-hook 'dired-mode-hook #'spacemacs/toggle-truncate-lines-on)
       ;; (add-hook 'dired-mode-hook #'dired-hide-details-mode)
