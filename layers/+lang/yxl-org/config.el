@@ -37,14 +37,14 @@
 
 
 (setq org-todo-keyword-faces
-      `(("INBOX" . (:height 0.8 :slant italic :weight bold :foreground ,(face-foreground 'font-lock-constant-face)))
-        ("DO" . (:height 0.8 :slant italic :weight bold :foreground ,(face-foreground 'font-lock-warning-face)))
-        ("TODO" . (:height 0.8 :slant italic :weight bold :foreground ,(face-foreground 'font-lock-variable-name-face)))
-        ("HOLD" . (:height 0.8 :slant italic :weight bold :foreground ,(face-foreground 'font-lock-string-face)))
-        ("NEXT" . (:height 0.8 :slant italic :weight bold :foreground ,(face-foreground 'font-lock-constant-face)))
-        ("FOLLOW" . (:height 0.8 :slant italic :weight bold :foreground ,(face-foreground 'font-lock-builtin-face)))
-        ("WIP" . (:height 0.8 :slant italic :weight bold :foreground ,(face-foreground 'font-lock-builtin-face)))
-        ("DONE" . (:height 0.8 :slant italic :weight bold :foreground ,(face-foreground 'font-lock-comment-face)))))
+      `(("INBOX" . (:slant italic :weight bold :foreground ,(face-foreground 'font-lock-constant-face)))
+        ("DO" . (:slant italic :weight bold :foreground ,(face-foreground 'font-lock-warning-face)))
+        ("TODO" . (:slant italic :weight bold :foreground ,(face-foreground 'font-lock-variable-name-face)))
+        ("HOLD" . (:slant italic :weight bold :foreground ,(face-foreground 'font-lock-string-face)))
+        ("NEXT" . (:slant italic :weight bold :foreground ,(face-foreground 'font-lock-constant-face)))
+        ("FOLLOW" . (:slant italic :weight bold :foreground ,(face-foreground 'font-lock-builtin-face)))
+        ("WIP" . (:slant italic :weight bold :foreground ,(face-foreground 'font-lock-builtin-face)))
+        ("DONE" . (:slant italic :weight bold :foreground ,(face-foreground 'font-lock-comment-face)))))
 
 (setq org-tag-faces
       `(("CTW" . (:weight bold :foreground ,(face-foreground 'font-lock-function-name-face)))
