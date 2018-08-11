@@ -3,7 +3,8 @@
                           (yxl-window :location site)
                           (yxl-open :location site)
                           (general-goodies :location site)
-                          (yxl-tmux-helper :location local)))
+                          (yxl-tmux-helper :location local)
+                          (vline :location site)))
 
 (defun yxl-base/post-init-evil ()
   (add-to-list 'spacemacs-post-user-config-hook
@@ -94,3 +95,11 @@
   (use-package yxl-tmux-helper
     :config
     (yxl-tmux-helper-setup)))
+
+(defun yxl-base/init-vline ()
+  (use-package vline
+    :commands (vline-mode)
+    :init
+    (progn
+      (spacemacs/set-leader-keys
+        "thv" #'vline-mode))))

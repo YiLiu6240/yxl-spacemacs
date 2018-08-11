@@ -440,6 +440,10 @@
             `(cider-test-success-face ((,class (:background ,suc :foreground ,bg1))))
             `(cider-traced-face ((,class :box (:color ,cyan :line-width -1 :style nil))))
 
+;;;;; col-highlight, vline, crosshairs
+            `(col-highlight ((,class (:inherit hl-line))))
+            `(vline ((,class (:inherit hl-line))))
+
 ;;;;; company
             `(company-echo-common ((,class (:background ,base :foreground ,bg1))))
             `(company-preview ((,class (:background ,ttip-bg :foreground ,ttip))))
