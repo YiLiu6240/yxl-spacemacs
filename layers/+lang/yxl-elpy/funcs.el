@@ -1,4 +1,14 @@
 ;; -*- lexical-binding: t -*-
+(defun yxl-elpy/eval-region-or-line-and-step ()
+  "When in visual-state, invoke `elpy-shell-send-region-or-buffer-and-step',
+otherwise invoke `elpy-shell-send-statement-and-step'."
+  (interactive)
+  (if (use-region-p)
+      (progn
+        (call-interactively #'elpy-shell-send-region-or-buffer-and-step)
+        (evil-normal-state))
+    (progn
+      (call-interactively #'elpy-shell-send-statement-and-step))))
 
 (defun spacemacs/python-execute-file (arg)
   "Execute a python script in a shell."

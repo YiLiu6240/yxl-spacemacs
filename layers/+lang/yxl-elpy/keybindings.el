@@ -20,8 +20,8 @@
     "gI" 'elpy-shell-switch-to-shell-in-current-window
     "se" 'elpy-shell-send-statement-and-step
     "sE" 'elpy-shell-send-statement-and-step-and-go
-    "ss" 'elpy-shell-send-top-statement-and-step
-    "sS" 'elpy-shell-send-top-statement-and-step-and-go
+    "ss" 'yxl-elpy/eval-region-or-line-and-step
+    "sS" 'elpy-shell-send-statement-and-step-and-go
     "sf" 'elpy-shell-send-defun-and-step
     "sF" 'elpy-shell-send-defun-and-step-and-go
     "sc" 'elpy-shell-send-defclass-and-step
