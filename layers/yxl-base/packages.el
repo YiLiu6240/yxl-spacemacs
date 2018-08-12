@@ -30,6 +30,7 @@
                                          sh-mode))
     (setq yxl-buffer-inherit-special-alist '((ess-mode . R-mode)
                                              (inferior-ess-mode . R-mode)
+                                             (inferior-python-mode . python-mode)
                                              (shell-mode . sh-mode)))))
 
 (defun yxl-base/init-yxl-window ()
